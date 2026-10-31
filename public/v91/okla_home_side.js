@@ -22,12 +22,16 @@
  function build(){
   if(document.getElementById('okla-side-left'))return;
   block('okla-side-left','left',
-   '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Telefon s e-shopem OKLA"></div>'+
-   '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>');
+   '<a class="okla-side-art__link" href="/obchodni-podminky/">'+
+   '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem OKLA"></div>'+
+   '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>'+
+   '</a>');
   block('okla-side-right','right',
+   '<a class="okla-side-art__link" href="/flipper-zero-kapesni-multitool-pro-elektroniku/">'+
    '<div class="okla-side-art__img okla-side-art__img--wifi" role="img" aria-label="Wi-Fi modul pro Flipper Zero"></div>'+
    '<div class="okla-side-art__img okla-side-art__img--flipper" role="img" aria-label="Flipper Zero"></div>'+
-   '<p class="okla-side-art__text">Flipper Zero: kapesní multitool pro kutily, elektroniku i experimenty.</p>');
+   '<p class="okla-side-art__text">Flipper Zero: kapesní multitool pro kutily, elektroniku i experimenty.</p>'+
+   '</a>');
  }
 
  function layout(){

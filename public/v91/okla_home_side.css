@@ -3,9 +3,15 @@
 .okla-side-art{position:absolute;display:none;z-index:0;box-sizing:border-box;color:#0b2540;font-family:Roboto,Arial,sans-serif;pointer-events:none;user-select:none}
 .okla-side-art.is-on{display:block}
 .okla-side-art__img{display:block;width:100%;background-repeat:no-repeat;background-size:100% 100%}
-/* The hand tucks 24 px under the card: the overhang is clipped at the card edge, so the cut of the arm stays hidden. */
-.okla-side-art--left .okla-side-art__img--phone{margin-left:24px;width:100%;aspect-ratio:628/760;background-image:url('assets/warranty-phone.webp');clip-path:inset(0 24px 0 0)}
-.okla-side-art--left .okla-side-art__text{margin-right:-24px}
+/* The hand is set in from the left and tucks under the card: everything right of the card edge is clipped,
+   so the arm's lower-right cut never shows. Percentages follow the container width. */
+.okla-side-art--left .okla-side-art__img--phone{width:105%;margin-left:19%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp');clip-path:inset(0 22.9% 0 0)}
+.okla-side-art--left .okla-side-art__text{margin-left:19%;margin-right:0}
+
+/* Both groups are links; the caption underlines on hover. */
+.okla-side-art__link{display:block;color:inherit;text-decoration:none;pointer-events:auto}
+.okla-side-art__link:hover .okla-side-art__text{text-decoration:underline}
+.okla-side-art__link:focus-visible{outline:2px solid #0b2540;outline-offset:4px}
 .okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('assets/warranty-flipper.webp')}
 .okla-side-art__img--wifi{width:80%;margin:0 auto;aspect-ratio:520/298;background-image:url('assets/warranty-wifi.webp')}
 .okla-side-art__text{margin:16px 0 0;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;text-align:center}
