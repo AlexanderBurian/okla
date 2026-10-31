@@ -58,4 +58,13 @@
   html body.ok89-detail.ok89-detail .okla-m-buybar.okla-m-buybar {
     background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important;
   }
+
+  /* 7. Related cards: gold decorative stars (the homepage look) and a single cart icon */
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .okv73-rating-stars { display: inline-flex !important; gap: 1px !important; }
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .okv73-rating-stars svg {
+    display: block !important; fill: #f3b91d !important; stroke: #f3b91d !important; stroke-width: 1.2 !important;
+    width: 14px !important; height: 14px !important; flex: 0 0 14px !important;
+  }
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .okv73-rating-caption { color: #7d8998 !important; font-size: 10px !important; }
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .p-tools .btn-cart.add-to-cart-button.add-to-cart-button::before { content: none !important; display: none !important; }
 }
