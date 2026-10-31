@@ -134,10 +134,11 @@
   return Number.isFinite(num)&&num>=0?num.toLocaleString('cs-CZ')+',-':null;
  }
  function formatDetailPrice(buy){
-  var strong=q('.p-final-price-wrapper .price-final strong',buy)||q('.p-final-price-wrapper .price-final',buy);
-  if(!strong||strong.children.length)return;
-  var price=formattedPrice(strong.textContent);
-  if(price&&strong.textContent.trim()!==price)strong.textContent=price;
+  /* Shoptet wraps the amount in .price-final-holder; the holder is the text node to reformat. */
+  var holder=q('.p-final-price-wrapper .price-final .price-final-holder',buy)||q('.p-final-price-wrapper .price-final',buy);
+  if(!holder||holder.children.length)return;
+  var price=formattedPrice(holder.textContent);
+  if(price&&holder.textContent.trim()!==price)holder.textContent=price;
  }
  function hasRealReviews(){
   var ld=qa('script[type="application/ld+json"]');
