@@ -35,3 +35,13 @@ html body .menu-helper{display:none!important}
 @media(min-width:992px){
 html body #header #navigation{display:none!important}
 }
+/* Header row matches the new layout: smaller logo (50 px, no longer running under the search), header row aligned with the content column between 992 and 1399 px,
+   and the homepage content starts 24 px below the header (it used to start 30 px inside it after the category bar was removed). */
+@media(min-width:992px){
+html body #header .header-top>.site-name-wrapper{height:auto!important}
+html body #header .header-top>.site-name-wrapper img{height:50px!important;width:auto!important;max-width:none!important;max-height:50px!important}
+html body.type-index #content-wrapper.container.content-wrapper{margin-top:24px!important}
+}
+@media(min-width:992px) and (max-width:1399px){
+html body #header .header-top{margin-left:-20px!important;margin-right:-20px!important;width:auto!important}
+}
