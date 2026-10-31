@@ -31,12 +31,7 @@ html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-coun
 html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg{position:static!important;top:auto!important;transform:none!important}
 html body .menu-helper{display:none!important}
 }
-/* Desktop category menu: the legacy loader hid ul.menu-level-1 at 992 px and up and let the menu box grow to ~140000 px,
-   which left an empty bar and no working category links. Restored as one centred row of nine links, 13 px so they fit a 1310 px container.
-   Mobile keeps its own menu. */
+/* Desktop: the original Shoptet category bar is removed (owner decision, shop header stays as designed). Mobile keeps its own menu. */
 @media(min-width:992px){
-html body #navigation .navigation-in.menu{width:100%!important;max-width:100%!important;left:0!important;right:auto!important;transform:none!important}
-html body #navigation .navigation-in>ul.menu-level-1{display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:nowrap!important;gap:0!important;width:max-content!important;max-width:100%!important;height:32px!important;margin:0 auto!important;padding:0!important;list-style:none!important}
-html body #navigation .navigation-in>ul.menu-level-1>li{position:relative!important;left:auto!important;right:auto!important;top:auto!important;transform:none!important;width:auto!important;min-width:0!important;max-width:none!important;flex:0 0 auto!important;float:none!important;margin:0!important}
-html body #navigation .navigation-in>ul.menu-level-1>li>a{display:block!important;font-size:13px!important;line-height:32px!important;padding:0 10px!important;white-space:nowrap!important;color:#fff!important}
+html body #header .navigation-wrapper{display:none!important}
 }
