@@ -375,8 +375,8 @@ html body.ok89-detail #content-wrapper{border-top:6px solid #19477E!important}
 html body.ok89-detail #content-wrapper::before{top:-6px!important;height:6px!important;background:#19477E!important}
 /* 8bd. Buy button: brand blue (#16478B) and about 240 px wide instead of stretched across the buy box. */
 @media(min-width:992px){
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .btn-conversion{background:#16478B!important;border-color:#16478B!important;color:#fff!important;width:240px!important;max-width:100%!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .btn-conversion:hover{background:#0F3A6E!important;border-color:#0F3A6E!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary{background:#16478B!important;border-color:#16478B!important;color:#fff!important;width:240px!important;max-width:100%!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary:hover:not(:disabled){background:#0F3A6E!important;border-color:#0F3A6E!important}
 }
 /* 8be. Buy box: four facts under the buy row (the same facts as the trust strip, placed where the buyer decides). */
 html body.ok89-detail #content .p-detail .ok86-benefits{list-style:none!important;margin:24px 0 0!important;padding:16px 0 0!important;border-top:1px solid #E5E5E5!important;display:grid!important;gap:12px!important}
