@@ -354,7 +354,14 @@ html body.ok89-detail #content .p-detail .p-image-wrapper #wrap{height:100%!impo
 html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{min-height:0!important;height:100%!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important;cursor:zoom-in}
 html body.ok89-detail #content .p-detail .p-main-image img{transform:none!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important}
 }
-/* 8az. The former cover fit and the 1.6x zoom cropped the product. The zoom is now the click: the photo opens full size in the lightbox (Shoptet colorbox). */
+/* 8az. The former cover fit and the 1.6x zoom cropped the product. The zoom is now the click: the photo opens full size in the lightbox (Shoptet colorbox).
+   Mobile: the same square field across the full column width (the old 330 px cap made the photo smaller than its field). */
+@media(max-width:991px){
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-image{min-height:0!important;height:auto!important;aspect-ratio:1/1!important}
+html body.ok89-detail #content .p-detail .p-image-wrapper #wrap{height:100%!important}
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{min-height:0!important;width:100%!important;height:100%!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important}
+html body.ok89-detail #content .p-detail .p-main-image img{transform:none!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important}
+}
 /* 8ba. Icon row: more air above it (from the CTA), less air between each icon and its label. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{margin-top:16px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{gap:6px!important}
