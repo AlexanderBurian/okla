@@ -338,3 +338,8 @@ html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social
 html body.ok89-detail #content .p-detail .ok86-micro{padding:32px 0 20px!important}
 /* 8au. Share panel: the closed state really hides it (the native no-display class had no effect here), so Sdílet and Zavřít both work. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .social-buttons.no-display{display:none!important}
+/* 8av. Favourites are not shown (this shop has no favourites function). Hidden in CSS as well, because the button is created after the script's own removal step. */
+html body.ok89-detail #content .p-detail .okla-detail-favorite{display:none!important}
+/* 8aw. Print / Ask / Share row: more air between the icons and between icon and label. */
+html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{gap:40px!important;margin-top:8px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{display:flex!important;flex-direction:column!important;align-items:center!important;gap:12px!important}
