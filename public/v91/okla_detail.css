@@ -370,3 +370,6 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{
 html body.ok89-detail #content .ok86-related .okla-slider-track{gap:24px!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product{flex:0 0 calc((100% - 96px)/5)!important;width:calc((100% - 96px)/5)!important;max-width:none!important;min-width:0!important}
 }
+/* 8bc. Blue top bar of the product page: 6 px and the same colour as the homepage (its border-top), growing downwards from the same top edge. */
+html body.ok89-detail #content-wrapper{border-top:6px solid #19477E!important}
+html body.ok89-detail #content-wrapper::before{top:-6px!important;height:6px!important;background:#19477E!important}
