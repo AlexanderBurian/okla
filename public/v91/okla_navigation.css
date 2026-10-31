@@ -33,5 +33,5 @@ html body .menu-helper{display:none!important}
 }
 /* Desktop: the original Shoptet category bar is removed (owner decision, shop header stays as designed). Mobile keeps its own menu. */
 @media(min-width:992px){
-html body #header .navigation-wrapper{display:none!important}
+html body #header #navigation{display:none!important}
 }
