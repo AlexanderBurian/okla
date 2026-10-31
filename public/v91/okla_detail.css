@@ -370,8 +370,9 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{
 html body.ok89-detail #content .ok86-related .okla-slider-track{gap:24px!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product{flex:0 0 calc((100% - 96px)/5)!important;width:calc((100% - 96px)/5)!important;max-width:none!important;min-width:0!important}
 }
-/* 8bc. The product sheet has the same top bar and corners as the homepage: border-top 6 px #19477E, radius 6 px and the same shadow (1:1). */
-html body.ok89-detail #content-wrapper{border-top:6px solid #19477E!important;border-radius:6px!important;box-shadow:rgba(0,25,65,.11) 0px 0px 10px 0px!important}
+/* 8bc. The product sheet has the same top bar and corners as the homepage: a 6 px #19477E bar, radius 6 px and the same shadow.
+   The bar is an inset shadow, not a border: a 6 px top border with a 6 px radius leaves square inner corners, so the bar stuck out past the white. */
+html body.ok89-detail #content-wrapper{border-top:0!important;border-radius:6px!important;box-shadow:inset 0 6px 0 0 #19477E,rgba(0,25,65,.11) 0px 0px 10px 0px!important}
 html body.ok89-detail #content-wrapper::before{display:none!important}
 /* 8bd. Buy button: brand blue (#16478B) and about 240 px wide instead of stretched across the buy box. */
 @media(min-width:992px){
