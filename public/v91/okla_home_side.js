@@ -8,6 +8,7 @@
  var MIN_MARGIN=260;
  var MAX_WIDTH=300;
  var SIDE_GUTTER=24;
+ var ART_TOP_OFFSET=28;
 
  function block(id,side,html){
   var d=document.createElement('div');
@@ -49,7 +50,7 @@
    return;
   }
   var width=Math.min(MAX_WIDTH,Math.floor(space-SIDE_GUTTER));
-  var top=c.top+window.pageYOffset;
+  var top=c.top+window.pageYOffset+ART_TOP_OFFSET;
   left.style.width=width+'px';
   left.style.left=(c.left+window.pageXOffset-width)+'px';
   left.style.top=top+'px';
