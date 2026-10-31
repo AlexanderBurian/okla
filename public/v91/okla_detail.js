@@ -128,7 +128,7 @@
        var pa=document.createElementNS(NS,'path');pa.setAttribute('d','M12 2l3.09 6.26 6.91 1.01-5 4.88 1.18 6.9L12 17.8l-6.18 3.25L7 14.15 2 9.27l6.91-1.01L12 2z');
        sv.appendChild(pa);ds.appendChild(sv);
       }
-      starContainer.prepend(ds);
+      starContainer.prepend(ds);starContainer.classList.add('ok91-unrated');
     }
    }
    if(short)short.textContent=p.shortDescription;
