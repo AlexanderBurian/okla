@@ -356,3 +356,14 @@ html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrappe
  html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(.shp-tab-link,.ok97-anchor-tab){padding:8px 9px!important;}
  html body.ok89-detail #content .ok97-review-block{padding-bottom:24px!important;}
 }
+
+/* V98 native Shoptet detail menu: Alza-style individual framed tabs. */
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) .shp-tabs-row{display:flex!important;align-items:flex-end!important;flex-wrap:nowrap!important;background:#fff!important;border:0!important;border-bottom:1px solid #DDE3EA!important;padding:0!important;margin:0!important;overflow:visible!important}
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs{display:flex!important;align-items:stretch!important;flex-wrap:nowrap!important;gap:3px!important;margin:0!important;padding:0!important;background:#fff!important;list-style:none!important;border:0!important;min-width:max-content!important}
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li{display:flex!important;flex:0 0 auto!important;position:relative!important;min-height:42px!important;margin:0 0 -1px!important;padding:0!important;border:1px solid #DDE3EA!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;float:none!important}
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li::before,
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li::after{display:none!important;content:none!important}
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;margin:0!important;padding:8px 15px!important;border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;color:#4A4A4A!important;font:400 15px/1.4 Roboto,Arial,sans-serif!important;text-transform:none!important;text-decoration:none!important}
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li.active{z-index:2!important;border-top:3px solid #2C5F9E!important;border-bottom-color:#fff!important}
+html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li.active>a{min-height:38px!important;padding-top:6px!important;color:#1A1A1A!important}
+@media(max-width:767px){html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) .shp-tabs-row{overflow-x:auto!important;scrollbar-width:none!important}html body.ok89-detail #content :is(.p-details-tabs-wrapper,.p-detail-tabs-wrapper) ul.p-detail-tabs>li>a{font-size:13px!important;padding:8px 10px!important}}
