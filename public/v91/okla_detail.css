@@ -370,10 +370,9 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{
 html body.ok89-detail #content .ok86-related .okla-slider-track{gap:24px!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product{flex:0 0 calc((100% - 96px)/5)!important;width:calc((100% - 96px)/5)!important;max-width:none!important;min-width:0!important}
 }
-/* 8bc. Blue top bar of the product page: 6 px, the homepage colour, drawn flat at the top edge and growing downwards.
-   No thick border-top here: on the rounded box a thick border made curved, hanging ends. */
-html body.ok89-detail #content-wrapper{border-top:0!important}
-html body.ok89-detail #content-wrapper::before{top:0!important;height:6px!important;background:#19477E!important}
+/* 8bc. The product sheet has the same top bar and corners as the homepage: border-top 6 px #19477E, radius 6 px and the same shadow (1:1). */
+html body.ok89-detail #content-wrapper{border-top:6px solid #19477E!important;border-radius:6px!important;box-shadow:rgba(0,25,65,.11) 0px 0px 10px 0px!important}
+html body.ok89-detail #content-wrapper::before{display:none!important}
 /* 8bd. Buy button: brand blue (#16478B) and about 240 px wide instead of stretched across the buy box. */
 @media(min-width:992px){
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary{background:#16478B!important;border-color:#16478B!important;color:#fff!important;flex:0 0 240px!important;width:240px!important;max-width:100%!important}
