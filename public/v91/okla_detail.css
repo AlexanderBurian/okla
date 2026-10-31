@@ -217,3 +217,5 @@ html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-ca
 @media(min-width:992px){
 html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:calc((100% - 64px) / 5)!important}
 }
+/* 8l. Less space above the product sheet: the breadcrumb row on product pages is 28 px high instead of 51 px. */
+html body.ok89-detail .breadcrumbs.navigation-home-icon-wrapper{min-height:28px!important;padding:0!important}
