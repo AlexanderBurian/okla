@@ -243,3 +243,8 @@ html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:1px s
 html body.ok89-detail #content .ok86-related{max-width:none!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:186px!important;justify-content:space-between!important}
 }
+/* 8s. Tabs as on Alza: 44 px tall, 15 px dark-grey labels with 16 px side padding, solid home icon, 4 px gaps. */
+html body.ok89-detail #content ul.p-detail-tabs{gap:4px!important}
+html body.ok89-detail #content ul.p-detail-tabs>li>a{min-height:44px!important;height:44px!important;padding:0 16px!important;font:400 15px/44px var(--okd-font)!important;color:#333!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active>a{min-height:44px!important;height:44px!important;padding:0 16px!important;color:#1A1A1A!important}
+html body.ok89-detail #content .ok99-tab-house{font-size:20px!important;font-weight:700!important;line-height:44px!important;color:#333!important}
