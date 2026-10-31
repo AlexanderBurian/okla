@@ -206,3 +206,10 @@ html body.ok89-detail #content .ok86-trust{display:none!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .p{padding:12px 13px 24px!important;border-radius:10px!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:2px!important;color:#F4B526!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;fill:currentColor!important;stroke:none!important}
+/* 8h. Tabs: the blue bar is an inset shadow, not a border, so its ends are square (no mitred corners); unselected tabs have no top line. */
+html body.ok89-detail #content ul.p-detail-tabs>li.active{border-top:0!important;box-shadow:inset 0 3px 0 #2C5F9E!important}
+html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:0!important;box-shadow:none!important}
+/* 8i. Slider width as on homepage (its container is 1010 px on desktop, so the cards keep the homepage size). */
+html body.ok89-detail #content .ok86-related{max-width:1010px!important;margin-left:auto!important;margin-right:auto!important}
+/* 8j. Cart button hover exactly as homepage. */
+html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button:hover:not(:disabled){background:#F1F7FF!important;border-color:#8EB8E6!important;color:#16438C!important}
