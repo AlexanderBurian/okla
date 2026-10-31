@@ -136,16 +136,11 @@ body.ok89-detail #content .ok86-trust a{color:#2C5F9E!important}
  body.ok89-detail #content .ok86-related-card>img{height:145px!important}
  body.ok89-detail #content .ok86-params th,body.ok89-detail #content .ok86-params td{padding:10px 8px!important}
 }
-/* Mobile uses a full-width CTA below the quantity control without overlap. */
-@media(max-width:767px){
- html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;}
- html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button{flex:0 0 52px!important;width:100%!important;max-width:100%!important;min-width:0!important;white-space:normal!important;}
-}
 @media(max-width:375px){
  body.ok89-detail #content .p-detail{padding:16px!important}
  body.ok89-detail #content .p-detail .p-detail-inner-header h1{font-size:21px!important}
  body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart{gap:7px!important}
- body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{font-size:13px!important;padding:8px!important}
+ body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{font-size:18px!important;padding:8px!important}
  body.ok89-detail #content .ok86-trust{grid-template-columns:1fr!important}
 }
 @media(min-width:768px) and (max-width:991px){
@@ -272,3 +267,20 @@ html body.ok89-detail #content .p-detail .ok91-decorative-stars svg{
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars:not(.ok91-decorative-stars),
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .star-off,
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-placeholder{display:none!important}
+
+/* Final mobile layout belongs after legacy desktop rules to avoid cascade conflicts. */
+@media(max-width:767px){
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart{
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;flex-wrap:nowrap!important;
+  gap:12px!important;width:100%!important;max-width:100%!important;overflow:visible!important;
+ }
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > .quantity{
+  flex:0 0 auto!important;align-self:flex-start!important;width:150px!important;min-width:150px!important;
+  max-width:150px!important;height:52px!important;min-height:52px!important;max-height:52px!important;
+ }
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button{
+  flex:0 0 auto!important;width:100%!important;max-width:100%!important;min-width:0!important;
+  height:52px!important;min-height:52px!important;max-height:52px!important;white-space:normal!important;
+  font-size:18px!important;overflow:hidden!important;
+ }
+}
