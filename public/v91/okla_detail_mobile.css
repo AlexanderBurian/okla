@@ -53,4 +53,9 @@
     background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important; box-shadow: none !important;
   }
   html body.ok89-detail #header#header #okla-v61-header#okla-v61-header::after { content: none !important; display: none !important; }
+
+  /* 6. Purchase bar that appears after scrolling past the button: the same gradient as the header */
+  html body.ok89-detail.ok89-detail .okla-m-buybar.okla-m-buybar {
+    background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important;
+  }
 }
