@@ -197,3 +197,5 @@ html body.ok89-detail #content .ok86-related .okla-slider-track>.product :is(.p-
 /* 8c. Cart button border and label colour exactly as the homepage button (#16478B), stronger selector than the homepage hover/focus rules. */
 html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button{border-color:#16478B!important;border-top-color:#16478B!important;border-right-color:#16478B!important;border-bottom-color:#16478B!important;border-left-color:#16478B!important;color:#16478B!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button span{color:#16478B!important}
+/* 8d. One separator between the rating block and the carousel: the review block no longer draws its own bottom line (the carousel draws its top line). */
+html body.ok89-detail #content .ok97-review-block{border-bottom:0!important}
