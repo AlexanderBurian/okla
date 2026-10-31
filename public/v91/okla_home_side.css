@@ -1,20 +1,22 @@
 /* OKLA homepage side art: desktop only, in the page margins beside the white card, never over the content.
-   The script shows it only where both margins are wide enough and hides it everywhere else. */
-.okla-side-art{position:absolute;display:none;z-index:0;box-sizing:border-box;color:#0b2540;font-family:Roboto,Arial,sans-serif;pointer-events:none;user-select:none}
+   The script shows it only where both margins are wide enough and hides it everywhere else.
+   Sizes are percentages of the container width, so the art scales with the margin. */
+.okla-side-art{position:absolute;display:none;z-index:0;box-sizing:border-box;color:#0b2540;font-family:Roboto,Arial,sans-serif;pointer-events:none;user-select:none;container-type:inline-size}
 .okla-side-art.is-on{display:block}
 .okla-side-art__img{display:block;width:100%;background-repeat:no-repeat;background-size:100% 100%}
-/* The hand is 15% larger and set in from the left. Everything right of the card edge is clipped, so the arm's
-   lower-right cut never shows: the card edge falls at about 66% of the photo's width. Percentages follow the container width. */
-.okla-side-art--left .okla-side-art__img--phone{width:115%;margin-left:24%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp');clip-path:inset(0 33.9% 0 0)}
-/* The caption sits right under the hand's lowest visible point (the arm at the card edge, about 86% of the photo height).
-   cqw units follow the container width, so the offset scales with the hand. */
-.okla-side-art--left{container-type:inline-size}
-.okla-side-art--left .okla-side-art__text{margin-left:24%;margin-right:0;margin-top:calc(-20.125cqw + 4px)}
 
-/* Both groups are links; the caption underlines on hover. */
-.okla-side-art__link{display:block;color:inherit;text-decoration:none;pointer-events:auto}
-.okla-side-art__link:hover .okla-side-art__text{text-decoration:underline}
+/* Only the pictures are links; the captions are plain text. */
+.okla-side-art__link{display:block;color:inherit;text-decoration:none;pointer-events:auto;cursor:pointer}
 .okla-side-art__link:focus-visible{outline:2px solid #0b2540;outline-offset:4px}
+
+/* Hand: the card edge falls at about 66% of the photo's width, so the arm's lower-right cut sits behind the card. */
+.okla-side-art--left .okla-side-art__img--phone{width:151.5%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp');clip-path:inset(0 34% 0 0)}
+/* The caption sits right under the hand's lowest visible point (about 87% of its height), centred under the visible hand. */
+.okla-side-art--left .okla-side-art__text{margin-top:calc(-24.62cqw + 4px)}
+
+/* Flipper group: the Wi-Fi board sits on the device; both touch the card edge. */
 .okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('assets/warranty-flipper.webp')}
-.okla-side-art__img--wifi{width:80%;margin:0 auto;aspect-ratio:520/298;background-image:url('assets/warranty-wifi.webp')}
-.okla-side-art__text{margin:16px 0 0;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;text-align:center}
+.okla-side-art__img--wifi{width:100%;aspect-ratio:520/298;background-image:url('assets/warranty-wifi.webp')}
+
+/* The caption sits above the picture and takes clicks itself, so clicking the text does not follow the picture's link. */
+.okla-side-art__text{position:relative;z-index:1;pointer-events:auto;margin:16px 0 0;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;text-align:center}
