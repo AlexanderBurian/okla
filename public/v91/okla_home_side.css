@@ -9,17 +9,14 @@
 .okla-side-art__link{display:block;color:inherit;text-decoration:none;pointer-events:auto;cursor:pointer}
 .okla-side-art__link:focus-visible{outline:2px solid #0b2540;outline-offset:4px}
 
-/* Hand: the card edge falls at about 66% of the photo's width, so the arm's lower-right cut sits behind the card. */
-/* Hand: the card edge falls at about 66% of the photo's width, so the arm's lower-right cut sits behind the card.
-   Its arm fades out exactly at the bottom of the Flipper group (69.7% of the hand's height), so the two bottoms match
-   without a hard cut. */
-.okla-side-art--left .okla-side-art__img--phone{width:151.5%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp');clip-path:inset(0 34% 0 0);-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 69.7%);mask-image:linear-gradient(to bottom,#000 60%,transparent 69.7%)}
-/* Both captions start 16 px under the Flipper group's bottom: the group is 132.03cqw tall, the hand box 189.38cqw. */
-.okla-side-art--left .okla-side-art__text{margin-top:calc(-57.35cqw + 16px)}
+/* Hand: the whole picture, not clipped or faded. Its right edge touches the card; it is 1.32 x the margin width
+   tall, which equals the Flipper group's height, so both bottoms line up. */
+.okla-side-art--left .okla-side-art__img--phone{width:105.6%;margin-left:-5.6%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp')}
 
-/* Flipper group: the Wi-Fi board sits directly on the device, both whole and touching the card edge. */
+/* Flipper group: the Wi-Fi board sits directly on the device, both whole. The group sits 24 px from the card. */
 .okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('assets/warranty-flipper.webp')}
 .okla-side-art__img--wifi{width:100%;aspect-ratio:520/298;background-image:url('assets/warranty-wifi.webp')}
 
-/* The caption sits above the picture and takes clicks itself, so clicking the text does not follow the picture's link. */
+/* The caption sits above the picture and takes clicks itself, so clicking the text does not follow the picture's link.
+   Both captions start 16 px under the group's bottom, which is also the hand's bottom. */
 .okla-side-art__text{position:relative;z-index:1;pointer-events:auto;margin:16px 0 0;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;text-align:center}

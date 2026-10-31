@@ -9,6 +9,7 @@
  var MAX_WIDTH=420;
  var SIDE_GUTTER=24;
  var ART_TOP_OFFSET=60;
+ var RIGHT_GAP=24;
 
  function block(id,side,html){
   var d=document.createElement('div');
@@ -59,7 +60,7 @@
   left.style.left=(c.left+window.pageXOffset-width)+'px';
   left.style.top=top+'px';
   right.style.width=width+'px';
-  right.style.left=(c.right+window.pageXOffset)+'px';
+  right.style.left=(c.right+window.pageXOffset+RIGHT_GAP)+'px';
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
