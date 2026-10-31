@@ -51,7 +51,7 @@
  /* Quantity stepper: preserve the original Shoptet input, name, form and validation.
     Visual buttons emit the same native input/change events; no duplicated purchase forms. */
  function setupQuantityStepper(buy){
-  var wrap=q(':scope > .add-to-cart > .quantity',buy);
+  var wrap=q('.add-to-cart .quantity',buy);
   var input=wrap&&q('input.amount',wrap);
   if(!wrap||!input||wrap.classList.contains('ok86-stepper-ready'))return;
   var minus=el('button','ok86-qty-step ok86-qty-minus','−');
@@ -305,18 +305,18 @@
   requestAnimationFrame(updateArrows);
  }
  function init(){
-  var detail=q('#content .p-detail'),form=q('#product-detail-form',detail||document),top=q('.row.product-top',form||document),sku=q('[itemprop="sku"]',form||document)?.getAttribute('content')||q('.p-code>span:last-child',detail||document)?.textContent?.trim();
+  var detail=q('#content .p-detail'),form=q('#product-detail-form',detail||document),top=q('.row.product-top',detail||document)||q('.row.product-top',document),sku=q('[itemprop="sku"]',form||document)?.getAttribute('content')||q('.p-code>span:last-child',detail||document)?.textContent?.trim();
   if(!detail||!form||!top||!sku||!catalog[sku])return;
   if(detail.dataset.ok89Complete==='1')return;
-  var p=catalog[sku],gallery=q(':scope > .p-image-wrapper',top),buy=q(':scope > .p-info-wrapper',top),header=q('.p-detail-inner-header',detail),rating=q(':scope > .col-xs-12 > .p-detail-info',top)||q(':scope > .p-info-wrapper > .p-detail-info',top),btn=q(':scope > .add-to-cart > button.add-to-cart-button',buy||document),price=q(':scope > .p-final-price-wrapper',buy||document);
-  if(!gallery||!buy||!header||!rating||!btn||!price)return;
+  var p=catalog[sku],gallery=q(':scope > .p-image-wrapper',top),buy=q(':scope > .p-info-wrapper',top),header=q('.p-detail-inner-header',detail),rating=q('.p-detail-info',top)||q('.p-detail-info',detail),btn=q('.add-to-cart button.add-to-cart-button.btn-conversion',buy||document)||q('.add-to-cart button.add-to-cart-button',buy||document),price=q('.p-final-price-wrapper',buy||document);
+  if(!gallery||!buy||!header||!btn||!price)return;
   /* V87 duplicate boot could leave the buy box marked empty and entirely invisible. */
   buy.classList.remove('ok86-empty');
   var journal=[];function move(n,target,before){if(!n||!target)return;journal.push({n,parent:n.parentNode,next:n.nextSibling});target.insertBefore(n,before||null)}
-  var orphan=rating.parentNode;
+  var orphan=rating&&rating.parentNode;
   var originalRatingWrapper=orphan!==buy&&orphan!==gallery&&orphan.parentNode===top?orphan:null;
   // Move the original native nodes, never clone listeners or the purchase form.
-  move(header,buy,buy.firstChild);move(rating,buy,header.nextSibling);
+  move(header,buy,buy.firstChild);if(rating)move(rating,buy,header.nextSibling);
   var link=q(':scope > p[data-testid="productCardDescr"]',buy),short=q(':scope > .p-short-description',buy),stock=q(':scope > .availability-value',buy);
   if(short)move(short,buy,price);if(link)move(link,buy,price);if(stock)move(stock,buy,price);
   top.classList.add('ok86-grid');if(originalRatingWrapper)originalRatingWrapper.classList.add('ok86-empty');buy.classList.remove('ok86-empty');
@@ -327,7 +327,7 @@
    // Existing code is relocated, not erased. Do not output unverified manufacturer URLs.
    var code=q('.p-code',header);if(code)code.style.display='none';
    if(p.brand){var bLink=el('a','ok86-brand','Vše od '+p.brand);bLink.href='/vyhledavani/?string='+encodeURIComponent(p.brand);header.before(bLink)}
-   var noRating=q('.stars-label',rating);if(noRating&&/neohodnoceno/i.test(noRating.textContent))noRating.textContent='Zatím bez hodnocení';
+   var noRating=rating&&q('.stars-label',rating);if(noRating&&/neohodnoceno/i.test(noRating.textContent))noRating.textContent='Zatím bez hodnocení';
    // Five filled decorative stars only when no verified customer rating exists.
    if(noRating&&/bez hodnocení|neohodnoceno/i.test(noRating.textContent)){
     var starContainer=q('.stars-wrapper',rating);
