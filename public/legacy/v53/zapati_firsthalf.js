@@ -1158,6 +1158,7 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:
   // V46: no hearts on product cards or product listings. Saved favorites remain accessible from the header.
   function oklaInsertFavoriteButtons(){
     document.querySelectorAll('#content .product .okla-fav-toggle,#content .products .okla-fav-toggle').forEach(function(el){el.remove();});
+    return; /* favourites are not offered on this shop: no favourite button is created on the product page */
     var info=document.querySelector('body.type-detail #content .p-detail-info,body.type-detail #content .p-detail .p-info-wrapper,body.type-detail #content .p-detail');
     if(!info || info.querySelector('.okla-detail-favorite'))return;
     var titleNode=document.querySelector('body.type-detail #content h1');
