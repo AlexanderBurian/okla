@@ -365,3 +365,8 @@ html body.ok89-detail #content .p-detail .p-main-image img{transform:none!import
 /* 8ba. Icon row: more air above it (from the CTA), less air between each icon and its label. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{margin-top:16px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{gap:6px!important}
+/* 8bb. "Mohlo by vás zajímat": five cards on desktop with the same 24 px gap as the homepage slider. The card width was not tied to the track, so the last visible card ran into the edge of the viewport. */
+@media(min-width:992px){
+html body.ok89-detail #content .ok86-related .okla-slider-track{gap:24px!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product{flex:0 0 calc((100% - 96px)/5)!important;width:calc((100% - 96px)/5)!important;max-width:none!important;min-width:0!important}
+}
