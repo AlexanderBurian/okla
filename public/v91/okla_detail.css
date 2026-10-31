@@ -317,7 +317,7 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>
 @media(max-width:991px){
 html body.ok89-detail #content .p-detail{padding-left:16px!important;padding-right:16px!important}
 }
-/* 8aq. Mobile: the buy column sits on the same 16 px gutter as the tabs (the column padding was 10 px short). */
+/* 8aq. Mobile: the product row has no negative bootstrap margins, so the buy column sits on the same 16 px gutter as the tabs and title. */
 @media(max-width:991px){
-html body.ok89-detail #content .p-detail .p-info-wrapper{padding-left:10px!important;padding-right:10px!important}
+html body.ok89-detail #content .p-detail .row.product-top{margin-left:0!important;margin-right:0!important}
 }
