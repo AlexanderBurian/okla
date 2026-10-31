@@ -1,29 +1,38 @@
-/* OKLA V90 canonical bootstrap. Host on Cloudflare Pages public/ root, or GitHub CDN.
-   One CSS source per page type; no historic desktop patches loaded. */
+/* OKLA V91 – one canonical Shoptet bootstrap. Desktop/mobile presentation and product detail are isolated. */
 (function(){
 'use strict';
-if(window.__oklaCompleteV71)return;
+if(window.__oklaBootstrapV91)return;
+if(window.__oklaCompleteV71){console.warn('[OKLA V91] A previous OKLA bootstrap is already running; remove duplicate Shoptet tags.');return}
+window.__oklaBootstrapV91=true;
 window.__oklaCompleteV71=true;
 var current=document.currentScript;
 var base=current&&current.src?current.src.split(/[?#]/)[0].replace(/[^/]*$/,''):'';
-if(!base){console.error('[OKLA] Use an external script URL.');return}
-window.__oklaAssetsBase=base;
-var steps=["legacy/v53/zapati_firsthalf.js","legacy/v55/okla_news_v55.js","legacy/v57/okla_patch_v57.js",{"file":"legacy/v61/okla_mobile_v61.css","media":"(max-width:767px)"},"legacy/v61/okla_mobile_v61.js","legacy/v62/okla_recovery_v62.js","legacy/v65/okla_mobile_v65.js","legacy/v66/okla_mobile_v66.js","legacy/v67/okla_native_cart_v67.js","legacy/v69/okla_mobile_v69.js","okla_mobile_v71.js","okla_mobile_v72.js","okla_mobile_v73.js","okla_mobile_v74.js","okla_mobile_v75.js","okla_mobile_v76.js","okla_mobile_v77.js","okla_v86_catalog.js","okla_home_v89.css","okla_detail_v89.css","okla_home_v89.js","okla_detail_v89.js","okla_navigation_v89.js"];
-var pos=0;
+if(!base){console.error('[OKLA V91] External loader URL required');return}
+var isHome=document.body&&document.body.classList.contains('type-index');
+var isDetail=!!document.querySelector('#content .p-detail');
+var modules=[
+ 'legacy/v53/zapati_firsthalf.js',
+ 'legacy/v55/okla_news_v55.js',
+ 'v91/okla_mobile_unified.css',
+ 'v91/okla_behavior.js'
+];
+if(isHome) modules.push('v91/okla_home.css','v91/okla_home.js');
+if(isDetail) modules.push('okla_v86_catalog.js','v91/okla_detail.css','v91/okla_detail.js');
+modules.push('v91/okla_navigation.css','v91/okla_navigation.js');
+var index=0;
 function next(){
-if(pos===steps.length){window.__oklaAssetLoaderStatus='loaded';return}
-var entry=steps[pos++],path=typeof entry==='string'?entry:entry.file,url=base+path+(base.includes("cdn.jsdelivr.net")?"?v=90":"?v=90");
-if(/\.css(?:[?#]|$)/.test(path)){
- var l=document.createElement('link');l.rel='stylesheet';l.href=url;
- if(entry.media)l.media=entry.media;
- l.onload=next;l.onerror=function(){console.error('[OKLA] CSS unavailable:',url);next()};
- (document.head||document.documentElement).appendChild(l);
-}else{
- var j=document.createElement('script');j.src=url;j.async=false;
- j.onload=next;j.onerror=function(){console.error('[OKLA] JS unavailable:',url);next()};
- (document.head||document.documentElement).appendChild(j);
+ if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';return}
+ var file=modules[index++],url=base+file+(base.includes('?')?'&':'?')+'v=91';
+ if(file.endsWith('.css')){
+  var link=document.createElement('link');link.rel='stylesheet';link.href=url;
+  link.onload=next;link.onerror=function(){console.error('[OKLA] CSS missing:',file);next()};
+  (document.head||document.documentElement).appendChild(link);
+ }else{
+  var script=document.createElement('script');script.src=url;script.async=false;
+  script.onload=next;script.onerror=function(){console.error('[OKLA] JS missing:',file);next()};
+  (document.head||document.documentElement).appendChild(script);
+ }
 }
-}
-window.__oklaAssetLoaderStatus='loading';
+window.__oklaAssetLoaderStatus='v91-loading';
 next();
 })();
