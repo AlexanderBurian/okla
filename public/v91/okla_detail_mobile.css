@@ -72,7 +72,7 @@
         and the homepage icon (okv74) is styled the way the homepage styles it. */
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv71-cart,
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv72-cart,
-  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.ok89-cart { display: none !important; }
+  html body.ok89-detail.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.ok89-cart.ok89-cart { display: none !important; }
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv74-cart {
     display: block !important; flex: 0 0 21px !important; width: 21px !important; height: 21px !important; min-width: 21px !important;
     margin: 0 !important; padding: 0 !important; color: #5ba300 !important; fill: none !important; stroke: currentColor !important;
