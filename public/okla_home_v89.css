@@ -1,0 +1,97 @@
+/* OKLA V89: Mobile V77 untouched; desktop single style authority. */
+/* Desktop 5-card carousel, tablet 3-card carousel. Existing native carousel JS remains intact. */
+@media(min-width:992px){
+ html body.type-index #content .products.products-block.okla-slider-track{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:flex-start!important;gap:24px!important;width:100%!important;min-width:0!important;--okla-card-width:calc((100% - 96px)/5)!important}
+ html body.type-index #content .okla-slider-shell .products.okla-slider-track>.product{position:relative!important;flex:0 0 calc((100% - 96px)/5)!important;width:calc((100% - 96px)/5)!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important;text-align:center!important}
+ html body.type-index #content .okla-slider-shell>.okla-slider-controls{display:flex!important;visibility:visible!important}
+}
+@media(min-width:768px) and (max-width:991px){
+ html body.type-index #content .products.products-block.okla-slider-track{display:flex!important;flex-wrap:nowrap!important;gap:24px!important;--okla-card-width:calc((100% - 48px)/3)!important}
+ html body.type-index #content .products.products-block.okla-slider-track>.product{flex:0 0 calc((100% - 48px)/3)!important;width:calc((100% - 48px)/3)!important;min-width:0!important}
+}
+/* OKLA V88: Single authority for DESKTOP product card CTA and hover. */
+@media(min-width:992px){
+html body.type-index #content .okla-slider-shell{--ok89-ink:#16478B;--ok89-hover:#D6E4F5;}
+html body.type-index #content .okla-slider-shell .products.okla-slider-track{padding-bottom:27px!important;}
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product{position:relative!important;isolation:isolate!important;overflow:visible!important;transform:none!important;}
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p,
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:hover,
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p{
+ box-sizing:border-box!important;position:relative!important;isolation:isolate!important;
+ background:#fff!important;border:1px solid transparent!important;box-shadow:none!important;
+ border-radius:10px!important;transform:none!important;overflow:visible!important;
+ transition:none!important;padding-bottom:12px!important;
+}
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p::after{
+ content:''!important;display:block!important;pointer-events:none!important;position:absolute!important;
+ inset:15px -2px -16px -2px!important;border-radius:10px!important;
+ border:1px solid transparent!important;box-shadow:none!important;background:none!important;
+ transition:border-color .16s ease,box-shadow .16s ease!important;z-index:3!important;
+}
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p::after,
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:focus-within::after{
+ border-color:#E0E0E0!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important;
+}
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart,
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:not(:disabled),
+html body.type-index #content .okla-slider-shell .product:hover .p-tools button.btn-cart{
+ display:inline-flex!important;align-items:center!important;justify-content:center!important;
+ gap:8px!important;width:100%!important;min-height:42px!important;max-height:42px!important;
+ box-sizing:border-box!important;border:1px solid var(--ok89-ink)!important;
+ background:#fff!important;background-image:none!important;color:var(--ok89-ink)!important;
+ font:600 14px/1.25 Roboto,'Segoe UI',Arial,sans-serif!important;
+ border-radius:6px!important;box-shadow:none!important;opacity:1!important;
+ text-shadow:none!important;transform:none!important;
+ transition:background-color .16s ease,color .16s ease,border-color .16s ease!important;
+}
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:hover,
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:focus-visible{
+ background:var(--ok89-hover)!important;border-color:var(--ok89-ink)!important;
+ color:var(--ok89-ink)!important;outline:0!important;
+}
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:focus-visible{
+ outline:2px solid var(--ok89-ink)!important;outline-offset:2px!important;
+}
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart svg.ok89-cart{
+ position:static!important;display:block!important;flex:0 0 19px!important;
+ width:19px!important;height:19px!important;min-width:19px!important;max-height:19px!important;
+ stroke:currentColor!important;fill:currentColor!important;color:inherit!important;
+ stroke-width:1.5!important;transform:none!important;
+}
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart svg:not(.ok89-cart){display:none!important;}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars{
+ display:inline-flex!important;align-items:center!important;gap:1px!important;vertical-align:middle!important;
+ flex:none!important;color:#F4B526!important;white-space:nowrap!important;
+}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars svg{
+ width:13px!important;height:13px!important;flex:0 0 13px!important;fill:currentColor!important;
+ stroke:currentColor!important;stroke-width:.5px!important;display:block!important;
+}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .okv80-stars,
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .okv73-rating-stars,
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .okla-empty-stars,
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-placeholder svg{display:none!important;}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper{
+ display:flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;
+ flex-wrap:wrap!important;white-space:nowrap!important;font-size:12px!important;color:#888!important;
+}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-placeholder{
+ display:inline-block!important;white-space:nowrap!important;font-size:12px!important;color:#888!important;
+}
+}
+
+@media(min-width:992px){
+html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p > *{position:relative!important;z-index:1!important}
+html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:disabled{pointer-events:auto!important;opacity:1!important;cursor:not-allowed!important}
+}
+
+/* Exactly one decorative five-star row; keep genuine numeric review labels native. */
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars{display:inline-flex!important;vertical-align:middle!important;align-items:center!important;gap:1px!important;color:#F4B526!important}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;min-width:13px!important;fill:currentColor!important;stroke:currentColor!important}
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .okv73-rating-stars,
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .okv80-stars,
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok88-decor-stars,
+html body.type-index #content .okla-slider-shell .product .ratings-wrapper .okla-empty-stars{display:none!important}
+@media(max-width:991px){
+ html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart svg.ok89-cart{display:none!important}
+}

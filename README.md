@@ -1,30 +1,18 @@
-# OKLA static assets
+# OKLA storefront assets
 
-The complete JavaScript and CSS used by OKLA Shoptet, plus the 33-product catalog.
+Latest frontend version: **V89**. Git-integrated static assets for Shoptet storefront.
 
-## Connect Cloudflare Pages
+## Installation
 
-1. Cloudflare dashboard > Workers & Pages > Create application > Pages > Connect to Git.
-2. Select GitHub `AlexanderBurian/okla`.
-3. Production branch `main`; framework preset None; **build command empty**; **build output directory `public`**.
-4. Click Deploy. Cloudflare gives a verified `https://<project>.pages.dev` URL.
-5. Test `https://<project>.pages.dev/zapati_firsthalf.js`.
-6. In Shoptet footer HTML **replace**, don't duplicate, previous OKLA loader with:
-`<script src="https://<project>.pages.dev/zapati_firsthalf.js" defer></script>`
-(replace the placeholder with the actual Pages hostname).
+Install one script in Shoptet **HTML code > footer**, not multiple historical loaders. For immediate reliable delivery use the immutable commit-specific jsDelivr URL after each approved release. GitHub CDN @main can be stale. For Cloudflare Pages set branch main, no build command, output directory public, then use the actual validated Pages hostname instead of a placeholder.
 
-GitHub CDN fallback until Pages is connected:
-`<script src="https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@main/public/zapati_firsthalf.js" defer></script>`
+The bootstrap in public/zapati_firsthalf.js sequentially loads working original mobile and storefront scripts, the 33-product catalog, then only latest V89 homepage, product-detail and breadcrumb modules. Older V79 and V88 desktop style/DOM scripts remain archived but are **not loaded**. V89 styles are injected once by their JS modules, not also fetched as duplicate CSS links.
 
-Do not add both tags. Cloudflare Pages automatically deploys on subsequent main-branch commits. This GitHub CDN fallback may cache new commits for some time.
+## Scope
 
-## Structure
+- public/okla_home_v89.js: PC five-card grid, tablet three-card layout, full blue cart on PC, five decorative stars; original mobile card styling unchanged.
+- public/okla_detail_v89.js: native purchase form and inventory, real product description/parameters/discussion, related products and trust bar.
+- public/okla_navigation_v89.js: one home icon, 13px chevrons, schema.org breadcrumb preserved.
+- data/qa_v89_results.json and data/RELEASE_V89.md: local QA proof and caveats.
 
-- `public/zapati_firsthalf.js`: single bootstrap, loads all JS/CSS from its own host.
-- `public/legacy/`: archived dependencies from versions 53–69.
-- `public/okla_mobile_*`, `public/okla_desktop_*`: earlier working redesign modules.
-- `public/okla_v86_catalog.js`: 33 product records, fields from the approved CSV.
-- `public/okla_detail_v86.js`, `public/okla_detail_v86.css`: current product detail enhancements.
-- `data/`: source catalog CSV, structured product data and QA report.
-
-Note: Deploying this repo does not perform the 33-product Shoptet admin CSV import or change native inventory levels. Configure only one loader.
+Import of product data into the native Shoptet admin is a separate step. Inventory always comes from native Shoptet.

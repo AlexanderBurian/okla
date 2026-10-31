@@ -1,0 +1,296 @@
+[
+  {
+    "homeIcons": 1,
+    "homeOldPseudo": "none",
+    "homeName": "Domů",
+    "arrows": [
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      },
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      }
+    ],
+    "navTitle": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "headings": 1,
+    "h1": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "grid": "row product-top ok86-grid",
+    "buyBox": {
+      "x": 34,
+      "y": 360,
+      "width": 307,
+      "height": 492.96875,
+      "top": 360,
+      "right": 341,
+      "bottom": 852.96875,
+      "left": 34
+    },
+    "buyHidden": false,
+    "disabled": true,
+    "priceColor": "rgb(227, 6, 19)",
+    "stock": false,
+    "microdata": 1,
+    "fixture": "qa_detail.html",
+    "width": 375,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "homeIcons": 1,
+    "homeOldPseudo": "none",
+    "homeName": "Domů",
+    "arrows": [
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      },
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      }
+    ],
+    "navTitle": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "headings": 1,
+    "h1": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "grid": "row product-top ok86-grid",
+    "buyBox": {
+      "x": 34,
+      "y": 474,
+      "width": 700,
+      "height": 424.640625,
+      "top": 474,
+      "right": 734,
+      "bottom": 898.640625,
+      "left": 34
+    },
+    "buyHidden": false,
+    "disabled": true,
+    "priceColor": "rgb(227, 6, 19)",
+    "stock": false,
+    "microdata": 1,
+    "fixture": "qa_detail.html",
+    "width": 768,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "homeIcons": 1,
+    "homeOldPseudo": "none",
+    "homeName": "Domů",
+    "arrows": [
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      },
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      }
+    ],
+    "navTitle": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "headings": 1,
+    "h1": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "grid": "row product-top ok86-grid",
+    "buyBox": {
+      "x": 714.390625,
+      "y": 68,
+      "width": 525.609375,
+      "height": 465.265625,
+      "top": 68,
+      "right": 1240,
+      "bottom": 533.265625,
+      "left": 714.390625
+    },
+    "buyHidden": false,
+    "disabled": true,
+    "priceColor": "rgb(227, 6, 19)",
+    "stock": false,
+    "microdata": 1,
+    "fixture": "qa_detail.html",
+    "width": 1280,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "homeIcons": 1,
+    "homeOldPseudo": "none",
+    "homeName": "Domů",
+    "arrows": [
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      },
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      }
+    ],
+    "navTitle": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "headings": 1,
+    "h1": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "grid": "row product-top ok86-grid",
+    "buyBox": {
+      "x": 34,
+      "y": 360,
+      "width": 307,
+      "height": 492.96875,
+      "top": 360,
+      "right": 341,
+      "bottom": 852.96875,
+      "left": 34
+    },
+    "buyHidden": false,
+    "disabled": true,
+    "priceColor": "rgb(227, 6, 19)",
+    "stock": false,
+    "microdata": 1,
+    "fixture": "qa_detail_stale.html",
+    "width": 375,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "homeIcons": 1,
+    "homeOldPseudo": "none",
+    "homeName": "Domů",
+    "arrows": [
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      },
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      }
+    ],
+    "navTitle": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "headings": 1,
+    "h1": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "grid": "row product-top ok86-grid",
+    "buyBox": {
+      "x": 34,
+      "y": 474,
+      "width": 700,
+      "height": 424.640625,
+      "top": 474,
+      "right": 734,
+      "bottom": 898.640625,
+      "left": 34
+    },
+    "buyHidden": false,
+    "disabled": true,
+    "priceColor": "rgb(227, 6, 19)",
+    "stock": false,
+    "microdata": 1,
+    "fixture": "qa_detail_stale.html",
+    "width": 768,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "homeIcons": 1,
+    "homeOldPseudo": "none",
+    "homeName": "Domů",
+    "arrows": [
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      },
+      {
+        "text": "›",
+        "pseudo": "none",
+        "iconSize": "13px",
+        "width": 12
+      }
+    ],
+    "navTitle": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "headings": 1,
+    "h1": "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "grid": "row product-top ok86-grid",
+    "buyBox": {
+      "x": 714.390625,
+      "y": 68,
+      "width": 525.609375,
+      "height": 465.265625,
+      "top": 68,
+      "right": 1240,
+      "bottom": 533.265625,
+      "left": 714.390625
+    },
+    "buyHidden": false,
+    "disabled": true,
+    "priceColor": "rgb(227, 6, 19)",
+    "stock": false,
+    "microdata": 1,
+    "fixture": "qa_detail_stale.html",
+    "width": 1280,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "stars": 5,
+    "starVisible": "inline-flex",
+    "cartIcons": 0,
+    "iconDisplay": null,
+    "color": "rgb(91, 163, 0)",
+    "border": "rgb(91, 163, 0)",
+    "cardShadow": "none",
+    "disabled": true,
+    "fixture": "qa_home.html",
+    "width": 375,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "stars": 5,
+    "starVisible": "inline-flex",
+    "cartIcons": 0,
+    "iconDisplay": null,
+    "color": "rgba(16, 16, 16, 0.3)",
+    "border": "rgba(118, 118, 118, 0.3)",
+    "cardShadow": "none",
+    "disabled": true,
+    "fixture": "qa_home.html",
+    "width": 768,
+    "errors": [],
+    "overflow": false
+  },
+  {
+    "stars": 5,
+    "starVisible": "flex",
+    "cartIcons": 5,
+    "iconDisplay": "block",
+    "color": "rgb(22, 71, 139)",
+    "border": "rgb(22, 71, 139)",
+    "cardShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "disabled": true,
+    "fixture": "qa_home.html",
+    "width": 1280,
+    "errors": [],
+    "overflow": false
+  }
+]
