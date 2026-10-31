@@ -129,16 +129,156 @@
   detailEnd.after(strip);
  }
  function knownUrl(p){return p.url||null}
- function relatedCarousel(p,detail){var records=p.related.map(c=>catalog[c]).filter(Boolean);if(records.length<1||q('.ok86-related'))return;
-  var section=el('section','ok86-related');section.append(el('h2',null,'Mohlo by vás zajímat'));var track=el('div','ok86-related-track');
-  records.forEach(r=>{var item=el('article','ok86-related-card');
-   var img=el('img');img.src=r.image;img.alt=r.imageDesc;img.loading='lazy';item.append(img);
-   var href=knownUrl(r);var name=el(href?'a':'div','ok86-related-title',r.name);if(href)name.href=href;item.append(name);
-   if(r.isNew===true)item.append(el('div','ok86-related-badge','NOVINKA'));
-   item.append(el('div','ok86-related-price',Number(r.price).toLocaleString('cs-CZ')+' Kč'));
-   if(href){var c=el('a','ok86-related-link');c.href=href;c.append(svgCart(),document.createTextNode('Zobrazit produkt'));item.append(c)}
-   track.append(item)
-  });section.append(track);var tabs=q('.p-detail-tabs-wrapper');if(tabs)tabs.after(section);else detail.after(section);
+ /* Alza-style tabs: retain native Shoptet tab links, markup and event handlers. */
+ function formatTabs(){
+  var tabs=q('ul.p-detail-tabs');
+  if(!tabs||tabs.dataset.ok97Formatted==='1')return;
+  var links=qa('a.shp-tab-link',tabs),desc=links.find(a=>(a.getAttribute('href')||'').includes('description'))||links[0];
+  var params=qa('li.ok86-parameters-tab',tabs)[0],discussion=q('li[data-testid="tabDiscussion"]',tabs);
+  if(!desc)return;
+  if(params)desc.closest('li')?.after(params);
+  if(disc)params?params.after(disc):desc.closest('li')?.after(disc);
+  var svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','0 0 24 24');svg.classList.add('ok97-description-icon');svg.setAttribute('aria-hidden','true');
+  var path=document.createElementNS(NS,'path');path.setAttribute('d','M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z');svg.appendChild(path);
+  desc.replaceChildren(svg);desc.setAttribute('aria-label','Popis');desc.setAttribute('title','Popis');
+  tabs.dataset.ok97Formatted='1';
+ }
+ /* Display only a real Shoptet native price; do not overwrite variant prices or add fabricated discounts. */
+ function formattedPrice(raw){
+  var match=String(raw||'').replace(/\u00a0/g,' ').match(/(\d[\d\s]*)(?:[.,]00)?\s*Kč/i);
+  if(!match)return null;
+  var num=Number(match[1].replace(/\s/g,''));
+  return Number.isFinite(num)&&num>=0?num.toLocaleString('cs-CZ')+',-':null;
+ }
+ function formatDetailPrice(buy){
+  var strong=q('.p-final-price-wrapper .price-final strong',buy)||q('.p-final-price-wrapper .price-final',buy);
+  if(!strong||strong.children.length)return;
+  var price=formattedPrice(strong.textContent);
+  if(price&&strong.textContent.trim()!==price)strong.textContent=price;
+ }
+ function hasRealReviews(){
+  var ld=qa('script[type="application/ld+json"]');
+  for(var i=0;i<ld.length;i++){try{
+    var d=JSON.parse(ld[i].textContent),nodes=Array.isArray(d)?d:[d];
+    for(var node of nodes){
+      var x=node&&node.aggregateRating;
+      if(x&&Number(x.ratingCount||x.reviewCount)>0)return true;
+    }
+  }catch(e){}}
+  var label=q('#content .p-detail-info .stars-label')?.textContent||'';
+  return /[1-5](?:[,.][0-9])?\s*\/\s*5/.test(label);
+ }
+ /* Separate review section. Existing product-box ratings are intentionally left untouched. */
+ function reviewSection(detail){
+  if(hasRealReviews()||q('.ok97-review-block'))return;
+  var nativeLabel=q('.p-detail-info .stars-label',detail)?.textContent||'';
+  if(!/zatím bez hodnocení|neohodnoceno/i.test(nativeLabel))return;
+  var tabs=q('.p-detail-tabs-wrapper');
+  if(!tabs)return;
+  var section=el('section','ok97-review-block');
+  section.setAttribute('aria-label','Hodnocení produktu');
+  section.append(el('h2',null,'Produkt zatím nikdo nehodnotil'));
+  var stars=el('div','ok97-review-stars');stars.setAttribute('aria-hidden','true');
+  for(var i=0;i<5;i++){
+   var star=document.createElementNS(NS,'svg');star.setAttribute('viewBox','0 0 24 24');
+   var p=document.createElementNS(NS,'path');p.setAttribute('d','M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.9l-6.2 3.2 1.2-6.9-5-4.9 6.9-1z');star.append(p);stars.append(star);
+  }
+  section.append(stars);
+  /* No "Napsat recenzi" link unless a real Shoptet review URL is present. */
+  var nativeReview=qa('a[href]',detail).find(a=>/napsat (recenzi|hodnocení)|přidat hodnocení/i.test(a.textContent||'')&&!a.getAttribute('href')?.startsWith('javascript:'));
+  if(nativeReview){
+   var link=el('a','ok97-write-review','Napsat recenzi');link.href=nativeReview.href;
+   var icon=document.createElementNS(NS,'svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');var pp=document.createElementNS(NS,'path');pp.setAttribute('d','M4 20h4l11-11-4-4L4 16v4z M13 7l4 4');icon.append(pp);link.prepend(icon);section.append(link);
+  }
+  tabs.after(section);
+ }
+ /* A card may be actionable only after its own live Shoptet stock has been confirmed. */
+ function shoptetAvailability(doc){
+  var node=doc.querySelector('link[itemprop="availability"],meta[itemprop="availability"]');
+  var v=node?.getAttribute('href')||node?.getAttribute('content')||'';
+  if(/OutOfStock|SoldOut|Discontinued|BackOrder|PreOrder/i.test(v))return false;
+  if(/InStock|LimitedAvailability/i.test(v))return true;
+  var txt=doc.querySelector('.availability-label,.availability-value')?.textContent||'';
+  if(/nedostupn|není skladem|vyprodán/i.test(txt))return false;
+  if(/skladem|k dispozici/i.test(txt))return true;
+  return null;
+ }
+ function liveCardState(r,card,btn){
+  if(!r.url)return;
+  var path;try{path=new URL(r.url,location.origin).pathname}catch(e){return}
+  fetch(path,{credentials:'same-origin',headers:{'Accept':'text/html'}}).then(resp=>{
+   if(!resp.ok||!resp.headers.get('content-type')?.includes('text/html'))throw new Error('invalid product response');
+   return resp.text();
+  }).then(html=>{
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   /* Product code and availability must agree with the native product page. */
+   var sku=doc.querySelector('[itemprop="sku"]')?.getAttribute('content')||
+     doc.querySelector('.p-code')?.textContent?.replace(/^\s*Kód\s*:\s*/i,'').trim();
+   if(!sku||sku!==r.code)return;
+   var stock=shoptetAvailability(doc);
+   var nativePrice=doc.querySelector('.p-final-price-wrapper .price-final strong,.p-final-price-wrapper .price-final')?.textContent;
+   var priceText=formattedPrice(nativePrice);
+   if(priceText){var span=q('.ok86-related-price',card);if(span)span.textContent=priceText}
+   if(stock===false){btn.disabled=true;btn.classList.add('ok97-unavailable');btn.setAttribute('aria-disabled','true');return}
+   if(stock===true&&window.shoptet?.cartShared?.addToCart){
+    btn.disabled=false;btn.classList.remove('ok97-unavailable');btn.removeAttribute('aria-disabled');
+    btn.onclick=function(){
+      if(btn.disabled)return;
+      window.shoptet.cartShared.addToCart({productCode:r.code,amount:1});
+    };
+   }
+  }).catch(()=>{ /* Unknown stock: leave button disabled; never invent stock. */ });
+ }
+ function categoryHref(cat){
+  var crumbs=qa('.breadcrumbs a[href]');var match=crumbs.find(a=>a.textContent.trim()===cat);
+  return match?.getAttribute('href')||null;
+ }
+ function relatedCarousel(p,detail){
+  var records=Object.values(catalog).filter(x=>x.defaultCategory===p.defaultCategory&&x.code!==p.code)
+    .sort((a,b)=>a.code.localeCompare(b.code,'cs')).slice(0,10);
+  if(!records.length||q('.ok86-related'))return;
+  var sec=el('section','ok86-related');
+  sec.append(el('h2',null,'Mohlo by vás zajímat'));
+  var view=el('div','ok97-related-viewport'),track=el('div','ok86-related-track');
+  var href=categoryHref(p.defaultCategory);
+  records.forEach(r=>{
+   var item=el('article','ok86-related-card');item.dataset.sku=r.code;
+   var img=el('img');img.src=r.image;img.alt=r.imageDesc||r.name;img.loading='lazy';item.append(img);
+   var destination=knownUrl(r);
+   var url=destination?new URL(destination,location.origin).pathname:null;
+   var title=el(url?'a':'span','ok86-related-title',r.name);if(url)title.href=url;item.append(title);
+   item.append(el('div','ok86-related-price',Number(r.price).toLocaleString('cs-CZ')+',-'));
+   var btn=el('button','ok86-related-link ok97-unavailable','Do košíku');btn.type='button';btn.disabled=true;
+   btn.setAttribute('aria-disabled','true');
+   var cart=svgCart();btn.prepend(cart);item.append(btn);
+   if(href){var category=el('a','ok97-category-link',p.defaultCategory+' »');category.href=href;item.append(category)}
+   else item.append(el('span','ok97-category-link ok97-category-unknown',p.defaultCategory+' »'));
+   track.append(item);liveCardState(r,item,btn);
+  });
+  view.append(track);sec.append(view);
+  var prev=el('button','ok97-related-arrow ok97-related-prev','‹'),next=el('button','ok97-related-arrow ok97-related-next','›');
+  prev.type=next.type='button';prev.setAttribute('aria-label','Předchozí produkty');
+  next.setAttribute('aria-label','Další produkty');
+  sec.append(prev,next);
+  function updateArrows(){
+   var max=view.scrollWidth-view.clientWidth;
+   var overflowing=max>2;
+   prev.hidden=!overflowing||view.scrollLeft<=2;
+   next.hidden=!overflowing||view.scrollLeft>=max-2;
+  }
+  function move(dir){
+   var card=q('.ok86-related-card',track),width=card?.getBoundingClientRect().width||210;
+   var gap=parseFloat(getComputedStyle(track).gap)||24;
+   var n=innerWidth<768?2:innerWidth<1200?3:5;
+   view.scrollBy({left:dir*(width+gap)*n,behavior:'smooth'});
+  }
+  prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
+  view.addEventListener('scroll',updateArrows,{passive:true});
+  window.addEventListener('resize',updateArrows,{passive:true});
+  if(window.ResizeObserver)new ResizeObserver(updateArrows).observe(view);
+  var review=q('.ok97-review-block'),tabs=q('.p-detail-tabs-wrapper');
+  if(review)review.after(sec);else if(tabs)tabs.after(sec);else detail.after(sec);
+  requestAnimationFrame(updateArrows);
  }
  function init(){
   var detail=q('#content .p-detail'),form=q('#product-detail-form',detail||document),top=q('.row.product-top',form||document),sku=q('[itemprop="sku"]',form||document)?.getAttribute('content')||q('.p-code>span:last-child',detail||document)?.textContent?.trim();
@@ -187,7 +327,7 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   richDescription(p);paramsTab(p,detail);relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
+   richDescription(p);paramsTab(p,detail);formatTabs();formatDetailPrice(buy);reviewSection(detail);relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
    window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters).length};
   }
