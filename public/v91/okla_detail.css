@@ -86,7 +86,7 @@ html body.ok89-detail #content .ok86-related .btn-cart.ok97-unavailable,html bod
 /* 6d. Homepage slider paints a NOVINKA badge on every card; no product data supports it here, so the product slider hides it. */
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .prices::before{content:none!important;display:none!important}
 /* 6e. Header: all piktogramy on one baseline (cart glyph was 8px higher); Shoptet menu helper is not used on product pages. */
-html body.ok89-detail #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:42px!important;margin:0!important;transform:none!important;top:auto!important}
+html body.ok89-detail #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol{position:relative!important;top:8px!important;height:26px!important;margin:0!important;transform:none!important}
 html body.ok89-detail #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg{position:static!important;top:auto!important;transform:none!important}
 html body.ok89-detail .menu-helper{display:none!important}
 /* 6f. Tabs: full-width baseline, inactive tabs light grey, active tab keeps its blue top bar aligned with the others. */
