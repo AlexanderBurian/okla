@@ -382,7 +382,7 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary:hover:not(:disabled){background:#0F3A6E!important;border-color:#0F3A6E!important}
 }
 /* 8be. Buy box: four facts under the buy row (the same facts as the trust strip, placed where the buyer decides). */
-html body.ok89-detail #content .p-detail .ok86-benefits{list-style:none!important;margin:24px 0 0!important;padding:16px 0 0!important;border-top:1px solid #E5E5E5!important;display:grid!important;gap:12px!important}
+html body.ok89-detail #content .p-detail .ok86-benefits{list-style:none!important;margin:8px 0 0!important;padding:12px 0 0!important;border-top:1px solid #E5E5E5!important;display:grid!important;gap:12px!important}
 html body.ok89-detail #content .p-detail .ok86-benefits li{display:flex!important;align-items:center!important;gap:10px!important;margin:0!important;padding:0!important;font:400 14px/1.4 Roboto,"Segoe UI",Arial,sans-serif!important;color:#333!important}
 html body.ok89-detail #content .p-detail .ok86-benefits svg{flex:0 0 20px!important;width:20px!important;height:20px!important;stroke:#16478B!important;fill:none!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 html body.ok89-detail #content .p-detail .ok86-benefits a{color:#16478B!important;text-decoration:none!important}

@@ -94,9 +94,9 @@
  function buyBenefits(buy){if(q('.ok86-benefits',buy))return;
   var list=el('ul','ok86-benefits');list.setAttribute('aria-label','Informace k nákupu');
   [
-   ['M3 7h18 M7 3v8 M17 3v8 M5 21h14','Odstoupení od smlouvy do 14 dnů','/vraceni-zbozi-a-odstoupeni/'],
-   ['M12 3 4 7v6c0 5 4 8 8 9 4-1 8-4 8-9V7z','Zákonná odpovědnost za vady 24 měsíců','/reklamacni-rad/'],
-   ['M3 7h18v12H3z M3 11h18','Doprava a platba si vyberete v košíku','/doprava-a-platba/'],
+   ['M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5','Odstoupení od smlouvy do 14 dnů','/vraceni-zbozi-a-odstoupeni/'],
+   ['M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z M9 12l2 2 4-4','Zákonná odpovědnost za vady 24 měsíců','/reklamacni-rad/'],
+   ['M1 3h15v13H1z M16 8h4l3 3v5h-7V8z M5.5 16a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z M18.5 16a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z','Doprava a platba si vyberete v košíku','/doprava-a-platba/'],
    ['M3 5h18v14H3z M3 6l9 7 9-7','Poradíme: podpora@okla.cz','mailto:podpora@okla.cz']
   ].forEach(([path,title,href])=>{var li=el('li');li.append(svgIcon(path));var a=el('a',null,title);a.href=href;li.append(a);list.append(li)});
   var anchor=q('.add-to-cart',buy)||q('.p-final-price-wrapper',buy);
