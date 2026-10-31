@@ -212,6 +212,7 @@
    var nativePrice=doc.querySelector('.p-final-price-wrapper .price-final strong,.p-final-price-wrapper .price-final')?.textContent;
    var priceText=formattedPrice(nativePrice);
    if(priceText){var span=q('.price-final strong',card);if(span)span.textContent=priceText}
+   var nativeAvailability=doc.querySelector('.availability');var slot=q('.availability',card);if(nativeAvailability&&slot)slot.innerHTML=nativeAvailability.innerHTML;
    if(stock===false){btn.disabled=true;btn.classList.add('ok97-unavailable');btn.setAttribute('aria-disabled','true');return}
    if(stock===true&&window.shoptet?.cartShared?.addToCart){
     btn.disabled=false;btn.classList.remove('ok97-unavailable');btn.removeAttribute('aria-disabled');
@@ -226,12 +227,20 @@
   var crumbs=qa('.breadcrumbs a[href]');var match=crumbs.find(a=>a.textContent.trim()===cat);
   return match?.getAttribute('href')||null;
  }
+ /* Homepage card anatomy (decorative stars, availability, short text, code) so the product slider matches it 1:1. */
+ function cardCartIcon(){var s=document.createElementNS(NS,'svg');s.classList.add('ok89-cart');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');
+  var body=document.createElementNS(NS,'path');body.setAttribute('d','M7 7h14l-2.2 9H9L7 7Z');s.appendChild(body);
+  var arm=document.createElementNS(NS,'path');arm.setAttribute('d','M2 3.8h3.6L8 16.2h11');arm.setAttribute('fill','none');arm.setAttribute('stroke','currentColor');arm.setAttribute('stroke-width','1.65');s.appendChild(arm);
+  for(var x of [10,18]){var c=document.createElementNS(NS,'circle');c.setAttribute('cx',x);c.setAttribute('cy',20.5);c.setAttribute('r',1.7);s.appendChild(c)}return s}
+ function cardRatings(){var wrap=el('div','ratings-wrapper');var group=el('span','ok89-decor-stars');group.title='Dekorativní hvězdy, nejde o zákaznické hodnocení';group.setAttribute('aria-hidden','true');
+  for(var i=0;i<5;i++){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');var p=document.createElementNS(NS,'path');p.setAttribute('d','M12 2l3.09 6.26L22 9.27l-5 4.88 1.18 6.9L12 17.8l-6.18 3.25L7 14.15 2 9.27l6.91-1.01L12 2z');s.appendChild(p);group.appendChild(s)}
+  wrap.append(group,el('div','stars-placeholder','Bez hodnocení'));return wrap}
  function relatedCarousel(p,detail){
   var records=Object.values(catalog).filter(x=>x.defaultCategory===p.defaultCategory&&x.code!==p.code)
     .sort((a,b)=>a.code.localeCompare(b.code,'cs')).slice(0,10);
   if(!records.length||q('.ok86-related'))return;
   var sec=el('section','ok86-related');
-  /* Homepage slider markup (.okla-slider-*). The native loader's sliderFor() builds the shell, arrows,
+  /* Same markup as the homepage slider (.okla-slider-*). The native loader's sliderFor() builds the shell, arrows,
      autoplay and swipe, so the product slider behaves exactly like the homepage one. */
   var heading=el('div','homepage-group-title h4 okla-slider-heading','Mohlo by vás zajímat');
   var href=categoryHref(p.defaultCategory);
@@ -243,17 +252,20 @@
    var destination=knownUrl(r);
    var url=destination?new URL(destination,location.origin).pathname:null;
    var image=el(url?'a':'span','image');if(url)image.href=url;
-   var img=el('img');img.src=r.image;img.alt=r.imageDesc||r.name;img.loading='lazy';image.append(img);
+   var img=el('img');img.src=r.image;img.alt=r.imageDesc||r.name;img.loading='lazy';img.width=423;img.height=318;image.append(img);
    var pin=el('div','p-in'),inner=el('div','p-in-in');
-   var name=el(url?'a':'span','name');if(url)name.href=url;name.append(el('span',null,r.name));
-   inner.append(name);
-   var pBottom=el('div','p-bottom'),prices=el('div','prices'),priceBox=el('div','price price-final');
+   inner.append(cardRatings());
+   var name=el(url?'a':'span','name');if(url)name.href=url;name.dataset.micro='url';name.append(el('span',null,r.name));
+   var availability=el('div','availability');
+   inner.append(name,availability);
+   var pBottom=el('div','p-bottom'),offer=el('div'),prices=el('div','prices'),priceBox=el('div','price price-final');
    priceBox.append(el('strong',null,Number(r.price).toLocaleString('cs-CZ')+',-'));
-   prices.append(priceBox);
-   var tools=el('div','p-tools'),btn=el('button','btn btn-cart add-to-cart-button ok97-unavailable','Do košíku');
-   btn.type='button';btn.disabled=true;btn.setAttribute('aria-disabled','true');
+   prices.append(priceBox);offer.append(prices);
+   var tools=el('div','p-tools'),btn=el('button','btn btn-cart add-to-cart-button ok97-unavailable');
+   btn.type='button';btn.disabled=true;btn.setAttribute('aria-disabled','true');btn.setAttribute('aria-label','Do košíku '+r.name);
+   btn.append(cardCartIcon(),el('span',null,'Do košíku'));
    tools.append(btn);
-   pBottom.append(prices,tools);
+   pBottom.append(offer,tools,el('p','p-desc',r.shortDescription||''));
    pin.append(inner,pBottom);
    box.append(image,pin,el('span','p-code','Kód: '+r.code));
    item.append(box);group.append(item);
