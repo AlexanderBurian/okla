@@ -194,3 +194,6 @@ html body.ok89-detail #content .ok86-related .okla-slider-track>.product .price-
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .price-final{width:144px!important;height:46px!important;margin:0 auto!important;padding:0 4px!important;background:transparent!important;text-align:center!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .btn-cart{font:600 14px/1.2 var(--okd-font)!important;color:#16478B!important;border:1px solid #16478B!important;border-radius:6px!important;padding:6px 12px!important;background:#fff!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product :is(.p-desc,.p-code){display:none!important}
+/* 8c. Cart button border and label colour exactly as the homepage button (#16478B), stronger selector than the homepage hover/focus rules. */
+html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button{border-color:#16478B!important;border-top-color:#16478B!important;border-right-color:#16478B!important;border-bottom-color:#16478B!important;border-left-color:#16478B!important;color:#16478B!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button span{color:#16478B!important}
