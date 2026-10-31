@@ -346,15 +346,15 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{
 /* 8ax. The quantity buttons had an absolutely positioned ::before (about 365 x 846 px) that covered the whole buy box and took every click.
    It is removed, so each button, link and the cart button receive their own clicks. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease)::before,html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease)::after{content:none!important;display:none!important}
-/* 8ay. Product photo 2x: the field is filled edge to edge (object-fit cover). The photos have large empty margins, so the product itself grows, not only the empty space around it. */
+/* 8ay. Product photo: the whole photo is shown, never cropped. The field is a square as wide as the gallery column and the photo (white background, product with a margin) is contained in it,
+   so the product is as large as the field allows and does not touch its edges. */
 @media(min-width:992px){
-html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{height:640px!important;overflow:hidden!important}
-html body.ok89-detail #content .p-detail .p-main-image img{height:100%!important;width:100%!important;object-fit:cover!important}
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-image{min-height:0!important;height:auto!important;aspect-ratio:1/1!important}
+html body.ok89-detail #content .p-detail .p-image-wrapper #wrap{height:100%!important}
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{min-height:0!important;height:100%!important;max-height:none!important;aspect-ratio:auto!important;overflow:hidden!important;cursor:zoom-in}
+html body.ok89-detail #content .p-detail .p-main-image img{transform:none!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important}
 }
-/* 8az. Product photo: a further 1.6x zoom inside the field (the field clips it, so nothing overlaps the buy box). Together with the cover fit the product is about 3x its original size. */
-@media(min-width:992px){
-html body.ok89-detail #content .p-detail .p-main-image img{transform:scale(1.6)!important;transform-origin:50% 50%!important}
-}
+/* 8az. The former cover fit and the 1.6x zoom cropped the product. The zoom is now the click: the photo opens full size in the lightbox (Shoptet colorbox). */
 /* 8ba. Icon row: more air above it (from the CTA), less air between each icon and its label. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{margin-top:16px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{gap:6px!important}
