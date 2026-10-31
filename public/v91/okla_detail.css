@@ -213,3 +213,7 @@ html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:0!imp
 html body.ok89-detail #content .ok86-related{max-width:1010px!important;margin-left:auto!important;margin-right:auto!important}
 /* 8j. Cart button hover exactly as homepage. */
 html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button:hover:not(:disabled){background:#F1F7FF!important;border-color:#8EB8E6!important;color:#16438C!important}
+/* 8k. Desktop: five cards in a row, exactly as the homepage (the loader counts visible cards as items-1, which gives four for five records). */
+@media(min-width:992px){
+html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:calc((100% - 64px) / 5)!important}
+}
