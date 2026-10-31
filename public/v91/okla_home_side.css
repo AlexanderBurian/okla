@@ -11,7 +11,7 @@
 
 /* The card sits above the art on desktop, so the hand tucks under its edge with no clipping or fading. */
 @media (min-width:768px){
- html body.type-index #content-wrapper{z-index:1}
+ html body #content-wrapper{z-index:1}
 }
 
 /* Hand: 1.515 x the margin width, moved 10% to the right, so its right part runs under the card.

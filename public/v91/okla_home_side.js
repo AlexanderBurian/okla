@@ -39,10 +39,9 @@
   var left=document.getElementById('okla-side-left');
   var right=document.getElementById('okla-side-right');
   var card=document.querySelector('#content-wrapper');
-  var slider=document.querySelector('#content .okla-slider-shell');
   if(!left||!right)return;
   var viewport=document.documentElement.clientWidth;
-  if(!card||!slider||!window.matchMedia('(min-width:768px)').matches){
+  if(!card||!window.matchMedia('(min-width:768px)').matches){
    left.classList.remove('is-on');right.classList.remove('is-on');
    return;
   }
@@ -73,7 +72,7 @@
  }
 
  function start(){
-  if(!document.body||!document.body.classList.contains('type-index'))return;
+  if(!document.body)return;
   build();
   layout();
   window.addEventListener('resize',schedule);
