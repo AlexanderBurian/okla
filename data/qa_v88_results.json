@@ -205,7 +205,7 @@
     "buttonBG": "rgb(255, 255, 255)",
     "disabled": true,
     "cardAfter": "15px -2px -16px",
-    "hoverShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "hoverShadow": "rgba(0, 0, 0, 0.08) 0px 4px 12px 0px",
     "overflow": false,
     "fixture": "qa_home.html",
     "width": 1280,
