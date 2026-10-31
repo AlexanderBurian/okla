@@ -346,3 +346,8 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{
 /* 8ax. The quantity buttons had an absolutely positioned ::before (about 365 x 846 px) that covered the whole buy box and took every click.
    It is removed, so each button, link and the cart button receive their own clicks. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease)::before,html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease)::after{content:none!important;display:none!important}
+/* 8ay. Product photo 2x: the field is filled edge to edge (object-fit cover). The photos have large empty margins, so the product itself grows, not only the empty space around it. */
+@media(min-width:992px){
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{height:640px!important;overflow:hidden!important}
+html body.ok89-detail #content .p-detail .p-main-image img{height:100%!important;width:100%!important;object-fit:cover!important}
+}
