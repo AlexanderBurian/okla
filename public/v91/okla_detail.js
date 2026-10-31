@@ -48,6 +48,52 @@
   }
   // Unknown native state: do not change Shoptet disabled/enabled state.
  }
+ /* Quantity stepper: preserve the original Shoptet input, name, form and validation.
+    Visual buttons emit the same native input/change events; no duplicated purchase forms. */
+ function setupQuantityStepper(buy){
+  var wrap=q(':scope > .add-to-cart > .quantity',buy);
+  var input=wrap&&q('input.amount',wrap);
+  if(!wrap||!input||wrap.classList.contains('ok86-stepper-ready'))return;
+  var minus=el('button','ok86-qty-step ok86-qty-minus','−');
+  var plus=el('button','ok86-qty-step ok86-qty-plus','+');
+  minus.type='button';plus.type='button';
+  minus.setAttribute('aria-label','Snížit množství');
+  plus.setAttribute('aria-label','Zvýšit množství');
+  var minValue=()=>{var v=Number(input.min);return input.min!==''&&Number.isFinite(v)?v:1};
+  var maxValue=()=>{var v=Number(input.max);return input.max!==''&&Number.isFinite(v)?v:Infinity};
+  var stepValue=()=>{var v=Number(input.step);return input.step!==''&&input.step!=='any'&&v>0&&Number.isFinite(v)?v:1};
+  function normalize(){
+   var v=Number(input.value);
+   return input.value!==''&&Number.isFinite(v)?v:minValue();
+  }
+  function sync(){
+   var v=normalize(),blocked=input.disabled||input.readOnly;
+   minus.disabled=blocked||v<=minValue();
+   plus.disabled=blocked||v>=maxValue();
+  }
+  function adjust(dir){
+   if(input.disabled||input.readOnly)return;
+   var current=normalize(),step=stepValue();
+   var target=Math.max(minValue(),Math.min(maxValue(),Number((current+dir*step).toFixed(8))));
+   if(target===current){sync();return}
+   input.value=String(target);
+   input.dispatchEvent(new Event('input',{bubbles:true}));
+   input.dispatchEvent(new Event('change',{bubbles:true}));
+   sync();
+  }
+  minus.addEventListener('click',()=>adjust(-1));
+  plus.addEventListener('click',()=>adjust(1));
+  input.addEventListener('input',sync);
+  input.addEventListener('change',sync);
+  if(input.parentElement===wrap){
+   wrap.insertBefore(minus,input);
+   input.after(plus);
+  }else{
+   wrap.prepend(minus);wrap.append(plus);
+  }
+  wrap.classList.add('ok86-stepper-ready');
+  sync();
+ }
  function paramsTab(p,detail){var tabs=q('ul.p-detail-tabs',document);var content=q('#tab-content');if(!tabs||!content||q('#ok86-parameters'))return;
   var li=el('li','shp-tab ok86-parameters-tab');li.setAttribute('role','none');
   var a=el('a','shp-tab-link','Parametry');a.href='#ok86-parameters';a.setAttribute('role','tab');a.setAttribute('aria-selected','false');li.append(a);
@@ -137,6 +183,7 @@
    var img=q('.p-main-image img',gallery);if(img)img.alt=p.imageDesc;
    var zoom=q('.p-main-image',gallery);if(zoom)zoom.setAttribute('data-alt',p.imageDesc);
    if(!q('.ok86-cart-icon',btn))btn.prepend(svgCart('ok86-cart-icon'));
+   setupQuantityStepper(buy);
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
