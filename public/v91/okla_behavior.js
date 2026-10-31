@@ -219,7 +219,7 @@ b.setAttribute('aria-label','Hledat');
 }
 function fixCart(){if(!narrow.matches)return;
 document.querySelectorAll('main#content .okla-slider-shell .product .p-tools .btn-cart').forEach(btn=>{
-if(!btn.querySelector('.okm65-cart-svg'))btn.prepend(svg(['M2.8 4.5H5l2.1 9.6a2 2 0 0 0 2 1.6h8.3a2 2 0 0 0 2-1.6l1.2-6.3H6','M10 20h.01','M18 20h.01'],'okm65-cart-svg'));
+btn.querySelectorAll('.okm65-cart-svg').forEach(x=>x.remove());
 });
 }
 function fixCategories(){if(!narrow.matches)return;document.querySelectorAll('#okla-v61-categories .okm61-category').forEach(el=>{

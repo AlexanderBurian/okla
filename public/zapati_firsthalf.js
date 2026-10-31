@@ -17,8 +17,9 @@ var modules=[
  'v91/okla_behavior.js'
 ];
 if(isHome) modules.push('v91/okla_home.css','v91/okla_home.js');
-if(isDetail) modules.push('okla_v86_catalog.js','v91/okla_detail.css','v91/okla_detail.js');
-modules.push('v91/okla_navigation.css','v91/okla_navigation.js');
+modules.push('okla_v86_catalog.js');
+if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
+modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js');
 var index=0;
 function next(){
  if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';return}

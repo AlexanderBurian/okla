@@ -1,0 +1,61 @@
+/* OKLA mobile shell – max-width 767 px only. Desktop never sees these rules: every new element is hidden outside the media query. */
+.okla-m-search-open,
+.okla-m-search,
+.okla-m-buybar,
+.okla-m-header-spacer{display:none}
+
+@media (max-width:767px){
+
+/* ---------- Header: search icon on the right, no search field in the bar ---------- */
+html body #header #okla-v61-header .okm61-search{display:none!important}
+html body #header #okla-v61-header .okm61-top{justify-content:space-between!important}
+html body #header #okla-v61-header .okla-m-search-open{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important;min-height:40px!important;margin:0 -6px 0 auto!important;padding:0!important;border:0!important;border-radius:50%!important;background:transparent!important;color:#165498!important;box-shadow:none!important;cursor:pointer!important;-webkit-tap-highlight-color:transparent!important}
+html body #header #okla-v61-header .okla-m-search-open:active{background:rgba(22,84,152,.1)!important}
+html body #header #okla-v61-header .okla-m-search-open svg{display:block!important;width:24px!important;height:24px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.1!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
+/* ---------- Sticky header: slides in when the page scrolls up, out when it scrolls down ---------- */
+html body .okla-m-header-spacer{display:block!important}
+html body #header #okla-v61-header{transition:transform .24s ease,box-shadow .24s ease!important}
+html.okla-m-stuck body #header #okla-v61-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:520!important;padding:6px 15px!important;background:#fff!important;box-shadow:0 2px 10px rgba(18,41,68,.12)!important}
+html.okla-m-stuck body #header #okla-v61-header .okm61-top{height:34px!important;min-height:34px!important;margin:0!important}
+html.okla-m-stuck body #header #okla-v61-header .okm61-logo img{max-height:30px!important}
+html.okla-m-stuck body #header #okla-v61-header .okla-m-search-open{height:34px!important;min-height:34px!important;flex-basis:34px!important;width:34px!important}
+html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transform:translateY(-105%)!important;box-shadow:none!important}
+html.okla-m-lock,
+html.okla-m-lock body{overflow:hidden!important}
+
+/* ---------- Full-screen search ---------- */
+html body .okla-m-search{position:fixed!important;top:0!important;right:0!important;bottom:0!important;left:0!important;z-index:1000!important;display:none!important;flex-direction:column!important;background:#fff!important;padding-top:env(safe-area-inset-top,0px)!important;box-sizing:border-box!important}
+html body .okla-m-search.is-open{display:flex!important}
+html body .okla-m-search__bar{display:flex!important;align-items:center!important;gap:10px!important;padding:10px 16px!important;border-bottom:1px solid #e9eef4!important;background:#fff!important}
+html body .okla-m-search__field{display:flex!important;align-items:center!important;flex:1 1 auto!important;min-width:0!important;height:46px!important;margin:0!important;padding:0 14px!important;gap:8px!important;border:1.5px solid #165498!important;border-radius:25px!important;background:#fff!important;box-sizing:border-box!important;cursor:text!important}
+html body .okla-m-search__icon{display:block!important;flex:0 0 20px!important;width:20px!important;height:20px!important;fill:none!important;stroke:#165498!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+html body .okla-m-search__input{flex:1 1 auto!important;width:100%!important;min-width:0!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;font:500 16px/1.2 Roboto,Arial,sans-serif!important;-webkit-appearance:none!important;appearance:none!important}
+html body .okla-m-search__input::placeholder{color:#8a96a6!important;opacity:1!important}
+html body .okla-m-search__cancel{flex:0 0 auto!important;height:44px!important;margin:0!important;padding:0 2px!important;border:0!important;background:transparent!important;color:#165498!important;font:600 15px/1 Roboto,Arial,sans-serif!important;cursor:pointer!important;-webkit-tap-highlight-color:transparent!important}
+html body .okla-m-search__results{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;padding:0 16px 28px!important}
+html body .okla-m-search__head{padding:14px 0 6px!important;color:#6b7685!important;font:700 12px/1.2 Roboto,Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important}
+html body .okla-m-search__item{display:flex!important;align-items:center!important;gap:12px!important;padding:10px 0!important;border-bottom:1px solid #eef2f6!important;text-decoration:none!important;color:#0b2540!important;-webkit-tap-highlight-color:transparent!important}
+html body .okla-m-search__thumb{flex:0 0 56px!important;width:56px!important;height:56px!important;margin:0!important;padding:2px!important;border:1px solid #eef2f6!important;border-radius:10px!important;background:#fff!important;object-fit:contain!important}
+html body .okla-m-search__body{display:flex!important;flex-direction:column!important;gap:4px!important;min-width:0!important}
+html body .okla-m-search__name{display:-webkit-box!important;overflow:hidden!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;color:#0b2540!important;font:600 14px/1.3 Roboto,Arial,sans-serif!important}
+html body .okla-m-search__price{color:#092f64!important;font:800 15px/1.2 Roboto,Arial,sans-serif!important}
+html body .okla-m-search__all{display:block!important;width:100%!important;height:48px!important;margin:18px 0 0!important;padding:0 16px!important;border:0!important;border-radius:25px!important;background:#16478B!important;color:#fff!important;font:700 15px/1 Roboto,Arial,sans-serif!important;cursor:pointer!important;-webkit-tap-highlight-color:transparent!important}
+html body .okla-m-search__all:active{background:#0F3A6E!important}
+
+/* ---------- Product page: no blue top bar, Alza-like gradient from the header instead ---------- */
+html body.ok89-detail #content-wrapper{border-top:0!important;background-color:#fff!important;background-image:linear-gradient(180deg,#e5f5ff 0,#eef8ff 230px,#fff 440px)!important}
+html body.ok89-detail #content-wrapper::before{display:none!important;content:none!important}
+
+/* ---------- Product page: buy bar that appears when the native button scrolls away ---------- */
+html body .okla-m-buybar{position:fixed!important;left:0!important;right:0!important;bottom:0!important;z-index:395!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:12px!important;box-sizing:border-box!important;padding:10px 14px!important;border-top:1px solid #e4e8ed!important;background:#fff!important;box-shadow:0 -4px 14px rgba(4,23,43,.08)!important;transform:translateY(110%)!important;visibility:hidden!important;transition:transform .24s ease,visibility .24s ease!important}
+html body .okla-m-buybar.is-visible{transform:none!important;visibility:visible!important}
+html body .okla-m-buybar__info{display:flex!important;flex-direction:column!important;gap:2px!important;min-width:0!important}
+html body .okla-m-buybar__name{overflow:hidden!important;color:#0b2540!important;font:600 13px/1.25 Roboto,Arial,sans-serif!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+html body .okla-m-buybar__price{color:#092f64!important;font:800 17px/1.2 Roboto,Arial,sans-serif!important;white-space:nowrap!important}
+html body .okla-m-buybar__btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:46px!important;min-width:172px!important;margin:0!important;padding:0 16px!important;border:0!important;border-radius:23px!important;background:#16478B!important;color:#fff!important;box-shadow:none!important;font:700 14px/1 Roboto,Arial,sans-serif!important;white-space:nowrap!important;cursor:pointer!important;-webkit-tap-highlight-color:transparent!important}
+html body .okla-m-buybar__btn:active{background:#0F3A6E!important}
+html body .okla-m-buybar__btn:disabled{background:#c9d2de!important;color:#4a5566!important;cursor:not-allowed!important}
+html body .okla-m-buybar__icon{display:block!important;flex:0 0 20px!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+
+}
