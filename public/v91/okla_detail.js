@@ -146,6 +146,13 @@
    reviewLink.href='#ok97-review-block';
    reviewLi.append(reviewLink);
    homeLi.after(reviewLi);
+   reviewLink.addEventListener('click',function(){
+    qa('li.shp-tab',tabs).forEach(li=>li.classList.remove('active'));
+    reviewLi.classList.add('active');
+   });
+   qa('a.shp-tab-link',tabs).forEach(a=>a.addEventListener('click',function(){
+    reviewLi.classList.remove('active');
+   }));
   }
   var reviewTab=q('li.ok97-review-tab',tabs);
   if(params)(reviewTab||homeLi).after(params);
