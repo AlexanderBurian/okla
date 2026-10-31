@@ -212,7 +212,7 @@
    var nativePrice=doc.querySelector('.p-final-price-wrapper .price-final strong,.p-final-price-wrapper .price-final')?.textContent;
    var priceText=formattedPrice(nativePrice);
    if(priceText){var span=q('.price-final strong',card);if(span)span.textContent=priceText}
-   var nativeAvailability=doc.querySelector('.availability');var slot=q('.availability',card);if(nativeAvailability&&slot)slot.innerHTML=nativeAvailability.innerHTML;
+   var nativeAvailability=doc.querySelector('.availability-value');var slot=q('.availability',card);if(nativeAvailability&&slot)slot.innerHTML=nativeAvailability.innerHTML;
    if(stock===false){btn.disabled=true;btn.classList.add('ok97-unavailable');btn.setAttribute('aria-disabled','true');return}
    if(stock===true&&window.shoptet?.cartShared?.addToCart){
     btn.disabled=false;btn.classList.remove('ok97-unavailable');btn.removeAttribute('aria-disabled');
