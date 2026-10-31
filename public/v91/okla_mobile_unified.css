@@ -1,0 +1,861 @@
+/* OKLA V91: ONE unified mobile appearance file. All former style injection removed from behavior modules. */
+/* OKLA V61 — mobile-specific redesign, base desktop untouched */
+@media (max-width:767px){
+:root{--okm-blue:#174f96;--okm-ink:#082f62;--okm-pale:#eff8ff}
+html{scroll-padding-top:126px!important}
+html,body{max-width:100%!important;overflow-x:clip!important}
+body{min-width:0!important;margin:0!important;background:#fff!important;padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))!important;font-family:Roboto,"Segoe UI",Arial,sans-serif!important}
+body.okla-v61-locked{overflow:hidden!important}
+body .overall-wrapper,body .overall-wrapper>.container{max-width:100%!important;min-width:0!important}
+body #header{position:sticky!important;top:0!important;z-index:240!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;background:linear-gradient(180deg,#e5f5ff 0%,#f0f9ff 65%,#f9fcff 100%)!important;box-shadow:0 2px 7px rgba(12,40,70,.06)!important}
+body #header>.container.navigation-wrapper,body #header .header-top,body #header .top-navigation-bar,body #header .navigation-buttons,body #header #navigation{display:none!important}
+body #header #okla-v61-header{display:block!important;width:100%!important;max-width:none!important;min-height:0!important;margin:0!important;padding:7px 15px 11px!important;background:transparent!important}
+#okla-v61-header .okm61-top{display:flex!important;align-items:center!important;justify-content:flex-start!important;height:45px!important;margin:0 0 8px!important;padding:0!important}
+#okla-v61-header .okm61-logo{display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;min-height:0!important;text-decoration:none!important;color:#092f64!important;font-size:30px!important;font-weight:800!important;letter-spacing:-.8px!important}
+#okla-v61-header .okm61-logo img{display:block!important;width:auto!important;max-width:185px!important;height:auto!important;max-height:43px!important;object-fit:contain!important}
+#okla-v61-header .okm61-search{display:block!important;position:relative!important;width:100%!important;max-width:none!important;min-width:0!important;height:48px!important;margin:0!important;padding:0!important}
+#okla-v61-header .okm61-search .search,#okla-v61-header .okm61-search form,#okla-v61-header .okm61-search .search-form,#okla-v61-header .okm61-search fieldset{display:flex!important;position:relative!important;flex-direction:row!important;align-items:center!important;width:100%!important;min-width:0!important;max-width:none!important;height:48px!important;min-height:48px!important;margin:0!important;padding:0!important;top:auto!important;right:auto!important;left:auto!important;bottom:auto!important;transform:none!important;float:none!important;box-shadow:none!important;box-sizing:border-box!important}
+#okla-v61-header .okm61-search .search,#okla-v61-header .okm61-search form,#okla-v61-header .okm61-search .search-form{border:0!important;background:transparent!important}
+#okla-v61-header .okm61-search fieldset{border:1px solid #d2deeb!important;border-radius:25px!important;background:#fff!important;overflow:hidden!important}
+#okla-v61-header .okm61-search fieldset::before,#okla-v61-header .okm61-search fieldset::after{content:none!important;display:none!important}
+#okla-v61-header .okm61-search input.query-input,#okla-v61-header .okm61-search input[type=search],#okla-v61-header .okm61-search input[type=text]{display:block!important;position:relative!important;flex:1 1 auto!important;order:2!important;width:0!important;min-width:0!important;max-width:none!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0 14px 0 0!important;border:0!important;border-radius:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;font:400 15px/1.3 Roboto,"Segoe UI",Arial,sans-serif!important;color:#203d5c!important;appearance:none!important}
+#okla-v61-header .okm61-search input::placeholder{color:#9aa5b3!important;opacity:1!important}
+#okla-v61-header .okm61-search button[type=submit]{display:grid!important;position:relative!important;order:1!important;place-items:center!important;flex:0 0 52px!important;width:52px!important;min-width:52px!important;max-width:52px!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#1b528e!important;font-size:0!important;box-shadow:none!important;transform:none!important;cursor:pointer!important}
+#okla-v61-header .okm61-search button[type=submit]::before,#okla-v61-header .okm61-search button[type=submit]::after{content:none!important;display:none!important}
+#okla-v61-header .okm61-search button[type=submit]>*:not(.okm61-search-icon){display:none!important}
+#okla-v61-header .okm61-search .okm61-search-icon{display:block!important;width:23px!important;height:23px!important;stroke:currentColor!important;fill:none!important;stroke-width:2.3!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#okla-v61-header .search-whisperer{z-index:290!important;top:48px!important}
+#content-wrapper{position:relative!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;overflow:visible!important}
+#content-wrapper .content-wrapper-in,#content-wrapper>.row{width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:0!important}
+#content-wrapper aside.sidebar.sidebar-left{display:none!important}
+body.type-index #content-wrapper main#content{display:block!important;float:none!important;position:relative!important;min-width:0!important;max-width:100%!important;width:100%!important;margin:0!important;padding:14px 14px 28px!important;background:#fff!important;overflow:visible!important}
+#content .banners-row{display:block!important;width:100%!important;max-width:100%!important;margin:0 0 4px!important;padding:0!important;overflow:visible!important}
+#content .banners-row>.col-sm-8{display:block!important;width:100%!important;float:none!important;padding:0!important;margin:0!important}
+#content .banners-row>.col-sm-4,#content .next-to-carousel-banners{display:none!important}
+#content .banners-row #carousel{position:relative!important;display:block!important;aspect-ratio:1.62/1!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:12px!important;overflow:hidden!important;background:#ddecff!important;box-shadow:0 2px 8px rgba(10,38,70,.10)!important}
+#content .banners-row #carousel .carousel-inner,#content .banners-row #carousel .carousel-inner>.item,#content .banners-row #carousel .carousel-inner>.item.active,#content .banners-row #carousel .item>a{position:relative!important;width:100%!important;height:100%!important;max-height:none!important;margin:0!important;padding:0!important;overflow:hidden!important}
+#content .banners-row #carousel .carousel-inner{position:absolute!important;inset:0!important}
+#content .banners-row #carousel .carousel-inner>.item:not(.active){display:none!important}
+#content .banners-row #carousel .carousel-inner>.item.active{display:block!important}
+#content .banners-row #carousel .item>a{display:block!important}
+#content .banners-row #carousel .carousel-inner img{display:block!important;width:100%!important;height:100%!important;max-height:none!important;max-width:100%!important;margin:0!important;padding:0!important;object-fit:cover!important;object-position:center center!important}
+#content .banners-row .carousel-control,#content .banners-row .carousel-indicators,#content .banners-row .slick-arrow,#content .banners-row .swiper-button-prev,#content .banners-row .swiper-button-next{display:none!important}
+#content #okla-v61-dots{display:flex!important;align-items:center!important;justify-content:center!important;gap:13px!important;min-height:35px!important;margin:8px 0 15px!important;padding:0!important}
+#content #okla-v61-dots button{display:block!important;flex:0 0 10px!important;width:10px!important;height:10px!important;min-width:10px!important;min-height:10px!important;padding:0!important;margin:0!important;border:0!important;border-radius:50%!important;background:#d9dfe6!important;box-shadow:none!important;cursor:pointer!important}
+#content #okla-v61-dots button[aria-current=true]{background:#008fd8!important}
+#content #okla-v61-categories{position:relative!important;display:block!important;clear:both!important;width:100%!important;max-width:100%!important;margin:0 0 22px!important;padding:0!important;float:none!important}
+#okla-v61-categories .okm61-category-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+#okla-v61-categories .okm61-category{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:9px!important;min-width:0!important;min-height:61px!important;padding:9px!important;border:1px solid #e0e6ef!important;border-radius:8px!important;box-shadow:0 1px 4px rgba(9,37,72,.045)!important;background:#fff!important;color:#143252!important;text-decoration:none!important;font:600 12px/1.32 Roboto,"Segoe UI",Arial,sans-serif!important}
+#okla-v61-categories .okm61-category-icon{display:grid!important;place-items:center!important;flex:0 0 28px!important;width:28px!important;height:28px!important;color:#144b86!important}
+#okla-v61-categories .okm61-category-icon svg{display:block!important;width:25px!important;height:25px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.85!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#okla-v61-categories .okm61-category-label{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;min-width:0!important}
+#okla-v61-categories .okm61-category-more{display:flex!important;justify-content:center!important;align-items:center!important;gap:7px!important;width:100%!important;margin:8px 0 0!important;padding:9px!important;border:0!important;background:transparent!important;color:#1b6fa8!important;font:700 12px Roboto,Arial,sans-serif!important}
+#okla-v61-categories:not(.is-expanded) .okm61-category:nth-child(n+9){display:none!important}
+#content .homepage-group-title.okla-slider-heading{clear:both!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;width:100%!important;margin:24px 0 14px!important;font-size:20px!important;font-weight:800!important;line-height:1.3!important;color:#072e5e!important}
+#content .homepage-group-title.okla-slider-heading .okla-section-more{font-size:12px!important}
+#content .okla-slider-shell{position:relative!important;display:block!important;clear:both!important;width:100%!important;max-width:100%!important;margin:0 0 8px!important;padding:0!important;overflow:visible!important;isolation:auto!important}
+#content .okla-slider-shell>.okla-slider-controls,#content .okla-slider-controls{display:none!important}
+#content .okla-slider-shell .okla-slider-viewport{position:relative!important;display:block!important;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important;contain:none!important;touch-action:pan-y!important}
+#content .okla-slider-shell .products.products-block.okla-slider-track{display:grid!important;position:relative!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important;justify-content:stretch!important;gap:11px!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important;transition:none!important;will-change:auto!important;float:none!important}
+#content .okla-slider-shell .okla-slider-track>.product{display:block!important;position:relative!important;float:none!important;clear:none!important;flex:none!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;transform:none!important;box-sizing:border-box!important;background:#fff!important}
+#content .okla-slider-shell:not(.okm61-expanded) .okla-slider-track>.product:nth-child(n+5){display:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p{display:flex!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;margin:0!important;padding:10px 8px 13px!important;border:1px solid #e1e7ef!important;border-radius:9px!important;background:#fff!important;box-sizing:border-box!important;box-shadow:0 1px 4px rgba(21,43,68,.095)!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;width:100%!important;height:138px!important;min-height:138px!important;max-height:138px!important;margin:0 0 5px!important;padding:2px!important;overflow:hidden!important;background:#fff!important}
+#content .okla-slider-shell .okla-slider-track>.product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;margin:auto!important;padding:0!important;object-fit:contain!important;object-position:center!important;transform:scale(1.06)!important;filter:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-in,#content .okla-slider-shell .okla-slider-track>.product .p-in-in{display:flex!important;flex:1 1 auto!important;flex-direction:column!important;align-items:stretch!important;min-width:0!important;width:100%!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track .ratings-wrapper.okla-ratings,#content .okla-slider-shell .okla-slider-track .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:row!important;flex-wrap:nowrap!important;min-width:0!important;width:100%!important;min-height:19px!important;height:auto!important;gap:2px!important;margin:0 0 6px!important;padding:0!important;color:#708092!important;font-size:10px!important;line-height:15px!important;white-space:nowrap!important}
+#content .okla-slider-shell .okla-slider-track .ratings-wrapper .stars-placeholder{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:2px!important;white-space:nowrap!important;font-size:10px!important}
+#content .okla-slider-shell .okla-slider-track a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;width:100%!important;height:42px!important;min-height:42px!important;max-height:42px!important;margin:0 0 5px!important;padding:0!important;text-align:center!important;font-size:12.5px!important;font-weight:650!important;line-height:20px!important;word-break:normal!important;color:#12438a!important}
+#content .okla-slider-shell .okla-slider-track .availability{display:block!important;min-height:30px!important;height:auto!important;width:100%!important;margin:0!important;padding:0!important;font-size:10.5px!important;line-height:15px!important;text-align:center!important;color:#d21c26!important}
+#content .okla-slider-shell .okla-slider-track .p-bottom{display:block!important;flex:none!important;width:100%!important;margin-top:auto!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track .p-bottom>div{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;min-width:0!important}
+#content .okla-slider-shell .okla-slider-track .prices{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;max-width:156px!important;height:64px!important;min-height:64px!important;margin:8px auto 0!important;padding:0!important;border-radius:5px!important;overflow:hidden!important;background:#eaf3fc!important}
+#content .okla-slider-shell .okla-slider-track .prices:before{content:'NOVINKA'!important;display:flex!important;justify-content:center!important;align-items:center!important;flex:0 0 21px!important;width:100%!important;min-height:21px!important;height:21px!important;background:#082e66!important;color:#fff!important;font-size:9px!important;font-weight:800!important;line-height:21px!important}
+#content .okla-slider-shell .okla-slider-track .price-final{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:43px!important;min-height:43px!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track .price-final strong{display:block!important;width:100%!important;font-size:18px!important;line-height:28px!important;color:#0b3671!important;font-weight:800!important;white-space:nowrap!important;letter-spacing:-.2px!important}
+#content .okla-slider-shell .okla-slider-track .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:11px 0 0!important;min-height:43px!important}
+#content .okla-slider-shell .okla-slider-track .p-tools form{width:100%!important;margin:0!important}
+#content .okla-slider-shell .okla-slider-track .p-tools .btn-cart{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:156px!important;min-width:0!important;height:37px!important;min-height:37px!important;margin:0!important;padding:0 6px 0 24px!important;border:1px solid #cbdcf2!important;border-radius:6px!important;background-color:#fff!important;background-position:10px center!important;background-size:15px 15px!important;box-shadow:none!important;font-size:11px!important;font-weight:650!important;line-height:16px!important;white-space:nowrap!important;cursor:pointer!important}
+#content .okla-slider-shell .okla-slider-track .p-tools .btn-cart::before,#content .okla-slider-shell .okla-slider-track .p-tools .btn-cart::after{content:none!important;display:none!important}
+#content .okla-slider-shell .okla-slider-track .p-tools .btn-cart span{display:inline!important;font:inherit!important;color:inherit!important}
+#content .okm61-product-more{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;min-height:38px!important;margin:8px 0 25px!important;padding:4px!important;border:0!important;border-bottom:1px solid #e2e8f1!important;border-radius:0!important;background:#fff!important;color:#126da8!important;font:700 12px Roboto,Arial,sans-serif!important;cursor:pointer!important}
+#content .okm61-product-more svg{width:16px!important;height:16px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
+#content #okla-warranty-strip{position:relative!important;left:auto!important;right:auto!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;width:calc(100% + 28px)!important;min-width:0!important;max-width:none!important;min-height:0!important;margin:23px -14px 25px!important;padding:20px 10px!important}
+#content #okla-warranty-strip .okla-warranty-intro{padding:0 10px!important}
+#content #okla-news-v55{margin-top:26px!important}
+#content #okla-news-v55 .okn-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
+#content #okla-news-v55 .okn-card,#content #okla-news-v55 .okn-card:nth-child(-n+2){grid-column:1/-1!important}
+#okla-v61-bottom{display:grid!important;position:fixed!important;bottom:0!important;left:0!important;right:0!important;z-index:400!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;height:calc(68px + env(safe-area-inset-bottom,0px))!important;padding:4px 0 env(safe-area-inset-bottom,0px)!important;border-top:1px solid #e4e8ed!important;background:#fff!important;box-shadow:0 -3px 10px rgba(4,23,43,.07)!important}
+#okla-v61-bottom .okm61-bottom-action{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:4px!important;min-width:0!important;height:59px!important;margin:0!important;padding:2px!important;border:0!important;border-radius:0!important;background:transparent!important;text-decoration:none!important;color:#636b75!important;cursor:pointer!important;font:500 10.5px/1.1 Roboto,Arial,sans-serif!important}
+#okla-v61-bottom .okm61-bottom-action svg{display:block!important;width:25px!important;height:25px!important;stroke:currentColor!important;stroke-width:1.9!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#okla-v61-bottom .okm61-bottom-action.is-active{color:#184e96!important;font-weight:800!important}
+#okla-v61-bottom .okm61-bottom-action:focus-visible{outline:2px solid #1788cb!important;outline-offset:-3px!important}
+#okla-v61-drawer{display:flex!important;position:fixed!important;inset:0!important;z-index:510!important;background:rgba(7,27,49,.43)!important}
+#okla-v61-drawer[hidden]{display:none!important}
+#okla-v61-drawer .okm61-drawer-panel{display:block!important;position:absolute!important;top:0!important;bottom:0!important;right:0!important;width:min(360px,91vw)!important;max-width:100%!important;overflow:auto!important;background:#fff!important;box-shadow:-3px 0 16px #152f4a36!important}
+#okla-v61-drawer .okm61-drawer-head{display:flex!important;justify-content:space-between!important;align-items:center!important;position:sticky!important;top:0!important;z-index:2!important;padding:20px 16px!important;background:#fff!important;border-bottom:1px solid #e1e8ee!important;font-size:20px!important;font-weight:800!important;color:#0d356b!important}
+#okla-v61-drawer .okm61-drawer-close{display:grid!important;place-items:center!important;width:38px!important;height:38px!important;border:0!important;border-radius:6px!important;background:#f0f5fc!important;color:#174f91!important}
+#okla-v61-drawer .okm61-drawer-close svg{width:22px!important;height:22px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
+#okla-v61-drawer .okm61-drawer-body{padding:15px 12px 30px!important}
+#okla-v61-drawer .okm61-drawer-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+#okla-v61-drawer .okm61-menu-item{display:block!important;padding:14px 9px!important;border-bottom:1px solid #e8edf3!important;font-size:14px!important;font-weight:600!important;color:#144a86!important;text-decoration:none!important}
+}
+@media(min-width:768px){#okla-v61-header,#okla-v61-dots,#okla-v61-categories,#okla-v61-bottom,#okla-v61-drawer,.okm61-product-more{display:none!important}}
+
+
+/* okla_mobile_v65.js */
+
+@media(max-width:767px){
+html,body{margin:0!important;max-width:100%!important;overflow-x:clip!important}
+body{padding-top:0!important;margin-top:0!important;padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))!important}
+body .overall-wrapper,body .overall-wrapper>.container,body #header,body #content-wrapper{margin-top:0!important;padding-top:0!important;top:auto}
+body #header{position:sticky!important;top:0!important;z-index:460!important;min-height:0!important;margin:0!important;padding:0!important;background:#fff!important;box-shadow:none!important}
+body #header .header-top,body #header .navigation-wrapper,body #header #navigation,body #header .top-navigation-bar{display:none!important}
+body #header #okla-v61-header{display:block!important;position:relative!important;top:0!important;width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:4px 14px 11px!important;box-shadow:none!important;border:0!important;background:linear-gradient(180deg,#e5f5ff 0%,#eef8ff 66%,#fff 100%)!important;transition:background-color .16s ease,box-shadow .16s ease!important}
+body.okla-v65-white-header #header #okla-v61-header{background:#fff!important;box-shadow:0 2px 9px rgba(18,41,68,.09)!important}
+body #header #okla-v61-header .okm61-top{display:flex!important;align-items:center!important;justify-content:flex-start!important;min-height:0!important;height:38px!important;margin:0 0 5px!important;padding:0!important}
+body #header #okla-v61-header .okm61-logo{display:flex!important;align-items:center!important;width:auto!important;max-width:170px!important;min-height:0!important;height:36px!important;margin:0!important;padding:0!important;line-height:0!important}
+body #header #okla-v61-header .okm61-logo img{display:block!important;max-width:158px!important;max-height:35px!important;width:auto!important;height:auto!important;object-fit:contain!important;object-position:left center!important;margin:0!important;padding:0!important;transform:none!important}
+body #header #okla-v61-header .okm61-search{display:block!important;position:relative!important;width:100%!important;max-width:100%!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0!important;overflow:visible!important}
+body #header #okla-v61-header .okm61-search .search,body #header #okla-v61-header .okm61-search form,body #header #okla-v61-header .okm61-search .search-form{display:flex!important;align-items:center!important;position:relative!important;width:100%!important;max-width:none!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0!important;border:0!important;box-shadow:none!important;background:transparent!important;transform:none!important;float:none!important}
+body #header #okla-v61-header .okm61-search fieldset{display:flex!important;align-items:center!important;flex-direction:row!important;width:100%!important;max-width:none!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0!important;border:1px solid #d3dfeb!important;border-radius:25px!important;background:#fff!important;box-shadow:none!important;overflow:hidden!important}
+body #header #okla-v61-header .okm61-search fieldset::before,body #header #okla-v61-header .okm61-search fieldset::after{content:none!important;display:none!important}
+body #header #okla-v61-header .okm61-search button[type=submit]{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 48px!important;order:1!important;position:relative!important;width:48px!important;min-width:48px!important;max-width:48px!important;height:44px!important;min-height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;line-height:0!important;font-size:0!important}
+body #header #okla-v61-header .okm61-search button[type=submit]::before,body #header #okla-v61-header .okm61-search button[type=submit]::after{content:none!important;display:none!important}
+body #header #okla-v61-header .okm61-search button[type=submit]>*:not(.okm65-search-svg){display:none!important}
+body #header #okla-v61-header .okm61-search button[type=submit] .okm65-search-svg{display:block!important;position:static!important;width:21px!important;height:21px!important;margin:0!important;padding:0!important;fill:none!important;stroke:#165498!important;stroke-width:2.15!important;stroke-linecap:round!important;stroke-linejoin:round!important;transform:none!important;opacity:1!important}
+body #header #okla-v61-header .okm61-search input.query-input,body #header #okla-v61-header .okm61-search input[type=search],body #header #okla-v61-header .okm61-search input[type=text]{display:block!important;order:2!important;position:relative!important;flex:1 1 0!important;width:0!important;max-width:none!important;min-width:0!important;height:44px!important;min-height:44px!important;margin:0!important;padding:0 12px 0 0!important;border:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;font-size:15px!important;line-height:44px!important;color:#20384f!important}
+body #header #okla-v61-header .okm61-search input::placeholder{color:#9aa6b3!important;opacity:1!important}
+body.type-index #content-wrapper main#content{width:100%!important;max-width:100%!important;min-width:0!important;float:none!important;margin:0!important;padding:10px 12px 27px!important;background:#fff!important}
+#content .banners-row{margin:0 0 4px!important}
+#content .banners-row #carousel{border-radius:13px!important;overflow:hidden!important}
+#content .banners-row .carousel-control,#content .banners-row .slick-arrow,#content .banners-row .swiper-button-next,#content .banners-row .swiper-button-prev{display:none!important}
+#content #okla-v61-dots{min-height:31px!important;margin:6px 0 12px!important;gap:12px!important}
+#content #okla-v61-categories{margin:0 0 22px!important;padding:0!important}
+#content #okla-v61-categories .okm61-category-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+#content #okla-v61-categories .okm61-category{display:flex!important;align-items:center!important;gap:9px!important;min-height:59px!important;width:100%!important;padding:9px!important;border:1px solid #dfe6ed!important;border-radius:8px!important;box-shadow:0 1px 3px #1234560b!important;background:#fff!important;font-size:12px!important;line-height:1.28!important}
+#content .homepage-group-title.okla-slider-heading{margin:20px 0 12px!important;font-size:20px!important}
+#content .okla-slider-shell{display:block!important;position:relative!important;clear:both!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0 0 5px!important;padding:0!important;float:none!important;overflow:visible!important}
+#content .okla-slider-shell .okla-slider-viewport{display:block!important;position:relative!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;overflow:visible!important;contain:none!important;margin:0!important;padding:0!important;transform:none!important}
+#content .okla-slider-shell .products.products-block.okla-slider-track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:10px!important;row-gap:10px!important;justify-content:stretch!important;align-items:stretch!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;float:none!important;left:auto!important;right:auto!important;transform:none!important;transition:none!important}
+#content .okla-slider-shell .products.products-block.okla-slider-track>.product{display:block!important;grid-column:auto!important;flex:0 0 auto!important;float:none!important;position:relative!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;left:auto!important;right:auto!important;transform:none!important}
+#content .okla-slider-shell:not(.okm61-expanded) .okla-slider-track>.product:nth-child(n+5){display:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;float:none!important;width:100%!important;min-width:0!important;max-width:none!important;height:100%!important;margin:0!important;padding:8px 8px 10px!important;background:#fff!important;border:1px solid #e0e7ef!important;border-radius:9px!important;box-shadow:0 1px 5px rgba(14,42,68,.06)!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;width:100%!important;max-width:none!important;height:130px!important;min-height:130px!important;max-height:130px!important;margin:0 0 6px!important;padding:2px!important;overflow:hidden!important;background:#fff!important}
+#content .okla-slider-shell .okla-slider-track>.product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-in,#content .okla-slider-shell .okla-slider-track>.product .p-in-in{display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;flex:1 1 auto!important;width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track>.product .ratings-wrapper,#content .okla-slider-shell .okla-slider-track>.product .ratings-wrapper.okla-ratings{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;min-height:18px!important;height:18px!important;max-height:18px!important;width:100%!important;margin:1px 0 5px!important;padding:0!important;overflow:hidden!important;white-space:nowrap!important;line-height:16px!important;font-size:10px!important}
+#content .okla-slider-shell .okla-slider-track>.product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;width:100%!important;max-width:100%!important;height:38px!important;min-height:38px!important;max-height:38px!important;margin:0 0 4px!important;padding:0!important;font-size:12px!important;line-height:19px!important;font-weight:650!important;text-align:center!important}
+#content .okla-slider-shell .okla-slider-track>.product .availability{display:block!important;width:100%!important;max-width:100%!important;min-height:29px!important;height:auto!important;margin:0!important;padding:0!important;line-height:14px!important;font-size:10px!important;text-align:center!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-bottom{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;min-width:0!important;max-width:none!important;margin-top:auto!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-bottom>div{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track>.product .prices{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;max-width:155px!important;height:57px!important;min-height:57px!important;margin:7px 0 0!important;padding:0!important;overflow:hidden!important;border-radius:5px!important;background:#eaf3fd!important}
+#content .okla-slider-shell .okla-slider-track>.product .prices:before{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 19px!important;width:100%!important;height:19px!important;min-height:19px!important;line-height:19px!important;font-size:9px!important}
+#content .okla-slider-shell .okla-slider-track>.product .price-final{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:37px!important;height:37px!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .okla-slider-track>.product .price-final strong{display:block!important;max-width:100%!important;white-space:nowrap!important;font-size:17px!important;line-height:26px!important;font-weight:800!important;letter-spacing:-.25px!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:9px 0 0!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools form{display:flex!important;width:100%!important;min-width:0!important;margin:0!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;position:relative!important;width:100%!important;max-width:155px!important;min-width:0!important;min-height:36px!important;height:36px!important;margin:0!important;padding:0 6px!important;border:1px solid #c6d7ee!important;border-radius:6px!important;background:#fff!important;background-image:none!important;color:#174782!important;font:650 11px/1.2 Roboto,Arial,sans-serif!important;white-space:nowrap!important;box-shadow:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:before,#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:after{display:none!important;content:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart svg.okm65-cart-svg{display:block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin:0!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;fill:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:not(:hover){background:#fff!important}
+#content .okm61-product-more{width:100%!important;margin:8px 0 23px!important}
+#okla-v61-bottom{height:calc(67px + env(safe-area-inset-bottom,0px))!important}
+#okla-v61-bottom .okm61-bottom-action svg{width:24px!important;height:24px!important;stroke-width:1.85!important}
+}
+@media(min-width:768px){
+#header #okla-v61-header,#header #okla-m-header{display:none!important}
+}
+
+
+/* okla_mobile_v66.js */
+
+@media(max-width:767px){
+/* Scroll-direction header: displayed at page top, hidden on downward scroll, white on upward scroll */
+body #header{position:sticky!important;top:0!important;z-index:450!important;transform:translate3d(0,0,0)!important;transition:transform .2s ease!important;will-change:transform!important}
+body.okla-v66-hide-header #header{transform:translate3d(0,-105%,0)!important;pointer-events:none!important}
+body.okla-v66-show-header #header #okla-v61-header{background:#fff!important;box-shadow:0 3px 12px rgba(10,40,70,.09)!important}
+body:not(.okla-v66-show-header):not(.okla-v66-hide-header) #header #okla-v61-header{background:linear-gradient(180deg,#e5f5ff,#eef8ff 68%,#fff)!important;box-shadow:none!important}
+body.okla-v66-hide-header #header #okla-v61-header{box-shadow:none!important}
+#content .okla-slider-shell .okla-slider-viewport{display:block!important;overflow:visible!important;height:auto!important;min-width:0!important;max-width:100%!important;transform:none!important}
+#content .okla-slider-shell .products.products-block.okla-slider-track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important;justify-items:stretch!important;gap:11px!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;transform:none!important;left:auto!important;right:auto!important;padding:0!important;margin:0!important}
+#content .okla-slider-shell .okla-slider-track>.product{display:block!important;position:relative!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important;overflow:visible!important}
+#content .okla-slider-shell:not(.okm61-expanded) .okla-slider-track>.product:nth-child(n+5){display:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;margin:0!important;padding:9px 9px 11px!important;border:1px solid #e0e6ee!important;border-radius:9px!important;background:#fff!important;box-shadow:0 1px 4px rgba(19,48,77,.075)!important;overflow:hidden!important}
+#content .okla-slider-shell .okla-slider-track>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 130px!important;width:100%!important;height:130px!important;min-height:130px!important;max-height:130px!important;margin:0 0 6px!important;padding:2px!important;border:0!important;background:#fff!important;overflow:hidden!important;position:relative!important;float:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p>a.image img{display:block!important;position:static!important;max-width:100%!important;max-height:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;float:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-in,#content .okla-slider-shell .okla-slider-track>.product .p-in-in{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;flex:1 1 auto!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;max-height:none!important;margin:0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .ratings-wrapper{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:17px!important;height:17px!important;max-height:17px!important;flex:0 0 17px!important;margin:2px 0 5px!important;padding:0!important;float:none!important;white-space:nowrap!important;overflow:hidden!important;font-size:10px!important;line-height:17px!important}
+#content .okla-slider-shell .okla-slider-track>.product a.name{position:relative!important;display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;float:none!important;width:100%!important;min-height:40px!important;height:40px!important;max-height:40px!important;overflow:hidden!important;margin:0 0 4px!important;padding:0!important;font-size:12px!important;line-height:20px!important;text-align:center!important}
+#content .okla-slider-shell .okla-slider-track>.product .availability{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;float:none!important;width:100%!important;min-height:31px!important;height:31px!important;max-height:31px!important;overflow:hidden!important;margin:0 0 5px!important;padding:0!important;text-align:center!important;font-size:10px!important;line-height:15px!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-end!important;float:none!important;flex:0 0 auto!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;max-height:none!important;margin:auto 0 0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important;overflow:visible!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-bottom>div{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .prices{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;flex:0 0 58px!important;float:none!important;width:100%!important;max-width:none!important;min-width:0!important;height:58px!important;min-height:58px!important;max-height:58px!important;margin:2px 0 0!important;padding:0!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;background:#eaf3fc!important;border:0!important;border-radius:6px!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
+#content .okla-slider-shell .okla-slider-track>.product .prices::before{content:"NOVINKA"!important;position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 19px!important;width:100%!important;min-height:19px!important;max-height:19px!important;height:19px!important;line-height:19px!important;margin:0!important;padding:0!important;background:#0b356e!important;color:#fff!important;font-size:9px!important;font-weight:800!important;box-shadow:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .price-final{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 39px!important;float:none!important;width:100%!important;max-width:100%!important;height:39px!important;min-height:39px!important;max-height:39px!important;margin:0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;box-shadow:none!important;overflow:hidden!important}
+#content .okla-slider-shell .okla-slider-track>.product .price-final strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;white-space:nowrap!important;line-height:26px!important;font-size:17px!important;font-weight:800!important;letter-spacing:-.35px!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools,#content .okla-slider-shell .okla-slider-track>.product .p-tools form{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;float:none!important;min-width:0!important;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:9px 0 0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important;overflow:visible!important;box-shadow:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools form{padding:0!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart{position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;flex:0 1 auto!important;float:none!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:36px!important;height:36px!important;max-height:36px!important;margin:0!important;padding:0 4px!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important;border:1px solid #c4d8ef!important;border-radius:6px!important;background:#fff!important;background-image:none!important;box-shadow:none!important;white-space:nowrap!important;text-indent:0!important;line-height:1.2!important;font-size:11px!important;font-weight:700!important;color:#154b88!important;overflow:hidden!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart::before,#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart::after{content:none!important;display:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart svg.okm65-cart-svg{position:static!important;display:block!important;flex:0 0 15px!important;float:none!important;width:15px!important;height:15px!important;margin:0!important;padding:0!important;stroke:#164c89!important;fill:none!important;stroke-width:1.9!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart>*{position:static!important;max-width:100%!important;float:none!important;margin:0!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:hover{background:#e7f0fc!important;color:#0a3c78!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:active{background:#d7e8f9!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:focus-visible{outline:2px solid #1476b6!important;outline-offset:2px!important}
+}
+@media(prefers-reduced-motion:reduce){body #header{transition:none!important}}
+
+
+/* okla_mobile_v69.js */
+@media(max-width:767px){
+html body #header,html body.okla-v66-hide-header #header,html body.okla-v66-show-header #header{position:relative!important;top:auto!important;bottom:auto!important;transform:none!important;transition:none!important;will-change:auto!important;pointer-events:auto!important;z-index:auto!important}
+html body #header #okla-v61-header,html body.okla-v65-white-header #header #okla-v61-header,html body.okla-v66-show-header #header #okla-v61-header,html body.okla-v66-hide-header #header #okla-v61-header{background:linear-gradient(180deg,#e5f5ff 0%,#eef8ff 66%,#fff 100%)!important;box-shadow:none!important;transition:none!important}
+html body #header #okla-v61-header .okm61-top{margin-bottom:8px!important}
+html body #header #okla-v61-header .okm61-logo{max-width:160px!important;height:34px!important}
+html body #header #okla-v61-header .okm61-logo img{max-width:148px!important;max-height:32px!important}
+#okla-v69-floating{position:fixed!important;inset:0 0 auto 0!important;top:0!important;width:100%!important;max-width:100%!important;z-index:1200!important;background:#fff!important;box-shadow:0 2px 11px rgba(18,41,68,.10)!important;transform:translate3d(0,-110%,0)!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:none!important;box-sizing:border-box!important}
+#okla-v69-floating.okla-v69-visible{transform:translate3d(0,0,0)!important;visibility:visible!important;opacity:1!important;pointer-events:auto!important;transition:transform .14s ease-out,opacity .14s ease-out!important}
+#okla-v69-floating .okm69-shell{box-sizing:border-box!important;width:100%!important;padding:4px 14px 11px!important;background:#fff!important}
+#okla-v69-floating .okm69-logo-row{display:flex!important;align-items:center!important;height:38px!important;margin:0 0 8px!important;padding:0!important}
+#okla-v69-floating .okm69-logo{display:flex!important;align-items:center!important;max-width:160px!important;height:34px!important;line-height:0!important}
+#okla-v69-floating .okm69-logo img{display:block!important;width:auto!important;height:auto!important;max-width:148px!important;max-height:32px!important;object-fit:contain!important}
+#okla-v69-floating .okm69-search{display:flex!important;align-items:center!important;box-sizing:border-box!important;height:46px!important;width:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;border:1px solid #d3dfeb!important;border-radius:25px!important;background:#fff!important}
+#okla-v69-floating .okm69-search button{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 48px!important;width:48px!important;height:44px!important;padding:0!important;margin:0!important;border:0!important;background:none!important;color:#165498!important;box-shadow:none!important}
+#okla-v69-floating .okm69-search button svg{display:block!important;width:21px!important;height:21px!important;fill:none!important;stroke:#165498!important;stroke-width:2.15!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#okla-v69-floating .okm69-search input{display:block!important;flex:1 1 0!important;min-width:0!important;width:0!important;height:44px!important;padding:0 12px 0 0!important;margin:0!important;border:0!important;outline:0!important;background:transparent!important;font-size:15px!important;line-height:44px!important;color:#20384f!important;box-shadow:none!important;appearance:none!important}
+#okla-v69-floating .okm69-search input::placeholder{color:#9aa6b3!important;opacity:1!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-bottom>.p-tools{border-top:1px solid #edf0f3!important;margin:9px -9px -10px!important;padding:7px 7px 8px!important;width:calc(100% + 18px)!important;max-width:none!important;box-sizing:border-box!important;background:#fff!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart{min-height:38px!important;height:38px!important;max-height:38px!important;border:0!important;border-radius:0!important;background:#fff!important;background-image:none!important;color:#679900!important;font-size:13px!important;font-weight:500!important;box-shadow:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart svg.okm65-cart-svg{width:20px!important;height:20px!important;flex-basis:20px!important;stroke:#679900!important;stroke-width:2!important}
+#content .okla-slider-shell .okla-slider-track>.product .p-tools .btn-cart:hover{background:#f7fbea!important;color:#527c00!important}
+}
+@media(min-width:768px){#okla-v69-floating{display:none!important}}
+@media(prefers-reduced-motion:reduce){#okla-v69-floating.okla-v69-visible{transition:none!important}}
+
+/* okla_mobile_v71.js */
+
+@media(max-width:767px){
+html,body{margin-top:0!important;padding-top:0!important}
+body #header,body.okla-v65-white-header #header,body.okla-v66-hide-header #header,body.okla-v66-show-header #header{position:relative!important;top:auto!important;transform:none!important;transition:none!important;will-change:auto!important;pointer-events:auto!important;margin-top:0!important;padding-top:0!important}
+body #header #okla-v61-header,body.okla-v65-white-header #header #okla-v61-header,body.okla-v66-show-header #header #okla-v61-header{background:linear-gradient(180deg,#e7f5ff,#eff9ff 68%,#fff)!important;box-shadow:none!important}
+body #header #okla-v61-header .okm61-top{margin-bottom:8px!important;height:38px!important;min-height:38px!important}
+body #header #okla-v61-header .okm61-logo img{max-width:148px!important;max-height:32px!important;object-fit:contain!important;transform:none!important}
+#okla-v69-floating .okm69-search button svg{display:block!important;position:static!important;width:21px!important;height:21px!important;stroke:#165498!important;stroke-width:2.1!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important;transform:none!important}
+#content .okla-slider-shell{width:100%!important;max-width:100%!important;min-width:0!important;overflow:visible!important}
+#content .okla-slider-shell .okla-slider-viewport{width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;overflow:visible!important;transform:none!important}
+#content .okla-slider-shell .products.okla-slider-track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;float:none!important;margin:0!important;padding:0!important;transform:none!important}
+#content .okla-slider-shell .okla-slider-track>.product{display:block!important;position:relative!important;float:none!important;flex:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}
+#content .okla-slider-shell:not(.okm61-expanded) .okla-slider-track>.product:nth-child(n+5){display:none!important}
+#content .okla-slider-shell .product .p{display:flex!important;flex-direction:column!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;margin:0!important;padding:9px 8px 0!important;border:1px solid #e0e6ed!important;border-radius:9px!important;overflow:hidden!important;background:#fff!important;box-shadow:0 1px 5px rgba(18,46,70,.05)!important}
+#content .okla-slider-shell .product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:132px!important;min-height:132px!important;max-height:132px!important;margin:0 0 5px!important;overflow:hidden!important}
+#content .okla-slider-shell .product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
+#content .okla-slider-shell .product .p-in,#content .okla-slider-shell .product .p-in-in{display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:1 1 auto!important;position:relative!important;float:none!important;min-width:0!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .product a.name{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;min-height:40px!important;height:40px!important;max-height:40px!important;overflow:hidden!important;margin:0 0 5px!important;font-size:12px!important;line-height:20px!important;text-align:center!important}
+#content .okla-slider-shell .product .availability{min-height:29px!important;height:29px!important;max-height:29px!important;overflow:hidden!important;font-size:10px!important;line-height:14px!important;text-align:center!important}
+#content .okla-slider-shell .product .p-bottom{display:flex!important;flex-direction:column!important;align-items:stretch!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:auto 0 0!important;padding:0!important;transform:none!important}
+#content .okla-slider-shell .product .p-bottom>div{position:static!important;float:none!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;transform:none!important}
+#content .okla-slider-shell .product .prices{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;flex:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:47px!important;min-height:47px!important;max-height:47px!important;margin:0!important;padding:0!important;overflow:hidden!important;border:0!important;border-radius:6px!important;background:#eef4fa!important;transform:none!important}
+#content .okla-slider-shell .product .prices::before{content:none!important;display:none!important}
+#content .okla-slider-shell .product .price-final{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;height:47px!important;min-height:47px!important;max-height:47px!important;margin:0!important;padding:0!important}
+#content .okla-slider-shell .product .price-final strong{font-size:18px!important;line-height:26px!important;color:#0b3674!important;font-weight:800!important;white-space:nowrap!important}
+#content .okla-slider-shell .product .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;flex:none!important;width:calc(100% + 16px)!important;max-width:none!important;min-width:0!important;height:49px!important;min-height:49px!important;max-height:49px!important;margin:8px -8px 0!important;padding:0 8px!important;border-top:1px solid #ebedf0!important;background:#fff!important;box-sizing:border-box!important;overflow:hidden!important;transform:none!important}
+#content .okla-slider-shell .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}
+#content .okla-slider-shell .product .p-tools .btn-cart{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;position:static!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;height:45px!important;max-height:45px!important;min-height:45px!important;margin:0!important;padding:0 2px!important;border:0!important;border-radius:0!important;background:#fff!important;background-image:none!important;box-shadow:none!important;color:#649b00!important;font-size:12px!important;font-weight:600!important;line-height:1.2!important;white-space:nowrap!important;transform:none!important}
+#content .okla-slider-shell .product .p-tools .btn-cart::before,#content .okla-slider-shell .product .p-tools .btn-cart::after{content:none!important;display:none!important}
+#content .okla-slider-shell .product .p-tools .btn-cart svg.okm65-cart-svg{display:none!important}
+#content .okla-slider-shell .product .p-tools .btn-cart svg.okv71-cart{display:block!important;flex:0 0 20px!important;width:20px!important;height:20px!important;margin:0!important;stroke:currentColor!important;fill:none!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#content .okla-slider-shell .product .p-tools .btn-cart:hover{color:#527f00!important;background:#f7fbea!important}
+#okla-v61-bottom .okm61-bottom-action svg{width:24px!important;height:24px!important;stroke-width:1.9!important}
+}
+
+
+/* okla_mobile_v72.js */
+
+@media(max-width:767px){
+/* Alza-inspired soft horizontal header wash: nearly white on the right */
+body #header #okla-v61-header,
+body.okla-v65-white-header #header #okla-v61-header,
+body.okla-v66-show-header #header #okla-v61-header,
+body.okla-v66-hide-header #header #okla-v61-header {
+background:linear-gradient(103deg,#eaf6fc 0%,#f0f9fc 31%,#f8fcfd 68%,#ffffff 100%)!important;
+box-shadow:none!important
+}
+body #header #okla-v61-header .okm61-top{height:37px!important;min-height:37px!important;margin-bottom:9px!important}
+body #header #okla-v61-header .okm61-logo img{max-width:146px!important;max-height:31px!important;width:auto!important;height:auto!important;object-fit:contain!important}
+/* Product grid and uniform outer cards */
+body.type-index #content .okla-slider-shell{display:block!important;clear:both!important;width:100%!important;min-width:0!important;max-width:100%!important;overflow:visible!important}
+body.type-index #content .okla-slider-shell .okla-slider-viewport{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;overflow:visible!important;transform:none!important}
+body.type-index #content .okla-slider-shell .products.okla-slider-track{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:stretch!important;justify-items:stretch!important;gap:10px!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important;float:none!important;left:auto!important;right:auto!important;transform:none!important;transition:none!important}
+body.type-index #content .okla-slider-shell .okla-slider-track>.product{display:block!important;position:relative!important;float:none!important;flex:none!important;grid-column:auto!important;width:100%!important;min-width:0!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important;left:auto!important;right:auto!important;transform:none!important}
+body.type-index #content .okla-slider-shell:not(.okm61-expanded) .okla-slider-track>.product:nth-child(n+5){display:none!important}
+body.type-index #content .okla-slider-shell .product .p{box-sizing:border-box!important;position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;min-height:0!important;margin:0!important;padding:12px 11px 0!important;border:1px solid #e7ebef!important;border-radius:7px!important;background:#fff!important;box-shadow:0 1px 4px rgba(0,25,60,.05)!important;overflow:hidden!important}
+body.type-index #content .okla-slider-shell .product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;position:relative!important;width:100%!important;min-width:0!important;max-width:100%!important;height:151px!important;min-height:151px!important;max-height:151px!important;margin:0 0 7px!important;padding:2px!important;background:white!important;overflow:hidden!important}
+body.type-index #content .okla-slider-shell .product .p>a.image img{position:static!important;display:block!important;max-width:100%!important;max-height:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;float:none!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .p-in,
+body.type-index #content .okla-slider-shell .product .p-in-in{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:1 1 auto!important;float:none!important;min-width:0!important;width:100%!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 21px!important;width:100%!important;min-width:0!important;height:21px!important;min-height:21px!important;max-height:21px!important;margin:0 0 5px!important;padding:0!important;font-size:10px!important;line-height:21px!important;white-space:nowrap!important;overflow:hidden!important}
+body.type-index #content .okla-slider-shell .product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;flex:0 0 43px!important;width:100%!important;min-height:43px!important;height:43px!important;max-height:43px!important;margin:0 0 5px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font:500 13px/21.5px Roboto,"Segoe UI",Arial,sans-serif!important;color:#102e5f!important}
+body.type-index #content .okla-slider-shell .product .availability{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;width:100%!important;min-height:27px!important;height:27px!important;max-height:27px!important;margin:0 0 8px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font-size:10px!important;line-height:13px!important}
+body.type-index #content .okla-slider-shell .product .p-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-end!important;flex:0 0 auto!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:auto 0 0!important;padding:0!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .p-bottom>div{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .prices{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;flex:0 0 82px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:82px!important;min-height:82px!important;max-height:82px!important;margin:0!important;padding:0!important;border:0!important;border-radius:5px!important;box-shadow:none!important;background:#eef6fc!important;overflow:hidden!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .prices::before{content:"NOVINKA"!important;position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 30px!important;width:100%!important;min-height:30px!important;height:30px!important;max-height:30px!important;margin:0!important;padding:0!important;background:#0b336c!important;color:#fff!important;line-height:30px!important;font-size:11px!important;font-weight:750!important;letter-spacing:.2px!important}
+body.type-index #content .okla-slider-shell .product .price-final{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 52px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:52px!important;height:52px!important;max-height:52px!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;overflow:hidden!important}
+body.type-index #content .okla-slider-shell .product .price-final strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;white-space:nowrap!important;font:800 20px/27px Roboto,"Segoe UI",Arial,sans-serif!important;color:#0a346c!important;letter-spacing:-.35px!important}
+body.type-index #content .okla-slider-shell .product .p-tools{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex:0 0 53px!important;float:none!important;box-sizing:border-box!important;width:calc(100% + 22px)!important;max-width:none!important;min-width:0!important;min-height:53px!important;height:53px!important;max-height:53px!important;margin:10px -11px 0!important;padding:0 11px!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;border-top:1px solid #e9edf1!important;background:#fff!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
+body.type-index #content .okla-slider-shell .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart{position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:48px!important;height:48px!important;max-height:48px!important;margin:0!important;padding:0!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;border:0!important;border-radius:0!important;background:#fff!important;background-image:none!important;box-shadow:none!important;color:#699900!important;font:500 13px/1.2 Roboto,"Segoe UI",Arial,sans-serif!important;white-space:nowrap!important;text-indent:0!important;transform:none!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::before,
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::after{display:none!important;content:none!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okm65-cart-svg,
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv70-cart,
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv71-cart{display:none!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv72-cart{display:block!important;flex:0 0 21px!important;width:21px!important;height:21px!important;min-width:21px!important;margin:0!important;padding:0!important;fill:none!important;stroke:currentColor!important;stroke-width:2.15!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:hover,
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:active{color:#577f00!important;background:#fbfdea!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:focus-visible{outline:2px solid #2174be!important;outline-offset:-3px!important}
+}
+
+
+/* okla_mobile_v73.js */
+
+/* V73 — keep warranty hidden on all breakpoints, all other content intact */
+#content #okla-warranty-strip,#content .okla-warranty-strip,
+#content .okla-warranty-carousel,#content .okla-warranty-intro,
+#content .okla-warranty-cards{display:none!important}
+@media(max-width:767px){
+/* wide, very soft background that gently reaches the first rows of categories */
+html body #header #okla-v61-header,
+html body.okla-v65-white-header #header #okla-v61-header,
+html body.okla-v66-show-header #header #okla-v61-header{
+background:radial-gradient(ellipse 125% 480px at -13% -30%,rgba(202,231,247,.52) 0%,rgba(232,246,250,.34) 47%,rgba(255,255,255,0) 95%),#fff!important;
+box-shadow:none!important
+}
+html body.type-index #content-wrapper main#content{
+background:radial-gradient(ellipse 145% 660px at -11% 0%,rgba(207,234,247,.35) 0%,rgba(234,247,252,.20) 46%,rgba(255,255,255,0) 92%) top left/100% 900px no-repeat,#fff!important
+}
+#content #okla-v61-dots,#content #okla-v61-categories{background:transparent!important}
+/* Ratings sit consistently above product title, without inventing genuine reviews */
+body.type-index #content .okla-slider-shell .product .ratings-wrapper{
+display:flex!important;align-items:center!important;justify-content:center!important;
+flex:0 0 22px!important;width:100%!important;min-width:0!important;min-height:22px!important;height:22px!important;
+max-height:22px!important;gap:3px!important;padding:0!important;margin:0 0 6px!important;overflow:hidden!important
+}
+body.type-index #content .product .okv73-rating-placeholder{
+display:inline-flex!important;align-items:center!important;justify-content:center!important;
+gap:5px!important;width:100%!important;max-width:100%!important;min-width:0!important;
+color:#8a95a3!important;font:400 9px/15px Roboto,Arial,sans-serif!important;
+white-space:nowrap!important;overflow:hidden!important
+}
+body.type-index #content .product .okv73-rating-stars{
+display:inline-flex!important;align-items:center!important;justify-content:center!important;
+gap:1px!important;flex:0 0 auto!important
+}
+body.type-index #content .product .okv73-rating-stars svg{
+display:block!important;width:13px!important;height:13px!important;flex:0 0 13px!important;
+stroke:#ecad12!important;fill:none!important;stroke-width:1.55!important
+}
+body.type-index #content .product .okv73-rating-caption{font-size:9px!important;white-space:nowrap!important}
+#content .homepage-blog-wrapper,#content .homepage-blog,#content .homepage-news,#content .homepage-articles,#content .homepage-blog-posts{
+display:none!important
+}
+}
+
+
+/* okla_mobile_v74.js */
+
+@media(max-width:767px){
+/* Softer upper-right header gradient, with a gentle continuation by the categories. */
+html body #header #okla-v61-header,
+html body.okla-v65-white-header #header #okla-v61-header,
+html body.okla-v66-show-header #header #okla-v61-header,
+html body.okla-v66-hide-header #header #okla-v61-header{
+background:linear-gradient(103deg,rgba(210,234,247,.43) 0%,rgba(231,245,251,.23) 33%,rgba(247,252,254,.06) 66%,rgba(255,255,255,0) 82%),#fff!important;
+box-shadow:none!important}
+html body.type-index #content-wrapper main#content{
+background:radial-gradient(ellipse 135% 660px at -16% -4%,rgba(211,234,248,.32) 0%,rgba(234,246,252,.14) 43%,rgba(255,255,255,0) 85%) top left/100% 900px no-repeat,#fff!important}
+/* The five stars are decorative placeholders, not product review ratings. */
+body.type-index #content .product .okv73-rating-stars svg{
+fill:#f3b91d!important;stroke:#f3b91d!important;stroke-width:1.2!important;
+width:14px!important;height:14px!important;flex-basis:14px!important}
+body.type-index #content .product .okv73-rating-stars{gap:1px!important}
+body.type-index #content .product .okv73-rating-placeholder{gap:5px!important}
+body.type-index #content .product .okv73-rating-caption{color:#7d8998!important;font-size:9px!important}
+/* Larger titles while keeping two line clamp and matched grid heights. */
+body.type-index #content .okla-slider-shell .product a.name{
+display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;
+flex:0 0 48px!important;width:100%!important;min-height:48px!important;height:48px!important;
+max-height:48px!important;line-height:23px!important;font-size:14.3px!important;
+font-weight:550!important;overflow:hidden!important;margin:0 0 4px!important}
+/* Unavailable notices are removed without hiding stock information. */
+body.type-index #content .product .okv74-hide-unavailable{display:none!important}
+/* Suppress duplicate older mobile show-more controls. One functional global action replaces them. */
+body.type-index #content .okm61-product-more,
+body.type-index #content .okm65-product-more,
+body.type-index #content .okla-slider-show-more{display:none!important}
+body.type-index #content #okla-v74-more{
+display:flex!important;align-items:center!important;justify-content:center!important;
+gap:7px!important;width:100%!important;min-height:42px!important;margin:12px 0 25px!important;
+padding:9px 12px!important;border:0!important;border-radius:4px!important;
+background:transparent!important;color:#125e97!important;font:700 13px/1.35 Roboto,Arial,sans-serif!important;
+text-align:center!important;cursor:pointer!important}
+body.type-index #content #okla-v74-more svg{display:block!important;width:16px!important;height:16px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
+body.type-index #content #okla-v74-more:hover{background:#f2f8ff!important}
+/* Explicit green SVG for every existing native Shoptet add-to-cart button. */
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart{
+display:inline-flex!important;align-items:center!important;justify-content:center!important;
+gap:8px!important;min-height:48px!important;height:48px!important;
+padding:0 3px!important;color:#6a9900!important;background:#fff!important;
+background-image:none!important;white-space:nowrap!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart{
+display:block!important;position:static!important;flex:0 0 21px!important;
+width:21px!important;min-width:21px!important;height:21px!important;
+margin:0!important;padding:0!important;fill:none!important;stroke:currentColor!important;
+stroke-width:2.1!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart circle{
+fill:currentColor!important;stroke:none!important}
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv72-cart,
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv71-cart,
+body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okm65-cart-svg{display:none!important}
+}
+
+/* okla_mobile_v75.js */
+
+@media (max-width:767px) {
+/* V75: ONE continuous background for the actual page, not separate
+   mismatched header and main gradients. The right edge is almost white. */
+html body.type-index {
+  background:radial-gradient(ellipse 132% 570px at -19% -9%,rgba(195,227,246,.38) 0%,rgba(225,243,252,.23) 38%,rgba(247,252,254,.07) 67%,rgba(255,255,255,0) 89%) top left / 100% 840px no-repeat,#fff!important;
+}
+html body.type-index .overall-wrapper,
+html body.type-index .overall-wrapper > .container,
+html body.type-index #content-wrapper,
+html body.type-index #header,
+html body.type-index #header #okla-v61-header,
+html body.type-index #content-wrapper main#content {
+  background-color:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+/* Keep true white floating bar on upward scrolling, not part of page gradient. */
+html body #okla-v69-floating,
+html body #okla-v70-floating {background:#fff!important;}
+/* Remove needless vertical strip beneath bottom menu content.
+   Stay above the OS gesture bar via safe-area padding. */
+html body #okla-v61-bottom {
+  position:fixed!important;
+  inset:auto 0 0 0!important;
+  bottom:0!important;
+  box-sizing:border-box!important;
+  height:calc(56px + env(safe-area-inset-bottom,0px))!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  padding:0 0 env(safe-area-inset-bottom,0px)!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  align-items:end!important;
+  border-top:1px solid #e5e9f0!important;
+  background:#fff!important;
+}
+html body #okla-v61-bottom .okm61-bottom-action {
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  gap:3px!important;
+  width:100%!important;
+  height:55px!important;
+  min-height:0!important;
+  max-height:55px!important;
+  padding:0 1px 3px!important;
+  margin:0!important;
+  line-height:1.1!important;
+  transform:none!important;
+}
+html body #okla-v61-bottom .okm61-bottom-action svg {
+  flex:0 0 24px!important;
+  width:24px!important;
+  height:24px!important;
+  margin:0!important;
+}
+html body #okla-v61-bottom .okm61-bottom-action span {
+  margin:0!important;
+  padding:0!important;
+  line-height:12px!important;
+}
+html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important;}
+}
+
+
+/* okla_mobile_v77.js */
+/* OKLA V77 — exact requested Alza-style product tiles. Mobile only.
+   No changes to product data or native Shoptet add-to-cart handlers. */
+@media (max-width: 767px) {
+  :root {
+    --okla-card-bg: #FFFFFF;
+    --okla-card-border: #E8E8E8;
+    --okla-card-line: #E5E5E5;
+    --okla-card-link: #2C5F9E;
+    --okla-card-navy: #102A54;
+    --okla-card-price-bg: #EAF1F8;
+    --okla-card-cart: #5BA300;
+    --okla-card-gap: 14px;
+    --okla-card-padding: 16px;
+  }
+
+  /* A, H — matched responsive columns and sharply outlined cards */
+  html body.type-index #content .okla-slider-shell .products.okla-slider-track {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+    column-gap: var(--okla-card-gap) !important;
+    row-gap: var(--okla-card-gap) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html body.type-index #content .okla-slider-shell .okla-slider-track > .product {
+    position: relative !important;
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: var(--okla-card-padding) var(--okla-card-padding) 0 !important;
+    border: 1px solid var(--okla-card-border) !important;
+    border-radius: 8px !important;
+    background: var(--okla-card-bg) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  /* F — white, centred, contained 180px image; 18px breathing room below */
+  html body.type-index #content .okla-slider-shell .product .p > a.image {
+    position: relative !important;
+    display: flex !important;
+    flex: 0 0 180px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 180px !important;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p > a.image img {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border: none !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  /* Preserve native rating structure and real review counts */
+  html body.type-index #content .okla-slider-shell .product .ratings-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 0 0 22px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 22px !important;
+    min-height: 22px !important;
+    max-height: 22px !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .okv73-rating-stars svg {
+    fill: #F3B91D !important;
+    stroke: #F3B91D !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .rating-count,
+  html body.type-index #content .okla-slider-shell .product .votes-wrap,
+  html body.type-index #content .okla-slider-shell .product .okv73-rating-caption {
+    color: #888888 !important;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+  }
+
+  /* E — exact 15px title, weight 500, 2 rows and ellipsis */
+  html body.type-index #content .okla-slider-shell .product a.name {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    flex: 0 0 42px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    color: var(--okla-card-link) !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    text-overflow: ellipsis !important;
+    overflow-wrap: anywhere !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product a.name:hover {
+    color: var(--okla-card-link) !important;
+    text-decoration: underline !important;
+  }
+
+  /* Keep previously requested unavailable message suppression */
+  html body.type-index #content .okla-slider-shell .product .okv74-hide-unavailable {
+    display: none !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .availability:not(.okv74-hide-unavailable) {
+    text-align: center !important;
+  }
+
+  /* Unified badge and price: no gap at the seam, no separate margin. */
+  html body.type-index #content .okla-slider-shell .product .p-bottom {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: auto 0 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .prices {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  /* C — full-width top badge */
+  html body.type-index #content .okla-slider-shell .product .prices::before {
+    content: "NOVINKA" !important;
+    position: static !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    border: 0 !important;
+    border-radius: 6px 6px 0 0 !important;
+    background: var(--okla-card-navy) !important;
+    color: #FFFFFF !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+    letter-spacing: .5px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+  }
+
+  /* C — pale-blue bottom price, 24px with 16px vertical padding */
+  html body.type-index #content .okla-slider-shell .product .price-final {
+    position: static !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 16px 2px !important;
+    border: 0 !important;
+    border-radius: 0 0 6px 6px !important;
+    background: var(--okla-card-price-bg) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .price-final strong {
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--okla-card-navy) !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    letter-spacing: -.4px !important;
+    white-space: nowrap !important;
+  }
+
+  /* B — full-bleed divider starts exactly at the card's inner border */
+  html body.type-index #content .okla-slider-shell .product .p-tools {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 0 0 56px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% + 2 * var(--okla-card-padding)) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    margin: 12px calc(-1 * var(--okla-card-padding)) 0 !important;
+    padding: 0 var(--okla-card-padding) !important;
+    border: 0 !important;
+    border-top: 1px solid var(--okla-card-line) !important;
+    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools form {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  /* D — green centred native Shoptet action + outline cart glyph */
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart {
+    position: static !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: var(--okla-card-cart) !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    text-indent: 0 !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart {
+    position: static !important;
+    display: block !important;
+    flex: 0 0 21px !important;
+    width: 21px !important;
+    min-width: 21px !important;
+    height: 21px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--okla-card-cart) !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart circle {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2 !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::before,
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
