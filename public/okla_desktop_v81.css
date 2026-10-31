@@ -1,0 +1,62 @@
+/* OKLA V81 — screenshot-matched DESKTOP hover only.
+   No layout/data changes; original pale-blue cart border restored. */
+@media (min-width:992px){
+  /* Keep a transparent 1px border in the default state so hover never
+     changes card geometry. Card stays white in both states. */
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p {
+    box-sizing:border-box!important;
+    border:1px solid transparent!important;
+    border-radius:10px!important;
+    background:#fff!important;
+    box-shadow:none!important;
+    padding:0 8px 6px!important;
+    transform:none!important;
+    transition:border-color .2s ease,box-shadow .2s ease!important;
+  }
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover>.p,
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p,
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:hover,
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:focus-within {
+    border:1px solid #E0E0E0!important;
+    border-radius:10px!important;
+    box-shadow:0 2px 9px rgba(0,0,0,.19)!important;
+    padding:0 8px 6px!important;
+    background:#fff!important;
+    transform:none!important;
+  }
+  /* As on the supplied image, the product link underlines on card hover. */
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover a.name {
+    text-decoration:underline!important;
+  }
+
+  /* Original outline is always light blue, even if the CARD is hovered.
+     Only direct hover/focus over the cart action changes its colors. */
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart {
+    border:1px solid #CBDCF5!important;
+    border-radius:6px!important;
+    background:#fff!important;
+    background-image:none!important;
+    box-shadow:none!important;
+    color:#16438C!important;
+    transition:color .2s ease,border-color .2s ease!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:hover,
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:focus-visible {
+    background:#fff!important;
+    background-image:none!important;
+    border:1px solid #16438C!important;
+    color:#16438C!important;
+    box-shadow:none!important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv79-cart,
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv80-cart {
+    display:block!important;
+    color:inherit!important;
+    stroke:currentColor!important;
+    fill:none!important;
+  }
+}

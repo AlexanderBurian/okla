@@ -1,0 +1,1 @@
+/* V69 fallback */(function(){if(window.__oklaV69)return;var s=document.createElement('script');s.src='https://solar-crystal-a5647qr.shipstatic.com/okla_mobile_v69.js';document.head.appendChild(s)})();

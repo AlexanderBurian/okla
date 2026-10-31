@@ -1,0 +1,368 @@
+/* OKLA V77 — exact requested Alza-style product tiles. Mobile only.
+   No changes to product data or native Shoptet add-to-cart handlers. */
+@media (max-width: 767px) {
+  :root {
+    --okla-card-bg: #FFFFFF;
+    --okla-card-border: #E8E8E8;
+    --okla-card-line: #E5E5E5;
+    --okla-card-link: #2C5F9E;
+    --okla-card-navy: #102A54;
+    --okla-card-price-bg: #EAF1F8;
+    --okla-card-cart: #5BA300;
+    --okla-card-gap: 14px;
+    --okla-card-padding: 16px;
+  }
+
+  /* A, H — matched responsive columns and sharply outlined cards */
+  html body.type-index #content .okla-slider-shell .products.okla-slider-track {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+    column-gap: var(--okla-card-gap) !important;
+    row-gap: var(--okla-card-gap) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  html body.type-index #content .okla-slider-shell .okla-slider-track > .product {
+    position: relative !important;
+    display: block !important;
+    float: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding: var(--okla-card-padding) var(--okla-card-padding) 0 !important;
+    border: 1px solid var(--okla-card-border) !important;
+    border-radius: 8px !important;
+    background: var(--okla-card-bg) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  /* F — white, centred, contained 180px image; 18px breathing room below */
+  html body.type-index #content .okla-slider-shell .product .p > a.image {
+    position: relative !important;
+    display: flex !important;
+    flex: 0 0 180px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 180px !important;
+    min-height: 180px !important;
+    max-height: 180px !important;
+    margin: 0 0 18px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p > a.image img {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border: none !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  /* Preserve native rating structure and real review counts */
+  html body.type-index #content .okla-slider-shell .product .ratings-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 0 0 22px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 22px !important;
+    min-height: 22px !important;
+    max-height: 22px !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .okv73-rating-stars svg {
+    fill: #F3B91D !important;
+    stroke: #F3B91D !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .rating-count,
+  html body.type-index #content .okla-slider-shell .product .votes-wrap,
+  html body.type-index #content .okla-slider-shell .product .okv73-rating-caption {
+    color: #888888 !important;
+    font-size: 10px !important;
+    font-weight: 400 !important;
+    line-height: 15px !important;
+    white-space: nowrap !important;
+  }
+
+  /* E — exact 15px title, weight 500, 2 rows and ellipsis */
+  html body.type-index #content .okla-slider-shell .product a.name {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    flex: 0 0 42px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    max-height: 42px !important;
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    color: var(--okla-card-link) !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+    text-align: center !important;
+    text-overflow: ellipsis !important;
+    overflow-wrap: anywhere !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product a.name:hover {
+    color: var(--okla-card-link) !important;
+    text-decoration: underline !important;
+  }
+
+  /* Keep previously requested unavailable message suppression */
+  html body.type-index #content .okla-slider-shell .product .okv74-hide-unavailable {
+    display: none !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .availability:not(.okv74-hide-unavailable) {
+    text-align: center !important;
+  }
+
+  /* Unified badge and price: no gap at the seam, no separate margin. */
+  html body.type-index #content .okla-slider-shell .product .p-bottom {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: auto 0 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .prices {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    flex: 0 0 auto !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+  }
+
+  /* C — full-width top badge */
+  html body.type-index #content .okla-slider-shell .product .prices::before {
+    content: "NOVINKA" !important;
+    position: static !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 8px !important;
+    border: 0 !important;
+    border-radius: 6px 6px 0 0 !important;
+    background: var(--okla-card-navy) !important;
+    color: #FFFFFF !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 20px !important;
+    letter-spacing: .5px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+  }
+
+  /* C — pale-blue bottom price, 24px with 16px vertical padding */
+  html body.type-index #content .okla-slider-shell .product .price-final {
+    position: static !important;
+    display: flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 16px 2px !important;
+    border: 0 !important;
+    border-radius: 0 0 6px 6px !important;
+    background: var(--okla-card-price-bg) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .price-final strong {
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--okla-card-navy) !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    letter-spacing: -.4px !important;
+    white-space: nowrap !important;
+  }
+
+  /* B — full-bleed divider starts exactly at the card's inner border */
+  html body.type-index #content .okla-slider-shell .product .p-tools {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex: 0 0 56px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    width: calc(100% + 2 * var(--okla-card-padding)) !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    height: 56px !important;
+    min-height: 56px !important;
+    max-height: 56px !important;
+    margin: 12px calc(-1 * var(--okla-card-padding)) 0 !important;
+    padding: 0 var(--okla-card-padding) !important;
+    border: 0 !important;
+    border-top: 1px solid var(--okla-card-line) !important;
+    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools form {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  /* D — green centred native Shoptet action + outline cart glyph */
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart {
+    position: static !important;
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    max-height: 50px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: var(--okla-card-cart) !important;
+    font-family: Roboto, "Segoe UI", Arial, sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    text-indent: 0 !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart {
+    position: static !important;
+    display: block !important;
+    flex: 0 0 21px !important;
+    width: 21px !important;
+    min-width: 21px !important;
+    height: 21px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: var(--okla-card-cart) !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart circle {
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 2 !important;
+  }
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::before,
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::after {
+    content: none !important;
+    display: none !important;
+  }
+}
