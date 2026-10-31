@@ -44,7 +44,7 @@ var CSS=[
  'body.okla-newsroom-page #content,body.okla-newsroom-page #content :has(.okla-newsroom){max-width:none!important;width:100%!important;margin:0!important;padding:0!important}',
  '.okla-newsroom{box-sizing:border-box;width:100%;padding:28px 28px 72px;color:#081d3a;font-family:inherit}',
  '.okla-newsroom *,.okla-newsroom *::before,.okla-newsroom *::after{box-sizing:border-box}',
- '.okla-newsroom .nr-hero{display:flex;flex-direction:column;align-items:center;padding:76px 24px 60px;border-radius:24px;text-align:center;background:linear-gradient(115deg,#f3effe 0%,#ddd0fb 45%,#c2aef6 100%)}',
+ '.okla-newsroom .nr-hero{display:flex;flex-direction:column;align-items:center;padding:76px 24px 60px;border-radius:24px;text-align:center;background:linear-gradient(115deg,#c2aef6 0%,#dccff9 42%,#bde4fb 100%)}',
  '.okla-newsroom .nr-title{margin:0;font-size:56px;line-height:1.1;font-weight:700;color:#081d3a}',
  '.okla-newsroom .nr-lead{margin:14px 0 0;max-width:640px;font-size:17px;line-height:1.6;color:#3b4a5e}',
  '.okla-newsroom .nr-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;width:100%;margin-top:44px}',
