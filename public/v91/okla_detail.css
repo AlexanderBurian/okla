@@ -182,3 +182,15 @@ html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-plac
 
 /* V99 fixed-size graphic painted by CSS, never a DOM SVG with inherited huge dimensions. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{font-size:0!important;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M3%204h2.5l2%2010.6h10.1L21%207.5H6%20M10%2020h.01%20M18%2020h.01%27%20fill%3D%27none%27%20stroke%3D%27white%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E")!important;background-position:center!important;background-repeat:no-repeat!important;background-size:18px 18px!important}
+/* 8. Final overrides (appended last so they win over the sections above).
+   8a. Tab baseline runs the full width of the product card; the tab row keeps the 24px inset so tabs stay aligned with the content. */
+html body.ok89-detail #content .p-detail-tabs-wrapper,html body.ok89-detail #content .p-details-tabs-wrapper{margin-left:-24px!important;margin-right:-24px!important;width:calc(100% + 48px)!important;max-width:none!important}
+html body.ok89-detail #content .shp-tabs-row{box-sizing:border-box!important;padding-left:24px!important;padding-right:24px!important}
+/* 8b. Product slider card = homepage card (measured at 1440 px): 12px grey rating line, 172px image box, red-navy 20px price box 144x46,
+   bordered 14px cart button. The homepage hides the short text and the product code on cards, so the product slider does too. */
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .p>a.image{height:172px!important;max-height:172px!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .ratings-wrapper{font:400 12px/1.4 var(--okd-font)!important;color:#888!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .price-final,html body.ok89-detail #content .ok86-related .okla-slider-track>.product .price-final *{color:#073571!important;font:800 20px/1.2 var(--okd-font)!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .price-final{width:144px!important;height:46px!important;margin:0 auto!important;padding:0 4px!important;background:transparent!important;text-align:center!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .btn-cart{font:600 14px/1.2 var(--okd-font)!important;color:#16478B!important;border:1px solid #16478B!important;border-radius:6px!important;padding:6px 12px!important;background:#fff!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product :is(.p-desc,.p-code){display:none!important}
