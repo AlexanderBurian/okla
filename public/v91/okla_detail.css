@@ -219,3 +219,9 @@ html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-widt
 }
 /* 8l. Less space above the product sheet: the breadcrumb row on product pages is 28 px high instead of 51 px. */
 html body.ok89-detail .breadcrumbs.navigation-home-icon-wrapper{min-height:28px!important;padding:0!important}
+/* 8m. Original breadcrumb arrows (1 px diagonal pseudo-lines on each link) are hidden on product pages; the single › separator stays. */
+html body.ok89-detail .breadcrumbs a::before,html body.ok89-detail .breadcrumbs a::after{display:none!important;content:none!important}
+/* 8n. Blue top bar of the product sheet: a flat 4 px bar drawn inside the rounded sheet, so its underside stays straight.
+   (The old 4 px border-top met the rounded side borders in a mitre, which bent the bar downwards at both ends.) */
+html body.ok89-detail #content-wrapper{border-top:0!important;position:relative!important}
+html body.ok89-detail #content-wrapper::before{display:block!important;content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:4px!important;background:#2C5F9E!important;z-index:5!important;pointer-events:none!important}
