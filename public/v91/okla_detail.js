@@ -133,13 +133,29 @@
  function formatTabs(){
   var tabs=q('ul.p-detail-tabs');
   if(!tabs||tabs.dataset.ok97Formatted==='1')return;
-  var links=qa('a.shp-tab-link',tabs),desc=links.find(a=>(a.getAttribute('href')||'').includes('description'))||links[0];
-  var params=qa('li.ok86-parameters-tab',tabs)[0],discussion=q('li[data-testid="tabDiscussion"]',tabs);
+  var links=qa('a.shp-tab-link',tabs);
+  var desc=links.find(a=>(a.getAttribute('href')||'').includes('description'))||links[0];
+  var params=q('li.ok86-parameters-tab',tabs),discussion=q('li[data-testid="tabDiscussion"]',tabs);
   if(!desc)return;
-  if(params)desc.closest('li')?.after(params);
-  if(disc)params?params.after(disc):desc.closest('li')?.after(disc);
-  var svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','0 0 24 24');svg.classList.add('ok97-description-icon');svg.setAttribute('aria-hidden','true');
-  var path=document.createElementNS(NS,'path');path.setAttribute('d','M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z');svg.appendChild(path);
+  var homeLi=desc.closest('li');
+  if(!homeLi)return;
+  /* Only real sections get navigable tabs; unsupported tabs are not fabricated. */
+  var review=q('.ok97-review-block');
+  if(review&&!q('li.ok97-review-tab',tabs)){
+   var reviewLi=el('li','shp-tab ok97-review-tab'),reviewLink=el('a','ok97-anchor-tab','Recenze');
+   reviewLink.href='#ok97-review-block';
+   reviewLi.append(reviewLink);
+   homeLi.after(reviewLi);
+  }
+  var reviewTab=q('li.ok97-review-tab',tabs);
+  if(params)(reviewTab||homeLi).after(params);
+  if(disc)(params||reviewTab||homeLi).after(disc);
+  /* Keep Shoptet native click listeners, aria roles, and anchor; replace only visual text. */
+  var svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','0 0 24 24');
+  svg.classList.add('ok97-description-icon');svg.setAttribute('aria-hidden','true');
+  var path=document.createElementNS(NS,'path');
+  path.setAttribute('d','M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z');
+  svg.appendChild(path);
   desc.replaceChildren(svg);desc.setAttribute('aria-label','Popis');desc.setAttribute('title','Popis');
   tabs.dataset.ok97Formatted='1';
  }
@@ -176,6 +192,7 @@
   var tabs=q('.p-detail-tabs-wrapper');
   if(!tabs)return;
   var section=el('section','ok97-review-block');
+  section.id='ok97-review-block';
   section.setAttribute('aria-label','Hodnocení produktu');
   section.append(el('h2',null,'Produkt zatím nikdo nehodnotil'));
   var stars=el('div','ok97-review-stars');stars.setAttribute('aria-hidden','true');
@@ -327,7 +344,7 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   richDescription(p);paramsTab(p,detail);formatTabs();formatDetailPrice(buy);reviewSection(detail);relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
+   richDescription(p);paramsTab(p,detail);formatDetailPrice(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
    window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters).length};
   }
