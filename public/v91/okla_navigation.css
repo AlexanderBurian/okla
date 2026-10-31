@@ -31,3 +31,9 @@ html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-coun
 html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg{position:static!important;top:auto!important;transform:none!important}
 html body .menu-helper{display:none!important}
 }
+/* Desktop category menu: the legacy loader hides ul.menu-level-1 at 992 px and up, which left an empty 32 px bar and no working category links.
+   Shown again as one row of category links (13 px so all nine fit a 1310 px container). Mobile keeps its own menu. */
+@media(min-width:992px){
+html body #navigation .navigation-in>ul.menu-level-1{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:nowrap!important;gap:0!important;height:32px!important;margin:0!important;padding:0!important;list-style:none!important;overflow-x:auto!important;scrollbar-width:none!important}
+html body #navigation .navigation-in>ul.menu-level-1>li>a{font-size:13px!important;line-height:32px!important;padding:0 10px!important;white-space:nowrap!important;color:#fff!important;display:block!important}
+}
