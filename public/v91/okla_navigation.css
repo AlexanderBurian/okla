@@ -1,5 +1,7 @@
 
  /* Preserve Shoptet position and schema.org BreadcrumbList structure. */
+/* Shoptet draws a second home icon on .breadcrumbs::before; the single OKLA home icon below replaces it. */
+html body .breadcrumbs::before{content:none!important;display:none!important}
  html body .breadcrumbs.navigation-home-icon-wrapper{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:0!important;min-height:34px!important;padding:6px 0!important;background:transparent!important;color:#777!important}
  html body .breadcrumbs [itemprop="itemListElement"]{display:inline-flex!important;align-items:center!important;gap:0!important;min-height:22px!important;width:auto!important;margin:0!important;padding:0!important;float:none!important;background:none!important}
  html body .breadcrumbs [itemprop="itemListElement"]::before,html body .breadcrumbs [itemprop="itemListElement"]::after{display:none!important;content:none!important}

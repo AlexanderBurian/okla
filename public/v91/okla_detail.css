@@ -134,8 +134,8 @@ html body.ok89-detail #content .ok86-trust>div{display:flex!important;align-item
 html body.ok89-detail #content .ok86-trust svg{display:block!important;flex:0 0 22px!important;width:22px!important;height:22px!important;max-width:22px!important;max-height:22px!important;stroke:#2C5F9E!important;fill:none!important}
 html body.ok89-detail #content .ok86-trust a{color:#2C5F9E!important}
 /* 11. Preserve original gold decorative stars in the buy panel. No new rating is invented. */
-html body.ok89-detail #content .p-detail .ok91-decorative-stars{display:inline-flex!important;align-items:center!important;gap:2px!important;color:#F4B526!important}
-html body.ok89-detail #content .p-detail .ok91-decorative-stars svg{display:block!important;width:12px!important;height:12px!important;max-width:12px!important;max-height:12px!important;fill:currentColor!important;stroke:currentColor!important}
+html body.ok89-detail #content .p-detail .ok91-decorative-stars{display:inline-flex!important;align-items:center!important;gap:3px!important;color:#B0B5BD!important}
+html body.ok89-detail #content .p-detail .ok91-decorative-stars svg{display:block!important;width:14px!important;height:14px!important;max-width:14px!important;max-height:14px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.6!important}
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars:not(.ok91-decorative-stars),
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .star-off,
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-placeholder{display:none!important}
