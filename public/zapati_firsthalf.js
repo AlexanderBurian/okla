@@ -23,14 +23,24 @@ modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile
 var index=0;
 function next(){
  if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';return}
- var file=modules[index++],url=base+file+(base.includes('?')?'&':'?')+'v=91';
+ load(modules[index++],0);
+}
+/* A module that fails to load (a transient CDN error) is requested again twice before the loader moves on, so one failed
+   request does not leave the page with half of its styles. */
+function load(file,attempt){
+ var url=base+file+(base.includes('?')?'&':'?')+'v=91'+(attempt?'&retry='+attempt:'');
+ function failed(){
+  if(attempt<2){setTimeout(function(){load(file,attempt+1)},400);return}
+  console.error('[OKLA] module missing:',file);
+  next();
+ }
  if(file.endsWith('.css')){
   var link=document.createElement('link');link.rel='stylesheet';link.href=url;
-  link.onload=next;link.onerror=function(){console.error('[OKLA] CSS missing:',file);next()};
+  link.onload=next;link.onerror=failed;
   (document.head||document.documentElement).appendChild(link);
  }else{
   var script=document.createElement('script');script.src=url;script.async=false;
-  script.onload=next;script.onerror=function(){console.error('[OKLA] JS missing:',file);next()};
+  script.onload=next;script.onerror=failed;
   (document.head||document.documentElement).appendChild(script);
  }
 }

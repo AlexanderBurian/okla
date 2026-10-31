@@ -24,6 +24,8 @@ html.okla-m-stuck body #header #okla-v61-header .okm61-top{height:34px!important
 html.okla-m-stuck body #header #okla-v61-header .okm61-logo img{max-height:30px!important}
 html.okla-m-stuck body #header #okla-v61-header .okla-m-search-open{height:34px!important;min-height:34px!important;flex-basis:34px!important;width:34px!important}
 html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transform:translateY(-105%)!important;box-shadow:none!important}
+/* Product pages: the stuck header keeps the gradient instead of turning white. */
+html.okla-m-stuck body.ok89-detail #header #okla-v61-header{background:linear-gradient(180deg,#e5f5ff 0%,#eef8ff 66%,#fff 100%)!important}
 html.okla-m-lock,
 html.okla-m-lock body{overflow:hidden!important}
 

@@ -7,6 +7,7 @@
  window.__oklaMobileShell = true;
 
  var narrow = window.matchMedia('(max-width:767px)');
+ var isDetail = !!(document.body && document.body.classList.contains('ok89-detail'));
  var NS = 'http://www.w3.org/2000/svg';
  var SEARCH_ACTION = '/action/ProductSearch/prepareString/';
  var SEARCH_PATHS = ['M10.8 17.5a6.7 6.7 0 1 0 0-13.4 6.7 6.7 0 0 0 0 13.4Z', 'm15.9 15.9 4.7 4.7'];
@@ -176,6 +177,11 @@
   var dy = y - lastY;
   lastY = y;
   if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
+  if (isDetail) {
+    // Product pages: the gradient header stays on screen the whole time.
+    setSticky(y >= 80, false);
+    return;
+  }
   if (y < 80) {
    if (stuck) setSticky(false, false);
    return;
@@ -191,7 +197,8 @@
   if (bar) return;
   nativeBtn = document.querySelector('.p-detail .add-to-cart button.add-to-cart-button');
   if (!nativeBtn) return;
-  var priceEl = document.querySelector('.p-detail .price-final strong');
+  // The product's own price sits in the buy box; .p-detail also holds related products' prices, which come first in the DOM.
+  var priceEl = document.querySelector('#product-detail-form .p-final-price-wrapper .price-final') || document.querySelector('.p-info-wrapper .price-final');
   bar = el('div', 'okla-m-buybar');
   bar.setAttribute('aria-label', 'Rychlý nákup');
   var price = el('span', 'okla-m-buybar__price', priceEl ? priceEl.textContent.trim() : '');
@@ -209,7 +216,10 @@
   placeBar();
   new MutationObserver(function () { go.disabled = nativeBtn.disabled; })
    .observe(nativeBtn, { attributes: true, attributeFilter: ['disabled'] });
-  if ('IntersectionObserver' in window) {
+  if (isDetail) {
+   // Product pages: the buy bar is there the whole time.
+   bar.classList.add('is-visible');
+  } else if ('IntersectionObserver' in window) {
    new IntersectionObserver(function (entries) {
     bar.classList.toggle('is-visible', narrow.matches && !entries[0].isIntersecting);
    }).observe(nativeBtn);
