@@ -45,3 +45,7 @@ html body.type-index #content-wrapper.container.content-wrapper{margin-top:24px!
 @media(min-width:992px){
 html body #header .header-top{margin-left:-20px!important;margin-right:-20px!important;width:auto!important}
 }
+/* Left sidebar (categories, payments, top 10): shrunk 15% towards the left edge with zoom, so every size scales together and no line wraps differently. Desktop only. */
+@media(min-width:992px){
+html body #content-wrapper aside.sidebar.sidebar-left{zoom:0.85!important}
+}
