@@ -225,3 +225,10 @@ html body.ok89-detail .breadcrumbs a::before,html body.ok89-detail .breadcrumbs 
    (The old 4 px border-top met the rounded side borders in a mitre, which bent the bar downwards at both ends.) */
 html body.ok89-detail #content-wrapper{border-top:0!important;position:relative!important}
 html body.ok89-detail #content-wrapper::before{display:block!important;content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:4px!important;background:#2C5F9E!important;z-index:5!important;pointer-events:none!important}
+/* 8o. Mobile: the tab row must not stick out of the 16 px gutters (the desktop -24 px bleed made it 387 px on a 375 px screen). */
+@media(max-width:991px){
+html body.ok89-detail #content .p-detail-tabs-wrapper,html body.ok89-detail #content .p-details-tabs-wrapper{margin-left:0!important;margin-right:0!important;width:100%!important}
+html body.ok89-detail #content .shp-tabs-row{padding-left:0!important;padding-right:0!important}
+}
+/* 8p. Stray share-close icon pseudo-element (drawn as a small cross next to the product title) is not used on product pages. */
+html body.ok89-detail #content .p-detail-inner-header [class*="close-after"]::after{display:none!important;content:none!important}
