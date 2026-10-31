@@ -57,8 +57,3 @@ html body #content-wrapper aside.sidebar.sidebar-left .topic>a{padding-top:12px!
 @media(min-width:992px){
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon{padding-top:12px!important;padding-bottom:12px!important}
 }
-/* Desktop: the JS-placed vertical line (#okla-sidebar-vertical) sat half a pixel off the sidebar edge at some widths, leaving a free pixel column next to the blue slider arrows.
-   The sidebar's own border-right is the only separator now. */
-@media(min-width:992px){
-html body #content-wrapper>#okla-sidebar-vertical{display:none!important}
-}

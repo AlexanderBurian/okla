@@ -103,7 +103,7 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 #okla-sidebar-top-white{position:absolute!important;top:0!important;left:0!important;right:0!important;background:#fff!important;z-index:0!important;pointer-events:none!important}
 #okla-sidebar-horizontal{position:absolute!important;left:0!important;right:0!important;height:1px!important;background:#d4dce6!important;z-index:3!important;pointer-events:none!important}
 #content-wrapper>#okla-sidebar-vertical{position:absolute!important;top:0!important;bottom:0!important;width:1px!important;background:#d4dce6!important;z-index:7!important;pointer-events:none!important}
-@media(max-width:991px){#content-wrapper>#okla-sidebar-vertical{display:none!important}}
+#content-wrapper>#okla-sidebar-vertical{display:none!important}
 /* OKLA V22: one full-width separator only, original Shoptet borders removed. */
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories{border:0!important;border-bottom:0!important;margin-bottom:0!important;padding-bottom:0!important;box-shadow:none!important}
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories #categories,
