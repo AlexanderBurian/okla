@@ -267,3 +267,8 @@ html body.ok89-detail #content .p-detail .ok91-decorative-stars svg{
  width:12px!important;height:12px!important;fill:currentColor!important;
  stroke:currentColor!important
 }
+
+/* One set of filled decorative stars on truly unreviewed products; keep text showing no reviews. */
+html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars:not(.ok91-decorative-stars),
+html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .star-off,
+html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-placeholder{display:none!important}
