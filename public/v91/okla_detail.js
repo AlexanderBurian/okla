@@ -48,51 +48,13 @@
   }
   // Unknown native state: do not change Shoptet disabled/enabled state.
  }
- /* Quantity stepper: preserve the original Shoptet input, name, form and validation.
-    Visual buttons emit the same native input/change events; no duplicated purchase forms. */
- function setupQuantityStepper(buy){
-  var wrap=q('.add-to-cart .quantity',buy);
-  var input=wrap&&q('input.amount',wrap);
-  if(!wrap||!input||wrap.classList.contains('ok86-stepper-ready'))return;
-  var minus=el('button','ok86-qty-step ok86-qty-minus','−');
-  var plus=el('button','ok86-qty-step ok86-qty-plus','+');
-  minus.type='button';plus.type='button';
-  minus.setAttribute('aria-label','Snížit množství');
-  plus.setAttribute('aria-label','Zvýšit množství');
-  var minValue=()=>{var v=Number(input.min);return input.min!==''&&Number.isFinite(v)?v:1};
-  var maxValue=()=>{var v=Number(input.max);return input.max!==''&&Number.isFinite(v)?v:Infinity};
-  var stepValue=()=>{var v=Number(input.step);return input.step!==''&&input.step!=='any'&&v>0&&Number.isFinite(v)?v:1};
-  function normalize(){
-   var v=Number(input.value);
-   return input.value!==''&&Number.isFinite(v)?v:minValue();
-  }
-  function sync(){
-   var v=normalize(),blocked=input.disabled||input.readOnly;
-   minus.disabled=blocked||v<=minValue();
-   plus.disabled=blocked||v>=maxValue();
-  }
-  function adjust(dir){
-   if(input.disabled||input.readOnly)return;
-   var current=normalize(),step=stepValue();
-   var target=Math.max(minValue(),Math.min(maxValue(),Number((current+dir*step).toFixed(8))));
-   if(target===current){sync();return}
-   input.value=String(target);
-   input.dispatchEvent(new Event('input',{bubbles:true}));
-   input.dispatchEvent(new Event('change',{bubbles:true}));
-   sync();
-  }
-  minus.addEventListener('click',()=>adjust(-1));
-  plus.addEventListener('click',()=>adjust(1));
-  input.addEventListener('input',sync);
-  input.addEventListener('change',sync);
-  if(input.parentElement===wrap){
-   wrap.insertBefore(minus,input);
-   input.after(plus);
-  }else{
-   wrap.prepend(minus);wrap.append(plus);
-  }
-  wrap.classList.add('ok86-stepper-ready');
-  sync();
+ /* Native Shoptet buttons .increase and .decrease already handle min/max/step and accessibility.
+    Do not duplicate them or their events. */
+ function useNativeQuantity(buy){
+  var quantity=q('.add-to-cart .quantity',buy);
+  if(!quantity)return;
+  quantity.classList.remove('ok86-stepper-ready');
+  qa('.ok86-qty-step',quantity).forEach(n=>n.remove());
  }
  function paramsTab(p,detail){var tabs=q('ul.p-detail-tabs',document);var content=q('#tab-content');if(!tabs||!content||q('#ok86-parameters'))return;
   var li=el('li','shp-tab ok86-parameters-tab');li.setAttribute('role','none');
@@ -158,12 +120,10 @@
   if(params)(reviewTab||homeLi).after(params);
   if(disc)(params||reviewTab||homeLi).after(disc);
   /* Keep Shoptet native click listeners, aria roles, and anchor; replace only visual text. */
-  var svg=document.createElementNS(NS,'svg');svg.setAttribute('viewBox','0 0 24 24');
-  svg.classList.add('ok97-description-icon');svg.setAttribute('aria-hidden','true');
-  var path=document.createElementNS(NS,'path');
-  path.setAttribute('d','M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z');
-  svg.appendChild(path);
-  desc.replaceChildren(svg);desc.setAttribute('aria-label','Popis');desc.setAttribute('title','Popis');
+  /* Text glyph avoids oversized inline SVG inherited from legacy Shoptet CSS. */
+  var home=el('span','ok99-tab-house','⌂');home.setAttribute('aria-hidden','true');
+  desc.replaceChildren(home);
+  desc.setAttribute('aria-label','Popis');desc.setAttribute('title','Popis');
   tabs.dataset.ok97Formatted='1';
  }
  /* Display only a real Shoptet native price; do not overwrite variant prices or add fabricated discounts. */
@@ -202,11 +162,9 @@
   section.id='ok97-review-block';
   section.setAttribute('aria-label','Hodnocení produktu');
   section.append(el('h2',null,'Produkt zatím nikdo nehodnotil'));
+  /* Separate neutral outline symbols, not inline SVG and never a fabricated rating. */
   var stars=el('div','ok97-review-stars');stars.setAttribute('aria-hidden','true');
-  for(var i=0;i<5;i++){
-   var star=document.createElementNS(NS,'svg');star.setAttribute('viewBox','0 0 24 24');
-   var p=document.createElementNS(NS,'path');p.setAttribute('d','M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.9l-6.2 3.2 1.2-6.9-5-4.9 6.9-1z');star.append(p);stars.append(star);
-  }
+  for(var i=0;i<5;i++)stars.append(el('span','ok99-star','☆'));
   section.append(stars);
   /* No "Napsat recenzi" link unless a real Shoptet review URL is present. */
   var nativeReview=qa('a[href]',detail).find(a=>/napsat (recenzi|hodnocení)|přidat hodnocení/i.test(a.textContent||'')&&!a.getAttribute('href')?.startsWith('javascript:'));
@@ -274,7 +232,7 @@
    item.append(el('div','ok86-related-price',Number(r.price).toLocaleString('cs-CZ')+',-'));
    var btn=el('button','ok86-related-link ok97-unavailable','Do košíku');btn.type='button';btn.disabled=true;
    btn.setAttribute('aria-disabled','true');
-   var cart=svgCart();btn.prepend(cart);item.append(btn);
+   item.append(btn);
    if(href){var category=el('a','ok97-category-link',p.defaultCategory+' »');category.href=href;item.append(category)}
    else item.append(el('span','ok97-category-link ok97-category-unknown',p.defaultCategory+' »'));
    track.append(item);liveCardState(r,item,btn);
@@ -314,7 +272,7 @@
   buy.classList.remove('ok86-empty');
   var journal=[];function move(n,target,before){if(!n||!target)return;journal.push({n,parent:n.parentNode,next:n.nextSibling});target.insertBefore(n,before||null)}
   var orphan=rating&&rating.parentNode;
-  var originalRatingWrapper=orphan!==buy&&orphan!==gallery&&orphan.parentNode===top?orphan:null;
+  var originalRatingWrapper=orphan&&orphan!==buy&&orphan!==gallery&&orphan.parentNode===top?orphan:null;
   // Move the original native nodes, never clone listeners or the purchase form.
   move(header,buy,buy.firstChild);if(rating)move(rating,buy,header.nextSibling);
   var link=q(':scope > p[data-testid="productCardDescr"]',buy),short=q(':scope > .p-short-description',buy),stock=q(':scope > .availability-value',buy);
@@ -346,8 +304,16 @@
    var micro=el('div','ok86-micro');micro.append(el('span',null,'Kód: '+p.code),el('span',null,'Zákonná odpovědnost za vady 24 měsíců'));buy.append(micro);
    var img=q('.p-main-image img',gallery);if(img)img.alt=p.imageDesc;
    var zoom=q('.p-main-image',gallery);if(zoom)zoom.setAttribute('data-alt',p.imageDesc);
-   if(!q('.ok86-cart-icon',btn))btn.prepend(svgCart('ok86-cart-icon'));
-   setupQuantityStepper(buy);
+   /* Keep exactly one native Shoptet submit button; no injected SVG or duplicated CTA. */
+   btn.classList.add('ok99-native-primary');
+   qa('.add-to-cart button.add-to-cart-button',buy).forEach(function(b){
+    if(b!==btn){b.setAttribute('aria-hidden','true');b.tabIndex=-1;}
+   });
+   qa('svg.ok86-cart-icon',btn).forEach(n=>n.remove());
+   if(!q('.ok99-cart-graphic',btn)){
+    var icon=el('span','ok99-cart-graphic','🛒');icon.setAttribute('aria-hidden','true');btn.prepend(icon);
+   }
+   useNativeQuantity(buy);
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
