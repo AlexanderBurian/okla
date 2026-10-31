@@ -95,7 +95,7 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89
   html body.type-index #content .okla-slider-shell{--okla-cta-blue:#16478B!important}
   html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{
     display:flex!important;flex-direction:column!important;align-items:stretch!important;
-    padding:12px 13px 24px!important;min-height:400px!important;
+    padding:12px 13px 24px!important;min-height:414px!important;
     background:#fff!important;overflow:visible!important;box-shadow:none!important
   }
   html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p>a.image{
