@@ -167,7 +167,12 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89
   html body.type-index #content .okla-slider-shell .okla-slider-track>.product:focus-within .p::after{
     border-color:#E5E5E5!important;box-shadow:0 2px 10px rgba(0,0,0,.10)!important
   }
-  html body.type-index #content .okla-slider-shell>.okla-slider-controls{pointer-events:none!important}
+  /* Align desktop carousel arrows with the imagery, not the full-height card footer. */
+  html body.type-index #content .okla-slider-shell>.okla-slider-controls{
+    position:absolute!important;top:132px!important;bottom:auto!important;
+    height:64px!important;min-height:64px!important;align-items:center!important;
+    pointer-events:none!important
+  }
   html body.type-index #content .okla-slider-shell>.okla-slider-controls button{
     pointer-events:auto!important;z-index:10!important
   }
