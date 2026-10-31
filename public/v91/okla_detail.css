@@ -270,9 +270,5 @@ html body.ok89-detail #content ul.p-detail-tabs{gap:4px!important}
 /* 8w. Blue cap on the selected tab: drawn on the tab link (the link covers the list item, so a shadow on the item was hidden). Inset, so the tab does not get taller. */
 html body.ok89-detail #content ul.p-detail-tabs>li.active{box-shadow:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{background:#fff!important;box-shadow:inset 0 3px 0 0 #2C5F9E!important}
-/* 8x. Product slider card hover and outline: the same values as the homepage card (border #E1E4EB, 9 px radius, 0 3 14 shadow on hover; #B8CBE4 border on focus).
-   Our own 10 px radius rule had won over the homepage hover radius, so the hover radius is set here too. */
-@media(hover:hover) and (pointer:fine){
-html body.ok89-detail #content .ok86-related .okla-slider-track>.product:hover .p,html body.ok89-detail #content .ok86-related .okla-slider-track>.product .p:hover{border-color:#E1E4EB!important;border-radius:9px!important;box-shadow:0 3px 14px rgba(18,36,56,.16)!important;transform:none!important}
-}
-html body.ok89-detail #content .ok86-related .okla-slider-track>.product .p:focus-within{border-color:#B8CBE4!important;box-shadow:0 1px 9px rgba(0,0,0,.13)!important}
+/* 8y. Cart button hover in the product slider: the same colours as the homepage button (background #F1F7FF, outline #8EB8E6, text #16438C), label included. */
+html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button:hover:not(:disabled) span{color:#16438C!important}
