@@ -23,44 +23,13 @@ cards.forEach(function(card){var wrap=card.querySelector('.ratings-wrapper');if(
   }
  }
  });}
-/* The carousel has extra bottom padding and can resize. Anchor arrows to the actual card,
-   not to the entire shell and not to a fixed offset from the section heading. */
-var pendingAlign=0;
-function alignArrows(){
- if(!window.matchMedia('(min-width:992px)').matches)return;
- document.querySelectorAll('#content .okla-slider-shell').forEach(function(shell){
-  var controls=shell.querySelector(':scope > .okla-slider-controls');
-  var card=shell.querySelector('.okla-slider-track > .product .p');
-  if(!controls||!card)return;
-  var cardBox=card.getBoundingClientRect(), shellBox=shell.getBoundingClientRect();
-  if(!cardBox.height||!shellBox.height)return;
-  var center=(cardBox.top-shellBox.top+cardBox.height/2).toFixed(1)+'px';
-  if(shell.style.getPropertyValue('--okla-nav-center')!==center)
-   shell.style.setProperty('--okla-nav-center',center);
- });
-}
-function scheduleArrowAlign(){
- if(pendingAlign)return;
- pendingAlign=window.requestAnimationFrame(function(){pendingAlign=0;alignArrows()});
-}
-
-function start(){if(!document.body?.classList.contains('type-index'))return;process(document);scheduleArrowAlign();
- if('ResizeObserver' in window){
-  var observer=new ResizeObserver(scheduleArrowAlign);
-  document.querySelectorAll('#content .okla-slider-shell').forEach(function(shell){
-   var viewport=shell.querySelector('.okla-slider-viewport'),card=shell.querySelector('.okla-slider-track > .product .p');
-   if(viewport)observer.observe(viewport);
-   if(card)observer.observe(card);
-  });
- }
+function start(){if(!document.body?.classList.contains('type-index'))return;process(document);
  /* Observe only newly added native product cards in sliders; no global subtree/interval polling. */
  document.querySelectorAll('#content .okla-slider-shell .okla-slider-track').forEach(function(track){
  if(track.dataset.ok88Observed)return;track.dataset.ok88Observed='1';
- var mo=new MutationObserver(function(recs){if(!recs.some(function(rec){return Array.from(rec.addedNodes).some(function(n){return n.nodeType===1&&(n.matches?.('.product')||n.querySelector?.('.product'))})}))return;process(document);scheduleArrowAlign()});
+ var mo=new MutationObserver(function(recs){if(!recs.some(function(rec){return Array.from(rec.addedNodes).some(function(n){return n.nodeType===1&&(n.matches?.('.product')||n.querySelector?.('.product'))})}))return;process(document)});
  mo.observe(track,{childList:true});
  });}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
-window.addEventListener('resize',scheduleArrowAlign,{passive:true});
-window.addEventListener('load',scheduleArrowAlign,{once:true});
-var mq=matchMedia('(min-width:992px)');if(mq.addEventListener)mq.addEventListener('change',function(){process(document);scheduleArrowAlign()});
+var mq=matchMedia('(min-width:992px)');if(mq.addEventListener)mq.addEventListener('change',function(){process(document)});
 })();
