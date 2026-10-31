@@ -20,8 +20,11 @@ html body.type-index #okla-v61-dots{display:none!important}
 .okla-hero__title{margin:0;font-size:30px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.25)}
 .okla-hero__lead{margin:0;font-size:15px;line-height:1.4;color:#fff}
 
-/* Dots: none on desktop. */
+/* Dots: none on desktop. The Flipper slide is shown on mobile only (it sits in the lower-right tile on desktop). */
 .okla-hero__dots{display:none}
+@media (min-width:768px){
+ .okla-hero__slide--mobile-only{display:none}
+}
 
 /* ---------- Lower tiles ---------- */
 .okla-tile{position:relative;width:100%;aspect-ratio:450/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:Roboto,Arial,sans-serif}
@@ -56,6 +59,8 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  .okla-hero__title{font-size:20px}
  .okla-hero__lead{font-size:13px;line-height:1.35}
  .okla-hero__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
+ /* Room under the picture for the dots, so the sections below start under them. */
+ html body.type-index #content .banners-row{padding-bottom:34px!important}
  /* Dots sit under the picture on mobile. */
  .okla-hero__dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
  .okla-hero__dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:#c9d2de;cursor:pointer}
