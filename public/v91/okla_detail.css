@@ -336,3 +336,5 @@ html body.ok89-detail #content .p-detail .p-info-wrapper>.p-final-price-wrapper{
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart{margin-bottom:36px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper){margin-bottom:32px!important}
 html body.ok89-detail #content .p-detail .ok86-micro{padding:32px 0 20px!important}
+/* 8au. Share panel: the closed state really hides it (the native no-display class had no effect here), so Sdílet and Zavřít both work. */
+html body.ok89-detail #content .p-detail .p-info-wrapper .social-buttons.no-display{display:none!important}
