@@ -167,3 +167,6 @@ html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-plac
  html body.ok89-detail #content .ok86-related-link{font-size:12px!important}
  html body.ok89-detail #content .ok86-trust{grid-template-columns:1fr!important}
 }
+
+/* V99 fixed-size graphic painted by CSS, never a DOM SVG with inherited huge dimensions. */
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{font-size:0!important;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M3%204h2.5l2%2010.6h10.1L21%207.5H6%20M10%2020h.01%20M18%2020h.01%27%20fill%3D%27none%27%20stroke%3D%27white%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E")!important;background-position:center!important;background-repeat:no-repeat!important;background-size:18px 18px!important}
