@@ -91,6 +91,12 @@
   detailEnd.after(strip);
  }
  function knownUrl(p){return p.url||null}
+ /* Buy-box links that work on this shop: print (window.print) and ask (native question page), share and rating are native Shoptet.
+    Favourites has no backend on this shop (the header heart is inert too), so its button is not shown. */
+ function wireBuyLinks(buy){
+  var fav=q('.okla-detail-favorite',buy);if(fav)fav.remove();
+  var pr=q('.link-icon.print',buy);if(pr)pr.addEventListener('click',function(e){e.preventDefault();window.print()});
+ }
  /* Shows either the review block or the native tab content. Never scrolls. */
  function showTabPanel(name){
   var review=q('.ok97-review-block'),content=q('#tab-content');
@@ -334,7 +340,7 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   richDescription(p);paramsTab(p,detail);formatDetailPrice(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
+   richDescription(p);paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
    window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters).length};
   }

@@ -302,3 +302,12 @@ html body.ok89-detail #content .ok86-related .okla-slider-track>.product:hover .
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product:hover .p-tools .btn-cart.add-to-cart-button:not(:hover) span,html body.ok89-detail #content .ok86-related .okla-slider-track>.product .p:focus-within .p-tools .btn-cart.add-to-cart-button:not(:hover) span{color:#16438C!important}
 /* 8am. Cart button transition as on homepage: background and outline fade over 0.18 s; the label and glyph change at once, as on homepage. */
 html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button{transition:background-color 0.18s,border-color 0.18s!important}
+/* 8an. Buy box rhythm after Alza (more air between the blocks). Only the right-hand purchase column changes. */
+html body.ok89-detail #content .p-detail .p-detail-inner-header{margin-bottom:20px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-short-description{margin-bottom:14px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.ok86-description-link{margin-bottom:24px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{margin-bottom:28px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-final-price-wrapper{margin-bottom:24px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart{margin-bottom:28px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper){margin-bottom:24px!important}
+html body.ok89-detail #content .p-detail .ok86-micro{padding:24px 0 16px!important}
