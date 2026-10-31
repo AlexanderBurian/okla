@@ -23,7 +23,7 @@ if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
 modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js');
 var index=0;
 function next(){
- if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';return}
+ if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';fixFlipperPhoto();return}
  load(modules[index++],0);
 }
 /* A module that fails to load (a transient CDN error) is requested again twice before the loader moves on, so one failed
@@ -45,6 +45,31 @@ function load(file,attempt){
   (document.head||document.documentElement).appendChild(script);
  }
 }
+
+/* Correct complete Flipper Zero photograph for cards and the main product image. */
+function fixFlipperPhoto(){
+ var url='https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@32753e1217ef69f24ed8aa78062ea4a054285a45/public/content-v91/products/OKL-001-2.png';
+ var images=Array.from(document.querySelectorAll('a[href*="/flipper-zero-kapesni-multitool-pro-elektroniku"] img'));
+ var sku=document.querySelector('[itemprop="sku"]');
+ if(sku&&sku.textContent.trim()==='OKL-001'){
+  document.querySelectorAll('.p-main-image img').forEach(function(img){images.push(img);var a=img.closest('a');if(a)a.href=url});
+ }
+ images.forEach(function(img){
+  if(img.getAttribute('src')===url&&!img.hasAttribute('srcset'))return;
+  img.src=url;img.removeAttribute('srcset');img.alt='Flipper Zero – celý přístroj';
+  if(img.hasAttribute('data-src'))img.setAttribute('data-src',url);
+  if(img.hasAttribute('data-srcset'))img.setAttribute('data-srcset',url);
+  var picture=img.closest('picture');if(picture)picture.querySelectorAll('source').forEach(function(source){source.srcset=url});
+ });
+ if(window.OKLA_V86_CATALOG&&window.OKLA_V86_CATALOG['OKL-001'])window.OKLA_V86_CATALOG['OKL-001'].image=url;
+}
+fixFlipperPhoto();
+var flipperPhotoQueued=false;
+new MutationObserver(function(){
+ if(flipperPhotoQueued)return;flipperPhotoQueued=true;
+ requestAnimationFrame(function(){flipperPhotoQueued=false;fixFlipperPhoto()});
+}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['src','srcset']});
+
 window.__oklaAssetLoaderStatus='v91-loading';
 next();
 })();
