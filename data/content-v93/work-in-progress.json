@@ -1,0 +1,27 @@
+{
+  "status": "in-progress; environment disconnected before final export or deployment",
+  "products": 33,
+  "downloadedSourceImages": 230,
+  "visualSourceSheetsReviewed": 33,
+  "localWorkspace": "C:/Users/OMEN/Desktop/OKLA.CZ/okla",
+  "editorial": "data/content-v91/final-editorial.json contains rewritten feature-only copy for all 33 products",
+  "sources": "data/content-v91/downloaded-sources.json, public/content-v93/sources",
+  "notCompleted": [
+    "Select and verify three full product gallery photographs per SKU",
+    "Select three accurate function photographs per SKU",
+    "Reject generated views that change product construction",
+    "Compile full CSV and photo ZIP",
+    "Deploy verified catalog and gallery changes",
+    "Verify desktop/mobile live pages"
+  ],
+  "rejectedOrNeedsReview": {
+    "OKL-006": "Manufacturer gallery contains different models; use TY01 matching original only. New reference-based generated views await final review.",
+    "OKL-014": "Discard 381x497 image and black frame variant; original target silver frame.",
+    "OKL-017": "Original source only 550px. Generated results 2,4,5 change the product and were rejected. Saved 1 and 3 as drafts.",
+    "OKL-022": "Avoid mixing green, cream and purple variants.",
+    "OKL-029": "Original photo 3 is full correct four-arm device. Source 1 crops tips; many generated views alter center housing and must not be substituted as actual photos.",
+    "OKL-030": "Original wide black/gold edition. Smarty sources 600px plus 2000px editorial images downloaded; new edition has different shape.",
+    "OKL-031": "Original target transparent body with grey analog/digital dial. Exclude other colored models and revise inaccurate LED-only copy. Generated views await final review."
+  },
+  "hdmiUserDecision": "HDMI receiver/dongle, not transmitter-receiver pair; selected G4K MiraScreen TV stick"
+}
