@@ -201,7 +201,7 @@
    var stock=shoptetAvailability(doc);
    var nativePrice=doc.querySelector('.p-final-price-wrapper .price-final strong,.p-final-price-wrapper .price-final')?.textContent;
    var priceText=formattedPrice(nativePrice);
-   if(priceText){var span=q('.ok86-related-price',card);if(span)span.textContent=priceText}
+   if(priceText){var span=q('.price-final strong',card);if(span)span.textContent=priceText}
    if(stock===false){btn.disabled=true;btn.classList.add('ok97-unavailable');btn.setAttribute('aria-disabled','true');return}
    if(stock===true&&window.shoptet?.cartShared?.addToCart){
     btn.disabled=false;btn.classList.remove('ok97-unavailable');btn.removeAttribute('aria-disabled');
@@ -221,47 +221,38 @@
     .sort((a,b)=>a.code.localeCompare(b.code,'cs')).slice(0,10);
   if(!records.length||q('.ok86-related'))return;
   var sec=el('section','ok86-related');
-  sec.append(el('h2',null,'Mohlo by vás zajímat'));
-  var view=el('div','ok97-related-viewport'),track=el('div','ok86-related-track');
+  /* Homepage slider markup (.okla-slider-*). The native loader's sliderFor() builds the shell, arrows,
+     autoplay and swipe, so the product slider behaves exactly like the homepage one. */
+  var heading=el('div','homepage-group-title h4 okla-slider-heading','Mohlo by vás zajímat');
   var href=categoryHref(p.defaultCategory);
+  if(href)heading.setAttribute('data-category-url',href);
+  var group=el('div','products products-block');
   records.forEach(r=>{
-   var item=el('article','ok86-related-card');item.dataset.sku=r.code;
-   var img=el('img');img.src=r.image;img.alt=r.imageDesc||r.name;img.loading='lazy';item.append(img);
+   var item=el('div','product');
+   var box=el('div','p');box.dataset.testid='productItem';
    var destination=knownUrl(r);
    var url=destination?new URL(destination,location.origin).pathname:null;
-   var title=el(url?'a':'span','ok86-related-title',r.name);if(url)title.href=url;item.append(title);
-   item.append(el('div','ok86-related-price',Number(r.price).toLocaleString('cs-CZ')+',-'));
-   var btn=el('button','ok86-related-link ok97-unavailable','Do košíku');btn.type='button';btn.disabled=true;
-   btn.setAttribute('aria-disabled','true');
-   item.append(btn);
-   if(href){var category=el('a','ok97-category-link',p.defaultCategory+' »');category.href=href;item.append(category)}
-   else item.append(el('span','ok97-category-link ok97-category-unknown',p.defaultCategory+' »'));
-   track.append(item);liveCardState(r,item,btn);
+   var image=el(url?'a':'span','image');if(url)image.href=url;
+   var img=el('img');img.src=r.image;img.alt=r.imageDesc||r.name;img.loading='lazy';image.append(img);
+   var pin=el('div','p-in'),inner=el('div','p-in-in');
+   var name=el(url?'a':'span','name');if(url)name.href=url;name.append(el('span',null,r.name));
+   inner.append(name);
+   var pBottom=el('div','p-bottom'),prices=el('div','prices'),priceBox=el('div','price price-final');
+   priceBox.append(el('strong',null,Number(r.price).toLocaleString('cs-CZ')+',-'));
+   prices.append(priceBox);
+   var tools=el('div','p-tools'),btn=el('button','btn btn-cart add-to-cart-button ok97-unavailable','Do košíku');
+   btn.type='button';btn.disabled=true;btn.setAttribute('aria-disabled','true');
+   tools.append(btn);
+   pBottom.append(prices,tools);
+   pin.append(inner,pBottom);
+   box.append(image,pin,el('span','p-code','Kód: '+r.code));
+   item.append(box);group.append(item);
+   liveCardState(r,item,btn);
   });
-  view.append(track);sec.append(view);
-  var prev=el('button','ok97-related-arrow ok97-related-prev','‹'),next=el('button','ok97-related-arrow ok97-related-next','›');
-  prev.type=next.type='button';prev.setAttribute('aria-label','Předchozí produkty');
-  next.setAttribute('aria-label','Další produkty');
-  sec.append(prev,next);
-  function updateArrows(){
-   var max=view.scrollWidth-view.clientWidth;
-   var overflowing=max>2;
-   prev.hidden=!overflowing||view.scrollLeft<=2;
-   next.hidden=!overflowing||view.scrollLeft>=max-2;
-  }
-  function move(dir){
-   var card=q('.ok86-related-card',track),width=card?.getBoundingClientRect().width||210;
-   var gap=parseFloat(getComputedStyle(track).gap)||24;
-   var n=innerWidth<768?2:innerWidth<1200?3:5;
-   view.scrollBy({left:dir*(width+gap)*n,behavior:'smooth'});
-  }
-  prev.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
-  view.addEventListener('scroll',updateArrows,{passive:true});
-  window.addEventListener('resize',updateArrows,{passive:true});
-  if(window.ResizeObserver)new ResizeObserver(updateArrows).observe(view);
+  sec.append(heading,group);
   var review=q('.ok97-review-block'),tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
   if(review)review.after(sec);else if(tabs)tabs.after(sec);else detail.after(sec);
-  requestAnimationFrame(updateArrows);
+  if(window.__oklaSliderFor)window.__oklaSliderFor(group,heading);
  }
  function init(){
   var detail=q('#content .p-detail'),form=q('#product-detail-form',detail||document),top=q('.row.product-top',detail||document)||q('.row.product-top',document),sku=q('[itemprop="sku"]',form||document)?.getAttribute('content')||q('.p-code>span:last-child',detail||document)?.textContent?.trim();
