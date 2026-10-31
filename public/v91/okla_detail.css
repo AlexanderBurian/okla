@@ -321,3 +321,18 @@ html body.ok89-detail #content .p-detail{padding-left:16px!important;padding-rig
 @media(max-width:991px){
 html body.ok89-detail #content .p-detail .row.product-top{margin-left:0!important;margin-right:0!important}
 }
+/* 8as. Product image field: no 446 px cap, the field takes the full gallery column and is about twice the previous area; the photo scales with it. */
+@media(min-width:992px){
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-image{width:100%!important;max-width:none!important;min-height:640px!important}
+html body.ok89-detail #content .p-detail .p-main-image img{width:100%!important;max-width:100%!important;max-height:none!important;height:auto!important;aspect-ratio:auto!important}
+}
+/* 8at. Buy box: larger vertical gaps between the blocks. */
+html body.ok89-detail #content .p-detail .p-detail-inner-header{margin-bottom:24px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-info{margin-bottom:20px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-short-description{margin-bottom:16px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.ok86-description-link{margin-bottom:32px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{margin-bottom:36px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-final-price-wrapper{margin-bottom:36px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart{margin-bottom:36px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper){margin-bottom:32px!important}
+html body.ok89-detail #content .p-detail .ok86-micro{padding:32px 0 20px!important}
