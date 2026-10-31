@@ -24,10 +24,14 @@ if(btn&&!btn.querySelector('svg.okv79-cart,svg.okv80-cart'))btn.prepend(cart());
 let scheduled=false;function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;repair()})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',repair,{once:true});else repair();
 window.addEventListener('load',repair,{once:true});
-setTimeout(repair,250);setTimeout(repair,1000);setTimeout(repair,2000);
+setTimeout(repair,250);
 window.addEventListener('resize',schedule,{passive:true});
-const root=document.querySelector('main#content')||document.body;
-if(root){new MutationObserver(recs=>{if(recs.some(x=>x.addedNodes.length))schedule()}).observe(root,{childList:true,subtree:true})}
+/* V87: observe only additions of new product cards, not every mutation of the entire homepage. */
+document.querySelectorAll('#content .okla-slider-shell .okla-slider-track').forEach(root=>{
+ new MutationObserver(recs=>{
+  if(recs.some(r=>Array.from(r.addedNodes).some(n=>n.nodeType===1&&(n.matches?.('.product')||n.querySelector?.('.product')))))schedule()
+ }).observe(root,{childList:true});
+});
 window.oklaV80Inspect=()=>({starGroups:document.querySelectorAll('#content .products .product .okv80-stars').length,
 existingMobileStarGroups:document.querySelectorAll('#content .products .product .okv73-rating-stars').length,
 productCards:document.querySelectorAll('#content .products .product').length,

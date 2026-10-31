@@ -1,0 +1,41 @@
+/* OKLA V87 – desktop-only native product card hover and color. */
+@media(min-width:992px){
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product {min-width:0!important;will-change:auto!important;transform:none!important}
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p {
+    position:relative!important;border:1px solid transparent!important;border-radius:10px!important;
+    box-shadow:none!important;background:#fff!important;transform:none!important;
+    transition:none!important;overflow:visible!important;isolation:isolate!important}
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p,
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:hover,
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:focus-within{
+    border:1px solid transparent!important;box-shadow:none!important;background:#fff!important;transform:none!important}
+  /* Draw a non-layout-changing hover frame 12px LOWER than the former top edge. */
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p::after{
+    content:''!important;display:block!important;position:absolute!important;
+    inset:12px 0 0 0!important;pointer-events:none!important;z-index:0!important;
+    border:1px solid transparent!important;border-radius:10px!important;
+    box-shadow:none!important;background:transparent!important;opacity:1!important;transition:border-color .14s ease,box-shadow .14s ease!important}
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p::after,
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:focus-within::after{
+    border-color:#E0E0E0!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important}
+  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p > *{position:relative;z-index:1}
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
+    display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;
+    border:1px solid #174784!important;border-radius:6px!important;background:#fff!important;
+    background-image:none!important;box-shadow:none!important;transform:none!important;
+    color:#174784!important;font:600 13px/1.25 Roboto,'Segoe UI',Arial,sans-serif!important;
+    transition:background-color .14s ease,color .14s ease,border-color .14s ease!important}
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:hover:not(:disabled),
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:focus-visible:not(:disabled){
+    color:#102A54!important;border-color:#102A54!important;background:#EAF1F8!important}
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:disabled:hover{border-color:#102A54!important;color:#102A54!important;background:#EAF1F8!important}
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.ok87-filled-cart{
+    display:block!important;position:static!important;flex:0 0 19px!important;width:19px!important;height:19px!important;
+    min-width:19px!important;max-width:19px!important;max-height:19px!important;
+    color:inherit!important;stroke:currentColor!important;fill:currentColor!important;transform:none!important}
+  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg:not(.ok87-filled-cart){display:none!important}
+  html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okv80-five-stars .okv80-stars svg{fill:none!important;stroke:#A2A9B3!important;color:#A2A9B3!important}
+}
+/* Avoid accidental product card transform jitters in web animations. */
+@media(prefers-reduced-motion:reduce){html body.type-index .okla-slider-shell .product *,html body.ok87-detail .p-detail *{transition:none!important;animation:none!important}}
