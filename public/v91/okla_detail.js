@@ -90,6 +90,18 @@
   var related=q('.ok86-related');var detailEnd=related||q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper')||detail;
   detailEnd.after(strip);
  }
+ /* Right column under the buy row: the same four facts as the trust strip (all linked pages exist on the shop), next to the buyer's decision. */
+ function buyBenefits(buy){if(q('.ok86-benefits',buy))return;
+  var list=el('ul','ok86-benefits');list.setAttribute('aria-label','Informace k nákupu');
+  [
+   ['M3 7h18 M7 3v8 M17 3v8 M5 21h14','Odstoupení od smlouvy do 14 dnů','/vraceni-zbozi-a-odstoupeni/'],
+   ['M12 3 4 7v6c0 5 4 8 8 9 4-1 8-4 8-9V7z','Zákonná odpovědnost za vady 24 měsíců','/reklamacni-rad/'],
+   ['M3 7h18v12H3z M3 11h18','Doprava a platba si vyberete v košíku','/doprava-a-platba/'],
+   ['M3 5h18v14H3z M3 6l9 7 9-7','Poradíme: podpora@okla.cz','mailto:podpora@okla.cz']
+  ].forEach(([path,title,href])=>{var li=el('li');li.append(svgIcon(path));var a=el('a',null,title);a.href=href;li.append(a);list.append(li)});
+  var anchor=q('.add-to-cart',buy)||q('.p-final-price-wrapper',buy);
+  if(anchor)anchor.after(list);
+ }
  function knownUrl(p){return p.url||null}
  /* Buy-box links that work on this shop: print (window.print) and ask (native question page), share and rating are native Shoptet.
     Favourites has no backend on this shop (the header heart is inert too), so its button is not shown. */
@@ -340,7 +352,7 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   richDescription(p);paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
+   richDescription(p);paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
    window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters).length};
   }
