@@ -1,4 +1,4 @@
-/* OKLA V86 – production product detail, based on real Shoptet product DOM. */
+/* OKLA V90 – consolidated product detail stylesheet for Shoptet. */
 /* 0. Tokens / single font family; only detail pages are affected. */
 :root {
   --ok86-blue:#2C5F9E; --ok86-navy:#102A54; --ok86-price:#E30613;
@@ -203,7 +203,7 @@ html body.ok89-detail #content .p-detail-tabs-wrapper .shp-tabs-row {border-bott
  html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > .quantity{flex-basis:58px!important;width:58px!important;max-width:58px!important}
 }
 
-/* V88: make the native right purchase panel robust against stale .ok86-empty classification. */
+/* Preserve native Shoptet purchase panel when originally classified as empty. */
 html body.ok89-detail #content .p-detail .row.product-top.ok86-grid > .p-info-wrapper,
 html body.ok89-detail #content .p-detail .row.product-top.ok86-grid > .p-info-wrapper.ok86-empty{
  display:block!important;visibility:visible!important;opacity:1!important;content-visibility:visible!important;
@@ -218,7 +218,7 @@ html body.ok89-detail #content .p-detail .row.product-top.ok86-grid > .p-info-wr
 /* Hide only the *truly empty* original full-row rating placeholder; never buy/gallery. */
 html body.ok89-detail #content .p-detail .row.product-top.ok86-grid > .ok86-empty:not(.p-info-wrapper):not(.p-image-wrapper){display:none!important}
 html body.ok89-detail .p-detail .p-detail-inner-header .p-code{display:none!important}
-html body.ok89-detail .breadcrumbs .ok86-home .ok86-home{display:none!important}
+
 @media (min-width:992px){
  html body.ok89-detail #content .p-detail .row.product-top.ok86-grid > .p-info-wrapper{grid-column:2!important;grid-row:1!important;width:100%!important;max-width:100%!important}
 }
