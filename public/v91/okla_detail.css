@@ -238,3 +238,8 @@ html body.ok89-detail #content .p-detail-inner-header [class*="close-after"]::af
 html body.ok89-detail #content .p-detail-tabs-wrapper,html body.ok89-detail #content .p-details-tabs-wrapper{margin-left:-44px!important;margin-right:-44px!important;width:calc(100% + 88px)!important}
 }
 html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:1px solid #DDE3EA!important;box-shadow:none!important}
+/* 8r. Product slider, option B: full width of the product sheet, card size exactly as homepage (186 px), six cards spread evenly across the row. */
+@media(min-width:992px){
+html body.ok89-detail #content .ok86-related{max-width:none!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:186px!important;justify-content:space-between!important}
+}

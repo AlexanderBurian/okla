@@ -236,8 +236,11 @@
   for(var i=0;i<5;i++){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');var p=document.createElementNS(NS,'path');p.setAttribute('d','M12 2l3.09 6.26L22 9.27l-5 4.88 1.18 6.9L12 17.8l-6.18 3.25L7 14.15 2 9.27l6.91-1.01L12 2z');s.appendChild(p);group.appendChild(s)}
   wrap.append(group,el('div','stars-placeholder','Bez hodnocení'));return wrap}
  function relatedCarousel(p,detail){
-  var records=Object.values(catalog).filter(x=>x.defaultCategory===p.defaultCategory&&x.code!==p.code)
-    .sort((a,b)=>a.code.localeCompare(b.code,'cs')).slice(0,10);
+  /* Same category first, then other products, so the row can be full at homepage card size (six cards). */
+  var byCode=(a,b)=>a.code.localeCompare(b.code,'cs');
+  var same=Object.values(catalog).filter(x=>x.defaultCategory===p.defaultCategory&&x.code!==p.code).sort(byCode);
+  var others=Object.values(catalog).filter(x=>x.defaultCategory!==p.defaultCategory&&x.code!==p.code).sort(byCode);
+  var records=same.concat(others).slice(0,6);
   if(!records.length||q('.ok86-related'))return;
   var sec=el('section','ok86-related');
   /* Same markup as the homepage slider (.okla-slider-*). The native loader's sliderFor() builds the shell, arrows,
