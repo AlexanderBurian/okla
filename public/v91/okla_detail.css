@@ -52,10 +52,18 @@ body.ok89-detail .p-detail .availability-value.ok86-out .availability-label{colo
 body.ok89-detail .p-detail .p-info-wrapper>.p-final-price-wrapper{display:block!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0 0 18px!important;padding:0!important}
 body.ok89-detail .p-detail .p-final-price-wrapper .price-final,body.ok89-detail .p-detail .p-final-price-wrapper .price-final *{color:#E30613!important;font:800 32px/1.2 var(--ok86-font)!important}
 body.ok89-detail .p-detail .p-info-wrapper .price-without-vat{display:block!important;color:#777!important;font:400 13px/1.4 var(--ok86-font)!important}
-body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart{display:flex!important;align-items:center!important;gap:10px!important;flex-wrap:nowrap!important;width:100%!important;max-width:100%!important;margin:0 0 16px!important;padding:0!important}
-body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.quantity{flex:0 0 78px!important;width:78px!important;min-width:0!important;max-width:78px!important;margin:0!important}
-body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart input.amount{height:52px!important;border:1px solid #DAE0E9!important;text-align:center!important}
-body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;gap:9px!important;min-width:0!important;width:auto!important;height:52px!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:6px!important;background:#3E7A00!important;background-image:none!important;box-shadow:none!important;color:#FFFFFF!important;font:700 18px/1.3 var(--ok86-font)!important;text-align:center!important;cursor:pointer!important;transition:background-color .2s ease!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart{display:flex!important;align-items:center!important;gap:16px!important;flex-wrap:wrap!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0 0 16px!important;padding:0!important;box-sizing:border-box!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.quantity{display:flex!important;align-items:center!important;justify-content:space-between!important;flex:0 0 150px!important;width:150px!important;min-width:150px!important;max-width:150px!important;height:52px!important;margin:0!important;padding:0!important;border:1px solid #D0D5DD!important;border-radius:7px!important;background:#fff!important;overflow:hidden!important;box-sizing:border-box!important}
+/* Original Shoptet input is preserved; browser spinner is visually replaced. */
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready input.amount{display:block!important;flex:1 1 0!important;min-width:0!important;width:50px!important;height:50px!important;margin:0!important;padding:0 2px!important;appearance:textfield!important;-moz-appearance:textfield!important;border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;text-align:center!important;color:#1A1A1A!important;font:700 22px/1.25 var(--ok86-font)!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready input.amount::-webkit-inner-spin-button,
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready input.amount::-webkit-outer-spin-button{-webkit-appearance:none!important;margin:0!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready>.ok86-qty-step{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 42px!important;width:42px!important;min-width:42px!important;height:50px!important;min-height:50px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#7B8191!important;box-shadow:none!important;font:800 27px/1 var(--ok86-font)!important;cursor:pointer!important;user-select:none!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready>.ok86-qty-step:hover:not(:disabled){background:#F3F6FA!important;color:#475467!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready>.ok86-qty-step:disabled{opacity:.4!important;cursor:not-allowed!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready>.ok86-qty-step:focus-visible{outline:2px solid #2C5F9E!important;outline-offset:-3px!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart .quantity.ok86-stepper-ready> :is(button,a,.increase,.decrease,.plus,.minus):not(.ok86-qty-step){display:none!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 225px!important;gap:9px!important;min-width:min(225px,100%)!important;width:auto!important;height:52px!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:6px!important;background:#3E7A00!important;background-image:none!important;box-shadow:none!important;color:#FFFFFF!important;font:700 18px/1.3 var(--ok86-font)!important;text-align:center!important;cursor:pointer!important;transition:background-color .2s ease!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button:hover:not(:disabled){background:#2F6000!important;color:#FFFFFF!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button:disabled,body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button.ok86-disabled{background:#C8CDD3!important;color:#6B7280!important;border:0!important;opacity:1!important;cursor:not-allowed!important;pointer-events:none!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button::before{display:none!important;content:none!important}
@@ -121,12 +129,17 @@ body.ok89-detail #content .ok86-trust a{color:#2C5F9E!important}
  body.ok89-detail #content .p-detail .p-image-wrapper>.p-image{min-height:270px!important}
  body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image img{max-height:330px!important}
  body.ok89-detail #content .p-detail .p-final-price-wrapper .price-final,body.ok89-detail #content .p-detail .p-final-price-wrapper .price-final *{font-size:28px!important}
- body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart>.quantity{flex-basis:64px!important;width:64px!important;max-width:64px!important}
+ body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart>.quantity{flex-basis:150px!important;width:150px!important;min-width:150px!important;max-width:150px!important}
  body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{min-width:0!important;width:100%!important}
  body.ok89-detail #content .ok86-related-track{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
  body.ok89-detail #content .ok86-trust{gap:15px!important;padding:16px!important}
  body.ok89-detail #content .ok86-related-card>img{height:145px!important}
  body.ok89-detail #content .ok86-params th,body.ok89-detail #content .ok86-params td{padding:10px 8px!important}
+}
+/* Mobile uses a full-width CTA below the quantity control without overlap. */
+@media(max-width:767px){
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;}
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button{flex:0 0 52px!important;width:100%!important;max-width:100%!important;min-width:0!important;white-space:normal!important;}
 }
 @media(max-width:375px){
  body.ok89-detail #content .p-detail{padding:16px!important}
@@ -160,9 +173,9 @@ html body.ok89-detail #content .p-detail .p-info-wrapper > .p-final-price-wrappe
 html body.ok89-detail #content .p-detail .p-info-wrapper > .p-final-price-wrapper .price-final,
 html body.ok89-detail #content .p-detail .p-info-wrapper > .p-final-price-wrapper .price-final * {font:800 32px/1.28 Roboto,'Segoe UI',Arial,sans-serif!important;color:#E30613!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .detail-parameters:empty {display:none!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart {display:flex!important;position:static!important;align-items:center!important;flex-direction:row!important;gap:10px!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0 0 16px!important;padding:0!important;float:none!important;clear:both!important;overflow:visible!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart >.quantity {display:block!important;flex:0 0 78px!important;min-width:0!important;max-width:78px!important;width:78px!important;height:52px!important;margin:0!important;padding:0!important;float:none!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button {box-sizing:border-box!important;appearance:none!important;position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;gap:9px!important;min-width:0!important;max-width:100%!important;width:auto!important;height:52px!important;max-height:52px!important;margin:0!important;padding:10px 14px!important;border:0!important;border-radius:6px!important;background:#3E7A00!important;background-image:none!important;box-shadow:none!important;float:none!important;transform:none!important;opacity:1!important;font:700 18px/1.25 Roboto,'Segoe UI',Arial,sans-serif!important;color:white!important;white-space:nowrap!important;text-indent:0!important;text-shadow:none!important;cursor:pointer!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart {display:flex!important;position:static!important;align-items:center!important;flex-direction:row!important;flex-wrap:wrap!important;gap:16px!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;margin:0 0 16px!important;padding:0!important;float:none!important;clear:both!important;overflow:visible!important;box-sizing:border-box!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart >.quantity {display:flex!important;align-items:center!important;justify-content:space-between!important;flex:0 0 150px!important;min-width:150px!important;max-width:150px!important;width:150px!important;height:52px!important;margin:0!important;padding:0!important;float:none!important;box-sizing:border-box!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button {box-sizing:border-box!important;appearance:none!important;position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 225px!important;gap:9px!important;min-width:min(225px,100%)!important;max-width:100%!important;width:auto!important;height:52px!important;max-height:52px!important;margin:0!important;padding:10px 14px!important;border:0!important;border-radius:6px!important;background:#3E7A00!important;background-image:none!important;box-shadow:none!important;float:none!important;transform:none!important;opacity:1!important;font:700 18px/1.25 Roboto,'Segoe UI',Arial,sans-serif!important;color:white!important;white-space:nowrap!important;text-indent:0!important;text-shadow:none!important;cursor:pointer!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:hover:not(:disabled){background:#2F6000!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:disabled{background:#C8CDD3!important;color:#626C78!important;cursor:not-allowed!important;pointer-events:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:before,
@@ -182,12 +195,12 @@ html body.ok89-detail #content .p-detail-tabs-wrapper .shp-tabs-row {border-bott
 }
 @media(max-width:767px){
  html body.ok89-detail #content .p-detail .p-info-wrapper > .p-detail-inner-header h1 {font-size:23px!important}
- html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart >.quantity {flex:0 0 62px!important;width:62px!important;max-width:62px!important}
- html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button{font-size:14px!important;padding:8px 10px!important}
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart >.quantity {flex:0 0 150px!important;width:150px!important;min-width:150px!important;max-width:150px!important}
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button{font-size:18px!important;padding:8px 10px!important}
 }
 @media(max-width:375px){
  html body.ok89-detail #content .p-detail .p-info-wrapper > .p-detail-inner-header h1{font-size:21px!important}
- html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > .quantity{flex-basis:58px!important;width:58px!important;max-width:58px!important}
+ html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > .quantity{flex-basis:150px!important;width:150px!important;min-width:150px!important;max-width:150px!important}
 }
 
 /* Preserve native Shoptet purchase panel when originally classified as empty. */
