@@ -212,7 +212,7 @@ html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:0!imp
 /* 8i. Slider width as on homepage (its container is 1010 px on desktop, so the cards keep the homepage size). */
 html body.ok89-detail #content .ok86-related{max-width:1010px!important;margin-left:auto!important;margin-right:auto!important}
 /* 8j. Cart button hover exactly as homepage. */
-html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button:hover:not(:disabled){background:#DBE5F6!important;border-color:#B5CAE8!important;color:#13417F!important;box-shadow:none!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button:hover:not(:disabled){background-color:#DBE5F6!important;border-color:#13417F!important;color:#13417F!important;box-shadow:none!important}
 /* 8k. Desktop: five cards in a row, exactly as the homepage (the loader counts visible cards as items-1, which gives four for five records). */
 @media(min-width:992px){
 html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:calc((100% - 64px) / 5)!important}
@@ -270,7 +270,7 @@ html body.ok89-detail #content ul.p-detail-tabs{gap:4px!important}
 /* 8w. Blue cap on the selected tab: drawn on the tab link (the link covers the list item, so a shadow on the item was hidden). Inset, so the tab does not get taller. */
 html body.ok89-detail #content ul.p-detail-tabs>li.active{box-shadow:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{background:#fff!important;box-shadow:inset 0 3px 0 0 #2C5F9E!important}
-/* 8y. Cart button hover in the product slider: the colours the homepage button really shows on hover (the last matching homepage rule: background #DBE5F6, outline #B5CAE8, text #13417F, no shadow), label included. */
+/* 8y. Cart button hover in the product slider: background #DBE5F6, outline and text the same colour #13417F (identical outline and content), label included. background-color only, so the cart icon image stays. */
 html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button:hover:not(:disabled) span{color:#13417F!important}
 /* 8aa. Selected tab: blue cap 1 px wider on each side than the tab, shown at once (no transition). */
 html body.ok89-detail #content ul.p-detail-tabs>li,html body.ok89-detail #content ul.p-detail-tabs>li>a{transition:none!important}
