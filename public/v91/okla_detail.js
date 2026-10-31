@@ -91,6 +91,12 @@
   detailEnd.after(strip);
  }
  function knownUrl(p){return p.url||null}
+ /* Shows either the review block or the native tab content. Never scrolls. */
+ function showTabPanel(name){
+  var review=q('.ok97-review-block'),content=q('#tab-content');
+  if(review)review.style.setProperty('display',name==='review'?'':'none','important');
+  if(content)content.style.setProperty('display',name==='review'?'none':'','important');
+ }
  /* Alza-style tabs: retain native Shoptet tab links, markup and event handlers. */
  function formatTabs(){
   var tabs=q('ul.p-detail-tabs');
@@ -108,12 +114,16 @@
    reviewLink.href='#ok97-review-block';
    reviewLi.append(reviewLink);
    homeLi.after(reviewLi);
-   reviewLink.addEventListener('click',function(){
+   /* Panels switch in place: the click is prevented, so the page never jumps to the anchor. */
+   reviewLink.addEventListener('click',function(e){
+    e.preventDefault();
     qa('li.shp-tab',tabs).forEach(li=>li.classList.remove('active'));
     reviewLi.classList.add('active');
+    showTabPanel('review');
    });
    qa('a.shp-tab-link',tabs).forEach(a=>a.addEventListener('click',function(){
     reviewLi.classList.remove('active');
+    showTabPanel('content');
    }));
   }
   var reviewTab=q('li.ok97-review-tab',tabs);

@@ -10,7 +10,7 @@
  --okd-font:Roboto,"Segoe UI",Arial,sans-serif;
 }
 /* 1. White product sheet, no old navy border. */
-html body.ok89-detail #content-wrapper{box-sizing:border-box!important;max-width:var(--okd-width)!important;margin-inline:auto!important;border:0!important;border-top:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;overflow:visible!important}
+html body.ok89-detail #content-wrapper{box-sizing:border-box!important;max-width:var(--okd-width)!important;margin-inline:auto!important;border:0!important;border-top:4px solid #2C5F9E!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important;overflow:hidden!important}
 html body.ok89-detail #content-wrapper::before{display:none!important;content:none!important}
 html body.ok89-detail #content,html body.ok89-detail #content .p-detail,html body.ok89-detail #content .p-detail-inner{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;background:#fff!important}
 html body.ok89-detail #content .p-detail{padding:24px 24px 32px!important;margin:0!important;border:0!important;box-shadow:none!important}
@@ -85,14 +85,21 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .okla-detail-favorite s
 html body.ok89-detail #content .ok86-related .btn-cart.ok97-unavailable,html body.ok89-detail #content .ok86-related .btn-cart:disabled{background:#C8CDD3!important;border-color:#C8CDD3!important;color:#6B7280!important;cursor:not-allowed!important;opacity:1!important}
 /* 6d. Homepage slider paints a NOVINKA badge on every card; no product data supports it here, so the product slider hides it. */
 html body.ok89-detail #content .ok86-related .okla-slider-track>.product .prices::before{content:none!important;display:none!important}
+/* 6e. Header: all piktogramy on one baseline (cart glyph was 8px higher); Shoptet menu helper is not used on product pages. */
+html body.ok89-detail #header .okla-exact-header a.cart-count .okla-cart-symbol{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:42px!important;margin:0!important;transform:none!important;top:auto!important}
+html body.ok89-detail #header .okla-exact-header a.cart-count .okla-cart-symbol svg{position:static!important;top:auto!important;transform:none!important}
+html body.ok89-detail .menu-helper{display:none!important}
+/* 6f. Tabs: full-width baseline, inactive tabs light grey, active tab keeps its blue top bar aligned with the others. */
+html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:3px solid transparent!important}
+html body.ok89-detail #content .shp-tabs-row{width:100%!important}
 /* 7. Actual Shoptet native tabs; the list itself is styled to avoid wrapper-name mismatch. */
-html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper){display:block!important;box-sizing:border-box!important;position:relative!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px auto 0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important}
+html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper){display:block!important;box-sizing:border-box!important;position:relative!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important}
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(.row,.shp-tabs-holder,.shp-tabs-row){box-sizing:border-box!important;float:none!important;max-width:100%!important;width:100%!important;min-width:0!important;margin:0!important;padding:0!important;background:#fff!important}
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) .shp-tabs-row{display:flex!important;align-items:flex-end!important;flex-wrap:nowrap!important;border:0!important;border-bottom:1px solid var(--okd-line)!important;min-height:43px!important}
 html body.ok89-detail #content ul.p-detail-tabs{box-sizing:border-box!important;display:flex!important;align-items:stretch!important;justify-content:flex-start!important;flex-wrap:nowrap!important;gap:3px!important;width:max-content!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;border:0!important;list-style:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li{box-sizing:border-box!important;display:flex!important;align-items:stretch!important;flex:0 0 auto!important;float:none!important;position:relative!important;margin:0 0 -1px!important;padding:0!important;border:1px solid var(--okd-line)!important;border-radius:0!important;background:#fff!important;box-shadow:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li::before,html body.ok89-detail #content ul.p-detail-tabs>li::after{display:none!important;content:none!important}
-html body.ok89-detail #content ul.p-detail-tabs>li>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;margin:0!important;padding:8px 15px!important;border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;color:#4A4A4A!important;font:400 15px/1.4 var(--okd-font)!important;text-decoration:none!important;text-transform:none!important}
+html body.ok89-detail #content ul.p-detail-tabs>li>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;margin:0!important;padding:8px 15px!important;border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;color:#6B7280!important;font:400 15px/1.4 var(--okd-font)!important;text-decoration:none!important;text-transform:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active{z-index:2!important;border-top:3px solid var(--okd-blue)!important;border-bottom-color:white!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{padding-top:6px!important;min-height:38px!important;color:#1A1A1A!important}
 html body.ok89-detail #content ul.p-detail-tabs>li>a:hover{color:var(--okd-blue)!important}
