@@ -216,8 +216,8 @@ html body.type-index #content .okla-slider-shell+.homepage-group-title{margin-to
 html body.type-index #content .okla-slider-shell+#okla-news-v55{margin-top:0!important}
 }
 /* Warranty band between the second and third product rows (insertWarrantyBlock, legacy v53).
-   Sized to the homepage content column; the full-viewport trick is not used. */
-html body.type-index #content #okla-warranty{box-sizing:border-box!important;width:100%!important;max-width:100%!important;margin:0 0 42px!important;padding:35px 32px!important;background:#eaf5ff!important;border-radius:10px!important}
+   Edge to edge of the white content area next to the sidebar: the 20 px gutter of #content is cancelled by the negative side margins. */
+html body.type-index #content #okla-warranty{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin:0 -20px 42px!important;padding:35px 32px!important;background:#eaf5ff!important;border-radius:0!important}
 html body.type-index #content #okla-warranty *,html body.type-index #content #okla-warranty *::before,html body.type-index #content #okla-warranty *::after{box-sizing:border-box!important}
 html body.type-index #content #okla-warranty .okla-warranty-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:32px!important;width:100%!important}
 html body.type-index #content #okla-warranty .okla-warranty-title,html body.type-index #content #okla-warranty .okla-warranty-subtitle{margin:0!important;padding:0!important;color:#111827!important;font-size:32px!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.8px!important;text-align:left!important}
@@ -225,7 +225,7 @@ html body.type-index #content #okla-warranty .okla-warranty-subtitle{margin-top:
 html body.type-index #content #okla-warranty .okla-warranty-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex-shrink:0!important;padding:14px 24px!important;border:0!important;border-radius:5px!important;background:#0074e8!important;color:#fff!important;text-decoration:none!important;font-size:15px!important;font-weight:600!important;line-height:1.3!important;white-space:nowrap!important;transition:background .2s ease!important}
 html body.type-index #content #okla-warranty .okla-warranty-button:hover{background:#005cbd!important;color:#fff!important}
 @media(max-width:767px){
-html body.type-index #content #okla-warranty{padding:28px 20px!important;margin:24px 0!important}
+html body.type-index #content #okla-warranty{padding:28px 20px!important;margin:24px -12px!important}
 html body.type-index #content #okla-warranty .okla-warranty-inner{flex-direction:column!important;align-items:flex-start!important;gap:20px!important}
 html body.type-index #content #okla-warranty .okla-warranty-title,html body.type-index #content #okla-warranty .okla-warranty-subtitle{font-size:25px!important;letter-spacing:-.5px!important}
 html body.type-index #content #okla-warranty .okla-warranty-button{width:100%!important}
