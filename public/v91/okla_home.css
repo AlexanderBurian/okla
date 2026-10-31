@@ -1,8 +1,8 @@
 /* OKLA V91: canonical desktop/card rules + isolated tablet/mobile. */
-/* Desktop 5-card carousel, tablet 3-card carousel. Existing native carousel JS remains intact. */
+/* Desktop 4-card carousel, tablet 3-card carousel. Existing native carousel JS remains intact. */
 @media(min-width:992px){
- html body.type-index #content .products.products-block.okla-slider-track{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:flex-start!important;gap:24px!important;width:100%!important;min-width:0!important;--okla-card-width:calc((100% - 96px)/5)!important}
- html body.type-index #content .okla-slider-shell .products.okla-slider-track>.product{position:relative!important;flex:0 0 calc((100% - 96px)/5)!important;width:calc((100% - 96px)/5)!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important;text-align:center!important}
+ html body.type-index #content .products.products-block.okla-slider-track{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:flex-start!important;gap:24px!important;width:100%!important;min-width:0!important;--okla-card-width:calc((100% - 72px)/4)!important}
+ html body.type-index #content .okla-slider-shell .products.okla-slider-track>.product{position:relative!important;flex:0 0 calc((100% - 72px)/4)!important;width:calc((100% - 72px)/4)!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important;text-align:center!important}
  html body.type-index #content .okla-slider-shell>.okla-slider-controls{display:flex!important;visibility:visible!important}
 }
 @media(min-width:768px) and (max-width:991px){
