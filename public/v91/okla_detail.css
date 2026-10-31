@@ -387,3 +387,5 @@ html body.ok89-detail #content .p-detail .ok86-benefits li{display:flex!importan
 html body.ok89-detail #content .p-detail .ok86-benefits svg{flex:0 0 20px!important;width:20px!important;height:20px!important;stroke:#16478B!important;fill:none!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 html body.ok89-detail #content .p-detail .ok86-benefits a{color:#16478B!important;text-decoration:none!important}
 html body.ok89-detail #content .p-detail .ok86-benefits a:hover{text-decoration:underline!important}
+/* 8bf. Favourites are not offered on this shop. The button was still visible on some pages, so the rule no longer depends on the .p-detail wrapper. */
+html body.ok89-detail .okla-detail-favorite{display:none!important}
