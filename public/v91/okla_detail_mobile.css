@@ -86,4 +86,15 @@
   html body.ok89-detail.ok89-detail #header#header {
     background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important;
   }
+
+  /* 10. The gradient stays only at the real top of the page. The bar that appears after scrolling (sticky header, shown or
+         white states) and the purchase bar are plain white. */
+  html.okla-m-stuck body.ok89-detail.ok89-detail #header#header #okla-v61-header#okla-v61-header,
+  html body.ok89-detail.ok89-detail.okla-v65-white-header #header#header #okla-v61-header#okla-v61-header,
+  html body.ok89-detail.ok89-detail.okla-v66-show-header #header#header #okla-v61-header#okla-v61-header,
+  html body.ok89-detail.ok89-detail.okla-v66-hide-header #header#header #okla-v61-header#okla-v61-header {
+    background: #ffffff !important;
+  }
+  html body.ok89-detail.ok89-detail #header#header#header { background: #ffffff !important; }
+  html body.ok89-detail.ok89-detail .okla-m-buybar.okla-m-buybar { background: #ffffff !important; }
 }
