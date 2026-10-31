@@ -1,0 +1,587 @@
+[
+  [
+    23,
+    "Bezdrátový HDMI adaptér pro sdílení obrazu",
+    "Přeneste obraz z podporovaného zařízení na větší obrazovku bez dlouhého HDMI kabelu přes místnost. Bezdrátový HDMI adaptér se hodí pro prezentace, sdílení obsahu a domácí multimédia. Při výběru je důležitá kompatibilita zdroje, přijímače a použitého přenosového režimu. Snazší zapojení oceníte tam, kde nechcete pokaždé přestavovat celou pracovní plochu. Rozlišení, latence a podpora streamovacích služeb se řídí konkrétní variantou, nikoli pouze označením HDMI.",
+    [
+      [
+        "Větší obraz pro společné sledování",
+        "Prezentaci nebo vybraný obsah lze pohodlněji ukázat na televizi či monitoru než na malém displeji. Adaptér slouží jako součást bezdrátové přenosové cesty a u podporované sestavy omezuje potřebu dlouhého obrazového kabelu. Nejprve ověřte, jaký signál zdroj poskytuje a jaký přijímač očekává. Bezdrátový adaptér není automaticky univerzálním převodníkem všech konektorů a přenosových protokolů."
+      ],
+      [
+        "Zapojení podle skutečného typu adaptéru",
+        "Některá zařízení pracují jako samostatný přijímač pro podporované zrcadlení, jiná vyžadují vlastní vysílací jednotku. Tyto možnosti nejsou zaměnitelné. Podle návodu připojte obrazový výstup, zajistěte napájení a vyzkoušejte spojení v místě používání. Překážky a okolní rádiový provoz mohou podmínky přenosu ovlivnit, takže praktická zkouška je užitečnější než odhad podle vzdálenosti mezi zařízeními."
+      ],
+      [
+        "Způsob použití určuje potřebné parametry",
+        "Statická prezentace, film a rychlá hra kladou na přenos jiné nároky. Pro hraní je podstatná latence, pro video také rozlišení a případná ochrana obsahu. Kompatibilita s konkrétní streamovací službou nemusí vyplývat z úspěšného zrcadlení běžné plochy. Před pravidelným používáním proto otestujte skutečný typ obsahu, se kterým chcete pracovat, včetně zvuku a zvoleného formátu obrazu."
+      ]
+    ],
+    [
+      [
+        "HDMI",
+        "Propojení s podporovanou obrazovkou",
+        23
+      ],
+      [
+        "Bezdrátový přenos",
+        "Méně dlouhých kabelů",
+        1
+      ],
+      [
+        "Sdílení obrazu",
+        "Prezentace a multimédia",
+        6
+      ],
+      [
+        "Kompatibilní sestava",
+        "Zdroj, přenos a přijímač",
+        3
+      ]
+    ],
+    {
+      "Typ produktu": "Bezdrátový HDMI adaptér",
+      "Obrazové rozhraní": "HDMI",
+      "Přenášený obsah": "Podporovaný obrazový signál",
+      "Určení": "Sdílení obrazu na monitor nebo TV",
+      "Typické použití": "Prezentace a domácí multimédia",
+      "Kompatibilita": "Podle konkrétního přenosového režimu"
+    },
+    [
+      "Přenese i chráněné video ze streamovací služby?",
+      "To závisí na podpoře služby, protokolu a ochrany obsahu. Samotné HDMI provedení kompatibilitu nezaručuje."
+    ]
+  ],
+  [
+    24,
+    "RGB Pixel Clock – LED hodiny na pracovní stůl",
+    "Doplňte pracovní stůl nebo herní sestavu o výrazný digitální prvek. Hodiny RGB Pixel Clock spojují zobrazení času s pixelovou estetikou a barevným světlem. Hodí se do interiéru, kde má technika plnit praktickou i dekorativní roli. Při umístění zvažte čitelnost, okolní osvětlení a to, zda chcete mít displej v přímém zorném poli. Dostupné motivy, změny barev a případná aplikace se řídí skutečným modelem dodávané varianty.",
+    [
+      [
+        "Čas jako součást vzhledu stolu",
+        "Digitální hodiny mohou fungovat také jako vizuální doplněk celého pracovního prostoru. Pixelová estetika dobře zapadne vedle elektroniky a vytvoří zajímavý protiklad k běžnému číselníku. Vyberte místo, kde hodnotu přečtete bez otáčení celého zařízení. Zvažte i odlesky od okna nebo monitoru, protože čitelnost ovlivňuje okolní světlo a směr pohledu."
+      ],
+      [
+        "Barevný detail pro vlastní sestavu",
+        "Světelný prvek může doplnit klidný pracovní stůl i výraznější herní kout. Pokud varianta umožňuje změny motivů nebo jasu, přizpůsobte je zbytku osvětlení. Ne každé zařízení označované Pixel Clock používá stejnou aplikaci a stejnou technologii panelu. Konkrétní způsoby nastavení proto posuzujte podle dodaného modelu a jeho ovládání."
+      ],
+      [
+        "Praktické umístění pro každodenní používání",
+        "Před trvalým umístěním vyzkoušejte hodiny přes den i večer. Jas, který je dobře čitelný u okna, může ve tmě působit rušivě. Napájecí kabel veďte tak, aby nepřekážel běžné práci a nebyl namáhaný ohybem. Automatickou synchronizaci, síťové funkce ani konkrétní formáty obsahu nelze potvrdit pouze podle ilustrační fotografie podobných hodin."
+      ]
+    ],
+    [
+      [
+        "Digitální čas",
+        "Přehled na pracovním stole",
+        24
+      ],
+      [
+        "Pixelová estetika",
+        "Výrazný technický doplněk",
+        6
+      ],
+      [
+        "RGB motiv",
+        "Barevný prvek interiéru",
+        25
+      ],
+      [
+        "Stolní použití",
+        "Pracovní i herní sestava",
+        24
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální stolní hodiny",
+      "Označení": "RGB Pixel Clock",
+      "Vzhled zobrazení": "Pixelová estetika",
+      "Barevné provedení": "RGB motiv",
+      "Umístění": "Pracovní stůl nebo police",
+      "Úloha v interiéru": "Zobrazení času a dekorace"
+    },
+    [
+      "Jde o Divoom Times Gate?",
+      "Použitý původní obrázek tuto řadu připomíná, ale shoda dodávaného výrobku není potvrzena. Specifikace Divoom proto nelze přebírat."
+    ]
+  ],
+  [
+    25,
+    "Cyberpunk City Lamp – designová LED dekorace",
+    "Vytvořte na stole malý světelný akcent inspirovaný futuristickou městskou estetikou. Cyberpunk City Lamp je LED dekorace pro pracovní kout, herní sestavu nebo polici s technickými doplňky. Zaujme především jako atmosférický prvek, který dotváří vzhled interiéru i mimo hlavní osvětlení. Při výběru místa zvažte pohledové strany, přístup k napájení a vztah k ostatním zdrojům světla. Konkrétní režimy a způsob ovládání se řídí dodávanou variantou.",
+    [
+      [
+        "Malá scéna s vlastním charakterem",
+        "Detailní dekorace dokáže změnit dojem z pracovního kouta bez zásahu do celého interiéru. Inspirace městem a sci-fi estetikou se hodí vedle klávesnice, modelů nebo technických sbírek. Vzhled posuzujte z místa, odkud ji budete nejčastěji sledovat. Některé detaily vyniknou při bočním pohledu, jiné při umístění proti klidnějšímu pozadí."
+      ],
+      [
+        "Světelný akcent vedle hlavního osvětlení",
+        "LED dekorace může doplnit atmosféru při večerní práci nebo odpočinku. Nemusí ale poskytovat osvětlení vhodné pro čtení či přesnou práci. Hlavní pracovní světlo proto vybírejte samostatně podle potřeb stolu. Případné změny barev, efektů nebo jasu používejte jen v rozsahu, který daná varianta skutečně nabízí a který vám při delším používání vyhovuje."
+      ],
+      [
+        "Promyšlené místo pro drobné detaily",
+        "Dekoraci postavte na stabilní plochu, kde nehrozí zachycení rukou nebo kabelem. Před čištěním ji odpojte a s jemnými částmi zacházejte podle materiálu výrobku. Neumisťujte ji do mokrého prostředí bez doložené ochrany. Při sestavování vzhledu stolu pomůže nechat kolem modelu trochu prostoru, aby jeho tvar a světelné prvky nezanikly mezi dalšími předměty."
+      ]
+    ],
+    [
+      [
+        "LED dekorace",
+        "Atmosférický světelný prvek",
+        25
+      ],
+      [
+        "Cyberpunk motiv",
+        "Futuristická městská estetika",
+        6
+      ],
+      [
+        "Na stůl i polici",
+        "Doplněk technického interiéru",
+        25
+      ],
+      [
+        "Designový detail",
+        "Pro vlastní pracovní kout",
+        0
+      ]
+    ],
+    {
+      "Typ produktu": "Designová LED dekorace",
+      "Označení": "Cyberpunk City Lamp",
+      "Vizuální motiv": "Futuristické město / sci-fi",
+      "Světelná technologie": "LED",
+      "Umístění": "Stůl nebo police v interiéru",
+      "Primární účel": "Dekorativní osvětlení"
+    },
+    [
+      "Nahradí pracovní lampu?",
+      "Není zde potvrzen výkon pro osvětlení pracovní plochy. Vybírejte ji jako dekorativní doplněk."
+    ]
+  ],
+  [
+    26,
+    "Retro LED hodiny ve stylu Nixie",
+    "Propojte vzhled historických číslic s moderním LED provedením. Stolní hodiny ve stylu Nixie jsou výrazným doplňkem pracovního stolu, knihovny nebo interiéru s technickou estetikou. Nabízejí jiný vizuální zážitek než běžný plochý displej a nechávají vyniknout samotné zobrazení času. Jde o LED stylizaci, nikoli automaticky o originální plynové výbojky Nixie. Při výběru místa zvažte čitelnost, okolní světlo a pohodlný přístup k ovládání.",
+    [
+      [
+        "Retro inspirace v současném provedení",
+        "Výrazné samostatné číslice připomínají dobu měřicí techniky a prvních elektronických přístrojů. LED pojetí tento vizuální jazyk využívá v dekorativním produktu pro současný interiér. Hodiny mohou být přirozeným doplňkem technické sbírky i minimalistického stolu. Rozdíl mezi historickou výbojkou a její moderní stylizací je důležitý při srovnávání konstrukce, napájení a očekávaného vzhledu."
+      ],
+      [
+        "Čitelné místo pro každodenní přehled",
+        "Před trvalým umístěním vyzkoušejte pohled z běžného pracovního místa. U prostorově oddělených číslic může úhel a světlo ovlivnit dojem jinak než u standardního panelu. Pokud varianta podporuje nastavení jasu nebo barev, sladíte je s okolím. Přesné režimy se ale řídí skutečným modelem, takže je nepřebírejte z videa podobných hodin."
+      ],
+      [
+        "Technický doplněk, který potřebuje prostor",
+        "Vedle hodin nechte dost místa, aby byly číslice čitelné a jednotlivé prvky zůstaly chráněné před nárazem. Kabel veďte mimo hranu, kde by se mohl zachytit. Jemné povrchy čistěte podle pokynů pro daný materiál. Při používání v ložnici nejprve posuďte večerní jas a případné možnosti jeho úpravy, aby dekorativní efekt odpovídal skutečnému způsobu odpočinku."
+      ]
+    ],
+    [
+      [
+        "Nixie styl",
+        "Inspirace historickými číslicemi",
+        24
+      ],
+      [
+        "LED provedení",
+        "Moderní světelná technologie",
+        25
+      ],
+      [
+        "Stolní hodiny",
+        "Přehled času v interiéru",
+        24
+      ],
+      [
+        "Retro design",
+        "Doplněk technického prostoru",
+        6
+      ]
+    ],
+    {
+      "Typ produktu": "Stolní digitální hodiny",
+      "Vizuální styl": "Nixie style",
+      "Světelná technologie": "LED",
+      "Primární funkce": "Zobrazení času",
+      "Umístění": "Pracovní stůl nebo police",
+      "Konstrukční poznámka": "LED stylizace, ne potvrzené výbojky Nixie"
+    },
+    [
+      "Jsou uvnitř pravé Nixie výbojky?",
+      "Nejsou zde potvrzené. Označení Nixie style popisuje vzhled, zatímco tento produkt je vedený jako LED hodiny."
+    ]
+  ],
+  [
+    27,
+    "Ferrofluid Display – magnetická dekorace",
+    "Přidejte pracovnímu stolu drobný fyzikální experiment. Ferrofluid Display využívá magnetickou kapalinu, která při působení magnetického pole mění tvar a vytváří neobvyklé struktury. Hodí se jako dekorace i jako názorný podnět k objevování vlastností magnetismu. Zaujme uživatele, kteří dávají přednost skutečnému fyzikálnímu efektu před běžnou světelnou animací. Způsob ovlivňování kapaliny a konkrétní ovládání se řídí konstrukcí dodávaného výrobku.",
+    [
+      [
+        "Tvar kapaliny řízený magnetickým polem",
+        "Ferrofluid obsahuje jemné magnetické částice rozptýlené v kapalině. Při vhodném působení pole se jeho povrch může uspořádat do výrazných struktur. Pozorování tak nabízí přímější kontakt s fyzikálním principem než obrázek na displeji. Konkrétní podoba efektu závisí na nádobě, kapalině a způsobu vytváření pole, proto nemusí každý výrobek vytvářet stejné tvary jako ilustrační scéna."
+      ],
+      [
+        "Dekorace pro zvídavý pracovní stůl",
+        "Magnetická kapalina přitahuje pozornost pomalým proměňováním a neobvyklým vzhledem. Může posloužit jako zajímavý doplněk technického kouta nebo názorná ukázka při vysvětlování magnetismu. Zvolte místo, odkud bude nádoba dobře viditelná. Nezastiňte ji dalšími předměty a ponechte přístup k ovládání, pokud jím konkrétní provedení disponuje."
+      ],
+      [
+        "Zacházení podle konstrukce nádoby",
+        "Výrobek udržujte uzavřený a nerozebírejte jej jen kvůli manipulaci s kapalinou. Magnety používejte pouze způsobem odpovídajícím návodu a chraňte výrobek před pádem. Reakce na hudbu, automatické elektromagnetické ovládání nebo osvětlení nejsou automatickou vlastností každé ferrofluidní dekorace. Při výběru proto oddělte samotný fyzikální princip od elektronických funkcí, které musí být potvrzené pro konkrétní model."
+      ]
+    ],
+    [
+      [
+        "Ferrofluid",
+        "Magnetická kapalina",
+        26
+      ],
+      [
+        "Magnetické pole",
+        "Proměny tvaru kapaliny",
+        26
+      ],
+      [
+        "Fyzikální efekt",
+        "Pozorování v reálné nádobě",
+        35
+      ],
+      [
+        "Stolní dekorace",
+        "Do technického interiéru",
+        6
+      ]
+    ],
+    {
+      "Typ produktu": "Ferrofluidní dekorace",
+      "Označení": "Ferrofluid Display",
+      "Pracovní médium": "Magnetická kapalina – ferrofluid",
+      "Fyzikální princip": "Reakce na magnetické pole",
+      "Účel": "Dekorace a názorné pozorování",
+      "Umístění": "Stabilní plocha v interiéru"
+    },
+    [
+      "Reaguje automaticky na hudbu?",
+      "Tato funkce není potvrzená pro každou variantu. Samotná přítomnost ferrofluidu zvukové ovládání nezaručuje."
+    ]
+  ],
+  [
+    28,
+    "Levitující LED žárovka – magnetická stolní lampa",
+    "Světelný bod, který upoutá pozornost i bez výrazných barev. Levitující LED žárovka využívá magnetický princip k vznášení nad základnou a tvoří originální dekorativní prvek interiéru. Hodí se na pracovní stůl, komodu nebo místo, kde může vyniknout její neobvyklé provedení. Při uvádění do provozu je důležité správné usazení a stabilní podklad. Konkrétní způsob napájení, vyvážení a ovládání se řídí dodávanou variantou a jejím návodem.",
+    [
+      [
+        "Skutečný prostor mezi žárovkou a základnou",
+        "Vizuální efekt vychází z magnetického působení, které při správném nastavení drží světelnou část nad podstavcem. Vzhled se tak liší od běžné lampy s viditelnou podpěrou. Výrobek zaujme jako samostatný objekt i jako doplněk technicky laděného prostoru. Při prvním spuštění postupujte trpělivě podle návodu a hledejte správnou polohu bez prudkých pohybů."
+      ],
+      [
+        "Světlo jako součást dekorace",
+        "LED žárovka dotváří atmosféru a zvýrazňuje samotný levitační efekt. Zvolte klidnější pozadí a místo, odkud je mezi základnou a světelnou částí dobře vidět. Dekorativní použití ale neznamená automaticky světelný výkon pro čtení nebo přesnou práci. Barvu světla, stmívání a případné další režimy je třeba ověřit pro konkrétní provedení."
+      ],
+      [
+        "Stabilní podklad pro bezpečný provoz",
+        "Lampu umístěte mimo místo, kde by do ní někdo snadno narazil nebo zachytil napájecí kabel. Základna musí stát rovně a být používána s odpovídajícím napájením. Při přesouvání postupujte podle pokynů výrobce a počítejte s chováním při vypnutí nebo výpadku energie. Nedotýkejte se levitující části zbytečně během provozu, aby nedošlo k narušení její polohy."
+      ]
+    ],
+    [
+      [
+        "Magnetická levitace",
+        "Vznášení nad základnou",
+        27
+      ],
+      [
+        "LED světlo",
+        "Dekorativní světelný prvek",
+        25
+      ],
+      [
+        "Stolní lampa",
+        "Výrazný detail interiéru",
+        27
+      ],
+      [
+        "Samostatná základna",
+        "Stabilní umístění",
+        26
+      ]
+    ],
+    {
+      "Typ produktu": "Levitující stolní lampa",
+      "Světelný prvek": "LED žárovka",
+      "Princip": "Magnetická levitace",
+      "Sestava": "Základna a levitující část",
+      "Primární účel": "Dekorativní osvětlení",
+      "Umístění": "Rovná stabilní plocha v interiéru"
+    },
+    [
+      "Co se stane při výpadku napájení?",
+      "Chování závisí na konstrukci. Umístění a manipulaci vždy přizpůsobte návodu konkrétní lampy."
+    ]
+  ],
+  [
+    29,
+    "3D holografický LED ventilátor pro prezentace",
+    "Vytvořte poutavou vizuální prezentaci, která působí jako obraz ve vzduchu. Holografický LED ventilátor využívá rotující světelné prvky a vhodně připravený obsah k neobvyklému prostorovému dojmu. Uplatní se v interiérové dekoraci, na výstavce nebo při prezentaci produktů. Výsledek závisí na animaci, pozadí a pozici diváka. Před instalací ověřte způsob montáže, ochranu pohybujících se částí a možnosti nahrávání obsahu u konkrétní varianty.",
+    [
+      [
+        "Pohyblivé LED vytvářejí obrazový efekt",
+        "Vnímání rychle se opakujícího světelného vzoru umožňuje vytvořit dojem souvislého obrazu. Označení holografický ventilátor se používá pro tento typ prezentace, neznamená však automaticky skutečný objemový hologram viditelný stejně ze všech směrů. Vhodný obsah dokáže efekt výrazně podpořit. Nejlépe fungují motivy navržené s ohledem na tmavé pozadí a vlastnosti daného displeje."
+      ],
+      [
+        "Obsah připravte pro způsob zobrazení",
+        "Běžné video nemusí na rotujícím LED zařízení vypadat stejně jako na televizi. Před použitím ověřte podporovaný formát, převodní nástroj a způsob přenosu souborů. Vyzkoušejte krátkou animaci a posuďte ji z místa, odkud bude sledována. Jas a okolní osvětlení ovlivňují viditelnost, proto se vyplatí předem připravit celou scénu, nikoli pouze samotný mediální soubor."
+      ],
+      [
+        "Instalace patří mimo dosah rukou",
+        "Rotující prvky vyžadují pevné uchycení a vhodně řešenou ochranu. Dodržujte předepsané vzdálenosti a nevystavujte zařízení nechtěnému kontaktu návštěvníků, dětí nebo volných předmětů. Montážní pokyny a případný ochranný kryt posuzujte podle konkrétního modelu. Výrazný vizuální efekt má smysl jen tehdy, když je sestava stabilní a odpovídá prostředí, ve kterém bude dlouhodobě provozována."
+      ]
+    ],
+    [
+      [
+        "LED obraz",
+        "Rotující světelné prvky",
+        6
+      ],
+      [
+        "Prostorový dojem",
+        "Efekt obrazu ve vzduchu",
+        28
+      ],
+      [
+        "Vlastní obsah",
+        "Dle podporovaných formátů",
+        5
+      ],
+      [
+        "Interiérová prezentace",
+        "Dekorace a výstavky",
+        25
+      ]
+    ],
+    {
+      "Typ produktu": "Holografický LED ventilátor",
+      "Princip zobrazení": "Rotující LED a setrvačnost vidění",
+      "Zobrazovaný obsah": "Podporované animace a obrazové motivy",
+      "Umístění": "Vhodná instalace v interiéru",
+      "Účel": "Vizuální prezentace a dekorace",
+      "Konstrukce": "Zařízení s pohybujícími se částmi"
+    },
+    [
+      "Je to skutečný objemový hologram?",
+      "Jde o efekt vytvářený rotujícími LED. Viditelnost a prostorový dojem závisejí na úhlu pohledu, obsahu a okolí."
+    ]
+  ],
+  [
+    30,
+    "WANBO X5 Pro – chytrý Full HD projektor",
+    "Proměňte vybranou stěnu nebo projekční plátno ve větší obraz pro filmy a společné sledování. WANBO X5 Pro spojuje nativní Full HD rozlišení s automatickým ostřením a chytrými funkcemi. Hodí se pro domácí kino, které nechcete omezit na běžnou velikost televizoru. Při umístění zvažte vzdálenost, plochu a okolní světlo. Dostupnost aplikací, rozhraní a přesné parametry posuzujte podle dodávané verze X5 Pro, protože jednotlivé edice nemusejí být shodné.",
+    [
+      [
+        "Full HD obraz pro domácí promítání",
+        "Nativní rozlišení 1920 × 1080 pixelů tvoří základ detailního obrazu při sledování vhodného obsahu. Výsledný dojem ale ovlivňuje také projekční plocha, vzdálenost a zatemnění. Začněte menším obrazem, upravte polohu a teprve potom hledejte velikost, která v místnosti působí nejlépe. Podpora přehrání souboru ve vyšším rozlišení se liší od fyzického počtu pixelů projektoru."
+      ],
+      [
+        "Pohodlnější příprava domácího kina",
+        "Automatické ostření usnadňuje uvedení obrazu do čitelného stavu, zejména při změně místa. Nejlepší základ přesto vytvoří správné umístění projektoru vůči ploše. Snažte se o rovnou stabilní podložku a dostatečný prostor pro ventilaci. Chytré funkce potom mohou zjednodušit přístup k podporovanému obsahu. Konkrétní nabídku aplikací a způsob připojení ověřte pro skutečnou edici zařízení."
+      ],
+      [
+        "Místnost je součástí výsledného zážitku",
+        "Při večerním promítání pomůže omezit přímé světlo dopadající na plochu. Matný rovný povrch nebo vhodné plátno podpoří přehlednost obrazu. Naplánujte také polohu diváků a vedení napájení, aby se kolem sestavy dalo bezpečně procházet. Parametry novější edice, například její jas nebo konkrétní systém, nepřenášejte na každé zařízení X5 Pro pouze podle společného názvu."
+      ]
+    ],
+    [
+      [
+        "Full HD",
+        "Nativní obraz 1920 × 1080 px",
+        6
+      ],
+      [
+        "Automatické ostření",
+        "Pohodlnější příprava obrazu",
+        28
+      ],
+      [
+        "Chytré funkce",
+        "Obsah podle verze systému",
+        0
+      ],
+      [
+        "Domácí kino",
+        "Promítání na vhodnou plochu",
+        28
+      ]
+    ],
+    {
+      "Výrobce": "WANBO",
+      "Model": "X5 Pro",
+      "Typ produktu": "Chytrý domácí projektor",
+      "Nativní rozlišení": "1920 × 1080 px",
+      "Třída rozlišení": "Full HD",
+      "Ostření": "Automatické",
+      "Určení": "Domácí promítání",
+      "Projekční plocha": "Vhodná stěna nebo plátno"
+    },
+    [
+      "Znamená podpora 4K nativní 4K obraz?",
+      "Ne. Příjem nebo dekódování 4K je jiná vlastnost než nativní rozlišení zobrazovacího systému. Tento projektor je vedený jako Full HD."
+    ]
+  ],
+  [
+    31,
+    "Digitální retro hodinky s LED displejem",
+    "Doplňte každodenní výbavu o jednoduchý retro prvek. Digitální hodinky s LED zobrazením staví na číselném odečtu času a výrazné elektronické estetice. Hodí se pro uživatele, kteří dávají přednost nápaditému digitálnímu vzhledu před klasickými ručičkami. Při výběru zvažte pohodlí na zápěstí, čitelnost a způsob aktivace displeje. Další funkce, typ napájení i případná ochrana proti vodě se řídí konkrétním provedením, nikoli pouze obecným označením retro hodinky.",
+    [
+      [
+        "Digitální vzhled s retro charakterem",
+        "Číselný displej připomíná dobu, kdy elektronické hodinky představovaly výraznou změnu oproti tradičnímu ciferníku. Současné provedení může tento styl doplnit do běžného oblečení bez potřeby dalších chytrých funkcí. Při rozhodování sledujte hlavně skutečnou čitelnost a usazení. Dekorativní podobnost s historickým modelem sama o sobě nepotvrzuje shodnou konstrukci, materiály nebo elektroniku."
+      ],
+      [
+        "Čas po ruce během běžného dne",
+        "Výhodou hodinek zůstává možnost zkontrolovat čas přímo na zápěstí. U LED provedení si vyzkoušejte, zda displej svítí stále, nebo se aktivuje způsobem uvedeným v návodu. To ovlivňuje používání i chování napájení. Nastavení času a případných dalších položek si osvojte před pravidelným nošením, abyste je při změně nepotřebovali znovu složitě hledat."
+      ],
+      [
+        "Pohodlný řemínek a odpovídající zacházení",
+        "Hodinky by na ruce měly držet bezpečně a přitom neomezovat pohyb. Upravte řemínek podle konstrukce a průběžně kontrolujte zapínání. Vodu, sport nebo sprchování posuzujte jen podle doložené úrovně ochrany dané varianty. Bez konkrétní specifikace nepředpokládejte vodotěsnost ani funkce chytrých hodinek; tento produkt se zaměřuje na digitální zobrazení času a retro vzhled."
+      ]
+    ],
+    [
+      [
+        "LED displej",
+        "Digitální zobrazení času",
+        6
+      ],
+      [
+        "Retro styl",
+        "Výrazný elektronický vzhled",
+        24
+      ],
+      [
+        "Na zápěstí",
+        "Čas při ruce",
+        24
+      ],
+      [
+        "Každodenní doplněk",
+        "Výběr podle pohodlí",
+        12
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální náramkové hodinky",
+      "Zobrazení": "LED displej",
+      "Vizuální styl": "Retro",
+      "Primární funkce": "Zobrazení času",
+      "Způsob nošení": "Na zápěstí",
+      "Určení": "Každodenní spotřební doplněk"
+    },
+    [
+      "Jsou vodotěsné?",
+      "Ochrana proti vodě není v podkladech konkrétně doložená. Použití ve vodě proto nelze předpokládat."
+    ]
+  ],
+  [
+    32,
+    "Mini termokamera pro orientační kontrolu",
+    "Objevte teplotní rozdíly, které běžným pohledem neuvidíte. Mini termokamera se hodí pro orientační kontrolu povrchů, zařízení a míst, která chcete porovnat z hlediska zahřívání. Tepelné zobrazení může pomoci vybrat oblast pro další prověření a lépe dokumentovat rozdíly mezi jednotlivými stavy. Výsledky vždy souvisejí s materiálem, podmínkami a nastavením přístroje. Kompaktní provedení nenahrazuje odborný postup při přesné diagnostice a neznamená pohled skrz stěnu.",
+    [
+      [
+        "Další pohled na stav povrchu",
+        "Teplotní obraz zobrazuje rozdíly, které se při běžné vizuální prohlídce nemusí projevit. Může ukázat místo odlišného zahřívání nebo pomoci porovnat stav před změnou a po ní. Pro orientační kontrolu nejprve sledujte celek a potom detail. Jasná barevná plocha sama o sobě neurčuje příčinu; výsledek je potřeba zasadit do souvislostí konkrétního zařízení a prostředí."
+      ],
+      [
+        "Materiál a okolí ovlivňují interpretaci",
+        "Lesklé povrchy mohou odrážet okolní tepelné záření a působit jinak než matné. Důležitá je emisivita, vzdálenost a ustálení podmínek. Při porovnávání proto používejte co nejpodobnější postup a stejné místo pozorování. Kamera nevytváří běžnou fotografii teploty uvnitř předmětu; pracuje s informací o povrchu v rozsahu, který umožňuje její senzor a zpracování."
+      ],
+      [
+        "Dokumentace pomůže při dalším prověření",
+        "Pokud varianta podporuje ukládání, doplňte teplotní snímek poznámkou o čase, místě a podmínkách. Při pozdější kontrole se tak nebudete spoléhat jen na vzhled barevné palety. Rozlišení senzoru, měřicí rozsah a přesnost vždy posuzujte podle skutečného modelu. Pro bezpečnostní nebo odborné závěry využijte odpovídající kvalifikaci a doplňující měření, zejména u elektrických zařízení."
+      ]
+    ],
+    [
+      [
+        "Tepelné zobrazení",
+        "Orientační rozdíly povrchů",
+        34
+      ],
+      [
+        "Mini provedení",
+        "Přenosná kontrolní pomůcka",
+        7
+      ],
+      [
+        "Porovnání stavů",
+        "Zahřívání a změny v čase",
+        17
+      ],
+      [
+        "Kontrola povrchu",
+        "Materiál ovlivňuje výsledek",
+        34
+      ]
+    ],
+    {
+      "Typ produktu": "Mini termokamera",
+      "Princip": "Termální zobrazení povrchů",
+      "Provedení": "Kompaktní",
+      "Účel": "Orientační kontrola teplotních rozdílů",
+      "Pozorovaný objekt": "Povrch zařízení nebo materiálu",
+      "Interpretace": "Podle emisivity a okolních podmínek"
+    },
+    [
+      "Vidí skrz stěnu?",
+      "Ne. Zobrazuje tepelné informace o pozorovaném povrchu. Příčina rozdílu může vyžadovat další odborné prověření."
+    ]
+  ],
+  [
+    33,
+    "Univerzální tester elektronických součástek",
+    "Zorientujte se rychleji v podporovaných součástkách pro vlastní elektronické projekty. Univerzální tester pomáhá s jejich kontrolou a vyhodnocením v rozsahu funkcí konkrétního přístroje. Využijete ho při výuce, třídění materiálu i přípravě zapojení na pracovním stole. Důležitý je správný výběr kontaktů, práce s odpojenou součástkou a respektování měřicích limitů. Výsledky berte jako praktickou pomůcku, kterou u přesné aplikace doplníte dokumentací a případně dalším měřením.",
+    [
+      [
+        "Přehlednější práce s drobnými součástkami",
+        "Při přípravě projektu se snadno sejde více podobně vypadajících prvků. Tester může pomoci u podporovaných typů a zjednodušit první orientaci. Výsledek porovnejte s označením na pouzdře a požadavky obvodu, do kterého chcete díl zapojit. Automatická identifikace má vlastní limity a nemusí být rozhodujícím důkazem plné funkčnosti součástky v každé reálné aplikaci."
+      ],
+      [
+        "Praktická pomůcka při výuce a třídění",
+        "Zobrazený výsledek umožňuje propojit teorii s konkrétním kusem elektroniky. Můžete porovnávat několik prvků a sledovat rozdíly mezi jejich hodnotami. Při třídění si označujte skupiny a zaznamenávejte podmínky testu. Seznam podporovaných součástek, režimů a parametrů se ale řídí konkrétním modelem; pojem univerzální tester neznamená podporu každého existujícího elektronického prvku."
+      ],
+      [
+        "Měření na odpojené a připravené součástce",
+        "Před vložením odpojte prvek od napájení a kondenzátory bezpečně vybijte odpovídajícím postupem. Zbytkový náboj může měřidlo poškodit. Ověřte pracovní kontakty i přípustné hodnoty a součástku nevkládejte násilím. Při měření přímo v zapojení mohou výsledek ovlivnit další prvky, proto se vždy řiďte návodem. Pro kritický návrh porovnejte údaj také s dokumentací výrobce součástky."
+      ]
+    ],
+    [
+      [
+        "Kontrola součástek",
+        "Podporované typy a hodnoty",
+        35
+      ],
+      [
+        "Elektronické projekty",
+        "Praktická pomůcka do dílny",
+        0
+      ],
+      [
+        "Digitální výsledek",
+        "Vyhodnocení podle modelu",
+        6
+      ],
+      [
+        "Výuka a třídění",
+        "Přehlednější pracovní postup",
+        18
+      ]
+    ],
+    {
+      "Typ produktu": "Tester elektronických součástek",
+      "Provedení": "Stolní / přenosná měřicí pomůcka",
+      "Zobrazení výsledku": "Digitální",
+      "Účel": "Kontrola podporovaných součástek",
+      "Typické použití": "Výuka, třídění a hobby elektronika",
+      "Příprava měření": "Odpojená součástka, vybité kondenzátory"
+    },
+    [
+      "Lze vložit nabitý kondenzátor?",
+      "Ne. Kondenzátor musí být před testem bezpečně vybitý; zbytkové napětí může přístroj poškodit."
+    ]
+  ]
+]

@@ -1,0 +1,55 @@
+<!doctype html><html lang="cs"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OKLA – náhled produktových popisů</title><style>body{margin:0;background:#edf3fa;font-family:Arial,sans-serif}main{max-width:1310px;margin:auto;background:white;padding:32px}#preview-nav{position:sticky;top:0;background:#fff;padding:16px;border-bottom:1px solid #dbe4ee;z-index:10}select{max-width:100%;padding:10px;font-size:16px}
+.okla-rich{max-width:1240px;margin:0 auto;padding:24px 26px 48px;background:#fff;color:#17212c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;text-align:left}
+.okla-rich *{box-sizing:border-box}
+.okla-rich h2,.okla-rich h3{font-family:inherit;color:#103e76;font-weight:700;letter-spacing:-.025em;text-transform:none;border:0}
+.okla-rich h2{font-size:34px;line-height:1.25;margin:0 0 22px}
+.okla-rich h3{font-size:30px;line-height:1.28;margin:0 0 20px}
+.okla-rich p{font-size:16px;line-height:1.7;margin:0 0 16px;color:#17212c}
+.okla-rich strong{font-weight:700}
+.okla-rich-intro{max-width:960px;padding:18px 0 30px}
+.okla-rich-intro p{font-size:17px;line-height:1.8}
+.okla-spec-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;background:#f4f5f7;padding:30px 18px;margin:8px 0 56px}
+.okla-spec-item{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.okla-spec-item strong{color:#103e76;font-size:17px;line-height:1.35;margin:16px 0 8px}
+.okla-spec-item>span:last-child{font-size:13px;line-height:1.55;color:#38404b;max-width:200px}
+.okla-spec-icon{display:block;width:76px;height:76px;background-repeat:no-repeat;background-size:600% 600%;flex:none}
+.okla-editorial-row{display:flex;align-items:center;justify-content:space-between;gap:60px;margin:0;padding:10px 0 48px;min-height:410px}
+.okla-editorial-row+.okla-editorial-row{padding-top:16px}
+.okla-editorial-reverse{flex-direction:row-reverse}
+.okla-editorial-copy{flex:1 1 59%;max-width:690px;min-width:0}
+.okla-editorial-copy .okla-detail-benefit{color:#103e76;font-size:14px;margin-top:24px;font-weight:600}
+.okla-editorial-media{flex:0 1 36%;width:36%;max-width:400px;aspect-ratio:1/1;margin:0;overflow:hidden;border-radius:12px;background:#f0f3f8}
+.okla-editorial-media>img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:12px;max-width:100%}
+.okla-editorial-illustration{display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(145deg,#edf3fa,#e6edf7);padding:32px}
+.okla-feature-drawing{position:relative;display:flex;align-items:center;justify-content:center;width:100%;flex:1}
+.okla-atlas-window{position:relative;width:180px;height:180px;overflow:hidden}
+.okla-atlas-window img{display:block;width:600%!important;height:600%!important;max-width:none!important;position:absolute;left:0;top:0}
+.okla-icon-secondary{position:absolute;right:-4px;bottom:10px;width:56px;height:56px;opacity:.22}
+.okla-editorial-illustration figcaption{text-align:center;line-height:1.45;margin-top:12px;width:100%}
+.okla-editorial-illustration figcaption strong{display:block;color:#103e76;font-size:23px;margin-bottom:6px}
+.okla-editorial-illustration figcaption span{display:block;color:#455a72;font-size:14px}
+.okla-use-guide{background:#f6f8fb;border-radius:12px;padding:32px 36px;margin:20px 0 44px}
+.okla-use-guide h3,.okla-description-parameters h3,.okla-product-faq h3,.okla-content-related h3{font-size:25px}
+.okla-use-guide ol{padding-left:24px;margin:0}
+.okla-use-guide li{padding:0 0 12px 6px;line-height:1.7}
+.okla-use-guide li:last-child{padding-bottom:0}
+.okla-use-guide li::marker{color:#103e76;font-weight:700}
+.okla-description-parameters{margin:0 0 42px}
+.okla-description-parameters dl{margin:0;border-top:1px solid #e1e7ee}
+.okla-description-parameters dl>div{display:grid;grid-template-columns:minmax(140px,.8fr) minmax(0,1.2fr);gap:24px;padding:12px 16px;border-bottom:1px solid #e1e7ee}
+.okla-description-parameters dl>div:nth-child(odd){background:#f7f9fb}
+.okla-description-parameters dt{font-weight:600;color:#223e5c}
+.okla-description-parameters dd{margin:0}
+.okla-product-faq{margin-bottom:36px}
+.okla-product-faq details{border-top:1px solid #dfe6ef;border-bottom:1px solid #dfe6ef;padding:16px 0}
+.okla-product-faq summary{cursor:pointer;color:#103e76;font-weight:700;line-height:1.5}
+.okla-product-faq details p{margin:16px 0 0}
+.okla-content-related{margin-top:30px}
+.okla-content-related a{display:block;width:fit-content;color:#2c5f9e;text-decoration:underline;text-underline-offset:3px;margin:8px 0}
+@media(max-width:991px){.okla-rich{padding:20px 12px 32px}.okla-rich h2{font-size:29px}.okla-rich h3{font-size:25px}.okla-editorial-row{gap:30px;min-height:340px}.okla-editorial-media{flex-basis:38%;width:38%}.okla-editorial-illustration{padding:20px}.okla-atlas-window{width:140px;height:140px}.okla-editorial-illustration figcaption strong{font-size:19px}.okla-spec-strip{gap:12px;padding:24px 12px}.okla-spec-item strong{font-size:15px}}
+@media(max-width:640px){.okla-rich{padding:16px 0 30px}.okla-rich h2{font-size:26px}.okla-rich h3{font-size:24px}.okla-rich p,.okla-rich-intro p{font-size:15px;line-height:1.75}.okla-rich-intro{padding:0 0 16px}.okla-spec-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px;margin-bottom:34px;padding:24px 14px}.okla-spec-icon{width:68px;height:68px}.okla-editorial-row,.okla-editorial-reverse{display:flex;flex-direction:column;gap:20px;padding:0 0 36px;min-height:0;align-items:stretch}.okla-editorial-row+.okla-editorial-row{padding-top:0}.okla-editorial-copy{flex:auto;max-width:none}.okla-editorial-media{flex:none;width:100%;max-width:360px;align-self:center}.okla-editorial-copy .okla-detail-benefit{margin-top:16px}.okla-atlas-window{width:174px;height:174px}.okla-editorial-illustration{padding:30px}.okla-use-guide{padding:24px 20px;margin:0 0 32px}.okla-use-guide h3,.okla-description-parameters h3,.okla-product-faq h3,.okla-content-related h3{font-size:22px}.okla-description-parameters dl>div{grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr);gap:12px;padding:12px 8px;font-size:14px}.okla-content-related a{font-size:14px}}
+
+.okla-editorial-media:has(.okla-usage-caption){position:relative}.okla-usage-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.92);color:#526276;font-size:11px;text-align:center;padding:6px 10px}.okla-rich dd{overflow-wrap:anywhere}
+
+.okla-editorial-media:has(.okla-usage-caption){aspect-ratio:16/10}.okla-editorial-media:has(.okla-usage-caption)>img{object-fit:cover}
+</style><nav id="preview-nav"><label for="product-select">Produkt: </label><select id="product-select"><option value="OKL-001">OKL-001 · Flipper Zero – kapesní multitool pro elektroniku</option><option value="OKL-002">OKL-002 · LILYGO T-Embed CC1101 – vývojová platforma ESP32-S3</option><option value="OKL-003">OKL-003 · LILYGO T-Deck Plus – kapesní komunikátor ESP32</option><option value="OKL-004">OKL-004 · M5Stack Cardputer ADV – mini počítač s klávesnicí</option><option value="OKL-005">OKL-005 · Vývojová sada ESP32 pro IoT projekty</option><option value="OKL-006">OKL-006 · Chytré brýle WAI4 s AI</option><option value="OKL-007">OKL-007 · Esaker G300 – chytré brýle</option><option value="OKL-008">OKL-008 · S29A – kapesní AI diktafon</option><option value="OKL-009">OKL-009 · Q18 – bezdrátová překladová sluchátka</option><option value="OKL-010">OKL-010 · R99 – chytrý prsten</option><option value="OKL-011">OKL-011 · Digitální USB-C tester napájení</option><option value="OKL-012">OKL-012 · Digitální kapesní váha s rozlišením 0,01 g</option><option value="OKL-013">OKL-013 · Laserový dálkoměr pro digitální měření</option><option value="OKL-014">OKL-014 · Digitální tloušťkoměr pro kontrolu materiálů</option><option value="OKL-015">OKL-015 · USB digitální mikroskop pro detailní pozorování</option><option value="OKL-016">OKL-016 · Elektrický precizní šroubovák – servisní sada</option><option value="OKL-017">OKL-017 · Kompaktní USB-C páječka pro elektroniku</option><option value="OKL-018">OKL-018 · Kapesní digitální osciloskop pro měření signálů</option><option value="OKL-019">OKL-019 · Endoskopická kamera USB-C pro inspekci dutin</option><option value="OKL-020">OKL-020 · Wi-Fi endoskopická kamera pro inspekční kontrolu</option><option value="OKL-021">OKL-021 · NFC karta pro Google recenze</option><option value="OKL-022">OKL-022 · Mini termotiskárna Bluetooth na poznámky</option><option value="OKL-023">OKL-023 · Bezdrátový HDMI adaptér pro sdílení obrazu</option><option value="OKL-024">OKL-024 · RGB Pixel Clock – LED hodiny na pracovní stůl</option><option value="OKL-025">OKL-025 · Cyberpunk City Lamp – designová LED dekorace</option><option value="OKL-026">OKL-026 · Retro LED hodiny ve stylu Nixie</option><option value="OKL-027">OKL-027 · Ferrofluid Display – magnetická dekorace</option><option value="OKL-028">OKL-028 · Levitující LED žárovka – magnetická stolní lampa</option><option value="OKL-029">OKL-029 · 3D holografický LED ventilátor pro prezentace</option><option value="OKL-030">OKL-030 · WANBO X5 Pro – chytrý Full HD projektor</option><option value="OKL-031">OKL-031 · Digitální retro hodinky s LED displejem</option><option value="OKL-032">OKL-032 · Mini termokamera pro orientační kontrolu</option><option value="OKL-033">OKL-033 · Univerzální tester elektronických součástek</option></select></nav><main id="preview"></main><script src="catalog.js"></script><script>var s=document.getElementById("product-select");function render(){document.getElementById("preview").innerHTML=window.OKLA_CONTENT_V92[s.value].descHtml;}s.addEventListener("change",render);render();</script></html>
