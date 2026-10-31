@@ -118,7 +118,7 @@
   }
   var reviewTab=q('li.ok97-review-tab',tabs);
   if(params)(reviewTab||homeLi).after(params);
-  if(disc)(params||reviewTab||homeLi).after(disc);
+  if(discussion)(params||reviewTab||homeLi).after(discussion);
   /* Keep Shoptet native click listeners, aria roles, and anchor; replace only visual text. */
   /* Text glyph avoids oversized inline SVG inherited from legacy Shoptet CSS. */
   var home=el('span','ok99-tab-house','⌂');home.setAttribute('aria-hidden','true');
