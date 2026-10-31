@@ -53,7 +53,7 @@
    left.classList.remove('is-on');right.classList.remove('is-on');
    return;
   }
-  var width=Math.min(MAX_WIDTH,Math.floor(space-SIDE_GUTTER));
+  var width=Math.min(MAX_WIDTH,Math.floor((space-SIDE_GUTTER)*0.9));
   var top=c.top+window.pageYOffset+ART_TOP_OFFSET;
   left.style.width=width+'px';
   left.style.left=(c.left+window.pageXOffset-width)+'px';

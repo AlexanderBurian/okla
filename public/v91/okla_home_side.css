@@ -10,11 +10,14 @@
 .okla-side-art__link:focus-visible{outline:2px solid #0b2540;outline-offset:4px}
 
 /* Hand: the card edge falls at about 66% of the photo's width, so the arm's lower-right cut sits behind the card. */
-.okla-side-art--left .okla-side-art__img--phone{width:151.5%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp');clip-path:inset(0 34% 0 0)}
-/* The caption sits right under the hand's lowest visible point (about 87% of its height), centred under the visible hand. */
-.okla-side-art--left .okla-side-art__text{margin-top:calc(-24.62cqw + 4px)}
+/* Hand: the card edge falls at about 66% of the photo's width, so the arm's lower-right cut sits behind the card.
+   Its arm fades out exactly at the bottom of the Flipper group (69.7% of the hand's height), so the two bottoms match
+   without a hard cut. */
+.okla-side-art--left .okla-side-art__img--phone{width:151.5%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp');clip-path:inset(0 34% 0 0);-webkit-mask-image:linear-gradient(to bottom,#000 60%,transparent 69.7%);mask-image:linear-gradient(to bottom,#000 60%,transparent 69.7%)}
+/* Both captions start 16 px under the Flipper group's bottom: the group is 132.03cqw tall, the hand box 189.38cqw. */
+.okla-side-art--left .okla-side-art__text{margin-top:calc(-57.35cqw + 16px)}
 
-/* Flipper group: the Wi-Fi board sits on the device; both touch the card edge. */
+/* Flipper group: the Wi-Fi board sits directly on the device, both whole and touching the card edge. */
 .okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('assets/warranty-flipper.webp')}
 .okla-side-art__img--wifi{width:100%;aspect-ratio:520/298;background-image:url('assets/warranty-wifi.webp')}
 
