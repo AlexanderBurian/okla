@@ -125,7 +125,7 @@
    ['M3 5h18v14H3z M3 6l9 7 9-7','Kontakt: podpora@okla.cz','mailto:podpora@okla.cz']
   ];
   facts.forEach(([path,title,href])=>{var box=el('div');box.append(svgIcon(path));var a=el('a',null,title);a.href=href;box.append(a);strip.append(box)});
-  var related=q('.ok86-related');var detailEnd=related||q('.p-detail-tabs-wrapper')||detail;
+  var related=q('.ok86-related');var detailEnd=related||q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper')||detail;
   detailEnd.after(strip);
  }
  function knownUrl(p){return p.url||null}
@@ -189,7 +189,7 @@
   if(hasRealReviews()||q('.ok97-review-block'))return;
   var nativeLabel=q('.p-detail-info .stars-label',detail)?.textContent||'';
   if(!/zatím bez hodnocení|neohodnoceno/i.test(nativeLabel))return;
-  var tabs=q('.p-detail-tabs-wrapper');
+  var tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
   if(!tabs)return;
   var section=el('section','ok97-review-block');
   section.id='ok97-review-block';
@@ -293,7 +293,7 @@
   view.addEventListener('scroll',updateArrows,{passive:true});
   window.addEventListener('resize',updateArrows,{passive:true});
   if(window.ResizeObserver)new ResizeObserver(updateArrows).observe(view);
-  var review=q('.ok97-review-block'),tabs=q('.p-detail-tabs-wrapper');
+  var review=q('.ok97-review-block'),tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
   if(review)review.after(sec);else if(tabs)tabs.after(sec);else detail.after(sec);
   requestAnimationFrame(updateArrows);
  }
