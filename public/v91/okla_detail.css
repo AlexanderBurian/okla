@@ -232,3 +232,9 @@ html body.ok89-detail #content .shp-tabs-row{padding-left:0!important;padding-ri
 }
 /* 8p. Stray share-close icon pseudo-element (drawn as a small cross next to the product title) is not used on product pages. */
 html body.ok89-detail #content .p-detail-inner-header [class*="close-after"]::after{display:none!important;content:none!important}
+/* 8q. Tabs: the bottom line runs edge to edge of the white product sheet (the sheet's own 20 px gutter and the card's 24 px padding are bled out),
+   the tab labels keep their 24 px inset. Every unselected tab gets a 1 px top border; the selected one keeps its blue cap. */
+@media(min-width:992px){
+html body.ok89-detail #content .p-detail-tabs-wrapper,html body.ok89-detail #content .p-details-tabs-wrapper{margin-left:-44px!important;margin-right:-44px!important;width:calc(100% + 88px)!important}
+}
+html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:1px solid #DDE3EA!important;box-shadow:none!important}
