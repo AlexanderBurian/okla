@@ -1,5 +1,6 @@
-/* OKLA homepage hero: four banner slides in the main Shoptet carousel slot. The first slide is the Flipper Zero.
-   Every slide has the same darkening, text and blue CTA. Dots and autoplay; autoplay pauses on hover and focus. */
+/* OKLA homepage banners: the hero (four slides, the first is the Flipper Zero) in the main Shoptet carousel slot,
+   and the two lower tiles. Every banner has the same darkening, text and blue CTA. The hero has dots and autoplay;
+   autoplay pauses on hover and focus. The dots show only on mobile, under the picture. */
 (function(){
  'use strict';
  if(window.__oklaHomeBannersV1)return;
@@ -10,6 +11,10 @@
   {n:2,title:'Kino ve vašem obýváku',lead:'Velký obraz kdekoli doma, bez velké televize.',alt:'Projektor'},
   {n:3,title:'Chytré brýle s AI',lead:'Kamera, asistent a poslech v běžných brýlích.',alt:'Chytré brýle'},
   {n:4,title:'Laserový dálkoměr',lead:'Přesné měření vzdáleností jedním stisknutím.',alt:'Laserový dálkoměr'}
+ ];
+ var TILES=[
+  {n:1,title:'Chytré brýle',lead:'Kamera a AI asistent přímo v brýlích.',alt:'Chytré brýle'},
+  {n:2,title:'Projektor pro domácí kino',lead:'Velký obraz doma bez velké televize.',alt:'Projektor'}
  ];
  var CTA_HREF='/goal';
  var CTA_TEXT='Kup teď';
@@ -26,13 +31,25 @@
   '</article>';
  }
 
+ function tileHtml(t){
+  return '<article class="okla-tile okla-tile--'+t.n+'">'+
+   '<div class="okla-tile__media" role="img" aria-label="'+t.alt+'"></div>'+
+   '<div class="okla-tile__text">'+
+    '<h3 class="okla-tile__title">'+t.title+'</h3>'+
+    '<p class="okla-tile__lead">'+t.lead+'</p>'+
+    '<a class="okla-tile__cta" href="'+CTA_HREF+'">'+CTA_TEXT+'</a>'+
+   '</div>'+
+  '</article>';
+ }
+
  function dotHtml(i){
   return '<button type="button" aria-label="Zobrazit banner '+(i+1)+'"'+(i===0?' aria-current="true"':' aria-current="false"')+'></button>';
  }
 
- function wire(hero){
+ function wire(wrap){
+  var hero=wrap.querySelector('.okla-hero');
   var slides=Array.prototype.slice.call(hero.querySelectorAll('.okla-hero__slide'));
-  var dots=Array.prototype.slice.call(hero.querySelectorAll('.okla-hero__dots button'));
+  var dots=Array.prototype.slice.call(wrap.querySelectorAll('.okla-hero__dots button'));
   var cur=0, timer=0, paused=false;
 
   function show(i){
@@ -60,18 +77,34 @@
   restart();
  }
 
- function build(){
-  if(!document.body||!document.body.classList.contains('type-index'))return;
+ function buildHero(){
   var carousel=document.querySelector('.banners-row #carousel');
   if(!carousel||carousel.querySelector('.okla-hero'))return;
   var inner=carousel.querySelector('.carousel-inner');
   if(!inner)return;
   inner.innerHTML=
-   '<div class="okla-hero" aria-roledescription="carousel" aria-label="Hlavní banner">'+
-    '<div class="okla-hero__track">'+SLIDES.map(slideHtml).join('')+'</div>'+
+   '<div class="okla-hero-wrap">'+
+    '<div class="okla-hero" aria-roledescription="carousel" aria-label="Hlavní banner">'+
+     '<div class="okla-hero__track">'+SLIDES.map(slideHtml).join('')+'</div>'+
+    '</div>'+
     '<div class="okla-hero__dots">'+SLIDES.map(function(s,i){return dotHtml(i)}).join('')+'</div>'+
    '</div>';
-  wire(inner.querySelector('.okla-hero'));
+  wire(inner.querySelector('.okla-hero-wrap'));
+ }
+
+ function buildTiles(){
+  var wrappers=document.querySelectorAll('.next-to-carousel-banners .banner-wrapper');
+  TILES.forEach(function(t,i){
+   var w=wrappers[i];
+   if(!w||w.querySelector('.okla-tile'))return;
+   w.innerHTML=tileHtml(t);
+  });
+ }
+
+ function build(){
+  if(!document.body||!document.body.classList.contains('type-index'))return;
+  buildHero();
+  buildTiles();
  }
 
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',build,{once:true});

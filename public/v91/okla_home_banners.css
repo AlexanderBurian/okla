@@ -1,37 +1,48 @@
-/* OKLA homepage hero: four slides in the main Shoptet carousel slot. Desktop keeps the slot's 909x187 proportion,
-   mobile uses 351x217. Every slide has the same right-side darkening (as on Alza), a left scrim so the white text reads
+/* OKLA homepage banners: the hero (four slides) in the main Shoptet carousel slot and the two lower tiles.
+   Desktop keeps the slots' proportions (hero 909x187, tiles 450x187). Mobile shows the hero at 351x217 with its dots
+   below the picture. Every banner has the same right-side darkening (as on Alza), a left scrim so the white text reads
    on the light photos, the text and a blue CTA. */
 
 /* The legacy mobile dots belonged to the Shoptet carousel; the hero draws its own dots. */
 html body.type-index #okla-v61-dots{display:none!important}
 
-.okla-hero{position:relative;width:100%;aspect-ratio:909/187;overflow:hidden;background:#0b2540;color:#fff;font-family:Roboto,Arial,sans-serif}
+/* ---------- Hero ---------- */
+.okla-hero{position:relative;width:100%;aspect-ratio:909/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:Roboto,Arial,sans-serif}
 .okla-hero__track{position:absolute;inset:0}
 .okla-hero__slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
 .okla-hero__slide.is-active{opacity:1;visibility:visible;transition:opacity .6s ease,visibility 0s}
 .okla-hero__media{position:absolute;inset:0;background-repeat:no-repeat;background-size:cover;background-position:center}
-.okla-hero__slide::before,.okla-hero__slide::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
-/* Right-side darkening */
-.okla-hero__slide::before{background:linear-gradient(270deg,rgba(4,18,40,.45) 0%,rgba(4,18,40,0) 40%)}
-/* Left scrim for the text */
-.okla-hero__slide::after{background:linear-gradient(90deg,rgba(4,18,40,.8) 0%,rgba(4,18,40,.38) 45%,rgba(4,18,40,0) 75%)}
-
 .okla-hero__slide--1 .okla-hero__media{background-image:url('assets/hero-1-desktop.webp')}
 .okla-hero__slide--2 .okla-hero__media{background-image:url('assets/hero-2-desktop.webp')}
 .okla-hero__slide--3 .okla-hero__media{background-image:url('assets/hero-3-desktop.webp')}
 .okla-hero__slide--4 .okla-hero__media{background-image:url('assets/hero-4-desktop.webp')}
-
 .okla-hero__text{position:absolute;left:0;top:0;bottom:0;width:52%;padding:0 4% 0 3%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;z-index:2}
 .okla-hero__title{margin:0;font-size:30px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.25)}
 .okla-hero__lead{margin:0;font-size:15px;line-height:1.4;color:#fff}
-.okla-hero__cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;margin-top:6px;border-radius:19px;background:#0a7ad9;color:#fff;font-size:14px;font-weight:700;text-decoration:none}
-html body .okla-hero .okla-hero__cta{color:#fff!important;text-decoration:none!important}
-html body .okla-hero .okla-hero__cta:hover{background:#0866b8!important;color:#fff!important}
-.okla-hero__cta:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
-.okla-hero__dots{position:absolute;left:3%;bottom:12px;display:flex;gap:8px;z-index:3}
-.okla-hero__dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:rgba(255,255,255,.5);cursor:pointer}
-.okla-hero__dots button[aria-current="true"]{width:22px;background:#fff}
+/* Dots: none on desktop. */
+.okla-hero__dots{display:none}
+
+/* ---------- Lower tiles ---------- */
+.okla-tile{position:relative;width:100%;aspect-ratio:450/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:Roboto,Arial,sans-serif}
+.okla-tile__media{position:absolute;inset:0;background-repeat:no-repeat;background-size:cover;background-position:center}
+.okla-tile--1 .okla-tile__media{background-image:url('assets/tile-1-desktop.webp')}
+.okla-tile--2 .okla-tile__media{background-image:url('assets/tile-2-desktop.webp')}
+.okla-tile__text{position:absolute;left:0;top:0;bottom:0;width:60%;padding:0 4%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;z-index:2}
+.okla-tile__title{margin:0;font-size:22px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.25)}
+.okla-tile__lead{margin:0;font-size:14px;line-height:1.4;color:#fff}
+
+/* ---------- Shared: overlays and CTA ---------- */
+.okla-hero__slide::before,.okla-hero__slide::after,.okla-tile::before,.okla-tile::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none}
+/* Right-side darkening */
+.okla-hero__slide::before,.okla-tile::before{background:linear-gradient(270deg,rgba(4,18,40,.45) 0%,rgba(4,18,40,0) 40%)}
+/* Left scrim for the text */
+.okla-hero__slide::after,.okla-tile::after{background:linear-gradient(90deg,rgba(4,18,40,.8) 0%,rgba(4,18,40,.38) 45%,rgba(4,18,40,0) 75%)}
+
+html body .okla-hero .okla-hero__cta,html body .okla-tile .okla-tile__cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;margin-top:6px;border-radius:19px;background:#0a7ad9;color:#fff!important;font-size:14px;font-weight:700;text-decoration:none!important}
+html body .okla-tile .okla-tile__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
+html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:hover{background:#0866b8!important;color:#fff!important}
+.okla-hero__cta:focus-visible,.okla-tile__cta:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 
 @media (max-width:767px){
  .okla-hero{aspect-ratio:351/217}
@@ -45,5 +56,8 @@ html body .okla-hero .okla-hero__cta:hover{background:#0866b8!important;color:#f
  .okla-hero__title{font-size:20px}
  .okla-hero__lead{font-size:13px;line-height:1.35}
  .okla-hero__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
- .okla-hero__dots{left:5%;bottom:10px}
+ /* Dots sit under the picture on mobile. */
+ .okla-hero__dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+ .okla-hero__dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:#c9d2de;cursor:pointer}
+ .okla-hero__dots button[aria-current="true"]{width:22px;background:#0a7ad9}
 }
