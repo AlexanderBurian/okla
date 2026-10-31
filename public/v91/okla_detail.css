@@ -253,3 +253,12 @@ html body.ok89-detail #content .ok99-tab-house{font-size:20px!important;font-wei
 html body.ok89-detail #content-wrapper{overflow:visible!important}
 html body.ok89-detail #content-wrapper .content-wrapper-in{border-radius:14px!important;overflow:hidden!important}
 html body.ok89-detail #content-wrapper::before{top:-4px!important;left:0!important;right:0!important;height:4px!important;border-radius:14px 14px 0 0 / 4px 4px 0 0!important}
+/* 8u. Tabs as on Alza: tab row starts 32 px inside the sheet, tabs have 4 px rounded top corners,
+   and the home tab uses a solid house drawn as a mask in the label colour (dark when selected, grey otherwise). */
+@media(min-width:992px){
+html body.ok89-detail #content .p-detail-tabs-wrapper .shp-tabs-row{padding-left:32px!important}
+}
+html body.ok89-detail #content ul.p-detail-tabs>li{border-radius:4px 4px 0 0!important}
+html body.ok89-detail #content ul.p-detail-tabs>li>a{border-radius:4px 4px 0 0!important}
+html body.ok89-detail #content .ok99-tab-house{display:inline-block!important;width:18px!important;height:18px!important;font-size:0!important;line-height:0!important;vertical-align:middle!important;background-color:#4A4A4A!important;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active .ok99-tab-house{background-color:#1A1A1A!important}
