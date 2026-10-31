@@ -11,6 +11,7 @@
  var SEARCH_ACTION = '/action/ProductSearch/prepareString/';
  var SEARCH_PATHS = ['M10.8 17.5a6.7 6.7 0 1 0 0-13.4 6.7 6.7 0 0 0 0 13.4Z', 'm15.9 15.9 4.7 4.7'];
  var CART_PATHS = ['M2.8 4.5H5l2.1 9.6a2 2 0 0 0 2 1.6h8.3a2 2 0 0 0 2-1.6l1.2-6.3H6', 'M10 20h.01', 'M18 20h.01'];
+ var SHARE_PATHS = ['M12 3v12', 'M7.5 7.5 12 3l4.5 4.5', 'M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7'];
 
  function el(tag, cls, text) {
   var n = document.createElement(tag);
@@ -127,6 +128,7 @@
  function openSearch() {
   if (!overlay) buildOverlay();
   render('');
+  void overlay.offsetWidth; /* commit the hidden state first so the open transition runs */
   overlay.classList.add('is-open');
   document.documentElement.classList.add('okla-m-lock');
   setTimeout(function () { input.focus(); }, 80);
@@ -189,20 +191,19 @@
   if (bar) return;
   nativeBtn = document.querySelector('.p-detail .add-to-cart button.add-to-cart-button');
   if (!nativeBtn) return;
-  var titleEl = document.querySelector('.p-detail h1');
   var priceEl = document.querySelector('.p-detail .price-final strong');
   bar = el('div', 'okla-m-buybar');
   bar.setAttribute('aria-label', 'Rychlý nákup');
-  var info = el('div', 'okla-m-buybar__info');
-  info.appendChild(el('span', 'okla-m-buybar__name', titleEl ? titleEl.textContent.trim() : ''));
-  info.appendChild(el('span', 'okla-m-buybar__price', priceEl ? priceEl.textContent.trim() : ''));
+  var price = el('span', 'okla-m-buybar__price', priceEl ? priceEl.textContent.trim() : '');
+  if (priceEl) new MutationObserver(function () { price.textContent = priceEl.textContent.trim(); })
+   .observe(priceEl, { childList: true, characterData: true, subtree: true });
   var go = el('button', 'okla-m-buybar__btn');
   go.type = 'button';
   go.appendChild(icon(CART_PATHS, 'okla-m-buybar__icon'));
   go.appendChild(el('span', null, 'Přidat do košíku'));
   go.disabled = nativeBtn.disabled;
   go.addEventListener('click', function () { if (!nativeBtn.disabled) nativeBtn.click(); });
-  bar.appendChild(info);
+  bar.appendChild(price);
   bar.appendChild(go);
   document.body.appendChild(bar);
   placeBar();
@@ -221,9 +222,43 @@
   if (bar) bar.style.bottom = (nav ? nav.offsetHeight : 0) + 'px';
  }
 
+ /* ---------- Share button beside the product title ---------- */
+ var toastEl = null, toastTimer = null;
+ function toast(text) {
+  if (!toastEl) {
+   toastEl = el('div', 'okla-m-toast');
+   toastEl.setAttribute('role', 'status');
+   document.body.appendChild(toastEl);
+  }
+  toastEl.textContent = text;
+  toastEl.classList.add('is-visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { toastEl.classList.remove('is-visible'); }, 1600);
+ }
+ function share() {
+  if (navigator.share) {
+   navigator.share({ title: document.title, url: location.href }).catch(function () {});
+   return;
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+   navigator.clipboard.writeText(location.href).then(function () { toast('Odkaz je zkopírovaný'); }, function () {});
+  }
+ }
+ function addShare() {
+  var title = document.querySelector('.p-detail-inner-header h1');
+  if (!title || title.parentNode.querySelector('.okla-m-share')) return;
+  var b = el('button', 'okla-m-share');
+  b.type = 'button';
+  b.setAttribute('aria-label', 'Sdílet produkt');
+  b.appendChild(icon(SHARE_PATHS, 'okla-m-share__icon'));
+  b.addEventListener('click', share);
+  title.insertAdjacentElement('afterend', b);
+ }
+
  function init() {
   addHeaderButton();
   buildBuyBar();
+  addShare();
   lastY = window.pageYOffset || 0;
   window.addEventListener('resize', placeBar);
   narrow.addEventListener('change', function (e) {
@@ -243,5 +278,6 @@
  window.addEventListener('load', function () {
   addHeaderButton();
   buildBuyBar();
+  addShare();
  });
 })();
