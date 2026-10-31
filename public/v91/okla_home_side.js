@@ -8,7 +8,7 @@
  var MIN_MARGIN=260;
  var MAX_WIDTH=300;
  var SIDE_GUTTER=24;
- var ART_TOP_OFFSET=28;
+ var ART_TOP_OFFSET=60;
 
  function block(id,side,html){
   var d=document.createElement('div');
