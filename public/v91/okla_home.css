@@ -207,3 +207,11 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89
 }
 /* The default product-row stars are decorative; actual review score is unchanged. */
 html body.type-index #content .okla-slider-shell .product .ok89-decor-stars svg{fill:#F4B526!important;stroke:#F4B526!important}
+/* Homepage sections, desktop: the gap from the last card of one section to the next section title is about 42 px (was about 91 px).
+   Card-hover ring keeps its 28 px room below the card. */
+@media(min-width:992px){
+html body.type-index #content .okla-slider-shell{margin-bottom:0!important}
+html body.type-index #content .okla-slider-shell .products.okla-slider-track{padding-bottom:28px!important}
+html body.type-index #content .okla-slider-shell+.homepage-group-title{margin-top:0!important}
+html body.type-index #content .okla-slider-shell+#okla-news-v55{margin-top:0!important}
+}
