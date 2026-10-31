@@ -7,10 +7,11 @@
  if(window.__oklaHomeBannersV1)return;
  window.__oklaHomeBannersV1=true;
 
+ // On desktop the top slot stays on the projector: only the projector is shown there. The other slides are mobile only.
  var SLIDES=[
   {n:2,title:'Kino ve vašem obýváku',lead:'Velký obraz kdekoli doma, bez velké televize.',alt:'Projektor'},
-  {n:3,title:'Chytré brýle s AI',lead:'Kamera, asistent a poslech v běžných brýlích.',alt:'Chytré brýle'},
-  {n:4,title:'Laserový dálkoměr',lead:'Přesné měření vzdáleností jedním stisknutím.',alt:'Laserový dálkoměr'},
+  {n:3,title:'Chytré brýle s AI',lead:'Kamera, asistent a poslech v běžných brýlích.',alt:'Chytré brýle',mobileOnly:true},
+  {n:4,title:'Laserový dálkoměr',lead:'Přesné měření vzdáleností jedním stisknutím.',alt:'Laserový dálkoměr',mobileOnly:true},
   {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',mobileOnly:true}
  ];
  var TILES=[
@@ -102,8 +103,9 @@
     '<div class="okla-hero__dots">'+SLIDES.map(function(s,i){return dotHtml(i)}).join('')+'</div>'+
    '</div>';
   // Shoptet's Bootstrap carousel would keep cycling the old .item slides and throw; stop it so it cannot slide into the new markup.
-  carousel.removeAttribute('data-ride');
   if(window.jQuery&&window.jQuery.fn&&window.jQuery.fn.carousel)window.jQuery(carousel).carousel('pause');
+  carousel.removeAttribute('data-ride');
+  carousel.classList.remove('carousel','slide');
   wire(inner.querySelector('.okla-hero-wrap'));
  }
 
