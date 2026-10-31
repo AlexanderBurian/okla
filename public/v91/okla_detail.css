@@ -2,7 +2,7 @@
 /* 0. Tokens / single font family; only detail pages are affected. */
 :root {
   --ok86-blue:#2C5F9E; --ok86-navy:#102A54; --ok86-price:#E30613;
-  --ok86-green:#5BA300; --ok86-green-hover:#4A8C00;
+  --ok86-green:#3E7A00; --ok86-green-hover:#2F6000;
   --ok86-in-stock:#3A9B2E; --ok86-out-of-stock:#CC0000;
   --ok86-disabled:#C8CDD3; --ok86-disabled-text:#6B7280;
   --ok86-muted:#777; --ok86-soft:#F5F5F5;
@@ -25,7 +25,7 @@ body.ok89-detail #content .p-detail {width:100%!important;max-width:1200px!impor
 }
 /* 3. Gallery – pure white, no heavy frame, preserve native zoom and thumbnails. */
 body.ok89-detail .p-detail .p-image-wrapper,body.ok89-detail .p-detail .p-image-wrapper>.p-image,body.ok89-detail .p-detail .p-image-wrapper .p-main-image{background:#FFFFFF!important;background-image:none!important;border:0!important;box-shadow:none!important}
-body.ok89-detail .p-detail .p-image-wrapper>.p-image {width:100%!important;min-height:390px!important;display:flex!important;justify-content:center!important;align-items:center!important;padding:8px!important}
+body.ok89-detail .p-detail .p-image-wrapper>.p-image {width:100%!important;min-height:480px!important;display:flex!important;justify-content:center!important;align-items:center!important;padding:8px!important}
 body.ok89-detail .p-detail .p-image-wrapper .p-main-image{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:100%!important;cursor:zoom-in!important}
 body.ok89-detail .p-detail .p-image-wrapper .p-main-image img{display:block!important;width:auto!important;max-width:100%!important;max-height:520px!important;height:auto!important;object-fit:contain!important;object-position:center!important;background:#FFFFFF!important}
 body.ok89-detail .p-detail :is(.p-thumbnails,.p-image-thumbnails) {display:flex!important;justify-content:center!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;margin:12px 0!important}
@@ -55,8 +55,8 @@ body.ok89-detail .p-detail .p-info-wrapper .price-without-vat{display:block!impo
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart{display:flex!important;align-items:center!important;gap:10px!important;flex-wrap:nowrap!important;width:100%!important;max-width:100%!important;margin:0 0 16px!important;padding:0!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.quantity{flex:0 0 78px!important;width:78px!important;min-width:0!important;max-width:78px!important;margin:0!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart input.amount{height:52px!important;border:1px solid #DAE0E9!important;text-align:center!important}
-body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;gap:9px!important;min-width:0!important;width:auto!important;height:52px!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:6px!important;background:#5BA300!important;background-image:none!important;box-shadow:none!important;color:#FFFFFF!important;font:700 15px/1.3 var(--ok86-font)!important;text-align:center!important;cursor:pointer!important;transition:background-color .2s ease!important}
-body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button:hover:not(:disabled){background:#4A8C00!important;color:#FFFFFF!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;gap:9px!important;min-width:0!important;width:auto!important;height:52px!important;margin:0!important;padding:10px 16px!important;border:0!important;border-radius:6px!important;background:#3E7A00!important;background-image:none!important;box-shadow:none!important;color:#FFFFFF!important;font:700 18px/1.3 var(--ok86-font)!important;text-align:center!important;cursor:pointer!important;transition:background-color .2s ease!important}
+body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button:hover:not(:disabled){background:#2F6000!important;color:#FFFFFF!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button:disabled,body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button.ok86-disabled{background:#C8CDD3!important;color:#6B7280!important;border:0!important;opacity:1!important;cursor:not-allowed!important;pointer-events:none!important}
 body.ok89-detail .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button::before{display:none!important;content:none!important}
 body.ok89-detail .p-detail .p-info-wrapper .ok86-cart-icon{display:block!important;width:22px!important;height:22px!important;flex:0 0 22px!important;stroke:#FFFFFF!important;fill:none!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
@@ -135,19 +135,6 @@ body.ok89-detail #content .ok86-trust a{color:#2C5F9E!important}
  body.ok89-detail #content .p-detail .p-info-wrapper>.add-to-cart>.add-to-cart-button{font-size:13px!important;padding:8px!important}
  body.ok89-detail #content .ok86-trust{grid-template-columns:1fr!important}
 }
-/* 12. Global consistency with the user-selected #5BA300 green cart accent. */
-body.type-index #content .okla-slider-shell .products .product .p-tools .btn-cart,
-body.type-category #content .products .product .p-tools .btn-cart {
- color:#5BA300!important;
- border-color:#5BA300!important;
-}
-body.type-index #content .okla-slider-shell .products .product .p-tools .btn-cart:hover,
-body.type-category #content .products .product .p-tools .btn-cart:hover {
- color:#4A8C00!important;
- border-color:#4A8C00!important;
-}
-body.type-index #content .okla-slider-shell .products .product .p-tools .btn-cart svg,
-body.type-category #content .products .product .p-tools .btn-cart svg {color:inherit!important;stroke:currentColor!important}
 @media(min-width:768px) and (max-width:991px){
  body.ok89-detail #content .ok86-related-track{grid-template-columns:repeat(3,minmax(0,1fr))!important}
  body.ok89-detail #content .p-detail{padding:20px 16px!important}
@@ -175,8 +162,8 @@ html body.ok89-detail #content .p-detail .p-info-wrapper > .p-final-price-wrappe
 html body.ok89-detail #content .p-detail .p-info-wrapper > .detail-parameters:empty {display:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart {display:flex!important;position:static!important;align-items:center!important;flex-direction:row!important;gap:10px!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0 0 16px!important;padding:0!important;float:none!important;clear:both!important;overflow:visible!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart >.quantity {display:block!important;flex:0 0 78px!important;min-width:0!important;max-width:78px!important;width:78px!important;height:52px!important;margin:0!important;padding:0!important;float:none!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button {box-sizing:border-box!important;appearance:none!important;position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;gap:9px!important;min-width:0!important;max-width:100%!important;width:auto!important;height:52px!important;max-height:52px!important;margin:0!important;padding:10px 14px!important;border:0!important;border-radius:6px!important;background:#5BA300!important;background-image:none!important;box-shadow:none!important;float:none!important;transform:none!important;opacity:1!important;font:700 15px/1.25 Roboto,'Segoe UI',Arial,sans-serif!important;color:white!important;white-space:nowrap!important;text-indent:0!important;text-shadow:none!important;cursor:pointer!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:hover:not(:disabled){background:#4A8C00!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button {box-sizing:border-box!important;appearance:none!important;position:static!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:1 1 0!important;gap:9px!important;min-width:0!important;max-width:100%!important;width:auto!important;height:52px!important;max-height:52px!important;margin:0!important;padding:10px 14px!important;border:0!important;border-radius:6px!important;background:#3E7A00!important;background-image:none!important;box-shadow:none!important;float:none!important;transform:none!important;opacity:1!important;font:700 18px/1.25 Roboto,'Segoe UI',Arial,sans-serif!important;color:white!important;white-space:nowrap!important;text-indent:0!important;text-shadow:none!important;cursor:pointer!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:hover:not(:disabled){background:#2F6000!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:disabled{background:#C8CDD3!important;color:#626C78!important;cursor:not-allowed!important;pointer-events:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:before,
 html body.ok89-detail #content .p-detail .p-info-wrapper > .add-to-cart > button.add-to-cart-button:after {content:none!important;display:none!important}
@@ -226,11 +213,11 @@ html body.ok89-detail .p-detail .p-detail-inner-header .p-code{display:none!impo
 /* Gallery: center a large actual product image, without cloning Shoptet nodes. */
 @media(min-width:992px){
  html body.ok89-detail #content .p-detail .row.product-top.ok86-grid{
-   grid-template-columns:minmax(0,52fr) minmax(0,48fr)!important;gap:30px!important
+   grid-template-columns:minmax(0,55fr) minmax(0,45fr)!important;gap:30px!important
  }
  html body.ok89-detail #content .p-detail .p-image-wrapper>.p-image,
  html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{
-   width:100%!important;min-height:425px!important;max-height:500px!important;
+   width:100%!important;min-height:480px!important;max-height:none!important;
    display:flex!important;align-items:center!important;justify-content:center!important;
    padding:0!important;margin:0!important
  }
@@ -241,16 +228,16 @@ html body.ok89-detail .p-detail .p-detail-inner-header .p-code{display:none!impo
    width:100%!important;max-width:100%!important;min-height:400px!important
  }
  html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image img{
-   width:410px!important;max-width:100%!important;height:410px!important;max-height:445px!important;
+   width:100%!important;max-width:100%!important;aspect-ratio:1/1!important;height:auto!important;max-height:600px!important;
    min-width:0!important;min-height:0!important;object-fit:contain!important;
    object-position:center!important;margin:auto!important
  }
 }
 /* Breadcrumbs have exactly one house: hide obsolete legacy decorations, not links. */
-html body .breadcrumbs #navigation-first a.navigation-home-icon :is(i,.fa,.icon,.okla-home-icon){
+html body.ok89-detail .breadcrumbs #navigation-first a.navigation-home-icon :is(i,.fa,.icon,.okla-home-icon){
  display:none!important
 }
-html body .breadcrumbs #navigation-first a.navigation-home-icon svg.ok91-home-icon{
+html body.ok89-detail .breadcrumbs #navigation-first a.navigation-home-icon svg.ok91-home-icon{
  display:block!important;width:16px!important;height:16px!important;stroke:#2C5F9E!important;
  fill:none!important;stroke-width:1.6!important
 }
