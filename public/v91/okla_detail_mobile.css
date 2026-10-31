@@ -67,4 +67,23 @@
   }
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .okv73-rating-caption { color: #7d8998 !important; font-size: 10px !important; }
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .p-tools .btn-cart.add-to-cart-button.add-to-cart-button::before { content: none !important; display: none !important; }
+
+  /* 8. Related cards: one pictogram, the same as on the homepage. The three older icon scripts and the detail icon are hidden,
+        and the homepage icon (okv74) is styled the way the homepage styles it. */
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv71-cart,
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv72-cart,
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.ok89-cart { display: none !important; }
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv74-cart {
+    display: block !important; flex: 0 0 21px !important; width: 21px !important; height: 21px !important; min-width: 21px !important;
+    margin: 0 !important; padding: 0 !important; color: #5ba300 !important; fill: none !important; stroke: currentColor !important;
+    stroke-width: 2 !important; stroke-linecap: round !important; stroke-linejoin: round !important;
+  }
+  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track .product .btn-cart.add-to-cart-button.add-to-cart-button svg.okv74-cart circle {
+    fill: none !important; stroke: currentColor !important; stroke-width: 2 !important;
+  }
+
+  /* 9. The whole header band, not only its inner part, uses the same gradient */
+  html body.ok89-detail.ok89-detail #header#header {
+    background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important;
+  }
 }
