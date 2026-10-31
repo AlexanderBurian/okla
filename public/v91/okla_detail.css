@@ -10,7 +10,6 @@
  --okd-font:Roboto,"Segoe UI",Arial,sans-serif;
 }
 /* 1. White product sheet, no old navy border. */
-html:has(body.ok89-detail),html body.ok89-detail{background:var(--okd-page)!important}
 html body.ok89-detail #content-wrapper{box-sizing:border-box!important;max-width:var(--okd-width)!important;margin-inline:auto!important;border:0!important;border-top:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;overflow:visible!important}
 html body.ok89-detail #content-wrapper::before{display:none!important;content:none!important}
 html body.ok89-detail #content,html body.ok89-detail #content .p-detail,html body.ok89-detail #content .p-detail-inner{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;background:#fff!important}
