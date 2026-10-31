@@ -21,6 +21,7 @@ modules.push('v91/okla_home_side.css','v91/okla_home_side.js');
 modules.push('okla_v86_catalog.js');
 if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
 modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js');
+modules.push('okla_footer.js');
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
 var index=0;
 function next(){
