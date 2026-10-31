@@ -9,9 +9,17 @@
 .okla-side-art__link{display:block;color:inherit;text-decoration:none;pointer-events:auto;cursor:pointer}
 .okla-side-art__link:focus-visible{outline:2px solid #0b2540;outline-offset:4px}
 
-/* Hand: the whole picture, not clipped or faded. Its right edge touches the card; it is 1.32 x the margin width
-   tall, which equals the Flipper group's height, so both bottoms line up. */
-.okla-side-art--left .okla-side-art__img--phone{width:105.6%;margin-left:-5.6%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp')}
+/* The card sits above the art on desktop, so the hand tucks under its edge with no clipping or fading. */
+@media (min-width:768px){
+ html body.type-index #content-wrapper{z-index:1}
+}
+
+/* Hand: 1.515 x the margin width, moved 10% to the right, so its right part runs under the card.
+   The lowest visible point of the hand is at 76.8% of its height. */
+.okla-side-art--left .okla-side-art__img--phone{width:151.5%;margin-left:10%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp')}
+/* Both captions start 16 px under the hand's lowest visible point: 145.5cqw from the top of the art. */
+.okla-side-art--left .okla-side-art__text{margin-top:calc(-43.83cqw + 16px)}
+.okla-side-art--right .okla-side-art__text{margin-top:calc(13.52cqw + 16px)}
 
 /* Flipper group: the Wi-Fi board sits directly on the device, both whole. The group sits 24 px from the card. */
 .okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('assets/warranty-flipper.webp')}
