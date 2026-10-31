@@ -351,3 +351,10 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>
 html body.ok89-detail #content .p-detail .p-image-wrapper .p-main-image{height:640px!important;overflow:hidden!important}
 html body.ok89-detail #content .p-detail .p-main-image img{height:100%!important;width:100%!important;object-fit:cover!important}
 }
+/* 8az. Product photo: a further 1.6x zoom inside the field (the field clips it, so nothing overlaps the buy box). Together with the cover fit the product is about 3x its original size. */
+@media(min-width:992px){
+html body.ok89-detail #content .p-detail .p-main-image img{transform:scale(1.6)!important;transform-origin:50% 50%!important}
+}
+/* 8ba. Icon row: more air above it (from the CTA), less air between each icon and its label. */
+html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{margin-top:16px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{gap:6px!important}
