@@ -1,0 +1,14 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+const dir=import.meta.dirname, pub=path.resolve(dir,'../../public/content-v91'), out=path.resolve(dir,'../../../OKLA_FINAL');
+const strip=html=>html.replace(/<section class="okla-description-parameters">[\s\S]*?<\/section>/g,'').replace(/<section class="okla-product-faq">[\s\S]*?<\/section>/g,'').replace(/<nav class="okla-content-related"[\s\S]*?<\/nav>/g,'');
+const products=JSON.parse(await fs.readFile(path.join(dir,'catalog-content.json'),'utf8'));
+const sets=JSON.parse(await fs.readFile(path.join(dir,'photo-fix-manifest.json'),'utf8'));
+for(const n of [18,24]){const p=JSON.parse(await fs.readFile(path.join(dir,'supplier-'+String(n).padStart(3,'0')+'.json'),'utf8'));sets.push({code:'OKL-'+String(n).padStart(3,'0'),images:p.images.slice(0,3).map(u=>u.startsWith('//')?'https:'+u:u)});}
+for(const p of products){p.descHtml=strip(p.descHtml);const s=sets.find(s=>s.code===p.code&&s.images.length>=3);if(s){let i=0;p.descHtml=p.descHtml.replace(/<figure class="okla-editorial-media[\s\S]*?<\/figure>/g,()=>'<figure class="okla-editorial-media"><img src="'+s.images[i++]+'" alt="'+p.name+' – fotografie '+i+'" loading="lazy" width="1000" height="1000"></figure>');p.contentImages=s.images.slice(0,3);p.illustrationIcons=[];}if(/okla-description-parameters|okla-product-faq|okla-content-related/.test(p.descHtml))throw Error('Sections remain '+p.code);await fs.writeFile(path.join(dir,'html',p.code+'.html'),p.descHtml);}
+await fs.writeFile(path.join(dir,'catalog-content.json'),JSON.stringify(products,null,2));
+await fs.writeFile(path.join(pub,'catalog.js'),'/* OKLA product descriptions without parameter, FAQ and related sections. */\n(function(){var patch='+JSON.stringify(Object.fromEntries(products.map(p=>[p.code,p])))+';window.OKLA_V86_CATALOG=Object.assign(window.OKLA_V86_CATALOG||{},patch);window.OKLA_CONTENT_V92=patch;})();\n');
+const css=await fs.readFile(path.join(pub,'layout.css'),'utf8');const q=x=>'"'+String(x).replaceAll('"','""')+'"';
+await fs.writeFile(path.join(out,'okla_33_popisky_bez_dolnich_sekci.csv'),'\ufeffcode;description\r\n'+products.map(p=>[p.code,'<style>'+css+'</style>'+p.descHtml].map(q).join(';')).join('\r\n')+'\r\n');
+const builderPath=path.join(dir,'build-content.mjs');let builder=await fs.readFile(builderPath,'utf8');if(!builder.includes('descHtml:html.replace(')){builder=builder.replace('descHtml:html,parameters','descHtml:html.replace(/<section class="okla-description-parameters">[\\s\\S]*?<\\/section>/g,\'\').replace(/<section class="okla-product-faq">[\\s\\S]*?<\\/section>/g,\'\').replace(/<nav class="okla-content-related"[\\s\\S]*?<\\/nav>/g,\'\'),parameters');await fs.writeFile(builderPath,builder);}
+console.log(JSON.stringify({products:products.length,removedSections:3,nativeParametersPreserved:true,photoSetsPreserved:sets.length}));
