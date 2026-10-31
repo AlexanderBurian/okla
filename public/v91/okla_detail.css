@@ -199,3 +199,12 @@ html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-ca
 html body.ok89-detail #content .ok86-related .okla-slider-track .p-tools .btn-cart.add-to-cart-button span{color:#16478B!important}
 /* 8d. One separator between the rating block and the carousel: the review block no longer draws its own bottom line (the carousel draws its top line). */
 html body.ok89-detail #content .ok97-review-block{border-bottom:0!important}
+/* 8e. Tabs as on Alza: unselected tabs sit on a light grey box, the selected one stays white with the blue top bar. */
+html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){background:#F5F6F8!important;border-color:#DDE3EA!important}
+html body.ok89-detail #content ul.p-detail-tabs>li:not(.active)>a{background:#F5F6F8!important;color:#4A4A4A!important}
+/* 8f. Trust bar is not shown on product pages (the legal facts stay in the cart and on the legal pages). */
+html body.ok89-detail #content .ok86-trust{display:none!important}
+/* 8g. Product slider card = homepage card: padding, radius and gold decorative stars. */
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .p{padding:12px 13px 24px!important;border-radius:10px!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:2px!important;color:#F4B526!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;fill:currentColor!important;stroke:none!important}
