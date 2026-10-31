@@ -84,6 +84,8 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .okla-detail-favorite{d
 html body.ok89-detail #content .p-detail .p-info-wrapper .okla-detail-favorite svg{display:block!important;width:18px!important;height:18px!important;flex:0 0 18px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
 /* 6c. Product-page slider cards use the homepage slider classes; unavailable button is grey and disabled. */
 html body.ok89-detail #content .ok86-related .btn-cart.ok97-unavailable,html body.ok89-detail #content .ok86-related .btn-cart:disabled{background:#C8CDD3!important;border-color:#C8CDD3!important;color:#6B7280!important;cursor:not-allowed!important;opacity:1!important}
+/* 6d. Homepage slider paints a NOVINKA badge on every card; no product data supports it here, so the product slider hides it. */
+html body.ok89-detail #content .ok86-related .okla-slider-track>.product .prices::before{content:none!important;display:none!important}
 /* 7. Actual Shoptet native tabs; the list itself is styled to avoid wrapper-name mismatch. */
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper){display:block!important;box-sizing:border-box!important;position:relative!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px auto 0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important}
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(.row,.shp-tabs-holder,.shp-tabs-row){box-sizing:border-box!important;float:none!important;max-width:100%!important;width:100%!important;min-width:0!important;margin:0!important;padding:0!important;background:#fff!important}
