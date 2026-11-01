@@ -42,3 +42,6 @@ body.in-kosik table.cart-table td.p-quantity{width:150px}
 body.in-kosik table.cart-table td.p-price{display:none!important}
 body.in-kosik table.cart-table td.p-total{width:120px}
 body.ordering-process .cart-header *{border:0!important;box-shadow:none!important}
+body.in-kosik .cart-row>.col-md-8{flex:0 0 68%;max-width:68%}
+body.in-kosik .cart-row>.col-md-4{flex:0 0 32%;max-width:32%}
+body.in-kosik table.cart-table{table-layout:auto}
