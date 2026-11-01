@@ -118,7 +118,9 @@
    var nm=el('a','okla-cd__card-name',s.name);
    nm.href=s.url||'#';
    var pr=el('div','okla-cd__card-price',priceText(s.price));
-   var btn=el('button','okla-cd__card-btn','Do košíku');
+   /* The same button as the rest of the site: the site's own classes and markup. */
+   var btn=el('button','btn btn-cart add-to-cart-button okla-cd__card-btn');
+   btn.innerHTML='<span>Do košíku</span>';
    btn.type='button';
    btn.addEventListener('click',function(){addSuggestion(s,btn)});
    card.append(im,nm,pr,btn);
