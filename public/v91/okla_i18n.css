@@ -29,3 +29,10 @@ html body #okla-footer-links .okla-lang-pill:hover{border-color:#0b2540}
 html body #okla-footer-links .okla-lang-pill.is-current{border-color:#1f6fd8;background:#f5f7fa;font-weight:700}
 html body #okla-footer-links .okla-lang .okla-lang-pill span{font-size:14px!important;line-height:1!important}
 html body #okla-footer-links .okla-lang-pill .okla-lang-flag{flex:none;width:22px;height:22px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
+
+/* Layout safety net for the translated languages: a longer translated word can never push a box wider than its column
+   and open a horizontal scrollbar. It only acts when a word would otherwise overflow, so Czech-length text is unchanged,
+   and it has no effect on elements set not to wrap (the language switch keeps its one line). */
+html[data-okla-lang="en"] body *,
+html[data-okla-lang="sk"] body *,
+html[data-okla-lang="hu"] body *{overflow-wrap:break-word}
