@@ -195,7 +195,7 @@ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-for
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back::before,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{content:""!important;display:block!important;position:static!important;flex:none!important;width:8px!important;height:8px!important;margin:0!important;padding:0!important;background:none!important;border:solid currentColor!important;border-width:0 2px 2px 0!important;border-radius:0!important;opacity:1!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back::before{transform:rotate(135deg)!important;margin-left:2px!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{transform:rotate(-45deg)!important;margin-right:2px!important}
-html body.ordering-process #content .okla-step-nav .next-step .btn span{position:static!important;margin:0!important;padding:0!important;font:inherit!important;color:inherit!important;background:none!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn span{position:static!important;margin:0!important;padding:0!important;font:inherit!important;color:inherit!important;background:none!important;text-transform:none!important;letter-spacing:0!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{display:inline-grid!important;grid-template-columns:auto auto;column-gap:14px;row-gap:2px;height:auto!important;min-height:56px!important;padding:8px 26px!important;text-align:left!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish .order-button-text{grid-column:1;grid-row:1;display:block!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish .order-button-suffix{grid-column:1;grid-row:2;display:block!important;font-size:12px!important;font-weight:500!important;opacity:.92}
@@ -207,3 +207,5 @@ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-fin
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{flex:1 1 auto!important;min-width:0!important}
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding:8px 16px!important}
 }
+/* The coupon card is the palette's light grey, not a separate pink. */
+html body.in-kosik .okla-coupon,html body.in-kosik .extras-wrapper>.extras-col:not(:has(>*)){background:#f5f7fa!important}

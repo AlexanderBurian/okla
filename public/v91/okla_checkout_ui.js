@@ -407,6 +407,20 @@
   ew.style.width=box.getBoundingClientRect().width+'px';
  }
 
+ /* The row of step buttons runs from the left edge of the page content to the right edge of the summary, measured. */
+ function alignNav(){
+  var nav=document.querySelector('.okla-step-nav');
+  var left=document.querySelector('.cart-row>.col-md-8 table.cart-table')||document.querySelector('.cart-row>.col-md-8');
+  var right=document.querySelector('.cart-row>.col-md-4 .summary-wrapper>.box')||document.querySelector('.cart-row>.col-md-4');
+  if(!nav||!left||!right)return;
+  nav.style.marginLeft='0px';
+  nav.style.width='';
+  var l=left.getBoundingClientRect().left,r=right.getBoundingClientRect().right;
+  if(r-l<200)return;
+  nav.style.marginLeft=(l-nav.getBoundingClientRect().left)+'px';
+  nav.style.width=(r-l)+'px';
+ }
+
  /* Shoptet redraws the cart after a product is added or removed, and the redraw drops the cart enhancements: they are applied again. Each one is safe to repeat. */
  function refreshCart(){
   hideHelpBox();
@@ -421,6 +435,7 @@
   moveNextStep();
   freeShipping();
   alignExtras();
+  alignNav();
  }
 
  /* When a product is added or removed the summary and the bar change: they are followed here. Changes inside the cards are ignored, so nothing loops. */
@@ -463,6 +478,8 @@
   hideExtrasHeading();
   addSectionIcons();
   moveNextStep();
+  alignNav();
+  window.addEventListener('resize',alignNav);
   freeShipping();
   keepOnlyZasilkovna();
  }
