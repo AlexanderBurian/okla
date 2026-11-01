@@ -134,7 +134,7 @@ html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{backgroun
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step{margin:18px 0!important;gap:12px!important}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{height:58px!important;min-height:58px!important}
 /* Cart: the coupon and delivery cards stack under the summary box at the top right, the same width and height; one colour for the delivery message. */
-html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;width:100%!important;max-width:340px!important;margin:16px 0 0!important;padding:0!important}
+html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;width:calc(100% - 24px)!important;max-width:none!important;margin:16px 0 24px 24px!important;padding:0!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrap{display:flex!important;flex-direction:column!important;flex:1 1 auto!important}
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon,html body.in-kosik .cart-row>.col-md-4 .extra.delivery{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
