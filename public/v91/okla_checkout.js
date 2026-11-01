@@ -78,9 +78,11 @@
 
  function hideHelpBox(){
   document.querySelectorAll('body *').forEach(function(h){
-   if(h.children.length>3||!/Potřebujete pomoc/.test(h.textContent||''))return;
-   var box=h.closest('.box')||h.parentElement;
-   if(box)box.style.display='none';
+   var own=Array.prototype.filter.call(h.childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join('');
+   if(!/Potřebujete pomoc/.test(own))return;
+   var box=h.closest('.box')||h;
+   if(box.querySelector('input,select,textarea,button,form,.order-summary'))box=h;
+   box.style.display='none';
   });
  }
 
