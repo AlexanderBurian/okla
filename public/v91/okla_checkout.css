@@ -66,4 +66,7 @@ body.ordering-process .okla-sum-thumb{grid-column:1;grid-row:1/3;width:44px;heig
 body.ordering-process .order-summary .cart-item-name{grid-column:2;grid-row:1;min-width:0}
 body.ordering-process .order-summary .cart-item-amount{grid-column:2;grid-row:2;white-space:nowrap}
 body.ordering-process .order-summary .cart-item-price{grid-column:3;grid-row:1/3;white-space:nowrap;font-weight:700}
+body.ordering-process .order-summary .cart-item-name{font-size:12px;text-transform:none;letter-spacing:0;line-height:1.3}
+body.ordering-process .order-summary .cart-item-price{font-size:12.5px}
+body.ordering-process .okla-sum-thumb{background:#e6ecf4;padding:4px}
 

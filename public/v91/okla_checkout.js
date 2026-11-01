@@ -115,7 +115,7 @@
  /* Empty boxes left over in the right column are removed. */
  function hideEmptyShells(){
   document.querySelectorAll('.col-md-4 .box, .order-summary .box').forEach(function(b){
-   if(b.innerText.trim()===''&&!b.querySelector('input,select,textarea,button,img,svg'))b.style.display='none';
+   if(b.innerText.trim()===''&&!b.querySelector('input,select,textarea,button'))b.style.display='none';
   });
  }
 
