@@ -46,3 +46,5 @@ html body.in-registrace #content #company-info.js-hidden:not(.visible){display:n
 }
 /* Shoptet animates almost every property of the fields; only the outline colour is animated, so the fields do not morph after the page loads. */
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-control{transition:border-color .15s ease,box-shadow .15s ease!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content p.alternative-links{flex-direction:row!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content p.alternative-links>a{display:inline-block!important;flex:none!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;float:none!important;text-align:center!important}
