@@ -12,6 +12,8 @@ if(!base){console.error('[OKLA V91] External loader URL required');return}
 var isHome=document.body&&document.body.classList.contains('type-index');
 var isDetail=!!document.querySelector('#content .p-detail');
 var modules=[
+ 'v91/okla_i18n.css',
+ 'v91/okla_i18n.js',
  'legacy/v53/zapati_firsthalf.js',
  'legacy/v55/okla_news_v55.js',
  'v91/okla_mobile_unified.css',

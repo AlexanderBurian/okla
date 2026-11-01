@@ -1,0 +1,31 @@
+/* OKLA languages: the switch under the header flag and the two choices in the footer. */
+html.okla-i18n-pending body{visibility:hidden!important}
+
+html body #header .okla-header-locale{position:relative!important;cursor:pointer!important}
+html body #header .okla-header-locale .okla-lang-flag{display:block;width:29px;height:29px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
+html body #header .okla-lang-menu{display:none;position:absolute;top:calc(100% + 10px);left:50%;z-index:9000;min-width:170px;padding:6px;transform:translateX(-50%);background:#fff;border:1px solid #e6ebf2;border-radius:12px;box-shadow:0 18px 40px rgba(11,37,64,.18);box-sizing:border-box}
+html body #header .okla-header-locale.is-open .okla-lang-menu{display:block}
+html body #header .okla-lang-menu::before{content:"";position:absolute;top:-7px;left:50%;width:12px;height:12px;margin-left:-6px;background:#fff;border-left:1px solid #e6ebf2;border-top:1px solid #e6ebf2;border-radius:3px 0 0 0;transform:rotate(45deg)}
+html body #header .okla-lang-option{display:flex!important;align-items:center;gap:10px;width:100%;height:auto!important;margin:0;padding:9px 12px!important;border:0!important;border-radius:8px;background:none!important;box-shadow:none!important;font:500 14px/1.2 Roboto,Arial,sans-serif;color:#0b2540!important;text-align:left;cursor:pointer;white-space:nowrap}
+html body #header .okla-lang-option:hover{background:#f5f7fa!important}
+html body #header .okla-lang-option.is-current{font-weight:700}
+html body #header .okla-lang-option.is-current::after{content:"";width:8px;height:4px;margin-left:auto;border:solid #1f6fd8;border-width:0 0 2px 2px;transform:rotate(-45deg) translateY(-2px)}
+html body #header .okla-lang-option .okla-lang-flag{flex:none;width:22px;height:22px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
+
+/* Phones: the flag sits in the top bar between the logo and the search button, the menu opens under it. */
+html body #header #okla-v61-header .okm61-top:has(.okla-lang-mobile){justify-content:flex-start!important}
+html body #header #okla-v61-header .okm61-top:has(.okla-lang-mobile) .okla-m-search-open{margin-left:4px!important}
+html body #okla-v61-header .okm61-top .okla-lang-mobile{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin:0 2px 0 auto;cursor:pointer;flex:none}
+html body #okla-v61-header .okm61-top .okla-lang-mobile .okla-lang-flag{display:block;width:26px;height:26px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
+html body #okla-v61-header .okla-lang-mobile .okla-lang-menu{display:none;position:absolute;top:calc(100% + 8px);right:-44px;z-index:9000;min-width:170px;padding:6px;background:#fff;border:1px solid #e6ebf2;border-radius:12px;box-shadow:0 18px 40px rgba(11,37,64,.18);box-sizing:border-box}
+html body #okla-v61-header .okla-lang-mobile.is-open .okla-lang-menu{display:block}
+html body #okla-v61-header .okla-lang-mobile .okla-lang-option{display:flex!important;align-items:center;gap:10px;width:100%;margin:0;padding:10px 12px!important;border:0!important;border-radius:8px;background:none!important;font:500 15px/1.2 Roboto,Arial,sans-serif;color:#0b2540!important;text-align:left;cursor:pointer;white-space:nowrap}
+html body #okla-v61-header .okla-lang-mobile .okla-lang-option.is-current{font-weight:700;background:#f5f7fa!important}
+html body #okla-v61-header .okla-lang-mobile .okla-lang-option .okla-lang-flag{flex:none;width:22px;height:22px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
+
+html body #okla-footer-links .okla-lang{display:flex!important;flex-wrap:wrap;gap:8px!important;align-items:center}
+html body #okla-footer-links .okla-lang-pill{display:inline-flex;align-items:center;gap:8px;height:36px;margin:0;padding:0 14px 0 8px;border:1px solid #cdd2da;border-radius:999px;background:#fff;font:500 14px/1 Roboto,Arial,sans-serif;color:#0b2540;cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
+html body #okla-footer-links .okla-lang-pill:hover{border-color:#0b2540}
+html body #okla-footer-links .okla-lang-pill.is-current{border-color:#1f6fd8;background:#f5f7fa;font-weight:700}
+html body #okla-footer-links .okla-lang .okla-lang-pill span{font-size:14px!important;line-height:1!important}
+html body #okla-footer-links .okla-lang-pill .okla-lang-flag{flex:none;width:22px;height:22px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
