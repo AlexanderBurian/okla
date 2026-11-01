@@ -9,6 +9,12 @@ import {
 (() => {
   const tagName = "okla-ai-chat";
   if (document.querySelector(tagName)) return;
+  const preview = ["localhost", "127.0.0.1"].includes(window.location.hostname);
+  const shoppingPage = document.body.matches(".type-index, .type-category, .type-detail, .type-search, .type-manufacturer")
+    || !!document.querySelector("#content .p-detail");
+  const excludedPage = document.body.matches(".ordering-process, .in-kontakty, .type-cart")
+    || /^\/(?:kosik|objednavka|objednavky|kontakt|kontakty|cart|checkout)(?:\/|$)/i.test(window.location.pathname);
+  if (excludedPage || (!preview && !shoppingPage)) return;
 
   const ownScript = document.currentScript as HTMLScriptElement | null;
   const apiBase = (ownScript?.dataset.apiUrl || (ownScript?.src ? new URL(ownScript.src).origin : "")).replace(/\/$/, "");
@@ -298,24 +304,25 @@ import {
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          left: -34.2px;
+          left: -17.1px;
           right: auto;
           top: clamp(110px, 73dvh, calc(100dvh - 110px));
           bottom: auto;
-          width: 79.2px;
-          height: 140.4px;
-          border: 3.6px solid #fff;
-          border-radius: 0 41.4px 41.4px 0;
+          width: 39.6px;
+          height: 70.2px;
+          border: 1.8px solid #fff;
+          border-radius: 0 20.7px 20.7px 0;
+          padding: 5px;
           background: linear-gradient(160deg, #254daa 4%, #38369c 50%, #6d2d96 100%);
           color: #fff;
-          box-shadow: 7px 10px 24px rgba(22, 25, 72, .3);
+          box-shadow: 3.5px 5px 12px rgba(22, 25, 72, .3);
           transform: translateY(-50%);
           transform-origin: center;
           transition: opacity .18s ease, transform .18s ease, visibility 0s, box-shadow .18s ease;
         }
         .launcher:hover {
           border-color: #fff;
-          box-shadow: 6px 11px 24px rgba(10, 25, 58, .32);
+          box-shadow: 3px 5.5px 12px rgba(10, 25, 58, .32);
           transform: translateY(-50%);
         }
         .launcher:focus-visible {
@@ -332,10 +339,10 @@ import {
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          right: 5.4px;
+          right: 2.7px;
           display: block;
-          width: 28.8px;
-          height: 28.8px;
+          width: 14.4px;
+          height: 14.4px;
           border-radius: 0;
           transform: translateY(-50%);
         }

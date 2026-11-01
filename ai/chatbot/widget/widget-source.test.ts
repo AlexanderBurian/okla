@@ -22,10 +22,10 @@ describe("geometrie widgetu", () => {
   it("má na mobilu levý edge tab se souvislým bílým borderem ve všech stavech", async () => {
     const source = await readFile("./widget/widget.ts", "utf8");
     expect(source).toContain("@media (max-width: 466px)");
-    expect(source).toContain("left: -34.2px;");
-    expect(source).toContain("width: 79.2px;");
-    expect(source).toContain("height: 140.4px;");
-    expect(source).toContain("border: 3.6px solid #fff;");
+    expect(source).toContain("left: -17.1px;");
+    expect(source).toContain("width: 39.6px;");
+    expect(source).toContain("height: 70.2px;");
+    expect(source).toContain("border: 1.8px solid #fff;");
     expect(source).toContain(".launcher:hover {");
     expect(source).toContain(".launcher:focus-visible {");
     expect(source).toContain(".launcher:active {");
