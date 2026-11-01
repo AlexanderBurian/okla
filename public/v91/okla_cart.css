@@ -48,3 +48,4 @@ body.in-kosik table.cart-table{table-layout:auto}
 body.in-kosik table.cart-table{width:100%!important;max-width:none!important}
 body.in-kosik table.cart-table td.p-availability{width:90px}
 body.in-kosik table.cart-table td.p-quantity{width:140px}
+body.in-kosik .cart-content{padding-left:0!important;padding-right:0!important}
