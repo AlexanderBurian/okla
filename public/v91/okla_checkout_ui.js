@@ -247,6 +247,80 @@
   });
  }
 
+ /* Section icons of the reference: truck, wallet, user and signpost. */
+ var SECTION_ICONS={
+  'co-delivery-method':'<path d="M2.5 6.5h11.5v10H2.5z"/><path d="M14 10h4.2l3.3 3.5V16.5H14"/><circle cx="6.5" cy="17.5" r="1.9"/><circle cx="17.5" cy="17.5" r="1.9"/>',
+  'co-payment-method':'<path d="M3 7.5h16.5a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 18.5z"/><path d="M3 7.5 5.5 4.5h11"/><circle cx="16.5" cy="13" r="1.3"/>',
+  'co-contact-information':'<circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c.9-4 4-6.3 7.5-6.3s6.6 2.3 7.5 6.3"/>',
+  'co-billing-address':'<path d="M9 3v18"/><path d="M9 5h10l2.5 2.5L19 10H9"/><path d="M9 13H4l-2 2 2 2h5"/>'
+ };
+
+ function addSectionIcons(){
+  Object.keys(SECTION_ICONS).forEach(function(cls){
+   var box=document.querySelector('.'+cls);
+   var h=box&&box.querySelector(':scope>h2');
+   if(!h||h.querySelector('.okla-h-icon'))return;
+   var span=el('span','okla-h-icon');
+   span.setAttribute('aria-hidden','true');
+   span.innerHTML='<svg viewBox="0 0 24 24">'+SECTION_ICONS[cls]+'</svg>';
+   h.insertBefore(span,h.firstChild);
+  });
+ }
+
+ /* The step buttons move into the summary card, as in the reference; only when the form association allows it. */
+ function moveNextStep(){
+  var next=document.querySelector('.next-step');
+  var box=document.querySelector('.order-summary .checkout-box');
+  if(!next||!box||box.contains(next))return;
+  var btn=next.querySelector('button[type=submit]');
+  var sameForm=next.closest('form')===box.closest('form');
+  if(sameForm||(btn&&btn.hasAttribute('form')))box.appendChild(next);
+ }
+
+ function kcNumber(text){
+  var m=String(text||'').match(/([\d\s\u00a0]+)\s*Kč/);
+  if(!m)return null;
+  var n=parseInt(m[1].replace(/[\s\u00a0]/g,''),10);
+  return isFinite(n)?n:null;
+ }
+
+ function formatKc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' Kč'}
+
+ /* The goods total from the page, and the free delivery from 5 000 Kč. */
+ function goodsTotal(){
+  var leaf=Array.prototype.find.call(document.querySelectorAll('body *'),function(e){return e.children.length===0&&/Celkem za zboží/.test(e.textContent||'')});
+  return leaf&&leaf.parentElement?kcNumber(leaf.parentElement.textContent.replace(/Celkem za zboží/,'')):null;
+ }
+
+ function freeShippingText(total){
+  var rest=5000-total;
+  var parts=[];
+  if(rest>0){parts.push('Nakupte ještě za '); parts.push({b:formatKc(rest)}); parts.push(' a dopravu máte '); parts.push({b:'zdarma'}); parts.push('!');}
+  else{parts.push('Dopravu máte '); parts.push({b:'zdarma'}); parts.push('!');}
+  return parts;
+ }
+
+ function fillParts(target,parts){
+  target.textContent='';
+  parts.forEach(function(p){
+   if(typeof p==='string')target.appendChild(document.createTextNode(p));
+   else{var b=document.createElement('strong');b.textContent=p.b;target.appendChild(b)}
+  });
+ }
+
+ function freeShipping(){
+  var total=goodsTotal();
+  if(total===null)return;
+  var parts=freeShippingText(total);
+  document.querySelectorAll('.extra.delivery span').forEach(function(s){fillParts(s,parts)});
+  var box=document.querySelector('.order-summary .checkout-box');
+  if(box&&!box.querySelector('.okla-free-ship')){
+   var note=el('p','okla-free-ship');
+   fillParts(note,parts);
+   box.insertBefore(note,box.firstChild);
+  }
+ }
+
  function init(){
   restoreHeader();
   hideHelpBox();
@@ -257,6 +331,9 @@
   addParcel();
   addCoupon();
   hideExtrasHeading();
+  addSectionIcons();
+  moveNextStep();
+  freeShipping();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();
