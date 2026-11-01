@@ -241,3 +241,6 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .star
 html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-wrapper::after{content:attr(data-micro-rating-count) " recenzí";display:inline-block!important;margin-left:4px!important;font:400 10px/1 Roboto,Arial,sans-serif!important;color:#888!important}
 html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-wrapper[data-micro-rating-count="1"]::after{content:"1 recenze"!important}
 html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-wrapper[data-micro-rating-count="2"]::after,html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-wrapper[data-micro-rating-count="3"]::after,html body.type-index #content .okla-slider-shell .product .ratings-wrapper .stars-wrapper[data-micro-rating-count="4"]::after{content:attr(data-micro-rating-count) " recenze"!important}
+
+/* Homepage: the native "Poslední hodnocení" widget is hidden. */
+.latest-contribution.latest-contribution-rating{display:none!important}
