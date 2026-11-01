@@ -1,0 +1,15 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OKLA AI poradce">
+  <mask id="cut">
+    <rect width="256" height="256" fill="#000"/>
+    <!-- white = keep -->
+    <rect x="121" y="36" width="14" height="34" rx="7" fill="#fff"/>
+    <circle cx="128" cy="32" r="16" fill="#fff"/>
+    <rect x="30" y="118" width="34" height="58" rx="16" fill="#fff"/>
+    <rect x="192" y="118" width="34" height="58" rx="16" fill="#fff"/>
+    <rect x="52" y="74" width="152" height="138" rx="40" fill="#fff"/>
+    <!-- black = punch transparent eye holes -->
+    <circle cx="106" cy="146" r="15" fill="#000"/>
+    <circle cx="150" cy="146" r="15" fill="#000"/>
+  </mask>
+  <rect width="256" height="256" fill="#ffffff" mask="url(#cut)"/>
+</svg>

@@ -1,0 +1,104 @@
+{
+  "items": [
+    {
+      "id": "faq-product-accuracy",
+      "type": "faq",
+      "title": "Ceny, dostupnost a parametry produktů",
+      "content": "Rozhodující jsou aktuální cena, dostupnost, kompatibilita, obsah balení a parametry uvedené přímo na detailu konkrétního produktu. Tyto údaje se mohou měnit a chatbot je nesmí odhadovat.",
+      "url": "https://825108.myshoptet.com/",
+      "keywords": [
+        "cena",
+        "skladem",
+        "dostupnost",
+        "parametry",
+        "kompatibilita",
+        "balení"
+      ]
+    },
+    {
+      "id": "faq-shipping-payment",
+      "type": "faq",
+      "title": "Doprava a platba",
+      "content": "Dostupné dopravce, způsob platby a cenu dopravy uvidíte v košíku před odesláním objednávky. Termín pro konkrétní zásilku vám může ověřit podpora@okla.cz.",
+      "keywords": [
+        "doprava",
+        "platba",
+        "dobírka",
+        "karta",
+        "převod",
+        "doručení",
+        "výdejní místo",
+        "poštovné",
+        "poštovného",
+        "dopravy",
+        "dopravu",
+        "dopravné",
+        "doručíte"
+      ]
+    },
+    {
+      "id": "faq-return",
+      "type": "faq",
+      "title": "Vrácení zboží",
+      "content": "Spotřebitel může při nákupu na dálku zpravidla odstoupit bez uvedení důvodu do 14 dnů od převzetí. Oznámení lze poslat na podpora@okla.cz. Zboží se následně odesílá bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení. Platí zákonné výjimky a podrobné podmínky na stránce Vrácení zboží.",
+      "url": "https://825108.myshoptet.com/doprava-a-platba/",
+      "keywords": [
+        "vrácení",
+        "odstoupení",
+        "14 dnů",
+        "rozbalené",
+        "refundace",
+        "vrátit",
+        "vracím",
+        "vrácením",
+        "rozbalil",
+        "odstoupit"
+      ]
+    },
+    {
+      "id": "faq-complaint",
+      "type": "faq",
+      "title": "Reklamace",
+      "content": "Reklamaci lze uplatnit na podpora@okla.cz. Je vhodné uvést výrobek, popis vady a požadované řešení; neposílejte do chatu osobní údaje ani číslo objednávky. Reklamace spotřebitele se vyřizuje nejpozději do 30 dnů, pokud není výslovně dohodnuta delší lhůta.",
+      "url": "https://825108.myshoptet.com/reklamacni-rad/",
+      "keywords": [
+        "reklamace",
+        "vada",
+        "nefunguje",
+        "oprava",
+        "výměna",
+        "záruka",
+        "reklamovat",
+        "reklamaci",
+        "porucha"
+      ]
+    },
+    {
+      "id": "faq-order-status",
+      "type": "faq",
+      "title": "Stav objednávky",
+      "content": "Chatbot nemá přístup k objednávkám ani zákaznickým účtům. Stav konkrétní objednávky řeší zákaznická podpora na podpora@okla.cz. Do chatu se nemají posílat čísla objednávek ani osobní, přihlašovací či platební údaje.",
+      "keywords": [
+        "objednávka",
+        "stav",
+        "zásilka",
+        "balík",
+        "sledování"
+      ]
+    },
+    {
+      "id": "faq-support",
+      "type": "faq",
+      "title": "Zákaznická podpora",
+      "content": "Zákaznickou podporu OKLA lze kontaktovat na podpora@okla.cz. Podpora řeší konkrétní objednávky, aktuální dostupnost, reklamace a nejasnosti, které nelze bezpečně ověřit z produktových podkladů.",
+      "url": "mailto:podpora@okla.cz",
+      "keywords": [
+        "kontakt",
+        "podpora",
+        "pomoc",
+        "email",
+        "e-mail"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OKLA AI poradce – ukázka</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; font-family: Inter, ui-sans-serif, system-ui, sans-serif; color: #0c2c58; background: radial-gradient(circle at 80% 18%, #e8e4ff 0, transparent 34%), linear-gradient(145deg, #f7fbff, #eef5ff 65%, #fff); }
+      main { max-width: 980px; margin: 0 auto; padding: 80px 28px; }
+      .eyebrow { color: #3266bd; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; }
+      h1 { max-width: 700px; margin: 18px 0; font-size: clamp(42px, 7vw, 76px); line-height: .98; letter-spacing: -.055em; }
+      p { max-width: 580px; color: #526987; font-size: 18px; line-height: 1.65; }
+      code { background: #fff; border: 1px solid #dce7f6; border-radius: 7px; padding: 3px 7px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="eyebrow">OKLA · bezpečný mock režim</div>
+      <h1>AI poradce pro elektroniku</h1>
+      <p>Otevřete widget tlačítkem na okraji obrazovky. Tato ukázka funguje i bez API klíče. Reálné odpovědi zapnete pomocí <code>MOCK_MODE=false</code> až po bezpečném vložení nového klíče do lokálního souboru <code>.env</code>.</p>
+    </main>
+    <script src="__PUBLIC_BASE_URL__/widget.js?v=compact-search-8" data-api-url="__PUBLIC_BASE_URL__" defer></script>
+  </body>
+</html>
