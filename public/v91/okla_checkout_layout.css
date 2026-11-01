@@ -129,6 +129,10 @@ html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{backgroun
 html body.ordering-process:not(.in-kosik) .okla-free-ship{display:none!important}
 html body.ordering-process:not(.in-kosik) .next-step-back{background:#fff!important;border:1px solid #c9d4e3!important;color:#0b2540!important;border-radius:999px!important}
 html body.ordering-process:not(.in-kosik) .next-step-forward,html body.ordering-process:not(.in-kosik) .next-step-finish{background:#103e76!important;border-color:#103e76!important;color:#fff!important;text-transform:uppercase!important;font-weight:700!important}
+/* No frame around the two buttons: they share the full width of the summary, equal in size and balanced. The space above and below them is kept, so the recap does not move. */
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{background:none!important;border:0!important;border-radius:0!important;padding:0!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step{margin:21px 0!important;gap:12px!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{flex:1 1 0!important;width:auto!important;min-width:0!important;padding:0 12px!important;font-size:14px!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
