@@ -108,7 +108,6 @@ html body.in-kosik .okla-coupon__btn{flex:0 0 auto!important;padding:0 16px!impo
 html body.in-kosik table.cart-table{border-collapse:collapse!important;border-spacing:0!important}
 html body.in-kosik table.cart-table tr.removeable,html body.in-kosik table.cart-table tr.removeable>td{border-radius:0!important}
 html body.in-kosik .cart-content{padding-left:24px!important;box-sizing:border-box}
-html body.ordering-process:not(.in-kosik) .order-summary{width:340px!important;max-width:100%!important}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{padding:18px!important}
 html body.ordering-process:not(.in-kosik) .next-step .btn{font-size:14px!important;padding:0 8px!important}
 html body.ordering-process:not(.in-kosik) .next-step .btn.next-step-finish{height:auto!important;min-height:58px!important;padding:8px 10px!important;line-height:1.25!important}
