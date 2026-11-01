@@ -174,12 +174,19 @@
   return true;
  }
 
+ function byName(name){
+  var codes=Object.keys(catalog());
+  for(var i=0;i<codes.length;i++){if(catalog()[codes[i]].name===name)return catalog()[codes[i]]}
+  return null;
+ }
+
  function productFromPage(){
-  var p=byCode(codeFromUrl());
+  var h1=document.querySelector('.p-detail-inner-header h1, .p-detail h1, h1');
+  var title=h1?h1.textContent.trim():'';
+  var p=byCode(codeFromUrl())||byName(title);
   var qtyInput=document.querySelector('.add-to-cart input.amount');
   var amount=qtyInput?parseInt(qtyInput.value,10)||1:1;
   if(p)return {item:{code:p.code,name:p.name,image:p.image,price:p.price},amount:amount};
-  var h1=document.querySelector('.p-detail-inner-header h1, .p-detail h1, h1');
   var img=document.querySelector('.p-main-image img');
   var pr=document.querySelector('.price-final');
   return {item:{code:null,name:h1?h1.textContent.trim():'',image:img?img.getAttribute('src'):'',priceText:pr?pr.textContent.trim():''},amount:amount};
