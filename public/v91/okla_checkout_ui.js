@@ -209,7 +209,9 @@
   var box=document.createElement('div');
   box.className='okla-parcel';
   box.setAttribute('aria-hidden','true');
-  box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 4.5 43 14 24 23.5 5 14Z" fill="#e7bf8a"/><path d="M5 14 24 23.5V44L5 34.5Z" fill="#c28d55"/><path d="M43 14 24 23.5V44l19-9.5Z" fill="#a46e3c"/><path d="M20.8 8.6 27.2 11.8V23.4L20.8 20.2Z" fill="#f5ead3"/><path d="M33.4 25.8 37.6 27.9V40.4L33.4 38.3Z" fill="#f5ead3"/><path d="M24 23.5V44" stroke="#8a5a2c" stroke-width="1.2"/></svg>';
+  box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 5 42 14 24 23 6 14Z" fill="#ebc996"/><path d="M6 14 24 23V43L6 34Z" fill="#cf9a5f"/><path d="M42 14 24 23V43L42 34Z" fill="#b8814a"/><path d="M17.2 8.4 35.2 17.4 30.8 19.6 12.8 10.6Z" fill="#f6e6c6"/><path d="M30.8 19.6 35.2 17.4V24.4L30.8 26.6Z" fill="#e3c99d"/><path d="M10 27.5 17 31V35.2L10 31.7Z" fill="#fbf3e3"/><path d="M6 14 24 23 42 14" fill="none" stroke="#f4dcb2" stroke-width=".8" stroke-linejoin="round"/><path d="M24 23V43" stroke="#9a6a38" stroke-width=".8"/></svg>';
+  /* The bounce plays once; it is not replayed when the page scrolls back. */
+  box.addEventListener('animationend',function(){box.style.animation='none'});
   var stops,segs;
   /* The stops are the measured centres of the steps; the track and the parcel read one position, so they always move together. */
   function layout(){

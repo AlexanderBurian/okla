@@ -182,6 +182,19 @@ html body.in-kosik .cart-row>.col-md-4 .extra.delivery::after{content:""!importa
 html body.in-kosik .cart-row>.col-md-4 .extra.delivery>*{position:relative;z-index:1}
 html body.in-kosik .cart-row>.col-md-4 .extra.delivery::before{position:relative!important;z-index:1}
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon{margin:0!important}
+/* Checkout: the summary column does not move while the page scrolls. */
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{position:static!important;top:auto!important}
+/* Headings with our pictogram do not also show Shoptet's font icon. */
+html body.ordering-process h2:has(.okla-h-icon)::before{content:none!important;display:none!important}
+/* Checkout buttons: one size and one type for both, centred text; a glossy green for the way on, a green outline for the way back. */
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;text-align:center!important;height:58px!important;min-height:58px!important;padding:0 10px!important;border-radius:999px!important;font-family:"Exo 2",Roboto,sans-serif!important;font-size:15px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.02em!important;line-height:1.15!important;box-sizing:border-box!important;transition:background .15s ease,color .15s ease}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn::after,html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn::before{content:none!important;display:none!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn.next-step-forward,html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn.next-step-finish{background:linear-gradient(180deg,#72c41f 0%,#55a40c 55%,#4a940a 100%)!important;border:0!important;color:#fff!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn.next-step-forward:hover,html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn.next-step-finish:hover{background:linear-gradient(180deg,#66b318 0%,#4b950a 55%,#428508 100%)!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn.next-step-back{background:#fff!important;border:2px solid #5ba300!important;color:#4a8f0a!important;box-shadow:none!important;align-self:stretch!important;width:auto!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn.next-step-back:hover{background:#f1f9e8!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step-finish .order-button-text{display:block!important;font-size:15px!important;font-weight:700!important;letter-spacing:.02em!important;line-height:1.15!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step-finish .order-button-suffix{display:block!important;margin-top:2px!important;font-family:Roboto,Arial,sans-serif!important;font-size:11px!important;font-weight:500!important;text-transform:none!important;letter-spacing:0!important;line-height:1.2!important;opacity:.92}
 /* The circle is positioned, so the label takes the space below it. */
 html body.ordering-process .cart-header .step{padding-top:52px!important}
 /* Payment icons: no background circle; a larger, sharper drawing. */
