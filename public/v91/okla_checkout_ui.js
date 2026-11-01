@@ -128,7 +128,9 @@
   var keep='input,select,textarea,form,table,.order-summary,.next-step';
   var hide=function(b){if(b&&!b.querySelector(keep))b.style.display='none'};
   document.querySelectorAll('body *').forEach(function(h){
-   if(h.children.length>3||!/Potřebujete pomoc/.test(h.textContent||''))return;
+   if(h.children.length>3)return;
+   var own=Array.prototype.filter.call(h.childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join('');
+   if(!/Potřebujete pomoc/.test(own))return;
    var bx=h.closest('.box');
    if(bx)hide(bx);
    else if(!h.querySelector(keep))h.style.display='none';
