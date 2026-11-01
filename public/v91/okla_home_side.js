@@ -37,11 +37,12 @@
    '<p class="okla-side-art__text">Flipper Zero: kapesní multitool pro kutily, elektroniku i experimenty.</p>');
  }
 
- /* Search, contacts and the cart and checkout pages have no side art. */
- var OFF_PAGE_CLASSES=['in-vyhledavani','in-kontakty','ordering-process'];
+ /* Search, contacts, the cart and checkout pages and the account pages (login, registration, forgotten password,
+    the customer account) have no side art. */
+ var OFF_PAGE_CLASSES=['in-vyhledavani','in-kontakty','ordering-process','in-login','in-registrace','in-zapomenute-heslo'];
  function offPage(){
   for(var i=0;i<OFF_PAGE_CLASSES.length;i++){if(document.body.classList.contains(OFF_PAGE_CLASSES[i]))return true}
-  return false;
+  return /(^|\s)in-klient/.test(document.body.className);
  }
 
  function layout(){

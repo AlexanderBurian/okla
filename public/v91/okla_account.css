@@ -1,0 +1,46 @@
+/* OKLA account pages: login, registration, forgotten password and the customer account. One centred white card in the
+   site style: rounded fields, the green button of the checkout and centred links. Loaded only on these pages. */
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content{float:none!important;width:100%!important;max-width:none!important;margin:0 auto!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner{float:none!important;width:auto!important;max-width:480px!important;margin:32px auto 56px!important;padding:36px 36px 32px!important;background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;box-sizing:border-box!important}
+html body.in-registrace #content .content-inner{max-width:760px!important}
+html body[class*="in-klient"]:not(.in-zapomenute-heslo) #content .content-inner{max-width:960px!important}
+
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h1{margin:0 0 24px!important;padding:0!important;border:0!important;text-align:center!important;font-family:"Exo 2",Roboto,sans-serif!important;font-size:28px!important;font-weight:700!important;line-height:1.2!important;text-transform:none!important;color:#0b2540!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner>p{margin:0 0 20px!important;text-align:center!important;font-size:15px!important;line-height:1.5!important;color:#6b7280!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h2{margin:0 0 14px!important;padding:0!important;border:0!important;background:none!important;font-family:"Exo 2",Roboto,sans-serif!important;font-size:18px!important;font-weight:700!important;text-transform:uppercase!important;color:#0b2540!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h2::before{content:none!important;display:none!important}
+
+/* Fields: the label above, a rounded input the full width of the card, a thin blue outline when focused. */
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content fieldset,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .co-box,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .box{margin:0 0 24px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-group{display:block!important;margin:0 0 16px!important;padding:0!important;width:auto!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-group>label:not(.whole-width){display:block!important;position:static!important;width:auto!important;margin:0 0 6px!important;padding:0!important;text-align:left!important;font-size:12px!important;font-weight:700!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-control-wrapper{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content input.form-control,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content select.form-control{width:100%!important;max-width:none!important;height:46px!important;padding:0 14px!important;border:1px solid #cdd2da!important;border-radius:10px!important;background:#fff!important;box-shadow:none!important;font-size:15px!important;color:#0b2540!important;box-sizing:border-box!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content textarea.form-control{width:100%!important;max-width:none!important;padding:12px 14px!important;border:1px solid #cdd2da!important;border-radius:10px!important;box-shadow:none!important;resize:none!important;box-sizing:border-box!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-control:focus{outline:0!important;border-color:#1f6fd8!important;box-shadow:inset 0 0 0 1px #1f6fd8!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .phone-combined-input{display:flex!important;align-items:center!important;gap:8px!important;width:100%!important;max-width:none!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .phone-combined-input input.form-control{flex:1 1 auto!important;width:auto!important;min-width:0!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-legend{margin:0 0 12px!important;font-size:12px!important;color:#6b7280!important;text-align:left!important}
+
+/* The main button: the green of the checkout, the full width of the card, dark centred text. */
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .submit-wrapper{margin:24px 0 0!important;text-align:center!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-primary,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-conversion{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:none!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 24px!important;border:1px solid #66d400!important;border-radius:10px!important;background:#66d400!important;box-shadow:none!important;font-family:Roboto,Arial,sans-serif!important;font-size:15px!important;font-weight:700!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;transition:background-color .15s ease,border-color .15s ease}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-primary:hover,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-conversion:hover{background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+
+/* Registration and forgotten password links: centred under the button. */
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .alternative-links{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px 24px!important;margin:20px 0 0!important;text-align:center!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .alternative-links a{display:inline-block!important;font-size:14px!important;font-weight:600!important;color:#1f6fd8!important;text-decoration:none!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .alternative-links a:hover{text-decoration:underline!important}
+
+/* Registration: two fields side by side, as in the checkout; the hidden company fields stay hidden until asked for. */
+html body.in-registrace #content .co-registration>fieldset{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:20px!important;align-items:start!important}
+html body.in-registrace #content .co-registration>fieldset>*{grid-column:1/-1}
+html body.in-registrace #content .co-registration>fieldset>.form-group.smart-label-wrapper{grid-column:auto!important}
+html body.in-registrace #content .co-registration>fieldset>input[type=hidden]{display:none!important}
+html body.in-registrace #content #company-info.js-hidden:not(.visible){display:none!important}
+
+@media(max-width:767px){
+ html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner{margin:16px 16px 40px!important;padding:28px 20px 24px!important}
+ html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h1{font-size:24px!important}
+ html body.in-registrace #content .co-registration>fieldset{grid-template-columns:minmax(0,1fr)!important}
+}
