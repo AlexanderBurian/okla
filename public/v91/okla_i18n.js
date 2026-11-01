@@ -318,6 +318,14 @@
    walk(document.body);
    translateProductPage();
    PACK.title.forEach(function(r){document.title=document.title.replace(r[0],r[1])});
+   /* A title the patterns did not cover is translated part by part ("Objednávka - informace o Vás - OKLA"). */
+   var whole=translateText(document.title);
+   if(whole!=null)document.title=whole;
+   else if(/ - /.test(document.title)){
+    var parts=document.title.split(' - '),joined=parts.join(' - ');
+    for(var i=parts.length-1;i>0;i--){var t=translateText(parts.slice(0,i).join(' - '));if(t!=null){joined=[t].concat(parts.slice(i)).join(' - ');break}}
+    document.title=joined;
+   }
   }
   headerSwitch();
   footerSwitch();
