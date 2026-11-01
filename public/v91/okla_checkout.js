@@ -86,7 +86,40 @@
   });
  }
 
- function init(){restoreHeader();hideHelpBox();}
+ function norm(s){return String(s||'').replace(/\s+/g,' ').trim().toLowerCase()}
+
+ /* Product thumbnails in the order summary, taken from the cart page by product name. */
+ function addSummaryThumbs(){
+  var items=document.querySelectorAll('.order-summary .cart-item');
+  if(!items.length)return;
+  fetch('/kosik/',{credentials:'same-origin'}).then(function(r){return r.text()}).then(function(html){
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   var map={};
+   doc.querySelectorAll('tr.removeable').forEach(function(tr){
+    var a=tr.querySelector('.main-link'),img=tr.querySelector('.cart-p-image img');
+    if(a&&img)map[norm(a.textContent)]=img.getAttribute('src');
+   });
+   Array.prototype.forEach.call(items,function(item){
+    var n=item.querySelector('.cart-item-name');
+    var src=n?map[norm(n.textContent)]:null;
+    if(!src||item.querySelector('.okla-sum-thumb'))return;
+    var im=document.createElement('img');
+    im.className='okla-sum-thumb';
+    im.alt='';
+    im.src=src;
+    item.insertBefore(im,item.firstChild);
+   });
+  }).catch(function(){});
+ }
+
+ /* Empty boxes left over in the right column are removed. */
+ function hideEmptyShells(){
+  document.querySelectorAll('.col-md-4 .box, .order-summary .box').forEach(function(b){
+   if(b.textContent.trim()===''&&!b.querySelector('input,select,textarea,button,img,svg'))b.style.display='none';
+  });
+ }
+
+ function init(){restoreHeader();hideHelpBox();addSummaryThumbs();hideEmptyShells();}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();
 })();
