@@ -32,25 +32,37 @@ if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/ok
  if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
-/* Until the modules are in place the page is hidden behind a small loader, so a half-styled page never shows. It is
-   shown after 4 s whatever happens. Once shown, nothing of the loader stays on the page. */
+/* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
+   half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
+   under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
+   and the curtain goes after 4 s whatever happens. Once it is gone, nothing of the loader stays on the page. */
 var root=document.documentElement;
 var head=document.head||root;
 var bootStyle=document.createElement('style');
-bootStyle.textContent='html.okla-loading body{opacity:0!important;pointer-events:none!important}'+
- 'html.okla-reveal body{transition:opacity .18s ease}'+
- 'html.okla-loading::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:34px;height:34px;margin:-17px 0 0 -17px;border:3px solid #e6eefb;border-top-color:#1f6fd8;border-radius:50%;animation:okla-boot-spin .8s linear infinite}'+
+bootStyle.textContent='html.okla-curtain::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483646;background:#fff;pointer-events:auto}'+
+ 'html.okla-curtain.okla-shown::before{opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.25,.1,.25,1)}'+
+ 'html.okla-curtain:not(.okla-shown)::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #e9f1fb;border-top-color:#7aa7e0;border-radius:50%;opacity:0;animation:okla-boot-in .4s ease 1.2s forwards,okla-boot-spin .9s linear infinite}'+
+ '@keyframes okla-boot-in{to{opacity:1}}'+
  '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
- '@media (prefers-reduced-motion:reduce){html.okla-loading::after{animation:none}}';
+ '@media (prefers-reduced-motion:reduce){html.okla-curtain:not(.okla-shown)::after{animation:okla-boot-in .4s ease 1.2s forwards}}';
 head.appendChild(bootStyle);
-root.classList.add('okla-loading','okla-reveal');
+root.classList.add('okla-curtain');
 var revealTimer=setTimeout(reveal,4000);
 function reveal(){
  if(!revealTimer)return;
  clearTimeout(revealTimer);revealTimer=null;
- root.classList.remove('okla-loading');
- setTimeout(function(){root.classList.remove('okla-reveal');bootStyle.remove()},250);
+ root.classList.add('okla-shown');
+ setTimeout(function(){root.classList.remove('okla-curtain','okla-shown');bootStyle.remove()},600);
  window.__oklaRevealed=true;
+}
+/* The page fades in only after the translation layer has shown it, so a translated page appears in one step. */
+function revealWhenTranslated(){
+ if(!root.classList.contains('okla-i18n-pending')){reveal();return}
+ new MutationObserver(function(list,observer){
+  if(root.classList.contains('okla-i18n-pending'))return;
+  observer.disconnect();
+  reveal();
+ }).observe(root,{attributes:true,attributeFilter:['class']});
 }
 function loadAi(){
  if(window.__oklaAiWidgetLoader||document.querySelector('okla-ai-chat'))return;
@@ -69,12 +81,23 @@ function url(file,attempt){return base+file+(base.includes('?')?'&':'?')+'v=91'+
 /* Every module starts downloading at once (preload). They are still put into the page one after another in the same
    order as before, so the styles and scripts end up exactly as they always did; each step now takes the file from the
    browser's cache instead of waiting for the network. */
-var hints=modules.map(function(file){
+function preload(href,as){
  var hint=document.createElement('link');
- hint.rel='preload';hint.as=file.endsWith('.css')?'style':'script';hint.href=url(file,0);
+ hint.rel='preload';hint.as=as;hint.href=href;
  head.appendChild(hint);
  return hint;
-});
+}
+var hints=modules.map(function(file){return preload(url(file,0),file.endsWith('.css')?'style':'script')});
+/* The language packs are requested by okla_i18n.js only after it runs; for a visitor with another language they start
+   downloading now with everything else. The address matches the one okla_i18n.js asks for. */
+(function(){
+ var lang=null;
+ try{lang=localStorage.getItem('okla-lang')}catch(e){}
+ if(!lang){var m=document.cookie.match(/(?:^|;\s*)okla-lang=(\w+)/);lang=m&&m[1]}
+ if(['en','sk','hu'].indexOf(lang)===-1)return;
+ preload(base+'v91/okla_i18n_'+lang+'.js?v=1','script');
+ preload(base+'v91/okla_i18n_products_'+lang+'.js?v=1','script');
+})();
 var index=0;
 function next(){
  if(index>=modules.length){
@@ -82,7 +105,7 @@ function next(){
   loadAi();
   hints.forEach(function(hint){hint.remove()});
   /* One more turn so the last scripts can draw before the page is shown. */
-  setTimeout(reveal,30);
+  setTimeout(revealWhenTranslated,30);
   return;
  }
  load(modules[index++],0);
