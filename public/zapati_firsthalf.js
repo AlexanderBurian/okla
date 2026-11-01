@@ -22,7 +22,7 @@ modules.push('okla_v86_catalog.js');
 if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
 modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js');
 if(isDetail) modules.push('v91/okla_detail_mobile.css');
-modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js');modules.push('okla_footer.js');
+modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js'); if(document.body&&document.body.classList.contains('ordering-process')) modules.push('v91/okla_checkout.css');modules.push('okla_footer.js');
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
  if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
 var index=0;

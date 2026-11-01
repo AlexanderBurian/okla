@@ -1,0 +1,27 @@
+/* OKLA cart and checkout: white cards, clear steps, a summary card on the right and one navy action.
+   Loaded only on ordering pages (body.ordering-process). The side art is off on these pages. */
+body.ordering-process #content-wrapper{background:#fff}
+body.ordering-process .cart-header{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;padding:0 0 16px;border-bottom:1px solid #e6ebf2}
+body.ordering-process .cart-header .step{font-size:15px;font-weight:500;color:#6b7280}
+body.ordering-process .cart-header .step.active{font-weight:700;color:#0b2540}
+body.ordering-process .cart-header .step.completed{color:#5ba300}
+body.ordering-process .order-delivery,
+body.ordering-process .order-payment,
+body.ordering-process .co-box{background:#fff;border:1px solid #e6ebf2;border-radius:14px;padding:22px;margin:0 0 18px;box-shadow:0 2px 10px rgba(11,37,64,.04)}
+body.ordering-process .radio-wrapper{border:1px solid #e6ebf2;border-radius:12px;padding:12px 14px;margin:0 0 10px;transition:border-color .15s ease,background-color .15s ease}
+body.ordering-process .radio-wrapper:hover{border-color:#b9c7da}
+body.ordering-process .radio-wrapper:has(input:checked){border-color:#103e76;background:#f5f9ff}
+body.ordering-process .order-summary .checkout-box{position:sticky;top:20px;background:#fff;border:1px solid #e6ebf2;border-radius:14px;padding:22px;box-shadow:0 2px 10px rgba(11,37,64,.04)}
+body.ordering-process .cart-item{border-bottom:1px solid #e6ebf2;padding:12px 0}
+body.ordering-process .cart-item-name{font-size:15px;font-weight:600;color:#0b2540}
+body.ordering-process .price-primary{font-size:22px;font-weight:700;color:#0b2540}
+body.ordering-process .contact-box{background:#f5f7fa;border-radius:12px;padding:14px;color:#0b2540}
+body.ordering-process .btn-conversion{background:#103e76!important;border-color:#103e76!important;color:#fff!important;border-radius:10px;height:52px;font-size:16px;font-weight:700}
+body.ordering-process .btn-conversion:hover{background:#0b2540!important;border-color:#0b2540!important}
+body.ordering-process .next-step-back{border-radius:10px;height:52px;border:1px solid #0b2540;color:#0b2540;background:#fff}
+@media(max-width:767px){
+ body.ordering-process .order-summary .checkout-box{position:static;margin-top:18px}
+ body.ordering-process .order-delivery,
+ body.ordering-process .order-payment,
+ body.ordering-process .co-box{padding:16px}
+}

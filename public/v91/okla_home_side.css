@@ -28,3 +28,5 @@
 /* The caption sits above the picture and takes clicks itself, so clicking the text does not follow the picture's link.
    Both captions start 16 px under the group's bottom, which is also the hand's bottom. */
 .okla-side-art__text{position:relative;z-index:1;pointer-events:auto;margin:16px 0 0;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;text-align:center}
+/* No side art on search, contacts, the cart and checkout. */
+body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering-process .okla-side-art{display:none!important}
