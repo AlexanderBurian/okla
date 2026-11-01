@@ -1,11 +1,11 @@
-/* OKLA product cards (homepage sliders, categories, search, related products). The picture is 6 % larger everywhere;
-   on desktop the content under it (stars, name, availability, badge, price, button) is 6 % larger too. The stars stand
+/* OKLA product cards (homepage sliders, categories, search, related products). The picture is 11.3 % larger everywhere (6 % and then 5 % more);
+   on desktop the content under it (stars, name, availability, badge, price, button) is 11.3 % larger too. The stars stand
    alone and centred: the "no reviews" text next to them is not shown. */
-html body .products .product .p .image img{transform:scale(1.06)!important;transform-origin:center center!important}
+html body .products .product .p .image img{transform:scale(1.113)!important;transform-origin:center center!important}
 html body .products .product .ratings-wrapper .stars-placeholder{display:none!important}
 html body .products .product .ratings-wrapper{display:flex!important;justify-content:center!important;align-items:center!important;text-align:center!important}
 /* The homepage sliders have their own stronger rules (picture not scaled, stars to the left); these win over them. */
-html body #content .okla-slider-shell .okla-slider-track > .product .p > a.image img{transform:scale(1.06)!important;transform-origin:center center!important}
+html body #content .okla-slider-shell .okla-slider-track > .product .p > a.image img{transform:scale(1.113)!important;transform-origin:center center!important}
 html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wrapper.okla-ratings{justify-content:center!important}
 html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wrapper .stars-placeholder{display:none!important}
 /* A product with real reviews shows only its real stars, not the decorative ones next to them. */
@@ -15,5 +15,5 @@ html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wra
 html body .products .product .okv73-rating-caption{display:none!important}
 html body .products .product .okv73-rating-placeholder{display:flex!important;justify-content:center!important;width:100%!important}
 @media(min-width:992px){
- html body .products .product .p .p-in{zoom:1.06}
+ html body .products .product .p .p-in{zoom:1.113}
 }
