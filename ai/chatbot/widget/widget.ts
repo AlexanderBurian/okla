@@ -39,7 +39,8 @@ import {
 
   const infoIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v6M12 7.5v.5"/></svg>`;
   const expandIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>`;
-  const collapseIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6.5 9 5.5 5.5L17.5 9"/></svg>`;
+  const collapseIcon = `<svg class="collapse-desktop-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6.5 9 5.5 5.5L17.5 9"/></svg>`;
+  const mobileCloseIcon = `<svg class="mobile-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>`;
   const sendIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg>`;
   const chatIcon = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 6A2.5 2.5 0 0 1 5 3.5h7A2.5 2.5 0 0 1 14.5 6v3A2.5 2.5 0 0 1 12 11.5H7.2L4 14.2A.55.55 0 0 1 3 13.8V11.4A2.5 2.5 0 0 1 2.5 9V6z"/><path d="M16 8.5h3A2.5 2.5 0 0 1 21.5 11v3a2.5 2.5 0 0 1-2 2.45V19a.55.55 0 0 1-.9.43L15.3 17H13a2.5 2.5 0 0 1-2.45-2H12A4 4 0 0 0 16 11v-2.5z"/></svg>`;
 
@@ -133,6 +134,7 @@ import {
       }
       .top-action:hover { background: rgba(13, 49, 95, .07); }
       .top-action svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }
+      .mobile-close-icon { display: none; }
       .messages {
         min-height: 0;
         overflow: auto;
@@ -304,31 +306,31 @@ import {
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          left: -17.1px;
+          left: -19.7px;
           right: auto;
-          top: clamp(170px, 82dvh, calc(100dvh - 78px));
+          top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 39.6px;
-          height: 70.2px;
-          border: 1.8px solid #fff;
-          border-radius: 0 20.7px 20.7px 0;
-          padding: 5px;
+          width: 45.5px;
+          height: 80.7px;
+          border: 2px solid #fff;
+          border-radius: 0 23.8px 23.8px 0;
+          padding: 5.75px;
           background: linear-gradient(160deg, #254daa 4%, #38369c 50%, #6d2d96 100%);
           color: #fff;
           box-shadow: 3.5px 5px 12px rgba(22, 25, 72, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(-110%);
+          transform: translateY(-50%) translateX(-118%) scale(.94);
           transform-origin: center;
-          transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .28s, box-shadow .18s ease;
+          transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .56s, box-shadow .22s ease;
         }
         :host(.mobile-launcher-visible) .launcher {
           opacity: 1;
           visibility: visible;
           pointer-events: auto;
-          transform: translateY(-50%) translateX(0);
-          transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1), visibility 0s, box-shadow .18s ease;
+          transform: translateY(-50%) translateX(0) scale(1);
+          transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s, box-shadow .22s ease;
         }
         .launcher:hover {
           border-color: #fff;
@@ -349,11 +351,11 @@ import {
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          left: calc(50% + 8.55px);
+          left: calc(50% + 6.5px);
           right: auto;
           display: block;
-          width: 14.4px;
-          height: 14.4px;
+          width: 16.6px;
+          height: 16.6px;
           border-radius: 0;
           transform: translate(-50%, -50%);
         }
@@ -366,13 +368,29 @@ import {
           transition: opacity .14s ease, transform .18s ease, visibility 0s linear .18s;
         }
         .panel {
-          right: max(10px, env(safe-area-inset-right));
-          bottom: calc(max(14px, env(safe-area-inset-bottom)) + 74px);
-          width: calc(100vw - 20px - env(safe-area-inset-left) - env(safe-area-inset-right));
-          height: min(698px, calc(100dvh - 104px - env(safe-area-inset-top)));
-          min-height: 360px;
-          border-radius: 15px;
+          inset: 0;
+          width: 100%;
+          height: 100dvh;
+          min-height: 0;
+          max-height: none;
+          border: 0;
+          border-radius: 0;
+          padding-top: env(safe-area-inset-top);
+          padding-right: env(safe-area-inset-right);
+          padding-bottom: env(safe-area-inset-bottom);
+          padding-left: env(safe-area-inset-left);
+          transform: translateY(28px) scale(.985);
+          transform-origin: center bottom;
+          transition: opacity .3s ease, transform .46s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .46s;
         }
+        .panel.open {
+          transform: translateY(0) scale(1);
+          transition: opacity .3s ease, transform .46s cubic-bezier(.16, 1, .3, 1), visibility 0s;
+        }
+        .expand { display: none; }
+        .collapse .collapse-desktop-icon { display: none; }
+        .collapse .mobile-close-icon { display: block; width: 22px; height: 22px; stroke-width: 2; }
+        .collapse { width: 42px; height: 42px; }
         .messages { padding-inline: 20px; }
         .composer-area { padding-inline: 20px; }
         .disclaimer { font-size: 9.5px; letter-spacing: -.01em; }
@@ -420,7 +438,7 @@ import {
         <span class="brand-mini" aria-hidden="true"><img data-robot-image src="${assetUrl}" alt=""></span>
         <div class="topbar-group">
           <button class="top-action expand" type="button" aria-label="Zvětšit chat" aria-pressed="false" title="Zvětšit chat">${expandIcon}</button>
-          <button class="top-action collapse" type="button" aria-label="Zavřít chat" title="Zavřít chat">${collapseIcon}</button>
+          <button class="top-action collapse" type="button" aria-label="Zavřít chat" title="Zavřít chat">${collapseIcon}${mobileCloseIcon}</button>
         </div>
       </header>
       <div class="messages" id="okla-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
@@ -461,13 +479,12 @@ import {
   let focusTimer: ReturnType<typeof setTimeout> | undefined;
   let lifecycle = 0;
   const mobileLauncherMedia = window.matchMedia("(max-width: 466px)");
+  let mobileLauncherRevealed = !mobileLauncherMedia.matches;
 
   function syncMobileLauncherVisibility() {
     const revealAfter = Math.min(520, Math.max(320, window.innerHeight * .55));
-    const visible = !mobileLauncherMedia.matches
-      || window.scrollY >= revealAfter
-      || panel.classList.contains("open");
-    host.classList.toggle("mobile-launcher-visible", visible);
+    if (!mobileLauncherMedia.matches || window.scrollY >= revealAfter) mobileLauncherRevealed = true;
+    host.classList.toggle("mobile-launcher-visible", mobileLauncherRevealed);
   }
 
   window.addEventListener("scroll", syncMobileLauncherVisibility, { passive: true });
@@ -477,6 +494,7 @@ import {
   function setOpen(open: boolean) {
     panel.classList.toggle("open", open);
     panel.setAttribute("aria-hidden", String(!open));
+    panel.setAttribute("aria-modal", String(open && mobileLauncherMedia.matches));
     launcher.setAttribute("aria-expanded", String(open));
     launcher.setAttribute("aria-label", open ? "Zavřít OKLA poradce" : "Otevřít OKLA poradce");
     if (focusTimer !== undefined) clearTimeout(focusTimer);

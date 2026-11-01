@@ -1,4 +1,4 @@
-"use strict";(()=>{var ve=Object.defineProperty;var we=(o,a,l)=>a in o?ve(o,a,{enumerable:!0,configurable:!0,writable:!0,value:l}):o[a]=l;var U=(o,a,l)=>we(o,typeof a!="symbol"?a+"":a,l);var ye="assets/okla-robot-launcher.png";function ke(o,a){let{scriptSrc:l,apiUrl:d,assetBaseUrl:p,locationOrigin:u}=o,f;return p?f=new URL(p.endsWith("/")?p:`${p}/`,u):d?f=new URL(d.endsWith("/")?d:`${d}/`,u):l?f=new URL(".",l):f=new URL(u.endsWith("/")?u:`${u}/`),new URL(a,f).toString()}function ae(o){return ke(o,ye)}function V(o){let a=o.dataset.fallbackClass||"robot-fallback",l=()=>{o.hidden=!0,o.parentElement?.classList.add(a)};o.addEventListener("error",l,{once:!0}),queueMicrotask(()=>{o.complete&&o.naturalWidth===0&&l()})}var Ee=new Intl.DateTimeFormat("cs-CZ",{hour:"2-digit",minute:"2-digit",hourCycle:"h23"});function ne(o){return Ee.format(o)}function oe(o,a,l){let d=o.ownerDocument.createElement("time");return d.className=l,d.dateTime=a.toISOString(),d.textContent=ne(a),o.replaceChildren(d),d}function Le(o){let a=o.createElement("div");a.className="typing-row",a.dataset.state="typing",a.setAttribute("role","status"),a.setAttribute("aria-live","polite"),a.setAttribute("aria-label","Pracuji na odpov\u011Bdi");let l=o.createElement("span");l.className="typing-dots",l.setAttribute("aria-hidden","true");for(let p=0;p<3;p+=1){let u=o.createElement("span");u.className="typing-dot",l.append(u)}let d=o.createElement("span");return d.className="typing-label",d.textContent="Pracuji na odpov\u011Bdi\u2026",a.append(l,d),a}var D=class{constructor(){U(this,"row")}show(a){return this.hide(),this.row=Le(a.ownerDocument),a.append(this.row),this.row}hide(){this.row?.remove(),this.row=void 0}moveToEnd(a){this.row?.isConnected&&a.append(this.row)}isVisible(){return this.row?.isConnected??!1}},j=class{constructor(){U(this,"timer");U(this,"generation",0)}schedule(a,l=new Date,d=500){this.cancel();let p=this.generation;a.replaceChildren(),a.classList.remove("visible"),this.timer=setTimeout(()=>{if(p!==this.generation||!a.isConnected)return;let u=a.ownerDocument.createElement("span");u.className="receipt-check",u.setAttribute("aria-hidden","true"),u.textContent="\u2713";let f=a.ownerDocument.createElement("span");f.textContent="Doru\u010Deno";let x=a.ownerDocument.createElement("time");x.dateTime=l.toISOString(),x.textContent=ne(l),a.setAttribute("aria-label",`Doru\u010Deno ${x.textContent}`),a.append(u,f,x),a.classList.add("visible"),this.timer=void 0},d)}cancel(){this.generation+=1,this.timer!==void 0&&clearTimeout(this.timer),this.timer=void 0}hasPendingTimer(){return this.timer!==void 0}};(()=>{let o="okla-ai-chat";if(document.querySelector(o))return;let a=["localhost","127.0.0.1"].includes(window.location.hostname),l=document.body.matches(".type-index, .type-category, .type-detail, .type-search, .type-manufacturer")||!!document.querySelector("#content .p-detail");if(document.body.matches(".ordering-process, .in-kontakty, .type-cart")||/^\/(?:kosik|objednavka|objednavky|kontakt|kontakty|cart|checkout)(?:\/|$)/i.test(window.location.pathname)||!a&&!l)return;let p=document.currentScript,u=(p?.dataset.apiUrl||(p?.src?new URL(p.src).origin:"")).replace(/\/$/,""),f={scriptSrc:p?.src,apiUrl:p?.dataset.apiUrl||u,assetBaseUrl:p?.dataset.assetBaseUrl,locationOrigin:window.location.origin},x=ae(f),F=()=>{};customElements.get(o)||customElements.define(o,class extends HTMLElement{disconnectedCallback(){F()}});let R=document.createElement(o),m=R.attachShadow({mode:"open"});document.body.append(R);let ie='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v6M12 7.5v.5"/></svg>',se='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>',re='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6.5 9 5.5 5.5L17.5 9"/></svg>',le='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg>',B='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 6A2.5 2.5 0 0 1 5 3.5h7A2.5 2.5 0 0 1 14.5 6v3A2.5 2.5 0 0 1 12 11.5H7.2L4 14.2A.55.55 0 0 1 3 13.8V11.4A2.5 2.5 0 0 1 2.5 9V6z"/><path d="M16 8.5h3A2.5 2.5 0 0 1 21.5 11v3a2.5 2.5 0 0 1-2 2.45V19a.55.55 0 0 1-.9.43L15.3 17H13a2.5 2.5 0 0 1-2.45-2H12A4 4 0 0 0 16 11v-2.5z"/></svg>';m.innerHTML=`
+"use strict";(()=>{var ye=Object.defineProperty;var ke=(o,a,l)=>a in o?ye(o,a,{enumerable:!0,configurable:!0,writable:!0,value:l}):o[a]=l;var D=(o,a,l)=>ke(o,typeof a!="symbol"?a+"":a,l);var Ee="assets/okla-robot-launcher.png";function Le(o,a){let{scriptSrc:l,apiUrl:d,assetBaseUrl:p,locationOrigin:u}=o,f;return p?f=new URL(p.endsWith("/")?p:`${p}/`,u):d?f=new URL(d.endsWith("/")?d:`${d}/`,u):l?f=new URL(".",l):f=new URL(u.endsWith("/")?u:`${u}/`),new URL(a,f).toString()}function ne(o){return Le(o,Ee)}function V(o){let a=o.dataset.fallbackClass||"robot-fallback",l=()=>{o.hidden=!0,o.parentElement?.classList.add(a)};o.addEventListener("error",l,{once:!0}),queueMicrotask(()=>{o.complete&&o.naturalWidth===0&&l()})}var Te=new Intl.DateTimeFormat("cs-CZ",{hour:"2-digit",minute:"2-digit",hourCycle:"h23"});function oe(o){return Te.format(o)}function ie(o,a,l){let d=o.ownerDocument.createElement("time");return d.className=l,d.dateTime=a.toISOString(),d.textContent=oe(a),o.replaceChildren(d),d}function Ae(o){let a=o.createElement("div");a.className="typing-row",a.dataset.state="typing",a.setAttribute("role","status"),a.setAttribute("aria-live","polite"),a.setAttribute("aria-label","Pracuji na odpov\u011Bdi");let l=o.createElement("span");l.className="typing-dots",l.setAttribute("aria-hidden","true");for(let p=0;p<3;p+=1){let u=o.createElement("span");u.className="typing-dot",l.append(u)}let d=o.createElement("span");return d.className="typing-label",d.textContent="Pracuji na odpov\u011Bdi\u2026",a.append(l,d),a}var j=class{constructor(){D(this,"row")}show(a){return this.hide(),this.row=Ae(a.ownerDocument),a.append(this.row),this.row}hide(){this.row?.remove(),this.row=void 0}moveToEnd(a){this.row?.isConnected&&a.append(this.row)}isVisible(){return this.row?.isConnected??!1}},R=class{constructor(){D(this,"timer");D(this,"generation",0)}schedule(a,l=new Date,d=500){this.cancel();let p=this.generation;a.replaceChildren(),a.classList.remove("visible"),this.timer=setTimeout(()=>{if(p!==this.generation||!a.isConnected)return;let u=a.ownerDocument.createElement("span");u.className="receipt-check",u.setAttribute("aria-hidden","true"),u.textContent="\u2713";let f=a.ownerDocument.createElement("span");f.textContent="Doru\u010Deno";let x=a.ownerDocument.createElement("time");x.dateTime=l.toISOString(),x.textContent=oe(l),a.setAttribute("aria-label",`Doru\u010Deno ${x.textContent}`),a.append(u,f,x),a.classList.add("visible"),this.timer=void 0},d)}cancel(){this.generation+=1,this.timer!==void 0&&clearTimeout(this.timer),this.timer=void 0}hasPendingTimer(){return this.timer!==void 0}};(()=>{let o="okla-ai-chat";if(document.querySelector(o))return;let a=["localhost","127.0.0.1"].includes(window.location.hostname),l=document.body.matches(".type-index, .type-category, .type-detail, .type-search, .type-manufacturer")||!!document.querySelector("#content .p-detail");if(document.body.matches(".ordering-process, .in-kontakty, .type-cart")||/^\/(?:kosik|objednavka|objednavky|kontakt|kontakty|cart|checkout)(?:\/|$)/i.test(window.location.pathname)||!a&&!l)return;let p=document.currentScript,u=(p?.dataset.apiUrl||(p?.src?new URL(p.src).origin:"")).replace(/\/$/,""),f={scriptSrc:p?.src,apiUrl:p?.dataset.apiUrl||u,assetBaseUrl:p?.dataset.assetBaseUrl,locationOrigin:window.location.origin},x=ne(f),F=()=>{};customElements.get(o)||customElements.define(o,class extends HTMLElement{disconnectedCallback(){F()}});let B=document.createElement(o),m=B.attachShadow({mode:"open"});document.body.append(B);let se='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v6M12 7.5v.5"/></svg>',re='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5"/></svg>',le='<svg class="collapse-desktop-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6.5 9 5.5 5.5L17.5 9"/></svg>',ce='<svg class="mobile-close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6 6 18"/></svg>',de='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6.5 10.5 12 5l5.5 5.5"/></svg>',$='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2.5 6A2.5 2.5 0 0 1 5 3.5h7A2.5 2.5 0 0 1 14.5 6v3A2.5 2.5 0 0 1 12 11.5H7.2L4 14.2A.55.55 0 0 1 3 13.8V11.4A2.5 2.5 0 0 1 2.5 9V6z"/><path d="M16 8.5h3A2.5 2.5 0 0 1 21.5 11v3a2.5 2.5 0 0 1-2 2.45V19a.55.55 0 0 1-.9.43L15.3 17H13a2.5 2.5 0 0 1-2.45-2H12A4 4 0 0 0 16 11v-2.5z"/></svg>';m.innerHTML=`
     <style>
       :host {
         all: initial;
@@ -88,6 +88,7 @@
       }
       .top-action:hover { background: rgba(13, 49, 95, .07); }
       .top-action svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }
+      .mobile-close-icon { display: none; }
       .messages {
         min-height: 0;
         overflow: auto;
@@ -259,31 +260,31 @@
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          left: -17.1px;
+          left: -19.7px;
           right: auto;
-          top: clamp(170px, 82dvh, calc(100dvh - 78px));
+          top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 39.6px;
-          height: 70.2px;
-          border: 1.8px solid #fff;
-          border-radius: 0 20.7px 20.7px 0;
-          padding: 5px;
+          width: 45.5px;
+          height: 80.7px;
+          border: 2px solid #fff;
+          border-radius: 0 23.8px 23.8px 0;
+          padding: 5.75px;
           background: linear-gradient(160deg, #254daa 4%, #38369c 50%, #6d2d96 100%);
           color: #fff;
           box-shadow: 3.5px 5px 12px rgba(22, 25, 72, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(-110%);
+          transform: translateY(-50%) translateX(-118%) scale(.94);
           transform-origin: center;
-          transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .28s, box-shadow .18s ease;
+          transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .56s, box-shadow .22s ease;
         }
         :host(.mobile-launcher-visible) .launcher {
           opacity: 1;
           visibility: visible;
           pointer-events: auto;
-          transform: translateY(-50%) translateX(0);
-          transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1), visibility 0s, box-shadow .18s ease;
+          transform: translateY(-50%) translateX(0) scale(1);
+          transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s, box-shadow .22s ease;
         }
         .launcher:hover {
           border-color: #fff;
@@ -304,11 +305,11 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          left: calc(50% + 8.55px);
+          left: calc(50% + 6.5px);
           right: auto;
           display: block;
-          width: 14.4px;
-          height: 14.4px;
+          width: 16.6px;
+          height: 16.6px;
           border-radius: 0;
           transform: translate(-50%, -50%);
         }
@@ -321,13 +322,29 @@
           transition: opacity .14s ease, transform .18s ease, visibility 0s linear .18s;
         }
         .panel {
-          right: max(10px, env(safe-area-inset-right));
-          bottom: calc(max(14px, env(safe-area-inset-bottom)) + 74px);
-          width: calc(100vw - 20px - env(safe-area-inset-left) - env(safe-area-inset-right));
-          height: min(698px, calc(100dvh - 104px - env(safe-area-inset-top)));
-          min-height: 360px;
-          border-radius: 15px;
+          inset: 0;
+          width: 100%;
+          height: 100dvh;
+          min-height: 0;
+          max-height: none;
+          border: 0;
+          border-radius: 0;
+          padding-top: env(safe-area-inset-top);
+          padding-right: env(safe-area-inset-right);
+          padding-bottom: env(safe-area-inset-bottom);
+          padding-left: env(safe-area-inset-left);
+          transform: translateY(28px) scale(.985);
+          transform-origin: center bottom;
+          transition: opacity .3s ease, transform .46s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .46s;
         }
+        .panel.open {
+          transform: translateY(0) scale(1);
+          transition: opacity .3s ease, transform .46s cubic-bezier(.16, 1, .3, 1), visibility 0s;
+        }
+        .expand { display: none; }
+        .collapse .collapse-desktop-icon { display: none; }
+        .collapse .mobile-close-icon { display: block; width: 22px; height: 22px; stroke-width: 2; }
+        .collapse { width: 42px; height: 42px; }
         .messages { padding-inline: 20px; }
         .composer-area { padding-inline: 20px; }
         .disclaimer { font-size: 9.5px; letter-spacing: -.01em; }
@@ -360,9 +377,9 @@
         <div class="welcome-input"></div>
         <div class="suggestions">
           <div class="suggestions-list">
-            <button class="suggested" type="button">${B}<span>Pomozte mi vybrat elektroniku</span></button>
-            <button class="suggested" type="button">${B}<span>Doporu\u010Dte m\u011B\u0159ic\xED techniku pro projekt</span></button>
-            <button class="suggested" type="button">${B}<span>Porad\xEDte s dopravou a vr\xE1cen\xEDm?</span></button>
+            <button class="suggested" type="button">${$}<span>Pomozte mi vybrat elektroniku</span></button>
+            <button class="suggested" type="button">${$}<span>Doporu\u010Dte m\u011B\u0159ic\xED techniku pro projekt</span></button>
+            <button class="suggested" type="button">${$}<span>Porad\xEDte s dopravou a vr\xE1cen\xEDm?</span></button>
           </div>
         </div>
       </section>
@@ -370,12 +387,12 @@
     <section class="panel" id="okla-panel" role="dialog" aria-modal="false" aria-label="AI poradce OKLA" aria-hidden="true">
       <header class="topbar">
         <div class="topbar-group">
-          <button class="top-action info-control" type="button" aria-label="Informace o AI poradci" title="Informace o AI poradci">${ie}</button>
+          <button class="top-action info-control" type="button" aria-label="Informace o AI poradci" title="Informace o AI poradci">${se}</button>
         </div>
         <span class="brand-mini" aria-hidden="true"><img data-robot-image src="${x}" alt=""></span>
         <div class="topbar-group">
-          <button class="top-action expand" type="button" aria-label="Zv\u011Bt\u0161it chat" aria-pressed="false" title="Zv\u011Bt\u0161it chat">${se}</button>
-          <button class="top-action collapse" type="button" aria-label="Zav\u0159\xEDt chat" title="Zav\u0159\xEDt chat">${re}</button>
+          <button class="top-action expand" type="button" aria-label="Zv\u011Bt\u0161it chat" aria-pressed="false" title="Zv\u011Bt\u0161it chat">${re}</button>
+          <button class="top-action collapse" type="button" aria-label="Zav\u0159\xEDt chat" title="Zav\u0159\xEDt chat">${le}${ce}</button>
         </div>
       </header>
       <div class="messages" id="okla-messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
@@ -383,7 +400,7 @@
         <form class="composer">
           <label class="sr-only" for="okla-input">Napi\u0161te dotaz</label>
           <textarea id="okla-input" rows="1" maxlength="1200" placeholder="Zeptejte se na cokoliv\u2026" aria-describedby="okla-disclaimer"></textarea>
-          <button class="send" type="submit" aria-label="Odeslat zpr\xE1vu" disabled>${le}</button>
+          <button class="send" type="submit" aria-label="Odeslat zpr\xE1vu" disabled>${de}</button>
         </form>
         <p class="disclaimer" id="okla-disclaimer">Odpov\u011Bdi vytv\xE1\u0159\xED AI. Ov\u011B\u0159te d\u016Fle\u017Eit\xE9 informace a nepos\xEDlejte osobn\xED \xFAdaje.</p>
       </div>
@@ -392,9 +409,9 @@
       <img class="launcher-desktop-icon" data-robot-image src="${x}" alt="">
       <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="10.5" r="6.5"></circle><path d="m8.5 15.5-5 5"></path></svg>
     </button>
-    <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;let v=m.querySelector(".panel"),M=m.querySelector(".launcher"),ce=m.querySelector(".info-control"),S=m.querySelector(".expand"),de=m.querySelector(".collapse"),h=m.querySelector(".messages"),pe=m.querySelector("#welcome-template"),H=m.querySelector("form"),b=m.querySelector("textarea"),q=m.querySelector(".send"),$=m.querySelector(".composer-area"),ue=m.querySelector(".disclaimer"),C=m.querySelector("#okla-status"),W=new j,k=new D;m.querySelectorAll("[data-robot-image], [data-mobile-assistant-image]").forEach(V);let O=[],E=!1,z=null,L,w=0,Y=window.matchMedia("(max-width: 466px)");function y(){let e=Math.min(520,Math.max(320,window.innerHeight*.55)),i=!Y.matches||window.scrollY>=e||v.classList.contains("open");R.classList.toggle("mobile-launcher-visible",i)}window.addEventListener("scroll",y,{passive:!0}),Y.addEventListener("change",y),y();function P(e){v.classList.toggle("open",e),v.setAttribute("aria-hidden",String(!e)),M.setAttribute("aria-expanded",String(e)),M.setAttribute("aria-label",e?"Zav\u0159\xEDt OKLA poradce":"Otev\u0159\xEDt OKLA poradce"),L!==void 0&&clearTimeout(L),e?L=setTimeout(()=>b.focus(),180):M.focus(),y()}function T(){h.scrollTop=h.scrollHeight}function me(e){try{let i=new URL(e,window.location.href);return["http:","https:","mailto:"].includes(i.protocol)?i.toString():void 0}catch{return}}function A(e){return e.replace(/-{2,}/g,"\u2014")}function J(e,i){let r=/\*\*([^*\n]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g,s=0;for(let t of i.matchAll(r)){let n=t.index??0;if(e.append(document.createTextNode(A(i.slice(s,n)))),t[1]!==void 0){let c=document.createElement("strong");c.textContent=A(t[1]),e.append(c)}else{let c=me(t[3]??"");if(c){let g=document.createElement("a");g.textContent=A(t[2]??c),g.href=c,/^https?:/i.test(c)&&(g.target="_blank",g.rel="noopener noreferrer"),e.append(g)}else e.append(document.createTextNode(A(t[0])))}s=n+t[0].length}e.append(document.createTextNode(A(i.slice(s))))}let I=/^\s*[-•*]\s+/;function Z(e,i){e.replaceChildren();let r=i.split(`
-`),s=0;for(;s<r.length;)if(I.test(r[s])){let t=document.createElement("ul");for(t.className="md-list";s<r.length&&I.test(r[s]);){let n=document.createElement("li");J(n,r[s].replace(I,"")),t.append(n),s+=1}e.append(t)}else{let t=[];for(;s<r.length&&!I.test(r[s]);)t.push(r[s]),s+=1;for(;t.length&&t[t.length-1].trim()==="";)t.pop();for(;t.length&&t[0].trim()==="";)t.shift();if(t.length){let n=document.createElement("div");n.className="md-par",J(n,t.join(`
-`)),e.append(n)}}}function he(e,i=new Date){let r=document.createElement("div");r.className="message-row user";let s=document.createElement("div");s.className="message-stack";let t=document.createElement("div");t.className="bubble",t.textContent=e;let n=document.createElement("div");n.className="delivery-slot",n.setAttribute("aria-live","polite"),s.append(t,n),r.append(s),h.append(r),W.schedule(n,i),T()}function N(e=""){let i=document.createElement("div");i.className="message-row assistant";let r=document.createElement("span");r.className="assistant-avatar",r.setAttribute("aria-hidden","true");let s=document.createElement("img");s.src=x,s.alt="",s.dataset.robotImage="",r.append(s),V(s);let t=document.createElement("div");t.className="message-stack assistant-stack";let n=document.createElement("div");n.className="bubble",Z(n,e);let c=document.createElement("div");return c.className="assistant-time-slot",t.append(n,c),i.append(r,t),h.append(i),T(),{row:i,bubble:n,timeSlot:c}}function _(e,i=new Date){oe(e.timeSlot,i,"assistant-time")}function be(){h.querySelectorAll(".suggested").forEach(e=>{e.addEventListener("click",()=>{G(e.textContent||"")})})}function ge(){h.replaceChildren(pe.content.cloneNode(!0)),h.classList.remove("conversation"),v.classList.remove("chatting");let e=h.querySelector(".welcome-input");e&&e.append(H),$.hidden=!0,be(),h.scrollTop=0}function X(){v.classList.contains("chatting")||($.hidden=!1,$.insertBefore(H,ue),h.querySelector(".welcome")&&h.replaceChildren(),h.classList.add("conversation"),v.classList.add("chatting"))}async function fe(e,i){if(!e.ok){let n="Odpov\u011B\u010F se nepoda\u0159ilo na\u010D\xEDst.";try{n=(await e.json()).error||n}catch{}throw new Error(n)}if(!e.body)throw new Error("Server neposlal datov\xFD proud.");let r=e.body.getReader(),s=new TextDecoder,t="";for(;;){let{done:n,value:c}=await r.read();t+=s.decode(c,{stream:!n});let g=t.split(/\r?\n\r?\n/);t=g.pop()??"";for(let Q of g){let ee=Q.match(/^event:\s*(.+)$/m)?.[1],te=Q.match(/^data:\s*(.+)$/m)?.[1];if(!te)continue;let K=JSON.parse(te);if(ee==="token"&&K.text&&i(K.text),ee==="error")throw new Error(K.message||"Odpov\u011B\u010F se nepoda\u0159ilo na\u010D\xEDst.")}if(n)break}}async function G(e){let i=e.trim();if(!i||E)return;let r=++w;E=!0,q.disabled=!0,b.disabled=!0,X(),he(i,new Date);let s=O.slice(-12);O.push({role:"user",content:i}),b.value="",b.style.height="auto",k.show(h),C.textContent="",z=new AbortController;let t="",n=null;try{let c=await fetch(`${u}/api/chat`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message:i,history:s}),signal:z.signal});if(await fe(c,g=>{r===w&&(t+=g,n||(n=N(),k.moveToEnd(h)),Z(n.bubble,t),T())}),r!==w)return;if(!t)throw new Error("Server neposlal odpov\u011B\u010F.");n||(n=N(t)),_(n,new Date),O.push({role:"assistant",content:t}),C.textContent="Odpov\u011B\u010F je hotov\xE1."}catch(c){if(r!==w||c.name==="AbortError")return;let g=c instanceof Error?c.message:"Odpov\u011B\u010F se nepoda\u0159ilo na\u010D\xEDst.";k.hide(),n||(n=N()),Z(n.bubble,`Omlouv\xE1m se, n\u011Bco se nepovedlo: ${g} Zkuste dotaz odeslat znovu.`),n.bubble.setAttribute("role","alert"),_(n,new Date),C.textContent=g}finally{if(k.hide(),r!==w)return;E=!1,b.disabled=!1,q.disabled=!b.value.trim(),z=null,b.focus(),T()}}function xe(){if(E)return;X();let e=`Jsem **OKLA poradce**, virtu\xE1ln\xED asistent s um\u011Blou inteligenc\xED.
+    <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;let v=m.querySelector(".panel"),S=m.querySelector(".launcher"),pe=m.querySelector(".info-control"),H=m.querySelector(".expand"),ue=m.querySelector(".collapse"),h=m.querySelector(".messages"),me=m.querySelector("#welcome-template"),C=m.querySelector("form"),b=m.querySelector("textarea"),q=m.querySelector(".send"),Y=m.querySelector(".composer-area"),he=m.querySelector(".disclaimer"),z=m.querySelector("#okla-status"),W=new R,k=new j;m.querySelectorAll("[data-robot-image], [data-mobile-assistant-image]").forEach(V);let O=[],E=!1,I=null,L,w=0,T=window.matchMedia("(max-width: 466px)"),J=!T.matches;function y(){let e=Math.min(520,Math.max(320,window.innerHeight*.55));(!T.matches||window.scrollY>=e)&&(J=!0),B.classList.toggle("mobile-launcher-visible",J)}window.addEventListener("scroll",y,{passive:!0}),T.addEventListener("change",y),y();function P(e){v.classList.toggle("open",e),v.setAttribute("aria-hidden",String(!e)),v.setAttribute("aria-modal",String(e&&T.matches)),S.setAttribute("aria-expanded",String(e)),S.setAttribute("aria-label",e?"Zav\u0159\xEDt OKLA poradce":"Otev\u0159\xEDt OKLA poradce"),L!==void 0&&clearTimeout(L),e?L=setTimeout(()=>b.focus(),180):S.focus(),y()}function A(){h.scrollTop=h.scrollHeight}function be(e){try{let s=new URL(e,window.location.href);return["http:","https:","mailto:"].includes(s.protocol)?s.toString():void 0}catch{return}}function M(e){return e.replace(/-{2,}/g,"\u2014")}function X(e,s){let r=/\*\*([^*\n]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g,i=0;for(let t of s.matchAll(r)){let n=t.index??0;if(e.append(document.createTextNode(M(s.slice(i,n)))),t[1]!==void 0){let c=document.createElement("strong");c.textContent=M(t[1]),e.append(c)}else{let c=be(t[3]??"");if(c){let g=document.createElement("a");g.textContent=M(t[2]??c),g.href=c,/^https?:/i.test(c)&&(g.target="_blank",g.rel="noopener noreferrer"),e.append(g)}else e.append(document.createTextNode(M(t[0])))}i=n+t[0].length}e.append(document.createTextNode(M(s.slice(i))))}let N=/^\s*[-•*]\s+/;function Z(e,s){e.replaceChildren();let r=s.split(`
+`),i=0;for(;i<r.length;)if(N.test(r[i])){let t=document.createElement("ul");for(t.className="md-list";i<r.length&&N.test(r[i]);){let n=document.createElement("li");X(n,r[i].replace(N,"")),t.append(n),i+=1}e.append(t)}else{let t=[];for(;i<r.length&&!N.test(r[i]);)t.push(r[i]),i+=1;for(;t.length&&t[t.length-1].trim()==="";)t.pop();for(;t.length&&t[0].trim()==="";)t.shift();if(t.length){let n=document.createElement("div");n.className="md-par",X(n,t.join(`
+`)),e.append(n)}}}function ge(e,s=new Date){let r=document.createElement("div");r.className="message-row user";let i=document.createElement("div");i.className="message-stack";let t=document.createElement("div");t.className="bubble",t.textContent=e;let n=document.createElement("div");n.className="delivery-slot",n.setAttribute("aria-live","polite"),i.append(t,n),r.append(i),h.append(r),W.schedule(n,s),A()}function U(e=""){let s=document.createElement("div");s.className="message-row assistant";let r=document.createElement("span");r.className="assistant-avatar",r.setAttribute("aria-hidden","true");let i=document.createElement("img");i.src=x,i.alt="",i.dataset.robotImage="",r.append(i),V(i);let t=document.createElement("div");t.className="message-stack assistant-stack";let n=document.createElement("div");n.className="bubble",Z(n,e);let c=document.createElement("div");return c.className="assistant-time-slot",t.append(n,c),s.append(r,t),h.append(s),A(),{row:s,bubble:n,timeSlot:c}}function _(e,s=new Date){ie(e.timeSlot,s,"assistant-time")}function fe(){h.querySelectorAll(".suggested").forEach(e=>{e.addEventListener("click",()=>{Q(e.textContent||"")})})}function xe(){h.replaceChildren(me.content.cloneNode(!0)),h.classList.remove("conversation"),v.classList.remove("chatting");let e=h.querySelector(".welcome-input");e&&e.append(C),Y.hidden=!0,fe(),h.scrollTop=0}function G(){v.classList.contains("chatting")||(Y.hidden=!1,Y.insertBefore(C,he),h.querySelector(".welcome")&&h.replaceChildren(),h.classList.add("conversation"),v.classList.add("chatting"))}async function ve(e,s){if(!e.ok){let n="Odpov\u011B\u010F se nepoda\u0159ilo na\u010D\xEDst.";try{n=(await e.json()).error||n}catch{}throw new Error(n)}if(!e.body)throw new Error("Server neposlal datov\xFD proud.");let r=e.body.getReader(),i=new TextDecoder,t="";for(;;){let{done:n,value:c}=await r.read();t+=i.decode(c,{stream:!n});let g=t.split(/\r?\n\r?\n/);t=g.pop()??"";for(let ee of g){let te=ee.match(/^event:\s*(.+)$/m)?.[1],ae=ee.match(/^data:\s*(.+)$/m)?.[1];if(!ae)continue;let K=JSON.parse(ae);if(te==="token"&&K.text&&s(K.text),te==="error")throw new Error(K.message||"Odpov\u011B\u010F se nepoda\u0159ilo na\u010D\xEDst.")}if(n)break}}async function Q(e){let s=e.trim();if(!s||E)return;let r=++w;E=!0,q.disabled=!0,b.disabled=!0,G(),ge(s,new Date);let i=O.slice(-12);O.push({role:"user",content:s}),b.value="",b.style.height="auto",k.show(h),z.textContent="",I=new AbortController;let t="",n=null;try{let c=await fetch(`${u}/api/chat`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({message:s,history:i}),signal:I.signal});if(await ve(c,g=>{r===w&&(t+=g,n||(n=U(),k.moveToEnd(h)),Z(n.bubble,t),A())}),r!==w)return;if(!t)throw new Error("Server neposlal odpov\u011B\u010F.");n||(n=U(t)),_(n,new Date),O.push({role:"assistant",content:t}),z.textContent="Odpov\u011B\u010F je hotov\xE1."}catch(c){if(r!==w||c.name==="AbortError")return;let g=c instanceof Error?c.message:"Odpov\u011B\u010F se nepoda\u0159ilo na\u010D\xEDst.";k.hide(),n||(n=U()),Z(n.bubble,`Omlouv\xE1m se, n\u011Bco se nepovedlo: ${g} Zkuste dotaz odeslat znovu.`),n.bubble.setAttribute("role","alert"),_(n,new Date),z.textContent=g}finally{if(k.hide(),r!==w)return;E=!1,b.disabled=!1,q.disabled=!b.value.trim(),I=null,b.focus(),A()}}function we(){if(E)return;G();let e=`Jsem **OKLA poradce**, virtu\xE1ln\xED asistent s um\u011Blou inteligenc\xED.
 
 - Pomohu v\xE1m vybrat elektroniku podle pou\u017Eit\xED, rozpo\u010Dtu a po\u017Eadovan\xFDch funkc\xED.
 - Vysv\u011Btl\xEDm vlastnosti produkt\u016F a porad\xEDm s informacemi o n\xE1kupu z dostupn\xFDch podklad\u016F.
@@ -402,4 +419,4 @@
 
 Moje odpov\u011Bdi mohou obsahovat chyby. Aktu\xE1ln\xED cenu, dostupnost a d\u016Fle\u017Eit\xE9 parametry si ov\u011B\u0159te na str\xE1nce produktu. Do chatu nepos\xEDlejte osobn\xED ani platebn\xED \xFAdaje.
 
-**S \u010D\xEDm v\xE1m mohu pomoci?**`,i=N(e);_(i,new Date),O.push({role:"assistant",content:e}),C.textContent="Informace o AI poradci.",T()}M.addEventListener("click",()=>P(!v.classList.contains("open"))),ce.addEventListener("click",xe),S.addEventListener("click",()=>{let e=v.classList.toggle("expanded");S.setAttribute("aria-pressed",String(e)),S.setAttribute("aria-label",e?"Zmen\u0161it chat":"Zv\u011Bt\u0161it chat"),S.title=e?"Zmen\u0161it chat":"Zv\u011Bt\u0161it chat"}),de.addEventListener("click",()=>P(!1)),H.addEventListener("submit",e=>{e.preventDefault(),G(b.value)}),b.addEventListener("input",()=>{q.disabled=E||!b.value.trim(),b.style.height="auto",b.style.height=`${Math.min(b.scrollHeight,72)}px`}),b.addEventListener("keydown",e=>{e.key==="Enter"&&!e.shiftKey&&(e.preventDefault(),H.requestSubmit())}),m.addEventListener("keydown",e=>{e.key==="Escape"&&v.classList.contains("open")&&P(!1)}),F=()=>{w+=1,z?.abort(),W.cancel(),k.hide(),L!==void 0&&clearTimeout(L),window.removeEventListener("scroll",y),Y.removeEventListener("change",y)},ge()})();})();
+**S \u010D\xEDm v\xE1m mohu pomoci?**`,s=U(e);_(s,new Date),O.push({role:"assistant",content:e}),z.textContent="Informace o AI poradci.",A()}S.addEventListener("click",()=>P(!v.classList.contains("open"))),pe.addEventListener("click",we),H.addEventListener("click",()=>{let e=v.classList.toggle("expanded");H.setAttribute("aria-pressed",String(e)),H.setAttribute("aria-label",e?"Zmen\u0161it chat":"Zv\u011Bt\u0161it chat"),H.title=e?"Zmen\u0161it chat":"Zv\u011Bt\u0161it chat"}),ue.addEventListener("click",()=>P(!1)),C.addEventListener("submit",e=>{e.preventDefault(),Q(b.value)}),b.addEventListener("input",()=>{q.disabled=E||!b.value.trim(),b.style.height="auto",b.style.height=`${Math.min(b.scrollHeight,72)}px`}),b.addEventListener("keydown",e=>{e.key==="Enter"&&!e.shiftKey&&(e.preventDefault(),C.requestSubmit())}),m.addEventListener("keydown",e=>{e.key==="Escape"&&v.classList.contains("open")&&P(!1)}),F=()=>{w+=1,I?.abort(),W.cancel(),k.hide(),L!==void 0&&clearTimeout(L),window.removeEventListener("scroll",y),T.removeEventListener("change",y)},xe()})();})();
