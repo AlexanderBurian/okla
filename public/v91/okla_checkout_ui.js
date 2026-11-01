@@ -393,18 +393,17 @@
   }
  }
 
- /* On the cart the coupon and delivery cards sit one under the other, under the summary box at the top right. */
- /* The cards take the summary box's width and left edge, measured, so they line up at any width and after the cart changes. */
- function alignExtras(){
+ /* On the cart the coupon and delivery cards sit one under the other, right under the summary box and in the same container,
+    so they always have the box's width: nothing is measured. */
+ function placeExtras(){
   var ew=document.querySelector('.extras-wrapper');
   var side=document.querySelector('.cart-row>.col-md-4');
-  if(!ew||!side)return;
-  var box=side.querySelector('.summary-wrapper>.box');
-  ew.style.marginLeft='0px';
-  ew.style.width='auto';
-  if(!box){ew.style.width='100%';return}
-  ew.style.marginLeft=(box.getBoundingClientRect().left-ew.getBoundingClientRect().left)+'px';
-  ew.style.width=box.getBoundingClientRect().width+'px';
+  if(!ew||!side)return false;
+  var home=side.querySelector('.summary-wrapper')||side;
+  if(ew.parentElement!==home)home.appendChild(ew);
+  ew.style.marginLeft='';
+  ew.style.width='';
+  return true;
  }
 
  /* The row of step buttons runs from the left edge of the page content to the right edge of the summary, measured. */
@@ -428,13 +427,10 @@
   addQuantityButtons();
   addParcel();
   addCoupon();
-  var ew=document.querySelector('.extras-wrapper');
-  var side=document.querySelector('.cart-row>.col-md-4');
-  if(ew&&side&&ew.parentElement!==side)side.appendChild(ew);
+  placeExtras();
   hideExtrasHeading();
   moveNextStep();
   freeShipping();
-  alignExtras();
   alignNav();
  }
 
@@ -454,15 +450,17 @@
   mo.observe(root,{childList:true,subtree:true,characterData:true});
  }
 
- /* On the cart the coupon and delivery cards sit one under the other, under the summary box at the top right. */
  function moveCartExtras(){
-  var ew=document.querySelector('.extras-wrapper');
-  var side=document.querySelector('.cart-row>.col-md-4');
-  if(!ew||!side)return;
-  if(ew.parentElement!==side)side.appendChild(ew);
-  alignExtras();
-  window.addEventListener('resize',alignExtras);
-  followCart();
+  if(placeExtras())followCart();
+ }
+
+ /* On the last step the note about the terms sits under the order button. It moves only within the same form, so its hidden consent field is still sent. */
+ function moveTerms(){
+  var terms=document.querySelector('.consents-first');
+  var nav=document.querySelector('.okla-step-nav');
+  if(!terms||!nav||terms.parentElement===nav)return;
+  if(terms.closest('form')!==nav.closest('form'))return;
+  nav.appendChild(terms);
  }
 
  function init(){
@@ -478,8 +476,10 @@
   hideExtrasHeading();
   addSectionIcons();
   moveNextStep();
+  moveTerms();
   alignNav();
   window.addEventListener('resize',alignNav);
+  if(window.ResizeObserver)new ResizeObserver(function(){alignNav()}).observe(document.body);
   freeShipping();
   keepOnlyZasilkovna();
  }

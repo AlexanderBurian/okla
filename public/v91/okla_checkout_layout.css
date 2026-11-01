@@ -207,11 +207,35 @@ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-fin
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{flex:1 1 auto!important;min-width:0!important}
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding:8px 16px!important}
 }
-/* The coupon card is the palette's light grey, not a separate pink. */
-html body.in-kosik .okla-coupon,html body.in-kosik .extras-wrapper>.extras-col:not(:has(>*)){background:#f5f7fa!important}
 /* Checkout on phones: the form and the summary stack in one column, each the full width, with a 16 px side gutter. */
 @media(max-width:767px){
  html body.ordering-process:not(.in-kosik) .cart-row{flex-direction:column!important;align-items:stretch!important;gap:24px!important;margin-left:0!important;margin-right:0!important;padding:0 16px!important;box-sizing:border-box!important}
  html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8,html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{flex:none!important;width:100%!important;max-width:100%!important;min-width:0!important}
 }/* Shoptet moves the checkout sidebar with the page through an inline top; it stays in place, so it never covers the button row. */
 html body.ordering-process:not(.in-kosik) #checkoutSidebar{top:auto!important;transform:none!important}
+/* Cart: the cards sit in the summary's container under the box and take its full width. */
+html body.in-kosik .summary-wrapper>.extras-wrapper{width:100%!important;max-width:100%!important;margin:16px 0 24px!important;box-sizing:border-box!important}
+/* The green buttons: dark text centred in the button, the arrow at the right edge; the order button says only OBJEDNAT. */
+html body.ordering-process #content .okla-step-nav .next-step .btn{text-transform:uppercase!important;letter-spacing:.03em!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn span{text-transform:uppercase!important;letter-spacing:.03em!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{display:inline-flex!important;justify-content:center!important;height:52px!important;min-height:52px!important;padding:0 44px!important;color:#000!important;text-align:center!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward:hover,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish:hover{color:#000!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{position:absolute!important;right:22px!important;top:50%!important;margin:-4px 0 0!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish .order-button-suffix{display:none!important}
+/* The terms note sits under the order button, aligned to its right edge. */
+html body.ordering-process #content .okla-step-nav .consents-first{display:block!important;max-width:420px;margin:12px 0 0 auto!important;padding:0!important;text-align:right}
+html body.ordering-process #content .okla-step-nav .consents-first p.label{margin:0!important;padding:0!important;font-family:Roboto,Arial,sans-serif!important;font-size:13px!important;font-weight:400!important;line-height:1.45!important;text-transform:none!important;letter-spacing:0!important;color:#0b2540!important}
+/* No big empty space above the buttons: the form column ends at its last section. */
+html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8>.cart-content{padding-bottom:0!important;margin-bottom:0!important}
+html body.in-krok-2 .cart-row>.col-md-8 .co-box-additional,html body.in-krok-1 .cart-row>.col-md-8 .co-payment-method{margin-bottom:0!important}
+html body.ordering-process #content .okla-step-nav{margin-top:24px!important}
+/* Each form checkbox and its text sit on one centre line. */
+html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox]){display:flex!important;align-items:center!important;gap:12px!important;position:relative!important;padding:0!important}
+html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>input[type=checkbox]{position:static!important;flex:none!important;margin:0!important;top:auto!important;left:auto!important;opacity:1!important}
+html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label{display:block!important;position:static!important;margin:0!important;padding:0!important;line-height:22px!important;min-height:0!important}
+html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::before,html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::after{content:none!important;display:none!important}
+@media(max-width:767px){
+ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding:0 36px!important}
+ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{right:16px!important}
+ html body.ordering-process #content .okla-step-nav .consents-first{max-width:none;text-align:center}
+}
