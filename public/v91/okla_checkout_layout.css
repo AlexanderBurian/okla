@@ -266,3 +266,9 @@ html body.in-kosik .quantity-form .okla-qty:hover{color:#1f6fd8!important}
  html body.in-kosik table.cart-table tr.removeable>td.p-total form,html body.in-kosik table.cart-table tr.removeable>td.p-total form .inline{display:inline-flex!important;margin:0!important}
  html body.in-kosik .cart-row .cart-content{padding-right:24px!important;box-sizing:border-box!important}
 }
+/* Cart on phones: a narrower amount control, so it never touches the total. */
+@media(max-width:767px){
+ html body.in-kosik .quantity-form .quantity label{gap:2px!important;padding:0 4px!important}
+ html body.in-kosik .quantity-form input.amount{width:32px!important}
+ html body.in-kosik .quantity-form .okla-qty{width:30px!important;height:32px!important}
+}
