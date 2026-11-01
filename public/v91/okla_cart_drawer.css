@@ -26,6 +26,8 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer .okla-cd__card-name{min-height:34px;font-size:13px;font-weight:600;line-height:1.3;color:#0b2540;text-decoration:none}
 #okla-cart-drawer .okla-cd__card-price{font-size:14px;font-weight:700;color:#0b2540}
 #okla-cart-drawer .okla-cd__card-btn{margin-top:auto;height:34px;border:0;border-radius:8px;background:#5ba300;color:#fff;font-size:13px;font-weight:600;cursor:pointer}
+#okla-cart-drawer .okla-cd__card-btn{transition:background-color .15s ease}
+#okla-cart-drawer .okla-cd__card-btn:hover{background:#4f9400}
 #okla-cart-drawer .okla-cd__card-btn:disabled{opacity:.6;cursor:default}
 #okla-cart-drawer .okla-cd__foot{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px 22px 22px;border-top:1px solid #e6ebf2}
 #okla-cart-drawer .okla-cd__btn{display:flex;align-items:center;justify-content:center;height:48px;border-radius:10px;font-size:15px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
