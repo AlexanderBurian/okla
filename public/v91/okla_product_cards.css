@@ -1,12 +1,15 @@
-/* OKLA product cards (homepage sliders, categories, search, related products). The picture is 11.3 % larger everywhere (6 % and then 5 % more);
-   on desktop the content under it (stars, name, availability, badge, price, button) is 11.3 % larger too. The stars stand
+/* OKLA product cards (homepage sliders, categories, search, related products). The picture is 18 % larger everywhere (6 %, then 5 % and 6 % more);
+   on desktop the content under it (stars, name, availability, badge, price, button) is 18 % larger too. The stars stand
    alone and centred: the "no reviews" text next to them is not shown. */
-html body .products .product .p .image img{transform:scale(1.113)!important;transform-origin:center center!important}
+html body .products .product .p .image img{transform:scale(1.18)!important;transform-origin:center center!important}
 html body .products .product .ratings-wrapper .stars-placeholder{display:none!important}
 html body .products .product .ratings-wrapper{display:flex!important;justify-content:center!important;align-items:center!important;text-align:center!important}
 /* The homepage sliders have their own stronger rules (picture not scaled, stars to the left); these win over them. */
-html body #content .okla-slider-shell .okla-slider-track > .product .p > a.image img{transform:scale(1.113)!important;transform-origin:center center!important}
+html body #content .okla-slider-shell .okla-slider-track > .product .p > a.image img{transform:scale(1.18)!important;transform-origin:center center!important}
 html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wrapper.okla-ratings{justify-content:center!important}
+/* On a narrower desktop the stars and the review count may take two lines instead of running past the card. */
+html body .products .product .ratings-wrapper,html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wrapper.okla-ratings{flex-wrap:wrap!important;row-gap:2px!important;max-width:100%!important;min-width:0!important}
+html body .products .product .ratings-wrapper .stars-wrapper,html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wrapper.okla-ratings .stars-wrapper{width:auto!important;flex:0 1 auto!important;flex-wrap:wrap!important;justify-content:center!important;row-gap:2px!important;max-width:100%!important;min-width:0!important}
 html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wrapper .stars-placeholder{display:none!important}
 /* A product with real reviews shows only its real stars, not the decorative ones next to them. */
 html body .products .product .ratings-wrapper:has(.stars-wrapper) .ok89-decor-stars,
@@ -15,5 +18,5 @@ html body #content .okla-slider-shell .okla-slider-track > .product .ratings-wra
 html body .products .product .okv73-rating-caption{display:none!important}
 html body .products .product .okv73-rating-placeholder{display:flex!important;justify-content:center!important;width:100%!important}
 @media(min-width:992px){
- html body .products .product .p .p-in{zoom:1.113}
+ html body .products .product .p .p-in{zoom:1.18}
 }
