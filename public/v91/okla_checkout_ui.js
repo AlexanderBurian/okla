@@ -123,14 +123,16 @@
   }).catch(function(){});
  }
 
- /* The help box with the photo is not wanted on the ordering pages. */
+ /* The help box with the photo is not wanted on the ordering pages. Only a box that holds no form, table or summary is hidden. */
  function hideHelpBox(){
+  var keep='input,select,textarea,form,table,.order-summary,.next-step';
+  var hide=function(b){if(b&&!b.querySelector(keep))b.style.display='none'};
   document.querySelectorAll('body *').forEach(function(h){
-   var own=Array.prototype.filter.call(h.childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join('');
-   if(!/Potřebujete pomoc/.test(own))return;
-   var box=h.closest('.box')||h;
-   if(box.querySelector('input,select,textarea,form,.order-summary,.next-step'))box=h;
-   box.style.display='none';
+   if(h.children.length>3||!/Potřebujete pomoc/.test(h.textContent||''))return;
+   hide(h.closest('.box'));
+  });
+  document.querySelectorAll('img').forEach(function(i){
+   if(/cimrman|jara/i.test((i.getAttribute('alt')||'')+' '+(i.getAttribute('src')||'')))hide(i.closest('.box'));
   });
  }
 
