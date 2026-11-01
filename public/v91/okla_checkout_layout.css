@@ -84,5 +84,22 @@ html body.in-krok-2 #order-form .phone-combined-input{width:297px!important}
 html body.in-krok-2 #order-form .phone-combined-input input.form-control{width:auto!important;flex:1 1 auto!important;min-width:0}
 /* The customer account label has the same style as the other labels. */
 html body.in-krok-2 #order-form .form-group--inline>.label{font-size:12px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em}
+/* Round 7: no shadows; thin horizontal lines between the cart rows; the cart table, its rows and the two cards share one width. */
+html body.in-kosik table.cart-table tr.removeable{box-shadow:none!important}
+html body.in-kosik table.cart-table tr.removeable>td{border-bottom:1px solid #e3e8ef!important}
+html body.in-kosik .box,html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{box-shadow:none!important}
+html body.in-kosik .cart-summary{padding-left:0!important;padding-right:0!important}
+html body.in-kosik .extras-wrapper{margin-left:0!important;width:100%!important}
+html body.in-kosik table.cart-table{table-layout:fixed!important;width:100%!important}
+html body.in-kosik table.cart-table tr>*:nth-child(1){width:92px!important;max-width:92px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(2){width:170px!important;max-width:170px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(3){width:80px!important;max-width:80px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(4){width:162px!important;max-width:162px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(6){width:105px!important;max-width:105px!important}
+html body.in-kosik tr.removeable .quantity{padding:0!important;width:auto!important;min-width:0!important;margin:0!important}
+html body.in-kosik .quantity-form .quantity label{padding:0 6px!important}
+/* No red text: the coupon title, the field labels and the required markers are dark. */
+html body.in-kosik .okla-coupon__title strong{color:#0b2540!important}
+html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
