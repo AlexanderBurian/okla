@@ -4,7 +4,7 @@
 :root{
  --okd-blue:#2C5F9E;--okd-darkblue:#16478B;--okd-page:#BEE3F8;
  --okd-ink:#1A1A1A;--okd-muted:#707070;--okd-line:#DDE3EA;
- --okd-price:#E30613;--okd-green:#3E7A00;--okd-green-hover:#2F6000;
+ --okd-price:#E30613;--okd-green:#66D400;--okd-green-hover:#5BBD00;--okd-green-ink:#111;
  --okd-disabled:#C8CDD3;--okd-disabled-ink:#6B7280;
  --okd-gap:16px;--okd-card-gap:24px;--okd-width:1114px;
  --okd-font:Roboto,"Segoe UI",Arial,sans-serif;
@@ -64,7 +64,7 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
  order:1!important;flex:1 1 220px!important;min-width:min(220px,100%)!important;width:auto!important;max-width:100%!important;
  height:52px!important;min-height:52px!important;max-height:52px!important;margin:0!important;padding:8px 12px!important;
  border:0!important;border-radius:6px!important;background:var(--okd-green)!important;background-image:none!important;
- box-shadow:none!important;filter:none!important;transform:none!important;color:#fff!important;font:700 18px/1.2 var(--okd-font)!important;
+ box-shadow:none!important;filter:none!important;transform:none!important;color:var(--okd-green-ink)!important;font:700 18px/1.2 var(--okd-font)!important;
  text-indent:0!important;text-shadow:none!important;white-space:normal!important;overflow:hidden!important;cursor:pointer!important;
 }
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary:hover:not(:disabled){background:var(--okd-green-hover)!important}
@@ -179,7 +179,7 @@ html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-plac
 }
 
 /* V99 fixed-size graphic painted by CSS, never a DOM SVG with inherited huge dimensions. */
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{font-size:0!important;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M3%204h2.5l2%2010.6h10.1L21%207.5H6%20M10%2020h.01%20M18%2020h.01%27%20fill%3D%27none%27%20stroke%3D%27white%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E")!important;background-position:center!important;background-repeat:no-repeat!important;background-size:18px 18px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{font-size:0!important;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M3%204h2.5l2%2010.6h10.1L21%207.5H6%20M10%2020h.01%20M18%2020h.01%27%20fill%3D%27none%27%20stroke%3D%27%23111%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E")!important;background-position:center!important;background-repeat:no-repeat!important;background-size:18px 18px!important}
 /* 8. Final overrides (appended last so they win over the sections above).
    8a. Tab baseline runs the full width of the product card; the tab row keeps the 24px inset so tabs stay aligned with the content. */
 html body.ok89-detail #content .p-detail-tabs-wrapper,html body.ok89-detail #content .p-details-tabs-wrapper{margin-left:-24px!important;margin-right:-24px!important;width:calc(100% + 48px)!important;max-width:none!important}
@@ -376,10 +376,10 @@ html body.ok89-detail #content-wrapper{border-top:6px solid #19477E!important;bo
 html body.ok89-detail #content-wrapper::before{display:none!important}
 /* 8bd. The breadcrumb row has a 1 px grey bottom border that ran across the top of the sheet. The homepage has no breadcrumb, so the line goes on this page. */
 html body.ok89-detail .breadcrumbs.navigation-home-icon-wrapper{border-bottom:0!important}
-/* 8bd. Buy button: brand blue (#16478B) and about 240 px wide instead of stretched across the buy box. */
+/* 8bd. Buy button: the shop's green with black text (like the other green buttons) and about 240 px wide instead of stretched across the buy box. */
 @media(min-width:992px){
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary{background:#16478B!important;border-color:#16478B!important;color:#fff!important;flex:0 0 240px!important;width:240px!important;max-width:100%!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary:hover:not(:disabled){background:#0F3A6E!important;border-color:#0F3A6E!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary{background:var(--okd-green)!important;border-color:var(--okd-green)!important;color:var(--okd-green-ink)!important;flex:0 0 240px!important;width:240px!important;max-width:100%!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary:hover:not(:disabled){background:var(--okd-green-hover)!important;border-color:var(--okd-green-hover)!important}
 }
 /* 8be. Buy box: four facts under the buy row (the same facts as the trust strip, placed where the buyer decides). */
 html body.ok89-detail #content .p-detail .ok86-benefits{list-style:none!important;margin:8px 0 0!important;padding:12px 0 0!important;border-top:1px solid #E5E5E5!important;display:grid!important;gap:12px!important}
@@ -389,6 +389,17 @@ html body.ok89-detail #content .p-detail .ok86-benefits a{color:#16478B!importan
 html body.ok89-detail #content .p-detail .ok86-benefits a:hover{text-decoration:underline!important}
 /* 8bf. Favourites are not offered on this shop. The button was still visible on some pages, so the rule no longer depends on the .p-detail wrapper. */
 html body.ok89-detail .okla-detail-favorite{display:none!important}
+/* 8bg. No rating row under the product title (stars, "Zatím bez hodnocení", "Podrobnosti hodnocení"). Reviews stay in their own tab.
+   The row's only other item is "Značka: …", which repeats the "Vše od …" link above the title, so the whole row goes. */
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-info{display:none!important}
+/* 8bh. Stock after Alza: a light grey panel with the "zboží skladem" pictogram and the stock in black text, not a large green word.
+   Out of stock keeps its red label and has no pictogram. */
+html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{gap:4px 6px!important;min-height:64px!important;padding:12px 18px!important;border-radius:8px!important;background:#F5F5F5!important;font:400 16px/1.4 var(--okd-font)!important;color:#111!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value.ok86-in::before{content:""!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin-right:8px!important;background:url(img/okla_skladem.png) center/contain no-repeat!important}
+html body.ok89-detail #content .p-detail .availability-value .availability-label,
+html body.ok89-detail #content .p-detail .availability-value .availability-amount{font:inherit!important;color:#111!important}
+html body.ok89-detail #content .p-detail .availability-value.ok86-in .availability-label{font-weight:700!important;color:#111!important}
+html body.ok89-detail #content .p-detail .availability-value.ok86-out .availability-label{font-weight:700!important;color:#CC0000!important}
 
 /* Parametry tab: product data as a striped two-column table, label grey on the left, value dark on the right. */
 #ok86-parameters .ok86-params-title{font-size:28px;font-weight:500;line-height:1.25;color:#1d1d1d;margin:0 0 20px}

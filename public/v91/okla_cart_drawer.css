@@ -33,8 +33,8 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer .okla-cd__btn{transition:background-color .15s ease,border-color .15s ease;display:flex;align-items:center;justify-content:center;height:48px;border-radius:10px;font-size:15px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
 #okla-cart-drawer .okla-cd__btn--ghost{border:1px solid #cdd2da;background:#fff;color:#0b2540}
 #okla-cart-drawer .okla-cd__btn--ghost:hover{background:#f5f7fa;border-color:#0b2540}
-#okla-cart-drawer .okla-cd__btn--primary{border:1px solid #66d400;background:#66d400;color:#fff}
-#okla-cart-drawer .okla-cd__btn--primary:hover{background:#5bbd00;border-color:#5bbd00;color:#fff}
+#okla-cart-drawer .okla-cd__btn--primary{border:1px solid #66d400;background:#66d400;color:#111}
+#okla-cart-drawer .okla-cd__btn--primary:hover{background:#5bbd00;border-color:#5bbd00;color:#111}
 @media(max-width:767px){
  #okla-cart-drawer .okla-cd__panel{top:auto;left:0;right:40px;bottom:0;width:auto;max-height:92vh;border-radius:0;transform:translateY(100%)}
  #okla-cart-drawer.is-open .okla-cd__panel{transform:none}
