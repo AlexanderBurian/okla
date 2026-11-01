@@ -72,5 +72,13 @@ html body.in-krok-2 .co-contact-information .form-group:has(input[name=surname])
 html body.in-krok-2 #order-form .form-control-wrapper{width:100%}
 html body.in-krok-2 #order-form input.form-control{width:100%!important;max-width:none!important;box-sizing:border-box}
 html body.in-krok-2 .co-contact-information fieldset,html body.in-krok-2 .co-billing-address{gap:16px 24px}
+/* The cart summary box is wide enough for its two buttons side by side. */
+html body.in-kosik .box.box-sm:has(.next-step){min-width:340px!important;width:340px!important;max-width:100%!important;box-sizing:border-box}
+/* The spam-trap field stays hidden; every input has the same width, and the phone input fills its column. */
+html body.in-krok-2 #order-form label:has(input[name=surname]),html body.in-krok-2 #order-form input[name=surname]{display:none!important}
+html body.in-krok-2 #order-form .form-control-wrapper{width:297px!important;flex:0 0 297px!important;max-width:100%}
+html body.in-krok-2 #order-form input.form-control{width:100%!important}
+html body.in-krok-2 #order-form .phone-combined-input{width:297px!important}
+html body.in-krok-2 #order-form .phone-combined-input input.form-control{width:auto!important;flex:1 1 auto!important;min-width:0}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
