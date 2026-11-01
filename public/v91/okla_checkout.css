@@ -26,3 +26,6 @@ body.ordering-process .next-step-back{border-radius:10px;height:52px;border:1px 
  body.ordering-process .order-payment,
  body.ordering-process .co-box{padding:16px}
 }
+@media(max-width:767px){
+ body.ordering-process .cart-row > [class*="col-"]{width:100%!important;max-width:100%!important;flex:0 0 100%!important;float:none!important}
+}
