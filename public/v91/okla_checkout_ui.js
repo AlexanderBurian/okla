@@ -198,7 +198,8 @@
   });
  }
 
- /* The parcel starts at the first step and walks slowly, one step at a time, to the current step.
+ /* The parcel walks slowly, one step at a time, to the current step: from the step the shopper came from, so it walks back
+    when they go back, and from the first step otherwise. It walks again when the browser restores the page with Back.
     Each stop is the measured centre of its step, so the box sits centred on it. */
  function addParcel(){
   var ol=document.querySelector('.cart-header');
@@ -212,12 +213,13 @@
   box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 5 42 14 24 23 6 14Z" fill="#ebc996"/><path d="M6 14 24 23V43L6 34Z" fill="#cf9a5f"/><path d="M42 14 24 23V43L42 34Z" fill="#b8814a"/><path d="M17.2 8.4 35.2 17.4 30.8 19.6 12.8 10.6Z" fill="#f6e6c6"/><path d="M30.8 19.6 35.2 17.4V24.4L30.8 26.6Z" fill="#e3c99d"/><path d="M10 27.5 17 31V35.2L10 31.7Z" fill="#fbf3e3"/><path d="M6 14 24 23 42 14" fill="none" stroke="#f4dcb2" stroke-width=".8" stroke-linejoin="round"/><path d="M24 23V43" stroke="#9a6a38" stroke-width=".8"/></svg>';
   /* The bounce plays once; it is not replayed when the page scrolls back. */
   box.addEventListener('animationend',function(){box.style.animation='none'});
-  var stops,segs;
+  var stops,segs,from=0;
   /* The stops are the measured centres of the steps; the track and the parcel read one position, so they always move together. */
   function layout(){
    stops=steps.map(function(li){return li.offsetLeft+li.offsetWidth/2});
    segs=[];
-   for(var k=1;k<=idx;k++){segs.push({from:stops[k-1],to:stops[k],start:400+(k-1)*2600})}
+   var dir=idx>=from?1:-1;
+   for(var k=from,n=0;k!==idx;k+=dir,n++){segs.push({from:stops[k],to:stops[k+dir],start:400+n*2600})}
    ol.style.setProperty('--x1',stops[0]+'px');
    ol.style.setProperty('--x3',stops[2]+'px');
   }
@@ -225,7 +227,7 @@
   function ease(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2}
   /* The position at time t (ms): each step is one eased move of DUR ms, one after another. */
   function place(t){
-   var v=stops[0];
+   var v=stops[from];
    for(var s=0;s<segs.length;s++){
     var g=segs[s];
     if(t<g.start){v=g.from;break}
@@ -238,17 +240,28 @@
   }
   ol.appendChild(box);
   box.getBoundingClientRect();
-  /* Measured after the layout is forced, so the stops are the real step centres. */
-  layout();
-  ol.style.setProperty('--pos',stops[0]+'px');
-  var arrive=idx?400+(idx-1)*2600+2400:0;
-  box.style.animationDelay=((arrive+300)/1000)+'s';
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce)place(Infinity);
-  else{
-   var t0=Date.now();
-   (function tick(){if(!place(Date.now()-t0))setTimeout(tick,16)})();
+  var run=0;
+  /* One walk from the step the shopper came from; a newer walk stops an older one. */
+  function walk(){
+   var last=-1;
+   try{last=parseInt(sessionStorage.getItem('okla-step'),10)}catch(e){}
+   try{sessionStorage.setItem('okla-step',String(idx))}catch(e){}
+   from=(last>=0&&last<=2&&last!==idx)?last:0;
+   /* Measured after the layout is forced, so the stops are the real step centres. */
+   layout();
+   ol.style.setProperty('--pos',stops[from]+'px');
+   var arrive=segs.length?400+(segs.length-1)*2600+2400:0;
+   box.style.animation='none';
+   box.getBoundingClientRect();
+   box.style.animation='';
+   box.style.animationDelay=((arrive+300)/1000)+'s';
+   if(reduce){place(Infinity);return}
+   var me=++run,t0=Date.now();
+   (function tick(){if(me===run&&!place(Date.now()-t0))setTimeout(tick,16)})();
   }
+  walk();
+  window.addEventListener('pageshow',function(e){if(e.persisted)walk()});
   window.addEventListener('resize',function(){layout();place(Infinity)});
  }
 
@@ -271,7 +284,8 @@
   }
  }
 
- /* The coupon card of the reference, in the empty left column of the cart extras. It is not connected to Shoptet coupons. */
+ /* The coupon card, in the empty left column of the cart extras. It sends the code to Shoptet's own coupon action, shows Shoptet's
+    answer in the card (Shoptet's top messages are hidden on this site) and reloads the cart when the coupon is accepted. */
  function addCoupon(){
   var col=document.querySelector('.extras-wrapper>.extras-col');
   if(!col||col.children.length)return;
@@ -288,9 +302,45 @@
   btn.textContent='Aplikovat';
   row.appendChild(input);
   row.appendChild(btn);
+  var note=el('p','okla-coupon__note');
+  note.setAttribute('role','status');
   card.appendChild(title);
   card.appendChild(row);
+  card.appendChild(note);
   col.appendChild(card);
+  var done='';
+  try{done=sessionStorage.getItem('okla-coupon-msg')||'';sessionStorage.removeItem('okla-coupon-msg')}catch(e){}
+  if(done)couponNote(note,done,true);
+  btn.addEventListener('click',function(){applyCoupon(input,btn,note)});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();applyCoupon(input,btn,note)}});
+ }
+
+ function couponNote(note,text,ok){
+  note.textContent=text;
+  note.className='okla-coupon__note '+(ok?'is-ok':'is-error');
+ }
+
+ function applyCoupon(input,btn,note){
+  var code=input.value.trim();
+  if(!code){couponNote(note,'Zadejte kód kupónu.',false);input.focus();return}
+  if(btn.disabled)return;
+  btn.disabled=true;
+  btn.textContent='Ověřuji…';
+  var fd=new FormData();
+  fd.append('discountCouponCode',code);
+  var sh=window.shoptet||{};
+  if(sh.csrf&&sh.csrf.token)fd.append('__csrf__',sh.csrf.token);
+  var url=(sh.config&&sh.config.addDiscountCouponUrl)||'/action/Cart/addDiscountCoupon/';
+  function again(text){couponNote(note,text,false);btn.disabled=false;btn.textContent='Aplikovat'}
+  fetch(url,{method:'POST',body:fd,credentials:'same-origin'}).then(function(r){return r.text()}).then(function(html){
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   var msg=doc.querySelector('.messages .msg');
+   var text=msg?msg.textContent.replace(/\s+/g,' ').trim():'';
+   if(msg&&!msg.classList.contains('msg-error')){
+    try{sessionStorage.setItem('okla-coupon-msg',text||'Slevový kupón byl uplatněn.')}catch(e){}
+    location.reload();
+   }else again(text||'Kupón se nepodařilo uplatnit.');
+  }).catch(function(){again('Kupón se nepodařilo ověřit, zkuste to prosím znovu.')});
  }
 
  /* The heading above the extras is replaced by the cards. */

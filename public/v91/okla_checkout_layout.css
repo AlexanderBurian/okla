@@ -299,3 +299,18 @@ html body.in-krok-2 #order-form .co-billing-address,html body.in-krok-2 #order-f
 html body.in-krok-2 #order-form .co-billing-address{display:block!important}
 html body.in-krok-2 #order-form .co-billing-address>fieldset{width:100%!important;max-width:none!important;box-sizing:border-box!important}
 html body.in-krok-2 #order-form .co-billing-address>.form-group{margin-top:16px!important}
+/* Progress: each label is centred under its circle; the label had the old 40 px icon space on its left. */
+html body.ordering-process .cart-header .step{justify-content:center!important}
+html body.ordering-process .cart-header .step>a,html body.ordering-process .cart-header .step>strong{display:block!important;flex:1 1 auto!important;width:100%!important;padding:10px 0!important;margin:0!important;text-align:center!important}
+/* Focus: a thin blue outline, the same on every field (the coupon field included), no glow. */
+html body.ordering-process input:focus,html body.ordering-process select:focus,html body.ordering-process textarea:focus,html body.ordering-process input:focus-visible,html body.ordering-process textarea:focus-visible{outline:0!important}
+html body.ordering-process .form-control:focus,html body.ordering-process textarea:focus,html body.in-kosik .okla-coupon .okla-coupon__input:focus{border-color:#1f6fd8!important;box-shadow:inset 0 0 0 1px #1f6fd8!important}
+html body.in-kosik .okla-coupon .okla-coupon__input{border:1px solid transparent!important;box-sizing:border-box!important}
+/* The note field has no resize grip. */
+html body.ordering-process textarea{resize:none!important}
+/* The coupon card's answer from Shoptet. */
+html body.in-kosik .okla-coupon .okla-coupon__note{margin:10px 0 0!important;font-size:13px!important;line-height:1.4!important;text-align:center!important}
+html body.in-kosik .okla-coupon .okla-coupon__note:empty{display:none!important}
+html body.in-kosik .okla-coupon .okla-coupon__note.is-error{color:#e0112b!important}
+html body.in-kosik .okla-coupon .okla-coupon__note.is-ok{color:#4f9400!important;font-weight:600!important}
+html body.in-kosik .okla-coupon .okla-coupon__btn:disabled{opacity:.6;cursor:default}
