@@ -28,6 +28,34 @@
   return null;
  }
 
+ /* Finds a catalogue product from any product link, by its URL path. */
+ function byUrlPath(href){
+  if(!href)return null;
+  var path;try{path=new URL(href,location.origin).pathname}catch(e){return null}
+  var codes=Object.keys(catalog());
+  for(var i=0;i<codes.length;i++){
+   var p=catalog()[codes[i]];
+   if(!p||!p.url)continue;
+   try{if(new URL(p.url).pathname===path)return p}catch(e){}
+  }
+  return null;
+ }
+
+ /* The product of the card (or any block) a clicked add-to-cart button belongs to, so an add from the homepage,
+    a category or a slider shows the right product — not only an add from a product detail page. */
+ function productFromCard(startEl){
+  var card=startEl.closest&&startEl.closest('[data-micro-sku],[data-product-id],.product,.p,li.product');
+  if(!card)return null;
+  var sku=card.getAttribute&&(card.getAttribute('data-micro-sku')||card.getAttribute('data-product-code'));
+  if(sku&&byCode(sku))return byCode(sku);
+  var a=card.querySelector('a[href]');
+  if(a){var p=byUrlPath(a.getAttribute('href'));if(p)return p}
+  var nm=card.querySelector('.name,.product-name,a.name,.p-name');
+  if(nm){var q=byName(nm.textContent.replace(/\s+/g,' ').trim());if(q)return q}
+  return null;
+ }
+ var lastAdd=null;
+
  function priceText(v){
   var n=Math.round(Number(String(v).replace(/[\s ]/g,'').replace(',','.')));
   if(!isFinite(n)||n<=0)return '';
@@ -216,9 +244,28 @@
 
  function onNativeAdd(){
   if(Date.now()<pendingCartUntil)return;
-  if(!document.querySelector('.p-detail'))return;
-  var r=productFromPage();
-  show(r.item,r.amount);
+  /* Product detail page: read the product from the page. */
+  if(document.querySelector('.p-detail')){
+   var r=productFromPage();
+   show(r.item,r.amount);
+   return;
+  }
+  /* Any other page (homepage, category, slider): the product of the card whose button was just clicked. */
+  if(lastAdd&&Date.now()-lastAdd.at<6000){
+   show({code:lastAdd.code,name:lastAdd.name,image:lastAdd.image,price:lastAdd.price},lastAdd.amount||1);
+   lastAdd=null;
+  }
+ }
+
+ /* Remembers which card's add-to-cart button was clicked, so the add request that follows shows that product. */
+ function trackAddClicks(){
+  document.addEventListener('click',function(e){
+   var btn=e.target.closest&&e.target.closest('.add-to-cart-button,button.btn-cart,.btn-cart,[data-testid="buttonAddToCart"]');
+   if(!btn||btn.closest('.okla-cd'))return;
+   if(document.querySelector('.p-detail')&&btn.closest('.p-detail .p-info-wrapper'))return;
+   var p=productFromCard(btn);
+   if(p)lastAdd={code:p.code,name:p.name,image:p.image,price:p.price,amount:1,at:Date.now()};
+  },true);
  }
 
  function hookRequests(){
@@ -255,6 +302,7 @@
  function start(){
   if(!document.body)return;
   build();
+  trackAddClicks();
   hookRequests();
   hookCart();
   /* Shoptet can replace its cart object after load, so the hook is checked again every second. */

@@ -1081,7 +1081,7 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:
   var categoryPaths={
     'elektronicke multitooly':['M7 4h10a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z','M9 9h6v6H9z','M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3'],
     'chytra elektronika':['M3.5 4.5h12v11h-12z','M9.5 15.5v3M6 18.5h7','M18 7.5h3v12h-5v-12h2z','M18 17.5h1'],
-    'merici technika a naradi':['M4 4v16h16L4 4Z','M7 14v3h3M7 10v2','M14.5 5l2-2 4 4-2 2'],
+    'merici technika a naradi':['M3 6.3a1.7 1.7 0 0 1 1.7-1.7h5A1.7 1.7 0 0 1 11.4 6.3v8a1.7 1.7 0 0 1-1.7 1.7h-5A1.7 1.7 0 0 1 3 14.3Z','M4.8 6.7h4.8v3.6H4.8z','M5.3 12.8h0M7.2 12.8h0M9.1 12.8h0','M6.8 16c0 2.7 0 4.4 4 4.4 4.1 0 5.6-1.8 5.6-5.3V10','M15.6 9.3a1.7 1.7 0 1 0 2.4 2.4 1.7 1.7 0 0 0-2.4-2.4Z','M18.6 8.6l1.5-1.5M19.4 11.4l1.9.4M18.4 12.6l1.2 1.6'],
     'endoskopy a inspekcni kamery':['M4 6h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z','M9.5 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z','m17 10 5-3v10l-5-3'],
     'prakticke vychytavky':['M9 16a6.5 6.5 0 1 1 6 0c-.8.8-1.1 1.2-1.2 2H10.2c-.1-.8-.4-1.2-1.2-2Z','M10 20h4M11 22h2','M9.3 10.5a3 3 0 0 1 2.7-2.8'],
     'designove gadgety':['m12 2 1.9 7.9L22 12l-8.1 2.1L12 22l-2.1-7.9L2 12l7.9-2.1L12 2Z','m19 2 .4 2 1.6.5-1.6.5-.4 2-.5-2-1.5-.5 1.5-.5z'],
