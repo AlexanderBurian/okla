@@ -149,10 +149,10 @@ html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper lab
 html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .sublabel,html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .sublabel a{color:#6b7280!important;font-size:13px!important;font-weight:700!important;text-transform:uppercase!important;text-decoration:underline!important}
 html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-logo{display:inline-flex!important;align-items:center!important;width:auto!important;height:auto!important;background:#fff!important;border:1px solid #e5e7eb!important;border-radius:8px!important;padding:6px 10px!important;box-sizing:border-box!important}
 /* The delivery row: the text on the left, the logo in the middle, the price on the right, on one centre line. */
-html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper label{display:grid!important;grid-template-columns:minmax(0,1fr) auto auto!important;align-items:center!important;column-gap:16px!important}
-html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-info{grid-column:1!important;min-width:0!important}
-html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-logo{grid-column:2!important;margin:0!important}
-html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-shipping-price{grid-column:3!important;margin:0!important;white-space:nowrap!important}
+html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper label{display:flex!important;flex-wrap:nowrap!important;align-items:center!important;gap:16px!important}
+html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-info{flex:1 1 0!important;min-width:0!important;margin:0!important}
+html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-logo{flex:none!important;margin:0!important}
+html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-shipping-price{flex:none!important;margin:0 0 0 auto!important;white-space:nowrap!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrap{display:flex!important;flex-direction:column!important;flex:1 1 auto!important}
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon,html body.in-kosik .cart-row>.col-md-4 .extra.delivery{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
