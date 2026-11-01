@@ -289,7 +289,13 @@
  /* The goods total from the page, and the free delivery from 5 000 Kč. */
  function goodsTotal(){
   var leaf=Array.prototype.find.call(document.querySelectorAll('body *'),function(e){return e.children.length===0&&/Celkem za zboží/.test(e.textContent||'')});
-  return leaf&&leaf.parentElement?kcNumber(leaf.parentElement.textContent.replace(/Celkem za zboží/,'')):null;
+  var node=leaf;
+  for(var i=0;node&&i<4;i++){
+   var v=kcNumber(node.textContent.replace(/Celkem za zboží/,''));
+   if(v!==null)return v;
+   node=node.parentElement;
+  }
+  return null;
  }
 
  function freeShippingText(total){

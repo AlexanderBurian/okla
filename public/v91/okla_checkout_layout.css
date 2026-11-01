@@ -34,3 +34,4 @@ html body.in-krok-2 .form-control,html body.in-krok-2 input.form-control,html bo
 html body.in-krok-2 .co-contact-information fieldset,html body.in-krok-2 .co-billing-address{display:flex;flex-wrap:wrap;gap:16px 20px}
 html body.in-krok-2 .co-contact-information .form-group,html body.in-krok-2 .co-billing-address .form-group{flex:1 1 calc(50% - 10px);min-width:0;margin:0}
 html body.in-krok-2 .form-legend{text-align:left;font-size:12px;color:#6b6b6b}
+html body.ordering-process:not(.in-kosik) .radio-wrapper input[type=radio]{opacity:0!important;appearance:none!important;-webkit-appearance:none!important}
