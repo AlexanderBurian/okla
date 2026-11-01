@@ -129,7 +129,9 @@
   var hide=function(b){if(b&&!b.querySelector(keep))b.style.display='none'};
   document.querySelectorAll('body *').forEach(function(h){
    if(h.children.length>3||!/Potřebujete pomoc/.test(h.textContent||''))return;
-   hide(h.closest('.box'));
+   var bx=h.closest('.box');
+   if(bx)hide(bx);
+   else if(!h.querySelector(keep))h.style.display='none';
   });
   document.querySelectorAll('img').forEach(function(i){
    if(/cimrman|jara/i.test((i.getAttribute('alt')||'')+' '+(i.getAttribute('src')||'')))hide(i.closest('.box'));
