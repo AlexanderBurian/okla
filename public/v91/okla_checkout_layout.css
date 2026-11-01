@@ -82,5 +82,7 @@ html body.in-krok-2 #order-form .form-control-wrapper{width:297px!important;flex
 html body.in-krok-2 #order-form input.form-control{width:100%!important}
 html body.in-krok-2 #order-form .phone-combined-input{width:297px!important}
 html body.in-krok-2 #order-form .phone-combined-input input.form-control{width:auto!important;flex:1 1 auto!important;min-width:0}
+/* The customer account label has the same style as the other labels. */
+html body.in-krok-2 #order-form .form-group--inline>.label{font-size:12px!important;font-weight:700!important;text-transform:uppercase!important;letter-spacing:.04em}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
