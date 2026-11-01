@@ -196,6 +196,20 @@
   });
  }
 
+ /* The parcel: a box that starts at the first step and slides along the track to the current step. */
+ function addParcel(){
+  var ol=document.querySelector('.cart-header');
+  if(!ol||ol.querySelector('.okla-parcel'))return;
+  var box=document.createElement('div');
+  box.className='okla-parcel';
+  box.setAttribute('aria-hidden','true');
+  box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 5 42 14 24 23 6 14Z" fill="#e2bc8e"/><path d="M6 14 24 23 24 43 6 34Z" fill="#b98a57"/><path d="M42 14 24 23 24 43 42 34Z" fill="#9c6e42"/><path d="M24 5 42 14 42 17 24 8 6 17 6 14Z" fill="#f4ead8"/><path d="M24 23v20" stroke="#7c5632" stroke-width="1" fill="none"/></svg>';
+  ol.appendChild(box);
+  ol.style.setProperty('--pos','16.6667%');
+  box.getBoundingClientRect();
+  ol.style.removeProperty('--pos');
+ }
+
  function init(){
   restoreHeader();
   hideHelpBox();
@@ -203,6 +217,7 @@
   hideEmptyShells();
   addPaymentIcons();
   addQuantityButtons();
+  addParcel();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();
