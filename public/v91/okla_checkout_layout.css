@@ -241,3 +241,7 @@ html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::be
 }
 /* Shoptet caps each card column at 350 px on wide screens and indents the second by 20 px; both columns take the full width of the summary. */
 html body.in-kosik .extras-wrapper>.extras-col{width:100%!important;max-width:none!important;min-width:0!important;flex:none!important;margin:0!important;padding:0!important}
+/* Cart: the remove button sits a little further right; plus and minus have no circle behind them, only the sign. */
+html body.in-kosik tr.removeable .remove-item{margin-right:-22px!important}
+html body.in-kosik .quantity-form .okla-qty,html body.in-kosik .quantity-form .okla-qty:hover,html body.in-kosik .quantity-form .okla-qty:focus{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+html body.in-kosik .quantity-form .okla-qty:hover{color:#1f6fd8!important}
