@@ -22,7 +22,7 @@ modules.push('okla_v86_catalog.js');
 if(isDetail) modules.push('content-v91/layout.css','content-v91/catalog.js');
 if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
 modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js');
-modules.push('v91/okla_search.css','v91/okla_search.js');
+modules.push('v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js');
 if(isDetail) modules.push('v91/okla_detail_mobile.css');
 modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js'); if(document.body&&document.body.classList.contains('ordering-process')) modules.push('v91/okla_checkout.css','v91/okla_cart.css','v91/okla_checkout_ui.css','v91/okla_parcel.css','v91/okla_cart_refine.css','v91/okla_checkout_layout.css','v91/okla_checkout_ui.js');modules.push('okla_footer.js');
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
