@@ -301,18 +301,19 @@
   });
  }
 
- /* Section icons of the reference: truck, wallet, user and signpost. */
+ /* Section icons, one line style for every heading: truck, wallet, user, location pin and house. */
  var SECTION_ICONS={
   'co-delivery-method':'<path d="M2.5 6.5h11.5v10H2.5z"/><path d="M14 10h4.2l3.3 3.5V16.5H14"/><circle cx="6.5" cy="17.5" r="1.9"/><circle cx="17.5" cy="17.5" r="1.9"/>',
   'co-payment-method':'<path d="M3 7.5h16.5a1.5 1.5 0 0 1 1.5 1.5v9.5a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 18.5z"/><path d="M3 7.5 5.5 4.5h11"/><circle cx="16.5" cy="13" r="1.3"/>',
   'co-contact-information':'<circle cx="12" cy="8" r="3.8"/><path d="M4.5 20.5c.9-4 4-6.3 7.5-6.3s6.6 2.3 7.5 6.3"/>',
-  'co-billing-address':'<path d="M9 3v18"/><path d="M9 5h10l2.5 2.5L19 10H9"/><path d="M9 13H4l-2 2 2 2h5"/>'
+  'co-billing-address':'<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/>',
+  'co-shipping-address':'<path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5h4v5"/>'
  };
 
  function addSectionIcons(){
   Object.keys(SECTION_ICONS).forEach(function(cls){
    var box=document.querySelector('.'+cls);
-   var h=box&&box.querySelector(':scope>h2');
+   var h=box&&box.querySelector(':scope>h2,:scope>fieldset>h2');
    if(!h||h.querySelector('.okla-h-icon'))return;
    var span=el('span','okla-h-icon');
    span.setAttribute('aria-hidden','true');

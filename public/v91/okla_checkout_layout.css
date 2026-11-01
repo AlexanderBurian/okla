@@ -272,3 +272,26 @@ html body.in-kosik .quantity-form .okla-qty:hover{color:#1f6fd8!important}
  html body.in-kosik .quantity-form input.amount{width:32px!important}
  html body.in-kosik .quantity-form .okla-qty{width:30px!important;height:32px!important}
 }
+/* Contact step: every section heading has the same line pictogram and the same type, the billing one included. */
+html body.in-krok-2 #order-form .co-contact-information>h2,html body.in-krok-2 #order-form .co-billing-address>fieldset>h2,html body.in-krok-2 #order-form .co-shipping-address>h2{display:flex!important;align-items:center!important;gap:12px!important;margin:0 0 18px!important;padding:0!important;border:0!important;background:none!important;font-family:"Exo 2",Roboto,sans-serif!important;font-size:22px!important;font-weight:700!important;line-height:1.2!important;text-transform:uppercase!important;letter-spacing:0!important;color:#0b2540!important;text-align:left!important;width:auto!important}
+html body.in-krok-2 #order-form h2::before{content:none!important;display:none!important}
+html body.in-krok-2 #order-form .okla-h-icon{width:36px!important;height:36px!important;flex:none!important;display:inline-flex!important}
+html body.in-krok-2 #order-form .okla-h-icon svg{width:36px!important;height:36px!important;fill:none!important;stroke:#0b2540!important;stroke-width:1.6!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+/* Contact step: the form is laid out in width, not height: two fields side by side, each label above its input. */
+html body.in-krok-2 #order-form .co-contact-information,html body.in-krok-2 #order-form .co-billing-address>fieldset,html body.in-krok-2 #order-form #company-info,html body.in-krok-2 #order-form .co-shipping-address .form-option-block{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:20px!important;row-gap:16px!important;align-items:start!important}
+html body.in-krok-2 #order-form .co-contact-information>*,html body.in-krok-2 #order-form .co-billing-address>fieldset>*,html body.in-krok-2 #order-form #company-info>*,html body.in-krok-2 #order-form .co-shipping-address .form-option-block>*{grid-column:1/-1;margin:0!important}
+html body.in-krok-2 #order-form .co-contact-information>.form-group.smart-label-wrapper,html body.in-krok-2 #order-form .co-billing-address>fieldset>.form-group.smart-label-wrapper,html body.in-krok-2 #order-form #company-info>.form-group,html body.in-krok-2 #order-form .co-shipping-address .form-option-block>.form-group{grid-column:auto!important}
+html body.in-krok-2 #order-form #company-info.js-hidden{display:none!important}
+html body.in-krok-2 #order-form .co-contact-information>input[type=hidden],html body.in-krok-2 #order-form .co-billing-address>fieldset>input[type=hidden],html body.in-krok-2 #order-form .co-contact-information>.sr-only{display:none!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline:not(:has(>input[type=checkbox])){display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:6px!important;width:auto!important;max-width:none!important;flex:none!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline>label,html body.in-krok-2 #order-form .form-group.form-group--inline>.label{position:static!important;width:auto!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important;text-align:left!important;flex:none!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline .form-control-wrapper{width:100%!important;max-width:none!important;min-width:0!important;flex:none!important;margin:0!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline input.form-control,html body.in-krok-2 #order-form .form-group.form-group--inline select.form-control,html body.in-krok-2 #order-form .form-group.form-group--inline textarea.form-control{width:100%!important;max-width:none!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline .phone-combined-input{width:100%!important;max-width:none!important;display:flex!important;align-items:center!important;gap:8px!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline .phone-combined-input input.form-control{flex:1 1 auto!important;width:auto!important;min-width:0!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline:has(.login-button){flex-direction:row!important;align-items:center!important;gap:20px!important}
+html body.in-krok-2 #order-form .co-billing-address,html body.in-krok-2 #order-form .co-contact-information{margin-bottom:32px!important}
+@media(max-width:767px){
+ html body.in-krok-2 #order-form .co-contact-information,html body.in-krok-2 #order-form .co-billing-address>fieldset,html body.in-krok-2 #order-form #company-info,html body.in-krok-2 #order-form .co-shipping-address .form-option-block{grid-template-columns:minmax(0,1fr)!important}
+ html body.in-krok-2 #order-form .form-group.form-group--inline:has(.login-button){flex-direction:column!important;align-items:flex-start!important;gap:8px!important}
+}
