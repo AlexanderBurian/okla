@@ -170,6 +170,8 @@
   root.classList.remove('is-open');
   root.setAttribute('aria-hidden','true');
   document.documentElement.classList.remove('okla-cd-lock');
+  /* The scrollbar comes back, so the page is a little narrower again: measured layouts are told to update. */
+  window.dispatchEvent(new Event('resize'));
  }
 
  function settle(result,done,failed){
