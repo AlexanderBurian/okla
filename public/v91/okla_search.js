@@ -6,7 +6,7 @@
  if(window.__oklaSearchV1)return;
  window.__oklaSearchV1=true;
 
- var POPULAR_TERMS=['Flipper Zero','ESP32','Chytré brýle','Endoskop','Projektor','Termokamera'];
+ var POPULAR_TERMS=['Flipper Zero','ESP32','Chytré brýle','Endoskop','Projektor'];
  var POPULAR_CODES=['OKL-001','OKL-030','OKL-006','OKL-020','OKL-004','OKL-032'];
  var HOT=3;
  var MAX_RESULTS=6;
