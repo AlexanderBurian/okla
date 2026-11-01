@@ -75,25 +75,30 @@
   }
  }
 
- /* The cart link is copied from the homepage markup, because the ordering template has none. */
+ /* The cart link is copied from the homepage markup, because the ordering template has none. With the cart in place the
+    homepage's own header code builds the icons, separators and spacing, so the header is the same as on the homepage. */
  function restoreHeader(){
   var nav=document.querySelector('#header .header-top>.navigation-buttons');
   if(!nav)return;
-  var row=nav.querySelector('.okla-exact-header');
-  if(!row)return;
-  var cart=nav.querySelector('a.cart-count')||row.querySelector('a.cart-count');
-  if(cart){
+  function finish(cart){
+   if(typeof window.oklaHeaderRefresh==='function'){
+    /* The homepage code inserts the icons right before the cart, so the cart is a direct child of the bar first. */
+    nav.appendChild(cart);
+    window.oklaHeaderRefresh();
+    return;
+   }
+   var row=nav.querySelector('.okla-exact-header');
+   if(!row)return;
    if(!row.contains(cart))row.appendChild(cart);
    buildIcons(row,cart);
-   return;
   }
+  var cart=nav.querySelector('a.cart-count');
+  if(cart){finish(cart);return}
   fetch('/',{credentials:'same-origin'}).then(function(r){return r.text()}).then(function(html){
    var doc=new DOMParser().parseFromString(html,'text/html');
    var src=doc.querySelector('#header .header-top>.navigation-buttons a.cart-count');
-   if(!src||row.querySelector('a.cart-count'))return;
-   var c=document.importNode(src,true);
-   row.appendChild(c);
-   buildIcons(row,c);
+   if(!src||nav.querySelector('a.cart-count'))return;
+   finish(document.importNode(src,true));
   }).catch(function(){});
  }
 

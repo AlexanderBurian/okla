@@ -1247,4 +1247,6 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:
   function onResize(){syncOklaExactHeader();sliderInstances.forEach(function(s){s.resize();});alignCategoryIcons();alignSidebarChrome();alignWarrantyStrip();syncHeroHeight();syncCarousel();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bootstrap);else bootstrap();
   window.addEventListener('load',function(){updateOklaHeader();syncOklaExactHeader();refineOklaHeader();initHomepage();insertWarrantyBlock();alignWarrantyStrip();oklaInsertFavoriteButtons();alignCategoryIcons();alignSidebarChrome();sliderInstances.forEach(function(s){s.resize();});syncHeroHeight();syncCarousel();});window.addEventListener('resize',onResize,{passive:true});
+  // The ordering pages add their cart link later; they call this to build the same header as the homepage.
+  window.oklaHeaderRefresh=function(){updateOklaHeader();syncOklaExactHeader();refineOklaHeader();};
 })();
