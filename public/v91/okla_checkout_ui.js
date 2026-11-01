@@ -234,11 +234,11 @@
    ol.style.setProperty('--pos',v+'px');
    return t>=(segs.length?segs[segs.length-1].start+DUR:0);
   }
-  layout();
-  /* Set before the box is inserted, so the box starts on its step and does not slide in from the default position. */
-  ol.style.setProperty('--pos',stops[0]+'px');
   ol.appendChild(box);
   box.getBoundingClientRect();
+  /* Measured after the layout is forced, so the stops are the real step centres. */
+  layout();
+  ol.style.setProperty('--pos',stops[0]+'px');
   var arrive=idx?400+(idx-1)*2600+2400:0;
   box.style.animationDelay=((arrive+300)/1000)+'s';
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
