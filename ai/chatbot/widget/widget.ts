@@ -306,7 +306,7 @@ import {
         .launcher {
           left: -17.1px;
           right: auto;
-          top: clamp(110px, 73dvh, calc(100dvh - 110px));
+          top: clamp(170px, 82dvh, calc(100dvh - 78px));
           bottom: auto;
           width: 39.6px;
           height: 70.2px;
@@ -316,9 +316,19 @@ import {
           background: linear-gradient(160deg, #254daa 4%, #38369c 50%, #6d2d96 100%);
           color: #fff;
           box-shadow: 3.5px 5px 12px rgba(22, 25, 72, .3);
-          transform: translateY(-50%);
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transform: translateY(-50%) translateX(-110%);
           transform-origin: center;
-          transition: opacity .18s ease, transform .18s ease, visibility 0s, box-shadow .18s ease;
+          transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .28s, box-shadow .18s ease;
+        }
+        :host(.mobile-launcher-visible) .launcher {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+          transform: translateY(-50%) translateX(0);
+          transition: opacity .2s ease, transform .28s cubic-bezier(.22, 1, .36, 1), visibility 0s, box-shadow .18s ease;
         }
         .launcher:hover {
           border-color: #fff;
@@ -339,12 +349,13 @@ import {
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          right: 2.7px;
+          left: calc(50% + 8.55px);
+          right: auto;
           display: block;
           width: 14.4px;
           height: 14.4px;
           border-radius: 0;
-          transform: translateY(-50%);
+          transform: translate(-50%, -50%);
         }
         .launcher.mobile-glyph-fallback::after { display: grid; }
         .panel.open + .launcher {
@@ -449,6 +460,19 @@ import {
   let controller: AbortController | null = null;
   let focusTimer: ReturnType<typeof setTimeout> | undefined;
   let lifecycle = 0;
+  const mobileLauncherMedia = window.matchMedia("(max-width: 466px)");
+
+  function syncMobileLauncherVisibility() {
+    const revealAfter = Math.min(520, Math.max(320, window.innerHeight * .55));
+    const visible = !mobileLauncherMedia.matches
+      || window.scrollY >= revealAfter
+      || panel.classList.contains("open");
+    host.classList.toggle("mobile-launcher-visible", visible);
+  }
+
+  window.addEventListener("scroll", syncMobileLauncherVisibility, { passive: true });
+  mobileLauncherMedia.addEventListener("change", syncMobileLauncherVisibility);
+  syncMobileLauncherVisibility();
 
   function setOpen(open: boolean) {
     panel.classList.toggle("open", open);
@@ -458,6 +482,7 @@ import {
     if (focusTimer !== undefined) clearTimeout(focusTimer);
     if (open) focusTimer = setTimeout(() => input.focus(), 180);
     else launcher.focus();
+    syncMobileLauncherVisibility();
   }
 
   function scrollDown() { messages.scrollTop = messages.scrollHeight; }
@@ -738,6 +763,8 @@ import {
     deliveryReceipt.cancel();
     typingIndicator.hide();
     if (focusTimer !== undefined) clearTimeout(focusTimer);
+    window.removeEventListener("scroll", syncMobileLauncherVisibility);
+    mobileLauncherMedia.removeEventListener("change", syncMobileLauncherVisibility);
   };
   showWelcome();
 })();

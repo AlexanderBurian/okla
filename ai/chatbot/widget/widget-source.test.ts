@@ -26,6 +26,11 @@ describe("geometrie widgetu", () => {
     expect(source).toContain("width: 39.6px;");
     expect(source).toContain("height: 70.2px;");
     expect(source).toContain("border: 1.8px solid #fff;");
+    expect(source).toContain("top: clamp(170px, 82dvh, calc(100dvh - 78px));");
+    expect(source).toContain("left: calc(50% + 8.55px);");
+    expect(source).toContain(":host(.mobile-launcher-visible) .launcher");
+    expect(source).toContain("window.scrollY >= revealAfter");
+    expect(source).toContain("window.addEventListener(\"scroll\", syncMobileLauncherVisibility, { passive: true })");
     expect(source).toContain(".launcher:hover {");
     expect(source).toContain(".launcher:focus-visible {");
     expect(source).toContain(".launcher:active {");
