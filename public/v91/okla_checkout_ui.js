@@ -243,7 +243,8 @@
   var target=null;
   Array.prototype.forEach.call(rows,function(row){
    var keep=keepRe.test(row.textContent||'');
-   row.style.display=keep?'':'none';
+   if(keep)row.style.removeProperty('display');
+   else row.style.setProperty('display','none','important');
    if(keep&&!target)target=row;
   });
   var checked=document.querySelector('.co-delivery-method .radio-wrapper input:checked');
