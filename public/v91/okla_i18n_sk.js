@@ -5,6 +5,7 @@
  attrRules:[[/^Do košíku (.+)$/,'Do košíka '],[/^Přidat do košíku (.+)$/,'Pridať do košíka '],[/^Zobrazit kategorii (.+)$/,'Zobraziť kategóriu '],[/^(.+) hlavní obrázek$/,'',' – hlavný obrázok']],
  cardMore:'...',
  dict:{
+  'Váš nákupní košík je prázdný':'Váš nákupný košík je prázdny','Podívejte se na naši nabídku':'Pozrite si našu ponuku',
   'Přejít na obsah':'Prejsť na obsah','Přihlášení k vašemu účtu':'Prihlásenie do vášho účtu','E-mail':'E-mail','Heslo':'Heslo',
   'Nevyplňujte toto pole':'Toto pole nevypĺňajte','Přihlásit se':'Prihlásiť sa','Nová registrace':'Nová registrácia',
   'Zapomenuté heslo':'Zabudnuté heslo','Pokračovat do košíku':'Pokračovať do košíka','Zákaznická podpora:':'Zákaznícka podpora:',

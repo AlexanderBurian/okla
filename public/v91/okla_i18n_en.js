@@ -5,6 +5,7 @@
  attrRules:[[/^Do košíku (.+)$/,'Add to cart '],[/^Přidat do košíku (.+)$/,'Add to cart '],[/^Zobrazit kategorii (.+)$/,'Show the category '],[/^(.+) hlavní obrázek$/,'',' – main image']],
  cardMore:'...',
  dict:{
+  'Váš nákupní košík je prázdný':'Your shopping cart is empty','Podívejte se na naši nabídku':'Have a look at our range',
   'Přejít na obsah':'Skip to content','Přihlášení k vašemu účtu':'Sign in to your account','E-mail':'Email','Heslo':'Password',
   'Nevyplňujte toto pole':'Leave this field empty','Přihlásit se':'Sign in','Nová registrace':'Create an account',
   'Zapomenuté heslo':'Forgotten password','Pokračovat do košíku':'Go to cart','Zákaznická podpora:':'Customer support:',

@@ -1,4 +1,4 @@
-/* OKLA languages: Czech (the shop's own language), English and Slovak. The choice is made in the header (the flag) and
+/* OKLA languages: Czech (the shop's own language), English, Slovak and Hungarian. The choice is made in the header (the flag) and
    in the footer ("Jazyk webu") and remembered in the browser. A chosen language other than Czech is applied in place:
    its pack (okla_i18n_<lang>.js) translates the texts, field hints, labels and Shoptet's messages, and its product file
    (okla_i18n_products_<lang>.js) the product names, descriptions and specifications. Content added later (the cart
@@ -9,9 +9,9 @@
  window.__oklaI18nV1=true;
 
  var KEY='okla-lang';
- var LANGS=['cs','en','sk'];
- var LABEL={cs:'Čeština',en:'English',sk:'Slovenčina'};
- var HTML_LANG={cs:'cs',en:'en',sk:'sk'};
+ var LANGS=['cs','en','sk','hu'];
+ var LABEL={cs:'Čeština',en:'English',sk:'Slovenčina',hu:'Magyar'};
+ var HTML_LANG={cs:'cs',en:'en',sk:'sk',hu:'hu'};
  var root=document.documentElement;
  var base=(document.currentScript&&document.currentScript.src||'').split(/[?#]/)[0].replace(/[^/]*$/,'');
 
@@ -196,6 +196,7 @@
  /* ---------- The switches: the flag in the header and "Jazyk webu" in the footer ---------- */
  var NS='http://www.w3.org/2000/svg';
  var FLAGS={
+  hu:'<rect width="32" height="11" fill="#ce2939"/><rect y="10.6" width="32" height="10.8" fill="#fff"/><rect y="21.3" width="32" height="10.7" fill="#477050"/>',
   cs:'<rect width="32" height="32" fill="#fff"/><rect y="16" width="32" height="16" fill="#e0112b"/><path d="M0 0 17 16 0 32Z" fill="#0b2540"/>',
   en:'<rect width="32" height="32" fill="#012169"/><path d="M-4 0 36 32M36 0-4 32" stroke="#fff" stroke-width="6"/><path d="M-4 0 36 32M36 0-4 32" stroke="#c8102e" stroke-width="2.4"/><path d="M16 0v32M0 16h32" stroke="#fff" stroke-width="9"/><path d="M16 0v32M0 16h32" stroke="#c8102e" stroke-width="5"/>',
   sk:'<rect width="32" height="11" fill="#fff"/><rect y="10.6" width="32" height="10.8" fill="#0b4ea2"/><rect y="21.3" width="32" height="10.7" fill="#ee1c25"/><path d="M6.5 8.5h11v9.2c0 4-3 6.3-5.5 7.3-2.5-1-5.5-3.3-5.5-7.3Z" fill="#ee1c25" stroke="#fff" stroke-width="1"/><path d="M11.3 10.6h1.4v2.4h2.4v1.3h-2.4v1.4h3.1v1.3h-3.1v2.6h-1.4V17H8.2v-1.3h3.1v-1.4H8.9V13h2.4Z" fill="#fff"/><path d="M7.6 21.2c1-1.6 2.5-1.7 3.2-.6.7-1.3 1.7-1.3 2.4 0 .7-1.1 2.2-1 3.2.6-1.4 1.5-3 2.6-4.4 3.2-1.4-.6-3-1.7-4.4-3.2Z" fill="#0b4ea2"/>'
