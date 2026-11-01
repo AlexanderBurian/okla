@@ -7,7 +7,7 @@
 
  var root=null;
  var hooked={request:false};
- var pendingCartCode=null;
+ var pendingCartUntil=0;
 
  function catalog(){return window.OKLA_V86_CATALOG||{}}
  function byCode(code){return code?catalog()[code]||null:null}
@@ -174,11 +174,10 @@
    var code=opts&&opts.productCode;
    var amount=(opts&&opts.amount)||1;
    var p=byCode(code);
-   if(p)pendingCartCode=code;
+   if(p)pendingCartUntil=Date.now()+4000;
    var result=original.apply(this,arguments);
    if(p){
-    var clear=function(){pendingCartCode=null};
-    settle(result,function(){clear();show({code:p.code,name:p.name,image:p.image,price:p.price},amount)},clear);
+    settle(result,function(){show({code:p.code,name:p.name,image:p.image,price:p.price},amount)});
    }
    return result;
   };
@@ -201,7 +200,7 @@
  }
 
  function onNativeAdd(){
-  if(pendingCartCode)return;
+  if(Date.now()<pendingCartUntil)return;
   if(!document.querySelector('.p-detail'))return;
   var r=productFromPage();
   show(r.item,r.amount);
