@@ -318,3 +318,11 @@ html body.in-kosik .okla-coupon .okla-coupon__btn:disabled{opacity:.6;cursor:def
 html body.ordering-process #content .cart-header li.step>a[href],html body.ordering-process #content .cart-header li.step>strong{padding:10px 0!important;padding-left:0!important;padding-right:0!important;text-align:center!important;width:100%!important;transition:color .2s ease!important}
 /* Progress on phones: the step has no side padding (it was 20 px left and 60 px right), so the label is centred under the circle. */
 html body.ordering-process #content .cart-header li.step{padding-left:0!important;padding-right:0!important}
+/* Cart: the remove cross has no circle behind it and sits further right; it fades a little on hover. */
+html body.in-kosik table.cart-table tr.removeable .remove-item,html body.in-kosik table.cart-table tr.removeable .remove-item:hover,html body.in-kosik table.cart-table tr.removeable .remove-item:focus{background:transparent!important;box-shadow:none!important;border:0!important}
+html body.in-kosik table.cart-table tr.removeable .remove-item{margin-right:-32px!important}
+html body.in-kosik table.cart-table tr.removeable .remove-item::before{transition:opacity .15s ease}
+html body.in-kosik table.cart-table tr.removeable .remove-item:hover::before{opacity:.55}
+@media(max-width:767px){
+ html body.in-kosik table.cart-table tr.removeable .remove-item{margin-right:-10px!important}
+}
