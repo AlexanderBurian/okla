@@ -35,3 +35,10 @@ body.in-kosik .next-step-back{background:#fff;border:1px solid #0b2540;color:#0b
  body.in-kosik .p-quantity{grid-column:2}
  body.in-kosik .p-total{grid-column:3;grid-row:1;align-self:start}
 }
+body.in-kosik table.cart-table td.cart-p-image{width:110px}
+body.in-kosik table.cart-table td.p-name{width:auto!important}
+body.in-kosik table.cart-table td.p-availability{width:120px}
+body.in-kosik table.cart-table td.p-quantity{width:170px}
+body.in-kosik table.cart-table td.p-price{width:110px}
+body.in-kosik table.cart-table td.p-total{width:130px}
+body.ordering-process .cart-header *{border:0!important;box-shadow:none!important}
