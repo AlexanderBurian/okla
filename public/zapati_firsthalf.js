@@ -24,6 +24,7 @@ modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile
 if(isDetail) modules.push('v91/okla_detail_mobile.css');
 modules.push('okla_footer.js');
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
+ if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
 var index=0;
 function next(){
  if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';return}

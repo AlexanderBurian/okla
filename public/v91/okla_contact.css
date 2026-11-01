@@ -1,0 +1,23 @@
+/* Kontakty: contact form in the layout of the reference (label on the left, field on the right, navy button). */
+body.in-kontakty #content h1{font-size:30px;font-weight:600;color:#0b2540;margin:0 0 12px}
+body.in-kontakty #formContact{max-width:760px;width:100%;margin:28px 0 0}
+body.in-kontakty #formContact fieldset{border:0;margin:0;padding:0;min-width:0}
+body.in-kontakty #formContact .form-group{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 28px;align-items:start;margin:0 0 22px}
+body.in-kontakty #formContact .form-group > label{margin:0;padding-top:13px;font-size:15px;line-height:1.4;font-weight:500;color:#1d2433}
+body.in-kontakty #formContact .required-asterisk{color:#103e76;margin-left:2px}
+body.in-kontakty #formContact .form-control{width:100%;height:48px;padding:0 14px;border:1px solid #d7dde6;border-radius:10px;background:#fff;box-shadow:none;font-size:15px;color:#1d2433}
+body.in-kontakty #formContact textarea.form-control{height:150px;padding:12px 14px;resize:vertical}
+body.in-kontakty #formContact .form-control:focus{border-color:#103e76;box-shadow:0 0 0 3px rgba(16,62,118,.12);outline:0}
+body.in-kontakty #formContact .consents{display:block;margin:-6px 0 28px 228px}
+body.in-kontakty #formContact .consents .label{margin:0;font-size:13px;line-height:1.5;color:#6b7280}
+body.in-kontakty #formContact .consents .label a{color:#103e76}
+body.in-kontakty #formContact .submit-wrapper{display:flex;justify-content:flex-end;margin:8px 0 0}
+body.in-kontakty #formContact .submit-wrapper .btn{height:48px;min-width:140px;padding:0 32px;border:0;border-radius:10px;background:#0b2540;color:#fff;font-size:15px;font-weight:600;text-transform:none;box-shadow:none}
+body.in-kontakty #formContact .submit-wrapper .btn:hover{background:#103e76;color:#fff}
+@media(max-width:540px){
+ body.in-kontakty #formContact .form-group{grid-template-columns:minmax(0,1fr);gap:6px;margin-bottom:18px}
+ body.in-kontakty #formContact .form-group > label{padding-top:0}
+ body.in-kontakty #formContact .consents{margin:-4px 0 22px 0}
+ body.in-kontakty #formContact .submit-wrapper{justify-content:stretch}
+ body.in-kontakty #formContact .submit-wrapper .btn{width:100%}
+}
