@@ -289,9 +289,9 @@ html body.in-krok-2 #order-form .form-group.form-group--inline .form-control-wra
 html body.in-krok-2 #order-form .form-group.form-group--inline input.form-control,html body.in-krok-2 #order-form .form-group.form-group--inline select.form-control,html body.in-krok-2 #order-form .form-group.form-group--inline textarea.form-control{width:100%!important;max-width:none!important}
 html body.in-krok-2 #order-form .form-group.form-group--inline .phone-combined-input{width:100%!important;max-width:none!important;display:flex!important;align-items:center!important;gap:8px!important}
 html body.in-krok-2 #order-form .form-group.form-group--inline .phone-combined-input input.form-control{flex:1 1 auto!important;width:auto!important;min-width:0!important}
-html body.in-krok-2 #order-form .form-group.form-group--inline:has(.login-button){flex-direction:row!important;align-items:center!important;gap:20px!important}
+html body.in-krok-2 #order-form .form-group.form-group--inline:not(:has(>input[type=checkbox])):has(.login-button){flex-direction:row!important;align-items:center!important;gap:20px!important}
 html body.in-krok-2 #order-form .co-billing-address,html body.in-krok-2 #order-form .co-contact-information{margin-bottom:32px!important}
 @media(max-width:767px){
  html body.in-krok-2 #order-form .co-contact-information,html body.in-krok-2 #order-form .co-billing-address>fieldset,html body.in-krok-2 #order-form #company-info,html body.in-krok-2 #order-form .co-shipping-address .form-option-block{grid-template-columns:minmax(0,1fr)!important}
- html body.in-krok-2 #order-form .form-group.form-group--inline:has(.login-button){flex-direction:column!important;align-items:flex-start!important;gap:8px!important}
+ html body.in-krok-2 #order-form .form-group.form-group--inline:not(:has(>input[type=checkbox])):has(.login-button){flex-direction:column!important;align-items:flex-start!important;gap:8px!important}
 }
