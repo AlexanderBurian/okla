@@ -245,3 +245,18 @@ html body.in-kosik .extras-wrapper>.extras-col{width:100%!important;max-width:no
 html body.in-kosik tr.removeable .remove-item{margin-right:-22px!important}
 html body.in-kosik .quantity-form .okla-qty,html body.in-kosik .quantity-form .okla-qty:hover,html body.in-kosik .quantity-form .okla-qty:focus{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
 html body.in-kosik .quantity-form .okla-qty:hover{color:#1f6fd8!important}
+/* Cart on phones: each product is a small card that fits the screen: the picture on the left, the name and availability beside it,
+   then the amount, with the total and the remove button on the right. Nothing runs past the edge. */
+@media(max-width:767px){
+ html body.in-kosik table.cart-table,html body.in-kosik table.cart-table>tbody{display:block!important;width:100%!important;max-width:100%!important;table-layout:auto!important}
+ html body.in-kosik table.cart-table tr.removeable{display:grid!important;grid-template-columns:72px minmax(0,1fr) auto!important;column-gap:12px!important;row-gap:8px!important;align-items:center!important;width:100%!important;padding:16px 0!important;border-bottom:1px solid #e6ebf2!important;box-sizing:border-box!important}
+ html body.in-kosik table.cart-table tr.removeable>td{display:block!important;width:auto!important;max-width:none!important;min-width:0!important;padding:0!important;margin:0!important;border:0!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(1){grid-column:1!important;grid-row:1/span 3!important;align-self:start!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(1) img{width:72px!important;height:auto!important;max-width:72px!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(2){grid-column:2/4!important;grid-row:1!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(3){grid-column:2/4!important;grid-row:2!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(4){grid-column:2!important;grid-row:3!important;justify-self:start!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(5){display:none!important}
+ html body.in-kosik table.cart-table tr.removeable>td:nth-child(6){grid-column:3!important;grid-row:3!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;white-space:nowrap!important}
+ html body.in-kosik table.cart-table tr.removeable .remove-item{margin-right:0!important;flex:none!important}
+}
