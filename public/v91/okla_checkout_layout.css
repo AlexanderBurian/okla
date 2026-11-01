@@ -92,10 +92,10 @@ html body.in-kosik .cart-summary{padding-left:0!important;padding-right:0!import
 html body.in-kosik .extras-wrapper{margin-left:0!important;width:100%!important}
 html body.in-kosik table.cart-table{table-layout:fixed!important;width:100%!important}
 html body.in-kosik table.cart-table tr>*:nth-child(1){width:88px!important;max-width:88px!important}
-html body.in-kosik table.cart-table tr>*:nth-child(2){width:162px!important;max-width:162px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(2){width:152px!important;max-width:152px!important}
 html body.in-kosik table.cart-table tr>*:nth-child(3){width:80px!important;max-width:80px!important}
 html body.in-kosik table.cart-table tr>*:nth-child(4){width:150px!important;max-width:150px!important}
-html body.in-kosik table.cart-table tr>*:nth-child(6){width:105px!important;max-width:105px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(6){width:115px!important;max-width:115px!important}
 html body.in-kosik tr.removeable .quantity{padding:0!important;width:auto!important;min-width:0!important;margin:0!important}
 html body.in-kosik .quantity-form .quantity label{padding:0 6px!important}
 /* No red text: the coupon title, the field labels and the required markers are dark. */
@@ -115,6 +115,12 @@ html body.ordering-process:not(.in-kosik) .next-step .btn.next-step-finish{heigh
 html body.ordering-process:not(.in-kosik) .next-step-finish .order-button-text,html body.ordering-process:not(.in-kosik) .next-step-finish .order-button-suffix{display:block!important;position:static!important;margin:0!important;line-height:1.25!important}
 html body.in-krok-2 #order-form .form-group{margin:0 0 16px!important}
 html body.in-krok-1 .cart-header .step-2::after,html body.in-krok-2 .cart-header .step-3::after{display:none!important}
+/* The cart cells keep a gap from each other; the coupon field keeps its placeholder inside the field. */
+html body.in-kosik table.cart-table tr>*:nth-child(1){padding-right:8px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(2){padding-left:8px!important;padding-right:8px!important}
+html body.in-kosik table.cart-table tr>*:nth-child(6){padding-left:14px!important}
+html body.in-kosik .okla-coupon__input{font-size:13px!important;padding:0 10px!important}
+html body.in-kosik .okla-coupon__btn{padding:0 12px!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
