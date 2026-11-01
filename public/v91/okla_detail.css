@@ -389,3 +389,12 @@ html body.ok89-detail #content .p-detail .ok86-benefits a{color:#16478B!importan
 html body.ok89-detail #content .p-detail .ok86-benefits a:hover{text-decoration:underline!important}
 /* 8bf. Favourites are not offered on this shop. The button was still visible on some pages, so the rule no longer depends on the .p-detail wrapper. */
 html body.ok89-detail .okla-detail-favorite{display:none!important}
+
+/* Parametry tab: product data as a striped two-column table, label grey on the left, value dark on the right. */
+#ok86-parameters .ok86-params-title{font-size:28px;font-weight:500;line-height:1.25;color:#1d1d1d;margin:0 0 20px}
+#ok86-parameters table.detail-parameters{width:100%;border-collapse:collapse;margin:0}
+#ok86-parameters table.detail-parameters tr:nth-child(odd){background:#f5f6f7}
+#ok86-parameters table.detail-parameters th,#ok86-parameters table.detail-parameters td{padding:14px 16px;text-align:left;vertical-align:top;border:0;font-size:15px;line-height:1.4}
+#ok86-parameters table.detail-parameters th{width:32%;color:#6b6b6b;font-weight:400}
+#ok86-parameters table.detail-parameters td{color:#1d1d1d;font-weight:400}
+#ok86-parameters table.detail-parameters .row-header-label-colon{display:none}

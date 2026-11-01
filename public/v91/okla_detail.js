@@ -62,7 +62,7 @@
   var disc=q('li[data-testid="tabDiscussion"]',tabs);if(disc)tabs.insertBefore(li,disc);else tabs.append(li);
   var panel=el('div','tab-pane fade');panel.id='ok86-parameters';panel.setAttribute('role','tabpanel');
   var ext=native.closest('.extended-description');var heading=ext&&ext.querySelector('h3');if(heading)heading.remove();
-  panel.append(native);if(ext&&!ext.children.length)ext.remove();content.append(panel);
+  panel.append(el('h2','ok86-params-title','Parametry'),native);if(ext&&!ext.children.length)ext.remove();content.append(panel);
   a.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();qa('li.shp-tab',tabs).forEach(n=>n.classList.remove('active'));li.classList.add('active');qa('.tab-pane',content).forEach(n=>n.classList.remove('active','in'));panel.classList.add('active','in');history.replaceState(history.state,'','#ok86-parameters')});
   qa('a.shp-tab-link',tabs).filter(n=>n!==a).forEach(native=>native.addEventListener('click',()=>{li.classList.remove('active');panel.classList.remove('active','in')},false));
  }
