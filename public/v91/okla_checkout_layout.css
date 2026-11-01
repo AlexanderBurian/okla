@@ -45,5 +45,32 @@ html body.in-kosik .quantity-form .quantity label{display:flex!important;align-i
 html body.in-kosik .quantity-form input.amount{margin:0!important;width:44px!important;height:34px!important;padding:0!important;text-align:center;-moz-appearance:textfield}
 html body.in-kosik .quantity-form input.amount::-webkit-inner-spin-button,html body.in-kosik .quantity-form input.amount::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 html body.in-kosik .quantity-form .okla-qty{margin:0!important;flex:none;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;line-height:1!important}
+
+/* No glow: the cards, buttons and inputs have no shadow; the product row keeps its own. */
+html body.in-kosik .okla-coupon,html body.in-kosik .extra.delivery,html body.in-kosik .okla-coupon__input,html body.in-kosik .okla-coupon__btn,html body.ordering-process .next-step-back{box-shadow:none!important}
+/* The coupon and delivery cards are the same size, and their text is centred at the same size. */
+html body.in-kosik .extras-wrapper{align-items:stretch}
+html body.in-kosik .extras-wrapper>.extras-col{display:flex;flex-direction:column}
+html body.in-kosik .extras-wrapper>.extras-col>*{flex:1 1 auto;display:flex;flex-direction:column}
+html body.in-kosik .okla-coupon{min-height:150px;padding:20px 22px;align-items:center;justify-content:center;text-align:center;box-sizing:border-box}
+html body.in-kosik .okla-coupon__title{font-size:18px;margin:0 0 14px}
+html body.in-kosik .okla-coupon__row{justify-content:center}
+html body.in-kosik .extra.delivery{flex:1 1 auto;min-height:150px;padding:20px 22px;justify-content:center;box-sizing:border-box}
+html body.in-kosik .extra.delivery span{font-size:18px;line-height:1.4}
+/* The buttons sit on one row, of equal size: the cart summary and the checkout summary. */
+html body.in-kosik .next-step,html body.ordering-process:not(.in-kosik) .next-step{flex-direction:row!important;align-items:stretch;gap:12px!important}
+html body.in-kosik .next-step .btn,html body.ordering-process:not(.in-kosik) .next-step .btn{flex:1 1 0!important;min-width:0!important;width:auto!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 12px!important;white-space:nowrap;font-size:15px!important;line-height:1.1!important;align-self:stretch}
+/* Each summary product is one line: picture, name, quantity and price. The picture has no frame. */
+html body.ordering-process:not(.in-kosik) .order-summary .cart-item{display:grid!important;grid-template-columns:44px minmax(0,1fr) auto auto!important;grid-template-rows:auto!important;align-items:center;gap:12px!important;border:0!important;border-bottom:1px solid #e6ebf2!important;padding:12px 0!important;margin:0!important}
+html body.ordering-process:not(.in-kosik) .order-summary .cart-item>*{grid-row:1!important;grid-column:auto!important;margin:0!important;float:none!important}
+html body.ordering-process:not(.in-kosik) .order-summary .cart-item-name{font-size:14px!important;line-height:1.35}
+html body.ordering-process:not(.in-kosik) .order-summary .cart-item-amount{border:0!important;padding:0!important;font-size:14px!important;white-space:nowrap;background:none!important}
+html body.ordering-process:not(.in-kosik) .order-summary .cart-item-price{font-size:14px!important;font-weight:700!important;white-space:nowrap}
+html body.ordering-process:not(.in-kosik) .order-summary .okla-sum-thumb{width:44px!important;height:44px!important;object-fit:contain;border:0!important;box-shadow:none!important;background:none!important;padding:0!important;margin:0!important}
+/* The contact form: one width for every input, the same gaps, and the spam-trap field hidden. */
+html body.in-krok-2 .co-contact-information .form-group:has(input[name=surname]){display:none!important}
+html body.in-krok-2 #order-form .form-control-wrapper{width:100%}
+html body.in-krok-2 #order-form input.form-control{width:100%!important;max-width:none!important;box-sizing:border-box}
+html body.in-krok-2 .co-contact-information fieldset,html body.in-krok-2 .co-billing-address{gap:16px 24px}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
