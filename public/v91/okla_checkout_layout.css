@@ -147,6 +147,8 @@ html body.in-kosik tr.removeable .remove-item::before{content:""!important;posit
 html body.ordering-process .cart-header .step{position:relative!important}
 html body.ordering-process .cart-header .step::before{position:absolute!important;left:50%!important;top:0!important;margin:0!important;transform:translateX(-50%)!important;box-sizing:border-box!important;width:40px!important;height:40px!important}
 html body.ordering-process .cart-header .step::after{mask-size:22px 22px!important;-webkit-mask-size:22px 22px!important}
+/* The circle is positioned, so the label takes the space below it. */
+html body.ordering-process .cart-header .step{padding-top:52px!important}
 /* Payment icons: no background circle; a larger, sharper drawing. */
 html body.ordering-process:not(.in-kosik) .okla-pay-icon{background:none!important;border:0!important;box-shadow:none!important;width:34px!important;height:34px!important}
 html body.ordering-process:not(.in-kosik) .okla-pay-icon svg{width:30px!important;height:30px!important}
