@@ -21,7 +21,7 @@
  }
 
  /* The Czech flag, the same drawing as the homepage header. */
- function oklaCzechFlag(){var svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),ns='http://www.w3.org/2000/svg';svg.setAttribute('viewBox','0 0 32 32');svg.setAttribute('aria-hidden','true');var defs=document.createElementNS(ns,'defs'),clip=document.createElementNS(ns,'clipPath');clip.setAttribute('id','okla-cz-flag-clip');var clipCircle=document.createElementNS(ns,'circle');clipCircle.setAttribute('cx','16');clipCircle.setAttribute('cy','16');clipCircle.setAttribute('r','15.4');clip.appendChild(clipCircle);defs.appendChild(clip);svg.appendChild(defs);var group=document.createElementNS(ns,'g');group.setAttribute('clip-path','url(#okla-cz-flag-clip)');var bg=document.createElementNS(ns,'rect');bg.setAttribute('width','32');bg.setAttribute('height','32');bg.setAttribute('fill','#fff');group.appendChild(bg);var red=document.createElementNS(ns,'rect');red.setAttribute('y','16');red.setAttribute('width','32');red.setAttribute('height','16');red.setAttribute('fill','#d7142d');group.appendChild(red);var blue=document.createElementNS(ns,'path');blue.setAttribute('d','M0 0 17 16 0 32Z');blue.setAttribute('fill','#0c3174');group.appendChild(blue);svg.appendChild(group);return svg;}
+ function oklaCzechFlag(){var svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),ns='http://www.w3.org/2000/svg';svg.setAttribute('viewBox','0 0 32 32');svg.setAttribute('aria-hidden','true');var defs=document.createElementNS(ns,'defs'),clip=document.createElementNS(ns,'clipPath');clip.setAttribute('id','okla-cz-flag-clip');var clipCircle=document.createElementNS(ns,'circle');clipCircle.setAttribute('cx','16');clipCircle.setAttribute('cy','16');clipCircle.setAttribute('r','15.4');clip.appendChild(clipCircle);defs.appendChild(clip);svg.appendChild(defs);var group=document.createElementNS(ns,'g');group.setAttribute('clip-path','url(#okla-cz-flag-clip)');var bg=document.createElementNS(ns,'rect');bg.setAttribute('width','32');bg.setAttribute('height','32');bg.setAttribute('fill','#fff');group.appendChild(bg);var red=document.createElementNS(ns,'rect');red.setAttribute('y','16');red.setAttribute('width','32');red.setAttribute('height','16');red.setAttribute('fill','#e0112b');group.appendChild(red);var blue=document.createElementNS(ns,'path');blue.setAttribute('d','M0 0 17 16 0 32Z');blue.setAttribute('fill','#0b2540');group.appendChild(blue);svg.appendChild(group);return svg;}
 
  function buildIcons(row,cart){
   if(!row.querySelector('.okla-header-account')){
@@ -321,14 +321,23 @@
   });
  }
 
- /* The step buttons move into the summary card, as in the reference; only when the form association allows it. */
+ /* The step buttons sit in their own row under the whole page content, as on Alza: the way back at the bottom left,
+    the way on at the bottom right. A submit button outside its form keeps working through its form attribute. */
  function moveNextStep(){
-  var next=document.querySelector('.next-step');
-  var box=document.querySelector('.order-summary .checkout-box');
-  if(!next||!box||box.contains(next))return;
+  var next=Array.prototype.filter.call(document.querySelectorAll('.next-step'),function(n){return !n.closest('.okla-step-nav')})[0];
+  var row=document.querySelector('.cart-row');
+  if(!next||!row||!row.parentNode)return;
   var btn=next.querySelector('button[type=submit]');
-  var sameForm=next.closest('form')===box.closest('form');
-  if(sameForm||(btn&&btn.hasAttribute('form')))box.appendChild(next);
+  var form=next.closest('form');
+  if(btn&&form&&!btn.hasAttribute('form')){
+   if(!form.id)return;
+   btn.setAttribute('form',form.id);
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('.okla-step-nav'),function(o){o.remove()});
+  var nav=document.createElement('div');
+  nav.className='okla-step-nav';
+  nav.appendChild(next);
+  row.parentNode.insertBefore(nav,row.nextSibling);
  }
 
  function kcNumber(text){
@@ -390,7 +399,7 @@
   var ew=document.querySelector('.extras-wrapper');
   var side=document.querySelector('.cart-row>.col-md-4');
   if(!ew||!side)return;
-  var box=side.querySelector('.box.box-sm:has(.next-step)');
+  var box=side.querySelector('.summary-wrapper>.box');
   ew.style.marginLeft='0px';
   ew.style.width='auto';
   if(!box){ew.style.width='100%';return}
@@ -409,6 +418,7 @@
   var side=document.querySelector('.cart-row>.col-md-4');
   if(ew&&side&&ew.parentElement!==side)side.appendChild(ew);
   hideExtrasHeading();
+  moveNextStep();
   freeShipping();
   alignExtras();
  }

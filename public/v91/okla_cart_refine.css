@@ -5,18 +5,18 @@ html body.in-kosik .quantity-form button:not(.okla-qty){display:none!important}
 html body.in-kosik .quantity-form .okla-qty{display:inline-flex!important}
 html body.in-kosik .extras-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
 html body.in-kosik .extras-wrapper>.extras-col{min-width:0}
-html body.in-kosik .okla-coupon{background:#ffdde1;border-radius:20px;padding:18px 20px;min-height:78px;box-sizing:border-box;box-shadow:0 10px 24px rgba(224,17,43,.12)}
+html body.in-kosik .okla-coupon{background:#fbeaee;border-radius:20px;padding:18px 20px;min-height:78px;box-sizing:border-box;box-shadow:0 10px 24px rgba(224,17,43,.12)}
 html body.in-kosik .okla-coupon__title{margin:0 0 12px;font-size:16px;line-height:1.3;color:#0b2540;font-weight:600}
 html body.in-kosik .okla-coupon__title strong{color:#e0112b;font-weight:800}
 html body.in-kosik .okla-coupon__row{display:flex;gap:10px;align-items:center}
 html body.in-kosik .okla-coupon__input{flex:1 1 0;min-width:0;height:44px;border:0;border-radius:999px;background:#fff;padding:0 18px;font-size:14px;color:#0b2540;box-shadow:0 3px 8px rgba(11,37,64,.08)}
-html body.in-kosik .okla-coupon__input::placeholder{color:#9aa3b2}
+html body.in-kosik .okla-coupon__input::placeholder{color:#6b7280}
 html body.in-kosik .okla-coupon__btn{height:44px;border:0;border-radius:999px;background:#fff;color:#0b2540;font-size:14px;font-weight:600;padding:0 22px;box-shadow:0 3px 8px rgba(11,37,64,.12);cursor:pointer}
-html body.in-kosik .extra.delivery{background:#dbe6fa;border-radius:20px;padding:16px 20px;display:flex;align-items:center;gap:14px;min-height:78px;box-sizing:border-box;box-shadow:0 10px 24px rgba(31,111,216,.14)}
+html body.in-kosik .extra.delivery{background:#e6eefb;border-radius:20px;padding:16px 20px;display:flex;align-items:center;gap:14px;min-height:78px;box-sizing:border-box;box-shadow:0 10px 24px rgba(31,111,216,.14)}
 html body.in-kosik .extra.delivery::before{content:"" !important;display:block !important;flex:none;width:46px;height:46px;background:#1f6fd8;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6.5h11v9.5H2z'/%3E%3Cpath d='M13 10h4.2l3.3 3.4V16H13'/%3E%3Ccircle cx='6.5' cy='18' r='1.8'/%3E%3Ccircle cx='17' cy='18' r='1.8'/%3E%3C/svg%3E") center/46px 46px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6.5h11v9.5H2z'/%3E%3Cpath d='M13 10h4.2l3.3 3.4V16H13'/%3E%3Ccircle cx='6.5' cy='18' r='1.8'/%3E%3Ccircle cx='17' cy='18' r='1.8'/%3E%3C/svg%3E") center/46px 46px no-repeat}
 html body.in-kosik .extra.delivery span{font-size:16px;line-height:1.35;color:#0b2540}
 html body.in-kosik .extra.delivery strong{color:#1f6fd8;font-weight:800}
-html body.ordering-process .cart-header::before{top:65px;height:6px;border-radius:3px;background:#dfe6f0;background-image:none;left:calc(100%/6);width:calc(100%*2/3)}
+html body.ordering-process .cart-header::before{top:65px;height:6px;border-radius:3px;background:#e6ebf2;background-image:none;left:calc(100%/6);width:calc(100%*2/3)}
 html body.ordering-process .cart-header::after{top:65px;height:6px;border-radius:3px;background:#1f6fd8;background-image:none;transition:width 2.4s cubic-bezier(.45,0,.25,1)}
 html body.ordering-process .cart-header .step::before{border-width:4px;border-style:solid;box-shadow:none;animation:none}
 html body.in-kosik .cart-header .step-1::before,html body.in-krok-1 .cart-header .step-2::before,html body.in-krok-2 .cart-header .step-3::before{box-shadow:none;animation:none}
