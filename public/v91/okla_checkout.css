@@ -45,3 +45,5 @@ body.ordering-process .next-step-finish,body.ordering-process .next-step-forward
 body.ordering-process .order-button-text{display:block;font-size:16px;font-weight:700}
 body.ordering-process .order-button-suffix{display:block;font-size:12px;font-weight:500;opacity:.85}
 body.in-kosik .extra.delivery{background:#e6eefb;border-radius:14px;padding:12px 16px;color:#0b2540}
+body.ordering-process .next-step{gap:12px!important}
+body.ordering-process .next-step .btn{margin:0!important}
