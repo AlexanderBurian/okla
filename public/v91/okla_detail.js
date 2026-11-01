@@ -67,17 +67,6 @@
   a.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();qa('li.shp-tab',tabs).forEach(n=>n.classList.remove('active'));li.classList.add('active');qa('.tab-pane',content).forEach(n=>n.classList.remove('active','in'));panel.classList.add('active','in');history.replaceState(history.state,'','#ok86-parameters')});
   qa('a.shp-tab-link',tabs).filter(n=>n!==a).forEach(native=>native.addEventListener('click',()=>{li.classList.remove('active');panel.classList.remove('active','in')},false));
  }
- function richDescription(p){var basic=q('#description .basic-description');if(!basic)return;
-  // Markup is generated only from the 33-row supplied CSV, HTML-escaped on export.
-  basic.innerHTML=p.descHtml;
-  var compat=p.compatibilityAndPackage;
-  if(compat&&(compat.compatibility||compat.package)){
-   var sec=el('section','ok86-compatibility');sec.append(el('h3',null,'Kompatibilita a obsah balení'));
-   if(compat.compatibility)sec.append(el('p',null,'Kompatibilita: '+compat.compatibility));
-   if(compat.package)sec.append(el('p',null,'Obsah balení: '+compat.package));
-   basic.append(sec);
-  }
- }
  function trustBar(detail){if(q('.ok86-trust'))return;
   var strip=el('section','ok86-trust');strip.setAttribute('aria-label','Informace k nákupu');
   var facts=[
@@ -334,7 +323,6 @@
       starContainer.prepend(ds);starContainer.classList.add('ok91-unrated');
     }
    }
-   if(short)short.textContent=p.shortDescription;
    if(link){link.classList.add('ok86-description-link');var al=q('a',link);if(al){al.textContent='Zobrazit celý popis';al.href='#description'}}
    var micro=el('div','ok86-micro');micro.append(el('span',null,'Kód: '+p.code),el('span',null,'Zákonná odpovědnost za vady 24 měsíců'));buy.append(micro);
    var img=q('.p-main-image img',gallery);if(img)img.alt=p.imageDesc;
@@ -352,7 +340,7 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   richDescription(p);paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
+   paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
    window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters).length};
   }
