@@ -77,8 +77,8 @@
  }
 
  function hideHelpBox(){
-  document.querySelectorAll('h2,h3,h4,.h4').forEach(function(h){
-   if(!/Potřebujete pomoc/.test(h.textContent))return;
+  document.querySelectorAll('body *').forEach(function(h){
+   if(h.children.length>3||!/Potřebujete pomoc/.test(h.textContent||''))return;
    var box=h.closest('.box')||h.parentElement;
    if(box)box.style.display='none';
   });
