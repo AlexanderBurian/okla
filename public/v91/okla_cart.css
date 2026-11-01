@@ -66,3 +66,5 @@ body.in-krok-2 .cart-header::after{width:calc(100%*2/3)}
 @keyframes okla-step-pulse{0%,100%{box-shadow:0 0 0 6px rgba(91,163,0,.18)}50%{box-shadow:0 0 0 10px rgba(91,163,0,.06)}}
 @media (prefers-reduced-motion:reduce){body.ordering-process .cart-header::after{transition:none}body.ordering-process .cart-header .step::before{animation:none!important}}
 body.in-kosik .cart-content>:not(table){padding-left:12px;padding-right:12px}
+body.ordering-process .cart-header{width:100%}
+body.ordering-process .cart-header .step{width:100%;justify-self:stretch}
