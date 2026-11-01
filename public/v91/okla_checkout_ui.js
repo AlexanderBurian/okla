@@ -196,18 +196,55 @@
   });
  }
 
- /* The parcel: a box that starts at the first step and slides along the track to the current step. */
+ /* The parcel starts at the first step and walks along the track, one step at a time, to the current step. */
  function addParcel(){
   var ol=document.querySelector('.cart-header');
   if(!ol||ol.querySelector('.okla-parcel'))return;
+  var stops=['16.6667%','50%','83.3333%'];
+  var idx=document.body.classList.contains('in-krok-2')?2:(document.body.classList.contains('in-krok-1')?1:0);
   var box=document.createElement('div');
   box.className='okla-parcel';
   box.setAttribute('aria-hidden','true');
-  box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 5 42 14 24 23 6 14Z" fill="#e2bc8e"/><path d="M6 14 24 23 24 43 6 34Z" fill="#b98a57"/><path d="M42 14 24 23 24 43 42 34Z" fill="#9c6e42"/><path d="M24 5 42 14 42 17 24 8 6 17 6 14Z" fill="#f4ead8"/><path d="M24 23v20" stroke="#7c5632" stroke-width="1" fill="none"/></svg>';
+  box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 4.5 43 14 24 23.5 5 14Z" fill="#e7bf8a"/><path d="M5 14 24 23.5V44L5 34.5Z" fill="#c28d55"/><path d="M43 14 24 23.5V44l19-9.5Z" fill="#a46e3c"/><path d="M20.8 8.6 27.2 11.8V23.4L20.8 20.2Z" fill="#f5ead3"/><path d="M33.4 25.8 37.6 27.9V40.4L33.4 38.3Z" fill="#f5ead3"/><path d="M24 23.5V44" stroke="#8a5a2c" stroke-width="1.2"/></svg>';
   ol.appendChild(box);
-  ol.style.setProperty('--pos','16.6667%');
+  ol.style.setProperty('--pos',stops[0]);
   box.getBoundingClientRect();
-  ol.style.removeProperty('--pos');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||idx===0){ol.style.setProperty('--pos',stops[idx]);return}
+  for(var k=1;k<=idx;k++){
+   (function(k){setTimeout(function(){ol.style.setProperty('--pos',stops[k])},500+(k-1)*1100)})(k);
+  }
+  box.style.animationDelay=((500+(idx-1)*1100+1100)/1000)+'s';
+ }
+
+ /* The coupon card of the reference, in the empty left column of the cart extras. It is not connected to Shoptet coupons. */
+ function addCoupon(){
+  var col=document.querySelector('.extras-wrapper>.extras-col');
+  if(!col||col.children.length)return;
+  var card=el('div','okla-coupon');
+  var title=el('p','okla-coupon__title');
+  title.innerHTML='Mám <strong>slevový kupón:</strong>';
+  var row=el('div','okla-coupon__row');
+  var input=el('input','okla-coupon__input');
+  input.type='text';
+  input.placeholder='Zadejte kód kupónu';
+  input.setAttribute('aria-label','Kód kupónu');
+  var btn=el('button','okla-coupon__btn');
+  btn.type='button';
+  btn.textContent='Aplikovat';
+  row.appendChild(input);
+  row.appendChild(btn);
+  card.appendChild(title);
+  card.appendChild(row);
+  col.appendChild(card);
+ }
+
+ /* The heading above the extras is replaced by the cards. */
+ function hideExtrasHeading(){
+  document.querySelectorAll('.cart-content *').forEach(function(e){
+   if(e.children.length||e.closest('.okla-coupon'))return;
+   if(/^\s*dárky a slevy\s*$/i.test(e.textContent||''))e.style.display='none';
+  });
  }
 
  function init(){
@@ -218,6 +255,8 @@
   addPaymentIcons();
   addQuantityButtons();
   addParcel();
+  addCoupon();
+  hideExtrasHeading();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();
