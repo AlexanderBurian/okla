@@ -1,7 +1,6 @@
 /* OKLA cart page, in the layout of a modern checkout: product rows as cards, a quantity stepper, a summary card.
    Loaded only on ordering pages. The top bar and the step underline are removed. */
 body.ordering-process #content-wrapper{border-top:0!important;border-radius:16px;box-shadow:0 2px 14px rgba(11,37,64,.08)}
-body.ordering-process .cart-header .step::before,body.ordering-process .cart-header .step::after{display:none!important}
 body.in-kosik .cart-header{border-bottom:0;margin-bottom:8px}
 body.in-kosik table.cart-table{width:100%;border-collapse:separate;border-spacing:0 12px}
 body.in-kosik table.cart-table tr.removeable{background:#fff;box-shadow:0 1px 4px rgba(11,37,64,.08)}
@@ -49,3 +48,21 @@ body.in-kosik table.cart-table{width:100%!important;max-width:none!important}
 body.in-kosik table.cart-table td.p-availability{width:90px}
 body.in-kosik table.cart-table td.p-quantity{width:140px}
 body.in-kosik .cart-content{padding-left:0!important;padding-right:0!important}
+
+/* Checkout steps as one connected track: a green line fills and each step turns green as the customer moves on. */
+body.ordering-process .cart-header{position:relative;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 26px;padding:0;border:0!important;counter-reset:okla-step;list-style:none}
+body.ordering-process .cart-header::before,body.ordering-process .cart-header::after{content:"";position:absolute;left:calc(100%/6);top:22px;height:4px;border-radius:2px}
+body.ordering-process .cart-header::before{width:calc(100%*2/3);background:#e6ebf2}
+body.ordering-process .cart-header::after{width:0;background:linear-gradient(90deg,#5ba300,#7cc23a);transition:width .7s cubic-bezier(.22,.8,.3,1)}
+body.ordering-process .cart-header .step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-width:0;font-size:14px;line-height:1.3;font-weight:500;color:#6b7280}
+body.ordering-process .cart-header .step strong,body.ordering-process .cart-header .step a,body.ordering-process .cart-header .step span{color:inherit;font-weight:inherit;text-decoration:none}
+body.ordering-process .cart-header .step::before{counter-increment:okla-step;content:counter(okla-step);display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:40px;height:40px;border-radius:50%;background:#fff;border:3px solid #d7dde6;color:#6b7280;font-size:15px;font-weight:700}
+body.in-kosik .cart-header .step-1::before,body.in-krok-1 .cart-header .step-2::before,body.in-krok-2 .cart-header .step-3::before{border-color:#5ba300;color:#3c840f;box-shadow:0 0 0 6px rgba(91,163,0,.18);animation:okla-step-pulse 2s ease-in-out infinite}
+body.in-krok-1 .cart-header .step-1::before,body.in-krok-2 .cart-header .step-1::before,body.in-krok-2 .cart-header .step-2::before{content:"¹3";background:#5ba300;border-color:#5ba300;color:#fff}
+body.in-kosik .cart-header .step-1,body.in-krok-1 .cart-header .step-2,body.in-krok-2 .cart-header .step-3{color:#0b2540;font-weight:700}
+body.in-krok-1 .cart-header .step-1,body.in-krok-2 .cart-header .step-1,body.in-krok-2 .cart-header .step-2{color:#0b2540}
+body.in-krok-1 .cart-header::after{width:calc(100%/3)}
+body.in-krok-2 .cart-header::after{width:calc(100%*2/3)}
+@keyframes okla-step-pulse{0%,100%{box-shadow:0 0 0 6px rgba(91,163,0,.18)}50%{box-shadow:0 0 0 10px rgba(91,163,0,.06)}}
+@media (prefers-reduced-motion:reduce){body.ordering-process .cart-header::after{transition:none}body.ordering-process .cart-header .step::before{animation:none!important}}
+body.in-kosik .cart-content>:not(table){padding-left:12px;padding-right:12px}
