@@ -1,0 +1,17 @@
+/* OKLA "page not found": one centred white card in the site style, as on the account pages. A large 404 instead of
+   Shoptet's grey icon, dark headings, grey help text and the green button of the checkout with dark text. */
+html body.in-404 #content .empty-content-404{max-width:560px!important;margin:40px auto 64px!important;padding:44px 36px 40px!important;background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;text-align:center!important;box-sizing:border-box!important;font-family:Roboto,Arial,sans-serif!important}
+html body.in-404 #content .empty-content-404::before{content:"404";display:block;margin:0 0 12px;font-family:"Exo 2",Roboto,sans-serif;font-size:96px;font-weight:800;line-height:1;letter-spacing:-.02em;color:#0b2540}
+html body.in-404 #content .empty-content-404 h1{margin:0 0 8px!important;padding:0!important;border:0!important;font-family:"Exo 2",Roboto,sans-serif!important;font-size:28px!important;font-weight:700!important;line-height:1.25!important;text-transform:none!important;color:#0b2540!important}
+html body.in-404 #content .empty-content-404 h2{margin:0 0 20px!important;padding:0!important;border:0!important;font-family:Roboto,Arial,sans-serif!important;font-size:18px!important;font-weight:500!important;line-height:1.4!important;text-transform:none!important;color:#0b2540!important}
+html body.in-404 #content .empty-content-404 h2::after,html body.in-404 #content .empty-content-404 h2::before{content:none!important;display:none!important}
+html body.in-404 #content .empty-content-404 p{margin:0 0 24px!important;font-family:Roboto,Arial,sans-serif!important;font-size:16px!important;line-height:1.5!important;color:#6b7280!important}
+html body.in-404 #content .empty-content-404 p:last-child{margin:0!important}
+html body.in-404 #content .empty-content-404 .btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:240px!important;height:52px!important;margin:0!important;padding:0 32px!important;border:1px solid #66d400!important;border-radius:10px!important;background:#66d400!important;box-shadow:none!important;font-family:Roboto,Arial,sans-serif!important;font-size:15px!important;font-weight:700!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;text-decoration:none!important;transition:background-color .15s ease,border-color .15s ease}
+html body.in-404 #content .empty-content-404 .btn:hover{background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+@media(max-width:767px){
+ html body.in-404 #content .empty-content-404{margin:16px 16px 40px!important;padding:32px 20px 28px!important}
+ html body.in-404 #content .empty-content-404::before{font-size:72px}
+ html body.in-404 #content .empty-content-404 h1{font-size:24px!important}
+ html body.in-404 #content .empty-content-404 .btn{width:100%!important;min-width:0!important}
+}

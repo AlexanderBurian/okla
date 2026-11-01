@@ -93,6 +93,7 @@
   'Stránka neexistuje':'Page not found','Zpět na úvodní stránku':'Back to the homepage','Úvodní stránka':'Homepage',
   'Mohlo by vás zajímat':'You might also like','Odstoupení do 14 dnů':'14-day returns','Doprava a platba v košíku před objednávkou':'Shipping and payment chosen in the cart before ordering',
   'Uvádějte pouze, pokud jste plátci DPH. Vždy začíná dvěma písmeny - kódem státu. Pro ČR má tvar CZ + 8-10 číslic. Pozor, slovenský ekvivalent je IČ DPH, ne slovenské DIČ! Anglicky - VAT number.':'Fill in only if you are a VAT payer. It always starts with two letters, the country code. For the Czech Republic it is CZ + 8-10 digits. Note that the Slovak equivalent is IČ DPH, not the Slovak DIČ.',
+  'A safra! Něco se pokazilo.':'Oops! Something went wrong.','Stránka nebyla nalezena.':'Page not found.','Můžete se ale podívat na naše produkty.':'But you can still have a look at our products.',
   'Bez hodnocení':'No reviews','2 roky záruka.':'2-year warranty.','Více o záruce':'More about the warranty','Všechny novinky':'All news',
   'Flipper Zero: co všechno zvládne kapesní multitool?':'Flipper Zero: what can the pocket multitool do?',
   'Kompaktní zařízení pro nadšence do elektroniky nabízí práci s NFC, RFID a rádiovými signály. Podívali jsme se na jeho možnosti i omezení při každodenním používání.':'A compact device for electronics enthusiasts that works with NFC, RFID and radio signals. We looked at what it can and cannot do in everyday use.',

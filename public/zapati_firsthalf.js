@@ -31,6 +31,7 @@ modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js'); if(document.
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
  if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');
+if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
 var index=0;
 function loadAi(){
  if(window.__oklaAiWidgetLoader||document.querySelector('okla-ai-chat'))return;
