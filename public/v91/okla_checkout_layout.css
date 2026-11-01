@@ -135,6 +135,11 @@ html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-ste
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{height:58px!important;min-height:58px!important}
 /* Cart: the coupon and delivery cards stack under the summary box at the top right, the same width and height; one colour for the delivery message. */
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;width:calc(100% - 24px)!important;max-width:none!important;margin:16px 0 24px 24px!important;padding:0!important}
+/* The coupon row fits the narrower card: the placeholder is not cut off. */
+html body.in-kosik .cart-row>.col-md-4 .okla-coupon{padding:20px 16px!important}
+html body.in-kosik .cart-row>.col-md-4 .okla-coupon__row{gap:8px!important}
+html body.in-kosik .cart-row>.col-md-4 .okla-coupon__input{font-size:12px!important;padding:0 8px!important}
+html body.in-kosik .cart-row>.col-md-4 .okla-coupon__btn{padding:0 10px!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrap{display:flex!important;flex-direction:column!important;flex:1 1 auto!important}
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon,html body.in-kosik .cart-row>.col-md-4 .extra.delivery{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
