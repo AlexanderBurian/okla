@@ -23,7 +23,7 @@
  var INTERVAL=6000;
 
  function slideHtml(s,i){
-  return '<article class="okla-hero__slide okla-hero__slide--'+s.n+(s.mobileOnly?' okla-hero__slide--mobile-only':'')+(i===0?' is-active':'')+'" aria-hidden="'+(i===0?'false':'true')+'">'+
+  return '<article id="okla-hero-slide-'+(i+1)+'" class="okla-hero__slide okla-hero__slide--'+s.n+(s.mobileOnly?' okla-hero__slide--mobile-only':'')+(i===0?' is-active':'')+'" aria-hidden="'+(i===0?'false':'true')+'">'+
    '<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
    '<div class="okla-hero__text">'+
     '<h2 class="okla-hero__title">'+s.title+'</h2>'+
@@ -45,7 +45,7 @@
  }
 
  function dotHtml(i){
-  return '<button type="button" aria-label="Zobrazit banner '+(i+1)+'"'+(i===0?' aria-current="true"':' aria-current="false"')+'></button>';
+  return '<button type="button" aria-label="Zobrazit banner '+(i+1)+'" aria-controls="okla-hero-slide-'+(i+1)+'"'+(i===0?' aria-current="true"':' aria-current="false"')+'></button>';
  }
 
  function wire(wrap){
@@ -80,6 +80,18 @@
 
   dots.forEach(function(d,k){
    d.addEventListener('click',function(){ set(k); restart(); });
+   d.addEventListener('keydown',function(event){
+    var target=k;
+    if(event.key==='ArrowLeft')target=(k-1+dots.length)%dots.length;
+    else if(event.key==='ArrowRight')target=(k+1)%dots.length;
+    else if(event.key==='Home')target=0;
+    else if(event.key==='End')target=dots.length-1;
+    else return;
+    event.preventDefault();
+    set(target);
+    dots[target].focus();
+    restart();
+   });
   });
   hero.addEventListener('mouseenter',function(){ paused=true; });
   hero.addEventListener('mouseleave',function(){ paused=false; });

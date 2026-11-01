@@ -60,9 +60,10 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  .okla-hero__lead{font-size:13px;line-height:1.35}
  .okla-hero__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
  /* Room under the picture for the dots, so the sections below start under them. */
- html body.type-index #content .banners-row{padding-bottom:34px!important}
- /* Dots sit under the picture on mobile. */
- .okla-hero__dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
- .okla-hero__dots button{width:8px;height:8px;padding:0;border:0;border-radius:4px;background:#c9d2de;cursor:pointer}
- .okla-hero__dots button[aria-current="true"]{width:22px;background:#0a7ad9}
+ html body.type-index #content .banners-row{padding-bottom:26px!important}
+ /* Four distinct clickable dots sit close under the picture on mobile. */
+ .okla-hero__dots{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;min-height:14px}
+ .okla-hero__dots button{display:block;flex:0 0 9px;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#c9d2de;box-shadow:none;cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease}
+ .okla-hero__dots button[aria-current="true"]{width:9px;background:#0a7ad9;box-shadow:0 0 0 2px #fff,0 0 0 3px #0a7ad9;transform:scale(1.08)}
+ .okla-hero__dots button:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 }
