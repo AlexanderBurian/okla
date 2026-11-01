@@ -142,6 +142,7 @@ html body.in-kosik .extra.delivery span,html body.in-kosik .extra.delivery stron
 /* Cart: the remove button is a round target, and its cross is centred in it; the button sits further right. */
 html body.in-kosik tr.removeable .remove-item{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;width:32px!important;height:32px!important;margin-right:-12px!important;padding:0!important;border:0!important;border-radius:50%!important;background:#f1f4f8!important;font-size:0!important}
 html body.in-kosik tr.removeable .remove-item::after{content:none!important}
+html body.in-kosik tr.removeable .remove-item{opacity:1!important;visibility:visible!important}
 html body.in-kosik tr.removeable .remove-item::before{content:""!important;position:absolute!important;left:50%!important;top:50%!important;width:12px!important;height:12px!important;margin:-6px 0 0 -6px!important;transform:none!important;border:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 2l8 8M10 2l-8 8' stroke='%230b2540' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/12px 12px no-repeat!important}
 /* Progress track: each step's circle is centred on the step, the same as its label. */
 html body.ordering-process .cart-header .step{position:relative!important}
