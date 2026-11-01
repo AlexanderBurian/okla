@@ -10,6 +10,8 @@
  var SIDE_GUTTER=24;
  var ART_TOP_OFFSET=60;
  var RIGHT_GAP=24;
+ var HAND_BOTTOM=1.4544;
+ /* Lowest visible point of the hand, in widths of the art (see okla_home_side.css). */
 
  function block(id,side,html){
   var d=document.createElement('div');
@@ -43,6 +45,7 @@
   var viewport=document.documentElement.clientWidth;
   if(!card||!window.matchMedia('(min-width:768px)').matches){
    left.classList.remove('is-on');right.classList.remove('is-on');
+   if(card)card.style.minHeight='';
    return;
   }
   var c=card.getBoundingClientRect();
@@ -51,6 +54,7 @@
   var space=Math.min(leftSpace,rightSpace);
   if(space<MIN_MARGIN){
    left.classList.remove('is-on');right.classList.remove('is-on');
+   if(card)card.style.minHeight='';
    return;
   }
   var width=Math.min(MAX_WIDTH,Math.floor((space-SIDE_GUTTER)*0.9));
@@ -63,6 +67,7 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
+  card.style.minHeight=Math.ceil(ART_TOP_OFFSET+HAND_BOTTOM*width)+'px';
  }
 
  var frame=0;
