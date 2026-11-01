@@ -1,5 +1,6 @@
 /* OKLA cart drawer: panel from the right over a dimmed page on desktop, from the bottom on phones. */
-html.okla-cd-lock,html.okla-cd-lock body{overflow:hidden!important}
+html.okla-cd-lock{overflow:hidden!important;scrollbar-gutter:auto!important}
+html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer{position:fixed;top:0;left:0;right:-40px;bottom:0;z-index:10000;display:none;font-family:Roboto,Arial,sans-serif;color:#0b2540}
 #okla-cart-drawer.is-open{display:block}
 #okla-cart-drawer .okla-cd__overlay{position:absolute;inset:0;background:rgba(11,37,64,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
