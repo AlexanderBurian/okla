@@ -17,7 +17,7 @@
 
  function catalog(){return window.OKLA_V86_CATALOG||{}}
 
- function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+ function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
 
  function priceText(v){
   var n=Math.round(Number(String(v).replace(/[\s ]/g,'').replace(',','.')));
