@@ -124,6 +124,11 @@ html body.in-kosik .okla-coupon__btn{padding:0 12px!important}
 html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8{flex:1 1 0!important;min-width:0!important}
 /* The quantity control has one outline: the form's. The inner span drew a second one, so it has no border. */
 html body.in-kosik .quantity-form .quantity{border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
+/* The checkout card is the cart's summary card: white, a thin border, a navy primary button and an outline back button. The green free-shipping note is not shown; the recap below is unchanged. */
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{background:#fff!important;border:1px solid #e3e8ef!important;border-radius:16px!important;padding:20px!important}
+html body.ordering-process:not(.in-kosik) .okla-free-ship{display:none!important}
+html body.ordering-process:not(.in-kosik) .next-step-back{background:#fff!important;border:1px solid #c9d4e3!important;color:#0b2540!important;border-radius:999px!important}
+html body.ordering-process:not(.in-kosik) .next-step-forward,html body.ordering-process:not(.in-kosik) .next-step-finish{background:#103e76!important;border-color:#103e76!important;color:#fff!important;text-transform:uppercase!important;font-weight:700!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
