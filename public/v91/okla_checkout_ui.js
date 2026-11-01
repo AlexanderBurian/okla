@@ -396,6 +396,21 @@
   ew.style.width=box.getBoundingClientRect().width+'px';
  }
 
+ /* Shoptet redraws the cart after a product is added or removed, and the redraw drops the cart enhancements: they are applied again. Each one is safe to repeat. */
+ function refreshCart(){
+  hideHelpBox();
+  hideEmptyShells();
+  addQuantityButtons();
+  addParcel();
+  addCoupon();
+  var ew=document.querySelector('.extras-wrapper');
+  var side=document.querySelector('.cart-row>.col-md-4');
+  if(ew&&side&&ew.parentElement!==side)side.appendChild(ew);
+  hideExtrasHeading();
+  freeShipping();
+  alignExtras();
+ }
+
  /* When a product is added or removed the summary and the bar change: they are followed here. Changes inside the cards are ignored, so nothing loops. */
  function followCart(){
   var root=document.querySelector('#content-wrapper')||document.body;
@@ -407,7 +422,7 @@
    });
    if(!real)return;
    clearTimeout(timer);
-   timer=setTimeout(function(){freeShipping();alignExtras()},150);
+   timer=setTimeout(refreshCart,150);
   });
   mo.observe(root,{childList:true,subtree:true,characterData:true});
  }
