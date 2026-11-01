@@ -5,7 +5,7 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer.is-open{display:block}
 #okla-cart-drawer .okla-cd__overlay{position:absolute;inset:0;background:rgba(11,37,64,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transition:opacity .25s ease}
 #okla-cart-drawer.is-open .okla-cd__overlay{opacity:1}
-#okla-cart-drawer .okla-cd__panel{position:absolute;top:0;right:0;bottom:0;left:auto;width:calc(max(36%,440px) + 40px);border-radius:0;display:flex;flex-direction:column;background:#fff;box-shadow:-12px 0 40px rgba(11,37,64,.18);transform:translateX(100%);transition:transform .3s ease;overflow:hidden}
+#okla-cart-drawer .okla-cd__panel{position:absolute;top:0;right:40px;bottom:0;left:auto;width:max(36%,480px);border-radius:0;display:flex;flex-direction:column;background:#fff;box-shadow:-12px 0 40px rgba(11,37,64,.18);transform:translateX(100%);transition:transform .3s ease;overflow:hidden}
 #okla-cart-drawer.is-open .okla-cd__panel{transform:none}
 #okla-cart-drawer .okla-cd__head{display:flex;align-items:center;gap:12px;padding:22px 56px 18px 22px;position:relative;border-bottom:1px solid #e6ebf2}
 #okla-cart-drawer .okla-cd__check{width:28px;height:28px;flex:none;border-radius:50%;background:#5ba300;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700}
@@ -33,7 +33,7 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer .okla-cd__btn--primary{border:1px solid #0b2540;background:#0b2540;color:#fff}
 #okla-cart-drawer .okla-cd__btn--primary:hover{background:#103e76;color:#fff}
 @media(max-width:767px){
- #okla-cart-drawer .okla-cd__panel{top:auto;left:0;right:0;bottom:0;width:auto;max-height:92vh;border-radius:0;transform:translateY(100%)}
+ #okla-cart-drawer .okla-cd__panel{top:auto;left:0;right:40px;bottom:0;width:auto;max-height:92vh;border-radius:0;transform:translateY(100%)}
  #okla-cart-drawer.is-open .okla-cd__panel{transform:none}
  #okla-cart-drawer .okla-cd__cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
