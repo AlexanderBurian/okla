@@ -209,8 +209,8 @@ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-fin
 }
 /* The coupon card is the palette's light grey, not a separate pink. */
 html body.in-kosik .okla-coupon,html body.in-kosik .extras-wrapper>.extras-col:not(:has(>*)){background:#f5f7fa!important}
-/* Checkout on phones: the form and the summary stack in one column, each the full width. */
+/* Checkout on phones: the form and the summary stack in one column, each the full width, with a 16 px side gutter. */
 @media(max-width:767px){
- html body.ordering-process:not(.in-kosik) .cart-row{flex-direction:column!important;align-items:stretch!important;gap:24px!important;margin-left:0!important;margin-right:0!important}
+ html body.ordering-process:not(.in-kosik) .cart-row{flex-direction:column!important;align-items:stretch!important;gap:24px!important;margin-left:0!important;margin-right:0!important;padding:0 16px!important;box-sizing:border-box!important}
  html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8,html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{flex:none!important;width:100%!important;max-width:100%!important;min-width:0!important}
 }
