@@ -62,7 +62,7 @@ html body.in-kosik .next-step,html body.ordering-process:not(.in-kosik) .next-st
 html body.in-kosik .next-step .btn,html body.ordering-process:not(.in-kosik) .next-step .btn{flex:1 1 0!important;min-width:0!important;width:auto!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 12px!important;white-space:nowrap;font-size:15px!important;line-height:1.1!important;align-self:stretch}
 /* Each summary product is one line: picture, name, quantity and price. The picture has no frame. */
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item{display:grid!important;grid-template-columns:44px minmax(0,1fr) auto auto!important;grid-template-rows:auto!important;align-items:center;gap:12px!important;border:0!important;border-bottom:1px solid #e6ebf2!important;padding:12px 0!important;margin:0!important}
-html body.ordering-process:not(.in-kosik) .order-summary .cart-item>*{grid-row:1!important;grid-column:auto!important;margin:0!important;float:none!important}
+html body.ordering-process:not(.in-kosik) .order-summary .cart-item>*{grid-row:1!important;grid-column:auto!important;margin:0!important;float:none!important;border:0!important}
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item-name{font-size:14px!important;line-height:1.35}
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item-amount{border:0!important;padding:0!important;font-size:14px!important;white-space:nowrap;background:none!important}
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item-price{font-size:14px!important;font-weight:700!important;white-space:nowrap}
@@ -100,6 +100,10 @@ html body.in-kosik tr.removeable .quantity{padding:0!important;width:auto!import
 html body.in-kosik .quantity-form .quantity label{padding:0 6px!important}
 /* No red text: the coupon title, the field labels and the required markers are dark. */
 html body.in-kosik .okla-coupon__title strong{color:#0b2540!important}
+/* The coupon row fits inside the card: the input takes the space the button leaves. */
+html body.in-kosik .okla-coupon__row{width:100%!important;max-width:100%!important;box-sizing:border-box;gap:8px}
+html body.in-kosik .okla-coupon__input{flex:1 1 0!important;width:0!important;min-width:0!important}
+html body.in-kosik .okla-coupon__btn{flex:0 0 auto!important;padding:0 16px!important;white-space:nowrap}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
