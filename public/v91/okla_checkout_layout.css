@@ -154,7 +154,7 @@ html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .pa
 html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-logo{flex:none!important;margin:0!important;order:2}
 html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper .payment-shipping-price{flex:none!important;margin:0 0 0 auto!important;white-space:nowrap!important;order:3}
 /* Payment rows: the label on the left, the price on the right, on one line. */
-html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper label{display:flex!important;align-items:center!important;gap:12px!important}
+html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper label{display:flex!important;align-items:center!important;gap:12px!important;flex:1 1 auto!important;min-width:0!important}
 html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper .payment-info{flex:1 1 auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;min-width:0!important}
 html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper .payment-shipping-price{margin-left:auto!important;white-space:nowrap!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
