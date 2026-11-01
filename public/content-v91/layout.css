@@ -1,0 +1,54 @@
+
+.okla-rich{max-width:1240px;margin:0 auto;padding:24px 26px 48px;background:#fff;color:#17212c;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;text-align:left}
+.okla-rich *{box-sizing:border-box}
+.okla-rich h2,.okla-rich h3{font-family:inherit;color:#103e76;font-weight:700;letter-spacing:-.025em;text-transform:none;border:0}
+.okla-rich h2{font-size:34px;line-height:1.25;margin:0 0 22px}
+.okla-rich h3{font-size:30px;line-height:1.28;margin:0 0 20px}
+.okla-rich p{font-size:16px;line-height:1.7;margin:0 0 16px;color:#17212c}
+.okla-rich strong{font-weight:700}
+.okla-rich-intro{max-width:960px;padding:18px 0 30px}
+.okla-rich-intro p{font-size:17px;line-height:1.8}
+.okla-spec-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;background:#f4f5f7;padding:30px 18px;margin:8px 0 56px}
+.okla-spec-item{display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
+.okla-spec-item strong{color:#103e76;font-size:17px;line-height:1.35;margin:16px 0 8px}
+.okla-spec-item>span:last-child{font-size:13px;line-height:1.55;color:#38404b;max-width:200px}
+.okla-spec-icon{display:block;width:76px;height:76px;background-repeat:no-repeat;background-size:600% 600%;flex:none}
+.okla-editorial-row{display:flex;align-items:center;justify-content:space-between;gap:60px;margin:0;padding:10px 0 48px;min-height:410px}
+.okla-editorial-row+.okla-editorial-row{padding-top:16px}
+.okla-editorial-reverse{flex-direction:row-reverse}
+.okla-editorial-copy{flex:1 1 59%;max-width:690px;min-width:0}
+.okla-editorial-copy .okla-detail-benefit{color:#103e76;font-size:14px;margin-top:24px;font-weight:600}
+.okla-editorial-media{flex:0 1 36%;width:36%;max-width:400px;aspect-ratio:1/1;margin:0;overflow:hidden;border-radius:12px;background:#f0f3f8}
+.okla-editorial-media>img{display:block;width:100%;height:100%;object-fit:contain;background:#fff;border-radius:12px;max-width:100%}
+.okla-editorial-illustration{display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(145deg,#edf3fa,#e6edf7);padding:32px}
+.okla-feature-drawing{position:relative;display:flex;align-items:center;justify-content:center;width:100%;flex:1}
+.okla-atlas-window{position:relative;width:180px;height:180px;overflow:hidden}
+.okla-atlas-window img{display:block;width:600%!important;height:600%!important;max-width:none!important;position:absolute;left:0;top:0}
+.okla-icon-secondary{position:absolute;right:-4px;bottom:10px;width:56px;height:56px;opacity:.22}
+.okla-editorial-illustration figcaption{text-align:center;line-height:1.45;margin-top:12px;width:100%}
+.okla-editorial-illustration figcaption strong{display:block;color:#103e76;font-size:23px;margin-bottom:6px}
+.okla-editorial-illustration figcaption span{display:block;color:#455a72;font-size:14px}
+.okla-use-guide{background:#f6f8fb;border-radius:12px;padding:32px 36px;margin:20px 0 44px}
+.okla-use-guide h3,.okla-description-parameters h3,.okla-product-faq h3,.okla-content-related h3{font-size:25px}
+.okla-use-guide ol{padding-left:24px;margin:0}
+.okla-use-guide li{padding:0 0 12px 6px;line-height:1.7}
+.okla-use-guide li:last-child{padding-bottom:0}
+.okla-use-guide li::marker{color:#103e76;font-weight:700}
+.okla-description-parameters{margin:0 0 42px}
+.okla-description-parameters dl{margin:0;border-top:1px solid #e1e7ee}
+.okla-description-parameters dl>div{display:grid;grid-template-columns:minmax(140px,.8fr) minmax(0,1.2fr);gap:24px;padding:12px 16px;border-bottom:1px solid #e1e7ee}
+.okla-description-parameters dl>div:nth-child(odd){background:#f7f9fb}
+.okla-description-parameters dt{font-weight:600;color:#223e5c}
+.okla-description-parameters dd{margin:0}
+.okla-product-faq{margin-bottom:36px}
+.okla-product-faq details{border-top:1px solid #dfe6ef;border-bottom:1px solid #dfe6ef;padding:16px 0}
+.okla-product-faq summary{cursor:pointer;color:#103e76;font-weight:700;line-height:1.5}
+.okla-product-faq details p{margin:16px 0 0}
+.okla-content-related{margin-top:30px}
+.okla-content-related a{display:block;width:fit-content;color:#2c5f9e;text-decoration:underline;text-underline-offset:3px;margin:8px 0}
+@media(max-width:991px){.okla-rich{padding:20px 12px 32px}.okla-rich h2{font-size:29px}.okla-rich h3{font-size:25px}.okla-editorial-row{gap:30px;min-height:340px}.okla-editorial-media{flex-basis:38%;width:38%}.okla-editorial-illustration{padding:20px}.okla-atlas-window{width:140px;height:140px}.okla-editorial-illustration figcaption strong{font-size:19px}.okla-spec-strip{gap:12px;padding:24px 12px}.okla-spec-item strong{font-size:15px}}
+@media(max-width:640px){.okla-rich{padding:16px 0 30px}.okla-rich h2{font-size:26px}.okla-rich h3{font-size:24px}.okla-rich p,.okla-rich-intro p{font-size:15px;line-height:1.75}.okla-rich-intro{padding:0 0 16px}.okla-spec-strip{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px;margin-bottom:34px;padding:24px 14px}.okla-spec-icon{width:68px;height:68px}.okla-editorial-row,.okla-editorial-reverse{display:flex;flex-direction:column;gap:20px;padding:0 0 36px;min-height:0;align-items:stretch}.okla-editorial-row+.okla-editorial-row{padding-top:0}.okla-editorial-copy{flex:auto;max-width:none}.okla-editorial-media{flex:none;width:100%;max-width:360px;align-self:center}.okla-editorial-copy .okla-detail-benefit{margin-top:16px}.okla-atlas-window{width:174px;height:174px}.okla-editorial-illustration{padding:30px}.okla-use-guide{padding:24px 20px;margin:0 0 32px}.okla-use-guide h3,.okla-description-parameters h3,.okla-product-faq h3,.okla-content-related h3{font-size:22px}.okla-description-parameters dl>div{grid-template-columns:minmax(100px,.8fr) minmax(0,1.2fr);gap:12px;padding:12px 8px;font-size:14px}.okla-content-related a{font-size:14px}}
+
+.okla-editorial-media:has(.okla-usage-caption){position:relative}.okla-usage-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.92);color:#526276;font-size:11px;text-align:center;padding:6px 10px}.okla-rich dd{overflow-wrap:anywhere}
+
+.okla-editorial-media:has(.okla-usage-caption){aspect-ratio:16/10}.okla-editorial-media:has(.okla-usage-caption)>img{object-fit:cover}

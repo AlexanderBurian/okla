@@ -16,3 +16,7 @@ The bootstrap in public/zapati_firsthalf.js sequentially loads working original 
 - data/qa_v89_results.json and data/RELEASE_V89.md: local QA proof and caveats.
 
 Import of product data into the native Shoptet admin is a separate step. Inventory always comes from native Shoptet.
+
+## Product content V92
+
+The 33-product editorial content lives in public/content-v91. The detail loader loads its scoped layout and catalog override before constructing the product detail. Import data/content-v91/okla_shoptet_import_33_content_v92.csv to store the same descriptions, SEO fields and text parameters natively in Shoptet. Product stock and prices remain native. Photographs and generated usage illustrations are pinned to asset commit 32753e1217ef69f24ed8aa78062ea4a054285a45. Generic products retain only supported characteristics; unidentified specifications are listed in content-qa.json.

@@ -1,0 +1,585 @@
+[
+  [
+    12,
+    "Digitální kapesní váha s rozlišením 0,01 g",
+    "Když vážíte drobné předměty, i malý rozdíl může být důležitý. Kapesní digitální váha s rozlišením 0,01 g se hodí pro jemné součástky, sběratelské materiály a další úlohy, při kterých potřebujete přehledný číselný odečet. Kompaktní provedení snadno uložíte do pracovní výbavy a připravíte tam, kde právě pracujete. Pro použitelný výsledek ji položte na rovnou stabilní plochu a dodržujte limity konkrétní varianty. Rozlišení displeje přitom rozlišujte od skutečné přesnosti měření.",
+    [
+      [
+        "Malé hodnoty v přehledném zobrazení",
+        "Digitální odečet pomáhá porovnávat lehké předměty bez odhadování polohy mechanické stupnice. Krok 0,01 g umožňuje jemné zobrazení výsledku, sám ale nevyjadřuje maximální chybu měření. V praxi záleží také na prostředí a stavu váhy. Pro sledování drobných rozdílů zachovejte stejné podmínky a několikrát ověřte, zda se výsledek po opětovném položení předmětu opakuje."
+      ],
+      [
+        "Kapesní formát na pracovní stůl i do výbavy",
+        "Malé provedení se hodí pro uživatele, kteří nemají pro váhu trvale vyhrazené místo. Můžete ji přinést k projektu, připravit pracovní plochu a po skončení opět uložit. Vážicí plochu udržujte čistou a předměty pokládejte opatrně. Drobné součástky je vhodné předem uspořádat, aby se během práce neztratily a výsledky se daly snadno přiřadit."
+      ],
+      [
+        "Stejný postup pro srovnatelné výsledky",
+        "Váhu postavte mimo průvan a vibrace, nechte ji ustálit a zkontrolujte nulovou hodnotu. Používáte-li nádobku, pracujte s funkcí tárování pouze tehdy, pokud ji daná varianta podporuje. Nikdy nepřekračujte uvedenou nosnost a měřidlo netlačte do kapsy se zatíženou plochou. Pro obchodní nebo laboratorní úlohy s předepsanou návazností zvolte odpovídajícím způsobem ověřené měřidlo."
+      ]
+    ],
+    [
+      [
+        "0,01 g",
+        "Rozlišení digitálního zobrazení",
+        14
+      ],
+      [
+        "Kapesní provedení",
+        "Snadné uložení a přenášení",
+        14
+      ],
+      [
+        "Digitální odečet",
+        "Číselný výsledek vážení",
+        6
+      ],
+      [
+        "Drobné předměty",
+        "Součástky a sběratelské materiály",
+        35
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální kapesní váha",
+      "Rozlišení zobrazení": "0,01 g",
+      "Měřená veličina": "Hmotnost",
+      "Zobrazení": "Digitální",
+      "Provedení": "Přenosné",
+      "Určení": "Vážení drobných předmětů"
+    },
+    [
+      "Znamená 0,01 g také přesnost?",
+      "Ne. Jde o krok zobrazení. Skutečná přesnost a nosnost jsou samostatné specifikace konkrétní váhy."
+    ]
+  ],
+  [
+    13,
+    "Laserový dálkoměr pro digitální měření",
+    "Změřte vzdálenost bez zdlouhavého natahování pásma přes celou místnost. Laserový digitální dálkoměr se hodí při plánování interiéru, rozmísťování nábytku a běžných měřicích úlohách v domácnosti nebo dílně. Číselný odečet usnadňuje zapisování rozměrů a postupnou kontrolu více míst. Přístroj umístíte podle zvolené referenční hrany a zaměříte vhodný cílový povrch. Pro přesný pracovní postup zohledněte měřicí rozsah, podmínky okolí a funkce konkrétní varianty.",
+    [
+      [
+        "Rozměry místnosti bez rozmotaného pásma",
+        "Při přípravě nového uspořádání potřebujete rychle získat několik srovnatelných rozměrů. Dálkoměr pomůže změřit podporovanou vzdálenost a přečíst ji digitálně přímo na zařízení. Nemusíte držet dlouhé pásmo mezi dvěma body. Pro lepší přehled si hodnoty zapisujte do jednoduchého náčrtu, ve kterém je jasné, zda dané číslo patří šířce stěny, výšce nebo vzdálenosti mezi překážkami."
+      ],
+      [
+        "Kontrola rozměrů při plánování interiéru",
+        "Místo pro skříň nebo pracovní stůl posuzujte ve více bodech. Podlaha, lišty a stěny nemusí vytvářet dokonale pravoúhlý prostor. Laserové měření proto doplňte kontrolou skutečných překážek a potřebné montážní rezervy. Přístroj využijete také při opakovaném porovnávání místností. Doplňkové výpočty plochy nebo objemu používejte jen tehdy, jsou-li skutečně součástí dané varianty."
+      ],
+      [
+        "Důležitý je správný bod měření",
+        "Před odečtem zkontrolujte, odkud přístroj vzdálenost počítá a kam laser míří. Lesklé, průhledné nebo nevhodně osvětlené povrchy mohou měření komplikovat. Přístroj držte stabilně a důležitý rozměr zopakujte. Dodržujte pokyny pro laserovou bezpečnost a paprsek nesměřujte do očí. Pracovní rozsah i tolerance musí odpovídat konkrétnímu měřidlu, nikoli parametrům podobného výrobku."
+      ]
+    ],
+    [
+      [
+        "Laserové měření",
+        "Určení vzdálenosti k cíli",
+        13
+      ],
+      [
+        "Digitální výsledek",
+        "Snadné odečítání rozměrů",
+        6
+      ],
+      [
+        "Interiér a dílna",
+        "Plánování a kontrola prostoru",
+        12
+      ],
+      [
+        "Přenosný přístroj",
+        "Měření podle potřeby",
+        13
+      ]
+    ],
+    {
+      "Typ produktu": "Laserový digitální dálkoměr",
+      "Měřená veličina": "Vzdálenost",
+      "Princip měření": "Laserový",
+      "Zobrazení": "Digitální",
+      "Typické použití": "Plánování interiéru a dílenské měření",
+      "Provedení": "Ruční přenosné"
+    },
+    [
+      "Lze automaticky počítat plochu?",
+      "Pouze pokud to podporuje konkrétní varianta. Z označení laserový dálkoměr tato funkce sama o sobě nevyplývá."
+    ]
+  ],
+  [
+    14,
+    "Digitální tloušťkoměr pro kontrolu materiálů",
+    "Získejte přehledný číselný odečet při kontrole tloušťky vhodných materiálů a drobných dílů. Digitální tloušťkoměr je praktickou součástí technické výbavy pro porovnávání vzorků, kontrolu rozměrů a opakované měřicí úlohy. Místo odhadu na stupnici pracujete s digitálně zobrazenou hodnotou. Správný výsledek závisí na vhodnosti měřidla pro daný materiál, čistotě měřicích ploch a správném usazení vzorku. Před prací ověřte rozsah a konstrukci konkrétní varianty.",
+    [
+      [
+        "Přehledný odečet při opakované kontrole",
+        "Když porovnáváte několik vzorků, číselné zobrazení usnadní zápis a hledání rozdílů. Tloušťkoměr může tvořit součást stálého pracovního postupu, při kterém měříte vždy na stejném místě a za stejných podmínek. Výsledek se pak lépe porovnává s předchozími hodnotami. Především u měkkých materiálů ale záleží také na přítlaku a způsobu kontaktu měřicích ploch."
+      ],
+      [
+        "Výběr podle skutečného materiálu",
+        "Papír, měkká fólie a pevný díl mohou vyžadovat odlišný přístup. Před použitím zkontrolujte, zda konstrukce měřidla umožňuje správně přiložit měřicí plochy a nepřetváří přitom vzorek. Digitální tloušťkoměr není automaticky měřičem laku na automobilu. Vhodnost pro povlaky, kovové podklady nebo duté materiály musí vycházet z principu konkrétního přístroje."
+      ],
+      [
+        "Čistota a usazení ovlivňují výsledek",
+        "Měřicí plochy před prací zkontrolujte a odstraňte nečistoty, které by mohly do výsledku přidat další tloušťku. Vzorek vložte rovně a důležitou hodnotu ověřte opakováním. Po práci přístroj uložte tak, aby nedošlo k poškození citlivých částí. Rozlišení, přesnost a měřicí rozsah posuzujte odděleně; jemný displej sám o sobě nezaručuje odpovídající přesnost."
+      ]
+    ],
+    [
+      [
+        "Tloušťka materiálu",
+        "Kontrola vhodných vzorků",
+        15
+      ],
+      [
+        "Digitální odečet",
+        "Číselné zobrazení výsledku",
+        6
+      ],
+      [
+        "Porovnání dílů",
+        "Opakovatelné pracovní úlohy",
+        12
+      ],
+      [
+        "Technická výbava",
+        "Pro dílnu a pracovní stůl",
+        18
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální tloušťkoměr",
+      "Měřená veličina": "Tloušťka",
+      "Zobrazení": "Digitální",
+      "Typické použití": "Kontrola vhodných materiálů a dílů",
+      "Provedení": "Ruční měřidlo",
+      "Volba měřidla": "Podle materiálu a měřicího principu"
+    },
+    [
+      "Je určen na lak automobilu?",
+      "To není potvrzeno. Měření povlaků vyžaduje vhodný princip a podporovaný podklad; běžný tloušťkoměr jej nemusí umožňovat."
+    ]
+  ],
+  [
+    15,
+    "USB digitální mikroskop pro detailní pozorování",
+    "Podívejte se blíž na elektronické součástky, strukturu povrchů, mince a další drobné objekty. Digitální mikroskop pomáhá zobrazit detaily, které při běžném pohledu snadno přehlédnete. Využijete ho při domácím poznávání, kontrole předmětů i drobné servisní práci. O výsledku rozhoduje správné zaostření, stabilní uchycení a vhodné osvětlení. Způsob zobrazení na displeji nebo připojeném zařízení se řídí konkrétní variantou a kompatibilním softwarem.",
+    [
+      [
+        "Více detailů pro kontrolu i objevování",
+        "Při prohlížení malého objektu nejprve vyberte místo, které chcete sledovat, a nastavte takovou vzdálenost, aby se dalo pohodlně zaostřit. Digitální zobrazení umožní pozorovat strukturu a porovnat jednotlivé části předmětu. Mikroskop tak poslouží při práci s elektronikou, sběratelskými předměty i běžnými materiály. Samotné marketingové zvětšení ale neříká vše o množství skutečně zachycených detailů."
+      ],
+      [
+        "Stabilní obraz usnadní hledání rozdílů",
+        "Pohyb ruky se při detailním zobrazení projeví výrazněji než běžným pohledem. Pokud varianta používá stojánek, umístěte ho na stabilní stůl a předmět zajistěte proti posunu. Potom upravte světlo a zaostření. Stejný postup pomáhá porovnávat dva vzorky nebo se vracet na stejné místo součástky. Při servisní práci vždy zachovejte bezpečnou vzdálenost od horkých a pohybujících se částí."
+      ],
+      [
+        "Připojení podle skutečné varianty",
+        "Před použitím ověřte podporované zařízení, konektor a případnou aplikaci. Některé digitální mikroskopy zobrazují obraz na vlastním panelu, jiné na počítači nebo telefonu. Tyto možnosti nelze zaměňovat pouze podle fotografie. Pokud software umožňuje uložit snímek, využijte ho pro dokumentaci a porovnávání změn. Čistá optika, vhodné světlo a správné zaostření jsou pro výsledek důležitější než samotné digitální přiblížení."
+      ]
+    ],
+    [
+      [
+        "Detailní pozorování",
+        "Elektronika, povrchy a předměty",
+        16
+      ],
+      [
+        "Digitální obraz",
+        "Přehledné zobrazení detailů",
+        6
+      ],
+      [
+        "USB připojení",
+        "Podle podporované varianty",
+        3
+      ],
+      [
+        "Kontrola součástek",
+        "Pomoc při drobné práci",
+        35
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální mikroskop",
+      "Zobrazení": "Digitální obraz",
+      "Rozhraní": "USB podle varianty",
+      "Určení": "Pozorování drobných objektů a povrchů",
+      "Typické objekty": "Elektronika, mince a vzorky materiálů",
+      "Způsob práce": "Zaostření na stabilně umístěný objekt"
+    },
+    [
+      "Má skutečně vlastní displej?",
+      "Dosavadní název jej uvádí, ale podklady neprokazují shodu fotografie a dodávané varianty. Před objednáním kvůli displeji je nutné ověření."
+    ]
+  ],
+  [
+    16,
+    "Elektrický precizní šroubovák – servisní sada",
+    "Zpříjemněte si práci s drobnými šrouby při sestavování a opravách elektroniky. Elektrický precizní šroubovák pomáhá při opakovaném šroubování a servisní sada poskytuje základ pro práci s podporovanými spoji. Uplatní se na pracovním stole hobby opraváře i při rozebírání vlastních zařízení. Správně zvolený bit, malý přítlak a kontrolované dotažení jsou důležitější než rychlost práce. Před použitím ověřte velikost a typ šroubu i možnosti konkrétního nástroje.",
+    [
+      [
+        "Méně opakovaného otáčení při servisní práci",
+        "Při rozebírání krytu nebo montáži menších částí se stejný pohyb opakuje mnohokrát. Elektrický pohon může tuto část práce usnadnit a pomoci zachovat plynulý postup. Spoje si průběžně ukládejte podle místa původu, protože podobně vypadající šrouby mohou mít různou délku. Nástroj je určen pro jemné úlohy, nikoli automaticky pro velké konstrukční spoje."
+      ],
+      [
+        "Správný bit chrání hlavu šroubu",
+        "Než spustíte pohon, ověřte, že hrot správně dosedá do profilu. Nevhodná velikost nebo náklon mohou hlavu poškodit a další práci výrazně zkomplikovat. Začněte lehkým přítlakem a sledujte, zda spoj jde uvolnit běžným způsobem. Pokud klade neobvyklý odpor, zkontrolujte postup rozebrání zařízení. Počet a konkrétní profily bitů se řídí obsahem dodávané sady."
+      ],
+      [
+        "Kontrolované dokončení citlivých spojů",
+        "U plastových dílů a drobné elektroniky se vyplatí konečné dotažení pečlivě sledovat. Nadměrná síla může poškodit závit nebo kryt, i když je šroubovák malý. Před servisní prací zařízení odpojte od napájení a zvolte postup vhodný pro jeho konstrukci. Po skončení vraťte bity na místo, aby příští práce začala rychlým výběrem správného hrotu."
+      ]
+    ],
+    [
+      [
+        "Elektrický pohon",
+        "Pohodlnější opakované šroubování",
+        18
+      ],
+      [
+        "Precizní práce",
+        "Drobné spoje elektroniky",
+        35
+      ],
+      [
+        "Servisní sada",
+        "Příslušenství podle balení",
+        18
+      ],
+      [
+        "Kontrolovaný postup",
+        "Výběr správného bitu",
+        12
+      ]
+    ],
+    {
+      "Typ produktu": "Elektrický precizní šroubovák",
+      "Provedení": "Servisní sada",
+      "Pohon": "Elektrický",
+      "Určení": "Drobné šroubové spoje",
+      "Typické použití": "Servis a sestavování elektroniky",
+      "Pracovní nástroj": "Kompatibilní výměnný bit"
+    },
+    [
+      "Kolik bitů sada obsahuje?",
+      "Přesný počet a profily musí potvrdit obsah konkrétního balení. Obecné označení servisní sada je neurčuje."
+    ]
+  ],
+  [
+    17,
+    "Kompaktní USB-C páječka pro elektroniku",
+    "Připravte si kompaktní nástroj pro drobné pájení při stavbě a opravách elektroniky. USB-C páječka se snadno zařadí do vývojářské nebo servisní výbavy a nezabere místo jako velká stolní stanice. Hodí se pro uživatele, kteří chtějí pracovat na vlastních projektech s odpovídajícím napájením a bezpečně připravenou plochou. Konkrétní výkon, hrot a teplotní režimy se řídí dodávanou variantou. Samotný konektor USB-C neurčuje požadavky na napájecí zdroj.",
+    [
+      [
+        "Kompaktní nástroj na pracovní stůl",
+        "Páječku využijete u menších zapojení a servisních úloh, kterým odpovídá její výkon i použitý hrot. Před prací připravte pevný držák, nehořlavou podložku a vhodné větrání. Součástky rozmístěte tak, abyste se nemuseli natahovat přes horký nástroj. Přehledně uspořádané pracoviště pomáhá udržet kontrolu nad spojem a chrání kabely i okolní materiály před nechtěným kontaktem."
+      ],
+      [
+        "Napájení musí odpovídat páječce",
+        "USB-C může sloužit různým režimům napájení a nabíjení. Před připojením zkontrolujte požadované napětí, výkon, protokol a vlastnosti kabelu. Nedostatečný zdroj může omezit nahřívání nebo správnou funkci. Podporu USB Power Delivery ani provoz z každé powerbanky nelze předpokládat podle konektoru. Řiďte se dokumentací konkrétní varianty a doporučeným způsobem používání."
+      ],
+      [
+        "Kvalitní spoj začíná správnou přípravou",
+        "Vyberte vhodný hrot, čisté kontaktní plochy a pájecí materiál odpovídající úloze. Spoj zahřívejte kontrolovaně a elektroniku před prací odpojte od napájení. Po ukončení nechte páječku bezpečně vychladnout, než ji uklidíte do brašny. Kompaktní rozměry nijak nesnižují teplotu pracovních částí. Při častější práci věnujte pozornost také čištění a údržbě hrotu podle pokynů výrobce."
+      ]
+    ],
+    [
+      [
+        "USB-C",
+        "Rozhraní podle varianty",
+        3
+      ],
+      [
+        "Kompaktní provedení",
+        "Do vývojářské výbavy",
+        19
+      ],
+      [
+        "Pájení elektroniky",
+        "Stavba a drobné opravy",
+        35
+      ],
+      [
+        "Práce s hrotem",
+        "Kontrolované ohřívání spoje",
+        19
+      ]
+    ],
+    {
+      "Typ produktu": "Kompaktní páječka",
+      "Rozhraní": "USB-C",
+      "Určení": "Pájení elektroniky",
+      "Pracovní část": "Pájecí hrot",
+      "Typické použití": "Vlastní projekty a drobný servis",
+      "Pracovní prostředí": "Bezpečně připravené pracoviště"
+    },
+    [
+      "Funguje s každou USB-C nabíječkou?",
+      "Ne automaticky. Zdroj i kabel musí odpovídat požadavkům konkrétní páječky a podporovanému režimu napájení."
+    ]
+  ],
+  [
+    18,
+    "Kapesní digitální osciloskop pro měření signálů",
+    "Podívejte se, jak se elektrický signál mění v čase. Kapesní digitální osciloskop pomáhá při základní diagnostice elektroniky, výuce a ověřování vlastních zapojení. Na obrazovce získáte průběh, který běžné číselné měření nevystihne stejným způsobem. Kompaktní provedení snadno připravíte u pracovního stolu. Před připojením vždy porovnejte úroveň a charakter signálu s povolenými limity přístroje i sondy; použití se řídí skutečným modelem dodávané varianty.",
+    [
+      [
+        "Průběh v čase odhalí další souvislosti",
+        "Číselná hodnota napětí nemusí říci, zda signál pulzuje nebo jak vypadá jeho tvar. Osciloskop pomůže zobrazit změny v čase a lépe porozumět chování jednoduchého obvodu. Hodí se při studiu časování a porovnávání různých stavů zapojení. Výsledek vždy vztahujte k nastavenému rozsahu a časové základně, jinak může stejný signál působit na obrazovce odlišně."
+      ],
+      [
+        "Přenosná pomůcka pro výuku elektroniky",
+        "Malý osciloskop je praktický při projektech, kde nepotřebujete rozsáhlé stolní vybavení. Můžete ho přiblížit k testovanému obvodu a postupně kontrolovat jednotlivé body. Nejprve se seznamte s ovládáním na známém bezpečném signálu. Získáte tak představu, jak se mění zobrazení při nastavení parametrů, a snáze odlišíte vlastnost obvodu od důsledku nevhodného nastavení měřidla."
+      ],
+      [
+        "Měřicí limity jsou součástí správného postupu",
+        "Ověřte maximální vstupní napětí, šířku pásma, vzorkování i vhodnost sondy. Při zapojování respektujte způsob uzemnění přístroje a charakter testovaného obvodu. Kapesní provedení automaticky neznamená bezpečné měření síťového napětí. Parametry modelu z ilustrační fotografie nepřenášejte na jinou variantu bez potvrzení shody. Pro výuku začněte nízkonapěťovým zapojením s dobře známými vlastnostmi."
+      ]
+    ],
+    [
+      [
+        "Průběh signálu",
+        "Zobrazení změn v čase",
+        17
+      ],
+      [
+        "Digitální obrazovka",
+        "Přehled měřeného průběhu",
+        6
+      ],
+      [
+        "Kapesní provedení",
+        "Přenosná měřicí pomůcka",
+        17
+      ],
+      [
+        "Výuka elektroniky",
+        "Porozumění vlastnímu obvodu",
+        35
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální osciloskop",
+      "Provedení": "Kapesní, přenosné",
+      "Sledovaný obsah": "Elektrický průběh v čase",
+      "Zobrazení": "Digitální displej",
+      "Určení": "Základní diagnostika a výuka",
+      "Použití": "V rámci limitů přístroje a sondy"
+    },
+    [
+      "Je vhodný pro síťové napětí 230 V?",
+      "Z tohoto popisu to nevyplývá. Takové měření vyžaduje odpovídající bezpečnostní kategorii, sondu, zapojení a odborný postup."
+    ]
+  ],
+  [
+    19,
+    "Endoskopická kamera USB-C pro inspekci dutin",
+    "Zkontrolujte místa, kam běžným pohledem nevidíte. Endoskopická kamera USB-C slouží k vizuální prohlídce vhodných dutin, prostoru za nábytkem a přístupných částí mechaniky. Úzká sonda přivede pohled blíž k místu kontroly a obraz zobrazíte na podporovaném zařízení. Hodí se pro domácí údržbu, hledání překážek i orientační kontrolu instalací. Před použitím ověřte kompatibilitu telefonu nebo počítače, požadavky na aplikaci a podmínky, pro které je konkrétní sonda určena.",
+    [
+      [
+        "Pohled do obtížně přístupného prostoru",
+        "Než začnete rozebírat větší část zařízení, může pomoci obyčejná vizuální kontrola. Inspekční sonda umožňuje prohlédnout dostupné místo a lépe rozhodnout o dalším postupu. Kameru zavádějte pomalu a bez násilí. Obraz slouží jako orientační pomůcka; hloubku, rozměry a stav součástky může být potřeba ověřit také jiným způsobem podle charakteru problému."
+      ],
+      [
+        "Obraz na kompatibilním zařízení",
+        "USB-C označuje konektor, nikoli automatickou podporu každého telefonu. Ověřte potřebný hostitelský režim, operační systém a software pro konkrétní kameru. Po připojení nejprve vyzkoušejte obraz mimo dutinu a zjistěte pracovní vzdálenost, při které je detail čitelný. Pokud aplikace umožňuje záznam, můžete si průběh kontroly uložit a později porovnat stav před opravou a po ní."
+      ],
+      [
+        "Kontrola s ohledem na prostředí",
+        "Kameru používejte pouze v prostředí odpovídajícím její specifikaci. Voděodolnost kabelu nebo sondy neznamená automaticky odolnost konektoru a telefonu. Vyhněte se horkým částem, pohybujícím se mechanismům a živým elektrickým obvodům. Po kontrole sondu očistěte vhodným způsobem a kabel uložte bez ostrých ohybů. Průměr a délku vždy vybírejte podle skutečného přístupu k místu inspekce."
+      ]
+    ],
+    [
+      [
+        "USB-C",
+        "Připojení k podporovanému zařízení",
+        3
+      ],
+      [
+        "Inspekční sonda",
+        "Pohled do dostupných dutin",
+        20
+      ],
+      [
+        "Digitální obraz",
+        "Vizuální kontrola detailů",
+        7
+      ],
+      [
+        "Údržba a servis",
+        "Orientace před dalším zásahem",
+        18
+      ]
+    ],
+    {
+      "Typ produktu": "Endoskopická inspekční kamera",
+      "Připojení": "USB-C",
+      "Přenášený obsah": "Obraz",
+      "Určení": "Vizuální kontrola přístupných dutin",
+      "Spolupracující zařízení": "Kompatibilní telefon nebo počítač",
+      "Způsob použití": "Inspekční sonda"
+    },
+    [
+      "Funguje s každým USB-C telefonem?",
+      "Ne. Rozhoduje podpora hostitelského režimu, operační systém a aplikace pro danou kameru."
+    ]
+  ],
+  [
+    20,
+    "Wi-Fi endoskopická kamera pro inspekční kontrolu",
+    "Podívejte se do hůře přístupných míst a zobrazte si obraz na kompatibilním mobilním zařízení. Wi-Fi endoskopická kamera pomáhá s orientační kontrolou dutin, mechaniky a instalací bez přímého datového kabelu do telefonu. Je praktická při domácí údržbě i hledání příčiny obtíží před rozebíráním. Sonda musí rozměry a odolností odpovídat kontrolovanému prostředí. Před prací si vyzkoušejte připojení, aplikaci a zaostření, abyste v samotné dutině věděli, co obraz ukazuje.",
+    [
+      [
+        "Vizuální kontrola před rozebíráním",
+        "Pohled dovnitř může pomoci rozhodnout, zda je další zásah potřeba a odkud k němu přistoupit. Sondu zavádějte pomalu a průběžně sledujte směr pohybu. Nevyužívejte kabel jako nástroj k mechanickému protlačování překážek. Uložená dokumentace může později usnadnit vysvětlení problému nebo porovnání stavu, pokud nahrávání podporuje konkrétní aplikace a kamera."
+      ],
+      [
+        "Wi-Fi propojení pro pohodlnější polohu telefonu",
+        "Bezdrátový přenos umožní držet telefon odděleně od sondy a zvolit čitelnější místo pro sledování. Způsob připojení se řídí konkrétním modulem a návodem; některé kamery používají vlastní Wi-Fi síť. Před inspekcí ověřte, že obraz běží stabilně a telefon má potřebná oprávnění. Blízkost kovových překážek a okolní prostředí mohou podmínky přenosu zhoršit."
+      ],
+      [
+        "Sonda musí odpovídat kontrolovanému místu",
+        "Délka kabelu, průměr hlavy a pracovní vzdálenost ovlivňují, kam kameru dostanete a co rozpoznáte. Odolnost vůči vodě nebo teplotě musí potvrdit specifikace dané varianty. Telefon a bezdrátový modul neposuzujte stejně jako samotnou sondu. Po práci kabel očistěte a uložte bez ostrého zalomení; opatrné zacházení pomáhá udržet kameru připravenou pro příští kontrolu."
+      ]
+    ],
+    [
+      [
+        "Wi-Fi přenos",
+        "Obraz na kompatibilním telefonu",
+        1
+      ],
+      [
+        "Inspekční sonda",
+        "Dutiny, mechanika a instalace",
+        20
+      ],
+      [
+        "Vizuální kontrola",
+        "Pohled do skrytého prostoru",
+        7
+      ],
+      [
+        "Mobilní náhled",
+        "Poloha telefonu podle potřeby",
+        6
+      ]
+    ],
+    {
+      "Typ produktu": "Endoskopická inspekční kamera",
+      "Připojení": "Wi-Fi",
+      "Přenášený obsah": "Obraz",
+      "Určení": "Vizuální kontrola přístupných dutin",
+      "Spolupracující zařízení": "Kompatibilní mobilní zařízení",
+      "Software": "Aplikace pro konkrétní kameru"
+    },
+    [
+      "Potřebuje domácí Wi-Fi router?",
+      "Záleží na modelu. Některé kamery vytvářejí vlastní síť. Postupujte podle návodu ke skutečně dodané variantě."
+    ]
+  ],
+  [
+    21,
+    "NFC karta pro Google recenze",
+    "Usnadněte zákazníkům cestu k hodnocení vašeho podniku. NFC karta může po přiložení kompatibilního telefonu otevřít nastavený odkaz na stránku pro recenzi a omezit zdlouhavé vyhledávání provozovny. Hodí se k recepci, pokladně nebo místu předání služby. Největší smysl má tehdy, když ji nabídnete spokojenému i kritickému zákazníkovi stejně přirozeně a necháte hodnocení na něm. Karta recenzi sama nevytvoří; pouze zpřístupní odpovídající odkaz.",
+    [
+      [
+        "Kratší cesta od návštěvy k hodnocení",
+        "Zákazník nemusí ručně hledat správnou pobočku, pokud karta otevírá její konkrétní recenzní stránku. Přiložení telefonu může celý postup zjednodušit na několik běžných kroků. Po otevření služby ale návštěvník hodnocení stále píše sám a může potřebovat přihlášený účet Google. Správný cílový odkaz je proto stejně důležitý jako samotná NFC technologie."
+      ],
+      [
+        "Vhodné místo v zákaznické cestě",
+        "Kartu umístěte tam, kde má návštěvník prostor telefon pohodlně přiložit. Recepce, výdej nebo konec konzultace jsou přirozenější než přerušení právě probíhající služby. Obsluha by měla vědět, jak karta funguje a kam vede. Nenabízejte odměnu za pozitivní obsah a nefiltrujte přístup podle očekávaného hodnocení; smyslem je získat autentickou zpětnou vazbu."
+      ],
+      [
+        "Nastavení ověřte na více telefonech",
+        "Před prvním používáním otestujte, že zapsaný nebo přednastavený odkaz vede na správný profil podniku. Vyzkoušejte také běžné telefony a různé polohy jejich NFC antény. Způsob přepsání karty závisí na čipu a jeho uzamčení. Pokud konkrétní provedení obsahuje QR kód, zkontrolujte i jeho cíl; QR a NFC nemusejí být automaticky nastavované stejným způsobem."
+      ]
+    ],
+    [
+      [
+        "NFC",
+        "Otevření nastaveného odkazu",
+        21
+      ],
+      [
+        "Google recenze",
+        "Cesta na profil podniku",
+        6
+      ],
+      [
+        "U pokladny i recepce",
+        "Praktické místo pro přiložení",
+        21
+      ],
+      [
+        "Vlastní odkaz",
+        "Nastavení podle provedení",
+        3
+      ]
+    ],
+    {
+      "Typ produktu": "NFC karta",
+      "Účel": "Zpřístupnění odkazu pro Google recenze",
+      "Technologie": "NFC",
+      "Spolupracující zařízení": "Telefon s podporou čtení NFC",
+      "Cílová služba": "Google recenze",
+      "Způsob použití": "Přiložení kompatibilního telefonu"
+    },
+    [
+      "Vytvoří karta recenzi automaticky?",
+      "Ne. Otevře nastavený odkaz; obsah a odeslání hodnocení zůstávají na zákazníkovi."
+    ]
+  ],
+  [
+    22,
+    "Mini termotiskárna Bluetooth na poznámky",
+    "Přeneste krátké poznámky, jednoduché motivy a pracovní podklady z telefonu na papír. Mini termotiskárna Bluetooth využívá termální tisk bez inkoustových kazet a ovládá se prostřednictvím kompatibilní aplikace. Kompaktní provedení se hodí na pracovní stůl, ke studiu i pro menší kreativní projekty. Výsledek a dostupné šablony se řídí aplikací a vhodným termopapírem. Praktický doplněk, když chcete mít vybrané informace rychle po ruce i mimo obrazovku telefonu.",
+    [
+      [
+        "Malé podklady bez velké kancelářské tiskárny",
+        "Krátký seznam, jednoduchý obrázek nebo vlastní poznámka mohou mít praktické místo vedle počítače i ve studijním sešitě. Mini tiskárna se zaměřuje právě na takové drobné výstupy. Návrh připravíte v podporované aplikaci a zkontrolujete jeho čitelnost před tiskem. Jemnost výsledku závisí na skutečné tiskové technologii a rozlišení, ne na velikosti původního obrázku v telefonu."
+      ],
+      [
+        "Termální tisk bez inkoustové kazety",
+        "Obraz vzniká na vhodném termopapíru působením tiskové hlavy. Odpadá tak práce s klasickými inkoustovými náplněmi, je ale potřeba používat správnou šířku a druh média. Běžný termopapír nemusí být samolepicí. Pro dlouhodobé uchování důležitých informací zohledněte, že termální výtisky může ovlivňovat teplo, sluneční světlo nebo kontakt s některými materiály."
+      ],
+      [
+        "Bluetooth propojení a vlastní šablony",
+        "Tiskárnu připojte způsobem uvedeným v návodu; někdy se páruje přímo uvnitř aplikace. Potom vyzkoušejte jednoduchý text a ověřte posun papíru i čitelnost. Dostupné šablony, formáty a práce s obrázky závisejí na softwaru. Pokud chcete tisknout štítky, ověřte podporu vhodného média i rozměry. Označení mini termotiskárna samo o sobě nepotvrzuje kompatibilitu s přepravními štítky."
+      ]
+    ],
+    [
+      [
+        "Bluetooth",
+        "Propojení s kompatibilní aplikací",
+        2
+      ],
+      [
+        "Termální tisk",
+        "Bez inkoustové kazety",
+        22
+      ],
+      [
+        "Mini provedení",
+        "Na stůl i do přenosné výbavy",
+        22
+      ],
+      [
+        "Poznámky a motivy",
+        "Drobné každodenní výstupy",
+        6
+      ]
+    ],
+    {
+      "Typ produktu": "Mini termotiskárna",
+      "Připojení": "Bluetooth",
+      "Technologie tisku": "Termální",
+      "Tiskové médium": "Kompatibilní termopapír",
+      "Ovládání": "Prostřednictvím kompatibilní aplikace",
+      "Určení": "Poznámky a menší kreativní výstupy"
+    },
+    [
+      "Je každý papír samolepicí?",
+      "Ne. Samolepicí provedení je vlastnost použitého média, nikoli automatická vlastnost každého termopapíru."
+    ]
+  ]
+]

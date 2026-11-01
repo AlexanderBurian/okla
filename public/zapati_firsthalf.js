@@ -19,6 +19,7 @@ var modules=[
 if(isHome) modules.push('v91/okla_home.css','v91/okla_home.js','v91/okla_home_banners.css','v91/okla_home_banners.js');
 modules.push('v91/okla_home_side.css','v91/okla_home_side.js');
 modules.push('okla_v86_catalog.js');
+if(isDetail) modules.push('content-v91/layout.css','content-v91/catalog.js');
 if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
 modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js');
 if(isDetail) modules.push('v91/okla_detail_mobile.css');

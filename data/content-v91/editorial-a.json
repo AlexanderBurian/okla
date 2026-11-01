@@ -1,0 +1,607 @@
+[
+  [
+    1,
+    "Flipper Zero – kapesní multitool pro elektroniku",
+    "Poznejte elektroniku, kterou běžně používáte, z jiné strany. Flipper Zero spojuje práci s podporovanými rádiovými protokoly, NFC, RFID a infračerveným ovládáním v malém přístroji s vlastním displejem. Hodí se pro výuku, vývoj i testování vašeho vybavení. Nabídku ovládáte přímo na zařízení a vlastní projekty můžete rozšiřovat prostřednictvím GPIO. Otevřený firmware a dokumentace dávají prostor postupovat od hotových funkcí k vlastnímu programu, doma u stolu i při praktických pokusech.",
+    [
+      [
+        "Bezdrátové technologie na jednom místě",
+        "Dálkový ovladač, přístupový čip a NFC karta používají různé způsoby komunikace. Flipper Zero vám pomůže podporované systémy prozkoumat a pochopit rozdíly mezi nimi. Integrované moduly šetří přepojování samostatných desek, takže se můžete soustředit na samotný experiment. Rozsah funkcí ale určuje použitý protokol a zabezpečení: nejde o univerzální kopírku všech karet nebo ovladačů."
+      ],
+      [
+        "Ovládání přímo na zařízení",
+        "Vlastní obrazovka a fyzická tlačítka umožňují procházet nabídky bez neustálého připojování notebooku. U svého vybavení tak můžete zvolit funkci a rovnou sledovat výsledek. Kapesní formát oceníte ve školní laboratoři i u domácích projektů. Pro první seznámení vyberte jednoduchý úkol s vlastním kompatibilním ovladačem a postupujte podle oficiálního návodu."
+      ],
+      [
+        "Od hotových funkcí k vlastnímu programu",
+        "Otevřená platforma poskytuje prostor vlastním aplikacím a periferiím připojeným přes GPIO. Projekt lze postupně rozvíjet podle skutečné potřeby, místo abyste zůstali u jediného předem připraveného režimu. Při zapojování respektujte napěťové úrovně obvodů. Rádiové funkce používejte na vlastních systémech nebo se souhlasem správce a ověřte podmínky jejich provozu."
+      ]
+    ],
+    [
+      [
+        "NFC / RFID",
+        "Podporované čipové technologie",
+        21
+      ],
+      [
+        "Infračervené ovládání",
+        "Práce s vlastními ovladači",
+        33
+      ],
+      [
+        "GPIO",
+        "Připojení vlastního zapojení",
+        0
+      ],
+      [
+        "microSD",
+        "Soubory vašich projektů",
+        5
+      ]
+    ],
+    {
+      "Typ zařízení": "Kapesní elektronický multitool",
+      "Ovládání": "Displej a fyzická tlačítka",
+      "Infračervené rozhraní": "Ano",
+      "NFC": "13,56 MHz, podporované protokoly",
+      "RFID": "125 kHz, podporované protokoly",
+      "Rozšíření": "GPIO",
+      "Paměťová karta": "microSD",
+      "Software": "Otevřený firmware"
+    },
+    [
+      "Zkopíruje každý ovladač nebo kartu?",
+      "Ne. Rozhoduje technologie, protokol a zabezpečení. Šifrované systémy ani plovoucí kódy nelze považovat za běžně kopírovatelné."
+    ]
+  ],
+  [
+    2,
+    "LILYGO T-Embed CC1101 – vývojová platforma ESP32-S3",
+    "Postavte vlastní ovládací panel, bezdrátový experiment nebo rozhraní pro chytrou elektroniku. LILYGO T-Embed CC1101 propojuje procesor ESP32-S3, rádiový modul CC1101, barevný displej a otočný ovladač v kompaktní vývojové platformě. Místo skládání základních částí z několika desek získáte přehledný základ pro vlastní firmware. Hodnoty, nabídky a stav programu můžete sledovat přímo na zařízení. Praktické řešení pro výuku, rychlé prototypy i aplikace, jejichž ovládání chcete mít po ruce.",
+    [
+      [
+        "ESP32-S3 pro vlastní aplikace",
+        "Dvoujádrový procesor tvoří základ pro ovládací rozhraní, vyhodnocování vstupů a komunikaci. Platformu lze programovat pomocí běžných nástrojů pro ESP32 a začít na ukázkách výrobce. Integrované řešení zkracuje cestu k funkčnímu prototypu, přesto zůstává otevřené vlastnímu návrhu. Chování zařízení určuje nahraný firmware; nejde o univerzální spotřební ovladač s automatickou podporou všech zařízení."
+      ],
+      [
+        "Displej a otočný ovladač v jednom těle",
+        "Barevný IPS panel s úhlopříčkou 1,9 palce a rozlišením 320 × 170 pixelů nabízí prostor pro nabídky i aktuální hodnoty. Otočný enkodér dovoluje listovat položkami nebo nastavovat veličinu podle potřeb programu. Základní ovládání proto nemusíte sestavovat z dalších modulů. Rozhraní si upravíte pro stolní panel, malý regulátor nebo vlastní přenosnou aplikaci."
+      ],
+      [
+        "Více rozhraní pro bezdrátové projekty",
+        "Vedle Wi-Fi a Bluetooth můžete pracovat s CC1101, NFC modulem PN532 a infračerveným rozhraním. Každou část si lze nejprve vyzkoušet samostatně a potom ji zapojit do společné aplikace. Pro rádiové pokusy vždy zvolte pásmo, výkon a protokol odpovídající hardwaru i místním pravidlům. Funkce jiných variant, například CC1101 Plus, na tento model automaticky nepřenášejte."
+      ]
+    ],
+    [
+      [
+        "ESP32-S3",
+        "Programovatelný dvoujádrový základ",
+        0
+      ],
+      [
+        "1,9″ IPS",
+        "Barevný displej 320 × 170 px",
+        6
+      ],
+      [
+        "CC1101",
+        "Rádiové projekty pod 1 GHz",
+        1
+      ],
+      [
+        "PN532",
+        "Integrované NFC rozhraní",
+        21
+      ]
+    ],
+    {
+      "Procesor": "ESP32-S3, dvoujádrový LX7",
+      "Takt procesoru": "Až 240 MHz",
+      "Flash": "16 MB",
+      "PSRAM": "8 MB",
+      "Displej": "1,9″ IPS TFT, ST7789V",
+      "Rozlišení displeje": "320 × 170 px",
+      "Wi-Fi": "2,4 GHz, 802.11 b/g/n",
+      "Bluetooth": "5.0 LE",
+      "Rádiový modul": "CC1101",
+      "NFC modul": "PN532",
+      "Připojení": "USB-C",
+      "Ovládání": "Otočný enkodér",
+      "Paměťová karta": "TF / microSD"
+    },
+    [
+      "Funguje jako hotový ovladač ihned po vybalení?",
+      "Dostupné funkce se řídí nahraným firmwarem. Jde především o platformu pro programování a vlastní projekty."
+    ]
+  ],
+  [
+    3,
+    "LILYGO T-Deck Plus – kapesní komunikátor ESP32",
+    "Vytvořte vlastní přenosný terminál, datový panel nebo IoT rozhraní s pohodlnějším zadáváním. LILYGO T-Deck Plus kombinuje platformu ESP32-S3 s fyzickou klávesnicí, dotykovým displejem a trackballem. Text, stav aplikace a její ovládání tak máte přímo na zařízení bez trvale připojeného počítače. GPS přidává možnosti práce s polohovými daty a vestavěná baterie podporuje přenosné projekty. Konkrétní bezdrátové funkce závisejí na variantě a nahraném firmwaru.",
+    [
+      [
+        "Klávesnice pro aplikace se skutečným vstupem",
+        "Krátký text, příkaz nebo změna nastavení se zadávají přehledněji na fyzické klávesnici než několika tlačítky. T-Deck Plus proto dává smysl při návrhu vlastních terminálů a ovládacích rozhraní. Trackball doplňuje navigaci podle toho, jak aplikaci připravíte. Vývojový přístup vám dovolí změnit rozložení nabídky i reakce vstupů a přizpůsobit ovládání konkrétní úloze."
+      ],
+      [
+        "Barevný dotykový panel pro přehledná data",
+        "Displej s úhlopříčkou 2,8 palce a rozlišením 320 × 240 pixelů umožňuje zobrazovat hodnoty, seznamy i jednoduchou grafiku. V jednom rozhraní můžete kombinovat dotykové prvky s klávesovými zkratkami. Při práci mimo stůl se tak nemusíte spoléhat jen na vzdálené ovládání z telefonu. Pro první aplikaci navrhněte přehlednou obrazovku s několika nejdůležitějšími informacemi."
+      ],
+      [
+        "Polohová data a další možnosti rozvoje",
+        "Verze Plus přidává GPS a vestavěnou baterii, což se hodí pro experimenty mimo pracovní stůl. Případné LoRa funkce a pásmo posuzujte podle skutečného osazení zvolené varianty. GPS ve verzi Plus využívá piny rozhraní Grove; při připojování příslušenství s tím počítejte. Dokumentace pomůže vyhnout se situaci, kdy rozšíření očekává konektor, který už má v zařízení jinou úlohu."
+      ]
+    ],
+    [
+      [
+        "Fyzická klávesnice",
+        "Pohodlné zadávání textu",
+        29
+      ],
+      [
+        "2,8″ displej",
+        "Dotykové ovládání 320 × 240 px",
+        11
+      ],
+      [
+        "GPS",
+        "Polohová data pro vlastní aplikace",
+        32
+      ],
+      [
+        "ESP32-S3",
+        "Základ přenosných IoT projektů",
+        0
+      ]
+    ],
+    {
+      "Procesor": "ESP32-S3",
+      "Flash": "16 MB",
+      "PSRAM": "8 MB",
+      "Displej": "2,8″ LCD, ST7789",
+      "Rozlišení displeje": "320 × 240 px",
+      "Dotykové ovládání": "Kapacitní, GT911",
+      "Další ovládání": "Fyzická klávesnice a trackball",
+      "GPS modul": "MIA-M10Q",
+      "Bluetooth": "5.0 LE",
+      "Wi-Fi": "2,4 GHz",
+      "Připojení": "USB-C",
+      "Paměťová karta": "TF / microSD",
+      "Baterie": "2000 mAh"
+    },
+    [
+      "Nahradí běžný mobilní telefon?",
+      "Ne. Jde o vývojovou platformu pro vlastní aplikace; mobilní volání ani internet přes SIM z jejího označení nevyplývají."
+    ]
+  ],
+  [
+    4,
+    "M5Stack Cardputer ADV – mini počítač s klávesnicí",
+    "Malé zařízení pro velký prostor vlastním nápadům. M5Stack Cardputer ADV spojuje platformu ESP32-S3, barevný displej a 56klávesovou klávesnici v přenosném vývojovém počítači. Hodí se pro vlastní terminály, jednoduché ovládací aplikace a experimenty s elektronikou. Vstup i výstup máte přímo na zařízení, takže nemusíte každou akci zadávat z notebooku. Rozšiřující rozhraní, zvukové prvky a microSD pak umožňují postupně rozvíjet program podle potřeb projektu.",
+    [
+      [
+        "Programovatelný počítač do malého projektu",
+        "Cardputer ADV se hodí tam, kde chcete samostatné rozhraní s možností psát text. Procesor ESP32-S3 tvoří základ vlastního programu a klávesnice usnadňuje zadávání příkazů nebo hodnot. Při výuce si můžete na stejném zařízení vyzkoušet vstupy, grafiku i komunikaci. Nejde o náhradu notebooku s desktopovým systémem, ale o embedded platformu pro cílené aplikace."
+      ],
+      [
+        "Obraz, text a zvuk při ruce",
+        "Barevný 1,14palcový displej doplňuje klávesnice s 56 tlačítky. Verze ADV přidává audio kodek, mikrofon a reproduktor pro projekty pracující se zvukem. Můžete tak spojit textové ovládání, zobrazení výsledků a zvukovou odezvu bez skládání celého základního panelu na nepájivém poli. Jednotlivé prvky si nejprve ověřte ukázkovými programy a potom je propojte ve vlastní aplikaci."
+      ],
+      [
+        "Rozhraní pro postupné rozšiřování",
+        "Grove konektor, rozšiřující sběrnice a slot microSD dávají projektu prostor růst. Připojený senzor může dodat údaje, které program zpracuje a zobrazí na obrazovce. Výrobce dokumentuje podporované nástroje včetně Arduino a UiFlow2. Při výběru příslušenství používejte schéma právě verze ADV, protože vlastnosti jiných Cardputerů nemusí být totožné. Ověřte také napájení a rozložení pinů."
+      ]
+    ],
+    [
+      [
+        "56 kláves",
+        "Fyzická klávesnice pro zadávání",
+        29
+      ],
+      [
+        "ESP32-S3",
+        "Programovatelná platforma",
+        0
+      ],
+      [
+        "1,14″ LCD",
+        "Barevný displej 240 × 135 px",
+        6
+      ],
+      [
+        "microSD",
+        "Soubory a data projektu",
+        5
+      ]
+    ],
+    {
+      "Procesor": "ESP32-S3FN8, Stamp-S3A",
+      "Takt procesoru": "Až 240 MHz",
+      "Flash": "8 MB",
+      "Klávesnice": "56 kláves, 4 × 14",
+      "Displej": "1,14″ LCD, ST7789V2",
+      "Rozlišení displeje": "240 × 135 px",
+      "Paměťová karta": "microSD",
+      "Audio kodek": "ES8311",
+      "Pohybový senzor": "BMI270, 6 os",
+      "Rozšíření": "Grove HY2.0-4P a EXT 2.54-14P",
+      "Infračervené rozhraní": "Vysílač",
+      "Vývojová prostředí": "Arduino, UiFlow2, ESP-IDF, PlatformIO"
+    },
+    [
+      "Je určen pro běžné programy z Windows?",
+      "Ne. Je určen pro embedded aplikace a vlastní firmware, nikoli pro spouštění běžných desktopových programů."
+    ]
+  ],
+  [
+    5,
+    "Vývojová sada ESP32 pro IoT projekty",
+    "Začněte s elektronikou na úlohách, jejichž výsledek hned uvidíte. Vývojová sada ESP32 tvoří základ pro programování mikrokontroléru, práci se vstupy a vlastní IoT prototypy. Využijete ji při domácím studiu, ve školní výuce i při ověřování nápadů na automatizaci. Postupným propojováním programu a zapojení získáte zkušenosti použitelné u dalších zařízení. Konkrétní úlohy, napájení i možnosti připojení se řídí dodanou deskou a skutečným obsahem zvolené varianty sady.",
+    [
+      [
+        "První program s viditelným výsledkem",
+        "Začněte úlohou, u které rozumíte každému kroku: krátký program, kompatibilní součástka a srozumitelná reakce na změnu vstupu. Při dalším pokusu přidejte jedinou novou funkci. Takový postup usnadňuje pochopení digitálních pinů i struktury programu. Výuka nemusí zůstat u čtení příkladů, protože jednotlivé principy vyzkoušíte přímo na hardwaru a lépe rozpoznáte chybu v zapojení."
+      ],
+      [
+        "Základ vlastního IoT prototypu",
+        "S odpovídajícími moduly může ESP32 posloužit při experimentování s automatizací nebo zpracováním dat. Prototyp budujte po samostatně ověřených částech a průběžně sledujte, co program skutečně dělá. Získáte přehlednější zapojení a snáze přidáte další funkce. Sada je vhodná i pro uživatele, kteří chtějí výsledné chování upravovat, ne pouze jednou sestavit pevně daný návod."
+      ],
+      [
+        "Přehledné zapojení usnadní další práci",
+        "Před připojením každého prvku zkontrolujte piny, napájení a potřebnou knihovnu. Při úpravách odpojte napájení a průběžně si ukládejte schéma zapojení. Ke staršímu projektu se tak vrátíte bez složitého zjišťování, co kam patří. Obsah konkrétní sady porovnejte s požadavky zvoleného návodu: ilustrační obrázek jiného projektu není potvrzením, že všechny jeho součástky patří do balení."
+      ]
+    ],
+    [
+      [
+        "ESP32",
+        "Platforma pro vlastní firmware",
+        0
+      ],
+      [
+        "IoT projekty",
+        "Experimenty s elektronikou",
+        1
+      ],
+      [
+        "Vlastní zapojení",
+        "Praktická výuka",
+        35
+      ],
+      [
+        "Prototypování",
+        "Od nápadu k obvodu",
+        18
+      ]
+    ],
+    {
+      "Typ produktu": "Vývojová sada",
+      "Platforma": "ESP32",
+      "Určení": "Výuka elektroniky a programování",
+      "Způsob použití": "Vlastní firmware a zapojení",
+      "Oblast projektů": "IoT a automatizace",
+      "Provedení": "Sada pro prototypování"
+    },
+    [
+      "Obsahuje všechny senzory z ukázkových projektů?",
+      "To nelze automaticky předpokládat. Potřebné součásti porovnejte s obsahem konkrétní dodávané varianty."
+    ]
+  ],
+  [
+    6,
+    "Chytré brýle WAI4 s AI",
+    "Vyzkoušejte nositelnou elektroniku v podobě každodenního doplňku. Chytré brýle WAI4 spojují brýlové provedení s elektronikou a použitím s kompatibilním telefonem. Jsou zajímavou volbou pro zájemce o jinou podobu chytrého příslušenství. Dostupné AI funkce se odvíjejí od aplikace, jazyka, připojení a podmínek poskytované služby. Při výběru proto posuzujte pohodlí obrub společně s podporou funkcí, které chcete skutečně využívat. Důležitý je soulad brýlí, telefonu a softwaru.",
+    [
+      [
+        "Technologie v každodenním doplňku",
+        "Brýle představují jinou podobu nositelné elektroniky než hodinky nebo sluchátka. Záleží na jejich vzhledu, usazení a způsobu, jakým je chcete zapojit do běžného dne. WAI4 vybírejte také s ohledem na používaný telefon. Samotné označení chytré brýle neznamená automaticky displej před očima ani rozšířenou realitu; takové možnosti musí být doložené pro konkrétní provedení."
+      ],
+      [
+        "Aplikace je součástí celého řešení",
+        "Před prvním použitím projděte návod k dodané variantě a nainstalujte odpovídající aplikaci. Nastavení, oprávnění a dostupná nabídka určují rozsah činností, které můžete využít. Vyzkoušejte si je v klidném prostředí a zjistěte, co se ovládá na brýlích a co v telefonu. U funkcí závislých na internetu nebo účtu služby počítejte s těmito podmínkami také na cestách."
+      ],
+      [
+        "Výběr podle reálného způsobu nošení",
+        "Pohodlí je u brýlí stejně důležité jako elektronika. Obruby musí vyhovovat obličeji a obsluha vašim běžným situacím. Nejprve se seznamte se základním ovládáním a potom přidávejte další úlohy. Možnosti práce s obrazem, zvukem, případnou dioptrickou úpravou nebo odolností je nutné ověřit pro danou variantu WAI4; podobný vzhled jiného modelu jejich přítomnost nepotvrzuje."
+      ]
+    ],
+    [
+      [
+        "WAI4",
+        "Model chytrých brýlí",
+        30
+      ],
+      [
+        "Nositelné provedení",
+        "Elektronika v podobě brýlí",
+        30
+      ],
+      [
+        "Mobilní propojení",
+        "Kompatibilní telefon a aplikace",
+        3
+      ],
+      [
+        "AI funkce",
+        "Podle dostupné služby",
+        0
+      ]
+    ],
+    {
+      "Typ zařízení": "Chytré brýle",
+      "Model": "WAI4",
+      "Provedení": "Nositelné brýlové příslušenství",
+      "Spolupracující zařízení": "Kompatibilní mobilní telefon",
+      "AI funkce": "Podle aplikace a dostupné služby",
+      "Oblast použití": "Každodenní chytré příslušenství"
+    },
+    [
+      "Promítají informace před oči?",
+      "Vestavěný zobrazovací systém není v dostupných podkladech potvrzen. Tento popis ho proto neslibuje."
+    ]
+  ],
+  [
+    7,
+    "Esaker G300 – chytré brýle",
+    "Klasický tvar brýlí může být také součástí chytré výbavy. Esaker G300 je nositelné elektronické příslušenství určené pro použití s kompatibilním mobilním zařízením. Zaujme uživatele, kteří hledají jiný formát doplňku k telefonu a chtějí ho sladit s každodenním nošením. Při výběru zohledněte pohodlí obrub, podporovanou aplikaci a skutečné možnosti dodávané varianty. Jejich soulad rozhoduje, které funkce vám budou užitečné doma, při práci nebo během cestování.",
+    [
+      [
+        "Známý tvar pro chytré příslušenství",
+        "Elektronika nemusí představovat další předmět uložený v kapse. Brýlové provedení propojuje běžný doplněk s novým způsobem používání příslušenství k telefonu. G300 je zajímavý pro zájemce o nositelné technologie, kteří sledují i vzhled. Při porovnávání ale odlišujte potvrzené vlastnosti daného modelu od obecných představ o chytrých brýlích, například automatické přítomnosti displeje nebo rozšířené reality."
+      ],
+      [
+        "Začněte správným propojením",
+        "Postupujte podle návodu k dodané variantě a ověřte podporu vašeho telefonu. U nositelné elektroniky tvoří instalace aplikace a nastavení oprávnění důležitou část uvedení do provozu. Jednotlivé nabídky si vyzkoušejte před pravidelným používáním. Získáte přehled o ovládání a zjistíte, které činnosti závisí na telefonu, připojení, účtu nebo verzi doprovodného softwaru."
+      ],
+      [
+        "Pohodlí pro delší nošení",
+        "Vedle seznamu funkcí rozhoduje také to, jak obruby sedí a jak se ovládají v běžných situacích. S novým příslušenstvím začněte krátkým používáním a postupně si osvojte jeho obsluhu. Druh čoček, dioptrickou úpravu ani voděodolnost nelze bezpečně vyvozovat jen z fotografie. Stejně tak není vhodné přenášet parametry z podobně pojmenované varianty G300en bez potvrzení shodného provedení."
+      ]
+    ],
+    [
+      [
+        "Esaker G300",
+        "Chytré brýlové příslušenství",
+        30
+      ],
+      [
+        "Nositelné řešení",
+        "Pro každodenní používání",
+        30
+      ],
+      [
+        "Mobilní zařízení",
+        "Funkce podle kompatibility",
+        3
+      ],
+      [
+        "Brýlové obruby",
+        "Alternativní formát elektroniky",
+        0
+      ]
+    ],
+    {
+      "Typ produktu": "Chytré brýle",
+      "Značka": "Esaker",
+      "Model": "G300",
+      "Provedení": "Nositelné elektronické příslušenství",
+      "Spolupracující zařízení": "Kompatibilní mobilní zařízení",
+      "Softwarové funkce": "Podle varianty a aplikace"
+    },
+    [
+      "Jsou parametry shodné s G300en?",
+      "Podobné označení nestačí. Specifikace jiné varianty se na G300 nepřenášejí bez ověření."
+    ]
+  ],
+  [
+    8,
+    "S29A – kapesní AI diktafon",
+    "Mějte nápady, poznámky a podklady ze schůzek pohromadě. Kapesní diktafon S29A je určen pro pořizování zvukových záznamů, ke kterým se chcete později vrátit. Malé provedení snadno zařadíte do školní nebo pracovní výbavy. Podporované AI zpracování může podle aplikace pomoci s přepisem či shrnutím, původní nahrávka ale zůstává důležitým zdrojem souvislostí. Rozsah služby, jazyky a kapacitu úložiště vždy posuzujte pro konkrétní dodávanou variantu.",
+    [
+      [
+        "Zachyťte myšlenku ve chvíli, kdy vzniká",
+        "Ruční poznámky někdy zachytí hesla, ale ztratí souvislosti. Zvukový záznam umožňuje vrátit se k původní formulaci a doplnit chybějící kontext. S29A můžete připravit pro vlastní nápady, studium nebo schůzky s domluveným nahráváním. Před důležitou událostí zkontrolujte stav zařízení a vytvořte zkušební záznam přímo v prostředí, kde budete nahrávat."
+      ],
+      [
+        "Od nahrávky k pracovním podkladům",
+        "Pokud to podporuje použitá aplikace, AI může pomoci převést řeč na text nebo připravit souhrn. Výsledek ovlivňuje kvalita zvuku, jazyk i způsob zpracování. Jména, odborné výrazy a rozhodnutí proto porovnejte s originálem. Automatický výstup poslouží jako první podklad pro další práci, ne jako záruka doslovného a bezchybného zachycení každé věty."
+      ],
+      [
+        "Přehlednější organizace práce",
+        "Nahrávky průběžně pojmenovávejte podle data a tématu, aby se k nim dalo snadno vrátit. Při citlivých rozhovorech věnujte pozornost i tomu, zda aplikace pracuje lokálně, nebo data odesílá službě. Kapacita paměti, dostupné jazyky a limity AI se mohou mezi variantami lišit. Před rozsáhlejším používáním si proto vyzkoušejte celý postup od nahrávání po uložení výsledných podkladů."
+      ]
+    ],
+    [
+      [
+        "Zvukové poznámky",
+        "Nápady, výuka a schůzky",
+        8
+      ],
+      [
+        "Kapesní provedení",
+        "Přenosný záznamník",
+        24
+      ],
+      [
+        "S29A",
+        "Samostatný digitální diktafon",
+        8
+      ],
+      [
+        "AI zpracování",
+        "Podle aplikace a služby",
+        0
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální diktafon",
+      "Model": "S29A",
+      "Zaznamenávaný obsah": "Zvuk",
+      "Provedení": "Přenosné, kapesní",
+      "Typické použití": "Poznámky, výuka, schůzky",
+      "AI funkce": "Podle aplikace a dostupné služby"
+    },
+    [
+      "Je přepis neomezený a zdarma?",
+      "Rozsah, limity a případné předplatné závisejí na aplikaci. Neomezený bezplatný přepis není potvrzen."
+    ]
+  ],
+  [
+    9,
+    "Q18 – bezdrátová překladová sluchátka",
+    "Propojte každodenní poslech s možnostmi kompatibilní překladové aplikace. Bezdrátová sluchátka Q18 poslouží pro hudbu, hovory a podporované režimy práce s cizím jazykem. Při cestování mohou být užitečnou oporou běžné domluvy, zatímco telefon zajišťuje potřebné softwarové zpracování. Záleží proto na jeho kompatibilitě, připojení a podmínkách služby. Před cestou si ověřte konkrétní jazyky i způsob konverzace, který aplikace podporuje.",
+    [
+      [
+        "Další opora při cizojazyčném rozhovoru",
+        "Porozumění mluvené řeči usnadní, když máte k dispozici další zdroj významu. Q18 lze používat s podporovanou překladovou aplikací a jejími dostupnými režimy. Pracovní postup se liší podle softwaru; někdy je nutné, aby účastníci mluvili postupně. U důležitých údajů si význam potvrďte, protože automatický překlad může chybovat v kontextu, jménech nebo odborné terminologii."
+      ],
+      [
+        "Sluchátka pro běžný každodenní obsah",
+        "Podporovaný poslech a hovory využijete také mimo situace s překladem. Příslušenství tak nemusí zůstat odložené mezi jednotlivými cestami. Před delším používáním si vyzkoušejte usazení a ovládání se svým telefonem. Hluk okolí ovlivňuje jak telefonování, tak rozpoznávání řeči. Pro rozhovor s aplikací proto vyberte klidnější místo a nejprve otestujte krátké, srozumitelně vyslovené věty."
+      ],
+      [
+        "Připravte aplikaci ještě před cestou",
+        "Ověřte podporu konkrétní dvojice jazyků, potřebný účet i to, které funkce vyžadují internet. Online podpora nemusí znamenat stejnou nabídku offline. Důležité je vyzkoušet celý průběh rozhovoru, nejen úspěšné připojení sluchátek. Q18 nejsou tímto popisem prezentována jako samostatný překladač bez telefonu; jejich možnosti se posuzují společně s aplikací a použitým mobilním zařízením."
+      ]
+    ],
+    [
+      [
+        "Bezdrátový poslech",
+        "Kompatibilní mobilní zařízení",
+        10
+      ],
+      [
+        "Překladová aplikace",
+        "Podporované konverzační režimy",
+        0
+      ],
+      [
+        "Hudba a hovory",
+        "Využití i mimo cestování",
+        9
+      ],
+      [
+        "Q18",
+        "Nositelné audio příslušenství",
+        10
+      ]
+    ],
+    {
+      "Typ produktu": "Bezdrátová překladová sluchátka",
+      "Model": "Q18",
+      "Oblast použití": "Poslech, hovory a překlad přes aplikaci",
+      "Spolupracující zařízení": "Kompatibilní telefon",
+      "Překladové funkce": "Podle doprovodné aplikace",
+      "Jazyková podpora": "Podle služby a režimu"
+    },
+    [
+      "Překládají bez telefonu?",
+      "Samostatný překlad není potvrzen. Počítejte s kompatibilním telefonem a aplikací."
+    ]
+  ],
+  [
+    10,
+    "R99 – chytrý prsten",
+    "Objevte nositelnou elektroniku v nenápadném formátu prstenu. R99 je alternativou pro uživatele, kteří dávají přednost malému doplňku před běžnými chytrými hodinkami. Při výběru záleží na správné velikosti, pohodlném usazení a podpoře doprovodné aplikace. Konkrétní funkce a zobrazované údaje se odvíjejí od dodávané varianty, nikoli pouze od vzhledu. Zajímavá volba pro zájemce o nové formáty každodenní elektroniky, kteří chtějí hlavní přehled sledovat v kompatibilním telefonu.",
+    [
+      [
+        "Jiná podoba nositelné elektroniky",
+        "Prsten poskytuje odlišný způsob nošení než náramek s displejem. Může vyhovovat uživatelům, kteří chtějí nenápadnější doplněk a nevadí jim pracovat s přehledem v telefonu. U R99 posuzujte hlavně vztah mezi pohodlím, aplikací a skutečnými možnostmi dodané varianty. Samotný formát nevypovídá o přesnosti případných senzorů ani o rozsahu podporovaných funkcí."
+      ],
+      [
+        "Správná velikost pro pohodlné nošení",
+        "Příliš volný nebo těsný prsten může být nepříjemný při delším nošení. Zohledněte konkrétní velikost a doporučený postup jejího výběru. Usazení se během dne může měnit, například vlivem tepla nebo fyzické aktivity. Prsten musí jít bezpečně sundat a neměl by omezovat běžný pohyb. Při práci, kde by se mohl zachytit, jej odložte stejně jako jiné šperky."
+      ],
+      [
+        "Aplikace doplní dostupný přehled",
+        "Po propojení postupujte podle průvodce odpovídající aplikace a ověřte potřebná oprávnění. Pokud varianta nabízí sledování aktivity nebo tělesných ukazatelů, posuzujte údaje jako výstup spotřební elektroniky. Nenahrazují zdravotnické vyšetření. Také voděodolnost či vhodnost pro konkrétní sport musí být doložená pro skutečně dodávané provedení, nelze ji bezpečně odvodit z názvu R99 ani vzhledu prstenu."
+      ]
+    ],
+    [
+      [
+        "Chytrý prsten",
+        "Nenápadný nositelný formát",
+        31
+      ],
+      [
+        "R99",
+        "Model elektronického příslušenství",
+        31
+      ],
+      [
+        "Mobilní přehled",
+        "Podle kompatibilní aplikace",
+        6
+      ],
+      [
+        "Volba velikosti",
+        "Pohodlné usazení na prstu",
+        12
+      ]
+    ],
+    {
+      "Typ produktu": "Chytrý prsten",
+      "Model": "R99",
+      "Provedení": "Nositelné příslušenství na prst",
+      "Volba varianty": "Podle velikosti prstenu",
+      "Softwarové funkce": "Podle kompatibilní aplikace",
+      "Určení": "Spotřební nositelná elektronika"
+    },
+    [
+      "Jde o zdravotnický přístroj?",
+      "V dostupných podkladech není doložen jako zdravotnický prostředek. Případné údaje nejsou podkladem pro diagnózu."
+    ]
+  ],
+  [
+    11,
+    "Digitální USB-C tester napájení",
+    "Zjistěte, jak se při nabíjení chová konkrétní sestava zdroje, kabelu a zařízení. Digitální USB-C tester slouží ke kontrole podporovaných elektrických veličin na kompatibilním propojení a pomáhá s orientačním porovnáváním nabíjecí výbavy. Využijete ho doma, při základní diagnostice i na pracovním stole. Místo odhadu podle samotné nabíjecí ikony získáte další informace o přenosu energie. Před zapojením vždy porovnejte napětí, proud a protokoly sestavy s limity konkrétního testeru.",
+    [
+      [
+        "Více informací než ikona nabíjení",
+        "Telefon může zobrazovat nabíjení, aniž by tím popisoval chování celé sestavy. Tester vložený do podporované napájecí cesty umožňuje sledovat dostupné veličiny a porovnávat zdroje nebo kabely. Výsledky ale vždy čtěte v souvislostech. Připojené zařízení si odběr řídí samo a mění ho podle stavu baterie, teploty i činností, které právě vykonává."
+      ],
+      [
+        "Přehlednější porovnání příslušenství",
+        "Při zkoušení měňte vždy jen jednu část sestavy a ostatní podmínky zachovejte co nejpodobnější. Snáze zjistíte, zda rozdíl souvisí s kabelem, zdrojem nebo jiným nastavením. Tester poslouží jako praktický diagnostický doplněk, není však automaticky certifikovanou zkouškou bezpečnosti nabíječky. Přesnost a rozsah měření posuzujte podle dokumentace daného modelu."
+      ],
+      [
+        "USB-C ještě neurčuje všechny možnosti",
+        "Stejný konektor se používá u příslušenství s různými výkony a režimy. Před měřením ověřte maximální napětí, proud, směr zapojení a podporu používaného protokolu. USB Power Delivery ani jiné rychlonabíjení nelze předpokládat jen podle tvaru konektoru. Správně zvolený tester a kabel chrání měřicí sestavu a pomohou získat výsledek, který lze smysluplně interpretovat."
+      ]
+    ],
+    [
+      [
+        "USB-C",
+        "Kompatibilní napájecí cesta",
+        3
+      ],
+      [
+        "Digitální odečet",
+        "Zobrazení podporovaných hodnot",
+        6
+      ],
+      [
+        "Napětí a proud",
+        "Kontrola nabíjení",
+        4
+      ],
+      [
+        "Porovnání sestav",
+        "Zdroj, kabel a zařízení",
+        35
+      ]
+    ],
+    {
+      "Typ produktu": "Digitální tester napájení",
+      "Rozhraní": "USB-C",
+      "Základní účel": "Kontrola napětí a proudu",
+      "Zobrazení": "Digitální",
+      "Místo zapojení": "Kompatibilní napájecí cesta",
+      "Použití": "Orientační kontrola nabíjecí sestavy"
+    },
+    [
+      "Proč se při měření mění proud?",
+      "Odběr řídí zařízení. Ovlivňuje ho stav baterie, teplota i aktuální používání, takže samotná změna proudu nemusí znamenat závadu."
+    ]
+  ]
+]

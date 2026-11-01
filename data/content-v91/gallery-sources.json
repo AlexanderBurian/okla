@@ -1,0 +1,86 @@
+[
+  {
+    "code": "OKL-001",
+    "url": "https://cdn.shopify.com/s/files/1/0527/9806/2745/files/product_flipper-zero_1.png?v=1765368572",
+    "i": 0,
+    "filename": "products/OKL-001-1.png",
+    "bytes": 2098490
+  },
+  {
+    "code": "OKL-001",
+    "url": "https://cdn.shopify.com/s/files/1/0527/9806/2745/files/product_flipper-zero_2.png?v=1765368572",
+    "i": 1,
+    "filename": "products/OKL-001-2.png",
+    "bytes": 1580110
+  },
+  {
+    "code": "OKL-001",
+    "url": "https://cdn.shopify.com/s/files/1/0527/9806/2745/files/product_flipper-zero_3.png?v=1765368572",
+    "i": 2,
+    "filename": "products/OKL-001-3.png",
+    "bytes": 1338721
+  },
+  {
+    "code": "OKL-002",
+    "url": "https://cdn.shopify.com/s/files/1/0617/7190/7253/files/T-Embed-CC1101-lilygo_3.jpg?v=1727250195",
+    "i": 0,
+    "filename": "products/OKL-002-1.jpg",
+    "bytes": 43329
+  },
+  {
+    "code": "OKL-002",
+    "url": "https://cdn.shopify.com/s/files/1/0617/7190/7253/files/T-Embed-CC1101-lilygo_2.jpg?v=1727250195",
+    "i": 1,
+    "filename": "products/OKL-002-2.jpg",
+    "bytes": 50582
+  },
+  {
+    "code": "OKL-002",
+    "url": "https://cdn.shopify.com/s/files/1/0617/7190/7253/files/K230_06.jpg?v=1727250195",
+    "i": 2,
+    "filename": "products/OKL-002-3.jpg",
+    "bytes": 33225
+  },
+  {
+    "code": "OKL-003",
+    "url": "https://cdn.shopify.com/s/files/1/0617/7190/7253/files/T-DECK-PLUS_7.jpg?v=1748422600",
+    "i": 0,
+    "filename": "products/OKL-003-1.jpg",
+    "bytes": 76252
+  },
+  {
+    "code": "OKL-003",
+    "url": "https://cdn.shopify.com/s/files/1/0617/7190/7253/files/T-DECK-PLUS_1.jpg?v=1748422600",
+    "i": 1,
+    "filename": "products/OKL-003-2.jpg",
+    "bytes": 91022
+  },
+  {
+    "code": "OKL-003",
+    "url": "https://cdn.shopify.com/s/files/1/0617/7190/7253/files/T-DECK-PLUS_6.jpg?v=1748422600",
+    "i": 2,
+    "filename": "products/OKL-003-3.jpg",
+    "bytes": 89940
+  },
+  {
+    "code": "OKL-004",
+    "url": "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Cardputer-Adv_01.webp",
+    "i": 0,
+    "filename": "products/OKL-004-1.webp",
+    "bytes": 228304
+  },
+  {
+    "code": "OKL-004",
+    "url": "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Cardputer-Adv_02.webp",
+    "i": 1,
+    "filename": "products/OKL-004-2.webp",
+    "bytes": 83222
+  },
+  {
+    "code": "OKL-004",
+    "url": "https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1178/Cardputer-Adv_03.webp",
+    "i": 2,
+    "filename": "products/OKL-004-3.webp",
+    "bytes": 72368
+  }
+]
