@@ -35,3 +35,9 @@ html body.in-krok-2 .co-contact-information fieldset,html body.in-krok-2 .co-bil
 html body.in-krok-2 .co-contact-information .form-group,html body.in-krok-2 .co-billing-address .form-group{flex:1 1 calc(50% - 10px);min-width:0;margin:0}
 html body.in-krok-2 .form-legend{text-align:left;font-size:12px;color:#6b6b6b}
 html body.ordering-process:not(.in-kosik) .radio-wrapper input[type=radio]{opacity:0!important;appearance:none!important;-webkit-appearance:none!important}
+/* Progress track: from the centre of the first step to the centre of the last one, measured by the script. */
+html body.ordering-process .cart-header::before{left:var(--x1,calc(100%/6));width:calc(var(--x3,calc(100%*5/6)) - var(--x1,calc(100%/6)))}
+html body.ordering-process .cart-header::after{left:var(--x1,calc(100%/6));width:calc(var(--pos) - var(--x1,calc(100%/6)))}
+/* Checkout: the blue button sits above the back button, as in the reference. */
+html body.ordering-process:not(.in-kosik) .next-step{flex-direction:column-reverse!important}
+

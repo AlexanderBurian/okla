@@ -198,25 +198,58 @@
   });
  }
 
- /* The parcel starts at the first step and walks along the track, one step at a time, to the current step. */
+ /* The parcel starts at the first step and walks slowly, one step at a time, to the current step.
+    Each stop is the measured centre of its step, so the box sits centred on it. */
  function addParcel(){
   var ol=document.querySelector('.cart-header');
   if(!ol||ol.querySelector('.okla-parcel'))return;
-  var stops=['16.6667%','50%','83.3333%'];
+  var steps=Array.prototype.filter.call(ol.children,function(li){return li.classList.contains('step')});
+  if(steps.length<3)return;
   var idx=document.body.classList.contains('in-krok-2')?2:(document.body.classList.contains('in-krok-1')?1:0);
   var box=document.createElement('div');
   box.className='okla-parcel';
   box.setAttribute('aria-hidden','true');
   box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 4.5 43 14 24 23.5 5 14Z" fill="#e7bf8a"/><path d="M5 14 24 23.5V44L5 34.5Z" fill="#c28d55"/><path d="M43 14 24 23.5V44l19-9.5Z" fill="#a46e3c"/><path d="M20.8 8.6 27.2 11.8V23.4L20.8 20.2Z" fill="#f5ead3"/><path d="M33.4 25.8 37.6 27.9V40.4L33.4 38.3Z" fill="#f5ead3"/><path d="M24 23.5V44" stroke="#8a5a2c" stroke-width="1.2"/></svg>';
   ol.appendChild(box);
-  ol.style.setProperty('--pos',stops[0]);
-  box.getBoundingClientRect();
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce||idx===0){ol.style.setProperty('--pos',stops[idx]);return}
-  for(var k=1;k<=idx;k++){
-   (function(k){setTimeout(function(){ol.style.setProperty('--pos',stops[k])},500+(k-1)*1100)})(k);
+  function centre(li){return (li.offsetLeft+li.offsetWidth/2)+'px'}
+  function measure(){
+   ol.style.setProperty('--x1',centre(steps[0]));
+   ol.style.setProperty('--x3',centre(steps[2]));
   }
-  box.style.animationDelay=((500+(idx-1)*1100+1100)/1000)+'s';
+  measure();
+  ol.style.setProperty('--pos',centre(steps[0]));
+  box.getBoundingClientRect();
+  var arrive=idx?400+(idx-1)*2600+2400:0;
+  box.style.animationDelay=((arrive+300)/1000)+'s';
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||idx===0){ol.style.setProperty('--pos',centre(steps[idx]))}
+  else{
+   for(var k=1;k<=idx;k++){
+    (function(k){setTimeout(function(){ol.style.setProperty('--pos',centre(steps[k]))},400+(k-1)*2600)})(k);
+   }
+  }
+  window.addEventListener('resize',function(){
+   measure();
+   ol.style.setProperty('--pos',centre(steps[idx]));
+  });
+ }
+
+ /* On the delivery step only Zásilkovna is offered; a hidden method that was selected moves the choice to Zásilkovna. */
+ function keepOnlyZasilkovna(){
+  var rows=document.querySelectorAll('.co-delivery-method .radio-wrapper');
+  if(!rows.length)return;
+  var keepRe=/z[aá]silkovna/i;
+  var target=null;
+  Array.prototype.forEach.call(rows,function(row){
+   var keep=keepRe.test(row.textContent||'');
+   row.style.display=keep?'':'none';
+   if(keep&&!target)target=row;
+  });
+  var checked=document.querySelector('.co-delivery-method .radio-wrapper input:checked');
+  if(checked&&checked.closest('.radio-wrapper').style.display==='none'&&target){
+   var inp=target.querySelector('input[type=radio]');
+   if(inp)inp.click();
+  }
  }
 
  /* The coupon card of the reference, in the empty left column of the cart extras. It is not connected to Shoptet coupons. */
@@ -342,6 +375,7 @@
   addSectionIcons();
   moveNextStep();
   freeShipping();
+  keepOnlyZasilkovna();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();
