@@ -129,7 +129,7 @@
    var own=Array.prototype.filter.call(h.childNodes,function(n){return n.nodeType===3}).map(function(n){return n.textContent}).join('');
    if(!/Potřebujete pomoc/.test(own))return;
    var box=h.closest('.box')||h;
-   if(box.querySelector('input,select,textarea,button,form,.order-summary'))box=h;
+   if(box.querySelector('input,select,textarea,form,.order-summary,.next-step'))box=h;
    box.style.display='none';
   });
  }
