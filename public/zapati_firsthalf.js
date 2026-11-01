@@ -7,7 +7,7 @@
   var current = document.currentScript;
   var apiUrl = current && current.getAttribute('data-api-url');
   var storefrontUrl = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@4bbf6608f1a9bbd5c106a86e9623f0b5485b6033/public/zapati_firsthalf.js?v=100';
-  var aiBase = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@53df90312e4850d56422b036efccbe029169615a/public/ai/v1/';
+  var aiBase = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@5dd9e4b0dde8b80e7af6cd989694209deffca6d1/public/ai/v1/';
 
   if (!window.__oklaBootstrapV91 && !window.__oklaCompleteV71) {
     var storefront = document.createElement('script');
