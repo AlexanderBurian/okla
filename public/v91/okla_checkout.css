@@ -1,8 +1,8 @@
 /* OKLA cart and checkout: white cards, clear steps, a summary card on the right and one navy action.
    Loaded only on ordering pages (body.ordering-process). The side art is off on these pages. */
 body.ordering-process #content-wrapper{background:#fff}
-body.ordering-process .cart-header{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 22px;padding:0 0 16px;border-bottom:1px solid #e6ebf2}
-body.ordering-process .cart-header .step{font-size:15px;font-weight:500;color:#6b7280}
+body.ordering-process .cart-header{display:flex;flex-wrap:nowrap;justify-content:space-between;gap:12px;margin:0 0 22px;padding:0 0 16px;border-bottom:1px solid #e6ebf2}
+body.ordering-process .cart-header .step{flex:1 1 0;min-width:0;font-size:14px;line-height:1.3;font-weight:500;color:#6b7280}
 body.ordering-process .cart-header .step.active{font-weight:700;color:#0b2540}
 body.ordering-process .cart-header .step.completed{color:#5ba300}
 body.ordering-process .order-delivery,
@@ -15,7 +15,8 @@ body.ordering-process .order-summary .checkout-box{position:sticky;top:20px;back
 body.ordering-process .cart-item{border-bottom:1px solid #e6ebf2;padding:12px 0}
 body.ordering-process .cart-item-name{font-size:15px;font-weight:600;color:#0b2540}
 body.ordering-process .price-primary{font-size:22px;font-weight:700;color:#0b2540}
-body.ordering-process .contact-box{background:#f5f7fa;border-radius:12px;padding:14px;color:#0b2540}
+body.ordering-process .contact-box,body.ordering-process .toggle-contacts{background:#f5f7fa!important;border-radius:12px;color:#0b2540!important;border:1px solid #e6ebf2}
+body.ordering-process .order-icon{position:static!important;display:inline-block;vertical-align:middle;margin-right:8px}
 body.ordering-process .btn-conversion{background:#103e76!important;border-color:#103e76!important;color:#fff!important;border-radius:10px;height:52px;font-size:16px;font-weight:700}
 body.ordering-process .btn-conversion:hover{background:#0b2540!important;border-color:#0b2540!important}
 body.ordering-process .next-step-back{border-radius:10px;height:52px;border:1px solid #0b2540;color:#0b2540;background:#fff}
