@@ -76,6 +76,15 @@
   icons(row,cart);
  }
 
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',restoreHeader);
- else restoreHeader();
+ function hideHelpBox(){
+  document.querySelectorAll('h2,h3,h4,.h4').forEach(function(h){
+   if(!/Potřebujete pomoc/.test(h.textContent))return;
+   var box=h.closest('.box')||h.parentElement;
+   if(box)box.style.display='none';
+  });
+ }
+
+ function init(){restoreHeader();hideHelpBox();}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
+ else init();
 })();
