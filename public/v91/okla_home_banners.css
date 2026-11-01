@@ -3,8 +3,8 @@
    below the picture. Every banner has the same right-side darkening (as on Alza), a left scrim so the white text reads
    on the light photos, the text and a blue CTA. */
 
-/* The legacy mobile dots belonged to the Shoptet carousel; the hero draws its own dots. */
-html body.type-index #okla-v61-dots{display:none!important}
+/* The legacy two-dot navigation belonged to Shoptet's original two banners. The custom four-slide hero owns navigation. */
+html body.type-index #content #okla-v61-dots{display:none!important}
 
 /* ---------- Hero ---------- */
 .okla-hero{position:relative;width:100%;aspect-ratio:909/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:Roboto,Arial,sans-serif}
@@ -48,6 +48,12 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 .okla-hero__cta:focus-visible,.okla-tile__cta:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 
 @media (max-width:767px){
+ /* Mobile shell clips the original carousel to the photo. Let only the custom navigation extend below it. */
+ html body.type-index #content .banners-row,
+ html body.type-index #content .banners-row>.col-sm-8,
+ html body.type-index #content .banners-row #carousel,
+ html body.type-index #content .banners-row #carousel .carousel-inner,
+ html body.type-index #content .banners-row .okla-hero-wrap{overflow:visible!important}
  .okla-hero{aspect-ratio:351/217}
  .okla-hero__slide--1 .okla-hero__media{background-image:url('assets/hero-1-mobile.webp')}
  .okla-hero__slide--2 .okla-hero__media{background-image:url('assets/hero-2-mobile.webp')}
@@ -62,7 +68,7 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  /* Room under the picture for the dots, so the sections below start under them. */
  html body.type-index #content .banners-row{padding-bottom:26px!important}
  /* Four distinct clickable dots sit close under the picture on mobile. */
- .okla-hero__dots{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;min-height:14px}
+ .okla-hero__dots{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:4px;min-height:14px}
  .okla-hero__dots button{display:block;flex:0 0 9px;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#c9d2de;box-shadow:none;cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease,transform .18s ease}
  .okla-hero__dots button[aria-current="true"]{width:9px;background:#0a7ad9;box-shadow:0 0 0 2px #fff,0 0 0 3px #0a7ad9;transform:scale(1.08)}
  .okla-hero__dots button:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
