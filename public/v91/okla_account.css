@@ -44,3 +44,5 @@ html body.in-registrace #content #company-info.js-hidden:not(.visible){display:n
  html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h1{font-size:24px!important}
  html body.in-registrace #content .co-registration>fieldset{grid-template-columns:minmax(0,1fr)!important}
 }
+/* Shoptet animates almost every property of the fields; only the outline colour is animated, so the fields do not morph after the page loads. */
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-control{transition:border-color .15s ease,box-shadow .15s ease!important}
