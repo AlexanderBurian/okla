@@ -260,3 +260,9 @@ html body.in-kosik .quantity-form .okla-qty:hover{color:#1f6fd8!important}
  html body.in-kosik table.cart-table tr.removeable>td:nth-child(6){grid-column:3!important;grid-row:3!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;white-space:nowrap!important}
  html body.in-kosik table.cart-table tr.removeable .remove-item{margin-right:0!important;flex:none!important}
 }
+/* Cart on phones: no "Součet" label beside the total; the cart keeps the same 24 px gutter on the right as on the left. */
+@media(max-width:767px){
+ html body.in-kosik table.cart-table tr.removeable>td.p-total .p-label{display:none!important}
+ html body.in-kosik table.cart-table tr.removeable>td.p-total form,html body.in-kosik table.cart-table tr.removeable>td.p-total form .inline{display:inline-flex!important;margin:0!important}
+ html body.in-kosik .cart-row .cart-content{padding-right:24px!important;box-sizing:border-box!important}
+}
