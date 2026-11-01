@@ -7,6 +7,7 @@ window.__oklaBootstrapV91=true;
 window.__oklaCompleteV71=true;
 var current=document.currentScript;
 var base=current&&current.src?current.src.split(/[?#]/)[0].replace(/[^/]*$/,''):'';
+var aiApiUrl=current&&current.getAttribute('data-api-url');
 if(!base){console.error('[OKLA V91] External loader URL required');return}
 var isHome=document.body&&document.body.classList.contains('type-index');
 var isDetail=!!document.querySelector('#content .p-detail');
@@ -29,8 +30,21 @@ if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/ok
  if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');
 var index=0;
+function loadAi(){
+ if(window.__oklaAiWidgetLoader||document.querySelector('okla-ai-chat'))return;
+ if(!aiApiUrl){console.warn('[OKLA AI] Chybí data-api-url s adresou nasazeného AI backendu.');return}
+ window.__oklaAiWidgetLoader=true;
+ var aiBase=base+'ai/v1/';
+ var script=document.createElement('script');
+ script.src=aiBase+'widget.js?v=1';
+ script.async=true;
+ script.setAttribute('data-api-url',aiApiUrl.replace(/\/$/,''));
+ script.setAttribute('data-asset-base-url',aiBase);
+ script.onerror=function(){console.error('[OKLA AI] Widget se nepodařilo načíst.');};
+ (document.head||document.documentElement).appendChild(script);
+}
 function next(){
- if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';return}
+ if(index>=modules.length){window.__oklaAssetLoaderStatus='v91-loaded';loadAi();return}
  load(modules[index++],0);
 }
 /* A module that fails to load (a transient CDN error) is requested again twice before the loader moves on, so one failed

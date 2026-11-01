@@ -1,0 +1,12 @@
+ai/chatbot/*.json text eol=lf
+ai/chatbot/*.md text eol=lf
+ai/chatbot/*.example text eol=lf
+ai/chatbot/data/*.json text eol=lf
+ai/chatbot/data/*.csv text eol=lf
+ai/chatbot/public/*.html text eol=lf
+ai/chatbot/public/*.js text eol=lf
+ai/chatbot/public/assets/*.svg text eol=lf
+ai/chatbot/src/*.ts text eol=lf
+ai/chatbot/widget/*.ts text eol=lf
+public/ai/**/*.js text eol=lf
+public/ai/**/*.svg text eol=lf

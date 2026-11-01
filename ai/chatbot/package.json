@@ -1,0 +1,35 @@
+{
+  "name": "okla-ai-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "npm run build:server && npm run build:widget",
+    "build:server": "tsc -p tsconfig.json",
+    "build:widget": "esbuild widget/widget.ts --bundle --minify --format=iife --target=es2020 --outfile=public/widget.js",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.2",
+    "@fastify/rate-limit": "^10.3.0",
+    "dotenv": "^16.6.1",
+    "fast-xml-parser": "^5.3.1",
+    "fastify": "^5.6.1",
+    "groq-sdk": "^0.37.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "esbuild": "^0.28.2",
+    "happy-dom": "^21.0.4",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.5"
+  }
+}
