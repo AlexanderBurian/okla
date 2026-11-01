@@ -295,3 +295,7 @@ html body.in-krok-2 #order-form .co-billing-address,html body.in-krok-2 #order-f
  html body.in-krok-2 #order-form .co-contact-information,html body.in-krok-2 #order-form .co-billing-address>fieldset,html body.in-krok-2 #order-form #company-info,html body.in-krok-2 #order-form .co-shipping-address .form-option-block{grid-template-columns:minmax(0,1fr)!important}
  html body.in-krok-2 #order-form .form-group.form-group--inline:not(:has(>input[type=checkbox])):has(.login-button){flex-direction:column!important;align-items:flex-start!important;gap:8px!important}
 }
+/* The billing section is one block, so its fields take the full width like the contact fields. */
+html body.in-krok-2 #order-form .co-billing-address{display:block!important}
+html body.in-krok-2 #order-form .co-billing-address>fieldset{width:100%!important;max-width:none!important;box-sizing:border-box!important}
+html body.in-krok-2 #order-form .co-billing-address>.form-group{margin-top:16px!important}
