@@ -210,29 +210,44 @@
   box.className='okla-parcel';
   box.setAttribute('aria-hidden','true');
   box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 4.5 43 14 24 23.5 5 14Z" fill="#e7bf8a"/><path d="M5 14 24 23.5V44L5 34.5Z" fill="#c28d55"/><path d="M43 14 24 23.5V44l19-9.5Z" fill="#a46e3c"/><path d="M20.8 8.6 27.2 11.8V23.4L20.8 20.2Z" fill="#f5ead3"/><path d="M33.4 25.8 37.6 27.9V40.4L33.4 38.3Z" fill="#f5ead3"/><path d="M24 23.5V44" stroke="#8a5a2c" stroke-width="1.2"/></svg>';
-  function centre(li){return (li.offsetLeft+li.offsetWidth/2)+'px'}
-  function measure(){
-   ol.style.setProperty('--x1',centre(steps[0]));
-   ol.style.setProperty('--x3',centre(steps[2]));
+  var stops,segs;
+  /* The stops are the measured centres of the steps; the track and the parcel read one position, so they always move together. */
+  function layout(){
+   stops=steps.map(function(li){return li.offsetLeft+li.offsetWidth/2});
+   segs=[];
+   for(var k=1;k<=idx;k++){segs.push({from:stops[k-1],to:stops[k],start:400+(k-1)*2600})}
+   ol.style.setProperty('--x1',stops[0]+'px');
+   ol.style.setProperty('--x3',stops[2]+'px');
   }
-  measure();
+  var DUR=2400;
+  function ease(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2}
+  /* The position at time t (ms): each step is one eased move of DUR ms, one after another. */
+  function place(t){
+   var v=stops[0];
+   for(var s=0;s<segs.length;s++){
+    var g=segs[s];
+    if(t<g.start){v=g.from;break}
+    var p=Math.min(1,(t-g.start)/DUR);
+    v=g.from+(g.to-g.from)*ease(p);
+    if(p<1)break;
+   }
+   ol.style.setProperty('--pos',v+'px');
+   return t>=(segs.length?segs[segs.length-1].start+DUR:0);
+  }
+  layout();
   /* Set before the box is inserted, so the box starts on its step and does not slide in from the default position. */
-  ol.style.setProperty('--pos',centre(steps[0]));
+  ol.style.setProperty('--pos',stops[0]+'px');
   ol.appendChild(box);
   box.getBoundingClientRect();
   var arrive=idx?400+(idx-1)*2600+2400:0;
   box.style.animationDelay=((arrive+300)/1000)+'s';
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce||idx===0){ol.style.setProperty('--pos',centre(steps[idx]))}
+  if(reduce)place(Infinity);
   else{
-   for(var k=1;k<=idx;k++){
-    (function(k){setTimeout(function(){ol.style.setProperty('--pos',centre(steps[k]))},400+(k-1)*2600)})(k);
-   }
+   var t0=null;
+   requestAnimationFrame(function frame(now){if(t0===null)t0=now;if(!place(now-t0))requestAnimationFrame(frame)});
   }
-  window.addEventListener('resize',function(){
-   measure();
-   ol.style.setProperty('--pos',centre(steps[idx]));
-  });
+  window.addEventListener('resize',function(){layout();place(Infinity)});
  }
 
  /* On the delivery step only Zásilkovna is offered; a hidden method that was selected moves the choice to Zásilkovna. */
