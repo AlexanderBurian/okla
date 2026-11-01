@@ -213,4 +213,5 @@ html body.in-kosik .okla-coupon,html body.in-kosik .extras-wrapper>.extras-col:n
 @media(max-width:767px){
  html body.ordering-process:not(.in-kosik) .cart-row{flex-direction:column!important;align-items:stretch!important;gap:24px!important;margin-left:0!important;margin-right:0!important;padding:0 16px!important;box-sizing:border-box!important}
  html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8,html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{flex:none!important;width:100%!important;max-width:100%!important;min-width:0!important}
-}
+}/* Shoptet moves the checkout sidebar with the page through an inline top; it stays in place, so it never covers the button row. */
+html body.ordering-process:not(.in-kosik) #checkoutSidebar{top:auto!important;transform:none!important}
