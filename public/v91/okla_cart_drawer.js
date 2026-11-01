@@ -137,6 +137,18 @@
   cart.addToCart({productCode:s.code,amount:1});
  }
 
+ /* Shoptet's own message at the top of the page (.messages) and its cart popup are hidden for a few seconds after an add. */
+ function quietNativePopups(){
+  var until=Date.now()+4000;
+  var hide=function(){document.querySelectorAll('.messages > *, #cart-widget').forEach(function(n){n.style.setProperty('display','none','important')})};
+  hide();
+  var box=document.querySelector('.messages');
+  if(!box||!window.MutationObserver)return;
+  var observer=new MutationObserver(function(){if(Date.now()<until)hide();else observer.disconnect()});
+  observer.observe(box,{childList:true,subtree:true});
+  setTimeout(function(){observer.disconnect()},until-Date.now()+100);
+ }
+
  function show(p,amount){
   var r=build()._refs;
   r.img.src=p.image||'';
@@ -145,6 +157,7 @@
   r.qty.textContent=(amount||1)+' ks';
   r.price.textContent=p.priceText||priceText(p.price);
   renderSuggestions(p.code||null);
+  quietNativePopups();
   root.classList.add('is-open');
   root.setAttribute('aria-hidden','false');
   document.documentElement.classList.add('okla-cd-lock');
