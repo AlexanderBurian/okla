@@ -244,8 +244,8 @@
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce)place(Infinity);
   else{
-   var t0=null;
-   requestAnimationFrame(function frame(now){if(t0===null)t0=now;if(!place(now-t0))requestAnimationFrame(frame)});
+   var t0=Date.now();
+   (function tick(){if(!place(Date.now()-t0))setTimeout(tick,16)})();
   }
   window.addEventListener('resize',function(){layout();place(Infinity)});
  }
