@@ -368,10 +368,11 @@
 
  function freeShipping(){
   var total=goodsTotal();
-  if(total===null)return;
+  if(total===null)total=0;
   var parts=freeShippingText(total);
-  /* The card's colour says the state: the amount is still missing, or delivery is free. */
-  document.querySelectorAll('.extra.delivery').forEach(function(e){e.classList.toggle('okla-free',total>=5000);e.classList.toggle('okla-missing',total<5000)});
+  /* The delivery card is a loading bar: its fill grows with the goods total towards 5 000 Kč. */
+  var pct=Math.min(100,Math.max(0,total/5000*100));
+  document.querySelectorAll('.extra.delivery').forEach(function(e){e.style.setProperty('--pct',pct.toFixed(2)+'%')});
   document.querySelectorAll('.extra.delivery span').forEach(function(s){fillParts(s,parts)});
   var box=document.querySelector('.order-summary .checkout-box');
   if(box&&!box.querySelector('.okla-free-ship')){
@@ -382,22 +383,44 @@
  }
 
  /* On the cart the coupon and delivery cards sit one under the other, under the summary box at the top right. */
+ /* The cards take the summary box's width and left edge, measured, so they line up at any width and after the cart changes. */
+ function alignExtras(){
+  var ew=document.querySelector('.extras-wrapper');
+  var side=document.querySelector('.cart-row>.col-md-4');
+  if(!ew||!side)return;
+  var box=side.querySelector('.box.box-sm:has(.next-step)');
+  ew.style.marginLeft='0px';
+  ew.style.width='auto';
+  if(!box){ew.style.width='100%';return}
+  ew.style.marginLeft=(box.getBoundingClientRect().left-ew.getBoundingClientRect().left)+'px';
+  ew.style.width=box.getBoundingClientRect().width+'px';
+ }
+
+ /* When a product is added or removed the summary and the bar change: they are followed here. Changes inside the cards are ignored, so nothing loops. */
+ function followCart(){
+  var root=document.querySelector('#content-wrapper')||document.body;
+  var timer=null;
+  var mo=new MutationObserver(function(list){
+   var real=list.some(function(m){
+    var t=m.target.nodeType===1?m.target:m.target.parentElement;
+    return !(t&&t.closest&&t.closest('.extras-wrapper,#header,#okla-cart-drawer'));
+   });
+   if(!real)return;
+   clearTimeout(timer);
+   timer=setTimeout(function(){freeShipping();alignExtras()},150);
+  });
+  mo.observe(root,{childList:true,subtree:true,characterData:true});
+ }
+
+ /* On the cart the coupon and delivery cards sit one under the other, under the summary box at the top right. */
  function moveCartExtras(){
   var ew=document.querySelector('.extras-wrapper');
   var side=document.querySelector('.cart-row>.col-md-4');
   if(!ew||!side)return;
   if(ew.parentElement!==side)side.appendChild(ew);
-  /* The cards take the summary box's width and left edge, measured, so they line up at any width. */
-  function align(){
-   var box=side.querySelector('.box.box-sm:has(.next-step)');
-   if(!box)return;
-   ew.style.marginLeft='0px';
-   ew.style.width='auto';
-   ew.style.marginLeft=(box.getBoundingClientRect().left-ew.getBoundingClientRect().left)+'px';
-   ew.style.width=box.getBoundingClientRect().width+'px';
-  }
-  align();
-  window.addEventListener('resize',align);
+  alignExtras();
+  window.addEventListener('resize',alignExtras);
+  followCart();
  }
 
  function init(){
