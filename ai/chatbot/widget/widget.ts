@@ -111,7 +111,8 @@ import {
       }
       .panel.chatting .brand-mini { display: block; }
       .brand-mini img, .launcher img, .assistant-avatar img { width: 100%; height: 100%; object-fit: contain; display: block; }
-      .launcher .launcher-search-icon { display: block; width: 28px; height: 28px; margin: auto; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+      .launcher .launcher-search-icon { display: none; width: 28px; height: 28px; margin: auto; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+      .launcher .launcher-desktop-icon { display: block; }
       .top-action {
         display: grid;
         place-items: center;
@@ -274,12 +275,12 @@ import {
         bottom: max(14px, env(safe-area-inset-bottom));
         width: 58px;
         height: 58px;
-        padding: 13px;
+        padding: 10px;
         overflow: hidden;
         border: 1px solid #eceff4;
         border-radius: 50%;
-        background: #fff;
-        color: #2c5f9e;
+        background: linear-gradient(145deg, #2742ad 0%, #5137b4 55%, #7e2fa0 100%);
+        color: #fff;
         box-shadow: 0 10px 28px rgba(40, 33, 120, .22), 0 2px 8px rgba(40, 33, 120, .12);
         cursor: pointer;
         transition: box-shadow .2s ease;
@@ -327,6 +328,7 @@ import {
           border-color: #fff;
           transform: translateY(-50%);
         }
+        .launcher .launcher-desktop-icon { display: none; }
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
@@ -414,6 +416,7 @@ import {
       </div>
     </section>
     <button class="launcher" type="button" aria-label="Otevřít OKLA poradce" aria-controls="okla-panel" aria-expanded="false">
+      <img class="launcher-desktop-icon" data-robot-image src="${assetUrl}" alt="">
       <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="10.5" r="6.5"></circle><path d="m8.5 15.5-5 5"></path></svg>
     </button>
     <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;
