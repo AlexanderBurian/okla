@@ -6,10 +6,17 @@
  window.__oklaCartDrawerV1=true;
 
  var root=null;
- var hooked={cart:false,form:false};
+ var hooked={request:false};
+ var pendingCartCode=null;
 
  function catalog(){return window.OKLA_V86_CATALOG||{}}
  function byCode(code){return code?catalog()[code]||null:null}
+
+ function byName(name){
+  var codes=Object.keys(catalog());
+  for(var i=0;i<codes.length;i++){if(catalog()[codes[i]].name===name)return catalog()[codes[i]]}
+  return null;
+ }
 
  function codeFromUrl(){
   var path=location.pathname,codes=Object.keys(catalog());
@@ -152,34 +159,35 @@
   document.documentElement.classList.remove('okla-cd-lock');
  }
 
- function whenDone(result,fn){
-  if(result&&typeof result.then==='function')result.then(fn,function(){});
-  else fn();
+ function settle(result,done,failed){
+  if(result&&typeof result.then==='function')result.then(done,failed||function(){});
+  else done();
  }
 
+ /* Adds through the shared cart API (product cards, related products, suggestions). */
  function hookCart(){
-  if(hooked.cart)return true;
   var cart=window.shoptet&&window.shoptet.cartShared;
   if(!cart||typeof cart.addToCart!=='function')return false;
+  if(cart.addToCart.__oklaDrawer)return true;
   var original=cart.addToCart;
   var wrapped=function(opts){
-   var result=original.apply(this,arguments);
-   var p=byCode(opts&&opts.productCode);
+   var code=opts&&opts.productCode;
    var amount=(opts&&opts.amount)||1;
-   if(p)whenDone(result,function(){show({code:p.code,name:p.name,image:p.image,price:p.price},amount)});
+   var p=byCode(code);
+   if(p)pendingCartCode=code;
+   var result=original.apply(this,arguments);
+   if(p){
+    var clear=function(){pendingCartCode=null};
+    settle(result,function(){clear();show({code:p.code,name:p.name,image:p.image,price:p.price},amount)},clear);
+   }
    return result;
   };
+  wrapped.__oklaDrawer=true;
   cart.addToCart=wrapped;
-  hooked.cart=true;
   return true;
  }
 
- function byName(name){
-  var codes=Object.keys(catalog());
-  for(var i=0;i<codes.length;i++){if(catalog()[codes[i]].name===name)return catalog()[codes[i]]}
-  return null;
- }
-
+ /* Product page: the add request of the native button. Cart API adds are handled by hookCart. */
  function productFromPage(){
   var h1=document.querySelector('.p-detail-inner-header h1, .p-detail h1, h1');
   var title=h1?h1.textContent.trim():'';
@@ -189,17 +197,18 @@
   if(p)return {item:{code:p.code,name:p.name,image:p.image,price:p.price},amount:amount};
   var img=document.querySelector('.p-main-image img');
   var pr=document.querySelector('.price-final');
-  return {item:{code:null,name:h1?h1.textContent.trim():'',image:img?img.getAttribute('src'):'',priceText:pr?pr.textContent.trim():''},amount:amount};
+  return {item:{code:null,name:title,image:img?img.getAttribute('src'):'',priceText:pr?pr.textContent.trim():''},amount:amount};
  }
 
  function onNativeAdd(){
+  if(pendingCartCode)return;
   if(!document.querySelector('.p-detail'))return;
   var r=productFromPage();
   show(r.item,r.amount);
  }
 
  function hookRequests(){
-  if(hooked.form)return true;
+  if(hooked.request)return true;
   var XHR=window.XMLHttpRequest;
   if(!XHR)return false;
   var open=XHR.prototype.open,send=XHR.prototype.send;
@@ -225,19 +234,17 @@
     return result;
    };
   }
-  hooked.form=true;
+  hooked.request=true;
   return true;
  }
 
  function start(){
   if(!document.body)return;
   build();
-  var tries=0;
-  var timer=setInterval(function(){
-   tries++;
-   var a=hookCart(),b=hookRequests();
-   if((a&&b)||tries>60)clearInterval(timer);
-  },250);
+  hookRequests();
+  hookCart();
+  /* Shoptet can replace its cart object after load, so the hook is checked again every second. */
+  setInterval(function(){hookRequests();hookCart()},1000);
  }
 
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);
