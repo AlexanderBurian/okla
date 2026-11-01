@@ -122,6 +122,8 @@ html body.in-kosik .okla-coupon__input{font-size:13px!important;padding:0 10px!i
 html body.in-kosik .okla-coupon__btn{padding:0 12px!important}
 /* The form column can shrink, so the form stays left of the sidebar; the sidebar keeps its width. */
 html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8{flex:1 1 0!important;min-width:0!important}
+/* The quantity control has one outline: the form's. The inner span drew a second one, so it has no border. */
+html body.in-kosik .quantity-form .quantity{border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 
