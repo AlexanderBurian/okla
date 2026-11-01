@@ -190,8 +190,8 @@ html body.ordering-process #content .okla-step-nav .next-step .btn{position:rela
 html body.ordering-process #content .okla-step-nav .next-step .btn::before,html body.ordering-process #content .okla-step-nav .next-step .btn::after{content:none!important;display:none!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back{background:#fff!important;border:1px solid #cdd2da!important;color:#0b2540!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back:hover{background:#f5f7fa!important;border-color:#0b2540!important}
-html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{min-width:240px!important;background:#5ba300!important;border:1px solid #5ba300!important;color:#fff!important}
-html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward:hover,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish:hover{background:#4f9400!important;border-color:#4f9400!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{min-width:240px!important;background:#66d400!important;border:1px solid #66d400!important;color:#fff!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward:hover,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish:hover{background:#5bbd00!important;border-color:#5bbd00!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back::before,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{content:""!important;display:block!important;position:static!important;flex:none!important;width:8px!important;height:8px!important;margin:0!important;padding:0!important;background:none!important;border:solid currentColor!important;border-width:0 2px 2px 0!important;border-radius:0!important;opacity:1!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back::before{transform:rotate(135deg)!important;margin-left:2px!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{transform:rotate(-45deg)!important;margin-right:2px!important}
@@ -239,3 +239,5 @@ html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::be
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{right:16px!important}
  html body.ordering-process #content .okla-step-nav .consents-first{max-width:none;text-align:center}
 }
+/* Shoptet caps each card column at 350 px on wide screens and indents the second by 20 px; both columns take the full width of the summary. */
+html body.in-kosik .extras-wrapper>.extras-col{width:100%!important;max-width:none!important;min-width:0!important;flex:none!important;margin:0!important;padding:0!important}
