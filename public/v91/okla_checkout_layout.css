@@ -314,4 +314,5 @@ html body.in-kosik .okla-coupon .okla-coupon__note:empty{display:none!important}
 html body.in-kosik .okla-coupon .okla-coupon__note.is-error{color:#e0112b!important}
 html body.in-kosik .okla-coupon .okla-coupon__note.is-ok{color:#4f9400!important;font-weight:600!important}
 html body.in-kosik .okla-coupon .okla-coupon__btn:disabled{opacity:.6;cursor:default}
-html body.ordering-process #content .cart-header li.step>a[href],html body.ordering-process #content .cart-header li.step>strong{padding:10px 0!important;padding-left:0!important;padding-right:0!important;text-align:center!important;width:100%!important}
+/* Shoptet animates every property of these links, so the label would slide into place after the page loads; it sits there at once. */
+html body.ordering-process #content .cart-header li.step>a[href],html body.ordering-process #content .cart-header li.step>strong{padding:10px 0!important;padding-left:0!important;padding-right:0!important;text-align:center!important;width:100%!important;transition:color .2s ease!important}
