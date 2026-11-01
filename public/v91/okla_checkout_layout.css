@@ -133,6 +133,26 @@ html body.ordering-process:not(.in-kosik) .next-step-forward,html body.ordering-
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{background:none!important;border:0!important;border-radius:0!important;padding:0!important;display:flow-root!important}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step{margin:18px 0!important;gap:12px!important}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{height:58px!important;min-height:58px!important}
+/* Cart: the coupon and delivery cards stack under the summary box at the top right, the same width and height; one colour for the delivery message. */
+html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;width:100%!important;max-width:340px!important;margin:16px 0 0!important;padding:0!important}
+html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
+html body.in-kosik .cart-row>.col-md-4 .extras-wrap{display:flex!important;flex-direction:column!important;flex:1 1 auto!important}
+html body.in-kosik .cart-row>.col-md-4 .okla-coupon,html body.in-kosik .cart-row>.col-md-4 .extra.delivery{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
+html body.in-kosik .extra.delivery span,html body.in-kosik .extra.delivery strong{color:#0b2540!important}
+/* Cart: the remove button is a round target, and its cross is centred in it; the button sits further right. */
+html body.in-kosik tr.removeable .remove-item{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;width:32px!important;height:32px!important;margin-right:-8px!important;padding:0!important;border:0!important;border-radius:50%!important;background:#f1f4f8!important;font-size:0!important}
+html body.in-kosik tr.removeable .remove-item::after{content:none!important}
+html body.in-kosik tr.removeable .remove-item::before{content:""!important;position:absolute!important;left:50%!important;top:50%!important;width:12px!important;height:12px!important;margin:-6px 0 0 -6px!important;transform:none!important;border:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 2l8 8M10 2l-8 8' stroke='%230b2540' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/12px 12px no-repeat!important}
+/* Progress track: each step's circle is centred on the step, the same as its label. */
+html body.ordering-process .cart-header .step{position:relative!important}
+html body.ordering-process .cart-header .step::before{position:absolute!important;left:50%!important;top:0!important;margin:0!important;transform:translateX(-50%)!important;box-sizing:border-box!important;width:40px!important;height:40px!important}
+html body.ordering-process .cart-header .step::after{mask-size:22px 22px!important;-webkit-mask-size:22px 22px!important}
+/* Payment icons: no background circle; a larger, sharper drawing. */
+html body.ordering-process:not(.in-kosik) .okla-pay-icon{background:none!important;border:0!important;box-shadow:none!important;width:34px!important;height:34px!important}
+html body.ordering-process:not(.in-kosik) .okla-pay-icon svg{width:30px!important;height:30px!important}
+/* The form checkboxes are round; a ticked one is blue with a white check. */
+html body.in-krok-2 #order-form input[type=checkbox]{-webkit-appearance:none!important;appearance:none!important;width:22px!important;height:22px!important;margin:0 12px 0 0!important;border:2px solid #b9c0cb!important;border-radius:50%!important;background:#fff!important;flex:none!important;vertical-align:middle!important}
+html body.in-krok-2 #order-form input[type=checkbox]:checked{background:#1f6fd8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#1f6fd8!important}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{flex:1 1 0!important;width:auto!important;min-width:0!important;padding:0 12px!important;font-size:14px!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#1d1d1d!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}

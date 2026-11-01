@@ -364,6 +364,14 @@
   }
  }
 
+ /* On the cart the coupon and delivery cards sit one under the other, under the summary box at the top right. */
+ function moveCartExtras(){
+  var ew=document.querySelector('.extras-wrapper');
+  var side=document.querySelector('.cart-row>.col-md-4');
+  if(!ew||!side||ew.parentElement===side)return;
+  side.appendChild(ew);
+ }
+
  function init(){
   restoreHeader();
   hideHelpBox();
@@ -373,6 +381,7 @@
   addQuantityButtons();
   addParcel();
   addCoupon();
+  moveCartExtras();
   hideExtrasHeading();
   addSectionIcons();
   moveNextStep();
