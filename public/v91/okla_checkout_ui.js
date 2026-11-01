@@ -370,6 +370,8 @@
   var total=goodsTotal();
   if(total===null)return;
   var parts=freeShippingText(total);
+  /* The card's colour says the state: the amount is still missing, or delivery is free. */
+  document.querySelectorAll('.extra.delivery').forEach(function(e){e.classList.toggle('okla-free',total>=5000);e.classList.toggle('okla-missing',total<5000)});
   document.querySelectorAll('.extra.delivery span').forEach(function(s){fillParts(s,parts)});
   var box=document.querySelector('.order-summary .checkout-box');
   if(box&&!box.querySelector('.okla-free-ship')){
@@ -383,8 +385,19 @@
  function moveCartExtras(){
   var ew=document.querySelector('.extras-wrapper');
   var side=document.querySelector('.cart-row>.col-md-4');
-  if(!ew||!side||ew.parentElement===side)return;
-  side.appendChild(ew);
+  if(!ew||!side)return;
+  if(ew.parentElement!==side)side.appendChild(ew);
+  /* The cards take the summary box's width and left edge, measured, so they line up at any width. */
+  function align(){
+   var box=side.querySelector('.box.box-sm:has(.next-step)');
+   if(!box)return;
+   ew.style.marginLeft='0px';
+   ew.style.width='auto';
+   ew.style.marginLeft=(box.getBoundingClientRect().left-ew.getBoundingClientRect().left)+'px';
+   ew.style.width=box.getBoundingClientRect().width+'px';
+  }
+  align();
+  window.addEventListener('resize',align);
  }
 
  function init(){

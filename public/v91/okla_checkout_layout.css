@@ -134,7 +134,8 @@ html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{backgroun
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step{margin:18px 0!important;gap:12px!important}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box .next-step .btn{height:58px!important;min-height:58px!important}
 /* Cart: the coupon and delivery cards stack under the summary box at the top right, the same width and height; one colour for the delivery message. */
-html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;width:calc(100% - 24px)!important;max-width:none!important;margin:16px 0 24px 24px!important;padding:0!important}
+html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;max-width:none!important;margin:16px 0 24px!important;padding:0!important}
+html body.in-kosik .cart-row>.col-md-4 .extras-wrap{margin:0!important;width:100%!important}
 /* The coupon row fits the narrower card: the placeholder is not cut off. */
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon{padding:20px 16px!important}
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon__row{gap:8px!important}
@@ -176,6 +177,11 @@ html body.ordering-process .cart-header .step::before{position:absolute!importan
 html body.ordering-process .cart-header .step::after{mask-size:22px 22px!important;-webkit-mask-size:22px 22px!important}
 /* The parcel and the blue track are moved frame by frame from one position, so the CSS transitions are off. */
 html body.ordering-process .cart-header::after,html body.ordering-process .okla-parcel{transition:none!important}
+/* The delivery card's colour says the state: blue while an amount is still missing, green once delivery is free. */
+html body.in-kosik .extra.delivery.okla-missing{background:#dbe6fa!important}
+html body.in-kosik .extra.delivery.okla-free{background:#e8f7e0!important;border:1px solid #8fd17a!important;box-sizing:border-box!important}
+html body.in-kosik .extra.delivery.okla-free::before{background:#5aa23a!important}
+html body.in-kosik .extra.delivery.okla-free strong{color:#3f8a24!important}
 /* The circle is positioned, so the label takes the space below it. */
 html body.ordering-process .cart-header .step{padding-top:52px!important}
 /* Payment icons: no background circle; a larger, sharper drawing. */
