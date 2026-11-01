@@ -1,7 +1,0 @@
-<!-- OKLA: paste into Shoptet's header code (Vzhled a obsah > Editor > HTML kód > Záhlaví).
-     It starts the connection to the CDN early and keeps the page hidden until zapati_firsthalf.js has placed every
-     module, so Shoptet's raw layout never shows. After 4 s the page is shown in any case. -->
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<style id="okla-boot-style">html.okla-loading body{opacity:0!important;pointer-events:none!important}html body{transition:opacity .18s ease}html.okla-loading::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:34px;height:34px;margin:-17px 0 0 -17px;border:3px solid #e6eefb;border-top-color:#1f6fd8;border-radius:50%;animation:okla-boot-spin .8s linear infinite}@keyframes okla-boot-spin{to{transform:rotate(360deg)}}@media (prefers-reduced-motion:reduce){html.okla-loading::after{animation:none}}</style>
-<script>(function(r){r.classList.add('okla-loading');setTimeout(function(){r.classList.remove('okla-loading')},4000)})(document.documentElement);</script>

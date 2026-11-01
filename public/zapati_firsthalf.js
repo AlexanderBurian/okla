@@ -32,30 +32,26 @@ if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/ok
  if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
-/* Until the modules are in place the page is hidden behind a small loader, so Shoptet's raw layout never shows. The
-   class may already be set by the header snippet (okla_head.html); the page is shown after 4 s whatever happens. */
+/* Until the modules are in place the page is hidden behind a small loader, so a half-styled page never shows. It is
+   shown after 4 s whatever happens. Once shown, nothing of the loader stays on the page. */
 var root=document.documentElement;
-var REVEAL_AFTER=4000;
-function bootStyle(){
- if(document.getElementById('okla-boot-style'))return;
- var s=document.createElement('style');
- s.id='okla-boot-style';
- s.textContent='html.okla-loading body{opacity:0!important;pointer-events:none!important}'+
-  'html body{transition:opacity .18s ease}'+
-  'html.okla-loading::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:34px;height:34px;margin:-17px 0 0 -17px;border:3px solid #e6eefb;border-top-color:#1f6fd8;border-radius:50%;animation:okla-boot-spin .8s linear infinite}'+
-  '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
-  '@media (prefers-reduced-motion:reduce){html.okla-loading::after{animation:none}}';
- (document.head||root).appendChild(s);
-}
-var revealTimer=null;
+var head=document.head||root;
+var bootStyle=document.createElement('style');
+bootStyle.textContent='html.okla-loading body{opacity:0!important;pointer-events:none!important}'+
+ 'html.okla-reveal body{transition:opacity .18s ease}'+
+ 'html.okla-loading::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:34px;height:34px;margin:-17px 0 0 -17px;border:3px solid #e6eefb;border-top-color:#1f6fd8;border-radius:50%;animation:okla-boot-spin .8s linear infinite}'+
+ '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
+ '@media (prefers-reduced-motion:reduce){html.okla-loading::after{animation:none}}';
+head.appendChild(bootStyle);
+root.classList.add('okla-loading','okla-reveal');
+var revealTimer=setTimeout(reveal,4000);
 function reveal(){
- clearTimeout(revealTimer);
+ if(!revealTimer)return;
+ clearTimeout(revealTimer);revealTimer=null;
  root.classList.remove('okla-loading');
- root.classList.add('okla-ready');
+ setTimeout(function(){root.classList.remove('okla-reveal');bootStyle.remove()},250);
+ window.__oklaRevealed=true;
 }
-bootStyle();
-root.classList.add('okla-loading');
-revealTimer=setTimeout(reveal,REVEAL_AFTER);
 function loadAi(){
  if(window.__oklaAiWidgetLoader||document.querySelector('okla-ai-chat'))return;
  if(!aiApiUrl){console.warn('[OKLA AI] Chybí data-api-url s adresou nasazeného AI backendu.');return}
@@ -69,63 +65,47 @@ function loadAi(){
  script.onerror=function(){console.error('[OKLA AI] Widget se nepodařilo načíst.');};
  (document.head||document.documentElement).appendChild(script);
 }
-/* Everything is downloaded at once instead of one file after another. The stylesheets go in first, in their order; the
-   scripts are fetched at the same time (preload) and run in their order once every stylesheet is in place, so a script
-   always measures the finished layout. A file that fails (a transient CDN error) is requested again twice. */
-var head=document.head||root;
 function url(file,attempt){return base+file+(base.includes('?')?'&':'?')+'v=91'+(attempt?'&retry='+attempt:'')}
-var styles=modules.filter(function(f){return /\.css$/.test(f)});
-var scripts=modules.filter(function(f){return !/\.css$/.test(f)});
-
-scripts.forEach(function(file){
+/* Every module starts downloading at once (preload). They are still put into the page one after another in the same
+   order as before, so the styles and scripts end up exactly as they always did; each step now takes the file from the
+   browser's cache instead of waiting for the network. */
+var hints=modules.map(function(file){
  var hint=document.createElement('link');
- hint.rel='preload';hint.as='script';hint.href=url(file,0);
+ hint.rel='preload';hint.as=file.endsWith('.css')?'style':'script';hint.href=url(file,0);
  head.appendChild(hint);
+ return hint;
 });
-
-function loadStyle(file,attempt,after,done){
- var link=document.createElement('link');
- link.rel='stylesheet';link.href=url(file,attempt);
- link.onload=function(){done(link)};
- link.onerror=function(){
-  if(attempt<2){setTimeout(function(){loadStyle(file,attempt+1,link,function(n){link.remove();done(n)})},400);return}
-  console.error('[OKLA] module missing:',file);
-  done(link);
- };
- /* A retry takes the place of the failed file, so the order of the styles stays the same. */
- if(after&&after.parentNode)after.parentNode.insertBefore(link,after.nextSibling);
- else head.appendChild(link);
- return link;
-}
-
-function loadScript(file,attempt,done){
- var script=document.createElement('script');
- script.src=url(file,attempt);script.async=false;
- script.onload=done;
- script.onerror=function(){
-  if(attempt<2){setTimeout(function(){loadScript(file,attempt+1,done)},400);return}
-  console.error('[OKLA] module missing:',file);
-  done();
- };
- head.appendChild(script);
-}
-
-function runScripts(){
- var left=scripts.length;
- function finished(){
+var index=0;
+function next(){
+ if(index>=modules.length){
   window.__oklaAssetLoaderStatus='v91-loaded';
   loadAi();
+  hints.forEach(function(hint){hint.remove()});
   /* One more turn so the last scripts can draw before the page is shown. */
   setTimeout(reveal,30);
+  return;
  }
- if(!left){finished();return}
- scripts.forEach(function(file){loadScript(file,0,function(){if(--left===0)finished()})});
+ load(modules[index++],0);
 }
-
+/* A module that fails to load (a transient CDN error) is requested again twice before the loader moves on, so one failed
+   request does not leave the page with half of its styles. */
+function load(file,attempt){
+ var src=url(file,attempt);
+ function failed(){
+  if(attempt<2){setTimeout(function(){load(file,attempt+1)},400);return}
+  console.error('[OKLA] module missing:',file);
+  next();
+ }
+ if(file.endsWith('.css')){
+  var link=document.createElement('link');link.rel='stylesheet';link.href=src;
+  link.onload=next;link.onerror=failed;
+  head.appendChild(link);
+ }else{
+  var script=document.createElement('script');script.src=src;script.async=false;
+  script.onload=next;script.onerror=failed;
+  head.appendChild(script);
+ }
+}
 window.__oklaAssetLoaderStatus='v91-loading';
-(function(){
- var left=styles.length;
- if(!left){runScripts();return}
- styles.forEach(function(file){loadStyle(file,0,null,function(){if(--left===0)runScripts()})});
-})();
+next();
 })();
