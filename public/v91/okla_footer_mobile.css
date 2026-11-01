@@ -1,0 +1,19 @@
+/* Mobile footer: the shell reaches both viewport edges; its contents retain their own inner padding. */
+@media (max-width: 767px) {
+  html body #footer {
+    width: 100% !important;
+    max-width: none !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  html body #footer #okla-footer-shell {
+    width: 100% !important;
+    max-width: none !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    border-radius: 0 !important;
+  }
+}

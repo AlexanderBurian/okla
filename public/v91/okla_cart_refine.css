@@ -21,5 +21,5 @@ html body.ordering-process .cart-header::after{top:65px;height:6px;border-radius
 html body.ordering-process .cart-header .step::before{border-width:4px;border-style:solid;box-shadow:none;animation:none}
 html body.in-kosik .cart-header .step-1::before,html body.in-krok-1 .cart-header .step-2::before,html body.in-krok-2 .cart-header .step-3::before{box-shadow:none;animation:none}
 html body.in-krok-1 .cart-header .step-1::before,html body.in-krok-2 .cart-header .step-1::before,html body.in-krok-2 .cart-header .step-2::before{box-shadow:none}
-.okla-parcel{top:-4px;left:calc(var(--pos) - 26px);width:52px;height:52px;transition:left 2.4s cubic-bezier(.45,0,.25,1)}
+.okla-parcel{top:-4px;left:0;width:52px;height:52px;transition:none}
 .okla-parcel svg{width:52px;height:52px;filter:none}

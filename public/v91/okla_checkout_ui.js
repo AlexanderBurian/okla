@@ -216,12 +216,11 @@
   box.className='okla-parcel';
   box.setAttribute('aria-hidden','true');
   box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 5 42 14 24 23 6 14Z" fill="#ebc996"/><path d="M6 14 24 23V43L6 34Z" fill="#cf9a5f"/><path d="M42 14 24 23V43L42 34Z" fill="#b8814a"/><path d="M17.2 8.4 35.2 17.4 30.8 19.6 12.8 10.6Z" fill="#f6e6c6"/><path d="M30.8 19.6 35.2 17.4V24.4L30.8 26.6Z" fill="#e3c99d"/><path d="M10 27.5 17 31V35.2L10 31.7Z" fill="#fbf3e3"/><path d="M6 14 24 23 42 14" fill="none" stroke="#f4dcb2" stroke-width=".8" stroke-linejoin="round"/><path d="M24 23V43" stroke="#9a6a38" stroke-width=".8"/></svg>';
-  /* The bounce plays once; it is not replayed when the page scrolls back. */
-  box.addEventListener('animationend',function(){box.style.animation='none'});
-  var stops,segs,from=0;
+  var stops,segs,from=0,half=22,raf=0;
   /* The stops are the measured centres of the steps; the track and the parcel read one position, so they always move together. */
   function layout(){
    stops=steps.map(function(li){return li.offsetLeft+li.offsetWidth/2});
+   half=box.offsetWidth/2||22;
    segs=[];
    var dir=idx>=from?1:-1;
    for(var k=from,n=0;k!==idx;k+=dir,n++){segs.push({from:stops[k],to:stops[k+dir],start:400+n*2600})}
@@ -230,6 +229,14 @@
   }
   var DUR=2400;
   function ease(p){return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2}
+  function paint(v){
+   var span=stops[2]-stops[0];
+   var progress=span?Math.max(0,Math.min(1,(v-stops[0])/span)):0;
+   var x=v-half;
+   box.style.transform='translate3d('+x+'px,0,0)';
+   ol.style.setProperty('--parcel-x',x+'px');
+   ol.style.setProperty('--track-progress',String(progress));
+  }
   /* The position at time t (ms): each step is one eased move of DUR ms, one after another. */
   function place(t){
    var v=stops[from];
@@ -240,7 +247,7 @@
     v=g.from+(g.to-g.from)*ease(p);
     if(p<1)break;
    }
-   ol.style.setProperty('--pos',v+'px');
+   paint(v);
    return t>=(segs.length?segs[segs.length-1].start+DUR:0);
   }
   ol.appendChild(box);
@@ -255,19 +262,22 @@
    from=(last>=0&&last<=2&&last!==idx)?last:0;
    /* Measured after the layout is forced, so the stops are the real step centres. */
    layout();
-   ol.style.setProperty('--pos',stops[from]+'px');
-   var arrive=segs.length?400+(segs.length-1)*2600+2400:0;
-   box.style.animation='none';
-   box.getBoundingClientRect();
-   box.style.animation='';
-   box.style.animationDelay=((arrive+300)/1000)+'s';
+   paint(stops[from]);
+   box.classList.remove('okla-parcel--arrived');
+   cancelAnimationFrame(raf);
    if(reduce){place(Infinity);return}
-   var me=++run,t0=Date.now();
-   (function tick(){if(me===run&&!place(Date.now()-t0))setTimeout(tick,16)})();
+   var me=++run,t0=null;
+   function tick(now){
+    if(me!==run)return;
+    if(t0===null)t0=now;
+    if(place(now-t0)){box.classList.add('okla-parcel--arrived');return}
+    raf=requestAnimationFrame(tick);
+   }
+   raf=requestAnimationFrame(tick);
   }
   walk();
   window.addEventListener('pageshow',function(e){if(e.persisted)walk()});
-  window.addEventListener('resize',function(){layout();place(Infinity)});
+  window.addEventListener('resize',function(){run+=1;cancelAnimationFrame(raf);layout();place(Infinity)});
  }
 
  /* On the delivery step only Zásilkovna is offered; a hidden method that was selected moves the choice to Zásilkovna. */
@@ -287,6 +297,83 @@
    var inp=target.querySelector('input[type=radio]');
    if(inp)inp.click();
   }
+ }
+
+ /* Before the customer continues, explain missing delivery/payment choices or required contact fields in one visible popup. */
+ var checkoutToastTimer=0;
+ function clearCheckoutMissing(){
+  document.querySelectorAll('.okla-selection-missing').forEach(function(node){node.classList.remove('okla-selection-missing')});
+ }
+ function hideCheckoutToast(){
+  var toast=document.querySelector('.okla-checkout-toast');
+  if(toast)toast.classList.remove('is-visible');
+ }
+ function showCheckoutToast(message,target){
+  var toast=document.querySelector('.okla-checkout-toast');
+  if(!toast){
+   toast=el('div','okla-checkout-toast');
+   toast.setAttribute('role','alert');
+   toast.setAttribute('aria-live','assertive');
+   var text=el('span','okla-checkout-toast__text');
+   var close=el('button','okla-checkout-toast__close');
+   close.type='button';
+   close.setAttribute('aria-label','Zavřít upozornění');
+   close.textContent='×';
+   close.addEventListener('click',hideCheckoutToast);
+   toast.appendChild(text);
+   toast.appendChild(close);
+   document.body.appendChild(toast);
+  }
+  toast.querySelector('.okla-checkout-toast__text').textContent=message;
+  clearTimeout(checkoutToastTimer);
+  toast.classList.remove('is-visible');
+  requestAnimationFrame(function(){toast.classList.add('is-visible')});
+  checkoutToastTimer=setTimeout(hideCheckoutToast,5200);
+  if(target){
+   target.classList.add('okla-selection-missing');
+   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+   target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  }
+ }
+ function missingCheckoutRequirement(form){
+  clearCheckoutMissing();
+  if(document.body.classList.contains('in-krok-1')){
+   var delivery=document.querySelector('.co-delivery-method');
+   var payment=document.querySelector('.co-payment-method');
+   var noDelivery=delivery&&!delivery.querySelector('input[type=radio]:checked');
+   var noPayment=payment&&!payment.querySelector('input[type=radio]:checked');
+   if(noDelivery&&noPayment)return{message:'Vyberte prosím způsob dopravy a platby.',target:delivery};
+   if(noDelivery)return{message:'Vyberte prosím způsob dopravy.',target:delivery};
+   if(noPayment)return{message:'Vyberte prosím způsob platby.',target:payment};
+  }
+  if(document.body.classList.contains('in-krok-2')&&form){
+   var invalid=Array.prototype.find.call(form.querySelectorAll(':invalid'),function(node){return node.type!=='hidden'&&node.offsetParent!==null});
+   if(invalid)return{message:invalid.type==='checkbox'?'Potvrďte prosím povinný souhlas.':'Doplňte prosím všechna povinná pole.',target:invalid.closest('.co-box,.form-group')||invalid};
+  }
+  return null;
+ }
+ function guardCheckoutProgress(){
+  if(!document.body.classList.contains('in-krok-1')&&!document.body.classList.contains('in-krok-2'))return;
+  function stop(event,form){
+   var missing=missingCheckoutRequirement(form);
+   if(!missing)return false;
+   event.preventDefault();
+   event.stopImmediatePropagation();
+   showCheckoutToast(missing.message,missing.target);
+   return true;
+  }
+  document.addEventListener('click',function(event){
+   var button=event.target.closest&&event.target.closest('.okla-step-nav .next-step-forward,.okla-step-nav .next-step-finish,.okla-step-nav button[type=submit]');
+   if(!button)return;
+   stop(event,button.form||button.closest('form')||document.querySelector('#order-form'));
+  },true);
+  document.addEventListener('submit',function(event){stop(event,event.target)},true);
+  document.addEventListener('change',function(event){
+   if(event.target.matches&&event.target.matches('input,select,textarea')){
+    clearCheckoutMissing();
+    hideCheckoutToast();
+   }
+  });
  }
 
  /* The coupon card, in the empty left column of the cart extras. It sends the code to Shoptet's own coupon action, shows Shoptet's
@@ -538,6 +625,7 @@
   if(window.ResizeObserver)new ResizeObserver(function(){alignNav()}).observe(document.body);
   freeShipping();
   keepOnlyZasilkovna();
+   guardCheckoutProgress();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();

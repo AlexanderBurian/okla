@@ -17,7 +17,8 @@ html body.in-krok-1 .cart-header .step-1::after,html body.in-krok-2 .cart-header
 html body.ordering-process .cart-header .step{color:#6b7280}
 html body.in-kosik .cart-header .step-1,html body.in-krok-1 .cart-header .step-2,html body.in-krok-2 .cart-header .step-3{color:#0b2540;font-weight:700}
 html body.in-krok-1 .cart-header .step-1,html body.in-krok-2 .cart-header .step-1,html body.in-krok-2 .cart-header .step-2{color:#0b2540}
-.okla-parcel{position:absolute;top:4px;left:calc(var(--pos) - 22px);width:44px;height:44px;z-index:2;pointer-events:none;transition:left .9s cubic-bezier(.22,.8,.3,1);animation:okla-parcel-bounce 1s ease .85s 1 both}
-.okla-parcel svg{display:block;width:44px;height:44px;overflow:visible;filter:drop-shadow(0 6px 6px rgba(11,37,64,.18))}
+.okla-parcel{position:absolute;top:4px;left:0;width:44px;height:44px;z-index:2;pointer-events:none;transform:translate3d(var(--parcel-x,0px),0,0);will-change:transform;backface-visibility:hidden;contain:layout paint style;transition:none}
+.okla-parcel svg{display:block;width:44px;height:44px;overflow:visible;filter:drop-shadow(0 6px 6px rgba(11,37,64,.18));transform:translateZ(0);transform-origin:center bottom;will-change:transform}
+.okla-parcel.okla-parcel--arrived svg{animation:okla-parcel-bounce .7s cubic-bezier(.22,.8,.3,1) 1 both}
 @keyframes okla-parcel-bounce{0%{transform:translateY(0)}35%{transform:translateY(-7px)}60%{transform:translateY(0)}78%{transform:translateY(-2.5px)}100%{transform:translateY(0)}}
-@media (prefers-reduced-motion:reduce){html body.ordering-process .cart-header::after,.okla-parcel{transition:none}.okla-parcel{animation:none}}
+@media (prefers-reduced-motion:reduce){html body.ordering-process .cart-header::after,.okla-parcel{transition:none}.okla-parcel.okla-parcel--arrived svg{animation:none}}

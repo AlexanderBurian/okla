@@ -156,8 +156,9 @@ html body.in-kosik tr.removeable .remove-item::before{content:""!important;posit
 html body.ordering-process .cart-header .step{position:relative!important}
 html body.ordering-process .cart-header .step::before{position:absolute!important;left:50%!important;top:0!important;margin:0!important;transform:translateX(-50%)!important;box-sizing:border-box!important;width:40px!important;height:40px!important}
 html body.ordering-process .cart-header .step::after{mask-size:22px 22px!important;-webkit-mask-size:22px 22px!important}
-/* The parcel and the blue track are moved frame by frame from one position, so the CSS transitions are off. */
-html body.ordering-process .cart-header::after,html body.ordering-process .okla-parcel{transition:none!important}
+/* The parcel and track move on compositor transforms, so animation never forces layout on each frame. */
+html body.ordering-process .cart-header::after{left:var(--x1,calc(100%/6))!important;width:calc(var(--x3,calc(100%*5/6)) - var(--x1,calc(100%/6)))!important;transform:scaleX(var(--track-progress,0));transform-origin:left center;will-change:transform;transition:none!important}
+html body.ordering-process .okla-parcel{left:0!important;will-change:transform;backface-visibility:hidden;transition:none!important}
 /* The delivery card is one loading bar: a blue fill grows from the left with the goods total towards 5 000 Kč; no outline. */
 html body.in-kosik .cart-row>.col-md-4 .extra.delivery{position:relative!important;overflow:hidden!important;isolation:isolate;background:#e6eefb!important;border:0!important;outline:0!important;box-shadow:none!important;margin:0!important}
 html body.in-kosik .cart-row>.col-md-4 .extra.delivery::after{content:""!important;display:block!important;position:absolute!important;left:0;top:0;bottom:0;width:var(--pct,0%);background:#bcd6f7;transition:width 1.2s cubic-bezier(.45,0,.25,1);z-index:0}
@@ -202,10 +203,10 @@ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-fin
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{grid-column:2;grid-row:1/span 2;align-self:center}
 @media(max-width:767px){
  html body.ordering-process #content .okla-step-nav{margin:24px 0 8px;padding-top:16px}
- html body.ordering-process #content .okla-step-nav .next-step{gap:10px!important}
- html body.ordering-process #content .okla-step-nav .next-step .btn{padding:0 16px!important;font-size:15px!important;gap:10px!important}
- html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{flex:1 1 auto!important;min-width:0!important}
- html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding:8px 16px!important}
+ html body.ordering-process #content .okla-step-nav .next-step{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:8px!important}
+ html body.ordering-process #content .okla-step-nav .next-step .btn{width:100%!important;max-width:none!important;min-width:0!important;padding:0 28px 0 12px!important;font-size:clamp(12px,3.5vw,14px)!important;line-height:1.15!important;white-space:normal!important;gap:6px!important;overflow-wrap:anywhere!important}
+ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{display:flex!important;flex:none!important;width:100%!important;min-width:0!important;padding-right:30px!important;padding-left:12px!important}
+ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding-top:8px!important;padding-bottom:8px!important}
 }
 /* Checkout on phones: the form and the summary stack in one column, each the full width, with a 16 px side gutter. */
 @media(max-width:767px){
@@ -235,8 +236,9 @@ html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>input[typ
 html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label{display:block!important;position:static!important;margin:0!important;padding:0!important;line-height:22px!important;min-height:0!important}
 html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::before,html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::after{content:none!important;display:none!important}
 @media(max-width:767px){
- html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding:0 36px!important}
- html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{right:16px!important}
+ html body.ordering-process #content .okla-step-nav .next-step:not(:has(.next-step-back)){grid-template-columns:minmax(0,1fr)!important}
+ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{padding-right:30px!important;padding-left:12px!important}
+ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{right:13px!important}
  html body.ordering-process #content .okla-step-nav .consents-first{max-width:none;text-align:center}
 }
 /* Shoptet caps each card column at 350 px on wide screens and indents the second by 20 px; both columns take the full width of the summary. */
@@ -326,3 +328,13 @@ html body.in-kosik table.cart-table tr.removeable .remove-item:hover::before{opa
 @media(max-width:767px){
  html body.in-kosik table.cart-table tr.removeable .remove-item{margin-right:-10px!important}
 }
+
+/* A clear checkout notification when a required choice or field is missing. */
+.okla-checkout-toast{position:fixed;z-index:2147482000;left:50%;top:max(18px,env(safe-area-inset-top));display:flex;align-items:flex-start;gap:12px;width:min(460px,calc(100vw - 32px));padding:14px 46px 14px 16px;border:1px solid #f1b8bf;border-radius:14px;background:#fff;color:#7b1320;box-shadow:0 16px 42px rgba(11,37,64,.22);font:600 14px/1.4 Roboto,Arial,sans-serif;box-sizing:border-box;opacity:0;visibility:hidden;pointer-events:none;transform:translate3d(-50%,-14px,0);transition:opacity .2s ease,transform .28s cubic-bezier(.16,1,.3,1),visibility 0s linear .28s}
+.okla-checkout-toast::before{content:"!";display:grid;place-items:center;flex:none;width:24px;height:24px;border-radius:50%;background:#e0112b;color:#fff;font-size:15px;font-weight:800;line-height:1}
+.okla-checkout-toast.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate3d(-50%,0,0);transition:opacity .2s ease,transform .28s cubic-bezier(.16,1,.3,1),visibility 0s}
+.okla-checkout-toast__close{position:absolute;right:8px;top:8px;display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;border-radius:50%;background:transparent;color:#7b1320;font:400 24px/1 Arial,sans-serif;cursor:pointer}
+.okla-checkout-toast__close:hover{background:#fff0f2}
+html body.ordering-process .okla-selection-missing{border-color:#e0112b!important;box-shadow:0 0 0 3px rgba(224,17,43,.1)!important}
+@media(max-width:767px){.okla-checkout-toast{top:max(10px,env(safe-area-inset-top));width:calc(100vw - 20px);padding:12px 42px 12px 13px;font-size:13px}}
+@media(prefers-reduced-motion:reduce){.okla-checkout-toast{transition:none!important}}

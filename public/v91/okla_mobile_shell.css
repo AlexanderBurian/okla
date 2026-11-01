@@ -18,12 +18,12 @@ html body #header #okla-v61-header .okla-m-search-open svg{display:block!importa
 /* ---------- Sticky header: slides in when the page scrolls up, out when it scrolls down ---------- */
 html body .okla-m-header-spacer{display:block!important}
 html body #okla-v69-floating{display:none!important}
-html body #header #okla-v61-header{transition:transform .24s ease,box-shadow .24s ease!important}
-html.okla-m-stuck body #header #okla-v61-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:520!important;padding:6px 15px!important;background:#fff!important;box-shadow:0 2px 10px rgba(18,41,68,.12)!important}
+html body #header #okla-v61-header{backface-visibility:hidden!important;transform:translate3d(0,0,0)!important;will-change:transform!important;transition:transform .28s cubic-bezier(.22,.8,.3,1),box-shadow .24s ease!important}
+html.okla-m-stuck body #header #okla-v61-header{position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:520!important;padding:6px 15px!important;background:linear-gradient(103deg,rgba(210,234,247,.48) 0%,rgba(231,245,251,.27) 36%,rgba(247,252,254,.09) 70%,rgba(255,255,255,0) 88%),#fff!important;box-shadow:0 2px 10px rgba(18,41,68,.10)!important}
 html.okla-m-stuck body #header #okla-v61-header .okm61-top{height:34px!important;min-height:34px!important;margin:0!important}
 html.okla-m-stuck body #header #okla-v61-header .okm61-logo img{max-height:30px!important}
 html.okla-m-stuck body #header #okla-v61-header .okla-m-search-open{height:34px!important;min-height:34px!important;flex-basis:34px!important;width:34px!important}
-html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transform:translateY(-105%)!important;box-shadow:none!important}
+html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transform:translate3d(0,-100%,0)!important;box-shadow:none!important}
 /* Product pages: the stuck header keeps the gradient instead of turning white. */
 html.okla-m-stuck body.ok89-detail #header #okla-v61-header{background:linear-gradient(180deg,#e5f5ff 0%,#eef8ff 66%,#fff 100%)!important}
 html.okla-m-lock,
