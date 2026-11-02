@@ -16,6 +16,8 @@ html body .cart-empty .cart-row > .col-md-4{display:none!important}
 html body .cart-empty .contact-box,
 html body .cart-empty .box.box-bg-default{display:none!important}
 
+/* Keep the heading clear of the header / content top border above it. */
+html body .cart-inner.cart-empty{padding-top:28px!important}
 html body .cart-empty .cart-heading{
   font-size:28px!important;font-weight:800!important;color:#0b2540!important;margin:0 0 22px!important;
 }
@@ -106,6 +108,10 @@ html body .siteCookies.js-siteCookies .siteCookies__text{
   color:#45546a!important;font-size:13px!important;line-height:1.6!important;margin:0!important;
   column-count:2!important;column-gap:44px!important;
 }
+html body .siteCookies.js-siteCookies .siteCookies__text p{
+  margin:0 0 10px!important;break-inside:avoid!important;-webkit-column-break-inside:avoid!important;
+}
+html body .siteCookies.js-siteCookies .siteCookies__text p:last-child{margin-bottom:0!important}
 html body .siteCookies.js-siteCookies .siteCookies__text a,
 html body .siteCookies.js-siteCookies .siteCookies__link{color:#008ddd!important;font-weight:600!important;text-decoration:underline!important}
 html body .siteCookies.js-siteCookies .siteCookies__links{margin:14px 0 0!important;padding:0!important;column-span:all!important}
