@@ -212,3 +212,13 @@ html body .okla-os-card--open .okla-os-lookup__icon svg{width:104px!important;he
   94%{transform:translateY(0)}
 }
 @media(prefers-reduced-motion:reduce){html body .okla-os-card--open .okla-os-lookup__icon{animation:none}}
+
+/* Align the open lookup to the left (icon, intro and form). */
+html body .okla-os-card--open .okla-os-lookup{text-align:left}
+html body .okla-os-card--open .okla-os-lookup__icon{margin:2px 0 16px!important}
+html body .okla-os-card--open .okla-os-lookup__intro{margin:0 0 26px}
+html body .okla-os-card--open .okla-os-lookup__form{justify-content:flex-start;margin:0}
+html body .okla-os-card--open .okla-os-lookup__err{text-align:left}
+
+/* Icon container must shrink to the parcel, not fill the row, so left margin works. */
+html body .okla-os-card--open .okla-os-lookup__icon{width:fit-content!important}
