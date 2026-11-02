@@ -1,0 +1,133 @@
+/* OKLA V91 – smart style for the pages Shoptet still renders natively:
+   empty cart, search results and the native call-to-action buttons (login,
+   registration, forgotten password, 404, empty-cart search). Chrome (header,
+   nav, footer, product cards) is styled elsewhere; this only covers the gaps. */
+
+/* ---------- Empty-cart search button -> OKLA blue ----------
+   Shoptet paints the empty-cart search button with its purple default. The
+   header, account and 404 buttons are already branded by their own modules, so
+   this is scoped to the empty cart only and uses the header's brand blue. */
+html body .cart-empty .search .btn,
+html body .cart-empty form button[type="submit"]{
+  background:#008ddd!important;
+  background-image:none!important;
+  border:1px solid #008ddd!important;
+  color:#fff!important;
+  border-radius:8px!important;
+  font-weight:700!important;
+  box-shadow:none!important;
+  text-shadow:none!important;
+}
+html body .cart-empty .search .btn:hover,
+html body .cart-empty form button[type="submit"]:hover{
+  background:#0b74b5!important;
+  border-color:#0b74b5!important;
+  color:#fff!important;
+}
+
+/* ---------- Empty cart ---------- */
+/* The default "contact box" (the stock merchant avatar + name) is removed; the
+   offer and search take the full width. */
+html body .cart-empty .cart-row > .col-md-4{display:none!important}
+html body .cart-empty .cart-row > .col-md-8{
+  flex:0 0 100%!important;
+  max-width:100%!important;
+}
+html body .cart-empty .contact-box,
+html body .cart-empty .box.box-bg-default{display:none!important}
+
+/* Present the empty state on a clean white card. */
+html body .cart-empty .cart-heading{
+  font-size:28px!important;
+  font-weight:800!important;
+  color:#0b2540!important;
+  margin:0 0 22px!important;
+}
+html body .cart-empty .empty-cart-boxes{
+  background:#fff!important;
+  border:1px solid #e6ebf2!important;
+  border-radius:14px!important;
+  padding:28px 30px!important;
+  box-shadow:0 1px 4px rgba(6,29,58,.06)!important;
+  margin:0!important;
+  row-gap:24px!important;
+}
+html body .cart-empty .empty-cart-boxes h3{
+  font-size:16px!important;
+  font-weight:700!important;
+  color:#09336c!important;
+  margin:0 0 14px!important;
+}
+html body .cart-empty .empty-cart-boxes ul{list-style:none!important;margin:0!important;padding:0!important}
+html body .cart-empty .empty-cart-boxes ul li{margin:0 0 10px!important}
+html body .cart-empty .empty-cart-boxes ul li a{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  color:#141923!important;
+  text-decoration:none!important;
+}
+html body .cart-empty .empty-cart-boxes ul li a:before{
+  content:"";
+  width:7px;height:7px;flex:none;
+  border-radius:50%;
+  background:#008ddd;
+}
+html body .cart-empty .empty-cart-boxes ul li a:hover{color:#065ba7!important}
+html body .cart-empty .empty-cart-boxes .search-form{display:flex!important;gap:8px!important;flex-wrap:nowrap!important}
+html body .cart-empty .empty-cart-boxes .search-form input[type="text"],
+html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){
+  flex:1 1 auto!important;
+  min-width:0!important;
+  border:1px solid #cdd2da!important;
+  border-radius:8px!important;
+  height:42px!important;
+  padding:0 14px!important;
+}
+
+/* ---------- Search results ---------- */
+/* Same borderless cards as the category grid: hide the product code and lay the
+   results out in a tidy responsive grid instead of a loose full-width row. */
+html body.in-vyhledavani #products .product .p-code,
+html body.type-search #products .product .p-code{display:none!important}
+
+html body.in-vyhledavani #products.products-block,
+html body.type-search #products.products-block{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  align-items:stretch!important;
+  gap:6px 0!important;
+}
+html body.in-vyhledavani #products.products-block > .product,
+html body.type-search #products.products-block > .product{
+  flex:0 0 25%!important;
+  max-width:25%!important;
+}
+@media(max-width:1100px){
+  html body.in-vyhledavani #products.products-block > .product,
+  html body.type-search #products.products-block > .product{flex:0 0 33.333%!important;max-width:33.333%!important}
+}
+@media(max-width:800px){
+  html body.in-vyhledavani #products.products-block > .product,
+  html body.type-search #products.products-block > .product{flex:0 0 50%!important;max-width:50%!important}
+}
+@media(max-width:520px){
+  html body.in-vyhledavani #products.products-block > .product,
+  html body.type-search #products.products-block > .product{flex:0 0 50%!important;max-width:50%!important}
+}
+
+/* Search results headings in the brand voice. */
+html body.in-vyhledavani #content > h2,
+html body.type-search #content > h2,
+html body.in-vyhledavani .search-products-heading,
+html body.type-search .search-products-heading{
+  color:#0b2540!important;
+  font-weight:800!important;
+}
+html body.in-vyhledavani .search-results-group h4,
+html body.type-search .search-results-group h4{
+  color:#09336c!important;
+  font-weight:700!important;
+}
