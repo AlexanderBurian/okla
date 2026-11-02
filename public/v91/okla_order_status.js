@@ -24,7 +24,7 @@
   params:{code:['code','c','order'],status:['status','s'],date:['date','d'],tracking:['tracking','t'],carrier:['carrier']},
   /* Public Zásilkovna tracking for a bare parcel number (used only when a full
      tracking URL is not supplied). Change here if the format ever differs. */
-  packetaTrackBase:'https://tracking.packeta.com/cs/?id='
+  packetaTrackBase:'https://tracking.packeta.com/cs/'
  };
 
  var ICONS={
