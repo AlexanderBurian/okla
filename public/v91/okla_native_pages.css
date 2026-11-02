@@ -159,3 +159,30 @@ html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
    overlay so the panel drops right under it. */
 html body .cart-empty .search{position:relative!important}
 html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!important;max-width:100%!important}
+
+/* ---------- Native/CMS text pages: unified mobile width ----------
+   Pages Shoptet renders without an OKLA card (Kontakty and every CMS text page
+   — obchodní podmínky, reklamační řád, …) have no side gutter, so the heading,
+   text, form fields and the submit button bleed to the screen edges. Give them
+   the SAME 14px side gutter the homepage uses, so every page reads at one width.
+   The OKLA full-bleed views (cart/checkout, the order-status hero) keep their
+   own edges and are excluded. */
+@media(max-width:767px){
+  html body:not(.type-index):not(.ordering-process) #content-wrapper main#content{
+    padding-left:14px!important;padding-right:14px!important;padding-top:14px!important;
+    box-sizing:border-box!important;
+  }
+  html.okla-os-takeover body #content-wrapper main#content{padding-left:0!important;padding-right:0!important}
+}
+
+/* ---------- Header gradient on non-index phones ----------
+   The angled/radial header variants leave a visible diagonal seam where the fill
+   meets the white page on a plain text page. In the calm (top) state, force a
+   clean vertical fade that ends fully white, so it blends into the content with
+   no edge. The scrolled white-header states are left untouched. */
+@media(max-width:767px){
+  html body:not(.type-index):not(.okla-v65-white-header):not(.okla-v66-show-header) #header #okla-v61-header{
+    background:linear-gradient(180deg,#e9f4fd 0%,#f2f8fe 60%,#fbfdff 88%,#fff 100%)!important;
+    box-shadow:none!important;
+  }
+}
