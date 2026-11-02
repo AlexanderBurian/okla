@@ -1,17 +1,32 @@
-/* OKLA V91 – "Stav objednávky" page (structure + look only for now).
-   Renders our card with an order-summary box at the top and an Alza-style status
-   timeline below. Shown on the /stav-objednavky/ page (a CMS page the shop
-   creates) or into any element marked [data-okla-order-status].
+/* OKLA V91 – "Stav objednávky" page. Our card with an order-summary box on top
+   and an Alza-style status timeline below. Shown on /stav-objednavky/ (a CMS page
+   the shop creates) or into any [data-okla-order-status] element.
 
-   DATA IS A PLACEHOLDER. getOrder() returns demo values so the structure is
-   visible; later it will read the real order (from a query param, the account
-   order detail, or the AI backend) and the carrier state from Zásilkovna. */
+   REAL DATA, two sources (first that yields something wins):
+   1) URL query params — link to the page from the order confirmation e-mail or
+      the account with Shoptet variables, e.g.
+      /stav-objednavky/?code={订单号}&status={stav}&t={tracking_url}&date={datum}
+      Params: code|c|order, status|s, date|d, tracking|t (full URL or a bare
+      Zásilkovna number), carrier. This needs no backend and no login.
+   2) An order-detail page in the DOM (the account) — best-effort: the status is
+      read from known selectors or matched from the page text, the tracking link
+      is reused from Shoptet's own "Sledovat zásilku" link.
+   If neither is present it shows demo values with a note. Status text is mapped
+   to a step tolerantly (lower-cased, diacritics removed). */
 (function(){
  'use strict';
  if(window.__oklaOrderStatusV1)return;
  window.__oklaOrderStatusV1=true;
 
  var NS='http://www.w3.org/2000/svg';
+
+ var CONFIG={
+  params:{code:['code','c','order'],status:['status','s'],date:['date','d'],tracking:['tracking','t'],carrier:['carrier']},
+  /* Public Zásilkovna tracking for a bare parcel number (used only when a full
+     tracking URL is not supplied). Change here if the format ever differs. */
+  packetaTrackBase:'https://tracking.packeta.com/cs/?id='
+ };
+
  var ICONS={
   received:['M9 4h6v3H9z','M7 6h10v14H7z','M9.4 13l1.9 1.9L15 11'],
   processing:['M12 3 3.5 7.5v9L12 21l8.5-4.5v-9L12 3Z','M3.5 7.5 12 12l8.5-4.5','M12 12v9'],
@@ -28,17 +43,84 @@
   {label:'Doručeno',icon:'delivered'}
  ];
 
- /* -------- PLACEHOLDER DATA -------- */
+ /* status phrase (normalized) -> step reached; first match wins */
+ var STATUS_MAP=[
+  {m:['storno','zrus','zamit','vrac','odstoupen'],cancelled:true,label:'Zrušeno'},
+  {m:['dorucen','vyrizen','dokoncen','vyzvednut','predano zakaznik'],step:4},
+  {m:['v preprav','na ceste','ceste','dopravci','vydejn','prepravuje'],step:3},
+  {m:['expedov','odeslan','pripraveno k vyzvednuti','predano doprav'],step:2},
+  {m:['zpracov','potvrzen','prijata platba','platba prijata','balime','kompletuje'],step:1},
+  {m:['prijat','nova','ceka','zalozen','nezaplacen','vytvoren','objednan'],step:0}
+ ];
+
+ function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
+
+ function param(names){
+  var u;try{u=new URLSearchParams(location.search)}catch(e){return ''}
+  for(var i=0;i<names.length;i++){var v=u.get(names[i]);if(v)return v.trim()}
+  return '';
+ }
+
+ function mapStatus(text){
+  var n=norm(text);
+  for(var i=0;i<STATUS_MAP.length;i++){
+   if(STATUS_MAP[i].m.some(function(x){return n.indexOf(x)!==-1}))return STATUS_MAP[i];
+  }
+  return null;
+ }
+
+ /* Best-effort read from a Shoptet order-detail page (the account). */
+ function fromDom(){
+  var scope=document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
+  if(!scope)return null;
+  var a=scope.querySelector('a[href*="zasilkovna"],a[href*="packeta"],a[href*="tracking"],a[href*="sledov"]');
+  var statusEl=scope.querySelector('.order-status,[class*="order-status"],.status-name,.order-state,[class*="orderStatus"]');
+  var statusText=statusEl?statusEl.textContent.trim():'';
+  if(!statusText){
+   var n=norm(scope.textContent||'');
+   for(var i=0;i<STATUS_MAP.length;i++){
+    if(STATUS_MAP[i].m.some(function(x){return n.indexOf(x)!==-1})){statusText=STATUS_MAP[i].label||'';break}
+   }
+  }
+  var numEl=scope.querySelector('[class*="order-number"],[class*="order-code"],[class*="orderNumber"]');
+  var number=numEl?(numEl.textContent.match(/\d{4,}/)||[''])[0]:'';
+  if(!a&&!statusText)return null;
+  return {number:number,statusLabel:statusText,trackingUrl:a?a.href:'',dateLabel:''};
+ }
+
+ function demoOrder(){
+  return {number:'250042',dateLabel:'Vytvořeno 2. 11. 2025',statusLabel:'Expedováno',trackingUrl:'',carrier:'Zásilkovna',demo:true};
+ }
+
  function getOrder(){
+  var code=param(CONFIG.params.code),status=param(CONFIG.params.status),date=param(CONFIG.params.date),
+      tracking=param(CONFIG.params.tracking),carrier=param(CONFIG.params.carrier);
+  var base=null;
+  if(code||status||tracking){
+   base={number:code,statusLabel:status,dateLabel:date?('Vytvořeno '+date):'',trackingRaw:tracking,carrier:carrier};
+  }else{
+   base=fromDom();
+  }
+  if(!base)base=demoOrder();
+
+  var mapped=base.statusLabel?mapStatus(base.statusLabel):null;
+  var cancelled=mapped?!!mapped.cancelled:false;
+  var currentStep=mapped?(cancelled?-1:mapped.step):0;
+
+  var trackingUrl=base.trackingUrl||'';
+  if(!trackingUrl&&base.trackingRaw){
+   trackingUrl=/^https?:/i.test(base.trackingRaw)?base.trackingRaw:CONFIG.packetaTrackBase+encodeURIComponent(base.trackingRaw);
+  }
+
   return {
-   number:'250042',
-   dateLabel:'Vytvořeno 2. 11. 2025',
-   statusLabel:'Expedováno',
-   currentStep:2,            /* 0..4; the active step. 4 = doručeno, -1 = cancelled */
-   cancelled:false,
-   stepSubs:['2. 11.','2. 11.','dnes','',''],
-   trackingUrl:'',           /* reused from Shoptet's own "Sledovat zásilku" link later */
-   trackingNote:'Zásilkovna'
+   number:base.number||'—',
+   dateLabel:base.dateLabel||'',
+   statusLabel:base.statusLabel||(STEPS[Math.max(0,currentStep)]?STEPS[Math.max(0,currentStep)].label:''),
+   currentStep:currentStep,
+   cancelled:cancelled,
+   trackingUrl:trackingUrl,
+   carrier:base.carrier||'Zásilkovna',
+   demo:!!base.demo
   };
  }
 
@@ -52,14 +134,12 @@
  function build(order){
   var sec=el('section','okla-order-status');
   sec.appendChild(el('h1','okla-os-title','Stav objednávky'));
-
   var card=el('div','okla-os-card');
 
-  /* box at the top: order summary */
   var head=el('div','okla-os-head');
   var main=el('div','okla-os-head__main');
   main.appendChild(el('span','okla-os-head__label','Objednávka'));
-  main.appendChild(el('span','okla-os-head__num','#'+order.number));
+  main.appendChild(el('span','okla-os-head__num',(order.number&&order.number!=='—'?'#':'')+order.number));
   if(order.dateLabel)main.appendChild(el('span','okla-os-head__date',order.dateLabel));
   head.appendChild(main);
   var badge=el('span','okla-os-badge',order.statusLabel||'');
@@ -68,11 +148,10 @@
   head.appendChild(badge);
   card.appendChild(head);
 
-  /* timeline */
   var ol=el('ol','okla-os-steps');
   STEPS.forEach(function(step,i){
    var li=el('li','okla-os-step');
-   if(order.cancelled){li.classList.add('is-upcoming')}
+   if(order.cancelled)li.classList.add('is-upcoming');
    else if(i<order.currentStep)li.classList.add('is-done');
    else if(i===order.currentStep)li.classList.add('is-active');
    else li.classList.add('is-upcoming');
@@ -81,34 +160,38 @@
    li.appendChild(dot);
    var info=el('span','okla-os-step__info');
    info.appendChild(el('span','okla-os-step__label',step.label));
-   var sub=order.stepSubs&&order.stepSubs[i];
-   if(sub)info.appendChild(el('span','okla-os-step__sub',sub));
    li.appendChild(info);
    ol.appendChild(li);
   });
   card.appendChild(ol);
 
-  /* tracking row */
   var track=el('div','okla-os-track');
   var btn=el('a','okla-os-track__btn');
   btn.href=order.trackingUrl||'#';
+  if(order.trackingUrl){btn.target='_blank';btn.rel='noopener'}
   btn.appendChild(document.createTextNode('Sledovat zásilku'));
   btn.appendChild(svg(['M5 12h14','M13 6l6 6-6 6']));
-  if(!order.trackingUrl){btn.setAttribute('aria-disabled','true');btn.style.opacity='.55';btn.style.pointerEvents='none'}
+  if(!order.trackingUrl){btn.setAttribute('aria-disabled','true');btn.style.opacity='.5';btn.style.pointerEvents='none'}
   track.appendChild(btn);
   var note=el('span','okla-os-track__note');
-  note.appendChild(document.createTextNode((order.trackingNote||'Zásilkovna')+' · '));
-  var b=el('b',null,'číslo zásilky doplní Shoptet');
-  note.appendChild(b);
+  if(order.trackingUrl){
+   note.appendChild(document.createTextNode('Doprava: '));
+   note.appendChild(el('b',null,order.carrier));
+  }else{
+   note.appendChild(document.createTextNode(order.carrier+' · číslo zásilky zatím není k dispozici'));
+  }
   track.appendChild(note);
   card.appendChild(track);
 
   sec.appendChild(card);
 
-  var hint=el('p','okla-os-note');
-  hint.appendChild(document.createTextNode('Náhled struktury s ukázkovými daty. Stav a číslo zásilky se po napojení načtou z vaší objednávky. '));
-  sec.appendChild(hint);
-
+  if(order.demo){
+   var hint=el('p','okla-os-note');
+   hint.appendChild(document.createTextNode('Náhled s ukázkovými daty. Přidejte do odkazu parametry objednávky, např. '));
+   hint.appendChild(el('a',null,'/stav-objednavky/?code=250042&status=Expedováno'));
+   hint.appendChild(document.createTextNode(' (odkaz pošlete z potvrzovacího e-mailu se Shoptet proměnnými).'));
+   sec.appendChild(hint);
+  }
   return sec;
  }
 
