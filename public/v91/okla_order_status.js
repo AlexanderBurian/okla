@@ -219,7 +219,7 @@
   var head=el('div','okla-os-head');
   var main=el('div','okla-os-head__main');
   main.appendChild(el('span','okla-os-head__label','Objednávka'));
-  main.appendChild(el('span','okla-os-head__num',(order.number&&order.number!=='—'?'#':'')+order.number));
+  if(order.number&&order.number!=='—')main.appendChild(el('span','okla-os-head__num','#'+order.number));
   if(order.dateLabel)main.appendChild(el('span','okla-os-head__date',order.dateLabel));
   head.appendChild(main);
   var badge=el('span','okla-os-badge',order.statusLabel||'');

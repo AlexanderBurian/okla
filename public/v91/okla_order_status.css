@@ -222,3 +222,15 @@ html body .okla-os-card--open .okla-os-lookup__err{text-align:left}
 
 /* Icon container must shrink to the parcel, not fill the row, so left margin works. */
 html body .okla-os-card--open .okla-os-lookup__icon{width:fit-content!important}
+
+/* Mobile fix for the open lookup: stack the form, full-width fields and button
+   (the open-state rules above outrank the generic mobile rules, so repeat here). */
+@media(max-width:620px){
+  html body .okla-os-card--open{padding:4px 0 18px!important}
+  html body .okla-os-card--open .okla-os-lookup__form{flex-direction:column!important;align-items:stretch!important;max-width:none!important;gap:14px!important}
+  html body .okla-os-card--open .okla-os-field{flex:0 0 auto!important;width:100%!important}
+  html body .okla-os-card--open .okla-os-field input{width:100%!important}
+  html body .okla-os-card--open .okla-os-lookup__btn{width:100%!important}
+  html body .okla-os-card--open .okla-os-lookup__icon svg{width:84px!important;height:84px!important}
+  html body .okla-os-card--open .okla-os-lookup__intro{font-size:14px}
+}
