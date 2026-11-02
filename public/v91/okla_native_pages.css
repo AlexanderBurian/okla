@@ -158,4 +158,4 @@ html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
    empty-cart search field. The field needs a positioning context above the blur
    overlay so the panel drops right under it. */
 html body .cart-empty .search{position:relative!important}
-html body .cart-empty .okla-search-panel{width:max(100%,440px)!important;max-width:calc(100vw - 48px)!important}
+html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!important;max-width:100%!important}
