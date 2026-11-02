@@ -180,10 +180,15 @@
    e.preventDefault();
    var num=(i1.value||'').trim();
    var psc=(i2.value||'').trim().replace(/\s+/g,'');
-   if(!num||!psc){setErr('Zadejte prosím číslo zásilky i PSČ.');return}
+   if(!num){setErr('Zadejte prosím číslo zásilky.');return}
    clearErr();
    var api=window.__oklaApiUrl;
-   if(!api){carrierFallback(num,psc);return}
+   /* Verified mode (order + ZIP against the Shoptet API) runs only when it is
+      switched on (window.__oklaOrderStatusVerify) and the backend is reachable.
+      Otherwise we go straight to carrier tracking by the parcel number — works
+      with no API and no backend. */
+   if(!window.__oklaOrderStatusVerify||!api){carrierFallback(num,psc);return}
+   if(!psc){setErr('Pro ověření zadejte i PSČ.');return}
    loading(true);
    fetch(api+'/api/order-status',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({identifier:num,zip:psc})})
     .then(function(r){return r.json().catch(function(){return {}})})
@@ -197,7 +202,7 @@
      if(res&&res.configured===false){carrierFallback(num,psc);return}
      setErr('Zásilku se nepodařilo ověřit. Zkontrolujte číslo zásilky a PSČ.');
     })
-    .catch(function(){loading(false);setErr('Ověření se nezdařilo. Zkuste to prosím za chvíli.')});
+    .catch(function(){loading(false);carrierFallback(num,psc)});
   });
 
   card.appendChild(wrap);
