@@ -139,18 +139,21 @@
   sec.appendChild(el('h1','okla-os-title','Stav objednávky'));
   var card=el('div','okla-os-card');
   var wrap=el('div','okla-os-lookup');
+  var ico=el('div','okla-os-lookup__icon');
+  ico.appendChild(svg(['M12 3 3.5 7.5v9L12 21l8.5-4.5v-9L12 3Z','M3.5 7.5 12 12l8.5-4.5','M12 12v9']));
+  wrap.appendChild(ico);
   var intro=el('p','okla-os-lookup__intro');
   intro.appendChild(document.createTextNode('Zadejte '));
-  intro.appendChild(el('b',null,'číslo objednávky'));
+  intro.appendChild(el('b',null,'číslo zásilky'));
   intro.appendChild(document.createTextNode(' a '));
   intro.appendChild(el('b',null,'PSČ'));
-  intro.appendChild(document.createTextNode(' z doručovací adresy. Číslo objednávky najdete v potvrzovacím e-mailu.'));
+  intro.appendChild(document.createTextNode(' z doručovací adresy. Číslo zásilky najdete v e-mailu „Odeslaná zásilka".'));
   wrap.appendChild(intro);
 
   var form=el('form','okla-os-lookup__form');
   var f1=el('div','okla-os-field');
-  f1.appendChild(el('label',null,'Číslo objednávky'));
-  var i1=el('input');i1.type='text';i1.name='num';i1.autocomplete='off';i1.placeholder='např. 2025000042';
+  f1.appendChild(el('label',null,'Číslo zásilky'));
+  var i1=el('input');i1.type='text';i1.name='num';i1.autocomplete='off';i1.placeholder='např. Z123 456 789';
   f1.appendChild(i1);form.appendChild(f1);
   var f2=el('div','okla-os-field okla-os-field--psc');
   f2.appendChild(el('label',null,'PSČ'));
@@ -176,7 +179,7 @@
    e.preventDefault();
    var num=(i1.value||'').trim();
    var psc=(i2.value||'').trim().replace(/\s+/g,'');
-   if(!num||!psc){setErr('Zadejte prosím číslo objednávky i PSČ.');return}
+   if(!num||!psc){setErr('Zadejte prosím číslo zásilky i PSČ.');return}
    clearErr();
    var api=window.__oklaApiUrl;
    if(!api){carrierFallback(num,psc);return}
@@ -191,7 +194,7 @@
       return;
      }
      if(res&&res.configured===false){carrierFallback(num,psc);return}
-     setErr('Objednávku se nepodařilo ověřit. Zkontrolujte číslo objednávky a PSČ.');
+     setErr('Zásilku se nepodařilo ověřit. Zkontrolujte číslo zásilky a PSČ.');
     })
     .catch(function(){loading(false);setErr('Ověření se nezdařilo. Zkuste to prosím za chvíli.')});
   });

@@ -162,3 +162,11 @@ html.okla-os-takeover .breadcrumbs,
 html.okla-os-takeover #navigation .breadcrumbs,
 html.okla-os-takeover nav.breadcrumb,
 html.okla-os-takeover .breadcrumb-nav{display:none!important}
+
+/* ---- Lookup: package pictogram ---- */
+html body .okla-os-lookup__icon{
+  width:60px;height:60px;border-radius:16px;margin:0 0 18px;
+  background:linear-gradient(145deg,#008ddd,#0b74b5);color:#fff;
+  display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,141,221,.25);
+}
+html body .okla-os-lookup__icon svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
