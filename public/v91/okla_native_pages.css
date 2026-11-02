@@ -1,110 +1,70 @@
 /* OKLA V91 – smart style for the pages Shoptet still renders natively:
-   empty cart, search results and the native call-to-action buttons (login,
-   registration, forgotten password, 404, empty-cart search). Chrome (header,
-   nav, footer, product cards) is styled elsewhere; this only covers the gaps. */
-
-/* ---------- Empty-cart search button -> OKLA blue ----------
-   Shoptet paints the empty-cart search button with its purple default. The
-   header, account and 404 buttons are already branded by their own modules, so
-   this is scoped to the empty cart only and uses the header's brand blue. */
-html body .cart-empty .search .btn,
-html body .cart-empty form button[type="submit"]{
-  background:#008ddd!important;
-  background-image:none!important;
-  border:1px solid #008ddd!important;
-  color:#fff!important;
-  border-radius:8px!important;
-  font-weight:700!important;
-  box-shadow:none!important;
-  text-shadow:none!important;
-}
-html body .cart-empty .search .btn:hover,
-html body .cart-empty form button[type="submit"]:hover{
-  background:#0b74b5!important;
-  border-color:#0b74b5!important;
-  color:#fff!important;
-}
+   empty cart, search results, the cookie consent bar and the assistant widget's
+   visibility. Chrome (header, nav, footer, product cards) is styled elsewhere;
+   this only covers the gaps. Brand blue: #008ddd. */
 
 /* ---------- Empty cart ---------- */
-/* The default "contact box" (the stock merchant avatar + name) is removed; the
-   offer and search take the full width. */
-html body .cart-empty .cart-row > .col-md-4{display:none!important}
+/* The cart row is a float grid (display:block), so the full-width override has
+   to set width, not just flex. The default merchant contact box is removed and
+   the offer + search span the whole width on one clean card. */
+html body .cart-empty .cart-row{margin:0!important}
 html body .cart-empty .cart-row > .col-md-8{
-  flex:0 0 100%!important;
-  max-width:100%!important;
+  width:100%!important;max-width:100%!important;flex:0 0 100%!important;
+  float:none!important;padding:0!important;
 }
+html body .cart-empty .cart-row > .col-md-4{display:none!important}
 html body .cart-empty .contact-box,
 html body .cart-empty .box.box-bg-default{display:none!important}
 
-/* Present the empty state on a clean white card. */
 html body .cart-empty .cart-heading{
-  font-size:28px!important;
-  font-weight:800!important;
-  color:#0b2540!important;
-  margin:0 0 22px!important;
+  font-size:28px!important;font-weight:800!important;color:#0b2540!important;margin:0 0 22px!important;
 }
+/* The two offer/search boxes become flex columns that fill the full width. */
 html body .cart-empty .empty-cart-boxes{
-  background:#fff!important;
-  border:1px solid #e6ebf2!important;
-  border-radius:14px!important;
-  padding:28px 30px!important;
-  box-shadow:0 1px 4px rgba(6,29,58,.06)!important;
-  margin:0!important;
-  row-gap:24px!important;
+  display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;
+  gap:28px 56px!important;margin:0!important;
+  background:#fff!important;border:1px solid #e6ebf2!important;border-radius:14px!important;
+  padding:30px 34px!important;box-shadow:0 1px 4px rgba(6,29,58,.06)!important;box-sizing:border-box!important;
+}
+html body .cart-empty .empty-cart-boxes > .col-md-6{
+  flex:1 1 320px!important;width:auto!important;max-width:none!important;
+  float:none!important;padding:0!important;margin:0!important;min-width:0!important;box-sizing:border-box!important;
 }
 html body .cart-empty .empty-cart-boxes h3{
-  font-size:16px!important;
-  font-weight:700!important;
-  color:#09336c!important;
-  margin:0 0 14px!important;
+  font-size:16px!important;font-weight:700!important;color:#09336c!important;margin:0 0 16px!important;
 }
 html body .cart-empty .empty-cart-boxes ul{list-style:none!important;margin:0!important;padding:0!important}
-html body .cart-empty .empty-cart-boxes ul li{margin:0 0 10px!important}
+html body .cart-empty .empty-cart-boxes ul li{margin:0 0 11px!important}
 html body .cart-empty .empty-cart-boxes ul li a{
-  display:inline-flex!important;
-  align-items:center!important;
-  gap:8px!important;
-  font-size:14px!important;
-  font-weight:600!important;
-  color:#141923!important;
-  text-decoration:none!important;
+  display:inline-flex!important;align-items:center!important;gap:9px!important;
+  font-size:14px!important;font-weight:600!important;color:#141923!important;text-decoration:none!important;
 }
 html body .cart-empty .empty-cart-boxes ul li a:before{
-  content:"";
-  width:7px;height:7px;flex:none;
-  border-radius:50%;
-  background:#008ddd;
+  content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#008ddd;
 }
 html body .cart-empty .empty-cart-boxes ul li a:hover{color:#065ba7!important}
-html body .cart-empty .empty-cart-boxes .search-form{display:flex!important;gap:8px!important;flex-wrap:nowrap!important}
-html body .cart-empty .empty-cart-boxes .search-form input[type="text"],
+html body .cart-empty .empty-cart-boxes .search-form{display:flex!important;gap:8px!important;flex-wrap:nowrap!important;max-width:460px!important}
 html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){
-  flex:1 1 auto!important;
-  min-width:0!important;
-  border:1px solid #cdd2da!important;
-  border-radius:8px!important;
-  height:42px!important;
-  padding:0 14px!important;
+  flex:1 1 auto!important;min-width:0!important;border:1px solid #cdd2da!important;border-radius:8px!important;height:42px!important;padding:0 14px!important;
 }
+/* Empty-cart search button -> brand blue (Shoptet paints it purple). */
+html body .cart-empty .search .btn,
+html body .cart-empty form button[type="submit"]{
+  background:#008ddd!important;background-image:none!important;border:1px solid #008ddd!important;
+  color:#fff!important;border-radius:8px!important;font-weight:700!important;box-shadow:none!important;text-shadow:none!important;
+}
+html body .cart-empty .search .btn:hover,
+html body .cart-empty form button[type="submit"]:hover{background:#0b74b5!important;border-color:#0b74b5!important;color:#fff!important}
 
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
    results out in a tidy responsive grid instead of a loose full-width row. */
 html body.in-vyhledavani #products .product .p-code,
 html body.type-search #products .product .p-code{display:none!important}
-
 html body.in-vyhledavani #products.products-block,
-html body.type-search #products.products-block{
-  display:flex!important;
-  flex-wrap:wrap!important;
-  align-items:stretch!important;
-  gap:6px 0!important;
-}
+html body.type-search #products.products-block{display:flex!important;flex-wrap:wrap!important;align-items:stretch!important;gap:6px 0!important}
 html body.in-vyhledavani #products.products-block > .product,
-html body.type-search #products.products-block > .product{
-  flex:0 0 25%!important;
-  max-width:25%!important;
-}
+html body.type-search #products.products-block > .product{flex:0 0 25%!important;max-width:25%!important}
 @media(max-width:1100px){
   html body.in-vyhledavani #products.products-block > .product,
   html body.type-search #products.products-block > .product{flex:0 0 33.333%!important;max-width:33.333%!important}
@@ -113,107 +73,76 @@ html body.type-search #products.products-block > .product{
   html body.in-vyhledavani #products.products-block > .product,
   html body.type-search #products.products-block > .product{flex:0 0 50%!important;max-width:50%!important}
 }
-@media(max-width:520px){
-  html body.in-vyhledavani #products.products-block > .product,
-  html body.type-search #products.products-block > .product{flex:0 0 50%!important;max-width:50%!important}
-}
+html body.in-vyhledavani #content > h2,html body.type-search #content > h2,
+html body.in-vyhledavani .search-products-heading,html body.type-search .search-products-heading{color:#0b2540!important;font-weight:800!important}
+html body.in-vyhledavani .search-results-group h4,html body.type-search .search-results-group h4{color:#09336c!important;font-weight:700!important}
 
-/* Search results headings in the brand voice. */
-html body.in-vyhledavani #content > h2,
-html body.type-search #content > h2,
-html body.in-vyhledavani .search-products-heading,
-html body.type-search .search-products-heading{
-  color:#0b2540!important;
-  font-weight:800!important;
-}
-html body.in-vyhledavani .search-results-group h4,
-html body.type-search .search-results-group h4{
-  color:#09336c!important;
-  font-weight:700!important;
-}
-
-/* ---------- Cookie consent: full-width bottom bar with a blurred backdrop ----------
-   Allegro-style layout — a full-width bar docked at the bottom, the rest of the
-   page dimmed and blurred the same way as the cart drawer — but in the OKLA
-   palette: navy text, brand-blue accept button, outlined decline. */
+/* ---------- Cookie consent: Allegro-style, OKLA palette ----------
+   A full-width bar docked at the bottom over a dimmed, blurred backdrop (same as
+   the cart drawer). Heading, the text in up to two columns, the settings link,
+   and the accept/decline buttons stacked in a column on the right. The page is
+   locked from scrolling while it is open, and a very long text scrolls inside
+   the bar instead of off-screen. */
+html:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])){overflow:hidden!important}
 html body .siteCookies.js-siteCookies{
-  position:fixed!important;
-  inset:0!important;top:0!important;left:0!important;right:0!important;bottom:0!important;
-  width:auto!important;max-width:none!important;height:auto!important;
-  margin:0!important;padding:0!important;border:0!important;
-  display:flex!important;
-  align-items:flex-end!important;
-  justify-content:center!important;
-  background:rgba(11,37,64,.35)!important;
-  -webkit-backdrop-filter:blur(6px)!important;backdrop-filter:blur(6px)!important;
+  position:fixed!important;inset:0!important;top:0!important;left:0!important;right:0!important;bottom:0!important;
+  width:auto!important;max-width:none!important;height:auto!important;margin:0!important;padding:0!important;border:0!important;
+  display:flex!important;align-items:flex-end!important;justify-content:center!important;
+  background:rgba(11,37,64,.35)!important;-webkit-backdrop-filter:blur(6px)!important;backdrop-filter:blur(6px)!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__form{
   width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box!important;
   display:flex!important;align-items:flex-start!important;justify-content:center!important;
   gap:28px 56px!important;flex-wrap:wrap!important;
-  padding:26px 40px!important;
-  background:#fff!important;
-  border-top:1px solid #e6ebf2!important;
-  box-shadow:0 -6px 26px rgba(6,29,58,.14)!important;
+  padding:28px 40px!important;max-height:78vh!important;overflow:auto!important;
+  background:#fff!important;border-top:1px solid #e6ebf2!important;box-shadow:0 -6px 26px rgba(6,29,58,.14)!important;
 }
-html body .siteCookies.js-siteCookies .siteCookies__content{
-  flex:1 1 480px!important;min-width:0!important;max-width:820px!important;margin:0!important;
-}
+html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 560px!important;min-width:0!important;max-width:900px!important;margin:0!important}
 html body .siteCookies.js-siteCookies .siteCookies__content:before{
-  content:"Dbáme na vaše soukromí"!important;
-  display:block!important;
-  font-size:19px!important;font-weight:800!important;color:#0b2540!important;
-  margin:0 0 10px!important;line-height:1.25!important;
+  content:"Dbáme na vaše soukromí"!important;display:block!important;
+  font-size:20px!important;font-weight:800!important;color:#0b2540!important;margin:0 0 12px!important;line-height:1.25!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__text{
-  color:#45546a!important;font-size:13px!important;line-height:1.55!important;margin:0!important;
+  color:#45546a!important;font-size:13px!important;line-height:1.6!important;margin:0!important;
+  column-count:2!important;column-gap:44px!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__text a,
-html body .siteCookies.js-siteCookies .siteCookies__link{
-  color:#008ddd!important;font-weight:600!important;text-decoration:underline!important;
-}
-html body .siteCookies.js-siteCookies .siteCookies__links{margin:8px 0 0!important;padding:0!important}
-html body .siteCookies.js-siteCookies .siteCookies__link{
-  background:none!important;border:0!important;padding:0!important;font-size:13px!important;cursor:pointer!important;
-}
+html body .siteCookies.js-siteCookies .siteCookies__link{color:#008ddd!important;font-weight:600!important;text-decoration:underline!important}
+html body .siteCookies.js-siteCookies .siteCookies__links{margin:14px 0 0!important;padding:0!important;column-span:all!important}
+html body .siteCookies.js-siteCookies .siteCookies__link{background:none!important;border:0!important;padding:0!important;font-size:13px!important;cursor:pointer!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{
-  display:flex!important;flex-direction:column-reverse!important;align-items:stretch!important;
-  gap:10px!important;flex:0 0 auto!important;width:300px!important;
+  display:flex!important;flex-direction:column-reverse!important;align-items:stretch!important;gap:10px!important;flex:0 0 auto!important;width:300px!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__button{
-  width:100%!important;flex:0 0 auto!important;
-  min-width:0!important;height:48px!important;padding:0 26px!important;
+  width:100%!important;flex:0 0 auto!important;min-width:0!important;height:48px!important;padding:0 26px!important;
   border-radius:10px!important;font-weight:700!important;font-size:14px!important;cursor:pointer!important;
   box-shadow:none!important;text-shadow:none!important;background-image:none!important;
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
 }
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child{
-  background:#fff!important;color:#0b2540!important;border:1.5px solid #cdd2da!important;
-}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{
-  border-color:#008ddd!important;color:#008ddd!important;
-}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{
-  background:#008ddd!important;color:#fff!important;border:1.5px solid #008ddd!important;
-}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{
-  background:#0b74b5!important;border-color:#0b74b5!important;
-}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child{background:#fff!important;color:#0b2540!important;border:1.5px solid #cdd2da!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{border-color:#008ddd!important;color:#008ddd!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#008ddd!important;color:#fff!important;border:1.5px solid #008ddd!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0b74b5!important;border-color:#0b74b5!important}
 @media(max-width:720px){
-  html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:16px!important;padding:20px 18px calc(18px + env(safe-area-inset-bottom))!important}
+  html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:16px!important;padding:20px 18px calc(18px + env(safe-area-inset-bottom))!important;max-height:86vh!important}
   html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
+  html body .siteCookies.js-siteCookies .siteCookies__text{column-count:1!important}
   html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{width:100%!important}
 }
 
 /* ---------- AI assistant visibility ----------
-   The assistant launcher shows only in the calm state on the homepage and the
-   newsroom/articles. It is hidden on every other page type (product detail,
-   cart, search, category, account, 404) and whenever a popup owns the screen
-   (the cookie bar or the open cart drawer), even on the pages where it is
-   allowed. (Its mobile right-edge position lives in ai/v1/widget.js.) */
-html body okla-ai-chat{display:none!important}
-html body.type-index okla-ai-chat,
-html body.in-newsroom okla-ai-chat,
-html body.okla-newsroom-page okla-ai-chat{display:block!important}
+   Desktop: the assistant is always available on every page. Phones: it only
+   shows in the calm state on the homepage and the newsroom/articles. On both,
+   it steps aside while a popup owns the screen (cookie bar or open cart drawer)
+   so it never overlaps them. The mobile right-edge position lives in
+   ai/v1/widget.js. */
 html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
 html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
+@media(max-width:767px){
+  html body okla-ai-chat{display:none!important}
+  html body.type-index okla-ai-chat,
+  html body.in-newsroom okla-ai-chat,
+  html body.okla-newsroom-page okla-ai-chat{display:block!important}
+  html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
+  html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
+}
