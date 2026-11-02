@@ -149,15 +149,21 @@ html body .siteCookies.js-siteCookies{
 }
 html body .siteCookies.js-siteCookies .siteCookies__form{
   width:100%!important;max-width:none!important;margin:0!important;box-sizing:border-box!important;
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  gap:24px 44px!important;flex-wrap:wrap!important;
-  padding:20px 34px!important;
+  display:flex!important;align-items:flex-start!important;justify-content:center!important;
+  gap:28px 56px!important;flex-wrap:wrap!important;
+  padding:26px 40px!important;
   background:#fff!important;
   border-top:1px solid #e6ebf2!important;
   box-shadow:0 -6px 26px rgba(6,29,58,.14)!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__content{
-  flex:1 1 420px!important;min-width:0!important;max-width:1000px!important;margin:0!important;
+  flex:1 1 480px!important;min-width:0!important;max-width:820px!important;margin:0!important;
+}
+html body .siteCookies.js-siteCookies .siteCookies__content:before{
+  content:"Dbáme na vaše soukromí"!important;
+  display:block!important;
+  font-size:19px!important;font-weight:800!important;color:#0b2540!important;
+  margin:0 0 10px!important;line-height:1.25!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__text{
   color:#45546a!important;font-size:13px!important;line-height:1.55!important;margin:0!important;
@@ -171,11 +177,12 @@ html body .siteCookies.js-siteCookies .siteCookies__link{
   background:none!important;border:0!important;padding:0!important;font-size:13px!important;cursor:pointer!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{
-  display:flex!important;align-items:center!important;gap:12px!important;flex:0 0 auto!important;flex-wrap:nowrap!important;
+  display:flex!important;flex-direction:column-reverse!important;align-items:stretch!important;
+  gap:10px!important;flex:0 0 auto!important;width:300px!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__button{
-  width:auto!important;flex:0 0 auto!important;
-  min-width:150px!important;height:46px!important;padding:0 26px!important;
+  width:100%!important;flex:0 0 auto!important;
+  min-width:0!important;height:48px!important;padding:0 26px!important;
   border-radius:10px!important;font-weight:700!important;font-size:14px!important;cursor:pointer!important;
   box-shadow:none!important;text-shadow:none!important;background-image:none!important;
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
@@ -193,7 +200,20 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
   background:#0b74b5!important;border-color:#0b74b5!important;
 }
 @media(max-width:720px){
-  html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:16px 16px calc(16px + env(safe-area-inset-bottom))!important}
-  html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{justify-content:stretch!important}
-  html body .siteCookies.js-siteCookies .siteCookies__button{flex:1 1 auto!important;min-width:0!important}
+  html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:16px!important;padding:20px 18px calc(18px + env(safe-area-inset-bottom))!important}
+  html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
+  html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{width:100%!important}
 }
+
+/* ---------- AI assistant visibility ----------
+   The assistant launcher shows only in the calm state on the homepage and the
+   newsroom/articles. It is hidden on every other page type (product detail,
+   cart, search, category, account, 404) and whenever a popup owns the screen
+   (the cookie bar or the open cart drawer), even on the pages where it is
+   allowed. (Its mobile right-edge position lives in ai/v1/widget.js.) */
+html body okla-ai-chat{display:none!important}
+html body.type-index okla-ai-chat,
+html body.in-newsroom okla-ai-chat,
+html body.okla-newsroom-page okla-ai-chat{display:block!important}
+html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
+html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}

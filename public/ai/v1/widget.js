@@ -260,14 +260,14 @@
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          left: -19.7px;
-          right: auto;
+          right: -19.7px;
+          left: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
           width: 45.5px;
           height: 80.7px;
           border: 2px solid #fff;
-          border-radius: 0 23.8px 23.8px 0;
+          border-radius: 23.8px 0 0 23.8px;
           padding: 5.75px;
           background: linear-gradient(160deg, #254daa 4%, #38369c 50%, #6d2d96 100%);
           color: #fff;
@@ -275,7 +275,7 @@
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(-118%) scale(.94);
+          transform: translateY(-50%) translateX(118%) scale(.94);
           transform-origin: center;
           transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .56s, box-shadow .22s ease;
         }
@@ -305,7 +305,7 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          left: calc(50% + 6.5px);
+          left: calc(50% - 6.5px);
           right: auto;
           display: block;
           width: 16.6px;
@@ -318,7 +318,7 @@
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(-8px);
+          transform: translateY(-50%) translateX(8px);
           transition: opacity .14s ease, transform .18s ease, visibility 0s linear .18s;
         }
         .panel {
