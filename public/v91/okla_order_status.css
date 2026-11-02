@@ -1,0 +1,129 @@
+/* OKLA V91 – "Stav objednávky" page. Structure + look only (data wired later).
+   Same visual language as the empty cart: a navy heading and a clean white card,
+   with an order-summary box at the top and an Alza-style status timeline below.
+   Brand blue: #008ddd. */
+
+html body .okla-order-status{
+  box-sizing:border-box;
+  max-width:1000px;
+  margin:0 auto;
+  padding:28px 0 8px;
+  font-family:Roboto,Arial,sans-serif;
+}
+html body .okla-order-status *,
+html body .okla-order-status *:before,
+html body .okla-order-status *:after{box-sizing:border-box}
+
+html body .okla-os-title{
+  font-size:28px;font-weight:800;color:#0b2540;margin:0 0 22px;line-height:1.2;
+}
+
+html body .okla-os-card{
+  background:#fff;
+  border:1px solid #e6ebf2;
+  border-radius:14px;
+  box-shadow:0 1px 4px rgba(6,29,58,.06);
+  padding:28px 30px;
+}
+
+/* ---- Box at the top: order summary ---- */
+html body .okla-os-head{
+  display:flex;align-items:center;justify-content:space-between;gap:18px 24px;flex-wrap:wrap;
+  padding:16px 20px;
+  background:radial-gradient(ellipse at 10% 20%,#eef7fe 0%,transparent 60%),#f6f9fc;
+  border:1px solid #e6ebf2;border-radius:12px;
+  margin:0 0 28px;
+}
+html body .okla-os-head__main{display:flex;align-items:baseline;gap:12px 16px;flex-wrap:wrap;min-width:0}
+html body .okla-os-head__label{font-size:13px;font-weight:600;color:#66758a}
+html body .okla-os-head__num{font-size:20px;font-weight:800;color:#0b2540;letter-spacing:-.2px}
+html body .okla-os-head__date{font-size:13px;color:#66758a}
+html body .okla-os-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  height:34px;padding:0 16px;border-radius:999px;
+  font-size:13px;font-weight:700;white-space:nowrap;
+  background:#e7f4fd;color:#065ba7;border:1px solid #bfe3fa;
+}
+html body .okla-os-badge:before{content:"";width:8px;height:8px;border-radius:50%;background:#008ddd}
+html body .okla-os-badge.is-delivered{background:#e8f7ec;color:#1b7a3d;border-color:#bfe8cc}
+html body .okla-os-badge.is-delivered:before{background:#27a052}
+html body .okla-os-badge.is-cancelled{background:#fdeaec;color:#c0344a;border-color:#f5c6ce}
+html body .okla-os-badge.is-cancelled:before{background:#e0112b}
+
+/* ---- Timeline (Alza-style stepper) ---- */
+html body .okla-os-steps{
+  list-style:none;margin:0;padding:6px 0 2px;
+  display:flex;align-items:flex-start;
+}
+html body .okla-os-step{
+  position:relative;flex:1 1 0;min-width:0;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;
+  padding:0 6px;
+}
+/* connector line between dots */
+html body .okla-os-step:before{
+  content:"";position:absolute;top:21px;left:-50%;right:50%;height:3px;border-radius:3px;
+  background:#e2e8f0;z-index:0;
+}
+html body .okla-os-step:first-child:before{display:none}
+html body .okla-os-step.is-done:before,
+html body .okla-os-step.is-active:before{background:#008ddd}
+html body .okla-os-step__dot{
+  position:relative;z-index:1;
+  width:44px;height:44px;border-radius:50%;flex:none;
+  display:grid;place-items:center;
+  background:#fff;border:2px solid #e2e8f0;color:#9aa6b5;
+  transition:none;
+}
+html body .okla-os-step__dot svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+html body .okla-os-step.is-done .okla-os-step__dot{background:#008ddd;border-color:#008ddd;color:#fff}
+html body .okla-os-step.is-active .okla-os-step__dot{
+  border-color:#008ddd;color:#008ddd;
+  box-shadow:0 0 0 5px rgba(0,141,221,.16);
+}
+html body .okla-os-step__info{display:flex;flex-direction:column;align-items:center;gap:3px}
+html body .okla-os-step__label{font-size:13.5px;font-weight:700;color:#0b2540;line-height:1.25}
+html body .okla-os-step.is-upcoming .okla-os-step__label{color:#8995a5;font-weight:600}
+html body .okla-os-step__sub{font-size:12px;color:#66758a;line-height:1.3}
+
+/* ---- Tracking row ---- */
+html body .okla-os-track{
+  display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap;
+  margin:26px 0 0;padding:20px 0 0;border-top:1px solid #eef2f6;
+}
+html body .okla-os-track__btn{
+  display:inline-flex;align-items:center;gap:10px;
+  height:46px;padding:0 22px;border-radius:10px;
+  background:#008ddd;color:#fff;font-size:14px;font-weight:700;text-decoration:none;
+  border:1px solid #008ddd;
+}
+html body .okla-os-track__btn:hover{background:#0b74b5;border-color:#0b74b5;color:#fff}
+html body .okla-os-track__btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+html body .okla-os-track__note{font-size:13px;color:#66758a}
+html body .okla-os-track__note b{color:#0b2540;font-weight:700}
+
+/* ---- Empty / help note ---- */
+html body .okla-os-note{margin:18px 2px 0;font-size:13px;color:#66758a;line-height:1.5}
+html body .okla-os-note a{color:#008ddd;font-weight:600;text-decoration:underline}
+
+/* ---- Mobile: vertical timeline ---- */
+@media(max-width:720px){
+  html body .okla-order-status{padding:20px 0 4px}
+  html body .okla-os-card{padding:20px 18px}
+  html body .okla-os-head{margin-bottom:22px;padding:14px 16px}
+  html body .okla-os-head__num{font-size:18px}
+  html body .okla-os-steps{flex-direction:column;align-items:stretch;gap:0}
+  html body .okla-os-step{
+    flex-direction:row;align-items:flex-start;text-align:left;gap:14px;
+    padding:0 0 22px;
+  }
+  html body .okla-os-step:last-child{padding-bottom:0}
+  /* vertical connector */
+  html body .okla-os-step:before{
+    content:"";top:44px;bottom:-2px;left:21px;right:auto;width:3px;height:auto;
+  }
+  html body .okla-os-step:first-child:before{display:block}
+  html body .okla-os-step:last-child:before{display:none}
+  html body .okla-os-step__info{align-items:flex-start;padding-top:9px}
+  html body .okla-os-step__label{font-size:14px}
+}
