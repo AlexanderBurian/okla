@@ -101,7 +101,8 @@
   }else{
    base=fromDom();
   }
-  if(!base)base=demoOrder();
+  /* No order in the URL and none on the page -> ask the visitor to look one up. */
+  if(!base)return {needsLookup:true};
 
   var mapped=base.statusLabel?mapStatus(base.statusLabel):null;
   var cancelled=mapped?!!mapped.cancelled:false;
@@ -133,7 +134,50 @@
   return s;
  }
 
+ function buildLookup(){
+  var sec=el('section','okla-order-status');
+  sec.appendChild(el('h1','okla-os-title','Stav objednávky'));
+  var card=el('div','okla-os-card');
+  var wrap=el('div','okla-os-lookup');
+  var intro=el('p','okla-os-lookup__intro');
+  intro.appendChild(document.createTextNode('Zadejte '));
+  intro.appendChild(el('b',null,'číslo zásilky'));
+  intro.appendChild(document.createTextNode(' a '));
+  intro.appendChild(el('b',null,'PSČ'));
+  intro.appendChild(document.createTextNode(' z doručovací adresy. Číslo zásilky najdete v e-mailu „Odeslaná zásilka".'));
+  wrap.appendChild(intro);
+
+  var form=el('form','okla-os-lookup__form');
+  var f1=el('div','okla-os-field');
+  f1.appendChild(el('label',null,'Číslo zásilky'));
+  var i1=el('input');i1.type='text';i1.name='num';i1.autocomplete='off';i1.placeholder='např. Z123 456 789';
+  f1.appendChild(i1);form.appendChild(f1);
+  var f2=el('div','okla-os-field okla-os-field--psc');
+  f2.appendChild(el('label',null,'PSČ'));
+  var i2=el('input');i2.type='text';i2.name='psc';i2.inputMode='numeric';i2.autocomplete='off';i2.placeholder='110 00';
+  f2.appendChild(i2);form.appendChild(f2);
+  var btn=el('button','okla-os-lookup__btn');btn.type='submit';
+  btn.appendChild(document.createTextNode('Zobrazit stav'));
+  btn.appendChild(svg(['M5 12h14','M13 6l6 6-6 6']));
+  form.appendChild(btn);
+  wrap.appendChild(form);
+  wrap.appendChild(el('p','okla-os-lookup__err','Zadejte prosím číslo zásilky i PSČ.'));
+
+  form.addEventListener('submit',function(e){
+   e.preventDefault();
+   var num=(i1.value||'').trim().replace(/\s+/g,'');
+   var psc=(i2.value||'').trim().replace(/\s+/g,'');
+   if(!num||!psc){wrap.classList.add('is-invalid');return}
+   location.href=location.pathname+'?t='+encodeURIComponent(num)+'&status=expedovano&psc='+encodeURIComponent(psc);
+  });
+
+  card.appendChild(wrap);
+  sec.appendChild(card);
+  return sec;
+ }
+
  function build(order){
+  if(order.needsLookup)return buildLookup();
   var sec=el('section','okla-order-status');
   sec.appendChild(el('h1','okla-os-title','Stav objednávky'));
   var card=el('div','okla-os-card');
@@ -204,8 +248,15 @@
   if(!target&&!onPage)return false;
   var host=target||document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
   var node=build(getOrder());
-  if(target)target.appendChild(node);
-  else host.insertBefore(node,host.firstChild);
+  if(target){
+   target.appendChild(node);
+  }else{
+   /* On the dedicated page we take over the content area so nothing Shoptet
+      rendered (e.g. its 404 when the CMS page is missing) shows behind us. */
+   document.documentElement.classList.add('okla-os-takeover');
+   host.insertBefore(node,host.firstChild);
+   document.title='Stav objednávky';
+  }
   return true;
  }
 

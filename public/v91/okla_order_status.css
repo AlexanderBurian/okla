@@ -127,3 +127,38 @@ html body .okla-os-note a{color:#008ddd;font-weight:600;text-decoration:underlin
   html body .okla-os-step__info{align-items:flex-start;padding-top:9px}
   html body .okla-os-step__label{font-size:14px}
 }
+
+/* ---- Lookup form (enter parcel number + ZIP) ---- */
+html body .okla-os-lookup__intro{margin:0 0 20px;font-size:14px;line-height:1.55;color:#45546a}
+html body .okla-os-lookup__intro b{color:#0b2540;font-weight:700}
+html body .okla-os-lookup__form{display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap}
+html body .okla-os-field{display:flex;flex-direction:column;gap:7px;flex:1 1 220px;min-width:0}
+html body .okla-os-field--psc{flex:0 1 160px}
+html body .okla-os-field label{font-size:13px;font-weight:600;color:#0b2540}
+html body .okla-os-field input{
+  height:46px;border:1px solid #cdd2da;border-radius:10px;padding:0 15px;
+  font-size:14px;color:#0b2540;background:#fff;box-sizing:border-box;width:100%;
+}
+html body .okla-os-field input:focus{outline:none;border-color:#008ddd;box-shadow:0 0 0 3px rgba(0,141,221,.14)}
+html body .okla-os-lookup__btn{
+  height:46px;padding:0 26px;border:1px solid #008ddd;border-radius:10px;
+  background:#008ddd;color:#fff;font-size:14px;font-weight:700;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;flex:0 0 auto;
+}
+html body .okla-os-lookup__btn:hover{background:#0b74b5;border-color:#0b74b5}
+html body .okla-os-lookup__btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+html body .okla-os-lookup__err{margin:12px 2px 0;font-size:13px;color:#c0344a;font-weight:600;display:none}
+html body .okla-os-lookup.is-invalid .okla-os-lookup__err{display:block}
+@media(max-width:620px){
+  html body .okla-os-lookup__form{flex-direction:column;align-items:stretch;gap:12px}
+  html body .okla-os-field,html body .okla-os-field--psc{flex:1 1 auto}
+  html body .okla-os-lookup__btn{width:100%}
+}
+
+/* ---- Takeover: on /stav-objednavky/ our page replaces whatever Shoptet rendered
+   (e.g. its 404 when no CMS page exists) so nothing native shows behind it. ---- */
+html.okla-os-takeover #content .content-inner > *:not(.okla-order-status){display:none!important}
+html.okla-os-takeover .breadcrumbs,
+html.okla-os-takeover #navigation .breadcrumbs,
+html.okla-os-takeover nav.breadcrumb,
+html.okla-os-takeover .breadcrumb-nav{display:none!important}
