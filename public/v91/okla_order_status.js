@@ -115,7 +115,9 @@
   return {
    number:base.number||'—',
    dateLabel:base.dateLabel||'',
-   statusLabel:base.statusLabel||(STEPS[Math.max(0,currentStep)]?STEPS[Math.max(0,currentStep)].label:''),
+   /* A recognised status shows the canonical Czech label, so e-mail links may use
+      plain-ASCII status tokens (e.g. status=expedovano) and still read nicely. */
+   statusLabel:cancelled?'Zrušeno':(mapped?STEPS[mapped.step].label:(base.statusLabel||STEPS[0].label)),
    currentStep:currentStep,
    cancelled:cancelled,
    trackingUrl:trackingUrl,
