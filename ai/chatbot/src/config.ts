@@ -28,6 +28,8 @@ export interface AppConfig {
   shopBaseUrl?: string;
   shoptetFeedUrl?: string;
   shoptetFeedRefreshMinutes: number;
+  shoptetApiBase: string;
+  shoptetApiToken?: string;
 }
 
 export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
@@ -56,6 +58,8 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
     shoptetCsvFile: path.resolve(process.cwd(), env.SHOPTET_CSV_FILE || "./data/shoptet-products.csv"),
     shopBaseUrl: env.SHOP_BASE_URL || "https://825108.myshoptet.com",
     shoptetFeedUrl: env.SHOPTET_FEED_URL || undefined,
-    shoptetFeedRefreshMinutes: integer(env.SHOPTET_FEED_REFRESH_MINUTES, 60, 5, 1440)
+    shoptetFeedRefreshMinutes: integer(env.SHOPTET_FEED_REFRESH_MINUTES, 60, 5, 1440),
+    shoptetApiBase: (env.SHOPTET_API_BASE || "https://api.myshoptet.com").replace(/\/$/, ""),
+    shoptetApiToken: env.SHOPTET_API_TOKEN || undefined
   };
 }

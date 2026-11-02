@@ -141,34 +141,59 @@
   var wrap=el('div','okla-os-lookup');
   var intro=el('p','okla-os-lookup__intro');
   intro.appendChild(document.createTextNode('Zadejte '));
-  intro.appendChild(el('b',null,'číslo zásilky'));
+  intro.appendChild(el('b',null,'číslo objednávky'));
   intro.appendChild(document.createTextNode(' a '));
   intro.appendChild(el('b',null,'PSČ'));
-  intro.appendChild(document.createTextNode(' z doručovací adresy. Číslo zásilky najdete v e-mailu „Odeslaná zásilka".'));
+  intro.appendChild(document.createTextNode(' z doručovací adresy. Číslo objednávky najdete v potvrzovacím e-mailu.'));
   wrap.appendChild(intro);
 
   var form=el('form','okla-os-lookup__form');
   var f1=el('div','okla-os-field');
-  f1.appendChild(el('label',null,'Číslo zásilky'));
-  var i1=el('input');i1.type='text';i1.name='num';i1.autocomplete='off';i1.placeholder='např. Z123 456 789';
+  f1.appendChild(el('label',null,'Číslo objednávky'));
+  var i1=el('input');i1.type='text';i1.name='num';i1.autocomplete='off';i1.placeholder='např. 2025000042';
   f1.appendChild(i1);form.appendChild(f1);
   var f2=el('div','okla-os-field okla-os-field--psc');
   f2.appendChild(el('label',null,'PSČ'));
   var i2=el('input');i2.type='text';i2.name='psc';i2.inputMode='numeric';i2.autocomplete='off';i2.placeholder='110 00';
   f2.appendChild(i2);form.appendChild(f2);
   var btn=el('button','okla-os-lookup__btn');btn.type='submit';
-  btn.appendChild(document.createTextNode('Zobrazit stav'));
+  var btnLabel=document.createTextNode('Zobrazit stav');
+  btn.appendChild(btnLabel);
   btn.appendChild(svg(['M5 12h14','M13 6l6 6-6 6']));
   form.appendChild(btn);
   wrap.appendChild(form);
-  wrap.appendChild(el('p','okla-os-lookup__err','Zadejte prosím číslo zásilky i PSČ.'));
+  var err=el('p','okla-os-lookup__err','');
+  wrap.appendChild(err);
+
+  function setErr(msg){err.textContent=msg;wrap.classList.add('is-invalid')}
+  function clearErr(){wrap.classList.remove('is-invalid')}
+  function loading(on){btn.disabled=on;btnLabel.textContent=on?'Ověřuji…':'Zobrazit stav'}
+  function carrierFallback(num,psc){
+   location.href=location.pathname+'?t='+encodeURIComponent(num.replace(/\s+/g,''))+'&status=expedovano'+(psc?'&psc='+encodeURIComponent(psc):'');
+  }
 
   form.addEventListener('submit',function(e){
    e.preventDefault();
-   var num=(i1.value||'').trim().replace(/\s+/g,'');
+   var num=(i1.value||'').trim();
    var psc=(i2.value||'').trim().replace(/\s+/g,'');
-   if(!num||!psc){wrap.classList.add('is-invalid');return}
-   location.href=location.pathname+'?t='+encodeURIComponent(num)+'&status=expedovano&psc='+encodeURIComponent(psc);
+   if(!num||!psc){setErr('Zadejte prosím číslo objednávky i PSČ.');return}
+   clearErr();
+   var api=window.__oklaApiUrl;
+   if(!api){carrierFallback(num,psc);return}
+   loading(true);
+   fetch(api+'/api/order-status',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({identifier:num,zip:psc})})
+    .then(function(r){return r.json().catch(function(){return {}})})
+    .then(function(res){
+     loading(false);
+     if(res&&res.ok){
+      var node=build({number:res.number,dateLabel:res.dateLabel||'',statusLabel:res.statusLabel,currentStep:typeof res.step==='number'?res.step:0,cancelled:!!res.cancelled,trackingUrl:res.trackingUrl||'',carrier:res.carrier||'Zásilkovna'});
+      if(sec.parentNode)sec.parentNode.replaceChild(node,sec);
+      return;
+     }
+     if(res&&res.configured===false){carrierFallback(num,psc);return}
+     setErr('Objednávku se nepodařilo ověřit. Zkontrolujte číslo objednávky a PSČ.');
+    })
+    .catch(function(){loading(false);setErr('Ověření se nezdařilo. Zkuste to prosím za chvíli.')});
   });
 
   card.appendChild(wrap);

@@ -6,6 +6,7 @@ import Fastify, { type FastifyError, type FastifyInstance } from "fastify";
 import type { AppConfig } from "./config.js";
 import { GroqEngine, MockEngine } from "./engine.js";
 import { KnowledgeStore } from "./knowledge.js";
+import { lookupOrder } from "./orderStatus.js";
 import type { ChatEngine } from "./types.js";
 import { isPersonalOrderRequest, validateChatBody, ValidationError } from "./validation.js";
 
@@ -158,6 +159,21 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
       clearTimeout(timeout);
       if (!reply.raw.destroyed) reply.raw.end();
     }
+  });
+
+  /* Verified order status for /stav-objednavky/: order number + delivery ZIP.
+     The ZIP is checked against the order, so a number alone reveals nothing. */
+  app.post("/api/order-status", {
+    config: { rateLimit: { max: config.rateLimitMax, timeWindow: config.rateLimitWindow } }
+  }, async (request, reply) => {
+    const body = (request.body ?? {}) as Record<string, unknown>;
+    const identifier = typeof body.identifier === "string" ? body.identifier.trim() : "";
+    const zip = typeof body.zip === "string" ? body.zip.trim() : "";
+    if (!identifier || identifier.length > 40 || !zip || zip.length > 12) {
+      return reply.code(400).send({ ok: false, error: "invalid_input" });
+    }
+    const result = await lookupOrder({ identifier, zip }, config);
+    return reply.send(result);
   });
 
   app.setErrorHandler((error: FastifyError, request, reply) => {
