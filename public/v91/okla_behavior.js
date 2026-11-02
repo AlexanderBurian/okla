@@ -92,7 +92,7 @@ function getCats(){
 var q=document.querySelectorAll('#content-wrapper aside.sidebar #categories .topic>a[href],#content-wrapper aside.sidebar .box-categories .topic>a[href],#navigation .menu-level-1 a[href],.box-categories #categories a[href]');
 var seen={},result=[];Array.from(q).forEach(function(a){var label=(a.textContent||'').replace(/\s+/g,' ').trim(),href=a.getAttribute('href');if(!label||!href||href==='#'||/javascript:/i.test(href)||label.length>70||seen[href])return;seen[href]=1;result.push({label:label,href:href,original:a})});return result.slice(0,16)
 }
-function catIcon(item,i){var iconSpan=n('span','okm61-category-icon'),source=item.original.querySelector('.okla-cat-svg svg');if(source)iconSpan.appendChild(source.cloneNode(true));else iconSpan.appendChild(svg(['chip','devices','measure','cam','bulb','spark','screen'][i%7]));return iconSpan}
+function catIcon(item,i){var iconSpan=n('span','okm61-category-icon'),png=item.original.querySelector('img.okla-category-png'),source=item.original.querySelector('.okla-cat-svg svg');if(png)iconSpan.appendChild(png.cloneNode(true));else if(source)iconSpan.appendChild(source.cloneNode(true));else iconSpan.appendChild(svg(['chip','devices','measure','cam','bulb','spark','screen'][i%7]));return iconSpan}
 function catTile(item,i){var a=n('a','okm61-category');a.href=item.href;a.append(catIcon(item,i),n('span','okm61-category-label',item.label));return a}
 function categorySection(){
 if(!mq.matches||!isHome())return;
@@ -177,7 +177,7 @@ var banner=document.querySelector('main#content .banners-row');if(!banner)return
 var items=readCategories();if(!items.length)return;
 var sec=document.getElementById('okla-v61-categories');if(!sec){sec=make('section');sec.id='okla-v61-categories';sec.setAttribute('aria-label','Kategorie');
 var grid=make('div','okm61-category-grid');
-items.forEach(function(item,i){var a=make('a','okm61-category');a.href=item.href;var holder=make('span','okm61-category-icon'),from=item.original.querySelector('.okla-cat-svg svg');holder.appendChild(from?from.cloneNode(true):icon(i));a.append(holder,make('span','okm61-category-label',item.label));grid.appendChild(a)});sec.appendChild(grid);
+items.forEach(function(item,i){var a=make('a','okm61-category');a.href=item.href;var holder=make('span','okm61-category-icon'),png=item.original.querySelector('img.okla-category-png'),from=item.original.querySelector('.okla-cat-svg svg');holder.appendChild(png?png.cloneNode(true):(from?from.cloneNode(true):icon(i)));a.append(holder,make('span','okm61-category-label',item.label));grid.appendChild(a)});sec.appendChild(grid);
 if(items.length>8){var more=make('button','okm61-category-more','Všechny kategorie');more.type='button';more.addEventListener('click',function(){var on=sec.classList.toggle('is-expanded');more.textContent=on?'Zobrazit méně':'Všechny kategorie'});sec.append(more)}
 }
 var dots=document.getElementById('okla-v61-dots'),target=dots||banner;if(target.nextElementSibling!==sec)target.after(sec);

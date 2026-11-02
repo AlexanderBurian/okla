@@ -160,6 +160,16 @@ html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
 html body .cart-empty .search{position:relative!important}
 html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!important;max-width:100%!important}
 
+/* ---------- Category pictograms ----------
+   The category icons are now OKLA pictograms (PNG/SVG art) injected as an <img>
+   inside the existing icon wrapper. The wrapper already sizes the slot (21px in
+   the sidebar, 28px in the mobile grid); the image just fills it, contained. */
+.okla-cat-svg img.okla-category-png,
+.okm61-category-icon img.okla-category-png{
+  display:block!important;width:100%!important;height:100%!important;
+  max-width:none!important;object-fit:contain!important;margin:0!important;padding:0!important;
+}
+
 /* ---------- Native/CMS text pages: unified mobile width ----------
    Pages Shoptet renders without an OKLA card (Kontakty and every CMS text page
    — obchodní podmínky, reklamační řád, …) have no side gutter, so the heading,
