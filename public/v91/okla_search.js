@@ -95,19 +95,22 @@
     chips.appendChild(c);
    });
    inst.panel.appendChild(chips);
-   var all=catalog();
-   POPULAR_CODES.forEach(function(code,i){
-    if(!all[code])return;
-    var row=productRow(all[code],i<HOT);
-    inst.panel.appendChild(row);
-    inst.items.push(row);
-   });
+   /* The cart (lite) field shows only the popular chips when empty, no product list. */
+   if(!inst.lite){
+    var all=catalog();
+    POPULAR_CODES.forEach(function(code,i){
+     if(!all[code])return;
+     var row=productRow(all[code],i<HOT);
+     inst.panel.appendChild(row);
+     inst.items.push(row);
+    });
+   }
    return;
   }
   var found=matches(q);
   if(found.length){
    inst.panel.appendChild(el('p','okla-search-heading','Produkty'));
-   found.slice(0,MAX_RESULTS).forEach(function(p){
+   found.slice(0,inst.lite?1:MAX_RESULTS).forEach(function(p){
     var row=productRow(p,POPULAR_CODES.indexOf(p.code)!==-1&&POPULAR_CODES.indexOf(p.code)<HOT);
     inst.panel.appendChild(row);
     inst.items.push(row);
@@ -134,14 +137,16 @@
   openInst=inst;
   render(inst);
   /* With more than one field only the focused one's panel is shown. */
-  instances.forEach(function(x){if(x.panel)x.panel.style.display=(x===inst?'':'none')});
-  document.documentElement.classList.add('okla-search-open');
+  instances.forEach(function(x){if(x.panel)x.panel.style.display=(x===inst?'block':'none')});
+  /* The header field blurs the page behind its panel; the cart field does not. */
+  if(!inst.lite)document.documentElement.classList.add('okla-search-open');
   inst.input.setAttribute('aria-expanded','true');
  }
 
  function close(){
   document.documentElement.classList.remove('okla-search-open');
   if(openInst)openInst.input.setAttribute('aria-expanded','false');
+  instances.forEach(function(x){if(x.panel)x.panel.style.display=''});
   openInst=null;
  }
 
@@ -182,7 +187,7 @@
   panel.setAttribute('role','listbox');
   panel.setAttribute('aria-label','Návrhy vyhledávání');
   box.appendChild(panel);
-  var inst={input:input,form:form,box:box,panel:panel,items:[],active:-1};
+  var inst={input:input,form:form,box:box,panel:panel,items:[],active:-1,lite:!input.closest('#header')};
   instances.push(inst);
   input.__oklaSearchBound=true;
   input.setAttribute('aria-expanded','false');
