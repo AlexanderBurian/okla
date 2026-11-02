@@ -168,7 +168,16 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
 .okm61-category-icon img.okla-category-png{
   display:block!important;width:100%!important;height:100%!important;
   max-width:none!important;object-fit:contain!important;margin:0!important;padding:0!important;
+  image-rendering:auto!important;
 }
+/* Bigger, legible pictogram slot in the desktop sidebar category list. */
+#content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{
+  flex:0 0 27px!important;width:27px!important;height:27px!important;
+}
+#content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:25px!important;height:25px!important}
+/* Slightly larger pictograms in the mobile category grid. */
+#okla-v61-categories .okm61-category-icon{flex:0 0 32px!important;width:32px!important;height:32px!important}
+#okla-v61-categories .okm61-category-icon img.okla-category-png{width:32px!important;height:32px!important}
 
 /* ---------- Native/CMS text pages: unified mobile width ----------
    Pages Shoptet renders without an OKLA card (Kontakty and every CMS text page
