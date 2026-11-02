@@ -170,3 +170,11 @@ html body .okla-os-lookup__icon{
   display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,141,221,.25);
 }
 html body .okla-os-lookup__icon svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* The lookup pictogram uses the cardboard parcel illustration (its own fills),
+   so drop the blue tile and the stroke we set for line icons. */
+html body .okla-os-lookup__icon{
+  width:74px;height:74px;border-radius:18px;margin:0 0 20px;
+  background:#f5f8fc;border:1px solid #eaeff5;box-shadow:0 2px 8px rgba(6,29,58,.05);color:inherit;
+}
+html body .okla-os-lookup__icon svg{width:46px;height:46px;stroke:none;stroke-width:0}

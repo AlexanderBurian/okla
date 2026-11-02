@@ -140,7 +140,8 @@
   var card=el('div','okla-os-card');
   var wrap=el('div','okla-os-lookup');
   var ico=el('div','okla-os-lookup__icon');
-  ico.appendChild(svg(['M12 3 3.5 7.5v9L12 21l8.5-4.5v-9L12 3Z','M3.5 7.5 12 12l8.5-4.5','M12 12v9']));
+  /* The same 3D cardboard parcel as the checkout step track. */
+  ico.innerHTML='<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 42 14 24 23 6 14Z" fill="#ebc996"/><path d="M6 14 24 23V43L6 34Z" fill="#cf9a5f"/><path d="M42 14 24 23V43L42 34Z" fill="#b8814a"/><path d="M17.2 8.4 35.2 17.4 30.8 19.6 12.8 10.6Z" fill="#f6e6c6"/><path d="M30.8 19.6 35.2 17.4V24.4L30.8 26.6Z" fill="#e3c99d"/><path d="M10 27.5 17 31V35.2L10 31.7Z" fill="#fbf3e3"/><path d="M6 14 24 23 42 14" fill="none" stroke="#f4dcb2" stroke-width=".8" stroke-linejoin="round"/><path d="M24 23V43" stroke="#9a6a38" stroke-width=".8"/></svg>';
   wrap.appendChild(ico);
   var intro=el('p','okla-os-lookup__intro');
   intro.appendChild(document.createTextNode('Zadejte '));
