@@ -152,3 +152,10 @@ html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
   html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
   html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
 }
+
+/* ---------- Empty-cart search: OKLA autocomplete panel ----------
+   okla_search.js now also attaches its panel (the same one as the header) to the
+   empty-cart search field. The field needs a positioning context above the blur
+   overlay so the panel drops right under it. */
+html.okla-search-open .cart-empty .search{position:relative!important;z-index:9991!important}
+html.okla-search-open .cart-empty .okla-search-panel{width:max(100%,440px)!important;max-width:calc(100vw - 48px)!important}
