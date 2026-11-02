@@ -137,7 +137,7 @@
  function buildLookup(){
   var sec=el('section','okla-order-status');
   sec.appendChild(el('h1','okla-os-title','Stav objednávky'));
-  var card=el('div','okla-os-card');
+  var card=el('div','okla-os-card okla-os-card--open');
   var wrap=el('div','okla-os-lookup');
   var ico=el('div','okla-os-lookup__icon');
   /* The same 3D cardboard parcel as the checkout step track. */
