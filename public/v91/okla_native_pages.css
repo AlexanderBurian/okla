@@ -443,15 +443,18 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
 /* Desktop page background: left to the original legacy #c2e8ff blue gradient
    (blue on both sides of the content). No override here on purpose. */
 
-/* ---------- TOP 10 products: ranked badges ----------
-   The rank number (li::before counter) becomes a rounded-square badge: gold,
-   silver and bronze for the top three, brand blue for the rest. */
+/* ---------- Sidebar + TOP 10 products ----------
+   White sidebar background, and flat rounded-square rank badges: solid gold,
+   silver and bronze for the top three, solid brand blue for the rest — no
+   gradient, no shadow. */
+#content-wrapper aside.sidebar.sidebar-left,
+#content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box{background:#fff!important}
 .top-products-wrapper ol.top-products li::before{
   box-sizing:border-box!important;width:27px!important;height:27px!important;min-width:27px!important;flex:0 0 27px!important;
-  border-radius:8px!important;background:#2b7de0!important;color:#fff!important;
+  border-radius:8px!important;background:#2f7ed4!important;color:#fff!important;
   font-size:13px!important;font-weight:800!important;line-height:27px!important;text-align:center!important;
-  box-shadow:0 1px 3px rgba(16,40,80,.2)!important;margin-right:11px!important;
+  box-shadow:none!important;margin-right:11px!important;
 }
-.top-products-wrapper ol.top-products li:nth-child(1)::before{background:linear-gradient(145deg,#f7c948,#e0a013)!important;color:#5a3d00!important}
-.top-products-wrapper ol.top-products li:nth-child(2)::before{background:linear-gradient(145deg,#dbe1ea,#b2bcc9)!important;color:#3a434f!important}
-.top-products-wrapper ol.top-products li:nth-child(3)::before{background:linear-gradient(145deg,#d6a86a,#b17c43)!important;color:#fff!important}
+.top-products-wrapper ol.top-products li:nth-child(1)::before{background:#e9b63f!important;color:#5a3d00!important}
+.top-products-wrapper ol.top-products li:nth-child(2)::before{background:#cbd1d9!important;color:#3a434f!important}
+.top-products-wrapper ol.top-products li:nth-child(3)::before{background:#c28f5b!important;color:#fff!important}
