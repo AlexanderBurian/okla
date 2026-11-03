@@ -395,10 +395,5 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
   }
 }
 
-/* ---------- Desktop page background ----------
-   Plain white on PC: no gradient on the page background at all (the earlier faint
-   left-edge gradient left a visible seam, and the original heavy blue is not
-   wanted either). Overrides the legacy #c2e8ff body gradient. */
-@media(min-width:992px){
-  html,html body{background:#fff!important}
-}
+/* Desktop page background: left to the original legacy #c2e8ff blue gradient
+   (blue on both sides of the content). No override here on purpose. */
