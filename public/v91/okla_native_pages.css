@@ -77,6 +77,53 @@ html body.type-category .category-filter-trigger{
 html body.type-category a.unveil-button:hover,
 html body.type-category .unveil-button.btn:hover{background:#103e76!important;border-color:#103e76!important;color:#fff!important}
 
+/* ---------- Category & search cards: homepage card rules ----------
+   Bring the listing cards up to the homepage look: a framed white card with a
+   subtle hover lift, the product image contained (not stretched) and its zoom
+   clipped so it never overlaps the title, and the title clamped to two lines. */
+html body.type-category #products.products-block,
+html body.type-search #products.products-block{align-items:stretch!important}
+html body.type-category #products.products-block > .product,
+html body.type-search #products.products-block > .product{box-sizing:border-box!important;padding:9px!important}
+html body.type-category #products .product .p,
+html body.type-search #products .product .p{
+  display:flex!important;flex-direction:column!important;height:100%!important;box-sizing:border-box!important;
+  background:#fff!important;border:1px solid #eceff3!important;border-radius:12px!important;
+  box-shadow:0 1px 4px rgba(10,38,70,.06)!important;padding:0 0 14px!important;overflow:visible!important;
+  transition:border-color .16s ease,box-shadow .16s ease!important;
+}
+html body.type-category #products .product .p:hover,
+html body.type-search #products .product .p:hover{border-color:#e0e0e0!important;box-shadow:0 6px 16px rgba(10,38,70,.10)!important}
+html body.type-category #products .product .p > a.image,
+html body.type-search #products .product .p > a.image{
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  height:200px!important;overflow:hidden!important;padding:10px!important;box-sizing:border-box!important;
+  background:#fff!important;border-radius:12px 12px 0 0!important;margin:0!important;
+}
+html body.type-category #products .product .p > a.image img,
+html body.type-search #products .product .p > a.image img{
+  object-fit:contain!important;max-width:100%!important;max-height:100%!important;width:auto!important;height:auto!important;
+}
+html body.type-category #products .product .p-in,
+html body.type-search #products .product .p-in{padding:12px 14px 0!important;flex:1 1 auto!important;display:flex!important;flex-direction:column!important}
+html body.type-category #products .product .p .name,
+html body.type-search #products .product .p .name{
+  display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;
+  overflow:hidden!important;min-height:2.6em!important;margin:0 0 6px!important;
+}
+html body.type-category #products .product .p-bottom,
+html body.type-search #products .product .p-bottom{padding:0 14px!important}
+@media(max-width:620px){
+  html body.type-category #products.products-block > .product,
+  html body.type-search #products.products-block > .product{padding:6px!important}
+  html body.type-category #products .product .p > a.image,
+  html body.type-search #products .product .p > a.image{height:150px!important;padding:8px!important}
+  html body.type-category #products .product .p-in,
+  html body.type-search #products .product .p-in{padding:10px 11px 0!important}
+  html body.type-category #products .product .p-bottom,
+  html body.type-search #products .product .p-bottom{padding:0 11px!important}
+}
+
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
    results out in a tidy responsive grid instead of a loose full-width row. */
@@ -222,6 +269,13 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
   max-width:none!important;object-fit:contain!important;margin:0!important;padding:0!important;
   image-rendering:auto!important;
 }
+/* Katalog drawer (#okla-v61-drawer) reuses .okm61-category-icon but is outside the
+   #okla-v61-categories scope, so a drawn fallback icon (e.g. Kontakty) defaulted to
+   solid black. Stroke it like everywhere else so no icon renders as a black block. */
+#okla-v61-drawer .okm61-category-icon svg{
+  fill:none!important;stroke:currentColor!important;stroke-width:1.85!important;
+  stroke-linecap:round!important;stroke-linejoin:round!important;color:#144b86!important;
+}
 /* Bigger, legible pictogram slot in the desktop sidebar category list. */
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{
   flex:0 0 27px!important;width:27px!important;height:27px!important;
@@ -255,5 +309,17 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
   html body:not(.type-index):not(.okla-v65-white-header):not(.okla-v66-show-header) #header #okla-v61-header{
     background:linear-gradient(180deg,#e9f4fd 0%,#f2f8fe 60%,#fbfdff 88%,#fff 100%)!important;
     box-shadow:none!important;
+  }
+}
+
+/* ---------- Desktop page background ----------
+   Replace the heavy top-to-bottom blue (that ended in a saturated #c2e8ff) with
+   an almost entirely white page that only carries a very faint blue hug along the
+   left edge. */
+@media(min-width:992px){
+  html{background:#fff!important}
+  html body{
+    background:linear-gradient(90deg,#e7f3fd 0%,#f5fafe 8%,#ffffff 20%) left top/100% 100% no-repeat #fff!important;
+    background-attachment:fixed!important;
   }
 }
