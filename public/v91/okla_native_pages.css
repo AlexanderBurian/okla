@@ -217,23 +217,8 @@ html body.type-search #products .product .p-tools button.btn-cart svg:not(.ok89-
   html body.type-category #products .product a.name,
   html body.type-search #products .product a.name{font-size:12.5px!important}
 }
-/* Sidebar category hover + active: ONE clean full-width highlight, identical for
-   hover and the selected category, filling to the sidebar's left edge (no float,
-   no overshoot). High specificity so it beats Shoptet's own solid-blue active. */
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon{
-  border-radius:0 8px 8px 0!important;box-shadow:none!important;background:transparent!important;color:#1d2433!important;position:relative!important;
-}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon::before{display:none!important;content:none!important}
-@media(hover:hover) and (pointer:fine){
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover{background:#eef4fb!important;color:#16478B!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover .okla-cat-svg{color:#16478B!important}
-}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon,
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon:hover{
-  background:#eef4fb!important;color:#16478B!important;font-weight:700!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important;
-}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-label,
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-svg{color:#16478B!important}
+/* Sidebar category hover/active is left to the original template styling (same on
+   the homepage and the category pages). No override here on purpose. */
 
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
