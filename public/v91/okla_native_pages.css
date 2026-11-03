@@ -116,13 +116,29 @@ html body.type-search #products .product .p-in,html body.type-search #products .
 /* ratings: centred, decorative gold stars */
 html body.type-category #products .product .ratings-wrapper,
 html body.type-search #products .product .ratings-wrapper{
-  display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:nowrap!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;
   min-height:18px!important;margin:0 0 6px!important;padding:0!important;gap:3px!important;color:#708092!important;font-size:11px!important;
 }
 html body.type-category #products .product .ok89-decor-stars,
 html body.type-search #products .product .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:1px!important;color:#F4B526!important}
 html body.type-category #products .product .ok89-decor-stars svg,
 html body.type-search #products .product .ok89-decor-stars svg{width:14px!important;height:14px!important;display:block!important;fill:currentColor!important;stroke:currentColor!important}
+/* On a reviewed product show only the real stars (hide the decorative ones) and
+   render them as one centred gold row — exactly like the homepage card. The
+   native availability line inside the rating wrapper drops to its own line so the
+   stars stay centred. */
+html body.type-category #products .product .ratings-wrapper:has(.stars-wrapper) .ok89-decor-stars,
+html body.type-search #products .product .ratings-wrapper:has(.stars-wrapper) .ok89-decor-stars{display:none!important}
+html body.type-category #products .product .ratings-wrapper .stars-wrapper,
+html body.type-search #products .product .ratings-wrapper .stars-wrapper{display:inline-flex!important;align-items:center!important;width:max-content!important;max-width:none!important;flex:0 0 auto!important;height:16px!important;margin:0!important;vertical-align:middle!important}
+html body.type-category #products .product .ratings-wrapper .stars.star-list,
+html body.type-search #products .product .ratings-wrapper .stars.star-list{display:inline-flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;width:auto!important;height:14px!important;gap:1px!important}
+html body.type-category #products .product .ratings-wrapper .star,
+html body.type-search #products .product .ratings-wrapper .star{display:inline-flex!important;align-items:center!important;flex:0 0 auto!important;color:#F3B91D!important}
+html body.type-category #products .product .ratings-wrapper .star::before,
+html body.type-search #products .product .ratings-wrapper .star::before{display:inline-block!important;width:14px!important;font-size:14px!important;line-height:1!important;color:#F3B91D!important}
+html body.type-category #products .product .ratings-wrapper .availability,
+html body.type-search #products .product .ratings-wrapper .availability{flex:0 0 100%!important;width:100%!important;text-align:center!important}
 /* name: centred, two-line clamp */
 html body.type-category #products .product a.name,
 html body.type-search #products .product a.name{
