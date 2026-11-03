@@ -85,7 +85,7 @@ html body.type-category .unveil-button.btn:hover{background:#103e76!important;bo
 html body.type-category #products.products-block,
 html body.type-search #products.products-block{align-items:stretch!important}
 html body.type-category #products.products-block > .product,
-html body.type-search #products.products-block > .product{box-sizing:border-box!important;padding:9px!important;background:transparent!important;text-align:center!important}
+html body.type-search #products.products-block > .product{box-sizing:border-box!important;padding:9px!important;background:transparent!important;text-align:center!important;border:0!important;box-shadow:none!important}
 /* card frame */
 html body.type-category #products .product .p,
 html body.type-search #products .product .p{
