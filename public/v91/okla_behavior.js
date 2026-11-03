@@ -90,10 +90,13 @@ if(searchState.next&&searchState.next.parentNode===searchState.parent)searchStat
 }
 function getCats(){
 var q=document.querySelectorAll('#content-wrapper aside.sidebar #categories .topic>a[href],#content-wrapper aside.sidebar .box-categories .topic>a[href],#navigation .menu-level-1 a[href],.box-categories #categories a[href]');
-var seen={},result=[];Array.from(q).forEach(function(a){var label=(a.textContent||'').replace(/\s+/g,' ').trim(),href=a.getAttribute('href');if(!label||!href||href==='#'||/javascript:/i.test(href)||label.length>70||seen[href])return;seen[href]=1;result.push({label:label,href:href,original:a})});return result.slice(0,16)
+var seen={},result=[];Array.from(q).forEach(function(a){var label=(a.textContent||'').replace(/\s+/g,' ').trim(),href=a.getAttribute('href');if(!label||!href||href==='#'||/javascript:/i.test(href)||label.length>70||seen[href]||!catImages[catNorm(label)])return;seen[href]=1;result.push({label:label,href:href,original:a})});return result.slice(0,16)
 }
 var catImages={'elektronicke multitooly':'multitooly.png','chytra elektronika':'chytra-elektronika.png','merici technika a naradi':'merici-technika.png','endoskopy a inspekcni kamery':'endoskopy.png','prakticke vychytavky':'prakticke-vychytavky.png','designove gadgety':'designove-gadgety.png','projektory a obraz':'projektory.png','chytra domacnost':'chytra-domacnost.png'};
 function catNorm(t){return (t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[,+]/g,' ').replace(/\s+/g,' ').trim().toLowerCase()}
+/* A label is a real product category only if it maps to a pictogram; this keeps CMS
+   nav items (Kontakty, Obchodní podmínky, …) out of the mobile category grids. */
+window.__oklaIsCat=function(l){return !!catImages[catNorm(l)]};
 function catPng(label){var f=catImages[catNorm(label)];if(!f)return null;var im=document.createElement('img');im.className='okla-category-png';im.src=(window.__oklaAssetBase||'')+'v91/img/cat/'+f;im.alt='';im.setAttribute('loading','lazy');return im}
 function catIcon(item,i){var iconSpan=n('span','okm61-category-icon'),png=catPng(item.label);if(!png){var op=item.original.querySelector('img.okla-category-png');if(op)png=op.cloneNode(true)}if(png){iconSpan.appendChild(png);return iconSpan}var source=item.original.querySelector('.okla-cat-svg svg');if(source)iconSpan.appendChild(source.cloneNode(true));else iconSpan.appendChild(svg(['chip','devices','measure','cam','bulb','spark','screen'][i%7]));return iconSpan}
 function catTile(item,i){var a=n('a','okm61-category');a.href=item.href;a.append(catIcon(item,i),n('span','okm61-category-label',item.label));return a}
@@ -161,7 +164,7 @@ setTimeout(correct,320);setTimeout(correct,1000);setTimeout(correct,2200);
 if(window.__oklaRecovery62)return;window.__oklaRecovery62=1;
 var active=window.matchMedia('(max-width:767px)');
 function make(t,c,txt){var el=document.createElement(t);if(c)el.className=c;if(txt!=null)el.textContent=txt;return el}
-function readCategories(){var selectors='#content-wrapper aside.sidebar #categories .topic>a[href],#content-wrapper aside.sidebar .box-categories a[href],#navigation .menu-level-1 a[href]';var seen=new Set;return Array.from(document.querySelectorAll(selectors)).map(function(a){var label=(a.textContent||'').replace(/\s+/g,' ').trim(),href=a.getAttribute('href');if(!label||!href||href==='#'||seen.has(href))return null;seen.add(href);return {label:label,href:href,original:a}}).filter(Boolean).slice(0,14)}
+function readCategories(){var selectors='#content-wrapper aside.sidebar #categories .topic>a[href],#content-wrapper aside.sidebar .box-categories a[href],#navigation .menu-level-1 a[href]';var seen=new Set;return Array.from(document.querySelectorAll(selectors)).map(function(a){var label=(a.textContent||'').replace(/\s+/g,' ').trim(),href=a.getAttribute('href');if(!label||!href||href==='#'||seen.has(href)||(window.__oklaIsCat&&!window.__oklaIsCat(label)))return null;seen.add(href);return {label:label,href:href,original:a}}).filter(Boolean).slice(0,14)}
 var icoPaths=['M5 5h14v14H5z M9 10h6 M9 14h4','M3 6h14v11H3z M7 20h9 M10 17v3','M4 4v16h16L4 4Z','M4 7h14v10H4z M9 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z','M12 2 14 9 22 12l-8 3-2 7-2-7-8-3 8-3z'];
 function icon(i){var ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');var p=document.createElementNS(ns,'path');p.setAttribute('d',icoPaths[i%icoPaths.length]);svg.appendChild(p);return svg}
 function fixDots(){
