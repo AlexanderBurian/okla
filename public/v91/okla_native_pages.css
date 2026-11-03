@@ -217,8 +217,29 @@ html body.type-search #products .product .p-tools button.btn-cart svg:not(.ok89-
   html body.type-category #products .product a.name,
   html body.type-search #products .product a.name{font-size:12.5px!important}
 }
-/* Sidebar category hover/active is left to the original template styling (same on
-   the homepage and the category pages). No override here on purpose. */
+/* Sidebar category hover + active — the original full-width highlight done cleanly:
+   a light fill that reaches the sidebar's left edge (box-shadow sized to the left
+   overhang, no overshoot) with a navy accent bar, identical for hover and the
+   selected category. High specificity so it wins over the template's own style. */
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon{
+  position:relative!important;border-radius:0 6px 6px 0!important;background:transparent!important;color:#1d2433!important;box-shadow:none!important;
+}
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon::before{
+  display:block!important;content:""!important;position:absolute!important;left:calc(-1 * var(--okla-hover-overhang,20px))!important;
+  top:3px!important;bottom:3px!important;width:3px!important;border-radius:0 2px 2px 0!important;background:transparent!important;pointer-events:none!important;z-index:1!important;
+}
+@media(hover:hover) and (pointer:fine){
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover{background:#eef4fb!important;color:#16478B!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover::before{background:#16478B!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover .okla-cat-svg{color:#16478B!important}
+}
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon,
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon:hover{
+  background:#eef4fb!important;color:#16478B!important;font-weight:700!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important;
+}
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon::before{background:#16478B!important}
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-label,
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-svg{color:#16478B!important}
 
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
