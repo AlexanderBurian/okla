@@ -75,9 +75,42 @@ html body.type-search #products.products-block > .product{flex:0 0 25%!important
   html body.in-vyhledavani #products.products-block > .product,
   html body.type-search #products.products-block > .product{flex:0 0 50%!important;max-width:50%!important}
 }
-html body.in-vyhledavani #content > h2,html body.type-search #content > h2,
-html body.in-vyhledavani .search-products-heading,html body.type-search .search-products-heading{color:#0b2540!important;font-weight:800!important}
-html body.in-vyhledavani .search-results-group h4,html body.type-search .search-results-group h4{color:#09336c!important;font-weight:700!important}
+/* Main heading: our page-title size; the searched phrase stays brand blue. */
+html body.in-vyhledavani #content > h2,html body.type-search #content > h2{
+  font-size:26px!important;line-height:1.25!important;font-weight:800!important;color:#0b2540!important;margin:4px 0 22px!important;
+}
+html body.in-vyhledavani #content > h2 a,html body.type-search #content > h2 a,
+html body.in-vyhledavani #content > h2 strong,html body.type-search #content > h2 strong{color:#008ddd!important}
+/* Section labels (Články / Produkty): small uppercase navy caps, evenly spaced. */
+html body.in-vyhledavani .search-products-heading,html body.type-search .search-products-heading,
+html body.in-vyhledavani .search-results-group h4,html body.type-search .search-results-group h4{
+  font-size:13px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.05em!important;
+  color:#09336c!important;margin:26px 0 14px!important;
+}
+/* Articles: styled result rows (card + document glyph + chevron) instead of a bare list. */
+html body.in-vyhledavani .search-results-group-list ul,html body.type-search .search-results-group-list ul{
+  list-style:none!important;margin:0!important;padding:0!important;display:flex!important;flex-direction:column!important;gap:8px!important;
+}
+html body.in-vyhledavani .search-results-group-list li,html body.type-search .search-results-group-list li{margin:0!important}
+html body.in-vyhledavani .search-results-group-list li a,html body.type-search .search-results-group-list li a{
+  display:flex!important;align-items:center!important;gap:12px!important;padding:13px 16px!important;
+  border:1px solid #e6ebf2!important;border-radius:12px!important;background:#fff!important;
+  color:#12438a!important;font-weight:600!important;font-size:14px!important;text-decoration:none!important;
+  box-shadow:0 1px 3px rgba(6,29,58,.05)!important;transition:border-color .15s ease,box-shadow .15s ease,color .15s ease!important;
+}
+html body.in-vyhledavani .search-results-group-list li a:before,html body.type-search .search-results-group-list li a:before{
+  content:""!important;flex:0 0 20px!important;width:20px!important;height:20px!important;
+  background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23008ddd' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z'/%3E%3Cpath d='M14 3v4h4M8 12h8M8 16h5'/%3E%3C/svg%3E")!important;
+}
+html body.in-vyhledavani .search-results-group-list li a:after,html body.type-search .search-results-group-list li a:after{
+  content:"\203A"!important;margin-left:auto!important;color:#9aa7b8!important;font-size:20px!important;line-height:1!important;
+}
+html body.in-vyhledavani .search-results-group-list li a:hover,html body.type-search .search-results-group-list li a:hover{
+  border-color:#008ddd!important;box-shadow:0 3px 10px rgba(6,29,58,.1)!important;color:#065ba7!important;
+}
+html body.in-vyhledavani .search-results-group-list li a:hover:after,html body.type-search .search-results-group-list li a:hover:after{color:#008ddd!important}
+/* A touch more breathing room between product rows. */
+html body.in-vyhledavani #products.products-block,html body.type-search #products.products-block{gap:22px 0!important}
 
 /* ---------- Cookie consent: Allegro-style, OKLA palette ----------
    A full-width bar docked at the bottom over a dimmed, blurred backdrop (same as
