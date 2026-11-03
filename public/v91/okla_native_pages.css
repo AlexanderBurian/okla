@@ -226,7 +226,7 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okl
 }
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon::before{
   display:block!important;content:""!important;position:absolute!important;left:calc(-1 * var(--okla-hover-overhang,20px))!important;
-  top:3px!important;bottom:3px!important;width:3px!important;border-radius:0 2px 2px 0!important;background:transparent!important;pointer-events:none!important;z-index:1!important;
+  top:0!important;bottom:0!important;width:3px!important;border-radius:0!important;background:transparent!important;pointer-events:none!important;z-index:1!important;
 }
 @media(hover:hover) and (pointer:fine){
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover{background:#eef4fb!important;color:#16478B!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important}
