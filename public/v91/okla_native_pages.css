@@ -396,13 +396,9 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
 }
 
 /* ---------- Desktop page background ----------
-   Replace the heavy top-to-bottom blue (that ended in a saturated #c2e8ff) with
-   an almost entirely white page that only carries a very faint blue hug along the
-   left edge. */
+   Plain white on PC: no gradient on the page background at all (the earlier faint
+   left-edge gradient left a visible seam, and the original heavy blue is not
+   wanted either). Overrides the legacy #c2e8ff body gradient. */
 @media(min-width:992px){
-  html{background:#fff!important}
-  html body{
-    background:linear-gradient(90deg,#e7f3fd 0%,#f5fafe 8%,#ffffff 20%) left top/100% 100% no-repeat #fff!important;
-    background-attachment:fixed!important;
-  }
+  html,html body{background:#fff!important}
 }
