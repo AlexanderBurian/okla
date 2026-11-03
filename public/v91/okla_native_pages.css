@@ -199,7 +199,14 @@ html body.type-search #products .product .p-tools button.btn-cart{
 html body.type-category #products .product .p-tools button.btn-cart:hover,
 html body.type-search #products .product .p-tools button.btn-cart:hover{background:#EAF3FF!important;border-color:#EAF3FF!important;color:#16478B!important}
 html body.type-category #products .product .p-tools button.btn-cart svg.ok89-cart,
-html body.type-search #products .product .p-tools button.btn-cart svg.ok89-cart{width:18px!important;height:18px!important;flex:0 0 18px!important;fill:currentColor!important;stroke:currentColor!important}
+html body.type-search #products .product .p-tools button.btn-cart svg.ok89-cart{width:18px!important;height:18px!important;flex:0 0 18px!important;fill:currentColor!important;stroke:currentColor!important;stroke-width:1.5!important}
+html body.type-category #products .product .p-tools button.btn-cart svg.ok89-cart circle,
+html body.type-search #products .product .p-tools button.btn-cart svg.ok89-cart circle{fill:currentColor!important;stroke:none!important}
+/* Hide Shoptet's own chevron glyph (icon font ::before) so only our cart shows, like the homepage. */
+html body.type-category #products .product .p-tools button.btn-cart::before,
+html body.type-category #products .product .p-tools button.btn-cart::after,
+html body.type-search #products .product .p-tools button.btn-cart::before,
+html body.type-search #products .product .p-tools button.btn-cart::after{display:none!important;content:none!important}
 html body.type-category #products .product .p-tools button.btn-cart svg:not(.ok89-cart),
 html body.type-search #products .product .p-tools button.btn-cart svg:not(.ok89-cart){display:none!important}
 @media(max-width:620px){
@@ -228,21 +235,6 @@ html body.type-search #products .product .p-tools button.btn-cart svg:not(.ok89-
 }
 #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-label,
 #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-svg{color:#16478B!important}
-
-/* ---------- Price filter (Cena) — polished slider ----------
-   The native jQuery-UI slider looks bare; give it a rounded rail with a brand
-   gradient fill, clean round handles, and the min/max prices as small pills. */
-#content-wrapper aside.sidebar .slider-wrapper h4{font-size:14px!important;font-weight:700!important;color:#0b2540!important;margin:0 0 14px!important}
-#content-wrapper aside.sidebar .slider-wrapper .slider-header{display:flex!important;justify-content:space-between!important;align-items:center!important;margin:0 0 16px!important}
-#content-wrapper aside.sidebar .slider-wrapper .slider-header .from,
-#content-wrapper aside.sidebar .slider-wrapper .slider-header .to{font-size:12.5px!important;font-weight:700!important;color:#0b2540!important;background:#eef4fb!important;border-radius:8px!important;padding:4px 10px!important}
-#content-wrapper aside.sidebar .slider-wrapper .slider-content{padding:0 9px!important}
-#content-wrapper aside.sidebar #slider.ui-slider{height:6px!important;background:#e3e9f1!important;border:0!important;border-radius:999px!important;box-shadow:none!important;margin:10px 0 10px!important}
-#content-wrapper aside.sidebar #slider .ui-slider-range{background:linear-gradient(90deg,#2b7de0,#0b3c87)!important;border:0!important;border-radius:999px!important;height:6px!important;top:0!important}
-#content-wrapper aside.sidebar #slider .ui-slider-handle{width:18px!important;height:18px!important;top:50%!important;margin-top:-9px!important;margin-left:-9px!important;background:#fff!important;border:2px solid #0b3c87!important;border-radius:50%!important;box-shadow:0 1px 4px rgba(11,37,64,.3)!important;cursor:grab!important;outline:none!important;transition:box-shadow .15s ease,border-color .15s ease!important}
-#content-wrapper aside.sidebar #slider .ui-slider-handle:hover,
-#content-wrapper aside.sidebar #slider .ui-slider-handle:focus{box-shadow:0 0 0 5px rgba(43,125,224,.18),0 1px 4px rgba(11,37,64,.3)!important;border-color:#2b7de0!important}
-#content-wrapper aside.sidebar #slider .ui-slider-handle:active{cursor:grabbing!important}
 
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
