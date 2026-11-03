@@ -132,6 +132,13 @@ html body.type-search #products .product a.name{
 }
 html body.type-category #products .product .availability,
 html body.type-search #products .product .availability{display:block!important;width:100%!important;margin:0 0 2px!important;text-align:center!important;font-size:11px!important;line-height:1.4!important}
+/* homepage order inside the card: stars, then name, then availability */
+html body.type-category #products .product .p-in-in .ratings-wrapper,
+html body.type-search #products .product .p-in-in .ratings-wrapper{order:1!important}
+html body.type-category #products .product .p-in-in a.name,
+html body.type-search #products .product .p-in-in a.name{order:2!important}
+html body.type-category #products .product .p-in-in .availability,
+html body.type-search #products .product .p-in-in .availability{order:3!important}
 /* bottom + price box with NOVINKA bar */
 html body.type-category #products .product .p-bottom,
 html body.type-search #products .product .p-bottom{display:block!important;width:100%!important;margin-top:auto!important;padding:0!important}
