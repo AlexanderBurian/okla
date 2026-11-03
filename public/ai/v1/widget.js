@@ -98,7 +98,7 @@
         scrollbar-width: thin;
         scrollbar-color: #bdcada transparent;
       }
-      .welcome { display: flex; min-height: 100%; flex-direction: column; padding: 52px 0 8px; }
+      .welcome { display: flex; min-height: 100%; flex-direction: column; justify-content: center; padding: 28px 0 18px; }
       .welcome-brand { display: flex; align-items: center; justify-content: center; gap: 10px; }
       .welcome-logo {
         position: relative;
@@ -239,6 +239,8 @@
         height: 58px;
         padding: 10px;
         overflow: hidden;
+        display: grid;
+        place-items: center;
         border: 1px solid #eceff4;
         border-radius: 50%;
         background: linear-gradient(145deg, #2742ad 0%, #5137b4 55%, #7e2fa0 100%);
@@ -251,6 +253,12 @@
       .launcher:active { box-shadow: 0 6px 18px rgba(25, 54, 99, .22); }
       .panel.open + .launcher { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .16s ease, visibility 0s linear .16s; }
       .launcher img { border-radius: 50%; }
+      /* The launcher shows only the magnifier (like the mobile launcher), not the robot logo. */
+      .launcher .launcher-desktop-icon { display: none; }
+      .launcher .launcher-search-icon {
+        display: block; width: 27px; height: 27px;
+        fill: none; stroke: #fff; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round;
+      }
       .robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--okla-purple); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
       .mobile-glyph-fallback::after { content: "OK"; position: absolute; inset: 0; display: none; place-items: center; color: #fff; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
       .brand-avatar.robot-fallback::after { font-size: 12px; }
