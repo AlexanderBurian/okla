@@ -77,52 +77,112 @@ html body.type-category .category-filter-trigger{
 html body.type-category a.unveil-button:hover,
 html body.type-category .unveil-button.btn:hover{background:#103e76!important;border-color:#103e76!important;color:#fff!important}
 
-/* ---------- Category & search cards: homepage card rules ----------
-   Bring the listing cards up to the homepage look: a framed white card with a
-   subtle hover lift, the product image contained (not stretched) and its zoom
-   clipped so it never overlaps the title, and the title clamped to two lines. */
+/* ---------- Category & search cards: the OKLA product card ----------
+   One definition that reproduces the homepage card 1:1 on the category and search
+   grids: framed white card with a hover lift, contained image (zoom clipped), five
+   decorative gold stars (injected by okla_native_pages.js), centred name, the
+   NOVINKA price box, and the outlined "Do košíku" button with the cart glyph. */
 html body.type-category #products.products-block,
 html body.type-search #products.products-block{align-items:stretch!important}
 html body.type-category #products.products-block > .product,
-html body.type-search #products.products-block > .product{box-sizing:border-box!important;padding:9px!important}
+html body.type-search #products.products-block > .product{box-sizing:border-box!important;padding:9px!important;background:transparent!important;text-align:center!important}
+/* card frame */
 html body.type-category #products .product .p,
 html body.type-search #products .product .p{
-  display:flex!important;flex-direction:column!important;height:100%!important;box-sizing:border-box!important;
-  background:#fff!important;border:1px solid #eceff3!important;border-radius:12px!important;
-  box-shadow:0 1px 4px rgba(10,38,70,.06)!important;padding:0 0 14px!important;overflow:visible!important;
+  display:flex!important;flex-direction:column!important;align-items:stretch!important;height:100%!important;box-sizing:border-box!important;
+  background:#fff!important;border:1px solid #e1e7ef!important;border-radius:11px!important;
+  box-shadow:0 1px 4px rgba(21,43,68,.095)!important;padding:12px 12px 16px!important;overflow:visible!important;
   transition:border-color .16s ease,box-shadow .16s ease!important;
 }
 html body.type-category #products .product .p:hover,
-html body.type-search #products .product .p:hover{border-color:#e0e0e0!important;box-shadow:0 6px 16px rgba(10,38,70,.10)!important}
+html body.type-search #products .product .p:hover{border-color:#d7e0ec!important;box-shadow:0 6px 16px rgba(10,38,70,.10)!important}
+/* image: contained, zoom clipped */
 html body.type-category #products .product .p > a.image,
 html body.type-search #products .product .p > a.image{
-  display:flex!important;align-items:center!important;justify-content:center!important;
-  height:200px!important;overflow:hidden!important;padding:10px!important;box-sizing:border-box!important;
-  background:#fff!important;border-radius:12px 12px 0 0!important;margin:0!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;
+  width:100%!important;height:180px!important;min-height:180px!important;max-height:180px!important;
+  margin:0 0 8px!important;padding:4px!important;overflow:hidden!important;background:#fff!important;
 }
 html body.type-category #products .product .p > a.image img,
 html body.type-search #products .product .p > a.image img{
-  object-fit:contain!important;max-width:100%!important;max-height:100%!important;width:auto!important;height:auto!important;
+  display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
+  margin:auto!important;object-fit:contain!important;object-position:center!important;
 }
-html body.type-category #products .product .p-in,
-html body.type-search #products .product .p-in{padding:12px 14px 0!important;flex:1 1 auto!important;display:flex!important;flex-direction:column!important}
-html body.type-category #products .product .p .name,
-html body.type-search #products .product .p .name{
-  display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;
-  overflow:hidden!important;min-height:2.6em!important;margin:0 0 6px!important;
+/* inner flex */
+html body.type-category #products .product .p-in,html body.type-category #products .product .p-in-in,
+html body.type-search #products .product .p-in,html body.type-search #products .product .p-in-in{
+  display:flex!important;flex:1 1 auto!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;margin:0!important;padding:0!important;
 }
+/* ratings: centred, decorative gold stars */
+html body.type-category #products .product .ratings-wrapper,
+html body.type-search #products .product .ratings-wrapper{
+  display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:nowrap!important;
+  min-height:18px!important;margin:0 0 6px!important;padding:0!important;gap:3px!important;color:#708092!important;font-size:11px!important;
+}
+html body.type-category #products .product .ok89-decor-stars,
+html body.type-search #products .product .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:1px!important;color:#F4B526!important}
+html body.type-category #products .product .ok89-decor-stars svg,
+html body.type-search #products .product .ok89-decor-stars svg{width:14px!important;height:14px!important;display:block!important;fill:currentColor!important;stroke:currentColor!important}
+/* name: centred, two-line clamp */
+html body.type-category #products .product a.name,
+html body.type-search #products .product a.name{
+  display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;
+  width:100%!important;min-height:2.7em!important;margin:0 0 5px!important;text-align:center!important;
+  font-size:13.5px!important;font-weight:650!important;line-height:1.35!important;color:#12438a!important;text-decoration:none!important;
+}
+html body.type-category #products .product .availability,
+html body.type-search #products .product .availability{display:block!important;width:100%!important;margin:0 0 2px!important;text-align:center!important;font-size:11px!important;line-height:1.4!important}
+/* bottom + price box with NOVINKA bar */
 html body.type-category #products .product .p-bottom,
-html body.type-search #products .product .p-bottom{padding:0 14px!important}
+html body.type-search #products .product .p-bottom{display:block!important;width:100%!important;margin-top:auto!important;padding:0!important}
+html body.type-category #products .product .p-bottom > div,
+html body.type-search #products .product .p-bottom > div{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important}
+html body.type-category #products .product .prices,
+html body.type-search #products .product .prices{
+  display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;max-width:160px!important;
+  height:64px!important;min-height:64px!important;margin:8px auto 0!important;padding:0!important;border-radius:6px!important;overflow:hidden!important;background:#eaf3fc!important;
+}
+html body.type-category #products .product .prices:before,
+html body.type-search #products .product .prices:before{
+  content:'NOVINKA'!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  flex:0 0 21px!important;width:100%!important;height:21px!important;background:#082e66!important;color:#fff!important;font-size:9px!important;font-weight:800!important;letter-spacing:.04em!important;
+}
+html body.type-category #products .product .price-final,
+html body.type-search #products .product .price-final{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 auto!important;width:100%!important;margin:0!important;padding:0!important}
+html body.type-category #products .product .price-final strong,
+html body.type-search #products .product .price-final strong{font-size:18px!important;line-height:1.3!important;font-weight:800!important;color:#0b3671!important;white-space:nowrap!important}
+/* CTA: outlined button with cart glyph */
+html body.type-category #products .product .p-tools,
+html body.type-search #products .product .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:11px 0 0!important}
+html body.type-category #products .product .p-tools form,
+html body.type-search #products .product .p-tools form{width:100%!important;margin:0!important;display:flex!important;justify-content:center!important}
+html body.type-category #products .product .p-tools button.btn-cart,
+html body.type-search #products .product .p-tools button.btn-cart{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;
+  width:min(150px,100%)!important;height:38px!important;box-sizing:border-box!important;
+  border:1px solid #16478B!important;border-radius:7px!important;background:#fff!important;background-image:none!important;color:#16478B!important;
+  font:600 14px/1.2 Roboto,'Segoe UI',Arial,sans-serif!important;box-shadow:none!important;text-shadow:none!important;
+  transition:background-color .16s ease,color .16s ease,border-color .16s ease!important;
+}
+html body.type-category #products .product .p-tools button.btn-cart:hover,
+html body.type-search #products .product .p-tools button.btn-cart:hover{background:#EAF3FF!important;border-color:#EAF3FF!important;color:#16478B!important}
+html body.type-category #products .product .p-tools button.btn-cart svg.ok89-cart,
+html body.type-search #products .product .p-tools button.btn-cart svg.ok89-cart{width:18px!important;height:18px!important;flex:0 0 18px!important;fill:currentColor!important;stroke:currentColor!important}
+html body.type-category #products .product .p-tools button.btn-cart svg:not(.ok89-cart),
+html body.type-search #products .product .p-tools button.btn-cart svg:not(.ok89-cart){display:none!important}
 @media(max-width:620px){
   html body.type-category #products.products-block > .product,
-  html body.type-search #products.products-block > .product{padding:6px!important}
+  html body.type-search #products.products-block > .product{padding:5px!important}
   html body.type-category #products .product .p > a.image,
-  html body.type-search #products .product .p > a.image{height:150px!important;padding:8px!important}
-  html body.type-category #products .product .p-in,
-  html body.type-search #products .product .p-in{padding:10px 11px 0!important}
-  html body.type-category #products .product .p-bottom,
-  html body.type-search #products .product .p-bottom{padding:0 11px!important}
+  html body.type-search #products .product .p > a.image{height:140px!important;min-height:140px!important;max-height:140px!important}
+  html body.type-category #products .product a.name,
+  html body.type-search #products .product a.name{font-size:12.5px!important}
 }
+/* selected category stays visible: Shoptet paints the active link white, which
+   vanishes on our white sidebar — give it the brand navy and a bold highlight. */
+#content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon,
+#content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a .okla-cat-label{color:#16478B!important;font-weight:700!important}
+#content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon{background:#f1f5fa!important}
 
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the

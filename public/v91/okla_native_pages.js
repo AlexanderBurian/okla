@@ -55,3 +55,45 @@
     mo.observe(document.documentElement, { childList: true, subtree: true });
   }
 })();
+
+/* Category & search product cards: give them the SAME decoration the homepage
+   cards get (five decorative gold stars + the cart glyph in the CTA), so the
+   OKLA card look in okla_native_pages.css renders identically to the homepage.
+   The visual styling lives entirely in CSS; this only injects the two SVGs. */
+(function(){
+  'use strict';
+  if(window.__oklaListCardsV1) return; window.__oklaListCardsV1 = true;
+  var NS='http://www.w3.org/2000/svg';
+  function cart(){var s=document.createElementNS(NS,'svg');s.classList.add('ok89-cart');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');
+    var body=document.createElementNS(NS,'path');body.setAttribute('d','M7 7h14l-2.2 9H9L7 7Z');s.appendChild(body);
+    var arm=document.createElementNS(NS,'path');arm.setAttribute('d','M2 3.8h3.6L8 16.2h11');arm.setAttribute('fill','none');arm.setAttribute('stroke','currentColor');arm.setAttribute('stroke-width','1.65');s.appendChild(arm);
+    for(var i=0,xs=[10,18];i<xs.length;i++){var c=document.createElementNS(NS,'circle');c.setAttribute('cx',xs[i]);c.setAttribute('cy',20.5);c.setAttribute('r',1.7);s.appendChild(c)}return s}
+  function stars(){var g=document.createElement('span');g.className='ok89-decor-stars';g.setAttribute('aria-hidden','true');g.title='Dekorativní hvězdy, nejde o zákaznické hodnocení';
+    for(var i=0;i<5;i++){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');var p=document.createElementNS(NS,'path');p.setAttribute('d','M12 2l3.09 6.26L22 9.27l-5 4.88 1.18 6.9L12 17.8l-6.18 3.25L7 14.15 2 9.27l6.91-1.01L12 2z');s.appendChild(p);g.appendChild(s)}return g}
+  function isList(){var b=document.body;return b&&(b.classList.contains('type-category')||b.classList.contains('type-search'));}
+  function decorate(root){
+    if(!isList())return;
+    (root||document).querySelectorAll('#products.products-block .product').forEach(function(card){
+      var wrap=card.querySelector('.ratings-wrapper');
+      if(wrap&&!wrap.querySelector('.ok89-decor-stars')){
+        wrap.querySelectorAll('.okv80-stars,.okv73-rating-stars,.okla-empty-stars,.okv73-rating-placeholder,.stars-placeholder').forEach(function(e){e.remove()});
+        wrap.prepend(stars());
+      }
+      var btn=card.querySelector('.p-tools button.btn-cart,.p-tools .btn-cart');
+      if(btn&&!btn.querySelector('.ok89-cart')){
+        btn.querySelectorAll('svg').forEach(function(n){if(!n.classList.contains('ok89-cart'))n.remove()});
+        btn.prepend(cart());
+      }
+    });
+  }
+  function start(){
+    if(!isList())return;
+    decorate(document);
+    var cont=document.querySelector('#products');
+    if(cont&&!cont.dataset.oklaCardObs){cont.dataset.oklaCardObs='1';
+      var mo=new MutationObserver(function(recs){if(recs.some(function(r){return Array.from(r.addedNodes).some(function(n){return n.nodeType===1&&((n.matches&&n.matches('.product'))||(n.querySelector&&n.querySelector('.product')))})}))decorate(document)});
+      mo.observe(cont,{childList:true,subtree:true});
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
