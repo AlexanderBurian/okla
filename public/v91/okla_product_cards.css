@@ -20,3 +20,8 @@ html body .products .product .okv73-rating-placeholder{display:flex!important;ju
 @media(min-width:992px){
  html body .products .product .p .p-in{zoom:1.18}
 }
+/* Listing cards stay compact and uniform in the OKLA style: no product code and
+   no description teaser (those are the native Shoptet listing look). The detail
+   page uses different markup, so its description is untouched. */
+html body .products .product .p-code{display:none!important}
+html body .products .product .p-desc{display:none!important}

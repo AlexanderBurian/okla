@@ -58,6 +58,25 @@ html body .cart-empty form button[type="submit"]{
 html body .cart-empty .search .btn:hover,
 html body .cart-empty form button[type="submit"]:hover{background:#0b74b5!important;border-color:#0b74b5!important;color:#fff!important}
 
+/* ---------- Category listing ----------
+   The native "Nejprodávanější" featured block (small heading + a loose inline row
+   of products + a "show more" toggle) just duplicates the grid below in the old
+   Shoptet look. Hide the whole block so the page reads cleanly: title -> sorting
+   -> uniform OKLA card grid. */
+html body.type-category .products-top-wrapper,
+html body.type-category .products-top-header,
+html body.type-category .products.products-top{display:none!important}
+/* The mobile "Otevřít filtr" toggle ships in the Shoptet theme purple; paint it
+   our navy so it matches the rest of the buttons. */
+html body.type-category a.unveil-button,
+html body.type-category .unveil-button.btn,
+html body.type-category .category-filter-trigger{
+  background:#0b2540!important;background-image:none!important;border:1px solid #0b2540!important;color:#fff!important;
+  border-radius:10px!important;font-weight:700!important;box-shadow:none!important;text-shadow:none!important;
+}
+html body.type-category a.unveil-button:hover,
+html body.type-category .unveil-button.btn:hover{background:#103e76!important;border-color:#103e76!important;color:#fff!important}
+
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
    results out in a tidy responsive grid instead of a loose full-width row. */
