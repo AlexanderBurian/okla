@@ -379,6 +379,22 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
   }
 }
 
+/* ---------- Mobile page gradient: one fixed, non-tearing layer ----------
+   The homepage gradient used to live on the scrolling body (and main#content), a
+   large surface that iOS repaints in tiles during momentum scroll — and the fixed
+   header tore a seam across it, so the gradient looked broken while scrolling.
+   Paint it once as a single viewport-fixed layer behind the content, and strip the
+   scrolling gradients, so there is nothing to retile or tear. */
+@media(max-width:767px){
+  html body.type-index{background:#fff!important}
+  html body.type-index #content-wrapper,
+  html body.type-index #content-wrapper main#content{background:transparent!important}
+  body.type-index::before{
+    content:''!important;position:fixed!important;inset:0!important;z-index:-1!important;pointer-events:none!important;
+    background:radial-gradient(135% 600px at -18% -4%,rgba(199,229,247,.42) 0%,rgba(228,244,252,.22) 40%,rgba(248,252,254,.06) 66%,rgba(255,255,255,0) 86%) top left/100% 760px no-repeat,#fff!important;
+  }
+}
+
 /* ---------- Desktop page background ----------
    Replace the heavy top-to-bottom blue (that ended in a saturated #c2e8ff) with
    an almost entirely white page that only carries a very faint blue hug along the
