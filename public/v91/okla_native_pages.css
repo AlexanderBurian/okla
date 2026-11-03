@@ -452,8 +452,10 @@ html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!import
    White sidebar background, and flat rounded-square rank badges: solid gold,
    silver and bronze for the top three, solid brand blue for the rest — no
    gradient, no shadow. */
-#content-wrapper aside.sidebar.sidebar-left,
-#content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box{background:#fff!important}
+html body #content-wrapper aside.sidebar.sidebar-left,
+html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner,
+html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box,
+html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(.box-categories){background:#fff!important}
 .top-products-wrapper ol.top-products li::before{
   box-sizing:border-box!important;width:27px!important;height:27px!important;min-width:27px!important;flex:0 0 27px!important;
   border-radius:8px!important;background:#2f7ed4!important;color:#fff!important;

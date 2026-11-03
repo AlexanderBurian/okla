@@ -119,6 +119,20 @@ var hints=modules.map(function(file){return preload(url(file,0),file.endsWith('.
  preload(base+'v91/okla_i18n_'+lang+'.js?v=1','script');
  preload(base+'v91/okla_i18n_products_'+lang+'.js?v=1','script');
 })();
+/* Non-critical behaviour modules (search, login popup, cart drawer, footer) are not
+   needed for the first paint, so they are pulled out of the reveal-blocking chain
+   and loaded AFTER the page is revealed — the curtain lifts sooner. They were still
+   preloaded above, so they come straight from cache. */
+var deferNames=['v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js','v91/okla_cart_drawer.css','v91/okla_cart_drawer.js','okla_footer.js'];
+var deferred=modules.filter(function(f){return deferNames.indexOf(f)>=0});
+modules=modules.filter(function(f){return deferNames.indexOf(f)<0});
+function loadDeferred(){
+ deferred.forEach(function(file){
+  var src=url(file,0);
+  if(file.endsWith('.css')){var link=document.createElement('link');link.rel='stylesheet';link.href=src;head.appendChild(link);}
+  else{var s=document.createElement('script');s.src=src;s.async=false;head.appendChild(s);}
+ });
+}
 var index=0;
 function next(){
  if(index>=modules.length){
@@ -127,6 +141,7 @@ function next(){
   hints.forEach(function(hint){hint.remove()});
   /* One more turn so the last scripts can draw before the page is shown. */
   setTimeout(revealWhenTranslated,30);
+  loadDeferred();
   return;
  }
  load(modules[index++],0);
