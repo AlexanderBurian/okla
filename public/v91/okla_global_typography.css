@@ -1,0 +1,44 @@
+/* OKLA V91: one consistent typeface across the storefront.
+   Roboto matches the existing footer and product-card UI.
+   Leave SVG and icon-font glyphs alone. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800;900&display=swap');
+
+html body,
+html body #header,
+html body #content-wrapper,
+html body #footer,
+html body #okla-footer-shell,
+html body .okla-about,
+html body .oka-contact,
+html body .okla-rich{
+  font-family:'Roboto',Arial,sans-serif!important;
+}
+html body :is(
+  h1,h2,h3,h4,h5,h6,p,div,span,a,label,button,input,textarea,select,option,
+  small,b,strong,em,li,ul,ol,td,th,header,footer,main,nav,article,section,
+  summary,time,blockquote
+):not(svg):not(.fa):not(.fas):not(.far):not(.fab)
+ :not(.material-icons):not(.material-symbols-outlined)
+ :not([class^="icon-"]):not([class*=" icon-"])
+ :not([class^="shp-icon"]):not([class*=" shp-icon"]){
+  font-family:'Roboto',Arial,sans-serif!important;
+}
+/* Explicitly counter old, more-specific Exo 2 / Segoe declarations. */
+html body .okla-about :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
+html body .oka-contact :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
+html body .okla-rich :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
+html body #okla-footer-shell :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
+html body #content .products-block .product :is(a,button,span,strong),
+html body #content .okla-slider-shell .product :is(a,button,span,strong){
+  font-family:'Roboto',Arial,sans-serif!important;
+}
+/* Restrict the black text override to CTAs confirmed to have green backgrounds.
+   Do not recolor OKLA's blue add-to-cart buttons. */
+html body .okla-green-cta,
+html body .okla-green-cta:is(:hover,:focus,:active),
+html body .okla-green-cta :is(span,strong,b,small),
+html body .okla-green-cta:is(:hover,:focus,:active) :is(span,strong,b,small){
+  color:#101010!important;
+  -webkit-text-fill-color:#101010!important;
+  text-shadow:none!important;
+}
