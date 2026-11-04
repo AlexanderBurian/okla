@@ -27,7 +27,6 @@
  function bizli(t){return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>'+t+'</span></li>'}
  function art(img,alt,cat,h){return '<a class="oka-art" href="/newsroom/">'+
    '<img class="oka-art__img" src="'+IMG(img)+'" alt="'+alt+'" loading="lazy">'+
-   '<span class="oka-art__badge">'+ic(['M4 5h12v14l-6-3-6 3z'])+'</span>'+
    '<span class="oka-art__cap"><span class="oka-art__cat">'+cat+'</span><h3>'+h+'</h3></span>'+
  '</a>'}
 
