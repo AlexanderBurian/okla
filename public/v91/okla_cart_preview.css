@@ -1,0 +1,232 @@
+/* OKLA V97 – desktop-only cart preview. Independent from add-to-cart drawer. */
+@media(min-width:992px){
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header{
+    align-items:center!important;
+    justify-content:space-between!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+    height:52px!important;
+    min-height:52px!important;
+    align-self:center!important;
+    align-items:center!important;
+    transform:none!important;
+    top:auto!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:auto!important;min-height:0!important;
+    line-height:1!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy strong{
+    display:block!important;
+    height:auto!important;
+    min-height:0!important;
+    font:400 15px/20px Roboto,Arial,sans-serif!important;
+    line-height:20px!important;
+    text-align:center!important;
+    vertical-align:middle!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-chevron,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-chevron{
+    align-self:center!important;
+    margin:-5px 0 0 2px!important;
+    transform:rotate(45deg)!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+    display:flex!important;
+    justify-content:flex-end!important;
+    gap:7px!important;
+    line-height:1!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.cart-price{
+    display:inline-flex!important;
+    align-items:center!important;
+    align-self:center!important;
+    justify-content:center!important;
+    height:auto!important;
+    min-height:0!important;
+    line-height:20px!important;
+    font:700 15px/20px Roboto,Arial,sans-serif!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+    text-align:center!important;
+    white-space:nowrap!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol{
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    align-self:center!important;
+    height:32px!important;
+    min-height:32px!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+  }
+  /* A true quantity total, not a hard-coded basket number. */
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
+    position:absolute!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    top:0!important;
+    left:23px!important;
+    min-width:21px!important;
+    width:auto!important;
+    height:21px!important;
+    padding:0 4px!important;
+    background:#df2235!important;
+    color:#fff!important;
+    -webkit-text-fill-color:#fff!important;
+    border:2px solid #fff!important;
+    border-radius:999px!important;
+    box-sizing:border-box!important;
+    font:700 11px/17px Roboto,Arial,sans-serif!important;
+    line-height:17px!important;
+    z-index:6!important;
+    pointer-events:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge[hidden]{
+    display:none!important;
+  }
+}
+#okla-cart-preview{
+  position:fixed;
+  z-index:10050;
+  display:none;
+  width:min(420px,calc(100vw - 24px));
+  max-height:min(560px,calc(100vh - 95px));
+  overflow:hidden;
+  padding:0;
+  box-sizing:border-box;
+  border:1px solid #e3e8ef;
+  border-radius:14px;
+  background:#fff;
+  color:#17243a;
+  box-shadow:0 18px 44px rgba(14,35,60,.19),0 2px 10px rgba(14,35,60,.07);
+  font-family:Roboto,Arial,sans-serif!important;
+  opacity:0;
+  transform:translateY(-7px);
+  transition:opacity .14s ease,transform .14s ease;
+  pointer-events:none;
+}
+#okla-cart-preview.is-open{
+  display:flex;
+  flex-direction:column;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+#okla-cart-preview .okla-cp__header{
+  padding:19px 20px 15px;
+  border-bottom:1px solid #edf0f4;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+#okla-cart-preview .okla-cp__heading{
+  margin:0;
+  font:700 17px/1.35 Roboto,Arial,sans-serif;
+  color:#11243d;
+}
+#okla-cart-preview .okla-cp__count{
+  font:500 12px/1.4 Roboto,Arial,sans-serif;
+  color:#66758a;
+  white-space:nowrap;
+}
+#okla-cart-preview .okla-cp__list{
+  overflow-x:hidden;
+  overflow-y:auto;
+  min-height:0;
+  padding:6px 20px;
+  flex:1 1 auto;
+}
+#okla-cart-preview .okla-cp__item{
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  padding:12px 0;
+  border-bottom:1px solid #f0f2f5;
+}
+#okla-cart-preview .okla-cp__item:last-child{border:0}
+#okla-cart-preview .okla-cp__thumb{
+  width:58px;height:58px;
+  border:1px solid #f1f3f6;
+  border-radius:8px;
+  object-fit:contain;
+  background:#fff;
+}
+#okla-cart-preview .okla-cp__name{
+  display:block;
+  color:#103f78;
+  text-decoration:none;
+  font:600 13px/1.35 Roboto,Arial,sans-serif;
+  overflow-wrap:anywhere;
+}
+#okla-cart-preview .okla-cp__name:hover{text-decoration:underline}
+#okla-cart-preview .okla-cp__qty{
+  margin-top:5px;
+  font:400 12px/1.4 Roboto,Arial,sans-serif;
+  color:#66758a;
+}
+#okla-cart-preview .okla-cp__price{
+  font:700 13px/1.4 Roboto,Arial,sans-serif;
+  color:#19283b;
+  white-space:nowrap;
+}
+#okla-cart-preview .okla-cp__message{
+  padding:22px 4px;
+  color:#5b687c;
+  font:400 13px/1.5 Roboto,Arial,sans-serif;
+}
+#okla-cart-preview .okla-cp__footer{
+  flex:none;
+  padding:16px 20px 18px;
+  border-top:1px solid #e9edf2;
+  background:#f8fafc;
+}
+#okla-cart-preview .okla-cp__total{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  margin-bottom:13px;
+  color:#18283e;
+  font:600 14px/1.4 Roboto,Arial,sans-serif;
+}
+#okla-cart-preview .okla-cp__total strong{
+  font:700 17px/1.3 Roboto,Arial,sans-serif;
+}
+#okla-cart-preview .okla-cp__go{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:44px;
+  padding:10px 14px;
+  border:0;
+  border-radius:9px;
+  background:#15548f;
+  color:#fff!important;
+  text-decoration:none!important;
+  font:700 14px/1.4 Roboto,Arial,sans-serif!important;
+}
+#okla-cart-preview .okla-cp__go:hover{background:#0d3d71}
+@media(max-width:991px){
+  #okla-cart-preview{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  #okla-cart-preview{transition:none!important}
+}
