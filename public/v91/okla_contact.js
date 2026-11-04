@@ -35,8 +35,8 @@
    '<div class="oka-c-top__head"><h1>Kontaktujte OKLA</h1><p>Rádi vám poradíme.</p></div>'+
    '<div class="oka-c-cards">'+
      card('icon-support.png','Zákaznická podpora','Pomůžeme s objednávkou, produktem i reklamací. Ozveme se co nejdřív.','Napsat podpoře','mailto:'+MAIL)+
-     card('icon-advice.png','Poradenství s výběrem','Nevíte, který přístroj vybrat? Poradíme podle toho, k čemu ho budete používat.','Poradit s výběrem','mailto:'+MAIL+'?subject=Poradenstv%C3%AD%20s%20v%C3%BDb%C4%9Brem')+
-     card('icon-business.webp','Pro firmy a velkoobchod','Provozujete e-shop nebo prodejnu? Odebírejte velkoobchodně za zvýhodněné ceny.','Chci spolupracovat','mailto:'+MAIL+'?subject=Velkoobchodn%C3%AD%20spolupr%C3%A1ce')+
+     card('icon-advice.webp','Poradenství s výběrem','Nevíte, který přístroj vybrat? Poradíme podle toho, k čemu ho budete používat.','Poradit s výběrem','mailto:'+MAIL+'?subject=Poradenstv%C3%AD%20s%20v%C3%BDb%C4%9Brem')+
+     card('icon-business.png','Pro firmy a velkoobchod','Provozujete e-shop nebo prodejnu? Odebírejte velkoobchodně za zvýhodněné ceny.','Chci spolupracovat','mailto:'+MAIL+'?subject=Velkoobchodn%C3%AD%20spolupr%C3%A1ce')+
    '</div>'+
  '</div></div>'+
 
