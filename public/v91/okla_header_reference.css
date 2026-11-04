@@ -263,3 +263,145 @@
   }
 }
 /* The existing OKLA V61 mobile controls remain responsible for 0–767px. */
+
+
+/* OKLA V95: centered header alignment and single outline search glyph. */
+/* Desktop only. The two original mobile header variants are not affected. */
+@media (min-width: 1200px) {
+  html.okla-header-reference body #header .header-top {
+    grid-template-columns:190px minmax(0,1fr) 440px!important;
+    gap:16px!important;
+    min-height:80px!important;
+    align-items:center!important;
+    justify-items:stretch!important;
+    box-sizing:border-box!important;
+  }
+  html.okla-header-reference body #header .header-top>.search {
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    justify-self:stretch!important;
+  }
+  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready,
+  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready>.okla-exact-header {
+    width:440px!important;
+    min-width:440px!important;
+    max-width:440px!important;
+  }
+}
+@media (min-width:992px) and (max-width:1199px) {
+  html.okla-header-reference body #header .header-top {
+    grid-template-columns:140px minmax(0,1fr) 380px!important;
+    gap:14px!important;
+    min-height:76px!important;
+    align-items:center!important;
+    box-sizing:border-box!important;
+  }
+  html.okla-header-reference body #header .header-top>.search {
+    width:100%!important;max-width:none!important;min-width:0!important;
+    justify-self:stretch!important;
+  }
+  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready,
+  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready>.okla-exact-header {
+    width:380px!important;min-width:380px!important;max-width:380px!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
+    flex:0 0 151px!important;width:151px!important;min-width:151px!important;max-width:151px!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+    flex:0 1 auto!important;min-width:150px!important;max-width:184px!important;
+  }
+}
+@media (min-width: 992px) {
+  html.okla-header-reference body #header .header-top > .site-name-wrapper,
+  html.okla-header-reference body #header .header-top > .search,
+  html.okla-header-reference body #header .header-top > .navigation-buttons.okla-header-ready {
+    align-self:center!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+    top:auto!important;
+    bottom:auto!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top > .site-name-wrapper {
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    min-height:54px!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header {
+    align-items:center!important;
+    justify-content:space-between!important;
+    align-self:center!important;
+    min-height:54px!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count {
+    align-self:center!important;
+    transform:none!important;
+    top:auto!important;
+    bottom:auto!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale {
+    margin-right:auto!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count {
+    justify-content:flex-end!important;
+    gap:7px!important;
+  }
+}
+/* The Shoptet button contains its own black search glyph. Suppress that glyph,
+   all pseudo-icons, and the old theme's default background image, and replace
+   them with a SINGLE consistent gray outline magnifier on the actual submit button.
+   The original button and its native search behavior are left intact. */
+@media (min-width:768px) {
+  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"] {
+    position:relative!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:46px!important;
+    min-width:46px!important;
+    max-width:46px!important;
+    flex:0 0 46px!important;
+    height:46px!important;
+    min-height:46px!important;
+    max-height:46px!important;
+    padding:0!important;
+    margin:0!important;
+    font-size:0!important;
+    line-height:0!important;
+    text-indent:-9999px!important;
+    color:transparent!important;
+    -webkit-text-fill-color:transparent!important;
+    background-color:transparent!important;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7f96' stroke-width='1.65' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7.1'/%3E%3Cpath d='m15.8 15.8 5 5'/%3E%3C/svg%3E")!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+    background-size:24px 24px!important;
+    box-shadow:none!important;
+    filter:none!important;
+    opacity:1!important;
+    overflow:hidden!important;
+  }
+  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"]:is(:hover,:focus,:active) {
+    background-color:transparent!important;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334b67' stroke-width='1.65' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7.1'/%3E%3Cpath d='m15.8 15.8 5 5'/%3E%3C/svg%3E")!important;
+    background-position:center!important;
+    background-repeat:no-repeat!important;
+    background-size:24px 24px!important;
+  }
+  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"]::before,
+  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"]::after {
+    content:none!important;
+    display:none!important;
+    background:none!important;
+  }
+  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"] > * {
+    display:none!important;
+    visibility:hidden!important;
+  }
+}
