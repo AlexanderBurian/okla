@@ -44,10 +44,10 @@ html body .oka-link:hover{color:var(--bd);text-decoration:underline}
 html body .oka-link svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /* ---------------- HERO (full-bleed image, text overlaid left) ---------------- */
-html body .oka-hero{position:relative;overflow:hidden;color:#fff;min-height:560px;display:flex;align-items:center}
+html body .oka-hero{position:relative;overflow:hidden;color:#fff;aspect-ratio:1619/971;min-height:400px;max-height:82vh}
 html body .oka-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;z-index:0}
 html body .oka-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,20,52,.92) 0%,rgba(8,20,52,.8) 34%,rgba(8,20,52,.42) 62%,rgba(8,20,52,.2) 100%)}
-html body .oka-hero .oka-wrap{position:relative;z-index:2;width:100%}
+html body .oka-hero .oka-wrap{position:absolute;left:0;right:0;top:0;bottom:0;max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;z-index:2}
 html body .oka-hero__text{max-width:600px;text-align:left}
 html body .oka-hero h1{font-size:46px;line-height:1.08;font-weight:800;letter-spacing:-.6px;color:#fff;text-wrap:balance}
 html body .oka-hero p{margin:20px 0 32px;font-size:17px;line-height:1.6;color:rgba(255,255,255,.85);max-width:540px}
@@ -85,7 +85,7 @@ html body .oka-biz:before{content:"";position:absolute;inset:0;z-index:1;backgro
 html body .oka-biz__body{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;padding:56px 24px}
 html body .oka-biz__inner{max-width:520px}
 html body .oka-biz__body h2{font-size:31px;line-height:1.25;font-weight:800;letter-spacing:-.3px;color:#fff;max-width:520px;text-wrap:balance;margin-bottom:28px}
-html body .oka-biz__list{list-style:none;margin:0 0 40px;display:flex;flex-direction:column;gap:18px}
+html body .oka-biz__list{list-style:none;margin:0 0 56px;display:flex;flex-direction:column;gap:18px}
 html body .oka-biz__list li{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.5;color:#eef2fb}
 html body .oka-biz__list svg{width:22px;height:22px;flex:none;margin-top:1px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
@@ -106,8 +106,7 @@ html body .oka-news__top{display:flex;align-items:baseline;justify-content:space
 html body .oka-carousel{position:relative;margin:0 -4px}
 html body .oka-carousel__view{overflow:hidden;padding:4px}
 html body .oka-carousel__track{display:flex;gap:22px;transition:transform .45s cubic-bezier(.4,.1,.2,1);will-change:transform}
-html body .oka-slide{flex:0 0 66%;transition:opacity .4s ease}
-html body .oka-slide:not(.is-active){opacity:.5}
+html body .oka-slide{flex:0 0 66%}
 html body .oka-car__btn{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:52px;height:52px;border-radius:50%;background:#fff;border:0;box-shadow:0 4px 18px rgba(7,20,52,.22);color:var(--b);cursor:pointer;display:grid;place-items:center;transition:opacity .2s ease,background-color .15s ease}
 html body .oka-car__btn:hover{background:#eef2fa}
 html body .oka-car__btn--prev{left:6px}
@@ -137,7 +136,8 @@ html body .oka-close__meta a:hover{text-decoration:underline}
 /* ---------------- RESPONSIVE ---------------- */
 @media(max-width:900px){
   html body .oka-sec{padding:52px 0}
-  html body .oka-hero{min-height:440px}
+  html body .oka-hero{aspect-ratio:auto;min-height:0;max-height:none;display:block}
+  html body .oka-hero .oka-wrap{position:relative;padding:60px 24px;min-height:380px;display:flex;align-items:center;z-index:2}
   html body .oka-hero h1{font-size:34px}
   html body .oka-stats .oka-wrap{grid-template-columns:1fr 1fr;gap:34px 20px}
   html body .oka-feat .oka-wrap{grid-template-columns:1fr;gap:22px}
