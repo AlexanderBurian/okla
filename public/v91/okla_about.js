@@ -68,7 +68,8 @@
 
  /* BLUE B2B BAND */
  '<div class="oka-biz">'+
-   '<div class="oka-biz__body">'+
+   '<img class="oka-biz__img" src="'+IMG('firmy.jpg')+'" alt="Prodejna a velkoobchod" loading="lazy">'+
+   '<div class="oka-biz__body"><div class="oka-biz__inner">'+
      '<h2>Provozujete e-shop nebo prodejnu? Odebírejte velkoobchodně</h2>'+
      '<ul class="oka-biz__list">'+
        bizli('Zvýhodněné ceny při pravidelném odběru')+
@@ -76,8 +77,7 @@
        bizli('Osobní kontakt a poradenství — žádné call centrum')+
      '</ul>'+
      '<a class="oka-btn oka-btn--white" href="mailto:podpora@okla.cz?subject=Velkoobchodn%C3%AD%20spolupr%C3%A1ce">Chci spolupracovat'+ARROW+'</a>'+
-   '</div>'+
-   '<img class="oka-biz__img" src="'+IMG('firmy.jpg')+'" alt="Prodejna a velkoobchod" loading="lazy">'+
+   '</div></div>'+
  '</div>'+
 
  /* MAP */
