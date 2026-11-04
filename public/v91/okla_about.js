@@ -101,11 +101,16 @@
      '<h2 class="oka-h2">Z našeho newsroomu</h2>'+
      '<a class="oka-link" href="/newsroom/">Všechny články'+ARROW+'</a>'+
    '</div>'+
-   '<div class="oka-news__grid">'+
-     art('news-1.jpg','Chytrá elektronika','Chytrá elektronika','Chytrá elektronika pro každý den')+
-     art('news-2.jpg','Chytrá domácnost','Chytrá domácnost','Chytrá domácnost: kde začít')+
-     art('news-3.jpg','Gadgety','Gadgety','Drony a gadgety: co právě letí')+
+   '<div class="oka-carousel">'+
+     '<button class="oka-car__btn oka-car__btn--prev" type="button" data-dir="-1" aria-label="Předchozí">'+ic(['M15 6l-6 6 6 6'])+'</button>'+
+     '<div class="oka-carousel__view"><div class="oka-carousel__track">'+
+       '<div class="oka-slide">'+art('news-1.jpg','Chytrá elektronika','Chytrá elektronika','Chytrá elektronika pro každý den')+'</div>'+
+       '<div class="oka-slide">'+art('news-2.jpg','Chytrá domácnost','Chytrá domácnost','Chytrá domácnost: kde začít')+'</div>'+
+       '<div class="oka-slide">'+art('news-3.jpg','Gadgety','Gadgety','Drony a gadgety: co právě letí')+'</div>'+
+     '</div></div>'+
+     '<button class="oka-car__btn oka-car__btn--next" type="button" data-dir="1" aria-label="Další">'+ic(['M9 6l6 6-6 6'])+'</button>'+
    '</div>'+
+   '<div class="oka-car__dots"></div>'+
  '</div></div>'+
 
  /* CLOSING */
@@ -193,6 +198,35 @@
   nodes.forEach(function(el){io.observe(el)});
  }
 
+ /* ---------- news carousel ---------- */
+ function initCarousel(){
+  var car=document.querySelector('.oka-carousel');
+  if(!car||car.__inited)return;car.__inited=true;
+  var track=car.querySelector('.oka-carousel__track');
+  var slides=[].slice.call(track.children);
+  if(!slides.length)return;
+  var dotsWrap=document.querySelector('.oka-car__dots');
+  var idx=0;
+  var dots=slides.map(function(_,i){var b=document.createElement('button');b.type='button';b.className='oka-car__dot';b.setAttribute('aria-label','Článek '+(i+1));b.addEventListener('click',function(){go(i)});if(dotsWrap)dotsWrap.appendChild(b);return b});
+  function layout(){
+   var W=car.clientWidth||1;
+   var sw=slides[0].getBoundingClientRect().width;
+   var gap=parseFloat(getComputedStyle(track).gap)||0;
+   var off=(W-sw)/2 - idx*(sw+gap);
+   track.style.transform='translateX('+off.toFixed(1)+'px)';
+   slides.forEach(function(s,i){s.classList.toggle('is-active',i===idx)});
+   dots.forEach(function(d,i){d.classList.toggle('is-active',i===idx)});
+   var prev=car.querySelector('.oka-car__btn--prev'),next=car.querySelector('.oka-car__btn--next');
+   if(prev)prev.disabled=idx<=0;
+   if(next)next.disabled=idx>=slides.length-1;
+  }
+  function go(i){idx=Math.max(0,Math.min(slides.length-1,i));layout()}
+  car.querySelectorAll('.oka-car__btn').forEach(function(b){b.addEventListener('click',function(){go(idx+parseInt(b.getAttribute('data-dir'),10))})});
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(layout,120)});
+  layout();
+  setTimeout(layout,300);setTimeout(layout,900);
+ }
+
  /* ---------- mount ---------- */
  function mount(){
   if(document.querySelector('.okla-about'))return true;
@@ -207,6 +241,7 @@
   document.title='O nás · OKLA';
   initMap();
   initCounters();
+  initCarousel();
   return true;
  }
  if(!mount()){
