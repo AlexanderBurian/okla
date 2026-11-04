@@ -11,14 +11,19 @@
  function IMG(f){return BASE+'v91/img/contact/'+f}
  var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
 
- function card(img,title,text,btn,href){
+ var ICONS={
+  support:'<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 25v-3a15 15 0 0 1 30 0v3"/><rect x="7" y="23" width="8" height="13" rx="4"/><rect x="33" y="23" width="8" height="13" rx="4"/><path d="M37 36v2a6 6 0 0 1-6 6h-8"/><rect x="18" y="41" width="8" height="4" rx="2"/></svg>',
+  advice:'<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M39.5 23.5a15.5 15.5 0 0 1-15.5 15.5c-3.2 0-6.2-1-8.7-2.6L8 39l2.7-7.5A15.5 15.5 0 1 1 39.5 23.5Z"/><path d="M20 18.5a4.5 4.5 0 1 1 6.5 4c-2.3 1.2-2.5 2.3-2.5 4.1"/><path d="M24 32v.2"/></svg>',
+  business:'<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="16" r="6.5"/><path d="M11 39v-3a13 13 0 0 1 26 0v3H11Z"/><path d="M36.5 11.7a5 5 0 0 1 0 10M40 28a8.5 8.5 0 0 1 4 7v4h-5"/><path d="M11.5 11.7a5 5 0 0 0 0 10M8 28a8.5 8.5 0 0 0-4 7v4h5"/></svg>'
+ };
+ function card(icon,title,text,btn,topic){
   return '<div class="oka-c-card">'+
-   '<div class="oka-c-card__ic"><img src="'+IMG(img)+'" alt="" loading="lazy"></div>'+
+   '<div class="oka-c-card__ic">'+ICONS[icon]+'</div>'+
    '<h3>'+title+'</h3><p>'+text+'</p>'+
-   '<a class="oka-c-btn" href="'+href+'">'+btn+ARROW+'</a>'+
+   '<a class="oka-c-btn" href="#okla-contact-form" data-contact-topic="'+topic+'">'+btn+ARROW+'</a>'+
   '</div>';
  }
- function col(title,items){
+  function col(title,items){
   var h='<div class="oka-c-col"><h3>'+title+'</h3>';
   items.forEach(function(it){h+='<div class="oka-c-item"><b>'+it[0]+'</b><span>'+it[1]+'</span></div>'});
   return h+'</div>';
@@ -32,17 +37,17 @@
 
  /* TOP: cards */
  '<div class="oka-c-top"><div class="oka-c-wrap">'+
-   '<div class="oka-c-top__head"><h1>Kontaktujte OKLA</h1><p>Rádi vám poradíme.</p></div>'+
+   '<div class="oka-c-top__head"><h1>Kontaktujte OKLA</h1></div>'+
    '<div class="oka-c-cards">'+
-     card('icon-support.png','Zákaznická podpora','Pomůžeme s objednávkou, produktem i reklamací. Ozveme se co nejdřív.','Napsat podpoře','mailto:'+MAIL)+
-     card('icon-advice.webp','Poradenství s výběrem','Nevíte, který přístroj vybrat? Poradíme podle toho, k čemu ho budete používat.','Poradit s výběrem','mailto:'+MAIL+'?subject=Poradenstv%C3%AD%20s%20v%C3%BDb%C4%9Brem')+
-     card('icon-business.png','Pro firmy a velkoobchod','Provozujete e-shop nebo prodejnu? Odebírejte velkoobchodně za zvýhodněné ceny.','Chci spolupracovat','mailto:'+MAIL+'?subject=Velkoobchodn%C3%AD%20spolupr%C3%A1ce')+
+     card('support','Zákaznická podpora','Pomůžeme s objednávkou i reklamací.','Napsat podpoře','Dotaz k objednávce')+
+     card('advice','Poradenství s výběrem','Pomůžeme vybrat vhodný přístroj.','Poradit s výběrem','Poradenství s výběrem')+
+     card('business','Pro firmy a velkoobchod','Napište nám ohledně velkoobchodní spolupráce.','Chci spolupracovat','Velkoobchod / spolupráce')+
    '</div>'+
  '</div></div>'+
 
  /* LOCATIONS */
  '<div class="oka-c-loc"><div class="oka-c-wrap">'+
-   '<div class="oka-c-loc__head"><h2>Kde nás najdete</h2><p>Sídlo a sklad máme v Ostravě, odkud doručujeme do tří zemí střední Evropy.</p></div>'+
+   '<div class="oka-c-loc__head"><h2>Kde nás najdete</h2></div>'+
    '<div class="oka-c-tabs">'+
      '<button type="button" class="oka-c-tab is-active" data-tab="cz">Česko</button>'+
      '<button type="button" class="oka-c-tab" data-tab="sk">Slovensko</button>'+
@@ -68,8 +73,8 @@
  '</div></div>'+
 
  /* FORM */
- '<div class="oka-c-form"><div class="oka-c-wrap"><div class="oka-c-form__inner">'+
-   '<div class="oka-c-form__head"><h2>Napište nám</h2><p>Vyplňte formulář a ozveme se co nejdřív. Obvykle odpovídáme v pracovní dny do druhého dne.</p></div>'+
+ '<div class="oka-c-form" id="okla-contact-form"><div class="oka-c-wrap"><div class="oka-c-form__inner">'+
+   '<div class="oka-c-form__head"><h2>Napište nám</h2></div>'+
    '<form class="oka-c-formel" novalidate>'+
      '<div class="oka-c-row">'+
        '<div class="oka-c-field"><label for="okc-name">Jméno a příjmení</label><input id="okc-name" name="name" type="text" autocomplete="name" required placeholder="Jan Novák"></div>'+
@@ -97,6 +102,19 @@
  '</section>';
 
  function wire(root){
+  /* Each contact card leads to the shared form and selects a relevant topic. */
+  Array.prototype.forEach.call(root.querySelectorAll('.oka-c-card .oka-c-btn'),function(link){
+   link.addEventListener('click',function(event){
+    var target=root.querySelector('#okla-contact-form');
+    if(!target)return;
+    event.preventDefault();
+    var select=root.querySelector('#okc-topic');
+    var topic=link.getAttribute('data-contact-topic');
+    if(select&&topic)select.value=topic;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+   });
+  });
   /* tabs */
   var tabs=[].slice.call(root.querySelectorAll('.oka-c-tab'));
   var panels=[].slice.call(root.querySelectorAll('.oka-c-panel'));
