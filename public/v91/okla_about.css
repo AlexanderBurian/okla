@@ -178,42 +178,44 @@ html.okla-about-takeover nav.breadcrumb,
 html.okla-about-takeover .breadcrumb,
 html.okla-about-takeover .breadcrumb-nav{display:none!important}
 
-/* About hero desktop: short panoramic band; keep image aspect ratio via cover (no stretching). */
+/* About hero desktop: ONE image, entire original width, natural aspect ratio.
+   Keep the compact banner; crop only the top/bottom, never the image sides. */
 @media (min-width:901px){
   html body .okla-about .oka-hero{
-    display:block!important;position:relative!important;
+    display:block!important;
+    position:relative!important;
     width:100%!important;
     height:clamp(345px,35vw,465px)!important;
-    min-height:0!important;max-height:465px!important;
-    aspect-ratio:auto!important;overflow:hidden!important;
+    min-height:0!important;
+    max-height:465px!important;
+    aspect-ratio:auto!important;
+    overflow:hidden!important;
+    background:#d5dfec!important; /* no duplicated background image */
   }
-  html body .okla-about .oka-hero__img{
-    position:absolute!important;top:50%!important;left:0!important;right:auto!important;bottom:auto!important;
-    width:100%!important;height:auto!important;
-    max-width:100%!important;max-height:none!important;
-    object-fit:contain!important;object-position:center!important;
+  html body .okla-about .oka-hero > img.oka-hero__img{
+    display:block!important;
+    position:absolute!important;
+    inset:auto!important;
+    top:50%!important;
+    left:0!important;
+    right:auto!important;
+    bottom:auto!important;
+    width:100%!important;
+    min-width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    object-fit:unset!important;
+    object-position:center!important;
     transform:translateY(-50%)!important;
-    display:block!important;
   }
-  html body .okla-about .oka-hero .oka-wrap{
-    position:absolute!important;inset:0!important;
-    height:100%!important;min-height:0!important;
-    display:flex!important;align-items:center!important;
-  }
-}
-
-/* About hero: fit the complete original photo inside the existing short desktop banner. */
-@media (min-width:901px){
-  html body .okla-about .oka-hero{
-    background:#13345f url("img/about/hero-building.webp") center center / cover no-repeat!important;
-  }
-  html body .okla-about .oka-hero__img{
-    position:absolute!important;inset:0!important;
-    top:0!important;left:0!important;right:0!important;bottom:0!important;
-    display:block!important;
-    width:100%!important;height:100%!important;
-    max-width:100%!important;max-height:100%!important;
-    object-fit:contain!important;object-position:center!important;
-    transform:none!important;
+  html body .okla-about .oka-hero > .oka-wrap{
+    position:absolute!important;
+    inset:0!important;
+    height:100%!important;
+    min-height:0!important;
+    display:flex!important;
+    align-items:center!important;
   }
 }
