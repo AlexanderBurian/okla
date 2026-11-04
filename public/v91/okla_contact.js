@@ -149,6 +149,26 @@
   host.insertBefore(node,host.firstChild);
   document.title='Kontakty · OKLA';
   wire(node);
+  /* Footer deep links: open the actual contact form with a relevant subject.
+     The form is added by JavaScript, so the browser's initial hash jump is too early. */
+  var topicFromUrl=new URLSearchParams(location.search).get('tema');
+  var topics={
+   objednavka:'Dotaz k objednávce',
+   reklamace:'Reklamace nebo vrácení',
+   poradenstvi:'Poradenství s výběrem',
+   velkoobchod:'Velkoobchod / spolupráce',
+   jine:'Jiné'
+  };
+  if(location.hash==='#okla-contact-form'){
+   var sel=node.querySelector('#okc-topic');
+   if(sel&&Object.prototype.hasOwnProperty.call(topics,topicFromUrl))sel.value=topics[topicFromUrl];
+   requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+     var target=node.querySelector('#okla-contact-form');
+     if(target)target.scrollIntoView({behavior:'auto',block:'start'});
+    });
+   });
+  }
   return true;
  }
  if(!mount()){
