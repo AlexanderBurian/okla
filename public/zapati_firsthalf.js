@@ -6,6 +6,118 @@
 
   var current = document.currentScript;
   var apiUrl = current && current.getAttribute('data-api-url');
+
+  /*
+   * Native Shoptet article previews for the custom OKLA homepage news grid.
+   * The pinned storefront still contains old stock-image assignments; native
+   * og:image from each Shoptet article is authoritative, including later edits
+   * made in the Shoptet article administration.
+   */
+  function syncNativeArticleImages() {
+    if (location.pathname !== '/' && location.pathname !== '') return;
+
+    var paths = [
+      '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/',
+      '/nase-novinky/wifi/',
+      '/nase-novinky/usb-c/',
+      '/nase-novinky/nfc/',
+      '/nase-novinky/meridlo/'
+    ];
+    var covers = [];
+    var activeSection = null;
+    var imageObserver = null;
+
+    function usableCover(value, pageUrl) {
+      if (!value) return null;
+      try {
+        var u = new URL(value, pageUrl);
+        if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
+        // Shoptet may use the shop origin or its image CDN.
+        if (u.hostname !== location.hostname && u.hostname !== 'cdn.myshoptet.com') return null;
+        if (/\\/logos\\/|preforma-logo|favicon/i.test(u.pathname)) return null;
+        return u.href;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function paint() {
+      var section = document.getElementById('okla-news-v55');
+      if (!section) return;
+      var cards = section.querySelectorAll('.okn-card');
+      for (var i = 0; i < Math.min(cards.length, paths.length); i++) {
+        if (!covers[i]) continue;
+        var img = cards[i].querySelector('.okn-image img');
+        if (!img) continue;
+        if (img.getAttribute('src') !== covers[i] || img.hasAttribute('srcset')) {
+          img.onerror = null; // Prevent the obsolete Unsplash/Pexels fallback.
+          img.removeAttribute('srcset');
+          img.removeAttribute('sizes');
+          img.setAttribute('src', covers[i]);
+        }
+        img.setAttribute('alt', cards[i].querySelector('.okn-title')?.textContent?.trim() || 'Článek OKLA');
+      }
+    }
+
+    function attach() {
+      var section = document.getElementById('okla-news-v55');
+      if (!section || section === activeSection) return !!section;
+      if (imageObserver) imageObserver.disconnect();
+      activeSection = section;
+      imageObserver = new MutationObserver(function (changes) {
+        if (changes.some(function (change) {
+          return change.type === 'attributes' || change.addedNodes.length > 0;
+        })) paint();
+      });
+      // Observe only the article grid, not product cards or the rest of Shoptet.
+      imageObserver.observe(section, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        attributeFilter: ['src', 'srcset']
+      });
+      paint();
+      return true;
+    }
+
+    function observeNewsMount() {
+      if (attach()) return;
+      var root = document.querySelector('main#content') || document.getElementById('content') || document.body;
+      if (!root) return;
+      var mountObserver = new MutationObserver(function () {
+        if (attach()) mountObserver.disconnect();
+      });
+      mountObserver.observe(root, { childList: true, subtree: true });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', observeNewsMount, { once: true });
+    } else {
+      observeNewsMount();
+    }
+
+    paths.forEach(function (path, index) {
+      fetch(path, { credentials: 'same-origin' })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Article HTTP ' + response.status);
+          return response.text();
+        })
+        .then(function (html) {
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var meta = doc.querySelector('meta[property="og:image"]');
+          var url = usableCover(meta && meta.getAttribute('content'), location.origin + path);
+          if (url) {
+            covers[index] = url;
+            paint();
+          }
+        })
+        .catch(function () {
+          // Never replace a Shoptet image with an unrelated stock picture.
+        });
+    });
+  }
+  syncNativeArticleImages();
+
   var storefrontUrl = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@4bbf6608f1a9bbd5c106a86e9623f0b5485b6033/public/zapati_firsthalf.js?v=100';
   var aiBase = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@cf6fd489ea3a618a1bc2726a9ca5806b3705a93d/public/ai/v1/';
 
