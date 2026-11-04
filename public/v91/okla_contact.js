@@ -35,7 +35,7 @@
    '<div class="oka-c-top__head"><h1>Kontaktujte OKLA</h1></div>'+
    '<div class="oka-c-cards">'+
      card('icon-support.png','Zákaznická podpora','Pomůžeme s objednávkou i reklamací.','Napsat podpoře','Dotaz k objednávce')+
-     card('icon-advice-correct.svg','Poradenství s výběrem','Pomůžeme vybrat vhodný přístroj.','Poradit s výběrem','Poradenství s výběrem')+
+     card('icon-advice-question-circle-v3.svg','Poradenství s výběrem','Pomůžeme vybrat vhodný přístroj.','Poradit s výběrem','Poradenství s výběrem')+
      card('icon-business.png','Pro firmy a velkoobchod','Napište nám ohledně velkoobchodní spolupráce.','Chci spolupracovat','Velkoobchod / spolupráce')+
    '</div>'+
  '</div></div>'+
