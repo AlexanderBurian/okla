@@ -475,7 +475,7 @@ html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(
 .okm61-category-icon img.okla-category-png[src*="prislusenstvi.svg"]{
   display:block!important;width:100%!important;height:100%!important;
   object-fit:contain!important;object-position:center!important;
-  transform:scale(1.08);transform-origin:center center;
+  transform:none!important; /* avoid fractional SVG resampling seams at 27px */
 }
 /* Both mobile category grids: cards retain their 2-column layout but icon and
    label are optically centered on both axes. */
@@ -498,6 +498,19 @@ html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(
     -webkit-line-clamp:2!important;overflow:hidden!important;
     width:100%!important;margin:0 auto!important;text-align:center!important;
     line-height:1.3!important;
+  }
+}
+/* Keep the accessories row edges and pictogram pixel-aligned at desktop sizes. */
+@media(min-width:992px){
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a:has(img[src*="prislusenstvi.svg"]){
+    border-radius:0!important;backface-visibility:hidden!important;
+  }
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a:has(img[src*="prislusenstvi.svg"]) .okla-cat-svg{
+    align-items:center!important;justify-content:center!important;
+  }
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a:has(img[src*="prislusenstvi.svg"]) img{
+    position:static!important;vertical-align:middle!important;
+    transform:none!important;filter:none!important;image-rendering:auto!important;
   }
 }
 /* Center payment-method and Top 10 headings without changing the sidebar categories. */
