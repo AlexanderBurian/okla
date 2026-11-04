@@ -6,9 +6,9 @@ if(window.__oklaGreenCtaV91)return;
 window.__oklaGreenCtaV91=true;
 var selector='button,a.btn,a[class*="button"],input[type="submit"],input[type="button"],[role="button"]';
 function isGreen(bg){
- var m=/^rgba?\\(\\s*(\\d+)[,\\s]+(\\d+)[,\\s]+(\\d+)/.exec(bg||'');
- if(!m)return false;
- var r=+m[1],g=+m[2],b=+m[3];
+ var nums=(bg||'').match(/[0-9.]+/g);
+ if(!nums||nums.length<3)return false;
+ var r=+nums[0],g=+nums[1],b=+nums[2];
  // Visible bright or medium green buttons, not turquoise, grey or blue.
  return g>=110&&g>r*1.23&&g>b*1.36&&r<180&&b<125;
 }
