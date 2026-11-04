@@ -51,7 +51,7 @@ modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js'); if(document.
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
 if(/^\/stav-objednavky(\/|$)/.test(location.pathname)||document.querySelector('[data-okla-order-status]')) modules.push('v91/okla_order_status.css','v91/okla_order_status.js');
 if(/^\/o-nas(\/|$)/.test(location.pathname)) modules.push('v91/okla_about.css','v91/okla_about.js');
- if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css');
+ if(document.body&&document.body.classList.contains('in-kontakty')) modules.push('v91/okla_contact.css','v91/okla_contact.js');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a

@@ -1,23 +1,111 @@
-/* Kontakty: contact form in the layout of the reference (label on the left, field on the right, navy button). */
-body.in-kontakty #content h1{font-size:30px;font-weight:600;color:#0b2540;margin:0 0 12px}
-body.in-kontakty #formContact{max-width:760px;width:100%;margin:28px 0 0}
-body.in-kontakty #formContact fieldset{border:0;margin:0;padding:0;min-width:0}
-body.in-kontakty #formContact .form-group{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 28px;align-items:start;margin:0 0 22px}
-body.in-kontakty #formContact .form-group > label{margin:0;padding-top:13px;font-size:15px;line-height:1.4;font-weight:500;color:#1d2433}
-body.in-kontakty #formContact .required-asterisk{color:#103e76;margin-left:2px}
-body.in-kontakty #formContact .form-control{width:100%;height:48px;padding:0 14px;border:1px solid #d7dde6;border-radius:10px;background:#fff;box-shadow:none;font-size:15px;color:#1d2433}
-body.in-kontakty #formContact textarea.form-control{height:150px;padding:12px 14px;resize:vertical}
-body.in-kontakty #formContact .form-control:focus{border-color:#103e76;box-shadow:0 0 0 3px rgba(16,62,118,.12);outline:0}
-body.in-kontakty #formContact .consents{display:block;margin:-6px 0 28px 228px}
-body.in-kontakty #formContact .consents .label{margin:0;font-size:13px;line-height:1.5;color:#6b7280}
-body.in-kontakty #formContact .consents .label a{color:#103e76}
-body.in-kontakty #formContact .submit-wrapper{display:flex;justify-content:flex-end;margin:8px 0 0}
-body.in-kontakty #formContact .submit-wrapper .btn{height:48px;min-width:140px;padding:0 32px;border:0;border-radius:10px;background:#0b2540;color:#fff;font-size:15px;font-weight:600;text-transform:none;box-shadow:none}
-body.in-kontakty #formContact .submit-wrapper .btn:hover{background:#103e76;color:#fff}
-@media(max-width:540px){
- body.in-kontakty #formContact .form-group{grid-template-columns:minmax(0,1fr);gap:6px;margin-bottom:18px}
- body.in-kontakty #formContact .form-group > label{padding-top:0}
- body.in-kontakty #formContact .consents{margin:-4px 0 22px 0}
- body.in-kontakty #formContact .submit-wrapper{justify-content:stretch}
- body.in-kontakty #formContact .submit-wrapper .btn{width:100%}
+/* OKLA V91 – "Kontakty" page, laid out after NVIDIA's contact page but in OKLA
+   blue: a grey top band with three contact cards, a "where to find us" block,
+   and a working contact form at the bottom. Rendered by okla_contact.js on
+   /kontakty/ (takes over the CMS page). */
+
+html body .oka-contact{
+  width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  overflow-x:hidden;
+  font-family:'Exo 2','Roboto',Arial,sans-serif;
+  color:#1a2330;background:#fff;
+  --b:#16478B;--bd:#0e2f66;--mut:#5a6676;--line:#e3e7ee;--grey:#f2f4f7;
 }
+html body .oka-contact *,
+html body .oka-contact *:before,
+html body .oka-contact *:after{box-sizing:border-box}
+html body .oka-contact h1,html body .oka-contact h2,html body .oka-contact h3,
+html body .oka-contact p,html body .oka-contact ul,html body .oka-contact label{margin:0;padding:0}
+html body .oka-c-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------------- TOP BAND: contact cards ---------------- */
+html body .oka-c-top{background:var(--grey);padding:64px 0 72px}
+html body .oka-c-top__head{text-align:center;max-width:720px;margin:0 auto 44px}
+html body .oka-c-top h1{font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.5px;color:#141c28}
+html body .oka-c-top__head p{margin-top:12px;font-size:20px;font-weight:600;color:#2c3a52}
+html body .oka-c-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+html body .oka-c-card{text-align:center;padding:8px 34px;display:flex;flex-direction:column;align-items:center}
+html body .oka-c-card + .oka-c-card{border-left:1px solid #d7dde6}
+html body .oka-c-card__ic{width:88px;height:88px;border-radius:50%;background:#fff;display:grid;place-items:center;margin-bottom:20px;box-shadow:0 2px 10px rgba(11,37,64,.08)}
+html body .oka-c-card__ic img{width:64px;height:64px;object-fit:contain;display:block}
+html body .oka-c-card h3{font-size:22px;font-weight:700;color:#141c28;margin-bottom:12px}
+html body .oka-c-card p{font-size:15px;line-height:1.6;color:var(--mut);max-width:260px;margin-bottom:22px}
+html body .oka-c-card .oka-c-btn{margin-top:auto}
+
+/* buttons */
+html body .oka-c-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  height:46px;padding:0 24px;border-radius:6px;border:1px solid var(--b);
+  background:var(--b);color:#fff;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;
+  transition:background-color .15s ease,border-color .15s ease;
+}
+html body .oka-c-btn:hover{background:var(--bd);border-color:var(--bd);color:#fff}
+html body .oka-c-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------------- LOCATIONS ---------------- */
+html body .oka-c-loc{padding:66px 0 10px}
+html body .oka-c-loc__head{text-align:center;max-width:680px;margin:0 auto 10px}
+html body .oka-c-loc h2{font-size:32px;font-weight:800;letter-spacing:-.4px;color:#141c28}
+html body .oka-c-loc__head p{margin-top:12px;font-size:17px;color:var(--mut)}
+html body .oka-c-tabs{display:flex;justify-content:center;gap:34px;margin:26px 0 0;border-bottom:1px solid var(--line)}
+html body .oka-c-tab{appearance:none;background:none;border:0;padding:0 2px 14px;margin-bottom:-1px;font-family:inherit;font-size:16px;font-weight:600;color:var(--mut);cursor:pointer;border-bottom:3px solid transparent}
+html body .oka-c-tab.is-active{color:var(--b);border-bottom-color:var(--b)}
+html body .oka-c-panels{padding:34px 0 0}
+html body .oka-c-panel{display:none}
+html body .oka-c-panel.is-active{display:block}
+html body .oka-c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 40px}
+html body .oka-c-col h3{font-size:19px;font-weight:700;color:#141c28;margin-bottom:14px}
+html body .oka-c-item{margin-bottom:16px}
+html body .oka-c-item b{display:block;font-size:14.5px;font-weight:700;color:#1a2330;margin-bottom:2px}
+html body .oka-c-item span{font-size:14.5px;line-height:1.5;color:var(--mut)}
+html body .oka-c-item a{color:var(--b);text-decoration:none;font-weight:600}
+html body .oka-c-item a:hover{text-decoration:underline}
+
+/* ---------------- CONTACT FORM ---------------- */
+html body .oka-c-form{padding:62px 0 76px}
+html body .oka-c-form__inner{max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:40px 44px;box-shadow:0 2px 14px rgba(11,37,64,.05)}
+html body .oka-c-form__head{text-align:center;margin-bottom:28px}
+html body .oka-c-form h2{font-size:28px;font-weight:800;color:#141c28;letter-spacing:-.3px}
+html body .oka-c-form__head p{margin-top:10px;font-size:15.5px;line-height:1.6;color:var(--mut)}
+html body .oka-c-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+html body .oka-c-field{display:flex;flex-direction:column;gap:7px}
+html body .oka-c-field--full{grid-column:1/-1}
+html body .oka-c-field label{font-size:13.5px;font-weight:600;color:#2c3a52}
+html body .oka-c-field input,html body .oka-c-field select,html body .oka-c-field textarea{
+  width:100%;border:1px solid #cdd4de;border-radius:10px;padding:0 14px;height:48px;
+  font-family:inherit;font-size:15px;color:#1a2330;background:#fff;
+}
+html body .oka-c-field textarea{height:auto;min-height:140px;padding:12px 14px;resize:vertical;line-height:1.55}
+html body .oka-c-field input:focus,html body .oka-c-field select:focus,html body .oka-c-field textarea:focus{outline:none;border-color:var(--b);box-shadow:0 0 0 3px rgba(22,71,139,.14)}
+html body .oka-c-form .oka-c-btn{width:100%;height:52px;font-size:16px;margin-top:6px}
+html body .oka-c-form__note{margin-top:14px;text-align:center;font-size:13px;color:var(--mut)}
+html body .oka-c-form__note a{color:var(--b);text-decoration:none}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media(max-width:860px){
+  html body .oka-c-top h1{font-size:32px}
+  html body .oka-c-top__head p{font-size:17px}
+  html body .oka-c-cards{grid-template-columns:1fr;gap:10px}
+  html body .oka-c-card{padding:28px 20px;border-radius:14px;background:#fff;box-shadow:0 1px 6px rgba(11,37,64,.06)}
+  html body .oka-c-card + .oka-c-card{border-left:0}
+  html body .oka-c-grid{grid-template-columns:1fr 1fr;gap:22px 24px}
+  html body .oka-c-loc h2,html body .oka-c-form h2{font-size:25px}
+}
+@media(max-width:560px){
+  html body .oka-c-wrap{padding:0 16px}
+  html body .oka-c-top{padding:44px 0 50px}
+  html body .oka-c-top h1{font-size:27px}
+  html body .oka-c-tabs{gap:22px}
+  html body .oka-c-grid{grid-template-columns:1fr}
+  html body .oka-c-row{grid-template-columns:1fr}
+  html body .oka-c-form__inner{padding:26px 20px}
+}
+
+/* ---------------- Takeover ---------------- */
+html.okla-contact-takeover #content .content-inner > *:not(.oka-contact){display:none!important}
+html.okla-contact-takeover #content .content-inner{padding:0!important}
+html.okla-contact-takeover .breadcrumbs,
+html.okla-contact-takeover .breadcrumbs-wrapper,
+html.okla-contact-takeover #navigation .breadcrumbs,
+html.okla-contact-takeover nav.breadcrumb,
+html.okla-contact-takeover .breadcrumb,
+html.okla-contact-takeover .breadcrumb-nav{display:none!important}
