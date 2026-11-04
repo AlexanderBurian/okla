@@ -264,144 +264,280 @@
 }
 /* The existing OKLA V61 mobile controls remain responsible for 0–767px. */
 
-
-/* OKLA V95: centered header alignment and single outline search glyph. */
-/* Desktop only. The two original mobile header variants are not affected. */
-@media (min-width: 1200px) {
+/* OKLA V96 — one centered desktop header, visually aligned with content edges.
+   Existing Shoptet search, customer account, language picker and LIVE cart price remain.
+   Does NOT touch either ordinary or sticky mobile header (under 768px). */
+@media (min-width:992px) {
+  html.okla-header-reference body .overall-wrapper > #header > .container.navigation-wrapper {
+    width:calc(100% - 92px)!important;
+    max-width:var(--okla-site-width,1310px)!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+    box-sizing:border-box!important;
+  }
   html.okla-header-reference body #header .header-top {
-    grid-template-columns:190px minmax(0,1fr) 440px!important;
-    gap:16px!important;
-    min-height:80px!important;
+    display:grid!important;
+    grid-template-columns: minmax(142px,190px) minmax(300px,1fr) minmax(378px,414px)!important;
+    column-gap:17px!important;
     align-items:center!important;
     justify-items:stretch!important;
-    box-sizing:border-box!important;
-  }
-  html.okla-header-reference body #header .header-top>.search {
     width:100%!important;
-    max-width:none!important;
-    min-width:0!important;
-    justify-self:stretch!important;
-  }
-  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready,
-  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready>.okla-exact-header {
-    width:440px!important;
-    min-width:440px!important;
-    max-width:440px!important;
-  }
-}
-@media (min-width:992px) and (max-width:1199px) {
-  html.okla-header-reference body #header .header-top {
-    grid-template-columns:140px minmax(0,1fr) 380px!important;
-    gap:14px!important;
-    min-height:76px!important;
-    align-items:center!important;
+    min-height:80px!important;
+    height:auto!important;
+    margin:0 auto!important;
+    padding:8px 0!important;
     box-sizing:border-box!important;
   }
-  html.okla-header-reference body #header .header-top>.search {
-    width:100%!important;max-width:none!important;min-width:0!important;
-    justify-self:stretch!important;
-  }
-  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready,
-  html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready>.okla-exact-header {
-    width:380px!important;min-width:380px!important;max-width:380px!important;
-  }
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
-    flex:0 0 151px!important;width:151px!important;min-width:151px!important;max-width:151px!important;
-  }
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
-    flex:0 1 auto!important;min-width:150px!important;max-width:184px!important;
-  }
-}
-@media (min-width: 992px) {
   html.okla-header-reference body #header .header-top > .site-name-wrapper,
   html.okla-header-reference body #header .header-top > .search,
   html.okla-header-reference body #header .header-top > .navigation-buttons.okla-header-ready {
+    position:relative!important;
     align-self:center!important;
-    margin-top:0!important;
-    margin-bottom:0!important;
     top:auto!important;
+    right:auto!important;
     bottom:auto!important;
+    left:auto!important;
+    float:none!important;
     transform:none!important;
+    margin:0!important;
+    padding:0!important;
+    min-width:0!important;
+    box-sizing:border-box!important;
   }
   html.okla-header-reference body #header .header-top > .site-name-wrapper {
+    grid-column:1!important;
+    width:100%!important;
+    max-width:190px!important;
+    min-height:54px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+  }
+  html.okla-header-reference body #header .header-top > .site-name-wrapper .site-name {
     display:flex!important;
     align-items:center!important;
     justify-content:flex-start!important;
     min-height:54px!important;
+    margin:0!important;
+    padding:0!important;
   }
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header {
+  html.okla-header-reference body #header .header-top > .site-name-wrapper img {
+    display:block!important;
+    height:auto!important;
+    width:auto!important;
+    max-width:100%!important;
+    max-height:54px!important;
+    object-fit:contain!important;
+    margin:0!important;
+  }
+  /* Search consumes ALL remaining horizontal space between logo and controls. */
+  html.okla-header-reference body #header .header-top > .search {
+    grid-column:2!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    justify-self:stretch!important;
+    display:block!important;
+  }
+  html.okla-header-reference body #header .header-top > .search form.search-form,
+  html.okla-header-reference body #header .header-top > .search form.search-form fieldset {
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    box-sizing:border-box!important;
+  }
+  html.okla-header-reference body #header .header-top > .navigation-buttons.okla-header-ready {
+    grid-column:3!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    justify-self:stretch!important;
+    height:54px!important;
+    min-height:54px!important;
+    width:100%!important;
+    max-width:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header {
+    display:flex!important;
+    flex-direction:row!important;
     align-items:center!important;
     justify-content:space-between!important;
-    align-self:center!important;
+    gap:0!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    height:54px!important;
     min-height:54px!important;
+    flex:1 1 auto!important;
+    margin:0!important;
+    padding:0!important;
   }
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account,
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count {
-    align-self:center!important;
-    transform:none!important;
-    top:auto!important;
-    bottom:auto!important;
-    margin-top:0!important;
-    margin-bottom:0!important;
-  }
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale {
-    margin-right:auto!important;
-  }
-  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count {
-    justify-content:flex-end!important;
-    gap:7px!important;
-  }
-}
-/* The Shoptet button contains its own black search glyph. Suppress that glyph,
-   all pseudo-icons, and the old theme's default background image, and replace
-   them with a SINGLE consistent gray outline magnifier on the actual submit button.
-   The original button and its native search behavior are left intact. */
-@media (min-width:768px) {
-  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"] {
-    position:relative!important;
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > .okla-header-locale {
+    flex:0 0 42px!important;
+    order:0!important;
+    width:42px!important;
+    min-width:42px!important;
+    max-width:42px!important;
+    height:54px!important;
+    min-height:54px!important;
+    margin:0 auto 0 0!important;
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
-    width:46px!important;
-    min-width:46px!important;
-    max-width:46px!important;
-    flex:0 0 46px!important;
-    height:46px!important;
-    min-height:46px!important;
-    max-height:46px!important;
+    align-self:center!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > .okla-header-account {
+    order:1!important;
+    flex:0 0 153px!important;
+    width:153px!important;
+    min-width:153px!important;
+    max-width:153px!important;
+    height:54px!important;
+    min-height:54px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:8px!important;
     padding:0!important;
     margin:0!important;
-    font-size:0!important;
-    line-height:0!important;
-    text-indent:-9999px!important;
-    color:transparent!important;
-    -webkit-text-fill-color:transparent!important;
-    background-color:transparent!important;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7f96' stroke-width='1.65' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7.1'/%3E%3Cpath d='m15.8 15.8 5 5'/%3E%3C/svg%3E")!important;
-    background-position:center!important;
-    background-repeat:no-repeat!important;
-    background-size:24px 24px!important;
-    box-shadow:none!important;
-    filter:none!important;
+    transform:none!important;
+    align-self:center!important;
+    vertical-align:middle!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-icon {
+    flex:0 0 24px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:30px!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy {
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:54px!important;
+    min-height:54px!important;
+    flex:0 1 auto!important;
+    margin:0!important;
+    padding:0!important;
+    line-height:1!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy strong {
+    display:block!important;
+    font:400 15px/21px Roboto,Arial,sans-serif!important;
+    color:#202020!important;
+    white-space:nowrap!important;
+    margin:0!important;
+    padding:0!important;
+    line-height:21px!important;
+    text-align:center!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-chevron {
+    display:block!important;
+    align-self:center!important;
+    margin:-5px 0 0 0!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > a.cart-count {
+    order:2!important;
+    flex:0 1 auto!important;
+    width:auto!important;
+    min-width:158px!important;
+    max-width:212px!important;
+    height:54px!important;
+    min-height:54px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-end!important;
+    align-self:center!important;
+    gap:6px!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+    white-space:nowrap!important;
+    vertical-align:middle!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > a.cart-count .okla-cart-symbol {
+    position:relative!important;
+    flex:0 0 32px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    height:32px!important;
+    min-height:32px!important;
+    width:32px!important;
+    margin:0!important;
+    padding:0!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > a.cart-count .okla-cart-symbol svg {
+    width:29px!important;
+    height:29px!important;
+    display:block!important;
+    transform:none!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > a.cart-count > .cart-price {
+    position:relative!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    min-height:54px!important;
+    height:54px!important;
+    width:auto!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    font:700 15px/21px Roboto,Arial,sans-serif!important;
+    color:#202020!important;
+    white-space:nowrap!important;
+    visibility:visible!important;
     opacity:1!important;
-    overflow:hidden!important;
+    transform:none!important;
   }
-  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"]:is(:hover,:focus,:active) {
-    background-color:transparent!important;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23334b67' stroke-width='1.65' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7.1'/%3E%3Cpath d='m15.8 15.8 5 5'/%3E%3C/svg%3E")!important;
-    background-position:center!important;
-    background-repeat:no-repeat!important;
-    background-size:24px 24px!important;
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > a.cart-count > .okla-reference-cart-chevron {
+    align-self:center!important;
+    margin:-5px 0 0 auto!important;
   }
-  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"]::before,
-  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"]::after {
-    content:none!important;
-    display:none!important;
-    background:none!important;
-  }
-  html.okla-header-reference body #header .header-top>.search form.search-form button[type="submit"] > * {
-    display:none!important;
-    visibility:hidden!important;
+  /* The search overlay uses the same width as the actual input, not a 580px minimum. */
+  html.okla-header-reference body #header .header-top .search .okla-search-panel {
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+    left:0!important;
+    right:0!important;
+    box-sizing:border-box!important;
   }
 }
+@media(min-width:992px) and (max-width:1160px) {
+  html.okla-header-reference body #header .header-top {
+    grid-template-columns:minmax(126px,158px) minmax(230px,1fr) minmax(350px,370px)!important;
+    gap:13px!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > .okla-header-account {
+    flex-basis:136px!important;
+    width:136px!important;
+    min-width:136px!important;
+    max-width:136px!important;
+  }
+  html.okla-header-reference body #header .header-top .navigation-buttons > .okla-exact-header > a.cart-count{
+    min-width:148px!important;
+    max-width:185px!important;
+  }
+}
+@media(min-width:768px) and (max-width:991px){
+  html.okla-header-reference body #header .header-top > .search {
+    width:100%!important;
+    min-width:0!important;
+    max-width:100%!important;
+  }
+  html.okla-header-reference body #header .header-top .search .okla-search-panel {
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+  }
+}
+/* No changes below 768px: preserve both OKLA mobile header modes. */
