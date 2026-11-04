@@ -11,25 +11,72 @@ window.__oklaNewsroomV1=true;
 var ARTICLES=[
  {title:'Flipper Zero: co všechno zvládne kapesní multitool?',
   excerpt:'Sub-GHz rádio, čtečka RFID a NFC karet a infračervený vysílač v kapesním přístroji. Samo o sobě nic neotevře, záleží na tom, co s ním umíte a na jaké systémy máte oprávnění.',
-  img:'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@74fbf8aff4d9b1bef0ef07fffc0df555da069f7b/public/clanky/obrazky/flipper-hero.webp',
+  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_02_09.png',
   href:'/clanky/flipper-zero/',date:'2026-10-31',minutes:12,topic:'Elektronika',category:'Multitool a RF'},
  {title:'Wi-Fi endoskopická kamera: na co se zaměřit při výběru',
   excerpt:'Ne každý endoskop nabídne stejně dobrý obraz. Záleží na průměru sondy, délce kabelu, přísvícení i kompatibilitě s telefonem.',
-  img:'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@29ff0c42ead6d31d4716e30b9c270e22604b5794/public/clanky/obrazky/wifi-endoskop-hero.webp',
+  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_27-2.png',
   href:'/clanky/wifi-endoskop/',date:'2026-10-31',minutes:9,topic:'Měření a kontrola',category:'Endoskopy'},
  {title:'USB-C testery: jak snadno zkontrolovat nabíjení',
   excerpt:'Přehledné měření napětí, proudu a výkonu vám pomůže zjistit, co skutečně zvládne nabíječka nebo kabel.',
-  img:'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@29ff0c42ead6d31d4716e30b9c270e22604b5794/public/clanky/obrazky/usb-c-testery-hero.webp',
+  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_23-1.png',
   href:'/clanky/usb-c-testery/',date:'2026-10-31',minutes:8,topic:'Nabíjení a napájení',category:'Testery'},
  {title:'NFC karty a štítky: nenápadná technologie s velkým využitím',
   excerpt:'Jednoduché sdílení kontaktů, spouštění automatizací i rychlé otevírání odkazů. NFC dokáže zpříjemnit běžné činnosti a vejde se do peněženky.',
-  img:'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@f0c536abe08d9abcc1ae5a3eb32e8b07187773ce/public/clanky/obrazky/nfc-karty-hero-v2.webp',
+  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_29-3.png',
   href:'/clanky/nfc-karty/',date:'2026-10-31',minutes:8,topic:'Chytré technologie',category:'NFC'},
  {title:'Chytré měřicí gadgety: drobnosti, které ušetří čas',
   excerpt:'Od laserových dálkoměrů až po digitální váhy. Jaké parametry sledovat a kdy se vyplatí pořídit specializovaný nástroj?',
-  img:'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@29ff0c42ead6d31d4716e30b9c270e22604b5794/public/clanky/obrazky/merici-technika-hero.webp',
+  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_32-4.png',
   href:'/clanky/merici-technika/',date:'2026-10-31',minutes:8,topic:'Měření a kontrola',category:'Měřicí přístroje'}
 ];
+
+/* Shoptet article preview images are the source of truth (same five entries as the homepage).
+   Initialize with the last verified native covers, then fetch the current og:image from each article.
+   Never fall back to unrelated stock/CDN article illustrations. */
+var NATIVE_ARTICLE_PAGES=[
+ '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/',
+ '/nase-novinky/wifi/',
+ '/nase-novinky/usb-c/',
+ '/nase-novinky/nfc/',
+ '/nase-novinky/meridlo/'
+];
+ARTICLES.forEach(function(a,i){a.nativeIndex=i;});
+
+function applyNativeNewsImage(index,src){
+ var article=ARTICLES[index];
+ if(!article)return;
+ article.img=src;
+ var cards=document.querySelectorAll('.okla-newsroom .nr-card[data-native-index="'+index+'"] .nr-card__media img');
+ for(var k=0;k<cards.length;k++){
+  cards[k].removeAttribute('srcset');
+  cards[k].removeAttribute('sizes');
+  if(cards[k].getAttribute('src')!==src) cards[k].setAttribute('src',src);
+ }
+}
+function syncShoptetCovers(){
+ NATIVE_ARTICLE_PAGES.forEach(function(page,index){
+  fetch(page,{credentials:'same-origin'})
+   .then(function(response){
+    if(!response.ok)throw new Error('HTTP '+response.status);
+    return response.text();
+   })
+   .then(function(html){
+    var doc=new DOMParser().parseFromString(html,'text/html');
+    var meta=doc.querySelector('meta[property="og:image"]');
+    if(!meta)return;
+    var raw=meta.getAttribute('content');
+    if(!raw)return;
+    var url=new URL(raw,new URL(page,location.origin));
+    if(url.protocol!=='https:'&&url.protocol!=='http:')return;
+    if(url.hostname!==location.hostname&&url.hostname!=='cdn.myshoptet.com')return;
+    if(/preforma-logo|favicon|\/user\/logos\//i.test(url.pathname))return;
+    applyNativeNewsImage(index,url.href);
+   })
+   .catch(function(){ /* Last verified Shoptet cover remains visible. */ });
+ });
+}
+syncShoptetCovers();
 
 var ICON={
  search:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
@@ -95,6 +142,7 @@ function options(key,first){
 function card(a){
  var el=document.createElement('article');
  el.className='nr-card';
+ el.setAttribute('data-native-index',String(a.nativeIndex));
  el.innerHTML='<a class="nr-card__media" href="'+esc(a.href)+'" tabindex="-1" aria-hidden="true"><img src="'+esc(a.img)+'" alt="" loading="lazy" decoding="async"></a>'
   +'<div class="nr-card__body">'
   +'<p class="nr-card__category">'+esc(a.category)+'</p>'
