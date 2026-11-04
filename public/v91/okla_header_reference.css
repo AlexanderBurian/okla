@@ -97,7 +97,7 @@
     content:""!important;display:block!important;position:absolute!important;
     left:50%!important;top:50%!important;width:24px!important;height:24px!important;
     transform:translate(-50%,-50%)!important;
-    background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23798da5' stroke-width='1.45' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7.2'/%3E%3Cpath d='M16.1 16.1 21 21'/%3E%3C/svg%3E") center/contain no-repeat!important;
+    background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23202020' stroke-width='1.45' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='10.5' cy='10.5' r='7.2'/%3E%3Cpath d='M16.1 16.1 21 21'/%3E%3C/svg%3E") center/contain no-repeat!important;
     border:0!important;box-shadow:none!important;opacity:1!important;pointer-events:none!important;
   }
 }
@@ -221,7 +221,15 @@
     transform:rotate(45deg)!important;
     background:transparent!important;
   }
-  /* Badge is shown only when Shoptet supplies a verified real item count. */
+  /* The original theme creates additional pseudo-chevron/icons. Display only
+     our single visible arrow and the actual live Shoptet cart value. */
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account::after,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count::before,
+  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count::after{
+    content:none!important;display:none!important;
+    background:none!important;border:0!important;
+  }
+    /* Badge is shown only when Shoptet supplies a verified real item count. */
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
     display:flex!important;align-items:center!important;justify-content:center!important;
     position:absolute!important;left:25px!important;top:2px!important;z-index:3!important;
