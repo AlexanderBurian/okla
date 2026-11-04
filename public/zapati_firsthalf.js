@@ -57,6 +57,11 @@ if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(doc
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
 /* Sitewide font and green CTA text fixes, last in the normal load order. */
 modules.push('v91/okla_global_typography.css','v91/okla_green_buttons.js');
+/* Every native legal/information article uses the full content card width. */
+if(/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vraceni-zbozi-a-odstoupeni|podminky-reklamnich-akci|prohlaseni-o-pristupnosti|doprava-a-platba|jak-nakupovat)(?:\/|$)/.test(location.pathname)){
+ document.documentElement.classList.add('okla-legal-wide');
+ modules.push('v91/okla_legal_fullwidth.css');
+}
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
