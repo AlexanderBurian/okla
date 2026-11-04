@@ -244,3 +244,6 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .star
 
 /* Homepage: the native "Poslední hodnocení" widget is hidden. */
 .latest-contribution.latest-contribution-rating{display:none!important}
+
+/* Desktop: product cards 8% larger within their slots */
+@media(min-width:992px){html body.type-index #content .okla-slider-shell .okla-slider-track>.product{zoom:1.08!important}}

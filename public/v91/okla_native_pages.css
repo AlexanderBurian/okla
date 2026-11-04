@@ -465,3 +465,6 @@ html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(
 .top-products-wrapper ol.top-products li:nth-child(1)::before{background:#e9b63f!important;color:#5a3d00!important}
 .top-products-wrapper ol.top-products li:nth-child(2)::before{background:#cbd1d9!important;color:#3a434f!important}
 .top-products-wrapper ol.top-products li:nth-child(3)::before{background:#c28f5b!important;color:#fff!important}
+
+/* Desktop: product cards 8% larger */
+@media(min-width:992px){html body.type-category #products.products-block > .product,html body.type-search #products.products-block > .product{zoom:1.08!important}}
