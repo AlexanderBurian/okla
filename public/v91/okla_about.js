@@ -94,35 +94,6 @@
    '<div id="okla-about-map" role="img" aria-label="Mapa: Česko, Slovensko a Maďarsko"></div>'+
  '</div></div>'+
 
- /* NEWS */
- '<div class="oka-sec oka-news"><div class="oka-wrap">'+
-   '<div class="oka-news__top">'+
-     '<h2 class="oka-h2">Z našeho newsroomu</h2>'+
-     '<a class="oka-link" href="/newsroom/">Všechny články'+ARROW+'</a>'+
-   '</div>'+
-   '<div class="oka-carousel">'+
-     '<button class="oka-car__btn oka-car__btn--prev" type="button" data-dir="-1" aria-label="Předchozí">'+ic(['M15 6l-6 6 6 6'])+'</button>'+
-     '<div class="oka-carousel__view"><div class="oka-carousel__track">'+
-       '<div class="oka-slide">'+art('news-1.jpg','Chytrá elektronika','Chytrá elektronika','Chytrá elektronika pro každý den')+'</div>'+
-       '<div class="oka-slide">'+art('news-2.jpg','Chytrá domácnost','Chytrá domácnost','Chytrá domácnost: kde začít')+'</div>'+
-       '<div class="oka-slide">'+art('news-3.jpg','Gadgety','Gadgety','Drony a gadgety: co právě letí')+'</div>'+
-     '</div></div>'+
-     '<button class="oka-car__btn oka-car__btn--next" type="button" data-dir="1" aria-label="Další">'+ic(['M9 6l6 6-6 6'])+'</button>'+
-   '</div>'+
-   '<div class="oka-car__dots"></div>'+
- '</div></div>'+
-
- /* CLOSING */
- '<div class="oka-sec oka-sec--tight oka-close"><div class="oka-wrap">'+
-   '<h2 class="oka-h2">Nevíte si rady s výběrem?</h2>'+
-   '<p>Napište nám a poradíme podle toho, k čemu přístroj budete používat. Odpoví vám někdo z našeho týmu, česky i slovensky.</p>'+
-   '<div class="oka-close__cta">'+
-     '<a class="oka-btn" href="/kontakty/">Kontaktujte nás'+ARROW+'</a>'+
-     '<a class="oka-btn oka-btn--ghost" href="mailto:podpora@okla.cz">Napsat e-mail</a>'+
-   '</div>'+
-   '<div class="oka-close__meta">Sklad a zázemí: Ostrava · <a href="mailto:podpora@okla.cz">podpora@okla.cz</a> · Po–Pá 9:00–17:00</div>'+
- '</div></div>'+
-
  '</section>';
 
  /* ---------- flat graphic map (styled SVG choropleth; real borders, one colour) ---------- */
