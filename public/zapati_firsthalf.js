@@ -55,6 +55,8 @@ if(/^\/o-nas(\/|$)/.test(location.pathname)) modules.push('v91/okla_about.css','
  if((document.body&&document.body.classList.contains('in-kontakt'))||/^\/kontakt(y)?(\/|$)/.test(location.pathname)) modules.push('v91/okla_contact.css','v91/okla_contact.js');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
+/* Sitewide font and green CTA text fixes, last in the normal load order. */
+modules.push('v91/okla_global_typography.css','v91/okla_green_buttons.js');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
