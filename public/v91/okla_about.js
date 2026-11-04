@@ -206,7 +206,7 @@
   var slides=[].slice.call(track.children);
   if(!slides.length)return;
   var dotsWrap=document.querySelector('.oka-car__dots');
-  var idx=0;
+  var idx=Math.floor(slides.length/2);
   var dots=slides.map(function(_,i){var b=document.createElement('button');b.type='button';b.className='oka-car__dot';b.setAttribute('aria-label','Článek '+(i+1));b.addEventListener('click',function(){go(i)});if(dotsWrap)dotsWrap.appendChild(b);return b});
   function layout(){
    var W=car.clientWidth||1;
