@@ -92,7 +92,7 @@ function getCats(){
 var q=document.querySelectorAll('#content-wrapper aside.sidebar #categories .topic>a[href],#content-wrapper aside.sidebar .box-categories .topic>a[href],#navigation .menu-level-1 a[href],.box-categories #categories a[href]');
 var seen={},result=[];Array.from(q).forEach(function(a){var label=(a.textContent||'').replace(/\s+/g,' ').trim(),href=a.getAttribute('href');if(!label||!href||href==='#'||/javascript:/i.test(href)||label.length>70||seen[href]||!catImages[catNorm(label)])return;seen[href]=1;result.push({label:label,href:href,original:a})});return result.slice(0,16)
 }
-var catImages={'elektronicke multitooly':'multitooly.png','chytra elektronika':'chytra-elektronika.png','merici technika a naradi':'merici-technika.png','endoskopy a inspekcni kamery':'endoskopy.png','prakticke vychytavky':'prakticke-vychytavky.png','designove gadgety':'designove-gadgety.png','projektory a obraz':'projektory.png','chytra domacnost':'chytra-domacnost.png'};
+var catImages={'elektronicke multitooly':'multitooly.png','chytra elektronika':'chytra-elektronika.png','merici technika a naradi':'merici-technika.png','endoskopy a inspekcni kamery':'endoskopy.png','prakticke vychytavky':'prakticke-vychytavky.png','designove gadgety':'designove-gadgety.png','projektory a obraz':'projektory.png','chytra domacnost':'chytra-domacnost.png','prislusenstvi':'prislusenstvi.svg'};
 function catNorm(t){return (t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[,+]/g,' ').replace(/\s+/g,' ').trim().toLowerCase()}
 /* A label is a real product category only if it maps to a pictogram; this keeps CMS
    nav items (Kontakty, Obchodní podmínky, …) out of the mobile category grids. */
