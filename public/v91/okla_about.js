@@ -41,7 +41,7 @@
      '<p>OKLA je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Vybíráme, testujeme a posíláme z Ostravy do tří zemí.</p>'+
      '<div class="oka-hero__cta">'+
        '<a class="oka-btn oka-btn--white" href="/">Prohlédnout sortiment'+ARROW+'</a>'+
-       '<a class="oka-link" href="/kontakty/">Napište nám'+ARROW+'</a>'+
+       '<a class="oka-link" href="/kontakt/">Napište nám'+ARROW+'</a>'+
      '</div>'+
    '</div></div>'+
  '</div>'+
@@ -66,7 +66,7 @@
    '/','Jak vybíráme')+
  feat(true,'test.jpg','Testování','Každý produkt vyzkoušíme',
    'Než se produkt objeví v nabídce, projde rukama technika. Zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis, ne jen opsaný datasheet.',
-   '/kontakty/','Zeptejte se nás')+
+   '/kontakt/','Zeptejte se nás')+
  feat(false,'sklad.jpg','Sklad a expedice','Expedujeme z Ostravy do 24 hodin',
    'Sklad a zázemí máme v Ostravě. Objednávky balíme a odesíláme zpravidla do 24 hodin v pracovní dny a doručujeme přes zavedené dopravce a výdejní místa.',
    '/doprava-a-platba/','Doprava a platba')+

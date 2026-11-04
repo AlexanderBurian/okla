@@ -125,7 +125,7 @@
 
  function mount(){
   if(document.querySelector('.oka-contact'))return true;
-  var onPage=/^\/kontakty(\/|$)/.test(location.pathname)||(document.body&&document.body.classList.contains('in-kontakty'));
+  var onPage=/^\/kontakt(y)?(\/|$)/.test(location.pathname)||(document.body&&document.body.classList.contains('in-kontakt'));
   if(!onPage)return false;
   var host=document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
   if(!host)return false;
