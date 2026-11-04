@@ -64,7 +64,7 @@
     border-radius:9px!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header>:is(button,a):hover{
-    background:#edf6fd!important;
+    background:transparent!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg,
   html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg path{
@@ -308,4 +308,73 @@
 @media(max-width:767px){
  html body #header #okla-v61-header{width:100%!important;max-width:100%!important;box-sizing:border-box!important;}
  html body #header #okla-v61-header .okm61-top{min-width:0!important;}
+}
+
+/* OKLA V93 – minimal clean desktop controls, no blue focus boxes or filled account pills. */
+@media(min-width:992px){
+  /* Original desired hierarchy: icon + two-line account copy, three small tools,
+     then a bare cart icon. No border, pills or hover-painted containers. */
+  html body #header .header-top .navigation-buttons .okla-exact-header{
+    display:flex!important;align-items:center!important;justify-content:flex-end!important;
+    height:52px!important;min-height:52px!important;overflow:visible!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-account,
+  html.okla-header-v92 body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-account{
+    flex:1 1 136px!important;width:auto!important;min-width:120px!important;
+    max-width:158px!important;min-height:44px!important;height:48px!important;
+    display:flex!important;align-items:center!important;justify-content:flex-start!important;
+    gap:7px!important;margin:0!important;padding:0!important;
+    border:0!important;border-radius:0!important;
+    background:transparent!important;background-image:none!important;
+    box-shadow:none!important;outline:0!important;filter:none!important;
+    color:#102a54!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-account:is(:hover,:active,:focus),
+  html.okla-header-v92 body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-account:is(:hover,:active,:focus){
+    background:transparent!important;border:0!important;border-radius:0!important;
+    outline:0!important;box-shadow:none!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header .okla-header-icon{
+    flex:0 0 32px!important;width:32px!important;min-width:32px!important;
+    height:32px!important;min-height:32px!important;
+    border:0!important;border-radius:50%!important;
+    background:#edf4fb!important;box-shadow:none!important;
+    display:grid!important;place-items:center!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header .okla-header-copy{
+    display:flex!important;flex-direction:column!important;gap:1px!important;
+    align-items:flex-start!important;justify-content:center!important;
+    min-width:0!important;line-height:1.2!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders,
+  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites,
+  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale{
+    flex:0 0 40px!important;width:40px!important;min-width:40px!important;
+    max-width:40px!important;height:44px!important;min-height:44px!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    padding:0!important;margin:0!important;background:transparent!important;
+    background-image:none!important;border:0!important;border-radius:0!important;
+    box-shadow:none!important;outline:0!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count,
+  html.okla-header-v92 body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count{
+    flex:0 0 43px!important;width:43px!important;min-width:43px!important;
+    max-width:43px!important;height:44px!important;min-height:44px!important;
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    margin:0!important;padding:0!important;border:0!important;
+    border-radius:0!important;outline:0!important;
+    background:transparent!important;background-image:none!important;
+    box-shadow:none!important;filter:none!important;
+  }
+  html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count:is(:hover,:focus,:active),
+  html.okla-header-v92 body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count:is(:hover,:focus,:active),
+  html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count.btn:is(:hover,:focus,:active){
+    border:0!important;outline:0!important;border-radius:0!important;
+    box-shadow:none!important;background:transparent!important;background-image:none!important;
+  }
+  /* Keep keyboard navigation accessible without the oversized rounded focus box. */
+  html body #header .header-top .navigation-buttons .okla-exact-header>:is(a,button):focus-visible{
+    outline:2px solid #95bdda!important;outline-offset:1px!important;
+    border-radius:4px!important;box-shadow:none!important;
+  }
 }
