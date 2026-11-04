@@ -25,8 +25,8 @@ html body .oka-c-top__head p{margin-top:12px;font-size:20px;font-weight:600;colo
 html body .oka-c-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 html body .oka-c-card{text-align:center;padding:16px 28px;display:flex;flex-direction:column;align-items:center}
 html body .oka-c-card + .oka-c-card{border-left:1px solid #d7dde6}
-html body .oka-c-card__ic{width:80px;height:80px;border:0;border-radius:0;background:transparent;display:grid;place-items:center;margin-bottom:22px;box-shadow:none}
-html body .oka-c-card__ic img{width:68px;height:68px;object-fit:contain;display:block}
+html body .oka-c-card__ic{width:112px;height:112px;border:0;border-radius:0;background:transparent;display:grid;place-items:center;margin-bottom:20px;box-shadow:none}
+html body .oka-c-card__ic img{width:104px;height:104px;object-fit:contain;object-position:center;display:block}
 html body .oka-c-card h3{font-size:22px;font-weight:700;color:#141c28;margin-bottom:14px}
 html body .oka-c-card p{font-size:15px;line-height:1.6;color:var(--mut);max-width:270px;margin-bottom:28px}
 html body .oka-c-card .oka-c-btn{margin-top:auto}
@@ -87,6 +87,8 @@ html body .oka-c-form__note a{color:var(--b);text-decoration:none}
   html body .oka-c-cards{grid-template-columns:1fr;gap:16px}
   html body .oka-c-card{padding:28px 22px;border-radius:14px;background:#fff;box-shadow:0 1px 6px rgba(11,37,64,.06)}
   html body .oka-c-card + .oka-c-card{border-left:0}
+  html body .oka-c-card__ic{width:104px;height:104px;margin-bottom:16px}
+  html body .oka-c-card__ic img{width:96px;height:96px}
   html body .oka-c-grid{grid-template-columns:1fr 1fr;gap:22px 24px}
   html body .oka-c-loc h2,html body .oka-c-form h2{font-size:25px}
 }
