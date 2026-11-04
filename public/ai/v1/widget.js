@@ -259,6 +259,10 @@
         display: block; width: 27px; height: 27px;
         fill: none; stroke: #fff; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round;
       }
+      /* PC only: slightly bolder magnifier while preserving mobile icon weight. */
+      @media (min-width: 768px) {
+        .launcher .launcher-search-icon { stroke-width: 2.65; }
+      }
       .robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--okla-purple); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
       .mobile-glyph-fallback::after { content: "OK"; position: absolute; inset: 0; display: none; place-items: center; color: #fff; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
       .brand-avatar.robot-fallback::after { font-size: 12px; }
