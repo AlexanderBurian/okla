@@ -14,7 +14,7 @@
  var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
  function ic(paths){var p='';for(var i=0;i<paths.length;i++)p+='<path d="'+paths[i]+'"/>';return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>'}
 
- function stat(paths,num,label){return '<div class="oka-stat"><div class="oka-stat__ic">'+ic(paths)+'</div><div class="oka-stat__n">'+num+'</div><div class="oka-stat__l">'+label+'</div></div>'}
+ function stat(img,num,label){return '<div class="oka-stat"><img class="oka-stat__ic" src="'+IMG(img)+'" alt="" loading="lazy"><div class="oka-stat__n">'+num+'</div><div class="oka-stat__l">'+label+'</div></div>'}
  function feat(rev,img,alt,h,p,href,linkText){
   return '<div class="oka-feat'+(rev?' oka-feat--rev':'')+'"><div class="oka-wrap">'+
    '<img class="oka-feat__img" src="'+IMG(img)+'" alt="'+alt+'" loading="lazy">'+
@@ -38,15 +38,15 @@
        '<a class="oka-link" href="/kontakty/">Napište nám'+ARROW+'</a>'+
      '</div>'+
    '</div>'+
-   '<img class="oka-hero__img" src="'+IMG('hero.jpg')+'" alt="Elektronika a gadgety">'+
+   '<img class="oka-hero__img" src="'+IMG('hero-building.webp')+'" alt="Budova OKLA">'+
  '</div></div>'+
 
  /* STATS */
  '<div class="oka-stats"><div class="oka-wrap">'+
-   stat(['M12 3 3 8v8l9 5 9-5V8z','M3 8l9 5 9-5','M12 13v8'],'2019','Rok založení')+
-   stat(['M4 6h16v13H4z','M4 10h16','M9 15h6'],'33','Produktů v nabídce')+
-   stat(['M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z','M12 12a2 2 0 1 0 0-.01'],'3','Země doručení')+
-   stat(['M12 7v5l3 2','M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z'],'24 h','Expedice ze skladu')+
+   stat('icon-founded.webp','2019','Rok založení')+
+   stat('icon-products.webp','33','Produktů v nabídce')+
+   stat('icon-countries.webp','3','Země doručení')+
+   stat('icon-express.webp','24 h','Expedice ze skladu')+
  '</div></div>'+
 
  /* INTRO */
