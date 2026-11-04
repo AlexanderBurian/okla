@@ -62,7 +62,15 @@
   var name=account.querySelector('.okla-header-copy strong');
   var loginVisible=!!document.querySelector('#navigation a[data-testid="signin"],.top-navigation-bar .top-nav-button-login');
   if(name){
-   var label=loginVisible?'PŘIHLÁŠENÍ':'MŮJ ÚČET';
+   var lang=window.OKLA_LANG||document.documentElement.getAttribute('data-okla-lang')||'cs';
+   var labels={
+    cs:['PŘIHLÁŠENÍ','MŮJ ÚČET'],
+    en:['SIGN IN','MY ACCOUNT'],
+    sk:['PRIHLÁSENIE','MÔJ ÚČET'],
+    hu:['BEJELENTKEZÉS','FIÓKOM']
+   };
+   var pair=labels[lang]||labels.cs;
+   var label=pair[loginVisible?0:1];
    if(name.textContent!==label)name.textContent=label;
   }
   var small=account.querySelector('.okla-header-copy small');
