@@ -11,6 +11,8 @@
 
  var BASE=window.__oklaAssetBase||'';
  function IMG(f){return BASE+'v91/img/about/'+f}
+ /* load the page font (Baloo 2) */
+ (function(){var id='okla-about-font';if(!document.getElementById(id)){var l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap';(document.head||document.documentElement).appendChild(l);}})();
  var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
  function ic(paths){var p='';for(var i=0;i<paths.length;i++)p+='<path d="'+paths[i]+'"/>';return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>'}
 
@@ -23,23 +25,27 @@
   '</div></div>'
  }
  function bizli(t){return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>'+t+'</span></li>'}
- function art(img,alt,h,p){return '<a class="oka-art" href="/newsroom/"><img class="oka-art__img" src="'+IMG(img)+'" alt="'+alt+'" loading="lazy"><h3>'+h+'</h3><p>'+p+'</p><span class="oka-art__more">'+ARROW+'</span></a>'}
+ function art(img,alt,cat,h){return '<a class="oka-art" href="/newsroom/">'+
+   '<img class="oka-art__img" src="'+IMG(img)+'" alt="'+alt+'" loading="lazy">'+
+   '<span class="oka-art__badge">'+ic(['M4 5h12v14l-6-3-6 3z'])+'</span>'+
+   '<span class="oka-art__cap"><span class="oka-art__cat">'+cat+'</span><h3>'+h+'</h3></span>'+
+ '</a>'}
 
  var HTML=''+
  '<section class="okla-about" aria-label="O nás">'+
 
  /* HERO */
- '<div class="oka-sec oka-hero"><div class="oka-wrap">'+
-   '<div class="oka-hero__text">'+
+ '<div class="oka-hero">'+
+   '<img class="oka-hero__img" src="'+IMG('hero-building.webp')+'" alt="Budova OKLA">'+
+   '<div class="oka-wrap"><div class="oka-hero__text">'+
      '<h1>Gadgety a chytrá elektronika, kterým rozumíme</h1>'+
      '<p>OKLA je český e-shop s pečlivě vybranou technikou — od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Vybíráme, testujeme a posíláme z Ostravy do tří zemí.</p>'+
      '<div class="oka-hero__cta">'+
-       '<a class="oka-btn" href="/">Prohlédnout sortiment'+ARROW+'</a>'+
+       '<a class="oka-btn oka-btn--white" href="/">Prohlédnout sortiment'+ARROW+'</a>'+
        '<a class="oka-link" href="/kontakty/">Napište nám'+ARROW+'</a>'+
      '</div>'+
-   '</div>'+
-   '<img class="oka-hero__img" src="'+IMG('hero-building.webp')+'" alt="Budova OKLA">'+
- '</div></div>'+
+   '</div></div>'+
+ '</div>'+
 
  /* STATS */
  '<div class="oka-stats"><div class="oka-wrap">'+
@@ -96,9 +102,9 @@
      '<a class="oka-link" href="/newsroom/">Všechny články'+ARROW+'</a>'+
    '</div>'+
    '<div class="oka-news__grid">'+
-     art('news-1.jpg','Chytrá elektronika','Chytrá elektronika pro každý den','Tablety, chytré hodinky i sluchátka — na co koukat, než si pořídíte nový kousek.')+
-     art('news-2.jpg','Chytrá domácnost','Chytrá domácnost: kde začít','Chytré termostaty, zámky a senzory. Poradíme, jak sestavit první funkční sadu.')+
-     art('news-3.jpg','Gadgety','Drony a gadgety: co právě letí','Vybíráme zajímavé kousky do terénu i domů a říkáme, pro koho se hodí.')+
+     art('news-1.jpg','Chytrá elektronika','Chytrá elektronika','Chytrá elektronika pro každý den')+
+     art('news-2.jpg','Chytrá domácnost','Chytrá domácnost','Chytrá domácnost: kde začít')+
+     art('news-3.jpg','Gadgety','Gadgety','Drony a gadgety: co právě letí')+
    '</div>'+
  '</div></div>'+
 
