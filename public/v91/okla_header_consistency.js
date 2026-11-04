@@ -83,12 +83,13 @@
   a.appendChild(flag);nav.insertBefore(a,cart);
  }
  function enhance(){
+  /* Do not touch the standard OR scroll-triggered sticky mobile header. */
+  if(!tablet.matches)return;
   var header=document.querySelector('#header .header-top');
   if(!header)return;
   var nav=header.querySelector(':scope > .navigation-buttons');
   if(!nav){nav=elem('div','navigation-buttons');header.appendChild(nav);}
   nav.classList.add('okla-header-ready');
-  if(!tablet.matches)return; // Mobile shell owns all mobile controls.
   var cart=ensureCart(nav);
   if(typeof window.oklaHeaderRefresh==='function'){
    try{window.oklaHeaderRefresh()}catch(err){console.warn('[OKLA header] legacy refresh:',err)}
