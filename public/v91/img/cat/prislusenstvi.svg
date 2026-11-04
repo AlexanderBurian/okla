@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Příslušenství">
+  <g stroke-linejoin="round" stroke-linecap="round">
+    <path d="M17 17h14v5.5c0 4.1-3.1 7.5-7 7.5s-7-3.4-7-7.5V17Z" fill="#EAF2FA" stroke="#31587F" stroke-width="1.8"/>
+    <path d="M20.7 9.4v7.5m6.6-7.5v7.5" stroke="#31587F" stroke-width="2.6"/>
+    <path d="M18.9 21.8h10.2" stroke="#84A8C8" stroke-width="1.5"/>
+    <path d="M24 30v5.7c0 3.7 2 5.6 5.9 5.6h1.6" fill="none" stroke="#31587F" stroke-width="2"/>
+    <rect x="31.5" y="37.5" width="9.4" height="7.2" rx="1.8" fill="#DCEBFA" stroke="#31587F" stroke-width="1.65"/>
+    <path d="M33.9 39.8h4.6m-4.6 2.4h4.6" stroke="#84A8C8" stroke-width="1"/>
+    <path d="M15 19.4h-3m3 4.2h-4m19-4.2h3" stroke="#84A8C8" stroke-width="1.2"/>
+    <path d="M13.4 11.1h2.1m-1.05-1.05v2.1M34 11h2.1m-1.05-1.05v2.1" stroke="#7299BF" stroke-width="1"/>
+  </g>
+</svg>
