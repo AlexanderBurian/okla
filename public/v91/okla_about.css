@@ -88,7 +88,6 @@ html body .oka-map__head p{margin-top:16px;font-size:16px;line-height:1.7;color:
 html body #okla-about-map{width:100%;max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center}
 html body #okla-about-map.is-fallback{min-height:300px}
 html body .oka-cemap{display:block;width:100%;height:auto}
-html body .oka-cemap__ctx .oka-cc{fill:#e5e9f0;stroke:#fff;stroke-width:1.1;stroke-linejoin:round}
 html body .oka-cemap__home .oka-hc{fill:var(--b);stroke:#fff;stroke-width:1.5;stroke-linejoin:round;transition:fill .15s ease}
 html body .oka-cemap__home .oka-hc:hover{fill:var(--bd)}
 html body .oka-lab rect{fill:#141c28}

@@ -96,9 +96,9 @@
      '<a class="oka-link" href="/newsroom/">Všechny články'+ARROW+'</a>'+
    '</div>'+
    '<div class="oka-news__grid">'+
-     art('news-3.jpg','Flipper Zero','Flipper Zero: k čemu slouží a co svede','Vysvětlujeme, co multifunkční nástroj umí — a kde se hodí při běžném testování.')+
-     art('news-2.jpg','Chytrá domácnost','Chytrá domácnost: kde začít','Chytré zámky, senzory a zásuvky. Poradíme, jak sestavit první funkční sadu.')+
-     art('news-1.jpg','Měřicí technika','Měřicí technika v praxi','USB-C testery, multimetry a endoskopy — na co se dívat při výběru.')+
+     art('news-1.jpg','Chytrá elektronika','Chytrá elektronika pro každý den','Tablety, chytré hodinky i sluchátka — na co koukat, než si pořídíte nový kousek.')+
+     art('news-2.jpg','Chytrá domácnost','Chytrá domácnost: kde začít','Chytré termostaty, zámky a senzory. Poradíme, jak sestavit první funkční sadu.')+
+     art('news-3.jpg','Gadgety','Drony a gadgety: co právě letí','Vybíráme zajímavé kousky do terénu i domů a říkáme, pro koho se hodí.')+
    '</div>'+
  '</div></div>'+
 
@@ -129,7 +129,7 @@
   var minx=1e9,miny=1e9,maxx=-1e9,maxy=-1e9;
   feats.forEach(function(f){if(f.properties.role!=='home')return;ringsOf(f.geometry).forEach(function(r){r.forEach(function(p){var x=p[0],y=mercY(p[1]);if(x<minx)minx=x;if(x>maxx)maxx=x;if(y<miny)miny=y;if(y>maxy)maxy=y})})});
   if(minx>maxx){mapFallback(box);return}
-  var padx=(maxx-minx)*0.40,pady=(maxy-miny)*0.30;
+  var padx=(maxx-minx)*0.09,pady=(maxy-miny)*0.09;
   var bx0=minx-padx,bx1=maxx+padx,by0=miny-pady,by1=maxy+pady;
   var H=Math.round(W*((by1-by0)/(bx1-bx0)));
   function px(lon){return (lon-bx0)/(bx1-bx0)*W}
@@ -137,8 +137,8 @@
   function dOf(geom){var d='';ringsOf(geom).forEach(function(r){for(var i=0;i<r.length;i++){d+=(i?'L':'M')+px(r[i][0]).toFixed(1)+' '+py(r[i][1]).toFixed(1)}d+='Z'});return d}
   function centroidPx(geom){var best=null,bestA=-1;ringsOf(geom).forEach(function(r){var x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;r.forEach(function(p){if(p[0]<x0)x0=p[0];if(p[0]>x1)x1=p[0];if(p[1]<y0)y0=p[1];if(p[1]>y1)y1=p[1]});var a=(x1-x0)*(y1-y0);if(a>bestA){bestA=a;best=[(x0+x1)/2,(y0+y1)/2]}});return best?[px(best[0]),py(best[1])]:null}
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-  var ctx='',home='',labels='';
-  feats.forEach(function(f){if(f.properties.role==='context')ctx+='<path class="oka-cc" d="'+dOf(f.geometry)+'"/>'});
+  /* only our three states — no grey neighbours behind them */
+  var home='',labels='';
   feats.forEach(function(f){
    if(f.properties.role!=='home')return;
    home+='<path class="oka-hc" data-name="'+esc(f.properties.name)+'" d="'+dOf(f.geometry)+'"/>';
@@ -150,7 +150,7 @@
    }
   });
   box.innerHTML='<svg class="oka-cemap" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mapa: Česko, Slovensko a Maďarsko">'+
-   '<g class="oka-cemap__ctx">'+ctx+'</g><g class="oka-cemap__home">'+home+'</g><g class="oka-cemap__labels">'+labels+'</g></svg>';
+   '<g class="oka-cemap__home">'+home+'</g><g class="oka-cemap__labels">'+labels+'</g></svg>';
  }
  function initMap(){
   var box=document.getElementById('okla-about-map');
@@ -160,6 +160,31 @@
    .then(function(r){return r.json()})
    .then(function(gj){buildMap(box,gj)})
    .catch(function(){mapFallback(box)});
+ }
+
+ /* ---------- count-up stats (PPL-style, runs when scrolled into view) ---------- */
+ function initCounters(){
+  var nodes=document.querySelectorAll('.oka-stat__n');
+  if(!nodes.length)return;
+  nodes.forEach(function(el){
+   var txt=el.textContent.trim();
+   var m=txt.match(/\d[\d   \s]*\d|\d/); /* the number, keeping internal spaces */
+   if(!m){return}
+   el.__prefix=txt.slice(0,m.index);
+   el.__suffix=txt.slice(m.index+m[0].length);
+   el.__target=parseInt(m[0].replace(/[\s   ]/g,''),10)||0;
+   el.textContent=el.__prefix+'0'+el.__suffix;
+  });
+  function fmt(el,n){var s=String(n);if(el.__target>=10000)s=s.replace(/\B(?=(\d{3})+(?!\d))/g,' ');return el.__prefix+s+el.__suffix}
+  function run(el){
+   if(el.__ran||el.__target==null)return;el.__ran=true;
+   var dur=1300,start=null;
+   function step(ts){if(!start)start=ts;var p=Math.min(1,(ts-start)/dur);var e=1-Math.pow(1-p,3);el.textContent=fmt(el,Math.round(e*el.__target));if(p<1)requestAnimationFrame(step)}
+   requestAnimationFrame(step);
+  }
+  if(!('IntersectionObserver' in window)){nodes.forEach(run);return}
+  var io=new IntersectionObserver(function(ents){ents.forEach(function(en){if(en.isIntersecting){run(en.target);io.unobserve(en.target)}})},{threshold:.5});
+  nodes.forEach(function(el){io.observe(el)});
  }
 
  /* ---------- mount ---------- */
@@ -175,6 +200,7 @@
   host.insertBefore(node,host.firstChild);
   document.title='O nás · OKLA';
   initMap();
+  initCounters();
   return true;
  }
  if(!mount()){
