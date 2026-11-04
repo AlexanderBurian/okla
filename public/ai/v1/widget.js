@@ -11,7 +11,7 @@
         --okla-text: #102f55;
         --okla-line: #d2deec;
         --okla-soft: #f3f6fa;
-        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        font-family: Roboto, Arial, sans-serif;
         font-synthesis: none;
       }
       *, *::before, *::after { box-sizing: border-box; }
