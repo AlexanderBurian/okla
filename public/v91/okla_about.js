@@ -110,7 +110,6 @@
    cat(['M5 4h14v6H5z','M5 14h14v6H5z'],'Praktické vychytávky')+
    cat(['M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z'],'Designové gadgety')+
    cat(['M3 6h18v10H3z','M8 20h8','M12 16v4'],'Projektory')+
-   cat(['M4 11l8-7 8 7','M6 10v9h12v-9','M10 19v-5h4v5'],'Praktická elektronika')+
  '</div></div>'+
 
  /* ---------------- MAP ---------------- */
@@ -251,6 +250,11 @@
      attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
     map.setView([48.7,17.8],6);
+    /* Default frame on CZ/SK/HU; replaced by the exact border bounds once the
+       GeoJSON loads. We re-fit after invalidateSize so a late layout (the box
+       was narrow when tiles first drew) still ends framed on the three countries. */
+    var fitTo=L.latLngBounds([45.7,12.0],[51.2,22.6]);
+    function refit(){try{map.invalidateSize();if(fitTo)map.fitBounds(fitTo,{padding:[16,16],maxZoom:7})}catch(e){}}
     fetch(BASE+'v91/data/okla-map-cz-sk-hu.geojson')
      .then(function(r){return r.json()})
      .then(function(gj){
@@ -263,7 +267,7 @@
       layer.eachLayer(function(l){
        if(l.feature&&l.feature.properties)l.bindTooltip(l.feature.properties.name,{sticky:true,className:'oka-map-tip'});
       });
-      try{map.fitBounds(layer.getBounds(),{padding:[18,18]})}catch(e){}
+      try{fitTo=layer.getBounds();refit()}catch(e){}
      })
      .catch(function(){/* borders optional; tiles + markers still show */});
     CITIES.forEach(function(c){
@@ -271,8 +275,9 @@
       .addTo(map)
       .bindTooltip(c.name,{permanent:true,direction:'top',offset:[0,-6],className:'oka-map-tip'});
     });
-    setTimeout(function(){map.invalidateSize()},120);
-    setTimeout(function(){map.invalidateSize()},500);
+    refit();
+    setTimeout(refit,180);
+    setTimeout(refit,700);
    }catch(e){mapFallback(box)}
   });
  }
