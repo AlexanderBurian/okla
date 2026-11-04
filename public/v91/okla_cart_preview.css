@@ -103,7 +103,9 @@
 #okla-cart-preview{
   position:fixed;
   z-index:10050;
-  display:none;
+  display:flex;
+  flex-direction:column;
+  visibility:hidden;
   width:min(420px,calc(100vw - 24px));
   max-height:min(560px,calc(100vh - 95px));
   overflow:hidden;
@@ -117,12 +119,12 @@
   font-family:Roboto,Arial,sans-serif!important;
   opacity:0;
   transform:translateY(-7px);
-  transition:opacity .14s ease,transform .14s ease;
+  transition:opacity .15s ease,transform .15s ease,visibility 0s linear .15s;
   pointer-events:none;
 }
 #okla-cart-preview.is-open{
   display:flex;
-  flex-direction:column;
+  visibility:visible;
   opacity:1;
   transform:translateY(0);
   pointer-events:auto;
