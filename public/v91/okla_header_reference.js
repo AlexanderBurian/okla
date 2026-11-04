@@ -25,7 +25,22 @@
   return svg;
  }
  function liveQuantity(cart){
-  /* Use live Shoptet DOM attributes only. No guesses from basket total/price. */
+  /* Official Shoptet data layer: cart[] contains product quantities and is
+     refreshed after every basket mutation. Sum quantities, not SKU types. */
+  var list;
+  try{if(typeof window.getShoptetDataLayer==='function')list=window.getShoptetDataLayer('cart')}catch(e){}
+  if(!Array.isArray(list)&&Array.isArray(window.dataLayer)){
+   for(var d=0;d<window.dataLayer.length;d++){
+    var s=window.dataLayer[d]&&window.dataLayer[d].shoptet;
+    if(s&&Array.isArray(s.cart)){list=s.cart;break}
+   }
+  }
+  if(Array.isArray(list)){
+   return list.reduce(function(sum,item){
+    var q=Number(item&&item.quantity);return sum+(isFinite(q)&&q>0?q:0)
+   },0);
+  }
+  /* Fallback to the existing Shoptet DOM count attributes. */
   var names=['data-cart-count','data-quantity','data-count','data-items-count'];
   for(var i=0;i<names.length;i++){
    var n=cart.getAttribute(names[i]);
@@ -88,7 +103,7 @@
   }
   var badge=cart.querySelector(':scope > .okla-reference-cart-badge');
   var count=liveQuantity(cart);
-  if(count!==null){
+  if(count!==null&&count>0){
    if(!badge){
     badge=document.createElement('span');
     badge.className='okla-reference-cart-badge';badge.setAttribute('aria-hidden','true');
@@ -109,6 +124,7 @@
   schedule();
   window.addEventListener('load',schedule,{once:true});
   window.addEventListener('pageshow',schedule);
+  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(ev){document.documentElement.addEventListener(ev,schedule)});
   window.addEventListener('resize',schedule,{passive:true});
   if(desktop.addEventListener)desktop.addEventListener('change',schedule);
   [200,900,2000].forEach(function(ms){setTimeout(schedule,ms)});
