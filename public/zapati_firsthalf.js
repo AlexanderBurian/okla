@@ -59,6 +59,8 @@ if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/
 modules.push('v91/okla_global_typography.css','v91/okla_green_buttons.js');
 /* Shared OKLA header visual system + compatibility on all Shoptet page types. */
 modules.push('v91/okla_header_consistency.css','v91/okla_header_consistency.js');
+/* Reference look: soft gray search with right magnifier, sign-in, language and native-priced cart. */
+modules.push('v91/okla_header_reference.css','v91/okla_header_reference.js');
 /* Every native legal/information article uses the full content card width. */
 if(/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vraceni-zbozi-a-odstoupeni|podminky-reklamnich-akci|prohlaseni-o-pristupnosti|doprava-a-platba|jak-nakupovat)(?:\/|$)/.test(location.pathname)){
  document.documentElement.classList.add('okla-legal-wide');
