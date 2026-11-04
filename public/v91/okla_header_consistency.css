@@ -224,3 +224,88 @@
     min-height:42px;
   }
 }
+
+/* OKLA V92: native Shoptet header fallbacks on all page types. */
+@media(min-width:768px){
+  html.okla-header-v92 body #header .header-top>.site-name-wrapper,
+  html.okla-header-v92 body #header .header-top>.search,
+  html.okla-header-v92 body #header .header-top>.navigation-buttons{
+    position:relative!important;top:auto!important;right:auto!important;
+    bottom:auto!important;left:auto!important;float:none!important;
+    visibility:visible!important;opacity:1!important;
+    transform:none!important;min-width:0!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search,
+  html.okla-header-v92 body #header .header-top>.search form.search-form,
+  html.okla-header-v92 body #header .header-top>.search form.search-form fieldset{
+    display:block!important;width:100%!important;max-width:100%!important;
+    min-width:0!important;margin:0!important;box-sizing:border-box!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search form.search-form fieldset{
+    display:flex!important;align-items:center!important;gap:6px!important;
+    height:52px!important;min-height:52px!important;
+    padding:4px!important;border:1px solid #cbddea!important;border-radius:13px!important;
+    background:#fff!important;background-image:none!important;
+    box-shadow:0 0 0 3px #eaf4ff!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search form.search-form fieldset::before{
+    display:block!important;content:''!important;
+    position:absolute!important;left:18px!important;top:50%!important;
+    width:18px!important;height:18px!important;z-index:1!important;
+    transform:translateY(-50%)!important;
+    background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23154783' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.7' cy='10.7' r='6.6'/%3E%3Cpath d='m15.7 15.7 5 5'/%3E%3C/svg%3E") center/contain no-repeat!important;
+    pointer-events:none!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search form.search-form .query-input{
+    display:block!important;flex:1 1 auto!important;min-width:0!important;width:0!important;
+    height:42px!important;min-height:42px!important;max-height:42px!important;
+    margin:0!important;padding:0 12px 0 42px!important;
+    border:0!important;border-radius:8px!important;outline:none!important;
+    background:transparent!important;box-shadow:none!important;
+    font:400 14px/1.3 Roboto,Arial,sans-serif!important;color:#173b61!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search form.search-form button[type="submit"]{
+    display:flex!important;align-items:center!important;justify-content:center!important;
+    position:relative!important;flex:0 0 90px!important;order:initial!important;
+    width:90px!important;min-width:90px!important;max-width:90px!important;
+    height:42px!important;min-height:42px!important;max-height:42px!important;
+    margin:0!important;padding:0 10px!important;
+    color:#fff!important;background:#008ddd!important;background-image:none!important;
+    border:0!important;border-radius:9px!important;box-shadow:none!important;
+    font:700 13px/1.2 Roboto,Arial,sans-serif!important;
+    text-indent:0!important;visibility:visible!important;opacity:1!important;
+    cursor:pointer!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search form.search-form button[type="submit"]::before,
+  html.okla-header-v92 body #header .header-top>.search form.search-form button[type="submit"]::after{
+    content:none!important;display:none!important;
+  }
+  html.okla-header-v92 body #header .header-top>.search form.search-form button[type="submit"]:hover{
+    color:#fff!important;background:#067bc5!important;
+  }
+  html.okla-header-v92 body #header .header-top .navigation-buttons>.okla-exact-header{
+    display:flex!important;align-items:center!important;
+    visibility:visible!important;opacity:1!important;
+  }
+  html.okla-header-v92 body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account,
+  html.okla-header-v92 body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+    display:flex!important;visibility:visible!important;opacity:1!important;
+  }
+  html.okla-header-v92 body #header #navigation{display:none!important;}
+  html.okla-header-v92 body #header .top-navigation-bar{display:none!important;}
+}
+@media(min-width:768px) and (max-width:991px){
+  html.okla-header-v92 body #header .header-top>.search form.search-form button[type="submit"]{
+    flex-basis:76px!important;width:76px!important;min-width:76px!important;max-width:76px!important;
+  }
+  html.okla-header-v92 body #header .header-top .navigation-buttons>.okla-exact-header{display:none!important;}
+  html.okla-header-v92 body #header .header-top>.navigation-buttons.okla-header-ready{
+    display:flex!important;
+  }
+}
+/* Compact mobile header retains the existing OKLA V61 shell, all original actions,
+   overlay search, and up-scroll sticky behavior on every page. */
+@media(max-width:767px){
+ html body #header #okla-v61-header{width:100%!important;max-width:100%!important;box-sizing:border-box!important;}
+ html body #header #okla-v61-header .okm61-top{min-width:0!important;}
+}
