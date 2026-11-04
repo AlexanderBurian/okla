@@ -171,33 +171,9 @@
   }
   html body #header .header-top .search form.search-form .query-input{padding-left:38px!important;}
 }
+/* V92 content-only responsive fixes; preserve the original V61 mobile headers,
+   including both default and scroll-triggered sticky bars, completely unchanged. */
 @media(max-width:767px){
-  html body #header #okla-v61-header{
-    box-sizing:border-box!important;max-width:100%!important;
-    padding-left:clamp(12px,3.6vw,18px)!important;
-    padding-right:clamp(12px,3.6vw,18px)!important;
-  }
-  html body #header #okla-v61-header .okm61-top{
-    display:flex!important;align-items:center!important;gap:10px!important;
-    min-width:0!important;
-  }
-  html body #header #okla-v61-header .okm61-logo{
-    flex:0 1 auto!important;min-width:0!important;max-width:calc(100% - 64px)!important;
-  }
-  html body #header #okla-v61-header .okm61-logo img{
-    width:auto!important;height:auto!important;max-width:min(53vw,158px)!important;
-    max-height:38px!important;object-fit:contain!important;
-  }
-  html body #header #okla-v61-header .okla-m-search-open{
-    display:flex!important;align-items:center!important;justify-content:center!important;
-    flex:0 0 44px!important;min-width:44px!important;min-height:44px!important;
-    width:44px!important;height:44px!important;margin:0 0 0 auto!important;
-    border:1px solid #d8e7f5!important;border-radius:12px!important;
-    color:#125c9c!important;background:#fff!important;
-  }
-  html body #header #okla-v61-header .okla-m-search-open:focus-visible{
-    outline:2px solid #008ddd!important;outline-offset:2px!important;
-  }
   html body #content-wrapper main#content,
   html body #content-wrapper main#content .content-inner{
     min-width:0!important;max-width:100%!important;box-sizing:border-box!important;
@@ -217,12 +193,7 @@
   }
   html body .okla-newsroom .nr-grid{min-width:0!important;max-width:100%!important;}
   html.okla-legal-wide body #content :is(table,pre){max-width:100%!important;overflow-x:auto!important;}
-  html body #content-wrapper main#content img:not(.okla-warranty-png){
-    max-width:100%;
-  }
-  html body #okla-v61-bottom :is(a,button){
-    min-height:42px;
-  }
+  html body #content-wrapper main#content img:not(.okla-warranty-png){max-width:100%;}
 }
 
 /* OKLA V92: native Shoptet header fallbacks on all page types. */
@@ -303,13 +274,6 @@
     display:flex!important;
   }
 }
-/* Compact mobile header retains the existing OKLA V61 shell, all original actions,
-   overlay search, and up-scroll sticky behavior on every page. */
-@media(max-width:767px){
- html body #header #okla-v61-header{width:100%!important;max-width:100%!important;box-sizing:border-box!important;}
- html body #header #okla-v61-header .okm61-top{min-width:0!important;}
-}
-
 /* OKLA V93 – minimal clean desktop controls, no blue focus boxes or filled account pills. */
 @media(min-width:992px){
   /* Original desired hierarchy: icon + two-line account copy, three small tools,
