@@ -8,7 +8,7 @@
   --ok86-muted:#777; --ok86-soft:#F5F5F5;
   --ok86-sale:#FFD500; --ok86-pale:#EAF1F8; --ok86-border:#E8E8E8;
   --ok86-gutter:32px; --ok86-margin:16px; --ok86-radius:6px;
-  --ok86-font:Roboto,"Segoe UI",Arial,sans-serif;
+  --ok86-font:'Exo 2',Roboto,"Segoe UI",Arial,sans-serif;
 }
 body.ok89-detail {background:#FFFFFF!important;background-image:none!important;font-family:var(--ok86-font)!important;color:#1A1A1A!important}
 body.ok89-detail #content,body.ok89-detail #content::before,body.ok89-detail #content::after,

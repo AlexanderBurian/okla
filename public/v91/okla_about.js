@@ -38,7 +38,7 @@
    '<img class="oka-hero__img" src="'+IMG('hero-building.webp')+'" alt="Budova OKLA">'+
    '<div class="oka-wrap"><div class="oka-hero__text">'+
      '<h1>Gadgety a chytrá elektronika, kterým rozumíme</h1>'+
-     '<p>OKLA je český e-shop s pečlivě vybranou technikou — od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Vybíráme, testujeme a posíláme z Ostravy do tří zemí.</p>'+
+     '<p>OKLA je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Vybíráme, testujeme a posíláme z Ostravy do tří zemí.</p>'+
      '<div class="oka-hero__cta">'+
        '<a class="oka-btn oka-btn--white" href="/">Prohlédnout sortiment'+ARROW+'</a>'+
        '<a class="oka-link" href="/kontakty/">Napište nám'+ARROW+'</a>'+
@@ -57,15 +57,15 @@
  /* INTRO */
  '<div class="oka-sec oka-intro"><div class="oka-wrap">'+
    '<h2 class="oka-h2">Malý tým, který techniku opravdu baví</h2>'+
-   '<p>Začali jsme v roce 2019 v Ostravě z jednoduché frustrace: zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je OKLA kurátorský obchod — raději méně produktů, ale takových, za kterými si stojíme a které sami používáme.</p>'+
+   '<p>Začali jsme v roce 2019 v Ostravě z jednoduché frustrace: zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je OKLA kurátorský obchod. Raději méně produktů, ale takových, za kterými si stojíme a které sami používáme.</p>'+
  '</div></div>'+
 
  /* FEATURE ROWS */
  feat(false,'vyber.jpg','Výběr produktů','Pečlivě vybíráme, co prodáváme',
-   'Neprodáváme všechno. Do nabídky se dostane jen to, co bychom si koupili i my — sledujeme novinky, crowdfunding i vaše tipy a vybíráme, co má reálný smysl.',
+   'Neprodáváme všechno. Do nabídky se dostane jen to, co bychom si koupili i my. Sledujeme novinky, crowdfunding i vaše tipy a vybíráme, co má reálný smysl.',
    '/','Jak vybíráme')+
  feat(true,'test.jpg','Testování','Každý produkt vyzkoušíme',
-   'Než se produkt objeví v nabídce, projde rukama technika. Zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis — ne jen opsaný datasheet.',
+   'Než se produkt objeví v nabídce, projde rukama technika. Zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis, ne jen opsaný datasheet.',
    '/kontakty/','Zeptejte se nás')+
  feat(false,'sklad.jpg','Sklad a expedice','Expedujeme z Ostravy do 24 hodin',
    'Sklad a zázemí máme v Ostravě. Objednávky balíme a odesíláme zpravidla do 24 hodin v pracovní dny a doručujeme přes zavedené dopravce a výdejní místa.',
@@ -79,7 +79,7 @@
      '<ul class="oka-biz__list">'+
        bizli('Zvýhodněné ceny při pravidelném odběru')+
        bizli('Skladová dostupnost a expedice z Ostravy do 24 hodin')+
-       bizli('Osobní kontakt a poradenství — žádné call centrum')+
+       bizli('Osobní kontakt a poradenství, žádné call centrum')+
      '</ul>'+
      '<a class="oka-btn oka-btn--white" href="mailto:podpora@okla.cz?subject=Velkoobchodn%C3%AD%20spolupr%C3%A1ce">Chci spolupracovat'+ARROW+'</a>'+
    '</div></div>'+
@@ -89,7 +89,7 @@
  '<div class="oka-sec oka-map"><div class="oka-wrap">'+
    '<div class="oka-map__head">'+
      '<h2 class="oka-h2">Doručujeme do Česka, Slovenska a Maďarska</h2>'+
-     '<p>Z Ostravy posíláme do všech tří zemí — s podporou v místním jazyce. Na Slovensko od roku 2022, do Maďarska od roku 2024.</p>'+
+     '<p>Z Ostravy posíláme do všech tří zemí, s podporou v místním jazyce. Na Slovensko od roku 2022, do Maďarska od roku 2024.</p>'+
    '</div>'+
    '<div id="okla-about-map" role="img" aria-label="Mapa: Česko, Slovensko a Maďarsko"></div>'+
  '</div></div>'+
@@ -115,7 +115,7 @@
  /* CLOSING */
  '<div class="oka-sec oka-sec--tight oka-close"><div class="oka-wrap">'+
    '<h2 class="oka-h2">Nevíte si rady s výběrem?</h2>'+
-   '<p>Napište nám a poradíme podle toho, k čemu přístroj budete používat. Odpoví vám někdo z našeho týmu — česky i slovensky.</p>'+
+   '<p>Napište nám a poradíme podle toho, k čemu přístroj budete používat. Odpoví vám někdo z našeho týmu, česky i slovensky.</p>'+
    '<div class="oka-close__cta">'+
      '<a class="oka-btn" href="/kontakty/">Kontaktujte nás'+ARROW+'</a>'+
      '<a class="oka-btn oka-btn--ghost" href="mailto:podpora@okla.cz">Napsat e-mail</a>'+
@@ -197,33 +197,34 @@
   nodes.forEach(function(el){io.observe(el)});
  }
 
- /* ---------- news carousel ---------- */
+ /* ---------- news carousel (infinite loop) ---------- */
  function initCarousel(){
   var car=document.querySelector('.oka-carousel');
   if(!car||car.__inited)return;car.__inited=true;
   var track=car.querySelector('.oka-carousel__track');
-  var slides=[].slice.call(track.children);
-  if(!slides.length)return;
+  var originals=[].slice.call(track.children);
+  var n=originals.length;if(!n)return;
   var dotsWrap=document.querySelector('.oka-car__dots');
-  var idx=Math.floor(slides.length/2);
-  var dots=slides.map(function(_,i){var b=document.createElement('button');b.type='button';b.className='oka-car__dot';b.setAttribute('aria-label','Článek '+(i+1));b.addEventListener('click',function(){go(i)});if(dotsWrap)dotsWrap.appendChild(b);return b});
-  function layout(){
-   var W=car.clientWidth||1;
-   var sw=slides[0].getBoundingClientRect().width;
-   var gap=parseFloat(getComputedStyle(track).gap)||0;
-   var off=(W-sw)/2 - idx*(sw+gap);
-   track.style.transform='translateX('+off.toFixed(1)+'px)';
+  var loop=n>1;
+  if(loop){track.innerHTML='';for(var c=0;c<3;c++){originals.forEach(function(s){track.appendChild(s.cloneNode(true))})}}
+  var slides=[].slice.call(track.children);
+  var idx=loop?n:0; /* first real article, centred; neighbours peek via the copies */
+  var dots=originals.map(function(_,i){var b=document.createElement('button');b.type='button';b.className='oka-car__dot';b.setAttribute('aria-label','Článek '+(i+1));b.addEventListener('click',function(){goReal(i)});if(dotsWrap)dotsWrap.appendChild(b);return b});
+  function apply(animate){
+   var W=car.clientWidth||1,sw=slides[0].getBoundingClientRect().width,gap=parseFloat(getComputedStyle(track).gap)||0;
+   track.style.transition=animate?'':'none';
+   track.style.transform='translateX('+((W-sw)/2 - idx*(sw+gap)).toFixed(1)+'px)';
+   if(!animate){void track.offsetWidth;}
    slides.forEach(function(s,i){s.classList.toggle('is-active',i===idx)});
-   dots.forEach(function(d,i){d.classList.toggle('is-active',i===idx)});
-   var prev=car.querySelector('.oka-car__btn--prev'),next=car.querySelector('.oka-car__btn--next');
-   if(prev)prev.disabled=idx<=0;
-   if(next)next.disabled=idx>=slides.length-1;
+   var real=((idx%n)+n)%n;dots.forEach(function(d,i){d.classList.toggle('is-active',i===real)});
   }
-  function go(i){idx=Math.max(0,Math.min(slides.length-1,i));layout()}
-  car.querySelectorAll('.oka-car__btn').forEach(function(b){b.addEventListener('click',function(){go(idx+parseInt(b.getAttribute('data-dir'),10))})});
-  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(layout,120)});
-  layout();
-  setTimeout(layout,300);setTimeout(layout,900);
+  function normalize(){if(!loop)return;if(idx<n){idx+=n;apply(false)}else if(idx>=2*n){idx-=n;apply(false)}}
+  function move(dir){if(!loop){idx=Math.max(0,Math.min(n-1,idx+dir))}else{idx+=dir}apply(true)}
+  function goReal(real){if(loop){var cur=((idx%n)+n)%n,d=real-cur;idx+=d}else{idx=real}apply(true)}
+  car.querySelectorAll('.oka-car__btn').forEach(function(b){b.addEventListener('click',function(){move(parseInt(b.getAttribute('data-dir'),10))})});
+  track.addEventListener('transitionend',function(e){if(e.propertyName==='transform')normalize()});
+  var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){apply(false)},120)});
+  apply(false);setTimeout(function(){apply(false)},300);setTimeout(function(){apply(false)},900);
  }
 
  /* ---------- mount ---------- */
