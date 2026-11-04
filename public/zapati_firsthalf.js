@@ -34,7 +34,7 @@
         if (u.protocol !== 'https:' && u.protocol !== 'http:') return null;
         // Shoptet may use the shop origin or its image CDN.
         if (u.hostname !== location.hostname && u.hostname !== 'cdn.myshoptet.com') return null;
-        if (/\\/logos\\/|preforma-logo|favicon/i.test(u.pathname)) return null;
+        if (u.pathname.includes('/logos/') || /preforma-logo|favicon/i.test(u.pathname)) return null;
         return u.href;
       } catch (_) {
         return null;
