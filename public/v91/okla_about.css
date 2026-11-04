@@ -1,16 +1,17 @@
-/* OKLA V91 – "O nás" page. A long, editorial About page in OKLA's own visual
-   language: navy→violet brand gradient (same family as the footer promo), clean
-   white cards, Roboto. Rendered by okla_about.js on /o-nas/ (takes over the CMS
-   page so nothing native shows behind it). Brand navy #0b2540, blue #1f6fd6,
-   violet #6c3bc5. Not Alza colours. */
+/* OKLA V91 – "O nás" page, rebuilt PPL-style: full-width, clean white, a single
+   brand blue, no gradients / eyebrows / decorative graphics, real stock photos.
+   Rendered by okla_about.js on /o-nas/ (takes over the CMS page). */
 
 html body .okla-about{
-  box-sizing:border-box;
-  max-width:1160px;
-  margin:0 auto;
-  padding:22px 0 10px;
+  /* full-bleed out of Shoptet's content column */
+  width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  overflow-x:hidden;
   font-family:Roboto,Arial,sans-serif;
-  color:#141923;
+  color:#1a2330;background:#fff;
+  --b:#14429b;      /* the one brand colour */
+  --bd:#0e2f73;     /* darker (hover) */
+  --mut:#5c6676;
+  --line:#e7eaf0;
 }
 html body .okla-about *,
 html body .okla-about *:before,
@@ -18,286 +19,131 @@ html body .okla-about *:after{box-sizing:border-box}
 html body .okla-about h1,
 html body .okla-about h2,
 html body .okla-about h3,
-html body .okla-about p{margin:0}
+html body .okla-about p,
+html body .okla-about ul{margin:0;padding:0}
+html body .oka-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+html body .oka-sec{padding:72px 0}
+html body .oka-sec--tight{padding:56px 0}
 
-/* ============================ HERO ============================ */
-html body .oka-hero{
-  position:relative;overflow:hidden;
-  border-radius:20px;
-  background:
-    radial-gradient(ellipse at 88% 12%,rgba(123,97,255,.55) 0%,transparent 55%),
-    radial-gradient(ellipse at 10% 95%,rgba(0,141,221,.40) 0%,transparent 52%),
-    linear-gradient(118deg,#152a86 0%,#243e9b 46%,#5b34bd 100%);
-  color:#fff;
-  padding:52px 54px 0;
-}
-html body .oka-hero__inner{
-  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
-  align-items:center;gap:30px;min-height:300px;
-}
-html body .oka-hero__eyebrow{
-  display:inline-flex;align-items:center;gap:9px;
-  font-size:13px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;
-  color:#cfe0ff;margin-bottom:16px;
-}
-html body .oka-hero__eyebrow:before{content:"";width:22px;height:2px;border-radius:2px;background:#8fb4ff}
-html body .oka-hero h1{
-  font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.5px;
-  color:#fff;text-wrap:balance;margin-bottom:18px;
-}
-html body .oka-hero h1 em{font-style:normal;color:#ffd27a}
-html body .oka-hero__lead{
-  font-size:16px;line-height:1.65;color:#e6ebff;max-width:520px;margin-bottom:26px;
-}
-html body .oka-hero__cta{display:flex;flex-wrap:wrap;gap:12px}
+/* buttons / links (single colour) */
 html body .oka-btn{
-  display:inline-flex;align-items:center;gap:9px;
-  height:46px;padding:0 22px;border-radius:10px;
-  font-size:14.5px;font-weight:700;text-decoration:none;cursor:pointer;border:1px solid transparent;
-  transition:background-color .15s ease,border-color .15s ease,color .15s ease;
+  display:inline-flex;align-items:center;gap:9px;height:48px;padding:0 24px;border-radius:6px;
+  font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;border:1px solid var(--b);
+  background:var(--b);color:#fff;transition:background-color .15s ease,border-color .15s ease;
 }
+html body .oka-btn:hover{background:var(--bd);border-color:var(--bd);color:#fff}
+html body .oka-btn--ghost{background:#fff;color:var(--b)}
+html body .oka-btn--ghost:hover{background:#eef2fa;color:var(--b)}
+html body .oka-btn--white{background:#fff;color:var(--b);border-color:#fff}
+html body .oka-btn--white:hover{background:#eef2fa;color:var(--b)}
 html body .oka-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-html body .oka-btn--light{background:#fff;color:#1b2b86}
-html body .oka-btn--light:hover{background:#eef2ff;color:#1b2b86}
-html body .oka-btn--ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.45)}
-html body .oka-btn--ghost:hover{background:rgba(255,255,255,.16);color:#fff}
+html body .oka-link{
+  display:inline-flex;align-items:center;gap:8px;color:var(--b);font-size:15px;font-weight:700;text-decoration:none;
+}
+html body .oka-link:hover{color:var(--bd);text-decoration:underline}
+html body .oka-link svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .15s ease}
+html body .oka-link:hover svg{transform:translateX(3px)}
 
-/* hero artwork (abstract OKLA parcel + nodes, built in JS) */
-html body .oka-hero__art{position:relative;align-self:center;justify-self:end;width:100%;max-width:430px}
-html body .oka-hero__art svg{display:block;width:100%;height:auto}
+/* ---------------- HERO ---------------- */
+html body .oka-hero .oka-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:54px;align-items:center}
+html body .oka-hero h1{font-size:44px;line-height:1.1;font-weight:800;letter-spacing:-.6px;color:#141c28;text-wrap:balance}
+html body .oka-hero p{margin:20px 0 30px;font-size:17px;line-height:1.65;color:var(--mut);max-width:500px}
+html body .oka-hero__cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+html body .oka-hero__img{width:100%;aspect-ratio:7/5;object-fit:cover;border-radius:12px;display:block}
 
-/* feature strip along the bottom of the hero (Alza-style, OKLA colours) */
-html body .oka-hero__features{
-  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;
-  margin:44px -54px 0;padding:22px 54px;
-  background:rgba(4,13,48,.26);border-top:1px solid rgba(255,255,255,.12);
-}
-html body .oka-feat{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;min-width:0}
-html body .oka-feat__ic{
-  width:46px;height:46px;flex:none;display:grid;place-items:center;border-radius:12px;
-  background:rgba(255,255,255,.10);color:#fff;
-}
-html body .oka-feat__ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-html body .oka-feat strong{font-size:13px;font-weight:600;line-height:1.3;color:#eaf0ff;text-wrap:balance}
+/* ---------------- STAT ROW ---------------- */
+html body .oka-stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+html body .oka-stats .oka-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding-top:46px;padding-bottom:46px}
+html body .oka-stat{text-align:center}
+html body .oka-stat__ic{width:40px;height:40px;margin:0 auto 14px;color:var(--b)}
+html body .oka-stat__ic svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+html body .oka-stat__n{font-size:38px;font-weight:800;line-height:1;letter-spacing:-.5px;color:#141c28}
+html body .oka-stat__l{margin-top:10px;font-size:14.5px;line-height:1.4;color:var(--mut)}
 
-/* ============================ SECTIONS ============================ */
-html body .oka-section{padding:62px 4px 0}
-html body .oka-section__head{max-width:720px;margin:0 0 30px}
-html body .oka-section--center .oka-section__head{margin-left:auto;margin-right:auto;text-align:center}
-html body .oka-eyebrow{
-  display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
-  color:#6c3bc5;margin-bottom:12px;
-}
-html body .oka-section h2{font-size:30px;line-height:1.18;font-weight:800;letter-spacing:-.4px;color:#0b2540;text-wrap:balance}
-html body .oka-section__lead{margin-top:14px;font-size:16px;line-height:1.7;color:#45546a}
+/* ---------------- INTRO ---------------- */
+html body .oka-intro .oka-wrap{max-width:900px;text-align:center}
+html body .oka-h2{font-size:32px;line-height:1.2;font-weight:800;letter-spacing:-.4px;color:#141c28;text-wrap:balance}
+html body .oka-intro p{margin:20px auto 0;font-size:17px;line-height:1.75;color:var(--mut);max-width:760px}
 
-/* ---- Intro: text + stats ---- */
-html body .oka-intro{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:40px;align-items:center}
-html body .oka-intro__text p{font-size:15.5px;line-height:1.8;color:#3a4759;margin-bottom:16px}
-html body .oka-intro__text p:last-child{margin-bottom:0}
-html body .oka-intro__text b{color:#0b2540;font-weight:700}
-html body .oka-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-html body .oka-stat{
-  background:radial-gradient(ellipse at 18% 12%,#eef4ff 0%,transparent 60%),#fff;
-  border:1px solid #e6ebf2;border-radius:14px;padding:20px 20px;box-shadow:0 1px 4px rgba(6,29,58,.05);
-}
-html body .oka-stat__num{font-size:30px;font-weight:800;line-height:1;letter-spacing:-.5px;color:#1f3fb0;display:flex;align-items:baseline;gap:3px}
-html body .oka-stat__num i{font-style:normal;font-size:18px;font-weight:800;color:#6c3bc5}
-html body .oka-stat__label{margin-top:9px;font-size:13.5px;line-height:1.4;color:#56657a;font-weight:500}
+/* ---------------- FEATURE ROWS (alternating) ---------------- */
+html body .oka-feat .oka-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+html body .oka-feat--rev .oka-feat__img{order:2}
+html body .oka-feat__img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block}
+html body .oka-feat__body h2{font-size:30px;line-height:1.22;font-weight:800;letter-spacing:-.3px;color:#141c28;text-wrap:balance}
+html body .oka-feat__body p{margin:18px 0 22px;font-size:16px;line-height:1.7;color:var(--mut)}
 
-/* ---- Timeline ---- */
-html body .oka-timeline{position:relative;margin-top:6px;padding-left:4px}
-html body .oka-tl{position:relative;display:grid;grid-template-columns:92px 1fr;gap:22px;padding:0 0 30px}
-html body .oka-tl:last-child{padding-bottom:0}
-html body .oka-tl__year{font-size:19px;font-weight:800;color:#1f3fb0;text-align:right;padding-top:1px;letter-spacing:-.3px}
-html body .oka-tl__body{position:relative;padding-left:30px}
-/* vertical line + dot */
-html body .oka-tl__body:before{content:"";position:absolute;left:0;top:7px;bottom:-30px;width:2px;background:#e1e7f2}
-html body .oka-tl:last-child .oka-tl__body:before{display:none}
-html body .oka-tl__body:after{content:"";position:absolute;left:-5px;top:5px;width:12px;height:12px;border-radius:50%;background:#1f6fd6;border:3px solid #fff;box-shadow:0 0 0 2px #cdddf7}
-html body .oka-tl__h{font-size:16.5px;font-weight:700;color:#0b2540;margin-bottom:5px}
-html body .oka-tl__p{font-size:14.5px;line-height:1.65;color:#51607a}
+/* ---------------- BLUE B2B BAND (photo bleeds right) ---------------- */
+html body .oka-biz{display:grid;grid-template-columns:1fr 1fr;background:var(--b);color:#fff;align-items:center}
+html body .oka-biz__body{padding:64px 56px 64px max(24px,calc(50vw - 590px))}
+html body .oka-biz__body h2{font-size:31px;line-height:1.25;font-weight:800;letter-spacing:-.3px;color:#fff;max-width:520px;text-wrap:balance}
+html body .oka-biz__list{list-style:none;margin:22px 0 30px;display:flex;flex-direction:column;gap:14px}
+html body .oka-biz__list li{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.5;color:#e7ecf7}
+html body .oka-biz__list svg{width:22px;height:22px;flex:none;margin-top:1px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+html body .oka-biz__img{width:100%;height:100%;min-height:440px;object-fit:cover;display:block}
 
-/* ---- Values ---- */
-html body .oka-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-html body .oka-value{
-  background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:26px 24px;
-  box-shadow:0 1px 4px rgba(6,29,58,.05);
-}
-html body .oka-value__ic{
-  width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:16px;
-  background:linear-gradient(145deg,#eaf1ff,#e7e0fb);color:#3a3db5;
-}
-html body .oka-value__ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-html body .oka-value h3{font-size:17px;font-weight:700;color:#0b2540;margin-bottom:9px}
-html body .oka-value p{font-size:14px;line-height:1.65;color:#51607a}
-
-/* ---- Process steps ---- */
-html body .oka-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:oka}
-html body .oka-step{
-  position:relative;background:#f7f9fd;border:1px solid #e9eef6;border-radius:14px;padding:24px 20px 22px;
-}
-html body .oka-step:before{
-  counter-increment:oka;content:counter(oka,decimal-leading-zero);
-  display:block;font-size:14px;font-weight:800;color:#6c3bc5;margin-bottom:12px;letter-spacing:.5px;
-}
-html body .oka-step h3{font-size:15.5px;font-weight:700;color:#0b2540;margin-bottom:8px}
-html body .oka-step p{font-size:13.5px;line-height:1.6;color:#56657a}
-
-/* ---- Categories ---- */
-html body .oka-cats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-html body .oka-cat{
-  display:flex;align-items:center;gap:13px;text-decoration:none;
-  background:#fff;border:1px solid #e6ebf2;border-radius:12px;padding:15px 16px;
-  box-shadow:0 1px 3px rgba(6,29,58,.04);transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease;
-}
-html body .oka-cat:hover{border-color:#bcd0f1;box-shadow:0 6px 18px rgba(31,63,176,.12);transform:translateY(-2px)}
-html body .oka-cat__ic{width:40px;height:40px;flex:none;border-radius:10px;background:#eef4ff;display:grid;place-items:center;color:#1f4fb6}
-html body .oka-cat__ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-html body .oka-cat span{font-size:14px;font-weight:600;color:#1b2b46;line-height:1.3}
-
-/* ============================ MAP ============================ */
-html body .oka-mapwrap{
-  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:30px;align-items:stretch;
-  background:#fff;border:1px solid #e6ebf2;border-radius:18px;padding:28px;box-shadow:0 1px 4px rgba(6,29,58,.05);
-}
-html body .oka-mapwrap__text{align-self:center}
-html body .oka-mapwrap__text p{font-size:14.5px;line-height:1.7;color:#45546a;margin-bottom:18px}
-html body .oka-mapleg{display:flex;flex-direction:column;gap:11px;margin-top:4px}
-html body .oka-mapleg__i{display:flex;align-items:center;gap:11px;font-size:14px;color:#1b2b46}
-html body .oka-mapleg__dot{width:14px;height:14px;border-radius:4px;flex:none;border:1px solid rgba(0,0,0,.06)}
-html body .oka-mapleg__i b{font-weight:700;color:#0b2540}
-html body .oka-mapleg__i span{color:#66758a}
-html body #okla-about-map{
-  width:100%;display:flex;align-items:center;justify-content:center;
-  border-radius:14px;overflow:hidden;background:#f4f7fc;border:1px solid #e9eef6;
-}
-html body #okla-about-map.is-fallback{min-height:300px;padding:20px}
+/* ---------------- MAP ---------------- */
+html body .oka-map .oka-wrap{text-align:center}
+html body .oka-map__head{max-width:720px;margin:0 auto 32px}
+html body .oka-map__head p{margin-top:16px;font-size:16px;line-height:1.7;color:var(--mut)}
+html body #okla-about-map{width:100%;max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center}
+html body #okla-about-map.is-fallback{min-height:300px}
 html body .oka-cemap{display:block;width:100%;height:auto}
-html body .oka-cemap__ctx .oka-cc{fill:#e3e8f1;stroke:#fff;stroke-width:1.1;stroke-linejoin:round}
-html body .oka-cemap__home .oka-hc{fill:var(--fill);stroke:#fff;stroke-width:1.5;stroke-linejoin:round;transition:filter .15s ease}
-html body .oka-cemap__home .oka-hc:hover{filter:brightness(1.12)}
-html body .oka-lab rect{fill:#0b2540}
+html body .oka-cemap__ctx .oka-cc{fill:#e5e9f0;stroke:#fff;stroke-width:1.1;stroke-linejoin:round}
+html body .oka-cemap__home .oka-hc{fill:var(--b);stroke:#fff;stroke-width:1.5;stroke-linejoin:round;transition:fill .15s ease}
+html body .oka-cemap__home .oka-hc:hover{fill:var(--bd)}
+html body .oka-lab rect{fill:#141c28}
 html body .oka-lab text{fill:#fff;font-family:Roboto,Arial,sans-serif;font-size:20px;font-weight:700}
 
-/* ============================ B2B / PRO FIRMY ============================ */
-html body .oka-b2b{
-  position:relative;overflow:hidden;border-radius:20px;color:#fff;
-  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:center;
-  padding:42px 46px;
-  background:
-    radial-gradient(ellipse at 90% 10%,rgba(0,141,221,.45) 0%,transparent 55%),
-    linear-gradient(118deg,#13297e 0%,#1f44b8 100%);
-}
-html body .oka-b2b__tag{
-  display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
-  color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
-  padding:6px 14px;border-radius:999px;margin-bottom:16px;
-}
-html body .oka-b2b__text h2{font-size:27px;line-height:1.25;font-weight:800;color:#fff;letter-spacing:-.3px;margin-bottom:20px;text-wrap:balance;max-width:560px}
-html body .oka-b2b__list{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:13px}
-html body .oka-b2b__list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.5;color:#e7ecff}
-html body .oka-b2b__list svg{width:22px;height:22px;flex:none;margin-top:1px;fill:none;stroke:#9fe6b0;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-html body .oka-b2b .oka-btn--light{background:#fff;color:#16307f}
-html body .oka-b2b .oka-btn--light:hover{background:#eaf0ff;color:#16307f}
-html body .oka-b2b__side{display:flex;flex-direction:column;gap:12px}
-html body .oka-b2bstat{
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;
-  padding:16px 20px;backdrop-filter:blur(2px);
-}
-html body .oka-b2bstat__n{font-size:26px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.4px}
-html body .oka-b2bstat__l{margin-top:7px;font-size:13.5px;color:#cdd8ff}
+/* ---------------- NEWS / ARTICLES ---------------- */
+html body .oka-news__top{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+html body .oka-news__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+html body .oka-art{display:block;text-decoration:none;color:inherit}
+html body .oka-art__img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block;margin-bottom:18px}
+html body .oka-art h3{font-size:19px;line-height:1.3;font-weight:700;color:#141c28}
+html body .oka-art:hover h3{color:var(--b)}
+html body .oka-art p{margin:10px 0 14px;font-size:14.5px;line-height:1.6;color:var(--mut)}
+html body .oka-art__more{display:inline-flex;color:var(--b)}
+html body .oka-art__more svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ============================ TEAM ============================ */
-html body .oka-team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-html body .oka-member{background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:24px 20px;text-align:center;box-shadow:0 1px 4px rgba(6,29,58,.05)}
-html body .oka-member__av{
-  width:72px;height:72px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
-  font-size:24px;font-weight:800;color:#fff;letter-spacing:.5px;
-}
-html body .oka-member h3{font-size:16px;font-weight:700;color:#0b2540;margin-bottom:3px}
-html body .oka-member__role{font-size:13px;font-weight:600;color:#1f6fd6;margin-bottom:10px}
-html body .oka-member p{font-size:13px;line-height:1.55;color:#64718a}
+/* ---------------- CLOSING / CONTACT ---------------- */
+html body .oka-close{border-top:1px solid var(--line);text-align:center}
+html body .oka-close p{margin:16px auto 26px;font-size:16px;line-height:1.7;color:var(--mut);max-width:560px}
+html body .oka-close__cta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+html body .oka-close__meta{margin-top:30px;font-size:14px;color:var(--mut)}
+html body .oka-close__meta a{color:var(--b);text-decoration:none;font-weight:600}
+html body .oka-close__meta a:hover{text-decoration:underline}
 
-/* ============================ CONTACT ============================ */
-html body .oka-contact{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:center;
-  background:radial-gradient(ellipse at 90% 10%,#eef4ff 0%,transparent 55%),#f7f9fd;
-  border:1px solid #e6ebf2;border-radius:18px;padding:34px 36px;
+/* ---------------- RESPONSIVE ---------------- */
+@media(max-width:900px){
+  html body .oka-sec{padding:52px 0}
+  html body .oka-hero .oka-wrap{grid-template-columns:1fr;gap:28px}
+  html body .oka-hero__img{order:-1;aspect-ratio:16/9}
+  html body .oka-hero h1{font-size:34px}
+  html body .oka-stats .oka-wrap{grid-template-columns:1fr 1fr;gap:34px 20px}
+  html body .oka-feat .oka-wrap{grid-template-columns:1fr;gap:22px}
+  html body .oka-feat--rev .oka-feat__img{order:-1}
+  html body .oka-feat__img{order:-1;aspect-ratio:16/9}
+  html body .oka-biz{grid-template-columns:1fr}
+  html body .oka-biz__body{padding:40px 24px}
+  html body .oka-biz__img{min-height:0;aspect-ratio:16/9;order:-1}
+  html body .oka-news__grid{grid-template-columns:1fr;gap:34px}
 }
-html body .oka-contact h2{font-size:25px}
-html body .oka-contact__rows{margin-top:18px;display:flex;flex-direction:column;gap:14px}
-html body .oka-crow{display:flex;align-items:flex-start;gap:13px}
-html body .oka-crow__ic{width:38px;height:38px;flex:none;border-radius:10px;background:#fff;border:1px solid #e3e9f1;display:grid;place-items:center;color:#1f4fb6}
-html body .oka-crow__ic svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-html body .oka-crow__t{font-size:14.5px;line-height:1.5;color:#2c3a52}
-html body .oka-crow__t b{display:block;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#8795a7;margin-bottom:2px}
-html body .oka-crow__t a{color:#1f6fd6;text-decoration:none;font-weight:600}
-html body .oka-crow__t a:hover{text-decoration:underline}
-html body .oka-contact__cta{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-html body .oka-contact__cta .oka-btn--light{background:#1f3fb0;color:#fff;border-color:#1f3fb0}
-html body .oka-contact__cta .oka-btn--light:hover{background:#16307f;color:#fff}
-html body .oka-contact__cta .oka-btn--ghost{background:#fff;color:#1b2b86;border-color:#c9d4ea}
-html body .oka-contact__cta .oka-btn--ghost:hover{background:#eef2ff;color:#1b2b86}
-
-/* ============================ CLOSING CTA ============================ */
-html body .oka-closing{
-  margin:62px 0 6px;border-radius:20px;overflow:hidden;color:#fff;text-align:center;
-  background:radial-gradient(ellipse at 15% 20%,rgba(0,141,221,.45) 0%,transparent 55%),linear-gradient(118deg,#1b2b86,#5b34bd);
-  padding:48px 40px;
-}
-html body .oka-closing h2{font-size:28px;font-weight:800;color:#fff;margin-bottom:12px;letter-spacing:-.4px}
-html body .oka-closing p{font-size:15.5px;line-height:1.6;color:#e3e9ff;max-width:560px;margin:0 auto 24px}
-html body .oka-closing .oka-hero__cta{justify-content:center}
-
-/* ============================ RESPONSIVE ============================ */
-@media(max-width:980px){
-  html body .oka-hero{padding:40px 34px 0}
-  html body .oka-hero__inner{grid-template-columns:1fr;gap:20px;min-height:0}
-  html body .oka-hero__art{display:none}
-  html body .oka-hero h1{font-size:33px}
-  html body .oka-hero__features{margin:30px -34px 0;padding:20px 24px;grid-template-columns:repeat(5,1fr);gap:8px}
-  html body .oka-feat strong{font-size:11px}
-  html body .oka-feat__ic{width:40px;height:40px}
-  html body .oka-intro{grid-template-columns:1fr;gap:26px}
-  html body .oka-grid-3{grid-template-columns:1fr 1fr}
-  html body .oka-steps{grid-template-columns:1fr 1fr}
-  html body .oka-cats{grid-template-columns:1fr 1fr}
-  html body .oka-mapwrap{grid-template-columns:1fr;gap:22px}
-  html body .oka-team{grid-template-columns:1fr 1fr}
-  html body .oka-contact{grid-template-columns:1fr;gap:22px}
-  html body .oka-b2b{grid-template-columns:1fr;gap:24px;padding:34px 30px}
-  html body .oka-b2b__side{flex-direction:row;flex-wrap:wrap}
-  html body .oka-b2bstat{flex:1 1 150px}
-}
-@media(max-width:620px){
-  html body .okla-about{padding:14px 0 6px}
-  html body .oka-hero{padding:32px 20px 0;border-radius:16px}
-  html body .oka-hero h1{font-size:27px}
-  html body .oka-hero__lead{font-size:14.5px}
-  html body .oka-hero__features{margin:26px -20px 0;padding:18px 14px;grid-template-columns:repeat(2,1fr);gap:16px 10px}
-  html body .oka-section{padding-top:48px}
-  html body .oka-section h2{font-size:24px}
-  html body .oka-grid-3,
-  html body .oka-steps,
-  html body .oka-cats,
-  html body .oka-team{grid-template-columns:1fr}
-  html body .oka-stats{grid-template-columns:1fr 1fr}
-  html body .oka-tl{grid-template-columns:62px 1fr;gap:14px}
-  html body .oka-tl__year{font-size:16px}
-  html body .oka-tl__body{padding-left:24px}
-  html body .oka-mapwrap{padding:18px}
-  html body #okla-about-map{min-height:320px}
-  html body .oka-closing{padding:36px 22px;margin-top:48px}
-  html body .oka-closing h2{font-size:23px}
-  html body .oka-contact{padding:24px 20px}
-  html body .oka-b2b{padding:28px 22px}
-  html body .oka-b2b__text h2{font-size:22px}
+@media(max-width:600px){
+  html body .oka-wrap{padding:0 16px}
+  html body .oka-sec{padding:44px 0}
+  html body .oka-hero h1{font-size:28px}
+  html body .oka-hero p{font-size:15.5px}
+  html body .oka-h2,html body .oka-feat__body h2,html body .oka-biz__body h2{font-size:24px}
+  html body .oka-stats .oka-wrap{padding-top:34px;padding-bottom:34px}
+  html body .oka-stat__n{font-size:30px}
+  html body .oka-btn{width:100%;justify-content:center}
+  html body .oka-hero__cta .oka-link{width:100%;justify-content:center}
   html body .oka-lab text{font-size:24px}
 }
 
-/* ---- Takeover: our page replaces whatever Shoptet rendered on /o-nas/ ---- */
+/* ---------------- Takeover: our page replaces the CMS page content ---------------- */
 html.okla-about-takeover #content .content-inner > *:not(.okla-about){display:none!important}
+html.okla-about-takeover #content .content-inner{padding:0!important}
 html.okla-about-takeover .breadcrumbs,
 html.okla-about-takeover .breadcrumbs-wrapper,
 html.okla-about-takeover #navigation .breadcrumbs,
