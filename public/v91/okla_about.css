@@ -65,6 +65,7 @@ html body .oka-h2{font-size:32px;line-height:1.2;font-weight:800;letter-spacing:
 html body .oka-intro p{margin:20px auto 0;font-size:17px;line-height:1.75;color:var(--mut);max-width:760px}
 
 /* ---------------- FEATURE ROWS (alternating) ---------------- */
+html body .oka-feat{padding:44px 0}
 html body .oka-feat .oka-wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 html body .oka-feat--rev .oka-feat__img{order:2}
 html body .oka-feat__img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;display:block}
@@ -72,7 +73,7 @@ html body .oka-feat__body h2{font-size:30px;line-height:1.22;font-weight:800;let
 html body .oka-feat__body p{margin:18px 0 22px;font-size:16px;line-height:1.7;color:var(--mut)}
 
 /* ---------------- BLUE B2B BAND (photo full-bleed, blue gradient blends into it) ---------------- */
-html body .oka-biz{position:relative;overflow:hidden;background:var(--b);color:#fff;min-height:480px;display:flex;align-items:center}
+html body .oka-biz{position:relative;overflow:hidden;background:var(--b);color:#fff;min-height:480px;display:flex;align-items:center;margin-top:44px}
 html body .oka-biz__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;display:block;z-index:0}
 html body .oka-biz:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--b) 0%,var(--b) 40%,rgba(20,66,155,.72) 56%,rgba(20,66,155,0) 80%)}
 html body .oka-biz__body{position:relative;z-index:2;width:100%;max-width:1180px;margin:0 auto;padding:56px 24px}
