@@ -49,7 +49,7 @@ function render(html){
   info.append(link,el('div','okla-cp__qty',(input?input.value:'1')+' ks'));
   item.append(img,info,el('div','okla-cp__price',price?txt(price.textContent):''));out.appendChild(item);
  });
- if(!out.children.length)message(lang()[4]);
+ if(!out.children.length)message(count()>0?lang()[6]:lang()[4]);
 }
 function move(){
  if(!anchor||!pop)return;var r=anchor.getBoundingClientRect(),w=Math.min(420,innerWidth-24);
