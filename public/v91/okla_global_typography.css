@@ -17,10 +17,7 @@ html body :is(
   h1,h2,h3,h4,h5,h6,p,div,span,a,label,button,input,textarea,select,option,
   small,b,strong,em,li,ul,ol,td,th,header,footer,main,nav,article,section,
   summary,time,blockquote
-):not(svg):not(.fa):not(.fas):not(.far):not(.fab)
- :not(.material-icons):not(.material-symbols-outlined)
- :not([class^="icon-"]):not([class*=" icon-"])
- :not([class^="shp-icon"]):not([class*=" shp-icon"]){
+):not(svg):not(.fa):not(.fas):not(.far):not(.fab):not(.material-icons):not(.material-symbols-outlined):not([class^="icon-"]):not([class*=" icon-"]):not([class^="shp-icon"]):not([class*=" shp-icon"]){
   font-family:'Roboto',Arial,sans-serif!important;
 }
 /* Explicitly counter old, more-specific Exo 2 / Segoe declarations. */
