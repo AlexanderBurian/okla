@@ -169,15 +169,44 @@ html body .oka-mapleg__dot{width:14px;height:14px;border-radius:4px;flex:none;bo
 html body .oka-mapleg__i b{font-weight:700;color:#0b2540}
 html body .oka-mapleg__i span{color:#66758a}
 html body #okla-about-map{
-  width:100%;min-height:380px;height:100%;border-radius:14px;overflow:hidden;
-  background:#eaf0f8;border:1px solid #e3e9f1;z-index:0;
+  width:100%;display:flex;align-items:center;justify-content:center;
+  border-radius:14px;overflow:hidden;background:#f4f7fc;border:1px solid #e9eef6;
 }
-html body #okla-about-map.is-fallback{display:flex;align-items:center;justify-content:center;padding:20px}
-html body #okla-about-map .leaflet-container{font-family:Roboto,Arial,sans-serif}
-html body .oka-map-pin{display:block}
-html body .oka-map-tip{font-size:12.5px;font-weight:700;color:#0b2540}
-/* static SVG fallback map (only shown if Leaflet/tiles can't load) */
-html body .oka-mapfallback{width:100%;height:auto;max-width:560px}
+html body #okla-about-map.is-fallback{min-height:300px;padding:20px}
+html body .oka-cemap{display:block;width:100%;height:auto}
+html body .oka-cemap__ctx .oka-cc{fill:#e3e8f1;stroke:#fff;stroke-width:1.1;stroke-linejoin:round}
+html body .oka-cemap__home .oka-hc{fill:var(--fill);stroke:#fff;stroke-width:1.5;stroke-linejoin:round;transition:filter .15s ease}
+html body .oka-cemap__home .oka-hc:hover{filter:brightness(1.12)}
+html body .oka-lab rect{fill:#0b2540}
+html body .oka-lab text{fill:#fff;font-family:Roboto,Arial,sans-serif;font-size:20px;font-weight:700}
+
+/* ============================ B2B / PRO FIRMY ============================ */
+html body .oka-b2b{
+  position:relative;overflow:hidden;border-radius:20px;color:#fff;
+  display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:34px;align-items:center;
+  padding:42px 46px;
+  background:
+    radial-gradient(ellipse at 90% 10%,rgba(0,141,221,.45) 0%,transparent 55%),
+    linear-gradient(118deg,#13297e 0%,#1f44b8 100%);
+}
+html body .oka-b2b__tag{
+  display:inline-block;font-size:12.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  color:#fff;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);
+  padding:6px 14px;border-radius:999px;margin-bottom:16px;
+}
+html body .oka-b2b__text h2{font-size:27px;line-height:1.25;font-weight:800;color:#fff;letter-spacing:-.3px;margin-bottom:20px;text-wrap:balance;max-width:560px}
+html body .oka-b2b__list{list-style:none;margin:0 0 26px;padding:0;display:flex;flex-direction:column;gap:13px}
+html body .oka-b2b__list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.5;color:#e7ecff}
+html body .oka-b2b__list svg{width:22px;height:22px;flex:none;margin-top:1px;fill:none;stroke:#9fe6b0;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+html body .oka-b2b .oka-btn--light{background:#fff;color:#16307f}
+html body .oka-b2b .oka-btn--light:hover{background:#eaf0ff;color:#16307f}
+html body .oka-b2b__side{display:flex;flex-direction:column;gap:12px}
+html body .oka-b2bstat{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;
+  padding:16px 20px;backdrop-filter:blur(2px);
+}
+html body .oka-b2bstat__n{font-size:26px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.4px}
+html body .oka-b2bstat__l{margin-top:7px;font-size:13.5px;color:#cdd8ff}
 
 /* ============================ TEAM ============================ */
 html body .oka-team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
@@ -237,6 +266,9 @@ html body .oka-closing .oka-hero__cta{justify-content:center}
   html body .oka-mapwrap{grid-template-columns:1fr;gap:22px}
   html body .oka-team{grid-template-columns:1fr 1fr}
   html body .oka-contact{grid-template-columns:1fr;gap:22px}
+  html body .oka-b2b{grid-template-columns:1fr;gap:24px;padding:34px 30px}
+  html body .oka-b2b__side{flex-direction:row;flex-wrap:wrap}
+  html body .oka-b2bstat{flex:1 1 150px}
 }
 @media(max-width:620px){
   html body .okla-about{padding:14px 0 6px}
@@ -259,6 +291,9 @@ html body .oka-closing .oka-hero__cta{justify-content:center}
   html body .oka-closing{padding:36px 22px;margin-top:48px}
   html body .oka-closing h2{font-size:23px}
   html body .oka-contact{padding:24px 20px}
+  html body .oka-b2b{padding:28px 22px}
+  html body .oka-b2b__text h2{font-size:22px}
+  html body .oka-lab text{font-size:24px}
 }
 
 /* ---- Takeover: our page replaces whatever Shoptet rendered on /o-nas/ ---- */
@@ -269,5 +304,3 @@ html.okla-about-takeover #navigation .breadcrumbs,
 html.okla-about-takeover nav.breadcrumb,
 html.okla-about-takeover .breadcrumb,
 html.okla-about-takeover .breadcrumb-nav{display:none!important}
-/* keep Leaflet controls tidy inside our rounded map */
-html body #okla-about-map .leaflet-control-attribution{font-size:10px;background:rgba(255,255,255,.8)}

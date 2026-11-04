@@ -1,8 +1,10 @@
 /* OKLA V91 – "O nás" page. Builds a long editorial About page in OKLA's own
    brand language and renders a REAL map (Leaflet + OpenStreetMap tiles) of the
-   markets we serve — Česko, Slovensko, Maďarsko — with accurate country borders
-   loaded from committed GeoJSON (public/v91/data/okla-map-cz-sk-hu.geojson), not
-   a hand-drawn shape. Shown on /o-nas/ (takes over the CMS page).
+   markets we serve — Česko, Slovensko, Maďarsko — as a designed flat SVG
+   choropleth (our three states filled blue, neighbours grey for context) with
+   accurate borders loaded from committed GeoJSON
+   (public/v91/data/okla-map-central-europe.geojson), not a hand-drawn shape.
+   Shown on /o-nas/ (takes over the CMS page).
 
    The company facts below (founding year, cities, counts, team first names,
    address) are editorial placeholders for OKLA to adjust in this file — kept
@@ -122,12 +124,31 @@
    '<div class="oka-mapwrap__text">'+
      '<p>Sklad a zázemí máme v <b>Ostravě</b>, odkud expedujeme objednávky do všech tří zemí. Zásilky doručujeme přes zavedené dopravce a výdejní místa.</p>'+
      '<div class="oka-mapleg">'+
-       legi('#1f3fb0','Česko','sídlo a sklad · Ostrava')+
-       legi('#1f6fd6','Slovensko','doručujeme od 2022 · Bratislava')+
-       legi('#6c3bc5','Maďarsko','doručujeme od 2024 · Budapešť')+
+       legi('#13318f','Česko','sídlo a sklad · Ostrava')+
+       legi('#245ad6','Slovensko','doručujeme od 2022 · Bratislava')+
+       legi('#4f8bef','Maďarsko','doručujeme od 2024 · Budapešť')+
      '</div>'+
    '</div>'+
    '<div id="okla-about-map" role="img" aria-label="Mapa: Česko, Slovensko a Maďarsko"></div>'+
+ '</div></div>'+
+
+ /* ---------------- B2B / PRO FIRMY (PPL-style band) ---------------- */
+ '<div class="oka-section"><div class="oka-b2b">'+
+   '<div class="oka-b2b__text">'+
+     '<span class="oka-b2b__tag">Pro firmy</span>'+
+     '<h2>Provozujete e-shop nebo prodejnu? Odebírejte od nás velkoobchodně</h2>'+
+     '<ul class="oka-b2b__list">'+
+       b2bli('Zvýhodněné ceny při pravidelném odběru')+
+       b2bli('Skladová dostupnost a expedice z Ostravy do 24 hodin')+
+       b2bli('Osobní kontakt a poradenství — žádné call centrum')+
+     '</ul>'+
+     '<a class="oka-btn oka-btn--light" href="mailto:podpora@okla.cz?subject=Velkoobchodn%C3%AD%20spolupr%C3%A1ce">Chci spolupracovat<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>'+
+   '</div>'+
+   '<div class="oka-b2b__side">'+
+     b2bstat('24 h','Expedice ze skladu')+
+     b2bstat('3','Trhy střední Evropy')+
+     b2bstat('od 2019','Zkušenost s dovozem')+
+   '</div>'+
  '</div></div>'+
 
  /* ---------------- TEAM ---------------- */
@@ -183,6 +204,8 @@
  function legi(color,name,note){return '<div class="oka-mapleg__i"><span class="oka-mapleg__dot" style="background:'+color+'"></span><b>'+name+'</b><span>— '+note+'</span></div>'}
  function member(ini,c1,c2,name,role,p){return '<div class="oka-member"><div class="oka-member__av" style="background:linear-gradient(145deg,'+c1+','+c2+')">'+ini+'</div><h3>'+name+'</h3><div class="oka-member__role">'+role+'</div><p>'+p+'</p></div>'}
  function crow(paths,label,val){return '<div class="oka-crow"><span class="oka-crow__ic">'+ic(paths)+'</span><div class="oka-crow__t"><b>'+label+'</b>'+val+'</div></div>'}
+ function b2bli(t){return '<li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>'+t+'</span></li>'}
+ function b2bstat(num,label){return '<div class="oka-b2bstat"><div class="oka-b2bstat__n">'+num+'</div><div class="oka-b2bstat__l">'+label+'</div></div>'}
 
  /* hero decorative artwork — our own line-art (the geographic map below is the real one) */
  function ART(){return ''+
@@ -207,27 +230,12 @@
   '</svg>'}
  function nodeC(x,y,c){return '<g transform="translate('+x+' '+y+')"><circle r="12" fill="rgba(255,255,255,.12)"/><circle r="5" fill="'+c+'"/></g>'}
 
- /* ---------- real map (Leaflet + OSM) ---------- */
- var CITIES=[
-  {name:'Ostrava',cc:'Česko',lat:49.8209,lng:18.2625,color:'#1f3fb0'},
-  {name:'Bratislava',cc:'Slovensko',lat:48.1486,lng:17.1077,color:'#1f6fd6'},
-  {name:'Budapešť',cc:'Maďarsko',lat:47.4979,lng:19.0402,color:'#6c3bc5'}
- ];
- var COUNTRY_STYLE={'Česko':'#1f3fb0','Slovensko':'#1f6fd6','Maďarsko':'#6c3bc5'};
-
- function loadLeaflet(cb){
-  if(window.L){cb();return}
-  var done=false;
-  var css=document.createElement('link');
-  css.rel='stylesheet';css.href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css';
-  document.head.appendChild(css);
-  var s=document.createElement('script');
-  s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js';
-  s.async=true;
-  s.onload=function(){if(!done){done=true;cb()}};
-  s.onerror=function(){if(!done){done=true;cb(new Error('leaflet'))}};
-  document.head.appendChild(s);
- }
+ /* ---------- flat graphic map (styled SVG choropleth; real borders) ----------
+    Our three states filled blue, neighbours light grey for context, white
+    separators and a name pill on each — a clean designed map, not OSM tiles.
+    Shapes come from committed GeoJSON (real borders), projected with Mercator
+    and framed on CZ/SK/HU; neighbours bleed off and are clipped by the viewBox. */
+ var HOME_FILL={'Česko':'#13318f','Slovensko':'#245ad6','Maďarsko':'#4f8bef'};
 
  function mapFallback(box){
   box.classList.add('is-fallback');
@@ -236,50 +244,46 @@
    'Česko · Slovensko · Maďarsko</div>';
  }
 
+ function mercY(lat){return Math.log(Math.tan(Math.PI/4+lat*Math.PI/360))*(180/Math.PI)}
+ function ringsOf(geom){var rs=[];if(geom.type==='Polygon')geom.coordinates.forEach(function(r){rs.push(r)});else if(geom.type==='MultiPolygon')geom.coordinates.forEach(function(p){p.forEach(function(r){rs.push(r)})});return rs}
+
+ function buildMap(box,gj){
+  var W=1000,feats=gj.features;
+  var minx=1e9,miny=1e9,maxx=-1e9,maxy=-1e9;
+  feats.forEach(function(f){if(f.properties.role!=='home')return;ringsOf(f.geometry).forEach(function(r){r.forEach(function(p){var x=p[0],y=mercY(p[1]);if(x<minx)minx=x;if(x>maxx)maxx=x;if(y<miny)miny=y;if(y>maxy)maxy=y})})});
+  if(minx>maxx){mapFallback(box);return}
+  var padx=(maxx-minx)*0.40,pady=(maxy-miny)*0.30;
+  var bx0=minx-padx,bx1=maxx+padx,by0=miny-pady,by1=maxy+pady;
+  var H=Math.round(W*((by1-by0)/(bx1-bx0)));
+  function px(lon){return (lon-bx0)/(bx1-bx0)*W}
+  function py(lat){return (by1-mercY(lat))/(by1-by0)*H}
+  function dOf(geom){var d='';ringsOf(geom).forEach(function(r){for(var i=0;i<r.length;i++){d+=(i?'L':'M')+px(r[i][0]).toFixed(1)+' '+py(r[i][1]).toFixed(1)}d+='Z'});return d}
+  function centroidPx(geom){var best=null,bestA=-1;ringsOf(geom).forEach(function(r){var x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;r.forEach(function(p){if(p[0]<x0)x0=p[0];if(p[0]>x1)x1=p[0];if(p[1]<y0)y0=p[1];if(p[1]>y1)y1=p[1]});var a=(x1-x0)*(y1-y0);if(a>bestA){bestA=a;best=[(x0+x1)/2,(y0+y1)/2]}});return best?[px(best[0]),py(best[1])]:null}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+  var ctx='',home='',labels='';
+  feats.forEach(function(f){if(f.properties.role==='context')ctx+='<path class="oka-cc" d="'+dOf(f.geometry)+'"/>'});
+  feats.forEach(function(f){
+   if(f.properties.role!=='home')return;
+   home+='<path class="oka-hc" data-name="'+esc(f.properties.name)+'" style="--fill:'+(HOME_FILL[f.properties.name]||'#245ad6')+'" d="'+dOf(f.geometry)+'"/>';
+   var c=centroidPx(f.geometry);
+   if(c){var name=f.properties.name,w=name.length*11+28;
+    labels+='<g class="oka-lab" transform="translate('+c[0].toFixed(1)+' '+c[1].toFixed(1)+')">'+
+     '<rect x="'+(-w/2).toFixed(1)+'" y="-17" width="'+w+'" height="32" rx="9"/>'+
+     '<text x="0" y="5" text-anchor="middle">'+esc(name)+'</text></g>';
+   }
+  });
+  box.innerHTML='<svg class="oka-cemap" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Mapa: Česko, Slovensko a Maďarsko">'+
+   '<g class="oka-cemap__ctx">'+ctx+'</g><g class="oka-cemap__home">'+home+'</g><g class="oka-cemap__labels">'+labels+'</g></svg>';
+ }
+
  function initMap(){
   var box=document.getElementById('okla-about-map');
   if(!box||box.__inited)return;
   box.__inited=true;
-  loadLeaflet(function(err){
-   if(err||!window.L){mapFallback(box);return}
-   try{
-    var L=window.L;
-    var map=L.map(box,{scrollWheelZoom:false,zoomControl:true,attributionControl:true});
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-     maxZoom:12,minZoom:4,
-     attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    map.setView([48.7,17.8],6);
-    /* Default frame on CZ/SK/HU; replaced by the exact border bounds once the
-       GeoJSON loads. We re-fit after invalidateSize so a late layout (the box
-       was narrow when tiles first drew) still ends framed on the three countries. */
-    var fitTo=L.latLngBounds([45.7,12.0],[51.2,22.6]);
-    function refit(){try{map.invalidateSize();if(fitTo)map.fitBounds(fitTo,{padding:[16,16],maxZoom:7})}catch(e){}}
-    fetch(BASE+'v91/data/okla-map-cz-sk-hu.geojson')
-     .then(function(r){return r.json()})
-     .then(function(gj){
-      var layer=L.geoJSON(gj,{
-       style:function(f){
-        var c=COUNTRY_STYLE[f.properties.name]||'#1f6fd6';
-        return {color:c,weight:2,opacity:.9,fillColor:c,fillOpacity:.22};
-       }
-      }).addTo(map);
-      layer.eachLayer(function(l){
-       if(l.feature&&l.feature.properties)l.bindTooltip(l.feature.properties.name,{sticky:true,className:'oka-map-tip'});
-      });
-      try{fitTo=layer.getBounds();refit()}catch(e){}
-     })
-     .catch(function(){/* borders optional; tiles + markers still show */});
-    CITIES.forEach(function(c){
-     L.circleMarker([c.lat,c.lng],{radius:7,color:'#fff',weight:2,fillColor:c.color,fillOpacity:1})
-      .addTo(map)
-      .bindTooltip(c.name,{permanent:true,direction:'top',offset:[0,-6],className:'oka-map-tip'});
-    });
-    refit();
-    setTimeout(refit,180);
-    setTimeout(refit,700);
-   }catch(e){mapFallback(box)}
-  });
+  fetch(BASE+'v91/data/okla-map-central-europe.geojson')
+   .then(function(r){return r.json()})
+   .then(function(gj){buildMap(box,gj)})
+   .catch(function(){mapFallback(box)});
  }
 
  /* ---------- mount ---------- */
