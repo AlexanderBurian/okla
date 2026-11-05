@@ -233,3 +233,163 @@
 @media(prefers-reduced-motion:reduce){
   #okla-cart-preview{transition:none!important}
 }
+
+/* OKLA V98: final grouped desktop header and hover-cart styling. */
+@media(min-width:992px){
+ html.okla-header-reference body #header .header-top{
+  grid-template-columns:minmax(142px,190px) minmax(260px,1fr) minmax(355px,390px)!important;
+  column-gap:14px!important;
+  align-items:center!important;
+ }
+ html.okla-header-reference body #header .header-top>.search,
+ html.okla-header-reference body #header .header-top>.search form.search-form,
+ html.okla-header-reference body #header .header-top>.search fieldset{
+  min-width:0!important;
+  width:100%!important;
+  max-width:100%!important;
+ }
+ html.okla-header-reference body #header .header-top>.navigation-buttons.okla-header-ready,
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:0!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header{
+  justify-content:flex-end!important;
+  gap:5px!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale{
+  flex:0 0 40px!important;
+  width:40px!important;min-width:40px!important;max-width:40px!important;
+  margin:0 6px 0 auto!important;
+  justify-content:center!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
+  flex:0 0 155px!important;
+  width:155px!important;min-width:155px!important;max-width:155px!important;
+  justify-content:center!important;
+  margin:0!important;gap:6px!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+  position:relative!important;
+  flex:0 0 auto!important;
+  width:auto!important;min-width:148px!important;max-width:none!important;
+  justify-content:flex-end!important;
+  padding:0 0 0 6px!important;
+  margin:0!important;
+  overflow:visible!important;
+  align-self:center!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol{
+  position:relative!important;
+  width:28px!important;min-width:28px!important;
+  flex:0 0 28px!important;height:31px!important;
+  transform:translateY(-3px)!important;
+  overflow:visible!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol svg{
+  display:block!important;
+  width:26px!important;height:26px!important;
+  fill:#171717!important;
+  stroke:none!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol svg path,
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol svg circle{
+  fill:#171717!important;
+  stroke:none!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
+  display:inline-flex!important;
+  align-items:center!important;justify-content:center!important;
+  position:absolute!important;
+  top:-5px!important;left:20px!important;
+  min-width:21px!important;height:21px!important;
+  padding:0 4px!important;
+  border:2px solid #fff!important;
+  border-radius:999px!important;
+  background:#df2235!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font:700 11px/17px Roboto,Arial,sans-serif!important;
+  opacity:1!important;
+  visibility:visible!important;
+  z-index:10!important;
+  transform:none!important;
+  pointer-events:none!important;
+  box-sizing:border-box!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge[hidden]{
+  display:none!important;
+ }
+}
+@media(min-width:992px) and (max-width:1160px){
+ html.okla-header-reference body #header .header-top{
+  grid-template-columns:minmax(130px,160px) minmax(230px,1fr) 350px!important;
+  gap:12px!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
+  flex:0 0 141px!important;
+  width:141px!important;min-width:141px!important;max-width:141px!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+  min-width:147px!important;
+ }
+}
+#okla-cart-preview{
+ overflow:visible!important;
+}
+#okla-cart-preview::before{
+ content:""!important;
+ display:block!important;
+ position:absolute!important;
+ top:-10px!important;
+ right:var(--okla-cart-arrow-right,45px)!important;
+ width:18px!important;height:18px!important;
+ background:#fff!important;
+ border-top:1px solid #dfe5ec!important;
+ border-left:1px solid #dfe5ec!important;
+ transform:rotate(45deg)!important;
+ box-shadow:none!important;
+ pointer-events:none!important;
+ z-index:2!important;
+}
+#okla-cart-preview .okla-cp__header{
+ position:relative;
+ z-index:3;
+ border-radius:14px 14px 0 0;
+ background:#fff;
+}
+#okla-cart-preview .okla-cp__list{
+ max-height:min(355px,calc(100vh - 245px));
+ overflow-y:auto!important;
+ overflow-x:hidden!important;
+}
+#okla-cart-preview .okla-cp__item{
+ grid-template-columns:58px minmax(0,1fr) auto;
+ align-items:center;
+}
+#okla-cart-preview .okla-cp__price{
+ width:auto;
+ max-width:130px;
+ text-align:right;
+ white-space:nowrap;
+ flex:none;
+}
+#okla-cart-preview .okla-cp__footer{
+ border-radius:0 0 14px 14px;
+}
+html body #okla-cart-preview .okla-cp__go,
+html body #okla-cart-preview .okla-cp__go:hover,
+html body #okla-cart-preview .okla-cp__go:focus{
+ background:#66d400!important;
+ color:#111!important;
+ -webkit-text-fill-color:#111!important;
+ text-shadow:none!important;
+ box-shadow:none!important;
+}
+html body #okla-cart-preview .okla-cp__go:hover{
+ background:#59bc00!important;
+}
+@media(max-width:991px){
+ #okla-cart-preview{display:none!important}
+}

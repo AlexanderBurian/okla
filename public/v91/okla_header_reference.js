@@ -24,6 +24,23 @@
   });
   return svg;
  }
+ function solidCartIcon(cart){
+  var slot=cart.querySelector(':scope > .okla-cart-symbol');
+  if(!slot || slot.dataset.oklaSolidCart==='1')return;
+  var svg=document.createElementNS(ns,'svg');
+  svg.setAttribute('viewBox','0 0 24 24');
+  svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');
+  var body=document.createElementNS(ns,'path');
+  body.setAttribute('d','M2 2.6h2.3c.72 0 1.34.49 1.5 1.19L6.35 6h14.3c.75 0 1.29.69 1.13 1.42l-1.6 7.14a3.15 3.15 0 0 1-3.08 2.46H9.82a3.15 3.15 0 0 1-3.08-2.45L4.45 4.9H2V2.6Z');
+  body.setAttribute('fill','#171717');svg.appendChild(body);
+  [10,18].forEach(function(x){
+   var dot=document.createElementNS(ns,'circle');
+   dot.setAttribute('cx',x);dot.setAttribute('cy','20.2');
+   dot.setAttribute('r','1.6');dot.setAttribute('fill','#171717');svg.appendChild(dot);
+  });
+  slot.replaceChildren(svg);
+  slot.dataset.oklaSolidCart='1';
+ }
  function liveQuantity(cart){
   /* Official Shoptet data layer: cart[] contains product quantities and is
      refreshed after every basket mutation. Sum quantities, not SKU types. */
@@ -95,6 +112,7 @@
    chevron=document.createElement('span');chevron.className='okla-header-chevron';
    chevron.setAttribute('aria-hidden','true');account.appendChild(chevron);
   }
+  solidCartIcon(cart);
   var cartPrice=cart.querySelector(':scope > .cart-price');
   if(cartPrice)cartPrice.removeAttribute('aria-hidden');
   if(!cart.querySelector(':scope > .okla-reference-cart-chevron')){
@@ -103,6 +121,9 @@
   }
   var badge=cart.querySelector(':scope > .okla-reference-cart-badge');
   var count=liveQuantity(cart);
+  /* Fresh cart response can correct an as-yet stale Shoptet data layer. */
+  var verified=window.__oklaVerifiedCartCount;
+  if(verified && Date.now()-verified.at<12000)count=verified.value;
   if(count!==null&&count>0){
    if(!badge){
     badge=document.createElement('span');
