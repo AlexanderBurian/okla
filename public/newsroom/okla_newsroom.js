@@ -12,23 +12,23 @@ var ARTICLES=[
  {title:'Flipper Zero: co všechno zvládne kapesní multitool?',
   excerpt:'Sub-GHz rádio, čtečka RFID a NFC karet a infračervený vysílač v kapesním přístroji. Samo o sobě nic neotevře, záleží na tom, co s ním umíte a na jaké systémy máte oprávnění.',
   img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_02_09.png',
-  href:'/clanky/flipper-zero/',date:'2026-10-31',minutes:12,topic:'Elektronika',category:'Multitool a RF'},
+  href:'/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/',date:'2026-10-31',minutes:12,topic:'Elektronika',category:'Multitool a RF'},
  {title:'Wi-Fi endoskopická kamera: na co se zaměřit při výběru',
   excerpt:'Ne každý endoskop nabídne stejně dobrý obraz. Záleží na průměru sondy, délce kabelu, přísvícení i kompatibilitě s telefonem.',
   img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_27-2.png',
-  href:'/clanky/wifi-endoskop/',date:'2026-10-31',minutes:9,topic:'Měření a kontrola',category:'Endoskopy'},
+  href:'/nase-novinky/wifi/',date:'2026-10-31',minutes:9,topic:'Měření a kontrola',category:'Endoskopy'},
  {title:'USB-C testery: jak snadno zkontrolovat nabíjení',
   excerpt:'Přehledné měření napětí, proudu a výkonu vám pomůže zjistit, co skutečně zvládne nabíječka nebo kabel.',
   img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_23-1.png',
-  href:'/clanky/usb-c-testery/',date:'2026-10-31',minutes:8,topic:'Nabíjení a napájení',category:'Testery'},
+  href:'/nase-novinky/usb-c/',date:'2026-10-31',minutes:8,topic:'Nabíjení a napájení',category:'Testery'},
  {title:'NFC karty a štítky: nenápadná technologie s velkým využitím',
   excerpt:'Jednoduché sdílení kontaktů, spouštění automatizací i rychlé otevírání odkazů. NFC dokáže zpříjemnit běžné činnosti a vejde se do peněženky.',
   img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_29-3.png',
-  href:'/clanky/nfc-karty/',date:'2026-10-31',minutes:8,topic:'Chytré technologie',category:'NFC'},
+  href:'/nase-novinky/nfc/',date:'2026-10-31',minutes:8,topic:'Chytré technologie',category:'NFC'},
  {title:'Chytré měřicí gadgety: drobnosti, které ušetří čas',
   excerpt:'Od laserových dálkoměrů až po digitální váhy. Jaké parametry sledovat a kdy se vyplatí pořídit specializovaný nástroj?',
   img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_32-4.png',
-  href:'/clanky/merici-technika/',date:'2026-10-31',minutes:8,topic:'Měření a kontrola',category:'Měřicí přístroje'}
+  href:'/nase-novinky/meridlo/',date:'2026-10-31',minutes:8,topic:'Měření a kontrola',category:'Měřicí přístroje'}
 ];
 
 /* Shoptet article preview images are the source of truth (same five entries as the homepage).
