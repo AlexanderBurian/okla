@@ -50,6 +50,7 @@ modules.push('v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.cs
 if(isDetail) modules.push('v91/okla_detail_mobile.css');
 modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js'); if(document.body&&document.body.classList.contains('ordering-process')) modules.push('v91/okla_checkout.css','v91/okla_cart.css','v91/okla_checkout_ui.css','v91/okla_parcel.css','v91/okla_cart_refine.css','v91/okla_checkout_layout.css','v91/okla_checkout_ui.js');modules.push('okla_footer.js');
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
+if(/^\/nase-novinky\/[^/]+\/?$/.test(location.pathname)) modules.push('v91/okla_article_hero.js');
 if(/^\/stav-objednavky(\/|$)/.test(location.pathname)||document.querySelector('[data-okla-order-status]')) modules.push('v91/okla_order_status.css','v91/okla_order_status.js');
 if(/^\/o-nas(\/|$)/.test(location.pathname)) modules.push('v91/okla_about.css','v91/okla_about.js');
  if((document.body&&document.body.classList.contains('in-kontakt'))||/^\/kontakt(y)?(\/|$)/.test(location.pathname)) modules.push('v91/okla_contact.css','v91/okla_contact.js');
