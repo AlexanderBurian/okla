@@ -57,7 +57,7 @@
     box-sizing:border-box!important;
     border:0!important;
     background:#fff!important;
-    box-shadow:0 2px 9px rgba(15,35,58,.09)!important;
+    box-shadow:0 2px 6px rgba(15,35,58,.065)!important;
     z-index:-1!important;
     pointer-events:none!important;
     opacity:1!important;
@@ -165,4 +165,35 @@
 }
 @media(max-width:991px){
   .okla-desktop-sticky-space{display:none!important}
+}
+
+/* V110: tiny full-width shadow, crisp search when focused and extra
+   horizontal spacing for the live desktop login + cart controls. */
+@media(min-width:992px){
+ html.okla-desktop-sticky.okla-header-template103 body #header .header-top{
+   grid-template-columns:minmax(130px,190px) minmax(140px,1fr) max-content!important;
+   filter:none!important;
+   -webkit-filter:none!important;
+   backdrop-filter:none!important;
+   -webkit-backdrop-filter:none!important;
+ }
+ html.okla-desktop-sticky body #header .header-top>.search{
+   width:calc(100% - 12px)!important;
+   max-width:calc(100% - 12px)!important;
+   justify-self:start!important;
+   filter:none!important;
+   -webkit-filter:none!important;
+   backdrop-filter:none!important;
+   -webkit-backdrop-filter:none!important;
+ }
+ html.okla-desktop-sticky body #header .header-top .navigation-buttons>.okla-exact-header{
+   column-gap:14px!important;
+ }
+ /* Search blur remains behind the working search bar and pinned navbar. */
+ html.okla-desktop-sticky.okla-search-open body #header{
+   z-index:9994!important;
+ }
+ html.okla-desktop-sticky.okla-search-open body #header .header-top{
+   z-index:9995!important;
+ }
 }

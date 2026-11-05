@@ -25,10 +25,10 @@
     st.id='okla-v106-sticky-face';
     st.textContent=[
      ':host([data-okla-sticky-compact]) .face{height:46px!important;font-size:14px!important;line-height:19px!important;}',
-     ':host([data-okla-sticky-compact]) .face>svg.figure{width:33px!important;height:46px!important;}',
-     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:20px!important;height:30px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg.figure{width:36px!important;height:44px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:20px!important;height:29px!important;}',
      ':host([data-okla-sticky-compact]) .face .label{margin-left:7px!important;}',
-     ':host([data-okla-sticky-compact]) .face .arrow{width:17px!important;height:11px!important;margin-left:8px!important;}',
+     ':host([data-okla-sticky-compact]) .face .arrow{width:19px!important;height:12px!important;margin-left:9px!important;}',
      ':host([data-okla-sticky-compact]) .face .price{font-size:15px!important;line-height:20px!important;margin-left:5px!important;}',
      ':host([data-okla-sticky-compact]) .face .count text{font-size:11px!important;}'
     ].join('');
@@ -59,10 +59,13 @@
  }
  function setGeometry(rect){
   if(!rect||rect.width<=0||rect.height<=0)return;
-  var x=rect.left;
-  root.style.setProperty('--okla-sticky-left',x.toFixed(2)+'px');
-  root.style.setProperty('--okla-sticky-negative-left',(-x).toFixed(2)+'px');
-  root.style.setProperty('--okla-sticky-width',rect.width.toFixed(2)+'px');
+  // Snap the fixed header to physical pixels to avoid fractional raster blur.
+  var scale=Math.max(1,window.devicePixelRatio||1);
+  var snap=function(n){return Math.round(n*scale)/scale};
+  var x=snap(rect.left),width=snap(rect.width);
+  root.style.setProperty('--okla-sticky-left',x+'px');
+  root.style.setProperty('--okla-sticky-negative-left',(-x)+'px');
+  root.style.setProperty('--okla-sticky-width',width+'px');
   root.style.setProperty('--okla-sticky-height',rect.height.toFixed(2)+'px');
   // Approximately 30% shorter than natural 80px (usually 56px) while pinned only.
   root.style.setProperty('--okla-sticky-compact-height',Math.max(56,Math.round(rect.height*0.70))+'px');
