@@ -197,3 +197,11 @@
    z-index:9995!important;
  }
 }
+
+/* V112: move ONLY the desktop sticky login action 5px to the left. */
+@media(min-width:992px){
+ html.okla-desktop-sticky.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face]{
+   position:relative!important;
+   left:-5px!important;
+ }
+}
