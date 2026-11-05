@@ -1,5 +1,4 @@
-/* OKLA languages: Czech (the shop's own language), English, Slovak and Hungarian. The choice is made in the header (the flag) and
-   in the footer ("Jazyk webu") and remembered in the browser. A chosen language other than Czech is applied in place:
+/* OKLA languages: Czech (the shop's own language), English, Slovak and Hungarian. The choice is made in the footer ("Jazyk webu") and remembered in the browser. A chosen language other than Czech is applied in place:
    its pack (okla_i18n_<lang>.js) translates the texts, field hints, labels and Shoptet's messages, and its product file
    (okla_i18n_products_<lang>.js) the product names, descriptions and specifications. Content added later (the cart
    drawer, search suggestions, a redrawn cart) is translated as it appears. Prices stay in CZK. */
@@ -217,104 +216,6 @@
   return s;
  }
 
- /* Keep the dropdown entirely visible on compact portrait/mobile widths. The
-    CSS starts it left of the trigger; this adjusts the offset only if needed. */
- function positionMobileLanguageMenu(holder){
-  if(!holder||!holder.classList.contains('okla-lang-mobile')||
-     !holder.classList.contains('is-open')||window.innerWidth>767)return;
-  var menu=holder.querySelector('.okla-lang-menu');
-  var flag=holder.querySelector(':scope > svg.okla-lang-flag');
-  if(!menu||!flag)return;
-  var vw=document.documentElement.clientWidth||window.innerWidth;
-  var width=Math.min(240,Math.max(160,vw-24));
-  menu.style.setProperty('--okla-lang-menu-width',width+'px');
-  /* Position menu so the right-hand arrow can physically be underneath the
-     chosen flag, without pushing either edge outside the phone viewport. */
-  var h=holder.getBoundingClientRect();
-  var f=flag.getBoundingClientRect();
-  var center=f.left+f.width/2;
-  var right=Math.min(vw-12,center+29);
-  var left=right-width;
-  if(left<12){left=12;right=left+width}
-  if(right>vw-12){right=vw-12;left=right-width}
-  menu.style.setProperty('--okla-lang-menu-right',(h.right-right)+'px');
-  requestAnimationFrame(function(){
-   if(!holder.classList.contains('is-open'))return;
-   var m=menu.getBoundingClientRect();
-   /* Pseudo-element is 12px wide, and it rotates around its center. */
-   var arrowRight=m.right-center-6;
-   arrowRight=Math.min(m.width-20,Math.max(16,arrowRight));
-   menu.style.setProperty('--okla-lang-arrow-right',arrowRight+'px');
-  });
- }
- function toggleHeader(holder,open){
-  holder.classList.toggle('is-open',open);
-  holder.setAttribute('aria-expanded',open?'true':'false');
-  if(open)positionMobileLanguageMenu(holder);
- }
-
- function buildHeaderSwitch(holder){
-  holder.setAttribute('role','button');
-  holder.setAttribute('tabindex','0');
-  holder.setAttribute('aria-haspopup','menu');
-  holder.setAttribute('aria-expanded','false');
-  holder.setAttribute('title',LABEL[lang]+' · CZK');
-  holder.setAttribute('aria-label',LABEL[lang]+' · CZK');
-  holder.setAttribute('data-okla-i18n-skip','');
-  holder.replaceChildren(flag(lang));
-  var menu=document.createElement('div');
-  menu.className='okla-lang-menu';
-  menu.setAttribute('role','menu');
-  LANGS.forEach(function(code){
-   var b=document.createElement('button');
-   b.type='button';
-   b.className='okla-lang-option'+(code===lang?' is-current':'');
-   b.setAttribute('role','menuitemradio');
-   b.setAttribute('aria-checked',code===lang?'true':'false');
-   b.setAttribute('lang',HTML_LANG[code]);
-   b.appendChild(flag(code));
-   var s=document.createElement('span');s.textContent=LABEL[code];b.appendChild(s);
-   b.addEventListener('click',function(e){e.stopPropagation();choose(code)});
-   menu.appendChild(b);
-  });
-  holder.appendChild(menu);
-  return true;
- }
-
- /* Phones have their own top bar (logo and search); the same switch goes between them. */
- function mobileHolder(){
-  var bar=document.querySelector('#okla-v61-header .okm61-top');
-  if(!bar)return null;
-  var holder=bar.querySelector('.okla-lang-mobile');
-  if(!holder){
-   holder=document.createElement('span');
-   holder.className='okla-lang-mobile';
-   var search=bar.querySelector('.okla-m-search-open');
-   bar.insertBefore(holder,search||null);
-  }
-  return holder;
- }
-
- function headerSwitch(){
-  var mobile=mobileHolder();
-  if(mobile)wireSwitch(mobile);
-  return wireSwitch(document.querySelector('#header .okla-header-locale'));
- }
-
- function wireSwitch(holder){
-  if(!holder)return false;
-  /* The homepage header code redraws the flag once; the switch is built again if that happened after it. */
-  if(holder.querySelector('.okla-lang-menu'))return true;
-  holder.dataset.oklaIconVersion='50';
-  if(!holder.hasAttribute('data-okla-lang-ready')){
-   holder.setAttribute('data-okla-lang-ready','1');
-   holder.addEventListener('click',function(e){var menu=holder.querySelector('.okla-lang-menu');if(menu&&!menu.contains(e.target))toggleHeader(holder,!holder.classList.contains('is-open'))});
-   holder.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleHeader(holder,!holder.classList.contains('is-open'))}if(e.key==='Escape')toggleHeader(holder,false)});
-   document.addEventListener('mousedown',function(e){if(!holder.contains(e.target))toggleHeader(holder,false)});
-  }
-  return buildHeaderSwitch(holder);
- }
-
  function footerSwitch(){
   var box=document.querySelector('#okla-footer-links .okla-lang');
   if(!box||box.hasAttribute('data-okla-lang-ready'))return !!box;
@@ -344,7 +245,6 @@
   scheduled=false;
   var list=queue;queue=[];
   if(active){translateProductPage();list.forEach(walk)}
-  headerSwitch();
   footerSwitch();
  }
  function schedule(n){queue.push(n);if(!scheduled){scheduled=true;setTimeout(flush,0)}}
@@ -366,12 +266,7 @@
     document.title=joined;
    }
   }
-  headerSwitch();
   footerSwitch();
-  window.addEventListener('resize',function(){
-   var m=document.querySelector('#okla-v61-header .okla-lang-mobile.is-open');
-   if(m)positionMobileLanguageMenu(m);
-  },{passive:true});
   new MutationObserver(function(list){
    list.forEach(function(m){
     if(m.type==='characterData')schedule(m.target);
