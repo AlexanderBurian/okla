@@ -47,7 +47,7 @@
   var list;
   try{if(typeof window.getShoptetDataLayer==='function')list=window.getShoptetDataLayer('cart')}catch(e){}
   if(!Array.isArray(list)&&Array.isArray(window.dataLayer)){
-   for(var d=0;d<window.dataLayer.length;d++){
+   for(var d=window.dataLayer.length-1;d>=0;d--){
     var s=window.dataLayer[d]&&window.dataLayer[d].shoptet;
     if(s&&Array.isArray(s.cart)){list=s.cart;break}
    }
@@ -70,24 +70,6 @@
   }
   return null;
  }
- function positionCartBadge(cart){
-  if(!desktop.matches||!cart)return;
-  var b=cart.querySelector(':scope > .okla-reference-cart-badge');
-  var icon=cart.querySelector(':scope > .okla-cart-symbol');
-  if(!b||!icon||b.hidden)return;
-  var c=cart.getBoundingClientRect(),i=icon.getBoundingClientRect();
-  if(!c.width||!i.width)return;
-  // Badge overlaps the cart's UPPER LEFT side, never the amount on its right.
-  // A reserved 14px left inset lets the badge remain inside this cart control.
-  var left=Math.max(0,Math.round(i.left-c.left-11));
-  var top=Math.round(i.top-c.top-8);
-  b.style.setProperty('--okla-cart-badge-left',left+'px');
-  b.style.setProperty('--okla-cart-badge-top',top+'px');
- }
- window.__oklaPositionCartBadge=function(){
-  var cart=document.querySelector('#header .header-top .okla-exact-header > a.cart-count');
-  if(cart)requestAnimationFrame(function(){positionCartBadge(cart)});
- };
  function sync(){
   if(!desktop.matches){
    document.documentElement.classList.remove('okla-header-reference');
@@ -149,9 +131,8 @@
     cart.appendChild(badge);
    }
    badge.hidden=false;badge.textContent=count>99?'99+':String(count);
-   requestAnimationFrame(function(){positionCartBadge(cart)});
   }else if(badge)badge.hidden=true;
-  row.setAttribute('aria-label','Přihlášení, jazyk a nákupní košík');
+  row.setAttribute('aria-label','Přihlášení a nákupní košík');
   document.documentElement.classList.add('okla-header-reference');
  }
  var scheduled=false;
