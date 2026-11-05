@@ -44,19 +44,23 @@
   if(toggle)toggle.setAttribute('aria-expanded','false');
  }
 
- var hoverCloseTimer=null;
+ var hoverCloseTimer=null,lastX=-1,lastY=-1;
+ function pointerInside(){
+  if(lastX<0||lastY<0)return false;
+  var n=document.elementFromPoint(lastX,lastY);
+  var a=document.querySelector('#header .okla-header-account'),p=document.getElementById('login');
+  return !!(n&&((a&&a.contains(n))||(p&&p.contains(n))));
+ }
  function cancelHoverClose(){
   if(hoverCloseTimer){clearTimeout(hoverCloseTimer);hoverCloseTimer=null}
  }
  function closeOnLeave(){
-  cancelHoverClose();
+  if(hoverCloseTimer)return;
   hoverCloseTimer=setTimeout(function(){
-   var a=document.querySelector('#header .okla-header-account');
-   var p=document.getElementById('login');
-   var focus=document.activeElement;
-   if((p&&p.contains(focus))||(a&&a.contains(focus)))return;
-   if(isOpen())hide();
-  },230);
+   hoverCloseTimer=null;
+   // Focus/click does NOT pin the popup after the cursor leaves both regions.
+   if(isOpen()&&!pointerInside())hide();
+  },180);
  }
  window.__oklaLoginHoverClose=function(){
   cancelHoverClose();
@@ -64,6 +68,8 @@
  };
  function hoverAccount(e){
   if(!desktop.matches||!e.target||!e.target.closest)return;
+  if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  lastX=e.clientX;lastY=e.clientY;
   var pop=e.target.closest('#login');
   if(pop){cancelHoverClose();return}
   var a=e.target.closest('#header .okla-header-account');
@@ -79,6 +85,8 @@
  }
  function leaveAccount(e){
   if(!desktop.matches||!e.target||!e.target.closest)return;
+  if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  lastX=e.clientX;lastY=e.clientY;
   var a=e.target.closest('#header .okla-header-account');
   if(a&&(!e.relatedTarget||!a.contains(e.relatedTarget))){closeOnLeave();return}
   var p=e.target.closest('#login');
@@ -99,6 +107,35 @@
   document.addEventListener('pointerdown',function(e){
    if(e.target.closest&&e.target.closest('#header .okla-header-account'))cancelHoverClose();
   },true);
+  document.addEventListener('pointermove',function(e){
+   if(!desktop.matches||!isOpen())return;
+   if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+   lastX=e.clientX;lastY=e.clientY;
+   if(pointerInside())cancelHoverClose();
+   else closeOnLeave();
+  },true);
+  // Legacy header button already has a click listener; suppress its second
+  // native toggle if the same login window was opened by hovering first.
+  document.addEventListener('click',function(e){
+   if(!desktop.matches||!e.target.closest)return;
+   var a=e.target.closest('#header .okla-header-account');
+   if(!a)return;
+   var native=document.querySelector('.top-navigation-bar .top-nav-button-login');
+   if(!native)return; // preserve login/account navigation fallback
+   e.preventDefault();e.stopImmediatePropagation();
+   cancelHoverClose();
+   if(!isOpen())native.click();
+   requestAnimationFrame(place);
+  },true);
+  window.addEventListener('scroll',function(){
+   if(!desktop.matches||!isOpen())return;
+   place();
+   if(!pointerInside())closeOnLeave();
+  },{passive:true});
+  if(desktop.addEventListener)desktop.addEventListener('change',function(){
+   if(!desktop.matches){cancelHoverClose();return}
+   place();
+  });
   place();
  }
 

@@ -1,4 +1,4 @@
-/* OKLA V105: reuse the existing live desktop header as a fixed navigation bar.
+/* OKLA V107: reuse the existing live desktop header as a fixed navigation bar.
    It stays visible in BOTH scroll directions, and returns to the original flow
    only when the visitor is almost at the top. No cloned links or icons. */
 (function(){
@@ -24,12 +24,12 @@
     var st=document.createElement('style');
     st.id='okla-v106-sticky-face';
     st.textContent=[
-     ':host([data-okla-sticky-compact]) .face{height:32px!important;font-size:12px!important;line-height:16px!important;}',
-     ':host([data-okla-sticky-compact]) .face>svg.figure{width:28px!important;height:34px!important;}',
-     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:16px!important;height:24px!important;}',
+     ':host([data-okla-sticky-compact]) .face{height:42px!important;font-size:13px!important;line-height:18px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg.figure{width:31px!important;height:42px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:18px!important;height:27px!important;}',
      ':host([data-okla-sticky-compact]) .face .label{margin-left:7px!important;}',
-     ':host([data-okla-sticky-compact]) .face .arrow{width:14px!important;height:9px!important;margin-left:7px!important;}',
-     ':host([data-okla-sticky-compact]) .face .price{font-size:13px!important;line-height:17px!important;margin-left:4px!important;}',
+     ':host([data-okla-sticky-compact]) .face .arrow{width:16px!important;height:10px!important;margin-left:8px!important;}',
+     ':host([data-okla-sticky-compact]) .face .price{font-size:14px!important;line-height:19px!important;margin-left:5px!important;}',
      ':host([data-okla-sticky-compact]) .face .count text{font-size:11px!important;}'
     ].join('');
     shadow.appendChild(st);
@@ -64,8 +64,8 @@
   root.style.setProperty('--okla-sticky-negative-left',(-x).toFixed(2)+'px');
   root.style.setProperty('--okla-sticky-width',rect.width.toFixed(2)+'px');
   root.style.setProperty('--okla-sticky-height',rect.height.toFixed(2)+'px');
-  // Approx 60% shorter than natural 80px (usually 34px) while pinned only.
-  root.style.setProperty('--okla-sticky-compact-height',Math.max(34,Math.round(rect.height*0.42))+'px');
+  // Approximately 45% shorter than natural 80px (usually 44px) while pinned only.
+  root.style.setProperty('--okla-sticky-compact-height',Math.max(44,Math.round(rect.height*0.55))+'px');
   spacer.style.height=rect.height.toFixed(2)+'px';
  }
  function geometry(){

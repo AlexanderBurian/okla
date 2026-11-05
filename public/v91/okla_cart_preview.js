@@ -1,7 +1,7 @@
 /* OKLA: desktop hover cart preview driven by the actual Shoptet basket. */
 (function(){
 'use strict';if(window.__oklaHoverCart)return;window.__oklaHoverCart=1;
-var mq=matchMedia('(min-width:992px)'),pop,anchor,timer,version=0;
+var mq=matchMedia('(min-width:992px)'),pop,anchor,timer,version=0,lastX=-1,lastY=-1;
 function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
 function txt(s){return String(s||'').replace(/\s+/g,' ').trim()}
 function cart(){return document.querySelector('#header .header-top .okla-exact-header > a.cart-count')}
@@ -33,9 +33,8 @@ function build(){
  var list=el('div','okla-cp__list'),foot=el('div','okla-cp__footer'),total=el('div','okla-cp__total'),label=el('span'),sum=el('strong'),go=el('a','okla-cp__go');
  go.href='/kosik/';total.append(label,sum);foot.append(total,go);pop.append(head,list,foot);document.body.appendChild(pop);
  pop.refs={name:name,count:countNode,list:list,total:total,label:label,sum:sum,go:go};
- pop.addEventListener('pointerenter',function(){clearTimeout(timer)});
+ pop.addEventListener('pointerenter',function(){clearTimeout(timer);timer=0});
  pop.addEventListener('pointerleave',delay);
- pop.addEventListener('focusin',function(){clearTimeout(timer)});
 }
 function header(){
  var r=pop.refs,l=lang(),q=effectiveCount(),c=cart(),price=c&&c.querySelector('.cart-price');
@@ -79,12 +78,23 @@ function move(){
  var right=Math.max(18,Math.min(w-26,left+w-center-9));
  pop.style.setProperty('--okla-cart-arrow-right',right+'px');
 }
-function close(){clearTimeout(timer);anchor=null;version++;if(pop){pop.classList.remove('is-open');pop.setAttribute('aria-hidden','true')}}
-function delay(){clearTimeout(timer);timer=setTimeout(function(){if(pop&&!pop.contains(document.activeElement))close()},220)}
+function close(){clearTimeout(timer);timer=0;anchor=null;version++;if(pop){pop.classList.remove('is-open');pop.setAttribute('aria-hidden','true')}}
+function pointerInside(){
+ if(lastX<0||lastY<0)return false;
+ var node=document.elementFromPoint(lastX,lastY);
+ return !!(node&&((anchor&&anchor.contains(node))||(pop&&pop.contains(node))));
+}
+function delay(){
+ if(timer)return;
+ timer=setTimeout(function(){
+  timer=0;
+  if(!pointerInside())close();
+ },180);
+}
 window.__oklaCartPreviewClose=close;
 function show(c){
  if(!mq.matches||document.documentElement.classList.contains('okla-search-open'))return;
- clearTimeout(timer);if(anchor===c)return;
+ clearTimeout(timer);timer=0;if(anchor===c)return;
  if(typeof window.__oklaLoginHoverClose==='function')window.__oklaLoginHoverClose();
  build();anchor=c;pop.classList.add('is-open');pop.setAttribute('aria-hidden','false');
  header();move();message(lang()[5]);var v=++version;
@@ -95,14 +105,39 @@ function target(e){return e&&e.closest&&e.closest('#header .header-top .okla-exa
 function updated(){
  window.__oklaVerifiedCartCount=null;
  badge();
- if(anchor){close();show(cart())}
+ if(anchor){
+  var c=cart(),keep=pointerInside();
+  close();
+  if(c&&keep)show(c);
+ }
  setTimeout(badge,300);
 }
 function start(){
- document.addEventListener('pointerover',function(e){var c=target(e.target);if(c&&(!e.relatedTarget||!c.contains(e.relatedTarget)))show(c)},true);
- document.addEventListener('pointerout',function(e){var c=target(e.target);if(c&&(!e.relatedTarget||!c.contains(e.relatedTarget)))delay()},true);
- document.addEventListener('focusin',function(e){var c=target(e.target);if(c)show(c)});
- document.addEventListener('focusout',function(e){var c=target(e.target);if(c&&!c.contains(e.relatedTarget))delay()});
+ document.addEventListener('pointerover',function(e){
+  if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  lastX=e.clientX;lastY=e.clientY;
+  var c=target(e.target);
+  if(c&&(!e.relatedTarget||!c.contains(e.relatedTarget)))show(c);
+ },true);
+ document.addEventListener('pointerout',function(e){
+  if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  lastX=e.clientX;lastY=e.clientY;
+  var c=target(e.target);if(c&&(!e.relatedTarget||!c.contains(e.relatedTarget)))delay();
+ },true);
+ document.addEventListener('pointermove',function(e){
+  if(!mq.matches||!anchor)return;
+  if(e.pointerType&&e.pointerType!=='mouse'&&e.pointerType!=='pen')return;
+  lastX=e.clientX;lastY=e.clientY;
+  if(pointerInside()){clearTimeout(timer);timer=0}else delay();
+ },true);
+ // Click opens the same hover preview; the button inside it still opens /kosik/.
+ document.addEventListener('click',function(e){
+  var c=target(e.target);
+  if(!mq.matches||!c||e.button>0)return;
+  e.preventDefault();e.stopImmediatePropagation();
+  clearTimeout(timer);timer=0;
+  if(anchor!==c)show(c);
+ },true);
  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
  document.addEventListener('pointerdown',function(e){if(anchor&&pop&&!pop.contains(e.target)&&!target(e.target))close()},true);
  addEventListener('scroll',move,{passive:true});addEventListener('resize',function(){if(!mq.matches)close();else move()},{passive:true});
