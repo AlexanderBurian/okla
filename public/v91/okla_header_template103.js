@@ -39,7 +39,7 @@
   return s;
  }
  function cartIcon(){
-  var s=svg('okla-template-cart','0 6 35 30',35,30);
+  var s=svg('okla-template-cart','0 0 35 36',35,36);
   s.appendChild(path('M1.4 7.5H4C5.7 7.5 6.4 8.6 6.7 10.2L9.4 25.8','okla-cart-outline',
    {'fill':'none','stroke':'#78859e','stroke-width':'1.5','stroke-linecap':'round','stroke-linejoin':'round'}));
   s.appendChild(path('M7.5 13H32.5L30 27.1C29.8 28 28.9 28.6 27.6 28.6H12.6C11.5 28.6 10.4 27.9 10.2 26.8Z','okla-cart-fill',{'fill':'#78859e'}));
