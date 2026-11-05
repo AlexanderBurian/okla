@@ -73,6 +73,8 @@ if(/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vrace
 modules.push('v91/okla_language_polish.css');
 /* Final non-mobile desktop header normalization, after all prior CSS patches. */
 modules.push('v91/okla_header_final.css','v91/okla_header_final.js');
+/* Exact header_1to1.html dimensions for the functioning native Shoptet sign-in and cart. */
+modules.push('v91/okla_header_template103.css','v91/okla_header_template103.js');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
