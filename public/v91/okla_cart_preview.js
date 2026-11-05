@@ -7,7 +7,7 @@ function txt(s){return String(s||'').replace(/\s+/g,' ').trim()}
 function cart(){return document.querySelector('#header .header-top .okla-exact-header > a.cart-count')}
 function count(){
  var a;try{if(typeof getShoptetDataLayer==='function')a=getShoptetDataLayer('cart')}catch(e){}
- if(!Array.isArray(a)&&Array.isArray(window.dataLayer))for(var i=0;i<dataLayer.length;i++){
+ if(!Array.isArray(a)&&Array.isArray(window.dataLayer))for(var i=dataLayer.length-1;i>=0;i--){
   var d=dataLayer[i]&&dataLayer[i].shoptet;if(d&&Array.isArray(d.cart)){a=d.cart;break}
  }
  if(!Array.isArray(a))return null;
@@ -23,7 +23,6 @@ function badge(){
  var b=c.querySelector(':scope > .okla-reference-cart-badge');
  if(!b){b=el('span','okla-reference-cart-badge');b.setAttribute('aria-hidden','true');c.appendChild(b)}
  b.hidden=q<=0;b.textContent=q>99?'99+':String(q);
- if(typeof window.__oklaPositionCartBadge==='function')window.__oklaPositionCartBadge();
 }
 function lang(){var l=String(window.OKLA_LANG||document.documentElement.lang||'cs').slice(0,2);
  return l==='en'?['Your cart','Items','Total','View cart','Cart is empty','Loading…','Unable to load cart']:l==='sk'?['Váš košík','Kusov','Celkom','Prejsť do košíka','Košík je prázdny','Načítavam…','Nepodarilo sa načítať']:l==='hu'?['Kosár','Darab','Összesen','Kosár megnyitása','A kosár üres','Betöltés…','Nem sikerült betölteni']:['Váš košík','Kusů','Celkem','Přejít do košíku','Košík je prázdný','Načítám…','Náhled není dostupný']}
@@ -74,7 +73,8 @@ function move(){
  if(!anchor||!pop)return;var r=anchor.getBoundingClientRect(),w=Math.min(420,innerWidth-24);
  var left=Math.max(12,Math.min(innerWidth-w-12,r.right-w));
  pop.style.width=w+'px';pop.style.left=left+'px';pop.style.top=Math.max(8,r.bottom+12)+'px';
- var icon=anchor.querySelector('.okla-cart-symbol'),ir=icon?icon.getBoundingClientRect():r;
+ var face=anchor.querySelector('okla-action-face');
+ var icon=face&&face.shadowRoot&&face.shadowRoot.querySelector('.figure')||anchor.querySelector('.okla-cart-symbol'),ir=icon?icon.getBoundingClientRect():r;
  var center=ir.left+ir.width/2;
  var right=Math.max(18,Math.min(w-26,left+w-center-9));
  pop.style.setProperty('--okla-cart-arrow-right',right+'px');
