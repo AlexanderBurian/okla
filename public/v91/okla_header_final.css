@@ -182,3 +182,117 @@
   transform:none!important;
  }
 }
+
+
+/* OKLA V102: top flag blue rim and basket badge to the LEFT of icon. */
+@media(min-width:992px){
+ /* This replaces a later reference rule that sets border:0 on the selected
+    flag, which was why the requested blue outline wasn't visible. */
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale>svg.okla-lang-flag{
+   display:block!important;
+   width:28px!important;
+   height:28px!important;
+   flex:0 0 28px!important;
+   box-sizing:border-box!important;
+   border:2px solid #205b9c!important;
+   border-radius:50%!important;
+   outline:0!important;
+   outline-offset:0!important;
+   box-shadow:none!important;
+   background:transparent!important;
+   overflow:hidden!important;
+   filter:none!important;
+ }
+ /* Only selected/trigger flag carries the outline: dropdown choices do not. */
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale .okla-lang-menu svg.okla-lang-flag{
+   border:0!important;
+   outline:0!important;
+   box-shadow:none!important;
+ }
+ /* Allow price to grow naturally, keeping the down-chevron as a visible,
+    separate control. 14px left inset reserves a dedicated badge area. */
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
+   box-sizing:border-box!important;
+   position:relative!important;
+   overflow:visible!important;
+   display:flex!important;
+   align-items:center!important;
+   justify-content:flex-end!important;
+   width:max-content!important;
+   min-width:178px!important;
+   max-width:none!important;
+   flex:0 0 auto!important;
+   height:54px!important;
+   padding:0 1px 0 14px!important;
+   gap:8px!important;
+   margin:0!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-cart-symbol{
+   position:relative!important;
+   display:flex!important;
+   flex:0 0 28px!important;
+   width:28px!important;height:30px!important;
+   min-height:30px!important;
+   align-items:center!important;justify-content:center!important;
+   margin:0!important;padding:0!important;
+   transform:none!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.cart-price{
+   display:inline-flex!important;
+   align-items:center!important;justify-content:center!important;
+   width:auto!important;min-width:0!important;max-width:none!important;
+   height:30px!important;min-height:30px!important;max-height:30px!important;
+   margin:0!important;padding:0!important;top:auto!important;
+   transform:none!important;white-space:nowrap!important;
+   font:700 15px/30px Roboto,Arial,sans-serif!important;
+   line-height:30px!important;color:#1e1e1e!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-chevron{
+   display:block!important;
+   visibility:visible!important;
+   opacity:1!important;
+   box-sizing:border-box!important;
+   width:10px!important;height:10px!important;
+   min-width:10px!important;max-width:10px!important;
+   flex:0 0 10px!important;
+   margin:-5px 0 0 2px!important;
+   padding:0!important;
+   border:0!important;
+   border-right:1.7px solid #778aa5!important;
+   border-bottom:1.7px solid #778aa5!important;
+   border-radius:0!important;
+   background:transparent!important;
+   transform:rotate(45deg)!important;
+   align-self:center!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
+   position:absolute!important;
+   left:var(--okla-cart-badge-left,2px)!important;
+   top:var(--okla-cart-badge-top,1px)!important;
+   min-width:20px!important;height:20px!important;
+   padding:0 4px!important;
+   border:2px solid #fff!important;
+   border-radius:999px!important;
+   background:#1689d3!important;
+   color:#fff!important;
+   -webkit-text-fill-color:#fff!important;
+   font:700 11px/16px Roboto,Arial,sans-serif!important;
+   transform:none!important;
+   margin:0!important;
+   z-index:12!important;
+   pointer-events:none!important;
+ }
+ html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge[hidden]{
+   display:none!important;
+ }
+}
+@media(min-width:1200px){
+ html.okla-header-reference body #header .header-top{
+  grid-template-columns:minmax(142px,190px) minmax(260px,1fr) minmax(398px,416px)!important;
+ }
+}
+@media(min-width:992px) and (max-width:1199px){
+ html.okla-header-reference body #header .header-top{
+  grid-template-columns:minmax(130px,160px) minmax(220px,1fr) minmax(376px,390px)!important;
+ }
+}

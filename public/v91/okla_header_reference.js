@@ -77,8 +77,10 @@
   if(!b||!icon||b.hidden)return;
   var c=cart.getBoundingClientRect(),i=icon.getBoundingClientRect();
   if(!c.width||!i.width)return;
-  var left=Math.round(i.right-c.left-8);
-  var top=Math.round(i.top-c.top-7);
+  // Badge overlaps the cart's UPPER LEFT side, never the amount on its right.
+  // A reserved 14px left inset lets the badge remain inside this cart control.
+  var left=Math.max(0,Math.round(i.left-c.left-11));
+  var top=Math.round(i.top-c.top-8);
   b.style.setProperty('--okla-cart-badge-left',left+'px');
   b.style.setProperty('--okla-cart-badge-top',top+'px');
  }
