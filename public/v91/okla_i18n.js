@@ -213,23 +213,38 @@
   s.setAttribute('focusable','false');
   s.setAttribute('aria-hidden','true');
   s.setAttribute('class','okla-lang-flag');
-  s.innerHTML='<defs><clipPath id="'+id+'"><circle cx="16" cy="16" r="15.4"/></clipPath></defs><g clip-path="url(#'+id+')">'+FLAGS[code]+'</g>';
+  s.innerHTML='<defs><clipPath id="'+id+'"><circle cx="16" cy="16" r="16"/></clipPath></defs><g clip-path="url(#'+id+')">'+FLAGS[code]+'</g>';
   return s;
  }
 
  /* Keep the dropdown entirely visible on compact portrait/mobile widths. The
     CSS starts it left of the trigger; this adjusts the offset only if needed. */
  function positionMobileLanguageMenu(holder){
-  if(!holder||!holder.classList.contains('okla-lang-mobile')||!holder.classList.contains('is-open')||window.innerWidth>767)return;
+  if(!holder||!holder.classList.contains('okla-lang-mobile')||
+     !holder.classList.contains('is-open')||window.innerWidth>767)return;
   var menu=holder.querySelector('.okla-lang-menu');
-  if(!menu)return;
-  menu.style.setProperty('--okla-lang-menu-right','30px');
+  var flag=holder.querySelector(':scope > svg.okla-lang-flag');
+  if(!menu||!flag)return;
+  var vw=document.documentElement.clientWidth||window.innerWidth;
+  var width=Math.min(240,Math.max(160,vw-24));
+  menu.style.setProperty('--okla-lang-menu-width',width+'px');
+  /* Position menu so the right-hand arrow can physically be underneath the
+     chosen flag, without pushing either edge outside the phone viewport. */
+  var h=holder.getBoundingClientRect();
+  var f=flag.getBoundingClientRect();
+  var center=f.left+f.width/2;
+  var right=Math.min(vw-12,center+29);
+  var left=right-width;
+  if(left<12){left=12;right=left+width}
+  if(right>vw-12){right=vw-12;left=right-width}
+  menu.style.setProperty('--okla-lang-menu-right',(h.right-right)+'px');
   requestAnimationFrame(function(){
    if(!holder.classList.contains('is-open'))return;
-   var rect=menu.getBoundingClientRect(),margin=12,offset=30;
-   if(rect.right>window.innerWidth-margin)offset+=rect.right-(window.innerWidth-margin);
-   if(rect.left<margin)offset-=margin-rect.left;
-   menu.style.setProperty('--okla-lang-menu-right',Math.max(-12,Math.min(130,offset))+'px');
+   var m=menu.getBoundingClientRect();
+   /* Pseudo-element is 12px wide, and it rotates around its center. */
+   var arrowRight=m.right-center-6;
+   arrowRight=Math.min(m.width-20,Math.max(16,arrowRight));
+   menu.style.setProperty('--okla-lang-arrow-right',arrowRight+'px');
   });
  }
  function toggleHeader(holder,open){

@@ -1,49 +1,64 @@
-/* OKLA V100 – sharp vector language flags and viewport-safe language menu.
-   Isolated to flag SVGs and the dropdown: neither ordinary nor sticky mobile header is resized. */
+/* OKLA V101 — language flags: blue edge touches only the selected top flag.
+   The menu's arrow is positioned by the flag's actual center, not guessed offsets. */
 :root{--okla-flag-blue:#205b9c}
-html body #header svg.okla-lang-flag,
-html body #okla-v61-header svg.okla-lang-flag,
-html body #okla-footer-links svg.okla-lang-flag{
+
+/* All SVG flags stay sharp at their actual rendered dimensions. */
+html body svg.okla-lang-flag{
   display:block!important;
-  border:0!important;
   border-radius:50%!important;
-  outline:1.8px solid var(--okla-flag-blue)!important;
-  outline-offset:1px!important;
-  background:#fff!important;
-  opacity:1!important;
-  filter:none!important;
-  box-shadow:none!important;
+  overflow:hidden!important;
+  background:transparent!important;
   image-rendering:auto!important;
   shape-rendering:geometricPrecision!important;
-  transform:none!important;
+  filter:none!important;
+  opacity:1!important;
   flex-shrink:0!important;
   box-sizing:border-box!important;
 }
-/* Match the crisp blue outline across the selected flag in the header and in each choice. */
-html body #header .okla-header-locale svg.okla-lang-flag{
+
+/* ONLY the flag that opens the menu receives the blue ring.
+   Border shares the SVG edge: no outline-offset, white gap or halo. */
+html body #header .okla-header-locale > svg.okla-lang-flag,
+html body #header #okla-v61-header .okla-lang-mobile > svg.okla-lang-flag{
+  border:1.7px solid var(--okla-flag-blue)!important;
+  outline:none!important;
+  outline-offset:0!important;
+  box-shadow:none!important;
+}
+
+/* No blue circle on flags INSIDE the dropdown or footer choices. */
+html body #header .okla-lang-menu svg.okla-lang-flag,
+html body #okla-v61-header .okla-lang-menu svg.okla-lang-flag,
+html body #okla-footer-links svg.okla-lang-flag{
+  border:0!important;
+  outline:0!important;
+  outline-offset:0!important;
+  box-shadow:none!important;
+  background:transparent!important;
+}
+html body #header .okla-header-locale>svg.okla-lang-flag{
   width:28px!important;height:28px!important;min-width:28px!important;
 }
-html body #header .okla-lang-menu .okla-lang-option svg.okla-lang-flag,
-html body #okla-footer-links .okla-lang-pill svg.okla-lang-flag{
+html body #header .okla-lang-menu svg.okla-lang-flag,
+html body #okla-footer-links svg.okla-lang-flag{
   width:24px!important;height:24px!important;min-width:24px!important;
 }
+
 @media(max-width:767px){
   html body #header #okla-v61-header .okm61-top,
   html body #header #okla-v61-header .okla-lang-mobile{
     overflow:visible!important;
   }
-  html body #header #okla-v61-header .okm61-top .okla-lang-mobile svg.okla-lang-flag{
+  html body #header #okla-v61-header .okla-lang-mobile>svg.okla-lang-flag{
     width:28px!important;height:28px!important;min-width:28px!important;
   }
-  /* The old right:-44px pushed this menu outside the phone's right edge.
-     Anchor the menu to the left of the flag, within the visible viewport. */
   html body #header #okla-v61-header .okla-lang-mobile .okla-lang-menu{
     position:absolute!important;
     top:calc(100% + 9px)!important;
     left:auto!important;
-    right:var(--okla-lang-menu-right,30px)!important;
+    right:var(--okla-lang-menu-right,-8px)!important;
     transform:none!important;
-    width:clamp(186px,54vw,210px)!important;
+    width:var(--okla-lang-menu-width,232px)!important;
     min-width:0!important;
     max-width:calc(100vw - 24px)!important;
     padding:7px!important;
@@ -54,10 +69,23 @@ html body #okla-footer-links .okla-lang-pill svg.okla-lang-flag{
     box-sizing:border-box!important;
     z-index:9000!important;
   }
+  /* The arrow's CENTER tracks the selected top flag's true center. */
   html body #header #okla-v61-header .okla-lang-mobile .okla-lang-menu::before{
+    content:""!important;
+    display:block!important;
+    position:absolute!important;
+    top:-7px!important;
     left:auto!important;
-    right:8px!important;
-    margin-left:0!important;
+    right:var(--okla-lang-arrow-right,25px)!important;
+    margin:0!important;
+    width:12px!important;height:12px!important;
+    background:#fff!important;
+    border-top:1px solid #d8e5f3!important;
+    border-left:1px solid #d8e5f3!important;
+    border-right:0!important;border-bottom:0!important;
+    border-radius:2px 0 0 0!important;
+    transform:rotate(45deg)!important;
+    pointer-events:none!important;
   }
   html body #header #okla-v61-header .okla-lang-mobile .okla-lang-option{
     display:flex!important;
@@ -73,8 +101,8 @@ html body #okla-footer-links .okla-lang-pill svg.okla-lang-flag{
     width:24px!important;height:24px!important;min-width:24px!important;
   }
   html body #header #okla-v61-header .okla-lang-mobile .okla-lang-option span{
-    overflow:visible!important;
     white-space:nowrap!important;
+    overflow:visible!important;
     text-overflow:clip!important;
   }
 }
