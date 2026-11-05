@@ -1,136 +1,61 @@
-/* OKLA V103 | Functional integration of the user's header_1to1.html.
-   Retains Shoptet cart price, count, sign-in and hover widgets.
-   It changes icons, geometry and accessible presentation only. */
-(function(){
- 'use strict';
- if(window.__oklaReferenceOneToOneV103)return;
- window.__oklaReferenceOneToOneV103=true;
- var desktop=window.matchMedia('(min-width:992px)');
- var ns='http://www.w3.org/2000/svg';
- function svg(cls,view,w,h){
-  var s=document.createElementNS(ns,'svg');
-  s.setAttribute('class',cls);
-  s.setAttribute('viewBox',view);
-  s.setAttribute('width',String(w));
-  s.setAttribute('height',String(h));
-  s.setAttribute('aria-hidden','true');
-  s.setAttribute('focusable','false');
-  return s;
- }
- function path(d,cls,attrs){
-  var p=document.createElementNS(ns,'path');
-  p.setAttribute('d',d);
-  if(cls)p.setAttribute('class',cls);
-  Object.keys(attrs||{}).forEach(function(k){p.setAttribute(k,attrs[k])});
-  return p;
- }
- function userIcon(){
-  var s=svg('okla-template-user','0 0 19 29',19,29);
-  var c=document.createElementNS(ns,'circle');
-  c.setAttribute('cx','9.5');
-  c.setAttribute('cy','6.6');
-  c.setAttribute('r','5.5');
-  c.setAttribute('fill','none');
-  c.setAttribute('stroke','#78859e');
-  c.setAttribute('stroke-width','1.5');
-  s.appendChild(c);
-  s.appendChild(path('M1.1 28V20.1C1.1 15.4 4.8 13.3 9.5 13.3C14.2 13.3 17.9 15.4 17.9 20.1V28Z',
-   null,{'fill':'none','stroke':'#78859e','stroke-width':'1.5','stroke-linejoin':'round'}));
-  return s;
- }
- function cartIcon(){
-  var s=svg('okla-template-cart','0 0 35 36',35,36);
-  s.appendChild(path('M1.4 7.5H4C5.7 7.5 6.4 8.6 6.7 10.2L9.4 25.8','okla-cart-outline',
-   {'fill':'none','stroke':'#78859e','stroke-width':'1.5','stroke-linecap':'round','stroke-linejoin':'round'}));
-  s.appendChild(path('M7.5 13H32.5L30 27.1C29.8 28 28.9 28.6 27.6 28.6H12.6C11.5 28.6 10.4 27.9 10.2 26.8Z','okla-cart-fill',{'fill':'#78859e'}));
-  ['13.9','27.7'].forEach(function(x){
-   var c=document.createElementNS(ns,'circle');
-   c.setAttribute('cx',x);
-   c.setAttribute('cy','31.9');
-   c.setAttribute('r','3.6');
-   c.setAttribute('fill','#78859e');
-   s.appendChild(c);
-  });
-  return s;
- }
- function downIcon(){
-  var s=svg('okla-template-down','0 0 19 12',19,12);
-  s.appendChild(path('M1 2L9.5 10L18 2',null,{
-   'fill':'none','stroke':'#78859e','stroke-width':'1.8',
-   'stroke-linecap':'round','stroke-linejoin':'round'
-  }));
-  return s;
- }
- function ensureArrow(holder,cls){
-  var a=holder.querySelector(':scope > .'+cls);
-  if(!a){
-   a=document.createElement('span');
-   a.className=cls;
-   a.setAttribute('aria-hidden','true');
-   holder.appendChild(a);
+/* Desktop artwork lives inside the native Shoptet login and basket links.
+   Legacy styles cannot move individual paths, text or the cart count. */
+(function () {
+  'use strict';
+  var desktop = matchMedia('(min-width:992px)');
+  var arrow = '<svg class="arrow" viewBox="0 0 19 12"><path d="M1 2.5 9.5 10 18 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var person = '<svg width="20" height="29" viewBox="0 0 20 29" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="6.7" r="5.5"/><path d="M1 27.8v-5.2a9 9 0 0 1 18 0v5.2Z" stroke-linejoin="round"/></svg>';
+  // Both wheel centers, the basket and the badge share the same coordinate system.
+  var basket = '<svg class="figure" width="36" height="44" viewBox="0 0 36 44"><path d="M1 8.5h2.3c1.9 0 2.6 1.4 3 3.5l3 14.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6.6 13.5H30l-2.4 11.2c-.3 1.4-1.3 2.3-3 2.3H12c-1.4 0-2.4-.8-2.8-2.2Z" fill="currentColor"/><g fill="currentColor"><circle cx="10.6" cy="32.5" r="3.5"/><circle cx="24.5" cy="32.5" r="3.5"/></g><g class="count"><circle cx="25" cy="11" r="10" fill="#1996df"/><text x="25" y="11.4" text-anchor="middle" dominant-baseline="central" fill="white"></text></g></svg>';
+  var style = '<style>.face{display:flex;align-items:center;height:44px;color:#78859e;white-space:nowrap;font:400 15px/20px Arial,Helvetica,sans-serif;letter-spacing:normal;text-transform:none}.face svg{display:block;flex:none}.label,.arrow{margin-left:10px}.arrow{width:19px;height:12px}.price{margin-left:5px;font:700 16px/20px Arial,Helvetica,sans-serif}.count text{font:700 12px Arial,Helvetica,sans-serif}.count[hidden]{display:none}</style>';
+
+  function face(link, isCart) {
+    var host = link.querySelector(':scope > okla-action-face');
+    if (host) return host.shadowRoot;
+    host = document.createElement('okla-action-face');
+    var root = host.attachShadow({mode:'open'});
+    root.innerHTML = style + '<span class="face">' + (isCart ? basket + '<span class="price"></span>' : person + '<span class="label"></span>') + arrow + '</span>';
+    link.appendChild(host);
+    link.setAttribute('data-action-face','');
+    return root;
   }
-  if(!a.querySelector(':scope > svg.okla-template-down'))a.replaceChildren(downIcon());
- }
- function apply(){
-  if(!desktop.matches)return;
-  var row=document.querySelector('#header .header-top .navigation-buttons>.okla-exact-header');
-  if(!row)return;
-  var login=row.querySelector(':scope > .okla-header-account');
-  var cart=row.querySelector(':scope > a.cart-count');
-  if(!login||!cart)return;
-  var loginSlot=login.querySelector('.okla-header-icon');
-  if(loginSlot&&!loginSlot.querySelector('svg.okla-template-user')){
-   loginSlot.replaceChildren(userIcon());
-   loginSlot.dataset.oklaReferenceIcon='1'; // prevent older icon module from overwriting
+  function setText(node, value) {
+    if (node.textContent !== value) node.textContent = value;
   }
-  ensureArrow(login,'okla-header-chevron');
-  var cartSlot=cart.querySelector(':scope > .okla-cart-symbol');
-  if(cartSlot&&!cartSlot.querySelector('svg.okla-template-cart')){
-   cartSlot.replaceChildren(cartIcon());
-   cartSlot.dataset.oklaSolidCart='1'; // older module remains functional but not visual
+  function draw() {
+    if (!desktop.matches) return;
+    var row = document.querySelector('#header .header-top .navigation-buttons > .okla-exact-header');
+    if (!row) return;
+    var login = row.querySelector(':scope > .okla-header-account');
+    var cart = row.querySelector(':scope > a.cart-count');
+    if (!login || !cart) return;
+    var label = login.querySelector('.okla-header-copy strong');
+    var price = cart.querySelector('.cart-price');
+    var badge = cart.querySelector(':scope > .okla-reference-cart-badge');
+    var loginFace = face(login,false), cartFace = face(cart,true);
+    setText(loginFace.querySelector('.label'), label ? label.textContent : login.getAttribute('aria-label') || '');
+    setText(cartFace.querySelector('.price'), price ? price.textContent.trim() : '');
+    var quantity = badge && !badge.hidden ? badge.textContent.trim() : '';
+    var number = cartFace.querySelector('text');
+    setText(number,quantity);
+    number.style.fontSize = quantity.length > 2 ? '10px' : '12px';
+    cartFace.querySelector('.count').toggleAttribute('hidden', !quantity || quantity === '0');
+    document.documentElement.classList.add('okla-header-template103');
   }
-  ensureArrow(cart,'okla-reference-cart-chevron');
-  var price=cart.querySelector(':scope > .cart-price');
-  if(price)price.removeAttribute('aria-hidden');
-  document.documentElement.classList.add('okla-header-reference');
-  document.documentElement.classList.add('okla-header-template103');
- }
- var scheduled=false;
- function schedule(){
-  if(scheduled)return;
-  scheduled=true;
-  requestAnimationFrame(function(){scheduled=false;apply()});
- }
- function start(){
-  schedule();
-  [150,500,1250,2400].forEach(function(ms){setTimeout(schedule,ms)});
-  window.addEventListener('load',schedule,{once:true});
-  window.addEventListener('pageshow',schedule);
-  window.addEventListener('resize',schedule,{passive:true});
-  if(desktop.addEventListener)desktop.addEventListener('change',schedule);
-  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated',
-   'ShoptetCartAddCartItem','ShoptetCartDeleteCartItem'].forEach(function(ev){
-    document.documentElement.addEventListener(ev,schedule);
-  });
-  var header=document.querySelector('#header .header-top');
-  if(header&&window.MutationObserver){
-   new MutationObserver(function(changes){
-    for(var i=0;i<changes.length;i++){
-     if(changes[i].type!=='childList')continue;
-     for(var j=0;j<changes[i].addedNodes.length;j++){
-      var n=changes[i].addedNodes[j];
-      if(n.nodeType!==1)continue;
-      if(n.matches&&n.matches('svg.okla-template-user,svg.okla-template-cart,svg.okla-template-down'))
-       continue;
-      if(n.matches&&n.matches('.okla-exact-header,.okla-header-account,.cart-count,.okla-cart-symbol,.okla-header-icon,.cart-price,.okla-reference-cart-badge'))
-       {schedule();return}
-      if(n.querySelector&&n.querySelector('.okla-exact-header,.cart-count,.okla-header-account'))
-       {schedule();return}
-     }
-    }
-   }).observe(header,{childList:true,subtree:true});
+  var pending = false;
+  function schedule() {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(function(){ pending = false; draw(); });
   }
- }
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
- else start();
+  function start() {
+    var header = document.querySelector('#header');
+    if (!header) return;
+    new MutationObserver(schedule).observe(header,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['hidden']});
+    desktop.addEventListener('change',schedule);
+    window.addEventListener('pageshow',schedule);
+    draw();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start,{once:true});
+  else start();
 })();
