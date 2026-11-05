@@ -39,7 +39,7 @@
   return s;
  }
  function cartIcon(){
-  var s=svg('okla-template-cart','0 0 35 36',35,36);
+  var s=svg('okla-template-cart','0 6 35 30',35,30);
   s.appendChild(path('M1.4 7.5H4C5.7 7.5 6.4 8.6 6.7 10.2L9.4 25.8','okla-cart-outline',
    {'fill':'none','stroke':'#78859e','stroke-width':'1.5','stroke-linecap':'round','stroke-linejoin':'round'}));
   s.appendChild(path('M7.5 13H32.5L30 27.1C29.8 28 28.9 28.6 27.6 28.6H12.6C11.5 28.6 10.4 27.9 10.2 26.8Z','okla-cart-fill',{'fill':'#78859e'}));
@@ -71,37 +71,13 @@
   }
   if(!a.querySelector(':scope > svg.okla-template-down'))a.replaceChildren(downIcon());
  }
- function badgePosition(cart){
-  if(!desktop.matches||!cart)return;
-  var badge=cart.querySelector(':scope > .okla-reference-cart-badge');
-  var slot=cart.querySelector(':scope > .okla-cart-symbol');
-  if(!badge||!slot||badge.hidden)return;
-  var cartBox=cart.getBoundingClientRect();
-  var slotBox=slot.getBoundingClientRect();
-  if(cartBox.width<=0||slotBox.width<=0)return;
-  // Exact reference: badge left 16px, top 0 within the 35x36 cart figure.
-  var x=Math.round(slotBox.left-cartBox.left+16);
-  var y=Math.round(slotBox.top-cartBox.top);
-  var xx=x+'px',yy=y+'px';
-  if(cart.style.getPropertyValue('--okla-template-badge-left')!==xx)
-    cart.style.setProperty('--okla-template-badge-left',xx);
-  if(cart.style.getPropertyValue('--okla-template-badge-top')!==yy)
-    cart.style.setProperty('--okla-template-badge-top',yy);
- }
- window.__oklaPositionCartBadge=function(){
-  if(!desktop.matches)return;
-  requestAnimationFrame(function(){
-   badgePosition(document.querySelector('#header .header-top .okla-exact-header>a.cart-count'));
-  });
- };
  function apply(){
   if(!desktop.matches)return;
   var row=document.querySelector('#header .header-top .navigation-buttons>.okla-exact-header');
   if(!row)return;
   var login=row.querySelector(':scope > .okla-header-account');
   var cart=row.querySelector(':scope > a.cart-count');
-  var locale=row.querySelector(':scope > .okla-header-locale');
-  if(!login||!cart||!locale)return;
+  if(!login||!cart)return;
   var loginSlot=login.querySelector('.okla-header-icon');
   if(loginSlot&&!loginSlot.querySelector('svg.okla-template-user')){
    loginSlot.replaceChildren(userIcon());
@@ -116,7 +92,6 @@
   ensureArrow(cart,'okla-reference-cart-chevron');
   var price=cart.querySelector(':scope > .cart-price');
   if(price)price.removeAttribute('aria-hidden');
-  badgePosition(cart);
   document.documentElement.classList.add('okla-header-reference');
   document.documentElement.classList.add('okla-header-template103');
  }
