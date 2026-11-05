@@ -206,13 +206,37 @@
   var id='okla-flag-'+code+'-'+(++flagSeq);
   var s=document.createElementNS(NS,'svg');
   s.setAttribute('viewBox','0 0 32 32');
+  s.setAttribute('width','64');
+  s.setAttribute('height','64');
+  s.setAttribute('preserveAspectRatio','xMidYMid meet');
+  s.setAttribute('shape-rendering','geometricPrecision');
+  s.setAttribute('focusable','false');
   s.setAttribute('aria-hidden','true');
   s.setAttribute('class','okla-lang-flag');
   s.innerHTML='<defs><clipPath id="'+id+'"><circle cx="16" cy="16" r="15.4"/></clipPath></defs><g clip-path="url(#'+id+')">'+FLAGS[code]+'</g>';
   return s;
  }
 
- function toggleHeader(holder,open){holder.classList.toggle('is-open',open);holder.setAttribute('aria-expanded',open?'true':'false')}
+ /* Keep the dropdown entirely visible on compact portrait/mobile widths. The
+    CSS starts it left of the trigger; this adjusts the offset only if needed. */
+ function positionMobileLanguageMenu(holder){
+  if(!holder||!holder.classList.contains('okla-lang-mobile')||!holder.classList.contains('is-open')||window.innerWidth>767)return;
+  var menu=holder.querySelector('.okla-lang-menu');
+  if(!menu)return;
+  menu.style.setProperty('--okla-lang-menu-right','30px');
+  requestAnimationFrame(function(){
+   if(!holder.classList.contains('is-open'))return;
+   var rect=menu.getBoundingClientRect(),margin=12,offset=30;
+   if(rect.right>window.innerWidth-margin)offset+=rect.right-(window.innerWidth-margin);
+   if(rect.left<margin)offset-=margin-rect.left;
+   menu.style.setProperty('--okla-lang-menu-right',Math.max(-12,Math.min(130,offset))+'px');
+  });
+ }
+ function toggleHeader(holder,open){
+  holder.classList.toggle('is-open',open);
+  holder.setAttribute('aria-expanded',open?'true':'false');
+  if(open)positionMobileLanguageMenu(holder);
+ }
 
  function buildHeaderSwitch(holder){
   holder.setAttribute('role','button');
@@ -329,6 +353,10 @@
   }
   headerSwitch();
   footerSwitch();
+  window.addEventListener('resize',function(){
+   var m=document.querySelector('#okla-v61-header .okla-lang-mobile.is-open');
+   if(m)positionMobileLanguageMenu(m);
+  },{passive:true});
   new MutationObserver(function(list){
    list.forEach(function(m){
     if(m.type==='characterData')schedule(m.target);

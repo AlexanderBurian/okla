@@ -69,6 +69,8 @@ if(/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vrace
  document.documentElement.classList.add('okla-legal-wide');
  modules.push('v91/okla_legal_fullwidth.css');
 }
+/* Final pass for crisp language flags and a correctly positioned mobile language menu. */
+modules.push('v91/okla_language_polish.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
