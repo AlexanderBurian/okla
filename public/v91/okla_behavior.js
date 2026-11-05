@@ -100,9 +100,7 @@ window.__oklaIsCat=function(l){return !!catImages[catNorm(l)]};
 function catPng(label){var f=catImages[catNorm(label)];if(!f)return null;var im=document.createElement('img');im.className='okla-category-png';im.src=(window.__oklaAssetBase||'')+'v91/img/cat/'+f;im.alt='';im.setAttribute('loading','lazy');return im}
 function catIcon(item,i){var iconSpan=n('span','okm61-category-icon'),png=catPng(item.label);if(!png){var op=item.original.querySelector('img.okla-category-png');if(op)png=op.cloneNode(true)}if(png){iconSpan.appendChild(png);return iconSpan}var source=item.original.querySelector('.okla-cat-svg svg');if(source)iconSpan.appendChild(source.cloneNode(true));else iconSpan.appendChild(svg(['chip','devices','measure','cam','bulb','spark','screen'][i%7]));return iconSpan}
 function catTile(item,i){var a=n('a','okm61-category');a.href=item.href;a.append(catIcon(item,i),n('span','okm61-category-label',item.label));return a}
-/* A full-width category row for the mobile menu drawer: coloured accent, pictogram, label, chevron (Allegro style). */
-var CAT_ACCENTS=['#6f42c1','#2f6df6','#00a7d8','#12b3a6','#36b336','#9acd32','#f1b000','#f0842a','#ef5b5b','#e0457b','#8e44ad','#3f7fd6'];
-function catRow(item,i){var a=n('a','okm61-cat-row');a.href=item.href;a.style.setProperty('--okm61-accent',CAT_ACCENTS[i%CAT_ACCENTS.length]);var lab=n('span','okm61-cat-row-label',item.label);var ch=n('span','okm61-cat-row-chevron');ch.appendChild(svg('arrow'));a.append(catIcon(item,i),lab,ch);return a}
+function catRow(item,i){var a=n('a','okm61-cat-row');a.href=item.href;var lab=n('span','okm61-cat-row-label',item.label);var ch=n('span','okm61-cat-row-chevron');ch.appendChild(svg('arrow'));a.append(catIcon(item,i),lab,ch);return a}
 function categorySection(){
 if(!mq.matches||!isHome())return;
 var main=document.querySelector('main#content'),banner=main&&main.querySelector('.banners-row');if(!main||!banner)return;
@@ -143,7 +141,10 @@ var menuItems=[['home','Domů','/'],['catalog','Katalog',null],['cart','Košík'
 menuItems.forEach(function(it){var a=n(it[2]?'a':'button','okm61-bottom-action'+(it[0]==='home'&&isHome()?' is-active':''));if(it[2])a.href=it[2];else{a.type='button';a.addEventListener('click',function(){drawer(it[0])})}a.setAttribute('aria-label',it[1]);a.append(svg(it[0]),n('span','',it[1]));bar.appendChild(a)});
 document.body.appendChild(bar);
 }
+var drawerCloseTimer, drawerTrigger;
 function drawer(kind){
+clearTimeout(drawerCloseTimer);
+drawerTrigger=document.activeElement;
 var overlay=document.getElementById('okla-v61-drawer');if(!overlay){overlay=n('div');overlay.id='okla-v61-drawer';overlay.hidden=true;
 var panel=n('div','okm61-drawer-panel');panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Navigace OKLA');
 var head=n('div','okm61-drawer-head'),name=n('strong','','Katalog'),close=n('button','okm61-drawer-close');close.type='button';close.setAttribute('aria-label','Zavřít');close.appendChild(svg('close'));close.addEventListener('click',closeDrawer);head.append(name,close);
@@ -151,9 +152,25 @@ var body=n('div','okm61-drawer-body');panel.append(head,body);overlay.append(pan
 var area=overlay.querySelector('.okm61-drawer-body');area.replaceChildren();overlay.querySelector('.okm61-drawer-head strong').textContent=kind==='menu'?'Menu':'Všechny kategorie';
 var list=n('div','okm61-drawer-list'),items=getCats();items.forEach(function(item,i){list.appendChild(catRow(item,i))});area.appendChild(list);
 if(kind==='menu'){var links=[['Úvodní stránka','/'],['Košík',(document.querySelector('#header a.cart-count')||{}).getAttribute?.('href')||'/kosik/'],['Moje objednávky','/klient/']];links.forEach(function(l){var a=n('a','okm61-menu-item',l[0]);a.href=l[1];area.appendChild(a)})}
-overlay.hidden=false;document.body.classList.add('okla-v61-locked');requestAnimationFrame(function(){requestAnimationFrame(function(){overlay.classList.add('is-open')})});overlay.querySelector('.okm61-drawer-close').focus()
+overlay.hidden=false;
+document.body.classList.add('okla-v61-locked');
+// Commit the off-screen position before transitioning the panel into view.
+overlay.querySelector('.okm61-drawer-panel').getBoundingClientRect();
+overlay.classList.add('is-open');
+overlay.querySelector('.okm61-drawer-close').focus({preventScroll:true});
 }
-function closeDrawer(){var overlay=document.getElementById('okla-v61-drawer');if(overlay){overlay.classList.remove('is-open');var o=overlay;setTimeout(function(){o.hidden=true},300)}document.body.classList.remove('okla-v61-locked')}
+function closeDrawer(){
+  var overlay=document.getElementById('okla-v61-drawer');
+  if(!overlay || overlay.hidden || !overlay.classList.contains('is-open'))return;
+  overlay.classList.remove('is-open');
+  function finish(){
+    overlay.hidden=true;
+    document.body.classList.remove('okla-v61-locked');
+    if(drawerTrigger && drawerTrigger.isConnected && mq.matches)drawerTrigger.focus({preventScroll:true});
+  }
+  if(!mq.matches || matchMedia('(prefers-reduced-motion:reduce)').matches)finish();
+  else drawerCloseTimer=setTimeout(finish,350);
+}
 function correct(){header();if(!mq.matches){closeDrawer();return}nav();dots();categorySection();pauseSliders();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',correct,{once:true});else correct();
 window.addEventListener('load',correct,{once:true});window.addEventListener('resize',correct,{passive:true});
