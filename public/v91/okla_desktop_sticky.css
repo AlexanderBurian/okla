@@ -1,4 +1,4 @@
-/* OKLA V108 – COMPACT version of the existing desktop sticky header.
+/* OKLA V109 – COMPACT version of the existing desktop sticky header.
    Only applies while the header is pinned on >=992px screens.
    The normal header, both mobile headers and Shoptet controls are unchanged. */
 @media (min-width:992px) {
@@ -31,11 +31,11 @@
     bottom:auto!important;
     width:var(--okla-sticky-width,100%)!important;
     min-width:0!important;
-    height:var(--okla-sticky-compact-height,51px)!important;
-    min-height:var(--okla-sticky-compact-height,51px)!important;
-    max-height:var(--okla-sticky-compact-height,51px)!important;
-    /* Keep the row visually centered but leave four extra pixels at its bottom. */
-    padding:0 0 4px!important;
+    height:var(--okla-sticky-compact-height,56px)!important;
+    min-height:var(--okla-sticky-compact-height,56px)!important;
+    max-height:var(--okla-sticky-compact-height,56px)!important;
+    /* Slightly more room under the enlarged sticky controls. */
+    padding:0 0 5px!important;
     z-index:820!important;
     background:#fff!important;
     box-sizing:border-box!important;
@@ -67,9 +67,9 @@
   html.okla-desktop-sticky body #header .header-top>.site-name-wrapper {
     align-self:center!important;
     justify-self:start!important;
-    height:38px!important;
+    height:44px!important;
     min-height:0!important;
-    max-height:38px!important;
+    max-height:44px!important;
     margin-top:0!important;
     margin-bottom:0!important;
     padding:0!important;
@@ -77,7 +77,7 @@
   html.okla-desktop-sticky body #header .header-top>.site-name-wrapper img {
     width:auto!important;
     height:auto!important;
-    max-height:34px!important;
+    max-height:38px!important;
     max-width:100%!important;
     object-fit:contain!important;
   }
@@ -85,17 +85,17 @@
     align-self:center!important;
     position:relative!important;
     z-index:1!important;
-    height:40px!important;
+    height:44px!important;
     min-height:0!important;
-    max-height:40px!important;
+    max-height:44px!important;
     margin-top:0!important;
     margin-bottom:0!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form,
   html.okla-desktop-sticky body #header .header-top>.search form.search-form fieldset {
     min-height:0!important;
-    max-height:40px!important;
-    height:40px!important;
+    max-height:44px!important;
+    height:44px!important;
     box-sizing:border-box!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form fieldset {
@@ -103,38 +103,38 @@
     border-radius:7px!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form input.query-input {
-    height:35px!important;
+    height:39px!important;
     min-height:0!important;
-    max-height:35px!important;
-    font-size:12px!important;
+    max-height:39px!important;
+    font-size:13px!important;
     padding-top:0!important;
     padding-bottom:0!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form button[type="submit"] {
-    flex:0 0 34px!important;
-    width:34px!important;
-    min-width:34px!important;
-    max-width:34px!important;
-    height:35px!important;
-    min-height:35px!important;
-    max-height:35px!important;
+    flex:0 0 37px!important;
+    width:37px!important;
+    min-width:37px!important;
+    max-width:37px!important;
+    height:39px!important;
+    min-height:39px!important;
+    max-height:39px!important;
     margin:0!important;
     padding:0!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form button[type="submit"]>svg.okla-search-vector {
-    width:19px!important;
-    height:19px!important;
-    min-width:19px!important;
-    min-height:19px!important;
-    flex:0 0 19px!important;
+    width:21px!important;
+    height:21px!important;
+    min-width:21px!important;
+    min-height:21px!important;
+    flex:0 0 21px!important;
   }
   html.okla-desktop-sticky body #header .header-top>.navigation-buttons.okla-header-ready {
     position:relative!important;
     z-index:1!important;
     align-self:center!important;
-    height:44px!important;
-    min-height:44px!important;
-    max-height:44px!important;
+    height:50px!important;
+    min-height:50px!important;
+    max-height:50px!important;
     margin-top:0!important;
     margin-bottom:0!important;
     padding:0!important;
@@ -142,25 +142,25 @@
   html.okla-desktop-sticky body #header .header-top .navigation-buttons>.okla-exact-header {
     align-items:center!important;
     grid-template-columns:minmax(135px,max-content) max-content!important;
-    height:44px!important;
-    min-height:44px!important;
-    max-height:44px!important;
+    height:50px!important;
+    min-height:50px!important;
+    max-height:50px!important;
     padding:0!important;
     margin:0!important;
   }
   /* Current site uses real links + a shadow-root graphic.
      Shrink the LINK hit areas here; JS scales its graphic only when pinned. */
   html.okla-desktop-sticky body #header#header .header-top .navigation-buttons>.okla-exact-header>:is(.okla-header-account,a.cart-count)[data-action-face] {
-    height:44px!important;
-    min-height:44px!important;
-    max-height:44px!important;
+    height:50px!important;
+    min-height:50px!important;
+    max-height:50px!important;
     align-self:center!important;
     align-items:center!important;
     padding:0!important;
     margin:0!important;
   }
   html.okla-desktop-sticky body #header .header-top .navigation-buttons>.okla-exact-header> .okla-header-locale {
-    max-height:30px!important;
+    max-height:34px!important;
   }
 }
 @media(max-width:991px){
