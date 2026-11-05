@@ -1,4 +1,4 @@
-/* OKLA V107 – COMPACT version of the existing desktop sticky header.
+/* OKLA V108 – COMPACT version of the existing desktop sticky header.
    Only applies while the header is pinned on >=992px screens.
    The normal header, both mobile headers and Shoptet controls are unchanged. */
 @media (min-width:992px) {
@@ -31,10 +31,11 @@
     bottom:auto!important;
     width:var(--okla-sticky-width,100%)!important;
     min-width:0!important;
-    height:var(--okla-sticky-compact-height,44px)!important;
-    min-height:var(--okla-sticky-compact-height,44px)!important;
-    max-height:var(--okla-sticky-compact-height,44px)!important;
-    padding:0!important;
+    height:var(--okla-sticky-compact-height,51px)!important;
+    min-height:var(--okla-sticky-compact-height,51px)!important;
+    max-height:var(--okla-sticky-compact-height,51px)!important;
+    /* Keep the row visually centered but leave four extra pixels at its bottom. */
+    padding:0 0 4px!important;
     z-index:820!important;
     background:#fff!important;
     box-sizing:border-box!important;

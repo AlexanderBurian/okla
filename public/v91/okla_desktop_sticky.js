@@ -1,4 +1,4 @@
-/* OKLA V107: reuse the existing live desktop header as a fixed navigation bar.
+/* OKLA V108: reuse the existing live desktop header as a fixed navigation bar.
    It stays visible in BOTH scroll directions, and returns to the original flow
    only when the visitor is almost at the top. No cloned links or icons. */
 (function(){
@@ -64,8 +64,8 @@
   root.style.setProperty('--okla-sticky-negative-left',(-x).toFixed(2)+'px');
   root.style.setProperty('--okla-sticky-width',rect.width.toFixed(2)+'px');
   root.style.setProperty('--okla-sticky-height',rect.height.toFixed(2)+'px');
-  // Approximately 45% shorter than natural 80px (usually 44px) while pinned only.
-  root.style.setProperty('--okla-sticky-compact-height',Math.max(44,Math.round(rect.height*0.55))+'px');
+  // Approximately 36% shorter than natural 80px (usually 51px) while pinned only.
+  root.style.setProperty('--okla-sticky-compact-height',Math.max(51,Math.round(rect.height*0.64))+'px');
   spacer.style.height=rect.height.toFixed(2)+'px';
  }
  function geometry(){
