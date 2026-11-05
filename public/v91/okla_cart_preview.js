@@ -23,6 +23,7 @@ function badge(){
  var b=c.querySelector(':scope > .okla-reference-cart-badge');
  if(!b){b=el('span','okla-reference-cart-badge');b.setAttribute('aria-hidden','true');c.appendChild(b)}
  b.hidden=q<=0;b.textContent=q>99?'99+':String(q);
+ if(typeof window.__oklaPositionCartBadge==='function')window.__oklaPositionCartBadge();
 }
 function lang(){var l=String(window.OKLA_LANG||document.documentElement.lang||'cs').slice(0,2);
  return l==='en'?['Your cart','Items','Total','View cart','Cart is empty','Loading…','Unable to load cart']:l==='sk'?['Váš košík','Kusov','Celkom','Prejsť do košíka','Košík je prázdny','Načítavam…','Nepodarilo sa načítať']:l==='hu'?['Kosár','Darab','Összesen','Kosár megnyitása','A kosár üres','Betöltés…','Nem sikerült betölteni']:['Váš košík','Kusů','Celkem','Přejít do košíku','Košík je prázdný','Načítám…','Náhled není dostupný']}
@@ -80,9 +81,12 @@ function move(){
 }
 function close(){clearTimeout(timer);anchor=null;version++;if(pop){pop.classList.remove('is-open');pop.setAttribute('aria-hidden','true')}}
 function delay(){clearTimeout(timer);timer=setTimeout(function(){if(pop&&!pop.contains(document.activeElement))close()},220)}
+window.__oklaCartPreviewClose=close;
 function show(c){
  if(!mq.matches||document.documentElement.classList.contains('okla-search-open'))return;
- clearTimeout(timer);if(anchor===c)return;build();anchor=c;pop.classList.add('is-open');pop.setAttribute('aria-hidden','false');
+ clearTimeout(timer);if(anchor===c)return;
+ if(typeof window.__oklaLoginHoverClose==='function')window.__oklaLoginHoverClose();
+ build();anchor=c;pop.classList.add('is-open');pop.setAttribute('aria-hidden','false');
  header();move();message(lang()[5]);var v=++version;
  fetch('/kosik/',{credentials:'same-origin',cache:'no-store'}).then(function(r){if(!r.ok)throw Error('cart');return r.text()})
  .then(function(s){if(v===version&&anchor){render(s);badge();header()}}).catch(function(){if(v===version&&anchor)message(lang()[6])});

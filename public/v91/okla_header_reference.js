@@ -70,6 +70,22 @@
   }
   return null;
  }
+ function positionCartBadge(cart){
+  if(!desktop.matches||!cart)return;
+  var b=cart.querySelector(':scope > .okla-reference-cart-badge');
+  var icon=cart.querySelector(':scope > .okla-cart-symbol');
+  if(!b||!icon||b.hidden)return;
+  var c=cart.getBoundingClientRect(),i=icon.getBoundingClientRect();
+  if(!c.width||!i.width)return;
+  var left=Math.round(i.right-c.left-8);
+  var top=Math.round(i.top-c.top-7);
+  b.style.setProperty('--okla-cart-badge-left',left+'px');
+  b.style.setProperty('--okla-cart-badge-top',top+'px');
+ }
+ window.__oklaPositionCartBadge=function(){
+  var cart=document.querySelector('#header .header-top .okla-exact-header > a.cart-count');
+  if(cart)requestAnimationFrame(function(){positionCartBadge(cart)});
+ };
  function sync(){
   if(!desktop.matches){
    document.documentElement.classList.remove('okla-header-reference');
@@ -131,6 +147,7 @@
     cart.appendChild(badge);
    }
    badge.hidden=false;badge.textContent=count>99?'99+':String(count);
+   requestAnimationFrame(function(){positionCartBadge(cart)});
   }else if(badge)badge.hidden=true;
   row.setAttribute('aria-label','Přihlášení, jazyk a nákupní košík');
   document.documentElement.classList.add('okla-header-reference');

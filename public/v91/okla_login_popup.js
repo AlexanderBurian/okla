@@ -44,6 +44,46 @@
   if(toggle)toggle.setAttribute('aria-expanded','false');
  }
 
+ var hoverCloseTimer=null;
+ function cancelHoverClose(){
+  if(hoverCloseTimer){clearTimeout(hoverCloseTimer);hoverCloseTimer=null}
+ }
+ function closeOnLeave(){
+  cancelHoverClose();
+  hoverCloseTimer=setTimeout(function(){
+   var a=document.querySelector('#header .okla-header-account');
+   var p=document.getElementById('login');
+   var focus=document.activeElement;
+   if((p&&p.contains(focus))||(a&&a.contains(focus)))return;
+   if(isOpen())hide();
+  },230);
+ }
+ window.__oklaLoginHoverClose=function(){
+  cancelHoverClose();
+  if(isOpen())hide();
+ };
+ function hoverAccount(e){
+  if(!desktop.matches||!e.target||!e.target.closest)return;
+  var pop=e.target.closest('#login');
+  if(pop){cancelHoverClose();return}
+  var a=e.target.closest('#header .okla-header-account');
+  if(!a)return;
+  if(e.relatedTarget&&a.contains(e.relatedTarget))return;
+  cancelHoverClose();
+  if(typeof window.__oklaCartPreviewClose==='function')window.__oklaCartPreviewClose();
+  if(isOpen())return;
+  var native=document.querySelector('.top-navigation-bar .top-nav-button-login');
+  if(!native)return; // Do not show a sign-in form to logged-in customers.
+  native.click(); // Preserves Shoptet's own login form, validation and actions.
+  requestAnimationFrame(place);
+ }
+ function leaveAccount(e){
+  if(!desktop.matches||!e.target||!e.target.closest)return;
+  var a=e.target.closest('#header .okla-header-account');
+  if(a&&(!e.relatedTarget||!a.contains(e.relatedTarget))){closeOnLeave();return}
+  var p=e.target.closest('#login');
+  if(p&&(!e.relatedTarget||!p.contains(e.relatedTarget)))closeOnLeave();
+ }
  function start(){
   if(!document.body)return;
   new MutationObserver(place).observe(document.body,{attributes:true,attributeFilter:['class']});
@@ -54,6 +94,11 @@
    hide();
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen())hide()});
+  document.addEventListener('pointerover',hoverAccount,true);
+  document.addEventListener('pointerout',leaveAccount,true);
+  document.addEventListener('pointerdown',function(e){
+   if(e.target.closest&&e.target.closest('#header .okla-header-account'))cancelHoverClose();
+  },true);
   place();
  }
 
