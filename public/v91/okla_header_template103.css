@@ -65,7 +65,7 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
   }
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header{
     display:grid!important;
-    grid-template-columns:minmax(199px,max-content) max-content!important;
+    grid-template-columns:minmax(179px,max-content) max-content!important;
     position:relative!important;
     justify-content:flex-end!important;
     align-items:center!important;
@@ -86,6 +86,11 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
     overflow:visible!important;
     box-sizing:border-box!important;
     transform:none!important;
+  }
+
+  html.okla-header-template103 body #header .header-top>.search>.okla-search-panel{
+    width:100%!important;
+    max-width:100%!important;
   }
 
   /* Keep native links as the only navigation and hover targets. */
