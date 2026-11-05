@@ -1,8 +1,4 @@
-/* OKLA V104 | Exact artwork and typography from the supplied header_1to1.html.
-   The ONLY changed design property is horizontal spacing: flex items replace the
-   reference's fixed x-coordinates so real Shoptet prices cannot overlap.
-   All graphics keep their original dimensions, shape and vertical offsets.
-   992px+: desktop only. Neither mobile header variant is touched. */
+/* Desktop account and cart artwork. Badge is the only overlapping element. */
 @media (min-width:992px){
   html.okla-header-template103 body #header .header-top{
     display:grid!important;
@@ -69,7 +65,7 @@
     position:relative!important;
     justify-content:flex-end!important;
     align-items:center!important;
-    gap:var(--okla-v104-gap,18px)!important;
+    gap:18px!important;
     width:max-content!important;
     min-width:418px!important;
     max-width:none!important;
@@ -226,13 +222,13 @@
     height:auto!important;
     margin:0!important;
     padding:0!important;
-    font:400 14px/19px Arial,Helvetica,sans-serif!important;
+    font:400 16px/20px Arial,Helvetica,sans-serif!important;
     line-height:19px!important;
     white-space:nowrap!important;
     text-align:left!important;
     color:#78859e!important;
     -webkit-text-fill-color:#78859e!important;
-    transform:translateY(-2px)!important;
+    transform:none!important;
   }
   html.okla-header-template103 body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy small{
     display:none!important;
@@ -258,8 +254,7 @@
     box-shadow:none!important;
     transform:none!important;
   }
-  /* 1:1 cart: 35x36 SVG, 20px badge at (16,0), price 14px/19px +3px,
-     6px gap icon→price, 10px gap price→down arrow. */
+  /* Price and chevron share the vertical center of the visible cart artwork. */
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
     order:2!important;
     position:relative!important;
@@ -272,10 +267,10 @@
     width:max-content!important;
     min-width:0!important;
     max-width:none!important;
-    height:36px!important;
-    min-height:36px!important;
-    max-height:36px!important;
-    margin:0!important;
+    height:30px!important;
+    min-height:30px!important;
+    max-height:30px!important;
+    margin:0 0 0 clamp(6px,calc(10vw - 94px),32px)!important;
     padding:0!important;
     gap:0!important;
     border:0!important;
@@ -302,9 +297,9 @@
     width:35px!important;
     min-width:35px!important;
     max-width:35px!important;
-    height:36px!important;
-    min-height:36px!important;
-    max-height:36px!important;
+    height:30px!important;
+    min-height:30px!important;
+    max-height:30px!important;
     margin:0!important;
     padding:0!important;
     border:0!important;
@@ -318,9 +313,9 @@
     width:35px!important;
     min-width:35px!important;
     max-width:35px!important;
-    height:36px!important;
-    min-height:36px!important;
-    max-height:36px!important;
+    height:30px!important;
+    min-height:30px!important;
+    max-height:30px!important;
     margin:0!important;
     padding:0!important;
     fill:none!important;
@@ -351,17 +346,17 @@
     height:19px!important;
     min-height:19px!important;
     max-height:19px!important;
-    margin:0 0 0 6px!important;
+    margin:0 0 0 5px!important;
     padding:0!important;
     border:0!important;
     background:transparent!important;
-    font:700 14px/19px Arial,Helvetica,sans-serif!important;
+    font:700 16px/20px Arial,Helvetica,sans-serif!important;
     line-height:19px!important;
     color:#78859e!important;
     -webkit-text-fill-color:#78859e!important;
     text-align:left!important;
     white-space:nowrap!important;
-    transform:translateY(3px)!important;
+    transform:none!important;
     overflow:visible!important;
     opacity:1!important;
     visibility:visible!important;
@@ -385,7 +380,7 @@
     border-radius:0!important;
     background:transparent!important;
     box-shadow:none!important;
-    transform:translateY(2px)!important;
+    transform:none!important;
     opacity:1!important;
     visibility:visible!important;
   }
@@ -416,13 +411,13 @@
      in normal layout with intrinsic widths and cannot occupy the same space. */
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
     position:absolute!important;
-    left:16px!important;
-    top:0!important;
+    left:15px!important;
+    top:-6px!important;
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
     min-width:20px!important;
-    width:20px!important;
+    width:auto!important;
     height:20px!important;
     min-height:20px!important;
     max-height:20px!important;
@@ -430,7 +425,7 @@
     margin:0!important;
     border:0!important;
     border-radius:50%!important;
-    background:#258fd2!important;
+    background:#1996df!important;
     color:#fff!important;
     -webkit-text-fill-color:#fff!important;
     font:700 12px/20px Arial,Helvetica,sans-serif!important;
@@ -459,6 +454,6 @@
     column-gap:10px!important;
   }
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header{
-    --okla-v104-gap:12px;
+    gap:12px!important;
   }
 }
