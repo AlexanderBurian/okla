@@ -28,7 +28,7 @@
   var strong=elem('strong');strong.textContent='Můj účet';copy.appendChild(strong);
   var small=elem('small');small.textContent='Přihlásit se';copy.appendChild(small);
   a.appendChild(icon);a.appendChild(copy);
-  nav.insertBefore(a,cart);
+  cart.parentNode.insertBefore(a,cart);
  }
  function ensureCart(nav){
   var cart=nav.querySelector('a.cart-count');
@@ -53,7 +53,7 @@
   var a=elem('a','okla-header-orders');a.href='/klient/';a.rel='nofollow';
   a.setAttribute('aria-label','Moje objednávky');a.title='Moje objednávky';
   a.appendChild(svg(['M5 8h14v13H5z','M9 9V6a3 3 0 0 1 6 0v3','m8 14 2.5 2.5 5-5']));
-  nav.insertBefore(a,cart);
+  cart.parentNode.insertBefore(a,cart);
  }
  function ensureFavorites(nav,cart){
   if(nav.querySelector('.okla-header-favorites'))return;
@@ -68,7 +68,7 @@
     else location.href='/klient/';
    }
   });
-  nav.insertBefore(a,cart);
+  cart.parentNode.insertBefore(a,cart);
  }
  function ensureLocale(nav,cart){
   if(nav.querySelector('.okla-header-locale'))return;
@@ -80,7 +80,7 @@
   circle.setAttribute('cy','16');circle.setAttribute('r','15');circle.setAttribute('fill','#fff');flag.appendChild(circle);
   var red=document.createElementNS(svgNS,'path');red.setAttribute('d','M1 16h30a15 15 0 0 1-30 0Z');red.setAttribute('fill','#db2439');flag.appendChild(red);
   var blue=document.createElementNS(svgNS,'path');blue.setAttribute('d','M3 8a15 15 0 0 0 0 16L18 16Z');blue.setAttribute('fill','#124c94');flag.appendChild(blue);
-  a.appendChild(flag);nav.insertBefore(a,cart);
+  a.appendChild(flag);cart.parentNode.insertBefore(a,cart);
  }
  function enhance(){
   /* Do not touch the standard OR scroll-triggered sticky mobile header. */
