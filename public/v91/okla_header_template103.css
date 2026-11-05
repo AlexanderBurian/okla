@@ -1,8 +1,12 @@
+/* Header language controls are replaced by the footer switch at every width. */
+html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
+html body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
+html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
 /* Desktop account and cart artwork. Badge is the only overlapping element. */
 @media (min-width:992px){
   html.okla-header-template103 body #header .header-top{
     display:grid!important;
-    grid-template-columns:minmax(130px,190px) minmax(160px,1fr) minmax(418px,max-content)!important;
+    grid-template-columns:minmax(130px,190px) minmax(160px,1fr) max-content!important;
     column-gap:clamp(10px,1.15vw,16px)!important;
     align-items:center!important;
     justify-items:stretch!important;
@@ -46,7 +50,7 @@
     justify-self:end!important;
     align-self:center!important;
     width:max-content!important;
-    min-width:418px!important;
+    min-width:0!important;
     max-width:none!important;
     height:80px!important;
     min-height:80px!important;
@@ -60,14 +64,14 @@
     box-sizing:border-box!important;
   }
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header{
-    display:flex!important;
-    flex-direction:row!important;
+    display:grid!important;
+    grid-template-columns:minmax(199px,max-content) max-content!important;
     position:relative!important;
     justify-content:flex-end!important;
     align-items:center!important;
-    gap:18px!important;
+    gap:0!important;
     width:max-content!important;
-    min-width:418px!important;
+    min-width:0!important;
     max-width:none!important;
     height:80px!important;
     min-height:80px!important;
@@ -83,46 +87,6 @@
     box-sizing:border-box!important;
     transform:none!important;
   }
-  /* The single extra item (language) is separate from the 1:1 login/cart layout. */
-  html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale{
-    order:0!important;
-    position:relative!important;
-    inset:auto!important;
-    display:flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    align-self:center!important;
-    flex:0 0 29px!important;
-    width:29px!important;
-    min-width:29px!important;
-    max-width:29px!important;
-    height:29px!important;
-    min-height:29px!important;
-    max-height:29px!important;
-    margin:0!important;
-    padding:0!important;
-    border:0!important;
-    border-radius:0!important;
-    background:transparent!important;
-    box-shadow:none!important;
-    transform:none!important;
-    overflow:visible!important;
-  }
-  html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale>svg.okla-lang-flag{
-    display:block!important;
-    flex:0 0 28px!important;
-    width:28px!important;
-    min-width:28px!important;
-    max-width:28px!important;
-    height:28px!important;
-    min-height:28px!important;
-    max-height:28px!important;
-    border:2px solid #205b9c!important;
-    border-radius:50%!important;
-    outline:0!important;
-    box-shadow:none!important;
-    background:transparent!important;
-  }
   /* 1:1 reference: .login icon=19x29, label=14px Arial/19px,
      arrow=19x12, gaps=10px each. Only x-coordinates become flex. */
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
@@ -131,7 +95,8 @@
     inset:auto!important;
     display:flex!important;
     align-items:center!important;
-    align-self:center!important;
+    grid-column:1!important;
+    align-self:start!important;
     justify-content:flex-start!important;
     flex:0 0 auto!important;
     width:max-content!important;
@@ -140,7 +105,7 @@
     height:29px!important;
     min-height:29px!important;
     max-height:29px!important;
-    margin:0!important;
+    margin:32px 0 0!important;
     padding:0!important;
     gap:0!important;
     border:0!important;
@@ -222,13 +187,13 @@
     height:auto!important;
     margin:0!important;
     padding:0!important;
-    font:400 16px/20px Arial,Helvetica,sans-serif!important;
+    font:400 14px/19px Arial,Helvetica,sans-serif!important;
     line-height:19px!important;
     white-space:nowrap!important;
     text-align:left!important;
     color:#78859e!important;
     -webkit-text-fill-color:#78859e!important;
-    transform:none!important;
+    transform:translateY(-2px)!important;
   }
   html.okla-header-template103 body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy small{
     display:none!important;
@@ -254,23 +219,24 @@
     box-shadow:none!important;
     transform:none!important;
   }
-  /* Price and chevron share the vertical center of the visible cart artwork. */
+  /* Reference cart origin is six pixels above the login icon. */
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
     order:2!important;
     position:relative!important;
     inset:auto!important;
     display:flex!important;
     align-items:center!important;
-    align-self:center!important;
+    grid-column:2!important;
+    align-self:start!important;
     justify-content:flex-start!important;
     flex:0 0 auto!important;
     width:max-content!important;
     min-width:0!important;
     max-width:none!important;
-    height:30px!important;
-    min-height:30px!important;
-    max-height:30px!important;
-    margin:0 0 0 clamp(6px,calc(10vw - 94px),32px)!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
+    margin:26px 0 0!important;
     padding:0!important;
     gap:0!important;
     border:0!important;
@@ -297,9 +263,9 @@
     width:35px!important;
     min-width:35px!important;
     max-width:35px!important;
-    height:30px!important;
-    min-height:30px!important;
-    max-height:30px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
     margin:0!important;
     padding:0!important;
     border:0!important;
@@ -313,9 +279,9 @@
     width:35px!important;
     min-width:35px!important;
     max-width:35px!important;
-    height:30px!important;
-    min-height:30px!important;
-    max-height:30px!important;
+    height:36px!important;
+    min-height:36px!important;
+    max-height:36px!important;
     margin:0!important;
     padding:0!important;
     fill:none!important;
@@ -346,17 +312,17 @@
     height:19px!important;
     min-height:19px!important;
     max-height:19px!important;
-    margin:0 0 0 5px!important;
+    margin:0 0 0 6px!important;
     padding:0!important;
     border:0!important;
     background:transparent!important;
-    font:700 16px/20px Arial,Helvetica,sans-serif!important;
+    font:700 14px/19px Arial,Helvetica,sans-serif!important;
     line-height:19px!important;
     color:#78859e!important;
     -webkit-text-fill-color:#78859e!important;
     text-align:left!important;
     white-space:nowrap!important;
-    transform:none!important;
+    transform:translateY(3px)!important;
     overflow:visible!important;
     opacity:1!important;
     visibility:visible!important;
@@ -380,7 +346,7 @@
     border-radius:0!important;
     background:transparent!important;
     box-shadow:none!important;
-    transform:none!important;
+    transform:translateY(2px)!important;
     opacity:1!important;
     visibility:visible!important;
   }
@@ -411,8 +377,8 @@
      in normal layout with intrinsic widths and cannot occupy the same space. */
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
     position:absolute!important;
-    left:15px!important;
-    top:-6px!important;
+    left:16px!important;
+    top:0px!important;
     display:flex!important;
     align-items:center!important;
     justify-content:center!important;
@@ -425,7 +391,7 @@
     margin:0!important;
     border:0!important;
     border-radius:50%!important;
-    background:#1996df!important;
+    background:#258fd2!important;
     color:#fff!important;
     -webkit-text-fill-color:#fff!important;
     font:700 12px/20px Arial,Helvetica,sans-serif!important;
@@ -450,10 +416,10 @@
    the text, or the natural dynamic cart price. */
 @media(min-width:992px) and (max-width:1120px){
   html.okla-header-template103 body #header .header-top{
-    grid-template-columns:minmax(120px,158px) minmax(150px,1fr) minmax(418px,max-content)!important;
+    grid-template-columns:minmax(120px,158px) minmax(150px,1fr) max-content!important;
     column-gap:10px!important;
   }
   html.okla-header-template103 body #header .header-top .navigation-buttons>.okla-exact-header{
-    gap:12px!important;
+    gap:0!important;
   }
 }
