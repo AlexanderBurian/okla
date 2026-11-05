@@ -12,6 +12,36 @@
  var originalTop=0,originalHeight=80,enterAt=150,exitAt=100;
  var activationLock=false;
 
+ /* The two real login/cart links render artwork in open Shadow Roots.
+    Provide a compact style only while sticky, preserving all existing actions. */
+ function syncFaces(compact){
+  if(!header||!header.isConnected)return;
+  var faces=header.querySelectorAll('okla-action-face');
+  for(var i=0;i<faces.length;i++){
+   var host=faces[i],shadow=host.shadowRoot;
+   if(!shadow)continue;
+   if(!shadow.querySelector('#okla-v106-sticky-face')){
+    var st=document.createElement('style');
+    st.id='okla-v106-sticky-face';
+    st.textContent=[
+     ':host([data-okla-sticky-compact]) .face{height:32px!important;font-size:12px!important;line-height:16px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg.figure{width:28px!important;height:34px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:16px!important;height:24px!important;}',
+     ':host([data-okla-sticky-compact]) .face .label{margin-left:7px!important;}',
+     ':host([data-okla-sticky-compact]) .face .arrow{width:14px!important;height:9px!important;margin-left:7px!important;}',
+     ':host([data-okla-sticky-compact]) .face .price{font-size:13px!important;line-height:17px!important;margin-left:4px!important;}',
+     ':host([data-okla-sticky-compact]) .face .count text{font-size:11px!important;}'
+    ].join('');
+    shadow.appendChild(st);
+   }
+   if(compact){
+    if(!host.hasAttribute('data-okla-sticky-compact'))host.setAttribute('data-okla-sticky-compact','');
+   }else if(host.hasAttribute('data-okla-sticky-compact')){
+    host.removeAttribute('data-okla-sticky-compact');
+   }
+  }
+ }
+
  function scrollY(){
   return window.scrollY||window.pageYOffset||root.scrollTop||0;
  }
@@ -34,6 +64,8 @@
   root.style.setProperty('--okla-sticky-negative-left',(-x).toFixed(2)+'px');
   root.style.setProperty('--okla-sticky-width',rect.width.toFixed(2)+'px');
   root.style.setProperty('--okla-sticky-height',rect.height.toFixed(2)+'px');
+  // Approx 60% shorter than natural 80px (usually 34px) while pinned only.
+  root.style.setProperty('--okla-sticky-compact-height',Math.max(34,Math.round(rect.height*0.42))+'px');
   spacer.style.height=rect.height.toFixed(2)+'px';
  }
  function geometry(){
@@ -59,12 +91,14 @@
   activationLock=true;
   root.classList.add('okla-desktop-sticky');
   active=true;
+  syncFaces(true);
   activationLock=false;
  }
  function hide(){
   if(!active)return;
   root.classList.remove('okla-desktop-sticky');
   active=false;
+  syncFaces(false);
   // Keep geometry aligned for the next activation after a resize or font load.
  }
  function update(){
@@ -91,6 +125,7 @@
   if(!locate())return;
   if(!desktop.matches){hide();return}
   geometry();
+  if(active)syncFaces(true);
   schedule();
  }
  function start(){
@@ -104,6 +139,17 @@
   if(desktop.addEventListener)desktop.addEventListener('change',resize);
   window.addEventListener('load',resize,{once:true});
   [350,1200,2600].forEach(function(ms){setTimeout(resize,ms)});
+  if(window.MutationObserver&&header){
+   var faceScheduled=false;
+   new MutationObserver(function(changes){
+    if(!active||faceScheduled)return;
+    for(var i=0;i<changes.length;i++)if(changes[i].addedNodes.length){
+     faceScheduled=true;
+     requestAnimationFrame(function(){faceScheduled=false;syncFaces(true)});
+     break;
+    }
+   }).observe(header,{childList:true,subtree:true});
+  }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
  else start();
