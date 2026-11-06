@@ -50,3 +50,67 @@ html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"])
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content p.alternative-links>a{display:inline-block!important;flex:none!important;width:auto!important;max-width:none!important;margin:0!important;padding:0!important;float:none!important;text-align:center!important}
 /* The forms take the full width of the card. */
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner form{width:100%!important;max-width:none!important;margin:0!important;float:none!important}
+
+/* ===================================================================
+   Account / client centre (.okla-acc) – OKLA style, no decorations.
+   Applied by okla_account.js to login, register and the logged-in
+   "Zákaznické centrum" pages (Moje objednávky, Moje platby, …).
+   =================================================================== */
+
+/* No decorative side-art (hand / Flipper) and no footer on mobile here. */
+html.okla-acc #okla-side-left,
+html.okla-acc #okla-side-right,
+html.okla-acc .okla-side-art{display:none!important}
+@media(max-width:767px){
+  html.okla-acc #footer{display:none!important}
+}
+
+/* Hide the native account menu once we have rebuilt it. */
+html.okla-acc .okla-acc-native-hide{display:none!important}
+
+/* ---- Client-centre layout: menu card + content card ---- */
+html.okla-acc-center #content-wrapper main#content,
+html.okla-acc-center #content{background:transparent!important}
+html.okla-acc-center #content .content-inner{
+  background:#fff!important;border:1px solid #e6ebf2!important;border-radius:18px!important;
+  box-shadow:none!important;padding:28px 30px!important;max-width:none!important;margin:0!important;float:none!important;width:auto!important;
+}
+html.okla-acc-center #content h1{
+  font-family:"Exo 2",Roboto,sans-serif!important;font-size:26px!important;font-weight:700!important;
+  color:#0b2540!important;margin:0 0 18px!important;padding:0!important;border:0!important;text-align:left!important;text-transform:none!important;
+}
+html.okla-acc-center #content h2{
+  font-family:"Exo 2",Roboto,sans-serif!important;font-size:18px!important;font-weight:700!important;color:#0b2540!important;
+  text-transform:none!important;border:0!important;background:none!important;margin:0 0 12px!important;
+}
+html.okla-acc-center #content h2::before{content:none!important;display:none!important}
+html.okla-acc-center #content .content-inner > p{text-align:left!important;color:#56657a!important;font-size:14.5px!important;line-height:1.6!important}
+html.okla-acc-center #content a{color:#008ddd}
+
+/* Native Shoptet account tables → calm, rounded, light rules. */
+html.okla-acc-center #content table{width:100%!important;border-collapse:collapse!important}
+html.okla-acc-center #content table th{font:700 11.5px/1.3 Roboto,Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#8995a5!important;text-align:left!important;padding:10px 12px!important;border-bottom:1px solid #e6ebf2!important}
+html.okla-acc-center #content table td{padding:12px!important;border-bottom:1px solid #eef2f6!important;color:#2d3b4f!important;font-size:14px!important}
+
+/* ---- Rebuilt account navigation ---- */
+html.okla-acc .okla-acc-nav{
+  box-sizing:border-box;display:flex;flex-direction:column;gap:2px;
+  background:#fff;border:1px solid #e6ebf2;border-radius:18px;padding:12px;margin:0 0 20px;
+  font-family:Roboto,Arial,sans-serif;
+}
+html.okla-acc .okla-acc-nav__head{
+  padding:6px 14px 10px;font:700 11.5px/1 Roboto,Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#8995a5;
+}
+html.okla-acc .okla-acc-nav__link{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
+  color:#2d3b4f;font:600 14px/1.25 Roboto,Arial,sans-serif;text-decoration:none;transition:background-color .15s ease,color .15s ease;
+}
+html.okla-acc .okla-acc-nav__link:hover{background:#f2f6fb}
+html.okla-acc .okla-acc-nav__link.is-active{background:#eaf6ff;color:#065ba7;font-weight:700}
+html.okla-acc .okla-acc-nav__link.is-logout{margin-top:6px;padding-top:12px;border-top:1px solid #eef2f6;border-radius:0;color:#c0344a}
+html.okla-acc .okla-acc-nav__link.is-logout:hover{background:#fdecee}
+
+@media(max-width:767px){
+  html.okla-acc-center #content .content-inner{padding:20px 16px!important;border-radius:14px!important}
+  html.okla-acc .okla-acc-nav{border-radius:14px;margin-bottom:14px}
+}
