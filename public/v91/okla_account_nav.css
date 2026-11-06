@@ -1,0 +1,102 @@
+/* OKLA – account navigation refinements on top of V125 polish.
+   Desktop: larger items, larger vertical gaps, vertically balanced menu.
+   Mobile: the sidebar collapses into a menu button that opens a right-side
+   drawer in the same style as the category menu. Loaded AFTER okla_account_polish
+   so these rules win; kept in its own file to avoid touching that work. */
+
+/* ============ DESKTOP: bigger, more spaced, centered ============ */
+@media(min-width:768px){
+  html.okla-acc-polished body .okla-acc-nav{
+    justify-content:center!important;
+    gap:10px!important;
+    padding:10px 0!important;
+  }
+  html.okla-acc-polished body .okla-acc-nav__head{
+    margin:0 0 16px!important;
+    min-height:58px!important;
+    font-size:12px!important;
+  }
+  html.okla-acc-polished body .okla-acc-nav__link{
+    grid-template-columns:36px minmax(0,1fr)!important;
+    column-gap:15px!important;
+    min-height:52px!important;
+    padding:10px 12px!important;
+    border-radius:9px!important;
+    font-size:15px!important;
+    line-height:1.3!important;
+  }
+  html.okla-acc-polished body .okla-acc-menu-icon,
+  html.okla-acc-polished body .okla-acc-head-icon{
+    flex-basis:36px!important;width:36px!important;min-width:36px!important;max-width:36px!important;height:36px!important;
+  }
+  html.okla-acc-polished body .okla-acc-menu-icon svg{width:27px!important;height:27px!important}
+  /* With the group vertically centered, logout is the last item in the group
+     (a divider above it) rather than pinned to the very bottom. */
+  html.okla-acc-polished body .okla-acc-nav__link.is-logout{
+    margin-top:10px!important;padding-top:16px!important;min-height:56px!important;
+  }
+}
+
+/* ============ MOBILE: menu button + category-style drawer ============ */
+html body .okla-acc-trigger{display:none}
+
+@media(max-width:767px){
+  /* Hide the inline sidebar column; the drawer takes over. */
+  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{display:none!important}
+
+  /* The menu button at the top of the account content. */
+  html body .okla-acc-trigger{
+    display:flex!important;align-items:center;gap:11px;width:100%;box-sizing:border-box;
+    margin:0 0 18px;padding:13px 16px;border:1px solid #dbe3ec;border-radius:11px;
+    background:#fff;color:#173a5b;font:700 14.5px/1.2 Roboto,Arial,sans-serif;cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  html body .okla-acc-trigger:active{background:#f3f6f9}
+  html body .okla-acc-trigger__ic{display:grid;place-items:center;width:24px;height:24px;flex:none;color:#19477e}
+  html body .okla-acc-trigger__ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  html body .okla-acc-trigger__label{flex:1 1 auto;text-align:left}
+  html body .okla-acc-trigger__chev{flex:none;color:#6f8192}
+  html body .okla-acc-trigger__chev svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+  /* Drawer overlay – same language as the category menu (#okla-v61-drawer). */
+  html body #okla-acc-pop{
+    display:flex!important;position:fixed!important;inset:0!important;z-index:2147483646!important;
+    background:rgba(7,27,49,.43)!important;opacity:0;transition:opacity .25s ease;pointer-events:none;
+  }
+  html body #okla-acc-pop.is-open{opacity:1;pointer-events:auto}
+  html body #okla-acc-pop .okla-acc-pop__panel{
+    position:absolute!important;top:0!important;bottom:0!important;right:0!important;left:0!important;
+    width:100%!important;max-width:100%!important;box-sizing:border-box!important;overflow:auto!important;
+    background:#fff!important;box-shadow:-3px 0 16px #152f4a36!important;
+    transform:translateX(100%);transition:transform .34s cubic-bezier(.22,1,.36,1);will-change:transform;
+  }
+  html body #okla-acc-pop.is-open .okla-acc-pop__panel{transform:translateX(0)}
+  html body #okla-acc-pop .okla-acc-pop__head{
+    display:flex!important;justify-content:space-between!important;align-items:center!important;
+    position:sticky!important;top:0!important;z-index:2!important;padding:20px 16px!important;background:#fff!important;
+    border-bottom:1px solid #e1e8ee!important;font:800 20px/1.2 "Exo 2",Roboto,Arial,sans-serif!important;color:#0d356b!important;
+  }
+  html body #okla-acc-pop .okla-acc-pop__close{
+    display:grid!important;place-items:center!important;width:38px!important;height:38px!important;border:0!important;
+    background:transparent!important;color:#3a4654!important;cursor:pointer!important;
+  }
+  html body #okla-acc-pop .okla-acc-pop__close svg{width:22px!important;height:22px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
+  html body #okla-acc-pop .okla-acc-pop__body{padding:6px 10px 24px!important}
+
+  /* The moved-in V125 nav: show every item (undo the accordion), hide its own head. */
+  html body #okla-acc-pop .okla-acc-nav{
+    display:block!important;min-height:0!important;height:auto!important;background:transparent!important;border:0!important;padding:0!important;margin:0!important;
+  }
+  html body #okla-acc-pop .okla-acc-nav__head{display:none!important}
+  html body #okla-acc-pop .okla-acc-nav__link{
+    display:grid!important;grid-template-columns:34px minmax(0,1fr)!important;column-gap:16px!important;align-items:center!important;
+    min-height:60px!important;padding:14px 12px!important;border:0!important;border-bottom:1px solid #edf1f6!important;border-radius:0!important;
+    font:600 15.5px/1.3 Roboto,Arial,sans-serif!important;
+  }
+  html body #okla-acc-pop .okla-acc-nav__link.is-logout{
+    margin-top:6px!important;border-top:1px solid #e6edf6!important;border-bottom:0!important;
+  }
+  html body #okla-acc-pop .okla-acc-menu-icon{flex-basis:34px!important;width:34px!important;min-width:34px!important;max-width:34px!important;height:34px!important}
+  html body #okla-acc-pop .okla-acc-menu-icon svg{width:28px!important;height:28px!important}
+  html body.okla-acc-pop-open{overflow:hidden!important}
+}
