@@ -109,6 +109,16 @@
   return box;
  }
 
+ /* Shoptet lazy-loads images: the real URL may be in src, data-src, data-original
+    or data-micro-image, while src can hold a blank/placeholder. Take the first
+    real (non-data:) URL so an actual product photo is shown. */
+ function imgSrc(img){
+  if(!img)return '';
+  var cand=[img.getAttribute('src'),img.getAttribute('data-src'),img.getAttribute('data-original'),img.getAttribute('data-lazy'),img.getAttribute('data-micro-image')];
+  for(var i=0;i<cand.length;i++){var s=cand[i];if(s&&!/^data:/i.test(s)&&s.replace(/\s/g,'').length>8)return s}
+  return '';
+ }
+
  function parseItems(doc){
   var inner=doc.querySelector('#content .content-inner')||doc.querySelector('#content')||doc.body;
   if(!inner)return [];
@@ -122,14 +132,14 @@
    var name=link?tclean(link.textContent):'';
    if(!name){var best='';cells.forEach(function(c){var t=tclean(c.textContent);if(t.replace(/[^0-9a-zA-ZÀ-ž]/g,'').length>best.replace(/[^0-9a-zA-ZÀ-ž]/g,'').length)best=t});name=best}
    if(!name||/mezisou|celkem|doprava|platba|sleva|dph|zaokrouhl/i.test(name))return;
-   var src=img?(img.getAttribute('src')||img.getAttribute('data-src')||''):'';
+   var src=imgSrc(img);
    var meta='';
    cells.forEach(function(c){var t=tclean(c.textContent);if(t&&t!==name&&/\d/.test(t)&&t.length<24)meta+=(meta?' · ':'')+t});
    out.push({img:src,name:name.slice(0,80),meta:meta.slice(0,60)});
   });
   if(out.length)return out.slice(0,14);
   [].slice.call(inner.querySelectorAll('img')).forEach(function(im){
-   var src=im.getAttribute('src')||im.getAttribute('data-src')||'';if(!src||/sprite|icon|logo|placeholder/i.test(src))return;
+   var src=imgSrc(im);if(!src||/sprite|icon|logo|placeholder/i.test(src))return;
    out.push({img:src,name:tclean(im.getAttribute('alt'))||'Položka',meta:''});
   });
   return out.slice(0,14);
