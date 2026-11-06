@@ -69,4 +69,4 @@ html body .breadcrumbs *{clip-path:none!important;-webkit-clip-path:none!importa
 
 /* Native responsive “Více” menu keeps its compact original scale. */
 html body .menu-helper,
-html body .menu-helper>span{font-size:14px!important;line-height:1.3!important}
+html body .menu-helper>span{font-size:12px!important;line-height:1.2!important;font-weight:600!important}

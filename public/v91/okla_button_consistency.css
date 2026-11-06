@@ -267,6 +267,15 @@ html body #okla-footer-promo .okla-promo-btn:is(:hover,:active,:focus){
   color:#243e9b!important;
 }
 
+/* Keep Shoptet's responsive “Více” helper compact. This final layer wins over
+   later header typography shorthands without affecting the category links. */
+html body .menu-helper,
+html body .menu-helper>span{
+  font-size:12px!important;
+  line-height:1.2!important;
+  font-weight:600!important;
+}
+
 /* Natural desktop navbar: move the account artwork inside its reserved grid
    column. The search and cart columns therefore stay exactly where they are. */
 @media(min-width:992px){
