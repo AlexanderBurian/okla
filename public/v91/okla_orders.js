@@ -31,6 +31,28 @@
 
  function scope(){return document.querySelector('#content .content-inner')||document.querySelector('#content')}
 
+ /* Confirmation popup shown before every complaint is started. */
+ function confirmReklamace(num,href){
+  var ov=el('div','okla-ord-modal');
+  ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');
+  ov.innerHTML='<div class="okla-ord-modal__box" role="document">'+
+    '<div class="okla-ord-modal__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.3 4.3 2.6 18a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 4.3a2 2 0 0 0-3.4 0Z"/><path d="M12 9v5"/><path d="M12 17.3v.1"/></svg></div>'+
+    '<h3 class="okla-ord-modal__title">Podat reklamaci?</h3>'+
+    '<p class="okla-ord-modal__text">Otevřeme reklamační formulář'+(num?(' pro objednávku <b>#'+num+'</b>'):'')+' s předvyplněnými údaji. Chcete pokračovat?</p>'+
+    '<div class="okla-ord-modal__btns">'+
+      '<button type="button" class="okla-ord-modal__btn okla-ord-modal__cancel">Zrušit</button>'+
+      '<a class="okla-ord-modal__btn okla-ord-modal__ok" href="'+href+'">Pokračovat</a>'+
+    '</div>'+
+  '</div>';
+  function close(){document.removeEventListener('keydown',onKey);if(ov.parentNode)ov.parentNode.removeChild(ov)}
+  function onKey(e){if(e.key==='Escape')close()}
+  ov.addEventListener('click',function(e){if(e.target===ov)close()});
+  ov.querySelector('.okla-ord-modal__cancel').addEventListener('click',close);
+  document.addEventListener('keydown',onKey);
+  (document.body||document.documentElement).appendChild(ov);
+  var ok=ov.querySelector('.okla-ord-modal__ok');if(ok&&ok.focus)ok.focus();
+ }
+
  function orderNumber(item){
   var href=item.href||'';
   var mq=href.match(/[?&](?:id|order|code|number)=([^&]+)/i);
@@ -164,6 +186,7 @@
    body.appendChild(secI);
    var secA=el('div','okla-ord-sec okla-ord-actions');
    var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)):'');rk.rel='nofollow';rk.textContent='Reklamovat';
+   rk.addEventListener('click',function(e){e.preventDefault();confirmReklamace(num,rk.getAttribute('href'))});
    secA.appendChild(rk);
    body.appendChild(secA);
    fetch(item.href,{credentials:'same-origin'})
