@@ -279,3 +279,100 @@
    right:-10px!important;
  }
 }
+
+/* OKLA V116 — Alza-like COMPACT mobile promotion.
+   Removes excessive dead space; prevents image/CTA collisions by keeping
+   support copy short on phones and reserving a clear illustration column. */
+@media(max-width:767px){
+  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
+    height:340px!important;
+    min-height:340px!important;
+    max-height:340px!important;
+    padding:18px 19px 16px!important;
+    margin-bottom:46px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-title{
+    font-size:clamp(19px,5.4vw,23px)!important;
+    line-height:1.18!important;
+    margin-bottom:9px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-text>p{
+    font-size:12px!important;
+    line-height:1.46!important;
+    margin-bottom:13px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-btn{
+    height:39px!important;
+    min-height:39px!important;
+    font-size:12px!important;
+    padding:0 14px!important;
+  }
+  /* Mobile support section: avoid repeating an entire explanatory paragraph
+     inside a compact graphic. The heading and email action remain visible. */
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text p{
+    display:none!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+    left:19px!important;
+    bottom:21px!important;
+    width:calc(50% - 27px)!important;
+    max-width:178px!important;
+    gap:11px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title{
+    margin:0!important;
+    font-size:13px!important;
+    line-height:1.3!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-mobile-mail{
+    min-height:39px!important;
+    font-size:11.5px!important;
+    padding:0 9px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+    right:-11px!important;
+    bottom:0!important;
+    width:43%!important;
+    max-width:180px!important;
+    max-height:210px!important;
+    height:auto!important;
+    object-fit:contain!important;
+    object-position:right bottom!important;
+  }
+}
+@media(max-width:360px){
+  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
+    height:365px!important;
+    min-height:365px!important;
+    max-height:365px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+    left:19px!important;
+    bottom:20px!important;
+    width:calc(50% - 24px)!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+    width:42%!important;
+    max-height:195px!important;
+    right:-11px!important;
+  }
+}
+@media(min-width:541px) and (max-width:767px){
+  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
+    height:350px!important;
+    min-height:350px!important;
+    max-height:350px!important;
+    padding:23px 25px!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+    left:25px!important;
+    bottom:22px!important;
+    max-width:225px!important;
+    width:45%!important;
+  }
+  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+    right:-8px!important;
+    width:40%!important;
+    max-height:225px!important;
+  }
+}
