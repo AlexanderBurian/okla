@@ -79,6 +79,8 @@ modules.push('v91/okla_header_template103.css','v91/okla_header_template103.js')
 modules.push('v91/okla_desktop_sticky.css','v91/okla_desktop_sticky.js');
 /* Mobile-only footer/menu/order-history presentation and iOS chrome color. */
 modules.push('v91/okla_mobile_policies.css','v91/okla_mobile_policies.js');
+/* Alza-inspired vertically composed mobile footer banner; desktop untouched. */
+modules.push('v91/okla_footer_mobile_promo.css','v91/okla_footer_mobile_promo.js');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
