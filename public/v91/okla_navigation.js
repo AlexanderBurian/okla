@@ -2,6 +2,18 @@
 (function(){'use strict';
  if(window.__oklaBreadcrumbV89)return;window.__oklaBreadcrumbV89=true;
  
+ function makeBullet(){
+  var n=document.createElement('span');n.className='navigation-bullet ok91-generated-bullet';n.setAttribute('aria-hidden','true');
+  var span=document.createElement('span');span.className='ok91-chevron';span.textContent='›';n.appendChild(span);return n;
+ }
+ function ensureBullets(nav){
+  var items=[].slice.call(nav.querySelectorAll('[itemprop="itemListElement"]'));
+  if(items.length<2)return;
+  var correct=items.slice(1).every(function(item){var prev=item.previousElementSibling;return prev&&prev.classList.contains('ok91-generated-bullet')});
+  if(correct&&nav.querySelectorAll('.ok91-generated-bullet').length===items.length-1)return;
+  nav.querySelectorAll('.navigation-bullet').forEach(function(n){n.remove()});
+  items.slice(1).forEach(function(item){item.parentNode.insertBefore(makeBullet(),item)});
+ }
  function run(){var nav=document.querySelector('.breadcrumbs');if(!nav)return;
   var home=nav.querySelector('#navigation-first a.navigation-home-icon')||nav.querySelector('a.navigation-home-icon');
   if(home){
@@ -13,9 +25,11 @@
     var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z');svg.appendChild(p);home.appendChild(svg);
     home.setAttribute('aria-label','Domů');
   }
-  nav.querySelectorAll('.navigation-bullet').forEach(function(n){
-    n.replaceChildren();var span=document.createElement('span');span.className='ok91-chevron';span.setAttribute('aria-hidden','true');span.textContent='›';n.appendChild(span);
-  });
+  ensureBullets(nav);
+  if(!nav.__oklaBulletObserver){
+   var queued=false;nav.__oklaBulletObserver=new MutationObserver(function(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;ensureBullets(nav)})});
+   nav.__oklaBulletObserver.observe(nav,{childList:true,subtree:true});
+  }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
 })();

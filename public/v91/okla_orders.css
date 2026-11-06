@@ -7,9 +7,9 @@ html.okla-ord-ready body .okla-ord-cards{margin:8px 0 10px}
 
 html.okla-ord-ready body .okla-ord-card{
   background:#f1f2f4;border:0;border-radius:14px;overflow:hidden;margin:0 0 14px;
-  box-shadow:none;transition:background-color .15s ease;
+  box-shadow:none;transition:none;
 }
-html.okla-ord-ready body .okla-ord-card:hover{background:#eceef0;box-shadow:none}
+html.okla-ord-ready body .okla-ord-card:hover{background:#f1f2f4;box-shadow:none}
 html.okla-ord-ready body .okla-ord-card.is-open{background:#f1f2f4}
 
 /* ---- Clickable summary row ---- */

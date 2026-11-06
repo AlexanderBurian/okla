@@ -376,6 +376,19 @@ html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
 html body .cart-empty .search{position:relative!important}
 html body .cart-empty .okla-search-panel{width:100%!important;min-width:0!important;max-width:100%!important}
 
+/* Boolean stock filter: clean white row and the same single circular control
+   used by the account and complaint forms. */
+html body #filters .filter-section-boolean,
+html body #filters .filter-section-boolean .param-filter-top,
+html body #filters .filter-section-boolean form,
+html body #filters .filter-section-boolean fieldset,
+html body #filters .filter-section-boolean fieldset>div,
+html body #filters .filter-section-boolean .filter-label{
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+
 /* ---------- Category pictograms ----------
    The category icons are now OKLA pictograms (PNG/SVG art) injected as an <img>
    inside the existing icon wrapper. The wrapper already sizes the slot (21px in

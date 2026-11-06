@@ -32,7 +32,7 @@ html body :is(
     .button,
     a.button,
     [role="button"]
-  ):not(.okla-header-account):not(#__okla_button_hover_a#__okla_button_hover_b#__okla_button_hover_c#__okla_button_hover_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ):not(.okla-header-account):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_hover_a#__okla_button_hover_b#__okla_button_hover_c#__okla_button_hover_d):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:var(--okla-button-rest-background)!important;
     background-image:var(--okla-button-rest-image)!important;
     border-color:var(--okla-button-rest-border)!important;
@@ -46,13 +46,13 @@ html body :is(
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--filled:not(.okla-header-account):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--filled:not(.okla-header-account):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
     filter:brightness(.96)!important;
   }
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--empty:not(.okla-header-account):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--empty:not(.okla-header-account):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:#f6f9fd!important;
     background-image:none!important;
     filter:none!important;
@@ -62,9 +62,14 @@ html body :is(
 /* Small opt-in controls in account/complaint forms use one circular outer
    control and one perfectly centred circular selected state. */
 html.okla-acc-polished body #content input[type="checkbox"],
-html body .okla-rk__consent input[type="checkbox"]{
+html body .okla-rk__consent input[type="checkbox"],
+html body #filters .filter-section-boolean input[type="checkbox"]{
   appearance:none!important;
   -webkit-appearance:none!important;
+  opacity:1!important;
+  clip:auto!important;
+  clip-path:none!important;
+  overflow:visible!important;
   position:relative!important;
   display:inline-grid!important;
   place-items:center!important;
@@ -81,42 +86,65 @@ html body .okla-rk__consent input[type="checkbox"]{
   border:1.5px solid #aeb9c5!important;
   border-radius:50%!important;
   background:#fff!important;
+  background-image:none!important;
   box-shadow:none!important;
   vertical-align:middle!important;
   cursor:pointer!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]::before,
-html body .okla-rk__consent input[type="checkbox"]::before{
+html body .okla-rk__consent input[type="checkbox"]::before,
+html body #filters .filter-section-boolean input[type="checkbox"]::before{
   content:none!important;
   display:none!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]::after,
-html body .okla-rk__consent input[type="checkbox"]::after{
+html body .okla-rk__consent input[type="checkbox"]::after,
+html body #filters .filter-section-boolean input[type="checkbox"]::after{
   content:""!important;
   display:block!important;
   position:static!important;
-  width:8px!important;
-  height:8px!important;
+  width:11px!important;
+  height:11px!important;
   margin:0!important;
   border:0!important;
   border-radius:50%!important;
   background:#168bd2!important;
+  background-image:none!important;
   box-shadow:none!important;
   transform:scale(0)!important;
   transition:transform .12s ease!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]:checked,
-html body .okla-rk__consent input[type="checkbox"]:checked{
+html body .okla-rk__consent input[type="checkbox"]:checked,
+html body #filters .filter-section-boolean input[type="checkbox"]:checked{
   border-color:#168bd2!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]:checked::after,
-html body .okla-rk__consent input[type="checkbox"]:checked::after{
+html body .okla-rk__consent input[type="checkbox"]:checked::after,
+html body #filters .filter-section-boolean input[type="checkbox"]:checked::after{
   transform:scale(1)!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]:focus-visible,
-html body .okla-rk__consent input[type="checkbox"]:focus-visible{
+html body .okla-rk__consent input[type="checkbox"]:focus-visible,
+html body #filters .filter-section-boolean input[type="checkbox"]:focus-visible{
   outline:2px solid var(--okla-field-outline)!important;
   outline-offset:2px!important;
+}
+
+/* Shoptet also draws a square through the account label. Keep only our one
+   circular control and remove the duplicate native decoration. */
+html.okla-acc-polished body #content input[type="checkbox"] + label::before,
+html.okla-acc-polished body #content input[type="checkbox"] + label::after,
+html body #filters .filter-section-boolean input[type="checkbox"] + label::before,
+html body #filters .filter-section-boolean input[type="checkbox"] + label::after{
+  content:none!important;
+  display:none!important;
+}
+html.okla-acc-polished body #content input[type="checkbox"] + label,
+html body #filters .filter-section-boolean input[type="checkbox"] + label{
+  margin-left:0!important;
+  padding-left:0!important;
+  background-image:none!important;
 }
 
 /* Customer centre: preserve the normal OKLA colours on hover. */
@@ -166,6 +194,21 @@ html body .okla-rk__choice input[type="radio"]::after{
   content:none!important;
   display:none!important;
 }
+html body .okla-rk__choice label::before{
+  width:18px!important;
+  height:18px!important;
+  border-radius:50%!important;
+  background:#fff!important;
+  background-image:none!important;
+}
+html body .okla-rk__choice label::after{
+  left:18.5px!important;
+  width:11px!important;
+  height:11px!important;
+  border-radius:50%!important;
+  background:#168bd2!important;
+  background-image:none!important;
+}
 @media(hover:hover) and (pointer:fine){
   html body .okla-rk__choice label:hover{
     outline:2px solid var(--okla-field-outline)!important;
@@ -194,15 +237,6 @@ html body .okla-rk__done-links .is-ghost:is(:hover,:active,:focus){
   border-color:#d7deea!important;
   background:#fff!important;
   color:#0b2540!important;
-}
-
-/* Product-list outline buttons use only a very light surface tint. */
-html body.type-index #content .okla-slider-track .p-tools .btn-cart:is(:hover,:active,:focus),
-html body.type-category #products .product .p-tools .btn-cart:is(:hover,:active,:focus),
-html body.type-search #products .product .p-tools .btn-cart:is(:hover,:active,:focus){
-  background-color:#fff!important;
-  color:#16478b!important;
-  border-color:#16478b!important;
 }
 
 /* Native information-page actions and cookie choices keep their base fill. */
