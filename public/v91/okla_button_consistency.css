@@ -32,7 +32,7 @@ html body :is(
     .button,
     a.button,
     [role="button"]
-  ):not(#__okla_button_hover_a#__okla_button_hover_b#__okla_button_hover_c#__okla_button_hover_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ):not(.okla-header-account):not(#__okla_button_hover_a#__okla_button_hover_b#__okla_button_hover_c#__okla_button_hover_d):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:var(--okla-button-rest-background)!important;
     background-image:var(--okla-button-rest-image)!important;
     border-color:var(--okla-button-rest-border)!important;
@@ -46,13 +46,13 @@ html body :is(
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--filled:not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--filled:not(.okla-header-account):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
     filter:brightness(.96)!important;
   }
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--empty:not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--empty:not(.okla-header-account):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:#f6f9fd!important;
     background-image:none!important;
     filter:none!important;
@@ -132,11 +132,21 @@ html.okla-acc-polished body #content :is(.btn.btn-default,.btn.btn-secondary):is
   background:#fff!important;
   color:#087fc2!important;
 }
-html.okla-acc-polished body :is(.okla-acc-nav__link,.okla-acc-nav__head):hover{
+html.okla-acc-polished body .okla-acc-nav__link:hover{
   background:#f6f9fd!important;
   color:#193650!important;
   outline:0!important;
   box-shadow:none!important;
+}
+html.okla-acc-polished body .okla-acc-nav__head,
+html.okla-acc-polished body .okla-acc-nav__head:is(:hover,:focus,:active){
+  border-radius:0!important;
+  background:transparent!important;
+  outline:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  cursor:default!important;
+  pointer-events:none!important;
 }
 html body .okla-acc-confirm__cancel:is(:hover,:active,:focus){
   border-color:#cfd9e3!important;
@@ -228,6 +238,15 @@ html body #okla-footer-promo .okla-promo-btn:is(:hover,:active,:focus){
 @media(min-width:992px){
   html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face],
   html.okla-header-reference body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
-    transform:translateX(15px)!important;
+    transform:translateX(20px)!important;
+  }
+  html body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account:is(:hover,:focus,:active){
+    border-color:transparent!important;
+    background:transparent!important;
+    background-image:none!important;
+    outline:0!important;
+    box-shadow:none!important;
+    filter:none!important;
+    transform:translateX(20px)!important;
   }
 }

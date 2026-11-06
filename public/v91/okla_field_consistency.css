@@ -1,0 +1,67 @@
+/* OKLA V128 – every real form field uses the exact login-blue interaction.
+   No translucent blue halos and no blue gradients: one solid border and one
+   solid inset ring, both #1f6fd8. */
+
+:root{--okla-field-blue:#1f6fd8}
+
+html body #content :is(
+  input:not([type="hidden"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+  textarea,
+  select
+):not(#__okla_field_base_a#__okla_field_base_b#__okla_field_base_c#__okla_field_base_d){
+  background-color:#fff!important;
+  background-image:none!important;
+  filter:none!important;
+}
+
+html body #content select:not(#__okla_select_base_a#__okla_select_base_b#__okla_select_base_c#__okla_select_base_d){
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  padding-right:38px!important;
+  background-color:#fff!important;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%236b7686' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important;
+  background-repeat:no-repeat!important;
+  background-position:right 14px center!important;
+}
+
+html body #content :is(
+  input:not([type="hidden"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+  textarea,
+  select
+):not(#__okla_field_state_a#__okla_field_state_b#__okla_field_state_c#__okla_field_state_d):not([disabled]):not([readonly]):is(:hover,:focus,:focus-visible){
+  border-color:var(--okla-field-blue)!important;
+  outline:0!important;
+  box-shadow:inset 0 0 0 1px var(--okla-field-blue)!important;
+  background-color:#fff!important;
+  filter:none!important;
+}
+
+/* Desktop and mobile search are compound fields; colour their outer fieldset. */
+html body #header#header .header-top .search form.search-form fieldset:is(:hover,:focus-within),
+html body #header#header #okla-v61-header .okm61-search fieldset:is(:hover,:focus-within){
+  border-color:var(--okla-field-blue)!important;
+  outline:0!important;
+  box-shadow:inset 0 0 0 1px var(--okla-field-blue)!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+
+/* Native login popup lives outside #content but is the colour reference. */
+html body #login#login.login-widget .form-control:not([disabled]):is(:hover,:focus,:focus-visible){
+  border-color:var(--okla-field-blue)!important;
+  outline:0!important;
+  box-shadow:inset 0 0 0 1px var(--okla-field-blue)!important;
+  background-color:#fff!important;
+  background-image:none!important;
+}
+
+/* Radio-card fields follow the same solid interaction, without a pale fill. */
+html body .okla-rk__choice label:hover,
+html body .okla-rk__choice input:focus-visible+label,
+html body .okla-rk__choice input:checked+label{
+  border-color:var(--okla-field-blue)!important;
+  outline:0!important;
+  box-shadow:inset 0 0 0 1px var(--okla-field-blue)!important;
+  background:#fff!important;
+  background-image:none!important;
+}

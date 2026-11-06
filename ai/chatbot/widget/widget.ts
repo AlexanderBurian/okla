@@ -158,7 +158,7 @@ import {
       .welcome-title { margin: 18px 0 0; text-align: center; color: #15181d; font-size: 25px; line-height: 1.05; font-weight: 820; letter-spacing: -.025em; }
       .welcome-input { margin-top: 24px; }
       .welcome-input .composer { border-color: #e4e9f1; box-shadow: 0 1px 3px rgba(16, 40, 80, .05); }
-      .welcome-input .composer:focus-within { border-color: var(--okla-blue); box-shadow: 0 1px 3px rgba(16, 40, 80, .05); }
+      .welcome-input .composer:focus-within { border-color: #1f6fd8; box-shadow: inset 0 0 0 1px #1f6fd8; }
       .suggestions { margin-top: 12px; }
       .suggestions-list { display: flex; flex-direction: column; }
       .suggested {
@@ -238,7 +238,7 @@ import {
         box-shadow: none;
         transition: border-color .16s ease;
       }
-      .composer:focus-within { border-color: var(--okla-blue); box-shadow: none; }
+      .composer:focus-within { border-color: #1f6fd8; box-shadow: inset 0 0 0 1px #1f6fd8; }
       textarea {
         appearance: none;
         -webkit-appearance: none;

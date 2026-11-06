@@ -7,7 +7,7 @@ describe("geometrie widgetu", () => {
     const textareaCss = source.match(/\n\s{6}textarea \{([\s\S]*?)\n\s{6}\}/)?.[1] ?? "";
     expect(source).toContain("height: 95px;");
     expect(source).toContain("border: 1px solid #6f91bd;");
-    expect(source).toContain(".composer:focus-within { border-color: var(--okla-blue); box-shadow: none; }");
+    expect(source).toContain(".composer:focus-within { border-color: #1f6fd8; box-shadow: inset 0 0 0 1px #1f6fd8; }");
     expect(textareaCss).toContain("border: 0 !important;");
     expect(textareaCss).toContain("outline: 0 !important;");
     expect(textareaCss).toContain("box-shadow: none !important;");
