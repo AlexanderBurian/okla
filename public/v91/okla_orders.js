@@ -20,11 +20,12 @@
 
  var STEPS=['Objednáno','Zpracování','Expedováno','V přepravě','Doručeno'];
  var STATUS_MAP=[
-  {m:['storno','zrus','zamit','vrac','odstoupen'],cancelled:true,label:'Zrušeno'},
-  {m:['dorucen','vyrizen','dokoncen','vyzvednut'],step:4},
-  {m:['v preprav','na ceste','ceste','dopravci','vydejn','prepravuje'],step:3},
-  {m:['expedov','odeslan','pripraveno k vyzvednuti','predano doprav'],step:2},
-  {m:['zpracov','potvrzen','prijata platba','platba prijata','balime','kompletuje'],step:1},
+  {m:['storno','zrus','zamit','odstoupen','vraceno zbozi'],cancelled:true,label:'Zrušeno'},
+  /* "doruceno"/"dorucena" only – NOT "doruceni" (the delivery method). */
+  {m:['doruceno','dorucena','doruceny','vyrizeno','vyrizena','dokonceno','dokoncena','vyzvednuto'],step:4},
+  {m:['v preprav','na ceste','prepravuje','predano doprav'],step:3},
+  {m:['expedov','odeslan','pripraveno k vyzvednuti'],step:2},
+  {m:['zpracov','potvrzen','prijata platba','platba prijata','balime','kompletuje','vyrizuje'],step:1},
   {m:['prijat','nova','ceka','zalozen','nezaplacen','vytvoren','objednan'],step:0}
  ];
  function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
@@ -67,9 +68,20 @@
   var mr=(item.row.textContent||'').match(/\d{4,}/);
   return mr?mr[0]:'';
  }
+ /* A cell is a real STATUS only if it maps and does NOT look like a delivery
+    method, carrier, payment or price/quantity (those share words with statuses,
+    e.g. "Doručení na adresu" vs the "Doručeno" status). */
+ function isStatusText(t){
+  var n=norm(t);
+  if(/doruceni|zasilkovn|vydejn|baliko|dopravc|ceska posta|\bposta\b|ppl|dpd|gls|kuryr|osobni odber|platb|prevod|dobirk|hotove|kartou|adres|\bpsc\b|\bkc\b|czk|eur|\bks\b/.test(n))return false;
+  return !!mapStatus(t);
+ }
  function rowStatus(row){
-  var cells=row.querySelectorAll('td,th,[class*="status"],[class*="state"],[class*="col"]');
-  for(var i=0;i<cells.length;i++){var t=tclean(cells[i].textContent);if(t&&t.length<40&&mapStatus(t))return t}
+  /* Prefer an explicit status element Shoptet marks as such. */
+  var ex=row.querySelector('[class*="status"],[class*="state"],[class*="stav"],[data-status]');
+  if(ex){var et=tclean(ex.textContent);if(et&&et.length<60&&mapStatus(et)&&isStatusText(et))return et}
+  var cells=row.querySelectorAll('td,th,span,div');
+  for(var i=0;i<cells.length;i++){var t=tclean(cells[i].textContent);if(t&&t.length<40&&isStatusText(t))return t}
   return '';
  }
  function dateIn(text){

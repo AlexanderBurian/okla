@@ -35,13 +35,15 @@
   html.okla-acc-polished body .okla-acc-nav__link.is-logout{
     margin-top:10px!important;padding-top:16px!important;min-height:56px!important;
   }
-  /* Center the page content vertically within the shared card surface, so a sparse
-     dashboard sits in the middle of the tall card instead of stuck at the top. */
-  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main{
-    display:flex!important;flex-direction:column!important;justify-content:center!important;
+  /* Center ONLY the left menu within its own column (the part up to the vertical
+     separator). The content on the right keeps its normal top alignment. The nav
+     column stretches to the card height, so when it is taller than the menu the
+     items sit centered; the menu never drives content centering. */
+  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
+    align-self:stretch!important;
   }
-  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main>#content{width:100%!important}
-  html.okla-acc-polished body .okla-acc-shell__main #content .content-inner{min-height:0!important}
+  html.okla-acc-polished body .okla-acc-nav-host{justify-content:center!important}
+  html.okla-acc-polished body .okla-acc-nav{justify-content:center!important}
 }
 
 /* ============ MOBILE: menu button + category-style drawer ============ */
