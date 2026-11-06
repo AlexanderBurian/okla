@@ -1,4 +1,4 @@
-/* OKLA V122 — one clean customer-centre surface, crisp vector icons,
+/* OKLA V123 — one clean customer-centre surface, crisp vector icons,
    no duplicate native chrome and no gradients.
    Applies ONLY to authenticated account pages, not login/cart/home. */
 
@@ -30,6 +30,8 @@ html.okla-acc-polished body #content-wrapper::after{
 
 html.okla-acc-polished body #content-wrapper.okla-acc-shell,
 html.okla-acc-polished body #content-wrapper .okla-acc-shell{
+ --okla-acc-pad:26px;
+ --okla-acc-nav-width:260px;
  display:grid!important;
  grid-template-columns:260px minmax(0,1fr)!important;
  grid-auto-flow:row!important;
@@ -50,6 +52,14 @@ html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  box-sizing:border-box!important;
  box-shadow:0 3px 16px rgba(19,48,84,.055)!important;
  overflow:visible!important;
+ position:relative!important;
+}
+/* Draw one separator ourselves and suppress every legacy/sidebar separator. */
+html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
+html.okla-acc-polished body #content-wrapper .okla-acc-shell::after{
+ content:""!important;display:block!important;position:absolute!important;z-index:1!important;
+ top:24px!important;bottom:24px!important;left:calc(var(--okla-acc-pad) + var(--okla-acc-nav-width))!important;
+ width:1px!important;background:#e2e6ea!important;pointer-events:none!important;
 }
 html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
  display:block!important;
@@ -102,12 +112,19 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main{
  padding:4px 6px 20px 32px!important;
  box-sizing:border-box!important;
  border:0!important;
- border-left:1px solid #e5edf5!important;
+ border-left:0!important;
  background:#fff!important;
 }
 html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__other{
  grid-column:1/-1!important;
  min-width:0!important;
+}
+html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav,
+html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav>div,
+html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav .sidebar-inner,
+html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main,
+html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main>#content{
+ border-left:0!important;border-right:0!important;box-shadow:none!important;
 }
 html.okla-acc-polished body .okla-acc-nav-host{
  display:flex!important;
@@ -423,6 +440,8 @@ html body .okla-acc-confirm__logout:hover{background:#bd2f3e;border-color:#bd2f3
 /* Tablet: preserve separate zones and comfortable margins. */
 @media(min-width:768px) and (max-width:1050px){
  html.okla-acc-polished body .okla-acc-shell{
+  --okla-acc-pad:19px;
+  --okla-acc-nav-width:215px;
   grid-template-columns:minmax(195px,215px) minmax(0,1fr)!important;
   padding:19px!important;
  }
@@ -454,6 +473,8 @@ html body .okla-acc-confirm__logout:hover{background:#bd2f3e;border-color:#bd2f3
   border-top-width:4px!important;
   border-radius:8px!important;
  }
+ html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
+ html.okla-acc-polished body #content-wrapper .okla-acc-shell::after{display:none!important;content:none!important}
  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
   width:100%!important;
   min-height:0!important;

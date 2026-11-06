@@ -1,8 +1,8 @@
-/* OKLA V91 – "Reklamace a vrácení zboží". A dedicated, high-quality complaint /
+/* OKLA V123 – "Reklamace a vrácení zboží". A dedicated, high-quality complaint /
    return form. Takes over /reklamace/ (a CMS page the shop has not created, so
    Shoptet renders a 404 behind us). Submits to Shoptet's native MailForm action,
    so the shop receives it by e-mail with no extra backend. Brand blue #008ddd,
-   green CTA #66d400 with black text, same card language as the account pages. */
+   with stable radio cards and button styling, same language as account pages. */
 
 html.okla-rk-takeover #content .content-inner > *:not(.okla-rk){display:none!important}
 html.okla-rk-takeover .breadcrumbs,
@@ -87,15 +87,30 @@ html body .okla-rk .okla-rk__field.is-invalid .okla-rk__err{display:block}
 /* Radio cards (type of request + desired resolution) */
 html body .okla-rk__choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 html body .okla-rk__choice{position:relative;display:flex}
-html body .okla-rk__choice input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer;width:100%;height:100%}
+html body .okla-rk__choice input[type=radio]{
+ position:absolute!important;width:1px!important;height:1px!important;margin:0!important;padding:0!important;
+ opacity:0!important;clip-path:inset(50%)!important;overflow:hidden!important;pointer-events:none!important;
+ appearance:none!important;-webkit-appearance:none!important;
+}
 html body .okla-rk__choice label{
-  display:flex;flex-direction:column;gap:5px;width:100%;padding:14px 15px;cursor:pointer;
+  position:relative;display:flex;flex-direction:column;justify-content:center;gap:5px;width:100%;min-height:78px;padding:13px 14px 13px 44px;cursor:pointer;
   border:1.5px solid #dbe2ec;border-radius:13px;background:#fff;transition:border-color .15s ease,background-color .15s ease,box-shadow .15s ease;
+}
+html body .okla-rk__choice label:before{
+ content:"";position:absolute;left:15px;top:50%;width:17px;height:17px;border-radius:50%;
+ border:1.5px solid #aeb9c5;background:#fff;transform:translateY(-50%);box-sizing:border-box;
+}
+html body .okla-rk__choice label:after{
+ content:"";position:absolute;left:20px;top:50%;width:7px;height:7px;border-radius:50%;
+ background:#008ddd;transform:translateY(-50%) scale(0);transition:transform .12s ease;
 }
 html body .okla-rk__choice label b{font-size:14px;font-weight:700;color:#0b2540}
 html body .okla-rk__choice label span{font-size:12px;line-height:1.4;color:#66758a}
-html body .okla-rk__choice input:checked+label{border-color:#008ddd;background:#f3faff;box-shadow:0 0 0 3px rgba(0,141,221,.12)}
-html body .okla-rk__choice input:focus-visible+label{box-shadow:0 0 0 3px rgba(0,141,221,.28)}
+html body .okla-rk__choice input:checked+label{border-color:#008ddd;background:#f3faff;box-shadow:none}
+html body .okla-rk__choice input:checked+label:before{border-color:#008ddd}
+html body .okla-rk__choice input:checked+label:after{transform:translateY(-50%) scale(1)}
+html body .okla-rk__choice input:focus-visible+label{border-color:#006fae;box-shadow:0 0 0 2px rgba(0,111,174,.16)}
+html body .okla-rk__choice input[name=resolution]+label{min-height:54px;padding-top:11px;padding-bottom:11px}
 
 /* Conditional block (bank account for refund) */
 html body .okla-rk__cond{display:none}
@@ -103,7 +118,7 @@ html body .okla-rk__cond.is-on{display:block}
 
 /* Consent row */
 html body .okla-rk__consent{display:flex;align-items:flex-start;gap:11px;margin:4px 0 0}
-html body .okla-rk__consent input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:#008ddd;cursor:pointer}
+html body .okla-rk__consent input[type=checkbox]{flex:none!important;width:20px!important;height:20px!important;margin:1px 0 0!important;padding:0!important;accent-color:#008ddd;cursor:pointer;appearance:auto!important;-webkit-appearance:checkbox!important}
 html body .okla-rk__consent label{font-size:13px;line-height:1.5;color:#56657a;cursor:pointer}
 html body .okla-rk__consent a{color:#008ddd;font-weight:600;text-decoration:underline}
 html body .okla-rk__consent.is-invalid label{color:#c0344a}
@@ -112,17 +127,17 @@ html body .okla-rk__consent.is-invalid label{color:#c0344a}
 html body .okla-rk__actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:26px 0 0}
 html body .okla-rk__submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;height:54px;
-  border:1px solid #66d400;border-radius:12px;background:#66d400;color:#000;cursor:pointer;
+  border:1px solid #176aa5;border-radius:12px;background:#176aa5;color:#fff;cursor:pointer;
   font-family:Roboto,Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;
   transition:background-color .15s ease,border-color .15s ease,opacity .15s ease;
 }
-html body .okla-rk__submit:hover{background:#5bbd00;border-color:#5bbd00}
+html body .okla-rk__submit:hover{background:#125986;border-color:#125986}
 html body .okla-rk__submit svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 html body .okla-rk__submit[disabled]{opacity:.6;cursor:default}
 html body .okla-rk__submit.is-loading{color:transparent;position:relative}
 html body .okla-rk__submit.is-loading:after{
   content:"";position:absolute;width:21px;height:21px;border-radius:50%;
-  border:2.5px solid rgba(0,0,0,.25);border-top-color:#000;animation:okla-rk-spin .7s linear infinite;
+  border:2.5px solid rgba(255,255,255,.4);border-top-color:#fff;animation:okla-rk-spin .7s linear infinite;
 }
 @keyframes okla-rk-spin{to{transform:rotate(360deg)}}
 html body .okla-rk__formnote{text-align:center;font-size:12.5px;color:#8995a5;line-height:1.5;margin:0}

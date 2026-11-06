@@ -1,16 +1,16 @@
-/* OKLA V122 – customer "Moje objednávky". Flat, rounded cards with product
-   previews in both collapsed and expanded states. No gradients. */
+/* OKLA V123 – customer "Moje objednávky". Neutral grey order panels without
+   a card outline, plus billing, delivery and invoice actions. No gradients. */
 
 html.okla-ord-ready body .okla-ord-native-hidden{display:none!important}
 
 html.okla-ord-ready body .okla-ord-cards{margin:8px 0 10px}
 
 html.okla-ord-ready body .okla-ord-card{
-  background:#f7f9fb;border:1px solid #dbe4ec;border-radius:14px;overflow:hidden;margin:0 0 14px;
-  box-shadow:0 2px 8px rgba(23,50,77,.06);transition:border-color .15s ease,box-shadow .15s ease;
+  background:#f1f2f4;border:0;border-radius:14px;overflow:hidden;margin:0 0 14px;
+  box-shadow:none;transition:background-color .15s ease;
 }
-html.okla-ord-ready body .okla-ord-card:hover{border-color:#c5d3df;box-shadow:0 4px 12px rgba(23,50,77,.08)}
-html.okla-ord-ready body .okla-ord-card.is-open{background:#fff;border-color:#cad7e2}
+html.okla-ord-ready body .okla-ord-card:hover{background:#eceef0;box-shadow:none}
+html.okla-ord-ready body .okla-ord-card.is-open{background:#f1f2f4}
 
 /* ---- Clickable summary row ---- */
 html.okla-ord-ready body .okla-ord-head{
@@ -18,7 +18,7 @@ html.okla-ord-ready body .okla-ord-head{
   position:relative;padding:16px 48px 16px 20px;cursor:pointer;
   font-family:Roboto,Arial,sans-serif;
 }
-html.okla-ord-ready body .okla-ord-head:focus-visible{outline:2px solid #008ddd;outline-offset:-2px;border-radius:14px}
+html.okla-ord-ready body .okla-ord-head:focus-visible{outline:0;background:#e7e9ec}
 html.okla-ord-ready body .okla-ord-head__main{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:120px}
 html.okla-ord-ready body .okla-ord-head__num{font:800 15px/1.2 Roboto,Arial,sans-serif;color:#0b2540;letter-spacing:-.1px}
 html.okla-ord-ready body .okla-ord-head__date{font:400 12.5px/1.2 Roboto,Arial,sans-serif;color:#7a8698}
@@ -35,7 +35,7 @@ html.okla-ord-ready body .okla-ord-chev{width:18px;height:18px;fill:none;stroke:
 html.okla-ord-ready body .okla-ord-card.is-open .okla-ord-chev{transform:rotate(180deg)}
 
 /* ---- Opened body: sections split by light rules ---- */
-html.okla-ord-ready body .okla-ord-body{display:none;padding:0 20px 8px;background:#fff;border-radius:0 0 14px 14px}
+html.okla-ord-ready body .okla-ord-body{display:none;padding:0 20px 8px;background:#f4f5f6;border-radius:0 0 14px 14px}
 html.okla-ord-ready body .okla-ord-card.is-open .okla-ord-body{display:block;animation:okla-ord-reveal .2s ease}
 @keyframes okla-ord-reveal{from{opacity:0}to{opacity:1}}
 html.okla-ord-ready body .okla-ord-sec{padding:16px 2px;border-top:1px solid #e4e9f0}
@@ -65,7 +65,14 @@ html.okla-ord-ready body .okla-ord-item__info{display:flex;flex-direction:column
 html.okla-ord-ready body .okla-ord-item__name{font:600 13.5px/1.3 Roboto,Arial,sans-serif;color:#0b2540;overflow:hidden;text-overflow:ellipsis}
 html.okla-ord-ready body .okla-ord-item__meta{font:400 12px/1.3 Roboto,Arial,sans-serif;color:#7a8698}
 
-/* ---- Actions: equal, symmetric buttons – green tracking, warm complaint ---- */
+/* ---- Billing and delivery details ---- */
+html.okla-ord-ready body .okla-ord-details__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+html.okla-ord-ready body .okla-ord-detail-card{min-width:0;padding:15px 16px;border:0;border-radius:10px;background:#fff}
+html.okla-ord-ready body .okla-ord-detail-card__title{margin:0 0 9px;color:#0b2540;font:800 13px/1.25 Roboto,Arial,sans-serif}
+html.okla-ord-ready body .okla-ord-detail-card__lines{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+html.okla-ord-ready body .okla-ord-detail-card__lines li{margin:0;color:#5f6d7d;font:400 12.5px/1.4 Roboto,Arial,sans-serif;overflow-wrap:anywhere}
+
+/* ---- Actions: equal and symmetric; complaint is the red outlined action ---- */
 html.okla-ord-ready body .okla-ord-actions{display:flex;gap:12px;flex-wrap:wrap}
 html.okla-ord-ready body .okla-ord-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:1 1 180px;
@@ -77,9 +84,12 @@ html.okla-ord-ready body .okla-ord-btn svg{width:16px;height:16px;fill:none;stro
 /* Green with black text – "Sledovat zásilku" */
 html.okla-ord-ready body .okla-ord-btn--track{background:#66d400;border-color:#66d400;color:#111}
 html.okla-ord-ready body .okla-ord-btn--track:hover{background:#5bbd00;border-color:#5bbd00}
-/* Warm amber is clear without presenting a complaint as a destructive action. */
-html.okla-ord-ready body .okla-ord-btn--rk{background:#fff7e8;border-color:#e7a63a;color:#8a5200}
-html.okla-ord-ready body .okla-ord-btn--rk:hover{background:#ffefcf;border-color:#d89323;color:#714300}
+html.okla-ord-ready body .okla-ord-btn--rk{background:#fff;border-color:#d63b4a;color:#c52f3e!important}
+html.okla-ord-ready body .okla-ord-btn--rk:hover{background:#fff1f3;border-color:#bd2f3e;color:#a92532!important}
+html.okla-ord-ready body .okla-ord-btn--invoice{background:#fff;border-color:#cbd4dd;color:#173a5b!important}
+html.okla-ord-ready body .okla-ord-btn--invoice:hover{background:#edf0f3;border-color:#aebac5;color:#102a54!important}
+html.okla-ord-ready body .okla-ord-btn--invoice.is-disabled,
+html.okla-ord-ready body .okla-ord-btn--invoice:disabled{background:#e5e7ea;border-color:#e5e7ea;color:#929aa3!important;cursor:not-allowed;pointer-events:none;opacity:1}
 
 html.okla-ord-ready body .okla-ord-loading{display:flex;align-items:center;gap:10px;color:#56657a;font:400 13.5px/1 Roboto,Arial,sans-serif}
 html.okla-ord-ready body .okla-ord-note{margin:0;color:#56657a;font-size:13.5px}
@@ -123,6 +133,7 @@ html body .okla-ord-modal__ok:hover{background:#c20f26;border-color:#c20f26}
   html.okla-ord-ready body .okla-ord-head__total{margin-left:0}
   html.okla-ord-ready body .okla-ord-body{padding:0 16px 4px}
   html.okla-ord-ready body .okla-ord-btn{flex:1 1 100%}
+  html.okla-ord-ready body .okla-ord-details__grid{grid-template-columns:minmax(0,1fr)}
   html.okla-ord-ready body .okla-ord-step__t{font-size:10px}
 }
 @media(max-width:520px){

@@ -1,4 +1,4 @@
-/* OKLA V122 – customer "Moje objednávky" list. After sign-in Shoptet renders the
+/* OKLA V123 – customer "Moje objednávky" list. After sign-in Shoptet renders the
    order history in #content. We rebuild it as one calm UI: each order is a single
    grey card; clicking the card opens it in place, with sections (delivery status,
    products, actions) split by light horizontal rules. Products carry tiny
@@ -15,6 +15,7 @@
  var CHEV='<svg viewBox="0 0 24 24" aria-hidden="true" class="okla-ord-chev"><path d="M6 9l6 6 6-6"/></svg>';
  var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
  var CLAIM='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.2c0 4.5 3 8.1 7.5 9.8 4.5-1.7 7.5-5.3 7.5-9.8V6L12 3Z"/><path d="M12 8v5M12 16.5v.1"/></svg>';
+ var INVOICE='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5V3Z"/><path d="M15 3v4h4M8 11h8M8 14h8M8 17h5"/></svg>';
  var IMAGE_CACHE={};
 
  var STEPS=['Objednáno','Zpracování','Expedováno','V přepravě','Doručeno'];
@@ -152,9 +153,12 @@
    var link=tr.querySelector('a');
    var name=link?tclean(link.textContent):'';
    if(!name){var best='';cells.forEach(function(c){var t=tclean(c.textContent);if(t.replace(/[^0-9a-zA-ZÀ-ž]/g,'').length>best.replace(/[^0-9a-zA-ZÀ-ž]/g,'').length)best=t});name=best}
-   if(!name||/mezisou|celkem|doprava|platba|sleva|dph|zaokrouhl/i.test(name))return;
+   var linkHref=link&&link.getAttribute('href')||'';
+   if(!name||/mezisou|celkov|doprava|platba|dob[ií]rka|sleva|dph|zaokrouhl|po[sš]tovn|baln[eé]|z[aá]silkov|v[yý]dejn[ií]\s*m[ií]sto|shipping|delivery|payment|invoice|faktur/i.test(name))return;
+   if(link&&/faktur|invoice|doklad|tracking|sledov|reklamac/i.test(linkHref))return;
+   if(!link&&!img)return;
    var src=imgSrc(img,base);
-   var href=link&&link.getAttribute('href')?absoluteUrl(link.getAttribute('href'),base):'';
+   var href=linkHref?absoluteUrl(linkHref,base):'';
    var meta='';
    cells.forEach(function(c){var t=tclean(c.textContent);if(t&&t!==name&&/\d/.test(t)&&t.length<24)meta+=(meta?' · ':'')+t});
    out.push({img:src,href:href,name:name.slice(0,80),meta:meta.slice(0,60)});
@@ -166,6 +170,62 @@
    out.push({img:src,href:link?absoluteUrl(link.getAttribute('href'),base):'',name:tclean(im.getAttribute('alt'))||'Položka',meta:''});
   });
   return out.slice(0,14);
+ }
+ function invoiceLink(doc,base,html){
+  base=absoluteUrl(base,location.href)||location.href;
+  var direct=doc.querySelector('a.invoice,a[data-invoice],a[href$=".pdf" i],a[href*="faktur" i],a[href*="invoice" i]');
+  if(direct)return absoluteUrl(direct.getAttribute('href'),base);
+  var links=[].slice.call(doc.querySelectorAll('a[href]'));
+  var preferred=links.find(function(a){var t=norm((a.textContent||'')+' '+(a.getAttribute('href')||''));return /faktur|invoice|danov.{0,8}doklad|da[nň]ov.{0,8}doklad/.test(t)});
+  if(!preferred)preferred=links.find(function(a){var href=a.getAttribute('href')||'';return /\.pdf(?:[?#]|$)/i.test(href)&&!/reklamac|obchodni|podmink/i.test(href)});
+  if(preferred)return absoluteUrl(preferred.getAttribute('href'),base);
+  var match=String(html||'').match(/href\s*=\s*["']([^"']*(?:faktur|invoice|danov[^"']*doklad|\.pdf(?:[?#][^"']*)?)[^"']*)["']/i);
+  return match?absoluteUrl(match[1],base):'';
+ }
+ function uniqueLines(values){
+  var seen={},out=[];values.forEach(function(value){var line=tclean(value);var key=norm(line);if(!line||key.length<2||seen[key])return;seen[key]=true;out.push(line)});return out;
+ }
+ function sectionLines(container,heading){
+  var values=[];
+  [].slice.call(container.querySelectorAll('tr')).forEach(function(row){
+   var cells=[].slice.call(row.querySelectorAll('th,td')).map(function(cell){return tclean(cell.textContent)}).filter(Boolean);
+   if(cells.length)values.push(cells.join(cells.length>1?' — ':''));
+  });
+  if(!values.length)[].slice.call(container.querySelectorAll('address,p,li,dd,.form-group')).forEach(function(node){values.push(node.textContent)});
+  if(!values.length){
+   var clone=container.cloneNode(true);[].slice.call(clone.querySelectorAll('br')).forEach(function(br){br.replaceWith('\n')});
+   values=String(clone.textContent||'').split(/\n+/);
+  }
+  var headingText=norm(heading&&heading.textContent||'');
+  return uniqueLines(values).filter(function(line){var n=norm(line);return n!==headingText&&!/fakturacni udaje|dodaci udaje|billing|delivery address/.test(n)}).slice(0,10);
+ }
+ function detailBlock(doc,kind){
+  var isBilling=kind==='billing';
+  var direct=isBilling?
+   doc.querySelector('.billing-address,.invoice-address,[class*="billing-address"],[class*="invoice-address"],[data-billing-address]'):
+   doc.querySelector('.delivery-address,.shipping-address,[class*="delivery-address"],[class*="shipping-address"],[data-delivery-address]');
+  var pattern=isBilling?/fakturacni|invoice address|billing/i:/dodaci|delivery address|shipping address/i;
+  var heading=null;
+  if(!direct){heading=[].slice.call(doc.querySelectorAll('h2,h3,h4,h5,legend,.box-heading,.pageElement__heading,strong,th')).find(function(node){return pattern.test(norm(node.textContent))})||null}
+  var container=direct;
+  if(!container&&heading)container=heading.closest('section,fieldset,.box,[class*="box"],[class*="address"],[class*="col-"],table')||heading.parentElement;
+  if(!container)return null;
+  var lines=sectionLines(container,heading);
+  return lines.length?{title:isBilling?'Fakturační údaje':'Dodací údaje',lines:lines}:null;
+ }
+ function detailsGrid(doc){
+  var data=[detailBlock(doc,'billing'),detailBlock(doc,'delivery')].filter(Boolean);
+  if(!data.length)return null;
+  var section=el('div','okla-ord-sec okla-ord-details');
+  var grid=el('div','okla-ord-details__grid');
+  data.forEach(function(group){
+   var card=el('section','okla-ord-detail-card');
+   card.appendChild(Object.assign(el('h3','okla-ord-detail-card__title'),{textContent:group.title}));
+   var list=el('ul','okla-ord-detail-card__lines');
+   group.lines.forEach(function(line){list.appendChild(Object.assign(el('li'),{textContent:line}))});
+   card.appendChild(list);grid.appendChild(card);
+  });
+  section.appendChild(grid);return section;
  }
  function bestImage(doc,base){
   var meta=doc.querySelector('meta[property="og:image"],meta[name="twitter:image"]');
@@ -255,16 +315,18 @@
    secI.innerHTML='<div class="okla-ord-loading"><span class="okla-ord-spin"></span>Načítám položky…</div>';
    body.appendChild(secI);
    var secA=el('div','okla-ord-sec okla-ord-actions');
-   var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)):'');rk.rel='nofollow';rk.innerHTML=CLAIM+'<span>Reklamovat zboží</span>';
+   var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)+'&type=reklamace'):'?type=reklamace');rk.rel='nofollow';rk.innerHTML=CLAIM+'<span>Reklamovat zboží</span>';
    rk.addEventListener('click',function(e){e.preventDefault();confirmReklamace(num,rk.getAttribute('href'))});
    secA.appendChild(rk);
+   var invoiceDisabled=el('button','okla-ord-btn okla-ord-btn--invoice is-disabled');invoiceDisabled.type='button';invoiceDisabled.disabled=true;invoiceDisabled.title='Faktura zatím není k dispozici';invoiceDisabled.innerHTML=INVOICE+'<span>Faktura (PDF)</span>';
+   secA.appendChild(invoiceDisabled);
    body.appendChild(secA);
    fetch(item.href,{credentials:'same-origin'})
     .then(function(r){if(!r.ok)throw 0;return r.text()})
     .then(function(html){
      var doc=new DOMParser().parseFromString(html,'text/html');
-     var items=parseItems(doc,item.href), track=trackingLink(doc);
-     return hydrateImages(items).then(function(items){return {items:items,track:track}});
+     var items=parseItems(doc,item.href), track=trackingLink(doc), invoice=invoiceLink(doc,item.href,html), details=detailsGrid(doc);
+     return hydrateImages(items).then(function(items){return {items:items,track:track,invoice:invoice,details:details}});
     })
     .then(function(data){
      var items=data.items,track=data.track;
@@ -272,6 +334,15 @@
      paintPreviews(items);
      if(items.length)secI.appendChild(itemsList(items));
      else secI.innerHTML='<p class="okla-ord-note">Položky nelze zobrazit. <a href="'+item.href+'">Otevřít objednávku</a></p>';
+     if(items.length){
+      var claimUrl='/reklamace/?order='+encodeURIComponent(num)+'&type=reklamace&product='+encodeURIComponent(items[0].name||'');
+      rk.setAttribute('href',claimUrl);
+     }
+     if(data.details)body.insertBefore(data.details,secA);
+     if(data.invoice){
+      var invoice=el('a','okla-ord-btn okla-ord-btn--invoice');invoice.href=data.invoice;invoice.target='_blank';invoice.rel='noopener';invoice.innerHTML=INVOICE+'<span>Faktura (PDF)</span>';
+      invoiceDisabled.replaceWith(invoice);
+     }
      if(track){
       var t=el('a','okla-ord-btn okla-ord-btn--track');t.href=track;t.target='_blank';t.rel='noopener';
       t.innerHTML='Sledovat zásilku'+ARROW;secA.insertBefore(t,rk);
