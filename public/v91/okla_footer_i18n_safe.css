@@ -436,18 +436,22 @@
  }
 }
 
-/* OKLA V124 — a genuinely white footer and a clean desktop illustration crop.
+/* OKLA V125 — a genuinely white footer card and a clean illustration crop.
    The hand/phone is enlarged around its bottom edge. Its source image continues
    below the banner, where the banner clips it, so the asset's straight cut can
    never be visible inside the purple panel. */
-html body #footer,
-html body footer#footer,
 html body #okla-footer-shell,
 html body #okla-footer-content,
 html body #okla-footer-links,
 html body #okla-footer-shell>.footer-bottom{
  background:#fff!important;
  background-color:#fff!important;
+ background-image:none!important;
+}
+html body #footer,
+html body footer#footer{
+ background:transparent!important;
+ background-color:transparent!important;
  background-image:none!important;
 }
 
@@ -458,6 +462,18 @@ html body #okla-footer-shell>.footer-bottom{
  }
  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
   transform-origin:center bottom!important;
-  transform:translateY(48px) scale(1.18)!important;
+  transform:translateY(80px) scale(1.35)!important;
+ }
+}
+@media (min-width:768px) and (max-width:1100px) {
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+  transform-origin:center bottom!important;
+  transform:translateY(58px) scale(1.22)!important;
+ }
+}
+@media (max-width:767px) {
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+  transform-origin:right bottom!important;
+  transform:translateY(28px) scale(1.16)!important;
  }
 }

@@ -1,4 +1,4 @@
-/* OKLA V123 – customer "Moje objednávky" list. After sign-in Shoptet renders the
+/* OKLA V125 – customer "Moje objednávky" list. After sign-in Shoptet renders the
    order history in #content. We rebuild it as one calm UI: each order is a single
    grey card; clicking the card opens it in place, with sections (delivery status,
    products, actions) split by light horizontal rules. Products carry tiny
@@ -159,9 +159,11 @@
    if(!link&&!img)return;
    var src=imgSrc(img,base);
    var href=linkHref?absoluteUrl(linkHref,base):'';
+   var rowText=tclean(tr.textContent),prices=rowText.match(/\d[\d\s ]*(?:[.,]\d{1,2})?\s*(?:Kč|CZK|€|EUR|Ft|HUF)/gi)||[];
+   var price=prices.length?tclean(prices[prices.length-1]):'';
    var meta='';
-   cells.forEach(function(c){var t=tclean(c.textContent);if(t&&t!==name&&/\d/.test(t)&&t.length<24)meta+=(meta?' · ':'')+t});
-   out.push({img:src,href:href,name:name.slice(0,80),meta:meta.slice(0,60)});
+   cells.forEach(function(c){var t=tclean(c.textContent);if(price)t=tclean(t.replace(price,''));if(t&&t!==name&&/\d/.test(t)&&t.length<44)meta+=(meta?' · ':'')+t});
+   out.push({img:src,href:href,name:name.slice(0,80),meta:meta.slice(0,90),price:price});
   });
   if(out.length)return out.slice(0,14);
   [].slice.call(inner.querySelectorAll('img')).forEach(function(im){
@@ -214,7 +216,11 @@
   return lines.length?{title:isBilling?'Fakturační údaje':'Dodací údaje',lines:lines}:null;
  }
  function detailsGrid(doc){
-  var data=[detailBlock(doc,'billing'),detailBlock(doc,'delivery')].filter(Boolean);
+  var billing=detailBlock(doc,'billing'),delivery=detailBlock(doc,'delivery');
+  /* Shoptet omits a separate delivery block when it is identical to billing.
+     Keep both requested cards visible and mirror the address in that case. */
+  if(!delivery&&billing)delivery={title:'Dodací údaje',lines:billing.lines.slice()};
+  var data=[billing,delivery].filter(Boolean);
   if(!data.length)return null;
   var section=el('div','okla-ord-sec okla-ord-details');
   var grid=el('div','okla-ord-details__grid');
@@ -261,7 +267,9 @@
    var info=el('div','okla-ord-item__info');
    info.appendChild(Object.assign(el('span','okla-ord-item__name'),{textContent:it.name||'Položka'}));
    if(it.meta)info.appendChild(Object.assign(el('span','okla-ord-item__meta'),{textContent:it.meta}));
-   li.appendChild(info);ul.appendChild(li);
+   li.appendChild(info);
+   if(it.price)li.appendChild(Object.assign(el('strong','okla-ord-item__price'),{textContent:it.price}));
+   ul.appendChild(li);
   });
   return ul;
  }
@@ -317,9 +325,9 @@
    var secA=el('div','okla-ord-sec okla-ord-actions');
    var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)+'&type=reklamace'):'?type=reklamace');rk.rel='nofollow';rk.innerHTML=CLAIM+'<span>Reklamovat zboží</span>';
    rk.addEventListener('click',function(e){e.preventDefault();confirmReklamace(num,rk.getAttribute('href'))});
-   secA.appendChild(rk);
    var invoiceDisabled=el('button','okla-ord-btn okla-ord-btn--invoice is-disabled');invoiceDisabled.type='button';invoiceDisabled.disabled=true;invoiceDisabled.title='Faktura zatím není k dispozici';invoiceDisabled.innerHTML=INVOICE+'<span>Faktura (PDF)</span>';
    secA.appendChild(invoiceDisabled);
+   secA.appendChild(rk);
    body.appendChild(secA);
    fetch(item.href,{credentials:'same-origin'})
     .then(function(r){if(!r.ok)throw 0;return r.text()})

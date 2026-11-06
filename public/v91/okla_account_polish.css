@@ -1,12 +1,13 @@
-/* OKLA V123 — one clean customer-centre surface, crisp vector icons,
-   no duplicate native chrome and no gradients.
+/* OKLA V125 — one clean customer-centre surface, crisp vector icons,
+   one separator and the same background/card cap as the homepage.
    Applies ONLY to authenticated account pages, not login/cart/home. */
 
 html.okla-acc-center,
 html.okla-acc-center body{
- background:#f1f5f8!important;
- background-image:none!important;
+ background:linear-gradient(180deg,#fff 0%,#fefeff 18%,#f8fcff 32%,#eaf7ff 52%,#d5efff 76%,#c2e8ff 100%) 0 0/100% 950px no-repeat #c2e8ff!important;
+ background-attachment:scroll!important;
 }
+html.okla-acc-center body .okla-side-art{display:none!important}
 html.okla-acc-center body #header,
 html.okla-acc-center body #header .navigation-wrapper,
 html.okla-acc-center body #header .header-top{
@@ -31,9 +32,9 @@ html.okla-acc-polished body #content-wrapper::after{
 html.okla-acc-polished body #content-wrapper.okla-acc-shell,
 html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  --okla-acc-pad:26px;
- --okla-acc-nav-width:260px;
+ --okla-acc-nav-width:220px;
  display:grid!important;
- grid-template-columns:260px minmax(0,1fr)!important;
+ grid-template-columns:220px minmax(0,1fr)!important;
  grid-auto-flow:row!important;
  grid-auto-rows:auto!important;
  align-items:stretch!important;
@@ -47,18 +48,25 @@ html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  padding:24px 26px!important;
  background:#fff!important;
  border:1px solid #dfe7f0!important;
- border-top:4px solid #2f649d!important;
- border-radius:12px!important;
+ border-top:6px solid #19477e!important;
+ border-radius:6px!important;
  box-sizing:border-box!important;
- box-shadow:0 3px 16px rgba(19,48,84,.055)!important;
+ box-shadow:0 0 10px rgba(0,25,65,.11)!important;
  overflow:visible!important;
  position:relative!important;
 }
-/* Draw one separator ourselves and suppress every legacy/sidebar separator. */
+/* A white mask removes every native separator at the column seam. We then draw
+   exactly one controlled 1px line above it. */
+html.okla-acc-polished body #content-wrapper.okla-acc-shell::before,
+html.okla-acc-polished body #content-wrapper .okla-acc-shell::before{
+ content:""!important;display:block!important;position:absolute!important;z-index:2!important;
+ top:20px!important;bottom:20px!important;left:calc(var(--okla-acc-pad) + var(--okla-acc-nav-width) - 5px)!important;
+ width:11px!important;background:#fff!important;pointer-events:none!important;
+}
 html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
 html.okla-acc-polished body #content-wrapper .okla-acc-shell::after{
- content:""!important;display:block!important;position:absolute!important;z-index:1!important;
- top:24px!important;bottom:24px!important;left:calc(var(--okla-acc-pad) + var(--okla-acc-nav-width))!important;
+ content:""!important;display:block!important;position:absolute!important;z-index:3!important;
+ top:20px!important;bottom:20px!important;left:calc(var(--okla-acc-pad) + var(--okla-acc-nav-width))!important;
  width:1px!important;background:#e2e6ea!important;pointer-events:none!important;
 }
 html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
@@ -75,7 +83,7 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
  height:auto!important;
  min-height:0!important;
  margin:0!important;
- padding:0 26px 0 0!important;
+ padding:0 20px 0 0!important;
  box-sizing:border-box!important;
  border:0!important;
  border-right:0!important;
@@ -109,7 +117,7 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main{
  min-height:610px!important;
  height:auto!important;
  margin:0!important;
- padding:4px 6px 20px 32px!important;
+ padding:4px 6px 20px 26px!important;
  box-sizing:border-box!important;
  border:0!important;
  border-left:0!important;
@@ -441,8 +449,8 @@ html body .okla-acc-confirm__logout:hover{background:#bd2f3e;border-color:#bd2f3
 @media(min-width:768px) and (max-width:1050px){
  html.okla-acc-polished body .okla-acc-shell{
   --okla-acc-pad:19px;
-  --okla-acc-nav-width:215px;
-  grid-template-columns:minmax(195px,215px) minmax(0,1fr)!important;
+  --okla-acc-nav-width:195px;
+  grid-template-columns:195px minmax(0,1fr)!important;
   padding:19px!important;
  }
  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
@@ -475,6 +483,8 @@ html body .okla-acc-confirm__logout:hover{background:#bd2f3e;border-color:#bd2f3
  }
  html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
  html.okla-acc-polished body #content-wrapper .okla-acc-shell::after{display:none!important;content:none!important}
+ html.okla-acc-polished body #content-wrapper.okla-acc-shell::before,
+ html.okla-acc-polished body #content-wrapper .okla-acc-shell::before{display:none!important;content:none!important}
  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
   width:100%!important;
   min-height:0!important;
