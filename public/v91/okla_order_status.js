@@ -327,10 +327,11 @@
   var onPage=/^\/stav-objednavky(\/|$)/.test(location.pathname);
   if(onPage){
    var order=getOrder();
-   /* A specific order (from the e-mail deep link or the account page) shows the
-      timeline here. With nothing to show, the combined search + sign-in page is
-      the login page, so send the visitor there instead of a bare lookup. */
-   if(order.needsLookup){location.replace('/login/');return true}
+   /* "Stav objednávky" and "Moje objednávky" are ONE page. Only an e-mail deep
+      link (a specific order in the URL) shows the standalone timeline here; any
+      plain visit goes to /objednavky/ (Moje objednávky), which itself asks the
+      visitor to sign in or search when needed. */
+   if(order.needsLookup){location.replace('/objednavky/');return true}
    var host=document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
    document.documentElement.classList.add('okla-os-takeover');
    host.insertBefore(build(order),host.firstChild);
