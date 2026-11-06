@@ -252,6 +252,9 @@ html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__err{text-align:cen
 @media(max-width:767px){
   html.okla-os-login-combo #content .okla-order-status{max-width:none;margin:16px 16px 0}
   html.okla-os-login-combo .okla-os-card--open{padding:24px 20px!important}
+  /* No footer on the combined search + sign-in page on mobile. */
+  html.okla-os-login-combo #footer{display:none!important}
+  html.okla-os-login-combo #content .content-inner{margin-bottom:28px!important}
 }
 
 /* Desktop parity for the "previous orders" sign-in card on the timeline view
