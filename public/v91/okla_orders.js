@@ -1,13 +1,12 @@
-/* OKLA V91 – customer "Moje objednávky" list enhancement. After sign-in Shoptet
-   renders the order history in #content. We enhance it NON-DESTRUCTIVELY: every
-   order keeps its native detail link, but it becomes an arrow that expands a clean
-   inline panel. On open the customer immediately sees the DELIVERY STATUS (a small
-   stepper mapped from the order's status), then the products with tiny thumbnails,
-   plus a "Sledovat zásilku" link when available and a "Reklamovat" shortcut that
-   pre-fills /reklamace/.
+/* OKLA V91 – customer "Moje objednávky" list. After sign-in Shoptet renders the
+   order history in #content. We rebuild it as one calm UI: each order is a single
+   grey card; clicking the card opens it in place, with sections (delivery status,
+   products, actions) split by light horizontal rules. Products carry tiny
+   thumbnails; the delivery status shows at once as a small stepper. A "Reklamovat"
+   shortcut pre-fills /reklamace/.
 
-   Detection needs a strong signal (a detail link + an order-number-like token) and
-   never rewrites native nodes, so if the theme differs it simply does nothing. */
+   Detection needs a strong signal (a detail link + an order-number token). If the
+   theme does not match we leave the native page untouched rather than break it. */
 (function(){
  'use strict';
  if(window.__oklaOrdersV1)return;
@@ -28,12 +27,10 @@
  function norm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
  function mapStatus(text){var n=norm(text);for(var i=0;i<STATUS_MAP.length;i++){if(STATUS_MAP[i].m.some(function(x){return n.indexOf(x)!==-1}))return STATUS_MAP[i]}return null}
  function tclean(s){return String(s||'').replace(/\s+/g,' ').trim()}
+ function el(t,c){var n=document.createElement(t);if(c)n.className=c;return n}
 
  function scope(){return document.querySelector('#content .content-inner')||document.querySelector('#content')}
 
- /* The order number comes from the detail link (…?id=250042 or a number in the
-    path) or a cell that is purely a number – never from the whole row text, whose
-    cells concatenate without separators. */
  function orderNumber(item){
   var href=item.href||'';
   var mq=href.match(/[?&](?:id|order|code|number)=([^&]+)/i);
@@ -45,55 +42,48 @@
   var mr=(item.row.textContent||'').match(/\d{4,}/);
   return mr?mr[0]:'';
  }
-
- /* The status is usually already printed in the list row; we read it from there so
-    the stepper can appear instantly, before the detail is fetched. */
  function rowStatus(row){
   var cells=row.querySelectorAll('td,th,[class*="status"],[class*="state"],[class*="col"]');
   for(var i=0;i<cells.length;i++){var t=tclean(cells[i].textContent);if(t&&t.length<40&&mapStatus(t))return t}
   return '';
  }
+ function dateIn(text){var m=String(text||'').match(/\d{1,2}\.\s?\d{1,2}\.\s?\d{2,4}/);return m?m[0].replace(/\s+/g,''):''}
+ function totalIn(text){var ms=String(text||'').match(/\d[\d\s ]*(?:[.,]\d{1,2})?\s*(?:Kč|CZK|€|EUR|Ft|HUF)/gi);return ms?tclean(ms[ms.length-1]):''}
 
  function findOrders(root){
   var out=[],seen=[];
-  var links=[].slice.call(root.querySelectorAll('a[href]'));
-  links.forEach(function(a){
+  [].slice.call(root.querySelectorAll('a[href]')).forEach(function(a){
    var href=a.getAttribute('href')||'';
    if(!/(objednavk|objednavka|order)/i.test(href))return;
-   if(/^\/objednavky\/?($|[?#])/.test(href))return;        /* the list page itself */
+   if(/^\/objednavky\/?($|[?#])/.test(href))return;
    if(/\/reklamace/i.test(href))return;
    var row=a.closest('tr, li, .order, [class*="order-"], [data-order], article');
    if(!row||row===root||seen.indexOf(row)>-1)return;
-   if(!/\d{3,}/.test(row.textContent))return;              /* looks like an order row */
+   if(!/\d{3,}/.test(row.textContent))return;
    seen.push(row);
    out.push({row:row,link:a,href:href});
   });
   return out;
  }
 
+ /* Small, calm delivery-status stepper (one accent colour, the rest neutral). */
  function stepper(statusText){
   var mapped=mapStatus(statusText);
   var cancelled=mapped&&mapped.cancelled;
   var cur=mapped?(cancelled?-1:mapped.step):-1;
-  var box=document.createElement('div');box.className='okla-ord-status';
-  var head=document.createElement('div');head.className='okla-ord-status__head';
-  var lbl=document.createElement('span');lbl.className='okla-ord-status__label';
-  lbl.textContent='Stav doručení';
-  var badge=document.createElement('span');badge.className='okla-ord-status__badge';
-  badge.textContent=cancelled?'Zrušeno':(mapped?STEPS[mapped.step]:(tclean(statusText)||'—'));
-  if(cancelled)badge.classList.add('is-cancelled');else if(cur>=4)badge.classList.add('is-delivered');
-  head.appendChild(lbl);head.appendChild(badge);box.appendChild(head);
-  if(!cancelled){
-   var ol=document.createElement('ol');ol.className='okla-ord-steps';
-   STEPS.forEach(function(name,i){
-    var li=document.createElement('li');li.className='okla-ord-step';
-    if(i<cur)li.className+=' is-done';else if(i===cur)li.className+=' is-active';else li.className+=' is-upcoming';
-    var dot=document.createElement('span');dot.className='okla-ord-step__dot';
-    var t=document.createElement('span');t.className='okla-ord-step__t';t.textContent=name;
-    li.appendChild(dot);li.appendChild(t);ol.appendChild(li);
-   });
-   box.appendChild(ol);
+  var box=el('div','okla-ord-status');
+  box.appendChild(Object.assign(el('span','okla-ord-status__label'),{textContent:'Stav doručení'}));
+  if(cancelled){
+   var b=el('span','okla-ord-status__cancel');b.textContent='Zrušeno';box.appendChild(b);return box;
   }
+  var ol=el('ol','okla-ord-steps');
+  STEPS.forEach(function(name,i){
+   var li=el('li','okla-ord-step'+(i<cur?' is-done':i===cur?' is-active':' is-upcoming'));
+   li.appendChild(el('span','okla-ord-step__dot'));
+   li.appendChild(Object.assign(el('span','okla-ord-step__t'),{textContent:name}));
+   ol.appendChild(li);
+  });
+  box.appendChild(ol);
   return box;
  }
 
@@ -101,8 +91,7 @@
   var inner=doc.querySelector('#content .content-inner')||doc.querySelector('#content')||doc.body;
   if(!inner)return [];
   var out=[];
-  var trs=[].slice.call(inner.querySelectorAll('table tr'));
-  trs.forEach(function(tr){
+  [].slice.call(inner.querySelectorAll('table tr')).forEach(function(tr){
    if(tr.querySelector('th'))return;
    var cells=[].slice.call(tr.children);
    var img=tr.querySelector('img');
@@ -118,107 +107,105 @@
   });
   if(out.length)return out.slice(0,14);
   [].slice.call(inner.querySelectorAll('img')).forEach(function(im){
-   var src=im.getAttribute('src')||im.getAttribute('data-src')||'';if(!src)return;
-   if(/sprite|icon|logo|placeholder/i.test(src))return;
+   var src=im.getAttribute('src')||im.getAttribute('data-src')||'';if(!src||/sprite|icon|logo|placeholder/i.test(src))return;
    out.push({img:src,name:tclean(im.getAttribute('alt'))||'Položka',meta:''});
   });
   return out.slice(0,14);
  }
-
  function itemsList(items){
-  var ul=document.createElement('ul');ul.className='okla-ord-items';
+  var ul=el('ul','okla-ord-items');
   items.forEach(function(it){
-   var li=document.createElement('li');li.className='okla-ord-item';
-   if(it.img){var im=document.createElement('img');im.className='okla-ord-thumb';im.src=it.img;im.alt=it.name||'';im.loading='lazy';li.appendChild(im);}
-   else{var ph=document.createElement('span');ph.className='okla-ord-thumb okla-ord-thumb--ph';ph.setAttribute('aria-hidden','true');li.appendChild(ph);}
-   var info=document.createElement('div');info.className='okla-ord-item__info';
-   var nm=document.createElement('span');nm.className='okla-ord-item__name';nm.textContent=it.name||'Položka';info.appendChild(nm);
-   if(it.meta){var mt=document.createElement('span');mt.className='okla-ord-item__meta';mt.textContent=it.meta;info.appendChild(mt);}
+   var li=el('li','okla-ord-item');
+   if(it.img){var im=el('img','okla-ord-thumb');im.src=it.img;im.alt=it.name||'';im.loading='lazy';im.onerror=function(){this.classList.add('okla-ord-thumb--ph');this.removeAttribute('src')};li.appendChild(im);}
+   else li.appendChild(el('span','okla-ord-thumb okla-ord-thumb--ph'));
+   var info=el('div','okla-ord-item__info');
+   info.appendChild(Object.assign(el('span','okla-ord-item__name'),{textContent:it.name||'Položka'}));
+   if(it.meta)info.appendChild(Object.assign(el('span','okla-ord-item__meta'),{textContent:it.meta}));
    li.appendChild(info);ul.appendChild(li);
   });
   return ul;
  }
-
  function trackingLink(doc){
   var a=doc.querySelector('a[href*="zasilkovna"],a[href*="packeta"],a[href*="tracking"],a[href*="sledov"],a[href*="dpd"],a[href*="ppl"]');
   return a?a.getAttribute('href'):'';
  }
 
- function makePanelHost(row){
-  if(row.tagName==='TR'){
-   var cells=row.children.length||1;
-   var tr=document.createElement('tr');tr.className='okla-ord-detail';
-   var td=document.createElement('td');td.colSpan=cells;tr.appendChild(td);
-   row.parentNode.insertBefore(tr,row.nextSibling);
-   return {wrap:tr,body:td};
-  }
-  var div=document.createElement('div');div.className='okla-ord-detail okla-ord-detail--block';
-  row.parentNode.insertBefore(div,row.nextSibling);
-  return {wrap:div,body:div};
- }
+ function buildCard(item){
+  var num=orderNumber(item), status=rowStatus(item.row),
+      date=dateIn(item.row.textContent), total=totalIn(item.row.textContent);
+  var mapped=mapStatus(status), cur=mapped?(mapped.cancelled?-1:mapped.step):-1;
 
- function enhance(item){
-  var row=item.row,link=item.link;
-  if(row.dataset.oklaOrder)return;
-  row.dataset.oklaOrder='1';
-  row.classList.add('okla-ord-row');
-  var num=orderNumber(item);
-  var status=rowStatus(row);
+  var card=el('div','okla-ord-card');
+  var head=el('div','okla-ord-head');
+  head.setAttribute('role','button');head.setAttribute('tabindex','0');head.setAttribute('aria-expanded','false');
 
-  link.classList.add('okla-ord-open','okla-ord-detailbtn');
-  if(!link.querySelector('.okla-ord-chev')){
-   var cw=document.createElement('span');cw.className='okla-ord-chev-wrap';cw.innerHTML=CHEV;link.appendChild(cw);
-  }
-  link.setAttribute('aria-expanded','false');
+  var main=el('div','okla-ord-head__main');
+  main.appendChild(Object.assign(el('span','okla-ord-head__num'),{textContent:num?('#'+num):'Objednávka'}));
+  if(date)main.appendChild(Object.assign(el('span','okla-ord-head__date'),{textContent:date}));
+  head.appendChild(main);
 
-  /* Keep the two buttons together and symmetric. */
-  var actions=document.createElement('span');actions.className='okla-ord-actions';
-  if(link.parentNode){link.parentNode.insertBefore(actions,link);actions.appendChild(link);}
-  var rk=document.createElement('a');rk.className='okla-ord-rk';rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)):'');
-  rk.setAttribute('rel','nofollow');rk.textContent='Reklamovat';
-  actions.appendChild(rk);
+  var st=el('span','okla-ord-head__status'+(mapped&&mapped.cancelled?' is-cancelled':cur>=4?' is-delivered':''));
+  st.appendChild(el('span','okla-ord-head__dot'));
+  st.appendChild(Object.assign(el('span',null),{textContent:(mapped&&mapped.cancelled)?'Zrušeno':(mapped?STEPS[mapped.step]:(tclean(status)||'—'))}));
+  head.appendChild(st);
 
-  var panel=null,loaded=false;
+  if(total)head.appendChild(Object.assign(el('span','okla-ord-head__total'),{textContent:total}));
+  var chev=el('span','okla-ord-head__chev');chev.innerHTML=CHEV;head.appendChild(chev);
 
-  function collapse(){if(!panel)return;panel.wrap.classList.remove('is-open');row.classList.remove('is-open');link.setAttribute('aria-expanded','false');}
-  function expand(){
-   if(!panel)panel=makePanelHost(row);
-   panel.wrap.classList.add('is-open');row.classList.add('is-open');link.setAttribute('aria-expanded','true');
+  var body=el('div','okla-ord-body');
+  card.appendChild(head);card.appendChild(body);
+
+  var loaded=false;
+  function fill(){
    if(loaded)return;loaded=true;
-   panel.body.innerHTML='';
-   var inner=document.createElement('div');inner.className='okla-ord-detail__body';
-   inner.appendChild(stepper(status));
-   var box=document.createElement('div');box.className='okla-ord-itemsbox';
-   box.innerHTML='<div class="okla-ord-detail__loading"><span class="okla-ord-spin"></span>Načítám položky objednávky…</div>';
-   inner.appendChild(box);
-   panel.body.appendChild(inner);
+   var secS=el('div','okla-ord-sec');secS.appendChild(stepper(status));body.appendChild(secS);
+   var secI=el('div','okla-ord-sec');
+   secI.innerHTML='<div class="okla-ord-loading"><span class="okla-ord-spin"></span>Načítám položky…</div>';
+   body.appendChild(secI);
+   var secA=el('div','okla-ord-sec okla-ord-actions');
+   var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)):'');rk.rel='nofollow';rk.textContent='Reklamovat';
+   secA.appendChild(rk);
+   body.appendChild(secA);
    fetch(item.href,{credentials:'same-origin'})
     .then(function(r){if(!r.ok)throw 0;return r.text()})
     .then(function(html){
-     var doc;try{doc=new DOMParser().parseFromString(html,'text/html')}catch(e){throw 0}
-     var items=parseItems(doc);
-     var track=trackingLink(doc);
-     box.innerHTML='';
-     if(items.length)box.appendChild(itemsList(items));
-     else box.innerHTML='<p class="okla-ord-detail__note">Položky nelze zobrazit. <a href="'+item.href+'">Otevřít objednávku</a></p>';
+     var doc=new DOMParser().parseFromString(html,'text/html');
+     var items=parseItems(doc), track=trackingLink(doc);
+     secI.innerHTML='';
+     if(items.length)secI.appendChild(itemsList(items));
+     else secI.innerHTML='<p class="okla-ord-note">Položky nelze zobrazit. <a href="'+item.href+'">Otevřít objednávku</a></p>';
      if(track){
-      var t=document.createElement('a');t.className='okla-ord-track';t.href=track;t.target='_blank';t.rel='noopener';
-      t.innerHTML='Sledovat zásilku'+ARROW;box.appendChild(t);
+      var t=el('a','okla-ord-btn okla-ord-btn--track');t.href=track;t.target='_blank';t.rel='noopener';
+      t.innerHTML='Sledovat zásilku'+ARROW;secA.insertBefore(t,rk);
      }
     })
     .catch(function(){
      loaded=false;
-     box.innerHTML='<p class="okla-ord-detail__note">Detail se nepodařilo načíst. <a href="'+item.href+'">Otevřít objednávku</a></p>';
+     secI.innerHTML='<p class="okla-ord-note">Detail se nepodařilo načíst. <a href="'+item.href+'">Otevřít objednávku</a></p>';
     });
   }
-  link.addEventListener('click',function(e){e.preventDefault();if(row.classList.contains('is-open'))collapse();else expand();});
+  function toggle(){
+   var open=card.classList.toggle('is-open');
+   head.setAttribute('aria-expanded',open?'true':'false');
+   if(open)fill();
+  }
+  head.addEventListener('click',toggle);
+  head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+  return card;
  }
 
  function run(){
   var root=scope();if(!root)return false;
   var orders=findOrders(root);if(!orders.length)return false;
+  var first=orders[0].row;
+  var host=first.closest('table')||first.closest('ul,ol,.orders,[class*="order-list"]')||first.parentNode;
+  if(!host||!host.parentNode)return false;
+  var cards=el('div','okla-ord-cards');
+  host.parentNode.insertBefore(cards,host);
+  host.style.display='none';
+  /* Hide a lingering caption/heading row that belonged to the native table. */
+  orders.forEach(function(item){cards.appendChild(buildCard(item))});
   document.documentElement.classList.add('okla-ord-ready');
-  orders.forEach(enhance);
   return true;
  }
  function start(){
