@@ -1,0 +1,64 @@
+/* OKLA V91 – customer "Moje objednávky" list enhancement (arrow to open the order
+   detail inline, plus a "Reklamovat" shortcut). Styling is additive and scoped to
+   the enhanced rows, so it never disturbs a theme we did not detect. */
+
+html.okla-ord-ready body .okla-ord-open{
+  display:inline-flex;align-items:center;gap:7px;
+}
+html.okla-ord-ready body .okla-ord-chev-wrap{display:inline-flex}
+html.okla-ord-ready body .okla-ord-chev{
+  width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .22s ease;
+}
+html.okla-ord-ready body .okla-ord-open[aria-expanded="true"] .okla-ord-chev{transform:rotate(180deg)}
+
+html.okla-ord-ready body .okla-ord-row.is-open{background:#f4f9ff}
+
+/* "Reklamovat" shortcut */
+html.okla-ord-ready body .okla-ord-rk{
+  display:inline-flex;align-items:center;height:30px;margin-left:10px;padding:0 13px;
+  border:1px solid #d7deea;border-radius:8px;background:#fff;color:#0b2540;
+  font:600 12.5px/1 Roboto,Arial,sans-serif;text-decoration:none;white-space:nowrap;
+  transition:background-color .15s ease,border-color .15s ease;
+}
+html.okla-ord-ready body .okla-ord-rk:hover{background:#f4f7fb;border-color:#c3ccdb}
+
+/* Inline detail panel */
+html.okla-ord-ready body .okla-ord-detail > td,
+html.okla-ord-ready body .okla-ord-detail.okla-ord-detail--block{
+  padding:0;border:0;
+}
+html.okla-ord-ready body .okla-ord-detail .okla-ord-detail__body,
+html.okla-ord-ready body .okla-ord-detail.okla-ord-detail--block{
+  display:none;
+}
+html.okla-ord-ready body .okla-ord-detail.is-open .okla-ord-detail__body,
+html.okla-ord-ready body .okla-ord-detail.okla-ord-detail--block.is-open{
+  display:block;
+  margin:0;padding:18px 20px 22px;
+  background:#f6f9fc;border:1px solid #e6ebf2;border-radius:0 0 12px 12px;
+  animation:okla-ord-reveal .22s ease;
+}
+@keyframes okla-ord-reveal{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+
+html.okla-ord-ready body .okla-ord-detail__body{font-size:14px;color:#2d3b4f;line-height:1.55}
+html.okla-ord-ready body .okla-ord-detail__body table{width:100%;border-collapse:collapse;margin:6px 0}
+html.okla-ord-ready body .okla-ord-detail__body th,
+html.okla-ord-ready body .okla-ord-detail__body td{padding:8px 10px;border-bottom:1px solid #e6ebf2;text-align:left;vertical-align:top}
+html.okla-ord-ready body .okla-ord-detail__body img{max-width:64px;height:auto;border-radius:6px}
+
+html.okla-ord-ready body .okla-ord-detail__loading{
+  display:flex;align-items:center;gap:10px;padding:16px 20px;color:#56657a;font-size:13.5px;
+}
+html.okla-ord-ready body .okla-ord-detail__loading a{color:#008ddd;font-weight:600;text-decoration:underline}
+html.okla-ord-ready body .okla-ord-spin{
+  width:16px;height:16px;border-radius:50%;border:2.3px solid #cfe0ef;border-top-color:#008ddd;
+  animation:okla-ord-spin .7s linear infinite;flex:none;
+}
+@keyframes okla-ord-spin{to{transform:rotate(360deg)}}
+
+@media(max-width:640px){
+  html.okla-ord-ready body .okla-ord-rk{margin-left:0;margin-top:8px}
+  html.okla-ord-ready body .okla-ord-detail.is-open .okla-ord-detail__body,
+  html.okla-ord-ready body .okla-ord-detail.okla-ord-detail--block.is-open{padding:14px 14px 16px}
+}

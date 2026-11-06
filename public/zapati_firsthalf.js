@@ -52,6 +52,8 @@ modules.push('v91/okla_cart_drawer.css','v91/okla_cart_drawer.js'); if(document.
 if(/^\/newsroom(\/|\.html)?$/.test(location.pathname)) modules.push('newsroom/okla_newsroom.js');
 if(/^\/nase-novinky\/[^/]+\/?$/.test(location.pathname)) modules.push('v91/okla_article_hero.js');
 if(/^\/stav-objednavky(\/|$)/.test(location.pathname)||(document.body&&/(^|\s)in-login(\s|$)/.test(document.body.className))||document.querySelector('[data-okla-order-status]')) modules.push('v91/okla_order_status.css','v91/okla_order_status.js');
+if(/^\/reklamace(\/|$)/.test(location.pathname)||document.querySelector('[data-okla-reklamace]')) modules.push('v91/okla_reklamace.css','v91/okla_reklamace.js');
+if(/^\/objednavky(\/|$)/.test(location.pathname)||(document.body&&/(^|\s)in-(klient|objednavky)/.test(document.body.className))) modules.push('v91/okla_orders.css','v91/okla_orders.js');
 if(/^\/o-nas(\/|$)/.test(location.pathname)) modules.push('v91/okla_about.css','v91/okla_about.js');
  if((document.body&&document.body.classList.contains('in-kontakt'))||/^\/kontakt(y)?(\/|$)/.test(location.pathname)) modules.push('v91/okla_contact.css','v91/okla_contact.js');
 if(document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient)/.test(document.body.className)) modules.push('v91/okla_account.css');

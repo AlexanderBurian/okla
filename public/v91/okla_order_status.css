@@ -102,6 +102,14 @@ html body .okla-os-track__btn svg{width:18px;height:18px;fill:none;stroke:curren
 html body .okla-os-track__note{font-size:13px;color:#66758a}
 html body .okla-os-track__note b{color:#0b2540;font-weight:700}
 
+/* ---- Reklamace shortcut under the timeline ---- */
+html body .okla-os-rk{margin:16px 2px 0;text-align:center}
+html body .okla-os-rk__link{
+  display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#008ddd;text-decoration:none;
+}
+html body .okla-os-rk__link:hover{text-decoration:underline}
+html body .okla-os-rk__link svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
 /* ---- Empty / help note ---- */
 html body .okla-os-note{margin:18px 2px 0;font-size:13px;color:#66758a;line-height:1.5}
 html body .okla-os-note a{color:#008ddd;font-weight:600;text-decoration:underline}

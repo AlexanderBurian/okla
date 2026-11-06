@@ -281,6 +281,15 @@
 
   sec.appendChild(card);
 
+  /* A quick path to the complaint / return form, pre-filled with this order. */
+  var rk=el('p','okla-os-rk');
+  var rka=el('a','okla-os-rk__link','Něco je špatně? Reklamovat objednávku');
+  rka.href='/reklamace/'+((order.number&&order.number!=='—')?('?order='+encodeURIComponent(order.number)):'');
+  rka.rel='nofollow';
+  rka.appendChild(svg(['M5 12h14','M13 6l6 6-6 6']));
+  rk.appendChild(rka);
+  sec.appendChild(rk);
+
   if(order.demo){
    var hint=el('p','okla-os-note');
    hint.appendChild(document.createTextNode('Náhled s ukázkovými daty. Přidejte do odkazu parametry objednávky, např. '));
