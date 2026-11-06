@@ -1,4 +1,4 @@
-/* OKLA V91 – customer "Moje objednávky" list. After sign-in Shoptet renders the
+/* OKLA V122 – customer "Moje objednávky" list. After sign-in Shoptet renders the
    order history in #content. We rebuild it as one calm UI: each order is a single
    grey card; clicking the card opens it in place, with sections (delivery status,
    products, actions) split by light horizontal rules. Products carry tiny
@@ -14,6 +14,8 @@
 
  var CHEV='<svg viewBox="0 0 24 24" aria-hidden="true" class="okla-ord-chev"><path d="M6 9l6 6 6-6"/></svg>';
  var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
+ var CLAIM='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 6v5.2c0 4.5 3 8.1 7.5 9.8 4.5-1.7 7.5-5.3 7.5-9.8V6L12 3Z"/><path d="M12 8v5M12 16.5v.1"/></svg>';
+ var IMAGE_CACHE={};
 
  var STEPS=['Objednáno','Zpracování','Expedováno','V přepravě','Doručeno'];
  var STATUS_MAP=[
@@ -69,7 +71,11 @@
   for(var i=0;i<cells.length;i++){var t=tclean(cells[i].textContent);if(t&&t.length<40&&mapStatus(t))return t}
   return '';
  }
- function dateIn(text){var m=String(text||'').match(/\d{1,2}\.\s?\d{1,2}\.\s?\d{2,4}/);return m?m[0].replace(/\s+/g,''):''}
+ function dateIn(text){
+  var m=String(text||'').match(/(\d{1,3})\.\s?(\d{1,2})\.\s?(\d{2,4})(?!\d)/);if(!m)return '';
+  var day=m[1];while(day.length>1&&Number(day)>31)day=day.slice(1);
+  return day+'.'+m[2]+'.'+m[3];
+ }
  function totalIn(text){var ms=String(text||'').match(/\d[\d\s ]*(?:[.,]\d{1,2})?\s*(?:Kč|CZK|€|EUR|Ft|HUF)/gi);return ms?tclean(ms[ms.length-1]):''}
 
  function findOrders(root){
@@ -112,14 +118,29 @@
  /* Shoptet lazy-loads images: the real URL may be in src, data-src, data-original
     or data-micro-image, while src can hold a blank/placeholder. Take the first
     real (non-data:) URL so an actual product photo is shown. */
- function imgSrc(img){
+ function absoluteUrl(value,base){
+  if(!value)return '';
+  try{return new URL(value,base||location.href).href}catch(e){return ''}
+ }
+ function srcFromSet(value){
+  if(!value)return '';
+  var first=String(value).split(',')[0].trim();
+  return first.split(/\s+/)[0]||'';
+ }
+ function imgSrc(img,base){
   if(!img)return '';
-  var cand=[img.getAttribute('src'),img.getAttribute('data-src'),img.getAttribute('data-original'),img.getAttribute('data-lazy'),img.getAttribute('data-micro-image')];
-  for(var i=0;i<cand.length;i++){var s=cand[i];if(s&&!/^data:/i.test(s)&&s.replace(/\s/g,'').length>8)return s}
+  var picture=img.closest&&img.closest('picture');
+  var source=picture&&picture.querySelector('source');
+  var cand=[img.currentSrc,img.getAttribute('src'),img.getAttribute('data-src'),img.getAttribute('data-original'),img.getAttribute('data-lazy'),img.getAttribute('data-micro-image'),srcFromSet(img.getAttribute('srcset')),srcFromSet(img.getAttribute('data-srcset')),source&&srcFromSet(source.getAttribute('srcset')),source&&srcFromSet(source.getAttribute('data-srcset'))];
+  for(var i=0;i<cand.length;i++){
+   var s=cand[i];
+   if(s&&!/^data:/i.test(s)&&!/placeholder|blank\.(?:gif|png)/i.test(s)&&s.replace(/\s/g,'').length>8)return absoluteUrl(s,base);
+  }
   return '';
  }
 
- function parseItems(doc){
+ function parseItems(doc,base){
+  base=absoluteUrl(base,location.href)||location.href;
   var inner=doc.querySelector('#content .content-inner')||doc.querySelector('#content')||doc.body;
   if(!inner)return [];
   var out=[];
@@ -132,23 +153,50 @@
    var name=link?tclean(link.textContent):'';
    if(!name){var best='';cells.forEach(function(c){var t=tclean(c.textContent);if(t.replace(/[^0-9a-zA-ZÀ-ž]/g,'').length>best.replace(/[^0-9a-zA-ZÀ-ž]/g,'').length)best=t});name=best}
    if(!name||/mezisou|celkem|doprava|platba|sleva|dph|zaokrouhl/i.test(name))return;
-   var src=imgSrc(img);
+   var src=imgSrc(img,base);
+   var href=link&&link.getAttribute('href')?absoluteUrl(link.getAttribute('href'),base):'';
    var meta='';
    cells.forEach(function(c){var t=tclean(c.textContent);if(t&&t!==name&&/\d/.test(t)&&t.length<24)meta+=(meta?' · ':'')+t});
-   out.push({img:src,name:name.slice(0,80),meta:meta.slice(0,60)});
+   out.push({img:src,href:href,name:name.slice(0,80),meta:meta.slice(0,60)});
   });
   if(out.length)return out.slice(0,14);
   [].slice.call(inner.querySelectorAll('img')).forEach(function(im){
-   var src=imgSrc(im);if(!src||/sprite|icon|logo|placeholder/i.test(src))return;
-   out.push({img:src,name:tclean(im.getAttribute('alt'))||'Položka',meta:''});
+   var src=imgSrc(im,base);if(!src||/sprite|icon|logo|placeholder/i.test(src))return;
+   var link=im.closest('a[href]');
+   out.push({img:src,href:link?absoluteUrl(link.getAttribute('href'),base):'',name:tclean(im.getAttribute('alt'))||'Položka',meta:''});
   });
   return out.slice(0,14);
+ }
+ function bestImage(doc,base){
+  var meta=doc.querySelector('meta[property="og:image"],meta[name="twitter:image"]');
+  var value=meta&&meta.getAttribute('content');
+  if(value&&!/placeholder|logo/i.test(value))return absoluteUrl(value,base);
+  var image=doc.querySelector('.p-main-image img,.p-image img,[itemprop="image"],main img.product-image,.product-detail img');
+  return imgSrc(image,base);
+ }
+ function hydrateImage(item){
+  if(item.img||!item.href)return Promise.resolve(item);
+  var href=absoluteUrl(item.href,location.href);
+  if(!href)return Promise.resolve(item);
+  try{if(new URL(href).origin!==location.origin)return Promise.resolve(item)}catch(e){return Promise.resolve(item)}
+  if(IMAGE_CACHE[href]!==undefined){item.img=IMAGE_CACHE[href];return Promise.resolve(item)}
+  return fetch(href,{credentials:'same-origin'}).then(function(r){if(!r.ok)throw 0;return r.text()}).then(function(html){
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   item.img=bestImage(doc,href)||'';IMAGE_CACHE[href]=item.img;return item;
+  }).catch(function(){IMAGE_CACHE[href]='';return item});
+ }
+ function hydrateImages(items){
+  var pending=items.filter(function(item){return !item.img&&item.href});
+  var cursor=0,workers=[];
+  function work(){if(cursor>=pending.length)return Promise.resolve();return hydrateImage(pending[cursor++]).then(work)}
+  for(var i=0;i<Math.min(3,pending.length);i++)workers.push(work());
+  return Promise.all(workers).then(function(){return items});
  }
  function itemsList(items){
   var ul=el('ul','okla-ord-items');
   items.forEach(function(it){
    var li=el('li','okla-ord-item');
-   if(it.img){var im=el('img','okla-ord-thumb');im.src=it.img;im.alt=it.name||'';im.loading='lazy';im.onerror=function(){this.classList.add('okla-ord-thumb--ph');this.removeAttribute('src')};li.appendChild(im);}
+   if(it.img){var im=el('img','okla-ord-thumb');im.src=it.img;im.alt=it.name||'';im.loading='lazy';im.decoding='async';im.width=56;im.height=56;im.onerror=function(){this.classList.add('okla-ord-thumb--ph');this.removeAttribute('src')};li.appendChild(im);}
    else li.appendChild(el('span','okla-ord-thumb okla-ord-thumb--ph'));
    var info=el('div','okla-ord-item__info');
    info.appendChild(Object.assign(el('span','okla-ord-item__name'),{textContent:it.name||'Položka'}));
@@ -176,6 +224,10 @@
   if(date)main.appendChild(Object.assign(el('span','okla-ord-head__date'),{textContent:date}));
   head.appendChild(main);
 
+  var previews=el('div','okla-ord-head__thumbs');
+  previews.setAttribute('aria-label','Produkty v objednávce');
+  head.appendChild(previews);
+
   var st=el('span','okla-ord-head__status'+(mapped&&mapped.cancelled?' is-cancelled':cur>=4?' is-delivered':''));
   st.appendChild(el('span','okla-ord-head__dot'));
   st.appendChild(Object.assign(el('span',null),{textContent:(mapped&&mapped.cancelled)?'Zrušeno':(mapped?STEPS[mapped.step]:(tclean(status)||'—'))}));
@@ -188,6 +240,14 @@
   card.appendChild(head);card.appendChild(body);
 
   var loaded=false;
+  function paintPreviews(items){
+   previews.innerHTML='';
+   items.filter(function(it){return !!it.img}).slice(0,3).forEach(function(it){
+    var im=el('img','okla-ord-head__thumb');im.src=it.img;im.alt='';im.loading='eager';im.decoding='async';im.width=38;im.height=38;
+    im.onerror=function(){this.remove()};previews.appendChild(im);
+   });
+   previews.hidden=!previews.children.length;
+  }
   function fill(){
    if(loaded)return;loaded=true;
    var secS=el('div','okla-ord-sec');secS.appendChild(stepper(status));body.appendChild(secS);
@@ -195,7 +255,7 @@
    secI.innerHTML='<div class="okla-ord-loading"><span class="okla-ord-spin"></span>Načítám položky…</div>';
    body.appendChild(secI);
    var secA=el('div','okla-ord-sec okla-ord-actions');
-   var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)):'');rk.rel='nofollow';rk.textContent='Reklamovat';
+   var rk=el('a','okla-ord-btn okla-ord-btn--rk');rk.href='/reklamace/'+(num?('?order='+encodeURIComponent(num)):'');rk.rel='nofollow';rk.innerHTML=CLAIM+'<span>Reklamovat zboží</span>';
    rk.addEventListener('click',function(e){e.preventDefault();confirmReklamace(num,rk.getAttribute('href'))});
    secA.appendChild(rk);
    body.appendChild(secA);
@@ -203,8 +263,13 @@
     .then(function(r){if(!r.ok)throw 0;return r.text()})
     .then(function(html){
      var doc=new DOMParser().parseFromString(html,'text/html');
-     var items=parseItems(doc), track=trackingLink(doc);
+     var items=parseItems(doc,item.href), track=trackingLink(doc);
+     return hydrateImages(items).then(function(items){return {items:items,track:track}});
+    })
+    .then(function(data){
+     var items=data.items,track=data.track;
      secI.innerHTML='';
+     paintPreviews(items);
      if(items.length)secI.appendChild(itemsList(items));
      else secI.innerHTML='<p class="okla-ord-note">Položky nelze zobrazit. <a href="'+item.href+'">Otevřít objednávku</a></p>';
      if(track){
@@ -213,7 +278,6 @@
      }
     })
     .catch(function(){
-     loaded=false;
      secI.innerHTML='<p class="okla-ord-note">Detail se nepodařilo načíst. <a href="'+item.href+'">Otevřít objednávku</a></p>';
     });
   }
@@ -224,7 +288,30 @@
   }
   head.addEventListener('click',toggle);
   head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle()}});
+  /* Load product images before the card reaches the viewport. This keeps the
+     collapsed row useful without fetching every historical order at once. */
+  if('IntersectionObserver' in window){
+   var io=new IntersectionObserver(function(entries){
+    if(!entries.some(function(entry){return entry.isIntersecting}))return;
+    io.disconnect();fill();
+   },{rootMargin:'240px 0px'});
+   io.observe(card);
+  }else fill();
   return card;
+ }
+
+ function hideNativeOrderChrome(root,host,cards){
+  host.classList.add('okla-ord-native-hidden');
+  var selectors=['.pagination','.pagination-wrapper','.pagination-count','.pagination-loader','.paginator','.paging','[class*="pagination"]','[class*="paginator"]','[class*="paging"]'];
+  [].slice.call(root.querySelectorAll(selectors.join(','))).forEach(function(node){if(!cards.contains(node))node.classList.add('okla-ord-native-hidden')});
+  var parent=host.parentElement;if(!parent)return;
+  var children=[].slice.call(parent.children),hasPagerCopy=children.some(function(node){return /str[aá]nka\s+z|polo[zž]ek\s+celkem/i.test(tclean(node.textContent))});
+  if(!hasPagerCopy)return;
+  children.forEach(function(node){
+   if(node===host||node===cards||node.contains(cards))return;
+   var text=tclean(node.textContent);
+   if(/^\d+$/.test(text)||/str[aá]nka\s+z|polo[zž]ek\s+celkem/i.test(text))node.classList.add('okla-ord-native-hidden');
+  });
  }
 
  function run(){
@@ -235,7 +322,7 @@
   if(!host||!host.parentNode)return false;
   var cards=el('div','okla-ord-cards');
   host.parentNode.insertBefore(cards,host);
-  host.style.display='none';
+  hideNativeOrderChrome(root,host,cards);
   /* Hide a lingering caption/heading row that belonged to the native table. */
   orders.forEach(function(item){cards.appendChild(buildCard(item))});
   document.documentElement.classList.add('okla-ord-ready');

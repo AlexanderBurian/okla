@@ -1,9 +1,9 @@
-/* OKLA V121 – one semantic account navigation, crisp vector icons and a
-   symmetrical customer-centre shell. Native forms and destinations stay live. */
+/* OKLA V122 – one semantic account navigation, crisp vector icons, a clean
+   customer-centre shell and an explicit logout confirmation. */
 (function(){
  'use strict';
- if(window.__oklaAccountPolishV121)return;
- window.__oklaAccountPolishV121=true;
+ if(window.__oklaAccountPolishV122)return;
+ window.__oklaAccountPolishV122=true;
  var ICONS={
   personal:'<circle cx="9" cy="7" r="3"/><path d="M3.5 18c.4-4 2.2-6 5.5-6s5.1 2 5.5 6"/><circle cx="17.5" cy="9" r="2.2"/><path d="M15.3 13.4c2.9-.5 5 .9 5.2 4.1"/>',
   orders:'<path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 8V5.8a3 3 0 0 1 6 0V8"/><path d="m9.5 13 1.8 1.8 3.6-3.7"/>',
@@ -78,6 +78,30 @@
    if(/^(z[aá]kaznick[eé]|klientsk[eé])\s+centrum$/i.test(text))el.classList.add('okla-acc-native-hide');
   });
  }
+ function confirmLogout(trigger){
+  var href=trigger.getAttribute('href')||'/logout/';
+  var overlay=document.createElement('div');
+  overlay.className='okla-acc-confirm';
+  overlay.setAttribute('role','dialog');
+  overlay.setAttribute('aria-modal','true');
+  overlay.setAttribute('aria-labelledby','okla-logout-title');
+  var box=document.createElement('div');box.className='okla-acc-confirm__box';
+  var icon=svgFor('logout');icon.className='okla-acc-confirm__icon';
+  var title=document.createElement('h2');title.id='okla-logout-title';title.className='okla-acc-confirm__title';title.textContent='Opravdu se odhlásit?';
+  var copy=document.createElement('p');copy.className='okla-acc-confirm__text';copy.textContent='Ukončíte aktuální přihlášení k zákaznickému účtu.';
+  var actions=document.createElement('div');actions.className='okla-acc-confirm__actions';
+  var cancel=document.createElement('button');cancel.type='button';cancel.className='okla-acc-confirm__btn okla-acc-confirm__cancel';cancel.textContent='Zůstat přihlášený';
+  var confirm=document.createElement('a');confirm.className='okla-acc-confirm__btn okla-acc-confirm__logout';confirm.href=href;confirm.rel='nofollow';confirm.textContent='Odhlásit se';
+  actions.appendChild(cancel);actions.appendChild(confirm);
+  box.appendChild(icon);box.appendChild(title);box.appendChild(copy);box.appendChild(actions);overlay.appendChild(box);
+  function close(){document.removeEventListener('keydown',onKey);overlay.remove();if(trigger.focus)trigger.focus()}
+  function onKey(e){if(e.key==='Escape')close()}
+  cancel.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close()});
+  document.addEventListener('keydown',onKey);
+  (document.body||document.documentElement).appendChild(overlay);
+  cancel.focus();
+ }
  function decorateNav(nav){
   if(!nav)return;
   nav.setAttribute('aria-label','Zákaznické centrum');
@@ -85,6 +109,17 @@
   if(head&&!head.querySelector('.okla-acc-head-icon')){
    var person=svgFor('user');person.className='okla-acc-head-icon okla-acc-menu-icon okla-acc-menu-icon--user';
    head.insertBefore(person,head.firstChild);
+  }
+  if(head&&!head.dataset.oklaMobileToggle){
+   head.dataset.oklaMobileToggle='1';head.classList.add('okla-acc-nav__toggle');
+   head.setAttribute('role','button');head.setAttribute('tabindex','0');head.setAttribute('aria-expanded','false');
+   var toggle=document.createElement('span');toggle.className='okla-acc-nav__chevron';toggle.setAttribute('aria-hidden','true');head.appendChild(toggle);
+   function toggleMobile(){
+    if(!window.matchMedia('(max-width:767px)').matches)return;
+    var open=nav.classList.toggle('is-mobile-open');head.setAttribute('aria-expanded',open?'true':'false');
+   }
+   head.addEventListener('click',toggleMobile);
+   head.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleMobile()}});
   }
   var links=[].slice.call(nav.querySelectorAll('a.okla-acc-nav__link'));
   var i=0,logout=null,seen={};
@@ -102,6 +137,13 @@
   });
   // Keep logout last and pinned at the bottom of the SAME white navigation card.
   if(logout&&logout!==nav.lastElementChild)nav.appendChild(logout);
+  if(logout&&!logout.dataset.oklaLogoutConfirm){
+   logout.dataset.oklaLogoutConfirm='1';
+   logout.addEventListener('click',function(e){
+    if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+    e.preventDefault();e.stopPropagation();confirmLogout(logout);
+   });
+  }
   nav.classList.add('okla-acc-nav-polished');
   removeDuplicateNativeMenus(nav);
  }
