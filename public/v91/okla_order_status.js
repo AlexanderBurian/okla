@@ -223,7 +223,6 @@
 
   card.appendChild(wrap);
   sec.appendChild(card);
-  appendHistoryLogin(sec);
   return sec;
  }
 
@@ -293,23 +292,45 @@
   return sec;
  }
 
+ /* The login page carries the combined page: the order search on top and the
+    native Shoptet sign-in form right below it, on both desktop and mobile. */
+ function onLoginPage(){
+  var b=document.body;
+  if(b&&/(^|\s)in-login(\s|$)/.test(b.className))return true;
+  return !!document.querySelector('#formLogin,form[action*="/Customer/Login/"]');
+ }
+ function mountLoginCombo(){
+  var inner=document.querySelector('#content .content-inner');
+  var host=inner?inner.parentNode:(document.querySelector('#content')||document.body);
+  if(!host)return false;
+  /* Only the search card – the real Shoptet sign-in form stays as the page's own
+     content directly beneath it. */
+  host.insertBefore(buildLookup(),inner||host.firstChild);
+  document.documentElement.classList.add('okla-os-login-combo');
+  return true;
+ }
+
  function mount(){
   if(document.querySelector('.okla-order-status'))return true;
   var target=document.querySelector('[data-okla-order-status]');
+  if(target){target.appendChild(build(getOrder()));return true}
+
   var onPage=/^\/stav-objednavky(\/|$)/.test(location.pathname);
-  if(!target&&!onPage)return false;
-  var host=target||document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
-  var node=build(getOrder());
-  if(target){
-   target.appendChild(node);
-  }else{
-   /* On the dedicated page we take over the content area so nothing Shoptet
-      rendered (e.g. its 404 when the CMS page is missing) shows behind us. */
+  if(onPage){
+   var order=getOrder();
+   /* A specific order (from the e-mail deep link or the account page) shows the
+      timeline here. With nothing to show, the combined search + sign-in page is
+      the login page, so send the visitor there instead of a bare lookup. */
+   if(order.needsLookup){location.replace('/login/');return true}
+   var host=document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
    document.documentElement.classList.add('okla-os-takeover');
-   host.insertBefore(node,host.firstChild);
+   host.insertBefore(build(order),host.firstChild);
    document.title='Stav objednávky';
+   return true;
   }
-  return true;
+
+  if(onLoginPage())return mountLoginCombo();
+  return false;
  }
 
  if(!mount()){

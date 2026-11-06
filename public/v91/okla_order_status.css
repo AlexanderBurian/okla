@@ -196,22 +196,13 @@ html body .okla-os-card--open .okla-os-lookup__err{text-align:center}
   html body .okla-os-card--open .okla-os-lookup__icon{margin-top:0}
 }
 
-/* Bigger parcel, no tile background, and an occasional playful hop. */
+/* Bigger parcel, no tile background, static (no hop animation). */
 html body .okla-os-card--open .okla-os-lookup__icon{
   width:auto!important;height:auto!important;border-radius:0!important;
   background:transparent!important;border:0!important;box-shadow:none!important;
   margin:2px auto 16px!important;
-  animation:okla-os-hop 3.6s ease-in-out infinite;transform-origin:center bottom;
 }
 html body .okla-os-card--open .okla-os-lookup__icon svg{width:104px!important;height:104px!important;filter:drop-shadow(0 8px 14px rgba(120,80,30,.18))}
-@keyframes okla-os-hop{
-  0%,66%,100%{transform:translateY(0)}
-  74%{transform:translateY(-14px)}
-  82%{transform:translateY(0)}
-  88%{transform:translateY(-6px)}
-  94%{transform:translateY(0)}
-}
-@media(prefers-reduced-motion:reduce){html body .okla-os-card--open .okla-os-lookup__icon{animation:none}}
 
 /* Align the open lookup to the left (icon, intro and form). */
 html body .okla-os-card--open .okla-os-lookup{text-align:left}
@@ -233,4 +224,49 @@ html body .okla-os-card--open .okla-os-lookup__icon{width:fit-content!important}
   html body .okla-os-card--open .okla-os-lookup__btn{width:100%!important}
   html body .okla-os-card--open .okla-os-lookup__icon svg{width:84px!important;height:84px!important}
   html body .okla-os-card--open .okla-os-lookup__intro{font-size:14px}
+}
+
+/* ===== Combined page: order search on top + the native sign-in form below =====
+   Shown on /login/ (the page a customer reaches from "Přihlášení" or /objednavky/).
+   The search is our own card; the Shoptet login card is the page's own content. */
+html.okla-os-login-combo #content .okla-order-status{
+  box-sizing:border-box;max-width:480px;margin:32px auto 0;padding:0;
+}
+html.okla-os-login-combo #content .content-inner{margin-top:18px!important}
+html.okla-os-login-combo .okla-order-status .okla-os-title{
+  text-align:center;font-family:"Exo 2",Roboto,sans-serif;font-size:26px;font-weight:700;margin:0 0 18px;
+}
+html.okla-os-login-combo .okla-os-card--open{
+  background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;
+  box-shadow:none!important;padding:28px 32px!important;text-align:center!important;
+}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup{text-align:center!important;max-width:none}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__icon{margin:0 auto 14px!important;width:-moz-fit-content!important;width:fit-content!important}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__icon svg{width:64px!important;height:64px!important}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__intro{margin:0 0 20px!important;font-size:14px;text-align:center}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__form{flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;max-width:none!important;gap:14px!important;margin:0!important}
+html.okla-os-login-combo .okla-os-card--open .okla-os-field{flex:0 0 auto!important;width:100%!important;text-align:left!important}
+html.okla-os-login-combo .okla-os-card--open .okla-os-field input{width:100%!important}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__btn{width:100%!important;height:52px!important;text-transform:uppercase;letter-spacing:.03em}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__err{text-align:center!important}
+@media(max-width:767px){
+  html.okla-os-login-combo #content .okla-order-status{max-width:none;margin:16px 16px 0}
+  html.okla-os-login-combo .okla-os-card--open{padding:24px 20px!important}
+}
+
+/* Desktop parity for the "previous orders" sign-in card on the timeline view
+   (mobile styling lives in okla_mobile_policies.css). */
+@media(min-width:768px){
+  html body .okla-order-status .okla-os-history-login{
+    display:block!important;box-sizing:border-box;max-width:560px;margin:22px auto 0;
+    padding:22px 24px;border:1px solid #e2eaf5;border-radius:14px;background:#f9fbfe;text-align:center;
+  }
+  html body .okla-order-status .okla-os-history-title{margin:0 0 7px;font:750 18px/1.3 "Exo 2",Roboto,sans-serif;color:#102a54}
+  html body .okla-order-status .okla-os-history-text{margin:0 0 16px;font:400 14px/1.55 Roboto,Arial,sans-serif;color:#56657a}
+  html body .okla-order-status .okla-os-history-button{
+    display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:10px 24px;
+    border:1px solid #2c5f9e;border-radius:10px;background:#fff;color:#2c5f9e;text-decoration:none;
+    font:700 14px/1.3 Roboto,Arial,sans-serif;
+  }
+  html body .okla-order-status .okla-os-history-button:hover{background:#eaf1f8}
 }
