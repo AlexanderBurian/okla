@@ -412,3 +412,26 @@
   max-height:255px!important;
  }
 }
+
+
+/* OKLA V119 — desktop hand finishes exactly at the purple banner's bottom.
+   Restore the original footer's asymmetric clipping: top bleed allowed,
+   bottom bleed forbidden. The image is moved down by the banner's existing
+   bottom padding, so it meets the lower edge without changing text columns,
+   translations, mobile or the original asset. */
+@media (min-width:768px) {
+ html body #okla-footer-shell #okla-footer-content #okla-footer-promo {
+   overflow:visible!important;
+   clip-path:inset(-130px -40px 0 -40px)!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img {
+   align-self:end!important;
+   margin:0!important;
+   transform:translateY(25px)!important;
+ }
+}
+@media (min-width:768px) and (max-width:1100px) {
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img {
+   transform:translateY(26px)!important;
+ }
+}
