@@ -1,378 +1,282 @@
-/* OKLA V114 — mobile-only vertical footer promo.
-   Desktop promo, copy, links and artwork are preserved. The original 1200px
-   scaled banner is deliberately overridden only at mobile breakpoints. */
+/* OKLA V117 – restored, compact MOBILE footer banner.
+   One responsive layout, no stacked V114/V115/V116 overrides.
+   Original footer, its real product illustration, links and desktop unchanged. */
 .okla-promo-mobile-mail{display:none}
-@media(max-width:767px){
-  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-    position:relative!important;
-    display:block!important;
-    float:none!important;
-    width:calc(100% + 12px)!important;
-    max-width:calc(100% + 12px)!important;
-    min-width:0!important;
-    height:510px!important;
-    min-height:510px!important;
-    max-height:none!important;
-    margin:0 0 54px -6px!important;
-    padding:26px 22px!important;
-    gap:0!important;
-    zoom:1!important;
-    transform:none!important;
-    border:0!important;
-    border-radius:18px!important;
-    box-sizing:border-box!important;
-    clip-path:none!important;
-    overflow:hidden!important;
-    isolation:isolate!important;
-    background:linear-gradient(145deg,#214791 0%,#343f99 48%,#7846a9 100%)!important;
-    color:#fff!important;
-    box-shadow:0 5px 16px rgba(33,49,107,.09)!important;
-  }
-  /* Top-left: descriptive copy and the genuine newsroom CTA. */
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-text{
-    position:relative!important;
-    z-index:4!important;
-    display:block!important;
-    width:100%!important;
-    max-width:100%!important;
-    min-width:0!important;
-    height:auto!important;
-    margin:0!important;
-    padding:0!important;
-    text-align:left!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-title{
-    margin:0 0 12px!important;
-    padding:0!important;
-    max-width:310px!important;
-    color:#fff!important;
-    font:800 clamp(22px,6.3vw,27px)/1.22 Roboto,Arial,sans-serif!important;
-    letter-spacing:-.35px!important;
-    text-wrap:balance!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-text>p{
-    max-width:310px!important;
-    margin:0 0 18px!important;
-    padding:0!important;
-    font:400 13px/1.55 Roboto,Arial,sans-serif!important;
-    color:#eef1ff!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-btn{
-    display:inline-flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    gap:8px!important;
-    width:max-content!important;
-    max-width:100%!important;
-    height:43px!important;
-    min-height:43px!important;
-    padding:0 16px!important;
-    margin:0!important;
-    border:0!important;
-    border-radius:9px!important;
-    box-sizing:border-box!important;
-    background:#eef4ff!important;
-    color:#224895!important;
-    font:700 13px/1.2 Roboto,Arial,sans-serif!important;
-    white-space:nowrap!important;
-    text-decoration:none!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-btn svg{
-    flex:0 0 16px!important;width:16px!important;height:16px!important;
-  }
-  /* Existing cut-out product illustration anchored to the lower-right,
-     just like the phone/hand image in the mobile reference. */
-  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-    position:absolute!important;
-    z-index:1!important;
-    display:block!important;
-    top:auto!important;
-    left:auto!important;
-    right:-22px!important;
-    bottom:-10px!important;
-    order:0!important;
-    width:auto!important;
-    height:290px!important;
-    max-width:70%!important;
-    max-height:59%!important;
-    margin:0!important;
-    padding:0!important;
-    align-self:auto!important;
-    justify-self:auto!important;
-    object-fit:contain!important;
-    object-position:right bottom!important;
-    transform:none!important;
-    filter:none!important;
-    pointer-events:none!important;
-  }
-  /* Supporting CTA stays on the left underneath the main copy; the existing
-     support mailto link becomes a tappable button instead of a QR on a phone. */
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-    position:absolute!important;
-    z-index:3!important;
-    top:auto!important;
-    right:auto!important;
-    bottom:24px!important;
-    left:22px!important;
-    order:0!important;
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:flex-start!important;
-    justify-content:flex-end!important;
-    justify-self:auto!important;
-    flex-wrap:nowrap!important;
-    width:48%!important;
-    min-width:0!important;
-    max-width:210px!important;
-    margin:0!important;
-    padding:0!important;
-    gap:12px!important;
-    text-align:left!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text{
-    display:block!important;
-    flex:0 1 auto!important;
-    max-width:100%!important;
-    width:100%!important;
-    margin:0!important;
-    padding:0!important;
-    text-align:left!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title{
-    margin:0 0 7px!important;
-    font:750 14px/1.26 Roboto,Arial,sans-serif!important;
-    text-align:left!important;
-    color:#fff!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text p{
-    margin:0!important;
-    font:400 11.5px/1.48 Roboto,Arial,sans-serif!important;
-    color:#e5ebff!important;
-    text-align:left!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-qrcol{
-    display:flex!important;
-    align-items:flex-start!important;
-    flex:none!important;
-    width:100%!important;
-    max-width:100%!important;
-    gap:0!important;
-    margin:0!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-qr,
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-caption{
-    display:none!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-mobile-mail{
-    display:inline-flex!important;
-    align-items:center!important;
-    justify-content:center!important;
-    min-height:42px!important;
-    max-width:100%!important;
-    padding:0 12px!important;
-    margin:0!important;
-    box-sizing:border-box!important;
-    border:1px solid rgba(255,255,255,.45)!important;
-    border-radius:9px!important;
-    background:#fff!important;
-    color:#244391!important;
-    text-align:center!important;
-    text-decoration:none!important;
-    font:700 12.5px/1.25 Roboto,Arial,sans-serif!important;
-    white-space:normal!important;
-    -webkit-tap-highlight-color:transparent!important;
-  }
-}
-@media(max-width:360px){
- html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-   height:545px!important;min-height:545px!important;
-   padding:23px 19px!important;
- }
- html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-   left:19px!important;bottom:22px!important;width:49%!important;
- }
- html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-   right:-30px!important;height:270px!important;max-width:69%!important;
- }
-}
-@media(min-width:541px) and (max-width:767px){
- html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-   height:525px!important;min-height:525px!important;
-   padding:29px 27px!important;
- }
- html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-   left:27px!important;bottom:26px!important;
- }
- html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-   height:350px!important;max-width:65%!important;
- }
-}
 
-/* OKLA V115 — mobile: separate the lower support copy from the hand/phone.
-   Both elements now occupy non-overlapping horizontal columns; the photo
-   remains anchored at bottom-right and the original text/buttons are intact. */
 @media(max-width:767px){
  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-   height:530px!important;
-   min-height:530px!important;
- }
- html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-   left:22px!important;
-   right:auto!important;
-   bottom:30px!important;
-   width:calc(50% - 35px)!important;
-   max-width:160px!important;
+   position:relative!important;
+   display:block!important;
+   float:none!important;
+   width:calc(100% + 12px)!important;
+   max-width:calc(100% + 12px)!important;
    min-width:0!important;
-   z-index:4!important;
+   height:395px!important;
+   min-height:395px!important;
+   max-height:none!important;
+   margin:0 0 48px -6px!important;
+   padding:20px 20px 18px!important;
+   gap:0!important;
+   zoom:1!important;
+   transform:none!important;
+   border:0!important;
+   border-radius:17px!important;
+   box-sizing:border-box!important;
+   clip-path:none!important;
+   overflow:hidden!important;
+   isolation:isolate!important;
+   background:linear-gradient(145deg,#214791 0%,#343f99 48%,#7846a9 100%)!important;
+   color:#fff!important;
+   box-shadow:0 5px 16px rgba(33,49,107,.09)!important;
  }
- html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-   top:auto!important;
-   left:auto!important;
-   right:-8px!important;
-   bottom:2px!important;
-   width:49%!important;
-   max-width:205px!important;
+ /* The top content remains full-width; no invisible overlay or old flex order. */
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-text{
+   position:relative!important;
+   z-index:4!important;
+   display:block!important;
+   width:100%!important;
+   max-width:100%!important;
    min-width:0!important;
    height:auto!important;
-   max-height:270px!important;
+   margin:0!important;
+   padding:0!important;
+   order:0!important;
+   opacity:1!important;
+   visibility:visible!important;
+   text-align:left!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-title{
+   display:block!important;
+   width:auto!important;
+   max-width:100%!important;
+   margin:0 0 9px!important;
+   color:#fff!important;
+   font:800 clamp(20px,5.7vw,24px)/1.22 Roboto,Arial,sans-serif!important;
+   letter-spacing:-.35px!important;
+   text-align:left!important;
+   text-wrap:balance!important;
+   opacity:1!important;
+   visibility:visible!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-text>p{
+   display:block!important;
+   max-width:100%!important;
+   margin:0 0 14px!important;
+   font:400 12.5px/1.5 Roboto,Arial,sans-serif!important;
+   color:#eef1ff!important;
+   opacity:1!important;
+   visibility:visible!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-btn{
+   display:inline-flex!important;
+   align-items:center!important;
+   justify-content:center!important;
+   gap:8px!important;
+   position:relative!important;
+   z-index:5!important;
+   width:max-content!important;
+   max-width:100%!important;
+   height:40px!important;
+   min-height:40px!important;
+   padding:0 14px!important;
+   margin:0!important;
+   border:0!important;
+   border-radius:9px!important;
+   box-sizing:border-box!important;
+   background:#eef4ff!important;
+   color:#224895!important;
+   font:700 12.5px/1.2 Roboto,Arial,sans-serif!important;
+   text-decoration:none!important;
+   white-space:nowrap!important;
+   opacity:1!important;
+   visibility:visible!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-btn svg{
+   display:block!important;
+   flex:0 0 16px!important;
+   width:16px!important;
+   height:16px!important;
+ }
+ /* Restore the ORIGINAL hand + phone image as a real, independently sized
+    element: do not size by height:auto plus a percentage max-width.
+    This avoids the earlier tiny or effectively invisible rendering. */
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+   position:absolute!important;
+   display:block!important;
+   top:auto!important;
+   left:auto!important;
+   right:-6px!important;
+   bottom:0!important;
+   z-index:2!important;
+   order:0!important;
+   width:48%!important;
+   min-width:0!important;
+   max-width:48%!important;
+   height:230px!important;
+   min-height:230px!important;
+   max-height:230px!important;
+   margin:0!important;
+   padding:0!important;
+   align-self:auto!important;
+   justify-self:auto!important;
    object-fit:contain!important;
    object-position:right bottom!important;
-   z-index:2!important;
+   opacity:1!important;
+   visibility:visible!important;
+   transform:none!important;
+   filter:none!important;
+   pointer-events:none!important;
  }
- html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title,
- html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text p{
+ /* Dedicated left column – no part of the hand or phone occupies this column. */
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+   position:absolute!important;
+   display:flex!important;
+   flex-direction:column!important;
+   align-items:flex-start!important;
+   justify-content:flex-end!important;
+   flex-wrap:nowrap!important;
+   top:auto!important;
+   right:auto!important;
+   left:20px!important;
+   bottom:20px!important;
+   z-index:4!important;
+   width:calc(50% - 31px)!important;
+   min-width:0!important;
+   max-width:none!important;
+   height:auto!important;
+   margin:0!important;
+   padding:0!important;
+   gap:10px!important;
+   order:0!important;
+   text-align:left!important;
+   opacity:1!important;
+   visibility:visible!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text{
+   position:relative!important;
+   display:block!important;
+   width:100%!important;
+   min-width:0!important;
+   max-width:100%!important;
+   height:auto!important;
+   margin:0!important;
+   padding:0!important;
+   order:0!important;
+   text-align:left!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title{
+   display:block!important;
+   width:100%!important;
+   max-width:100%!important;
+   margin:0 0 6px!important;
+   padding:0!important;
+   color:#fff!important;
+   font:750 12.5px/1.32 Roboto,Arial,sans-serif!important;
+   text-align:left!important;
+   overflow-wrap:normal!important;
+   word-break:normal!important;
+   opacity:1!important;
+   visibility:visible!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text>p{
+   display:block!important;
+   margin:0!important;
+   padding:0!important;
+   font:400 10.5px/1.42 Roboto,Arial,sans-serif!important;
+   color:#e5ebff!important;
+   text-align:left!important;
    overflow-wrap:break-word!important;
    word-break:normal!important;
+   opacity:1!important;
+   visibility:visible!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-qrcol{
+   display:flex!important;
+   align-items:flex-start!important;
+   width:100%!important;
+   max-width:100%!important;
+   min-width:0!important;
+   flex:none!important;
+   gap:0!important;
+   margin:0!important;
+   padding:0!important;
+ }
+ /* A phone cannot scan the QR on its own display; preserve QR for desktop. */
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-qr,
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-caption{
+   display:none!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-mobile-mail{
+   display:inline-flex!important;
+   align-items:center!important;
+   justify-content:center!important;
+   width:auto!important;
+   min-width:0!important;
+   max-width:100%!important;
+   height:38px!important;
+   min-height:38px!important;
+   padding:0 10px!important;
+   margin:0!important;
+   box-sizing:border-box!important;
+   border:1px solid rgba(255,255,255,.45)!important;
+   border-radius:9px!important;
+   background:#fff!important;
+   color:#244391!important;
+   font:700 11px/1.25 Roboto,Arial,sans-serif!important;
+   text-align:center!important;
+   text-decoration:none!important;
+   white-space:normal!important;
+   opacity:1!important;
+   visibility:visible!important;
+   -webkit-tap-highlight-color:transparent!important;
  }
 }
 @media(max-width:360px){
  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-   height:560px!important;
-   min-height:560px!important;
+   height:425px!important;
+   min-height:425px!important;
+   padding:18px!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-title{
+   font-size:20px!important;
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-   left:19px!important;
-   bottom:22px!important;
-   width:calc(50% - 34px)!important;
+   left:18px!important;
+   bottom:18px!important;
+   width:calc(50% - 29px)!important;
  }
  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-   right:-6px!important;
-   width:48%!important;
-   max-height:245px!important;
+   right:-9px!important;
+   width:47%!important;
+   max-width:47%!important;
+   height:225px!important;
+   min-height:225px!important;
+   max-height:225px!important;
  }
 }
 @media(min-width:541px) and (max-width:767px){
  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-   height:525px!important;
-   min-height:525px!important;
+   height:410px!important;
+   min-height:410px!important;
+   padding:25px 26px!important;
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-   left:27px!important;
-   width:calc(50% - 45px)!important;
-   max-width:240px!important;
-   bottom:29px!important;
+   left:26px!important;
+   bottom:24px!important;
+   width:calc(50% - 37px)!important;
  }
  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-   width:43%!important;
-   max-width:300px!important;
-   max-height:315px!important;
-   right:-10px!important;
+   right:-7px!important;
+   width:45%!important;
+   max-width:45%!important;
+   height:275px!important;
+   min-height:275px!important;
+   max-height:275px!important;
  }
-}
-
-/* OKLA V116 — Alza-like COMPACT mobile promotion.
-   Removes excessive dead space; prevents image/CTA collisions by keeping
-   support copy short on phones and reserving a clear illustration column. */
-@media(max-width:767px){
-  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-    height:340px!important;
-    min-height:340px!important;
-    max-height:340px!important;
-    padding:18px 19px 16px!important;
-    margin-bottom:46px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-title{
-    font-size:clamp(19px,5.4vw,23px)!important;
-    line-height:1.18!important;
-    margin-bottom:9px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-text>p{
-    font-size:12px!important;
-    line-height:1.46!important;
-    margin-bottom:13px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-btn{
-    height:39px!important;
-    min-height:39px!important;
-    font-size:12px!important;
-    padding:0 14px!important;
-  }
-  /* Mobile support section: avoid repeating an entire explanatory paragraph
-     inside a compact graphic. The heading and email action remain visible. */
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text p{
-    display:none!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-    left:19px!important;
-    bottom:21px!important;
-    width:calc(50% - 27px)!important;
-    max-width:178px!important;
-    gap:11px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title{
-    margin:0!important;
-    font-size:13px!important;
-    line-height:1.3!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-mobile-mail{
-    min-height:39px!important;
-    font-size:11.5px!important;
-    padding:0 9px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-    right:-11px!important;
-    bottom:0!important;
-    width:43%!important;
-    max-width:180px!important;
-    max-height:210px!important;
-    height:auto!important;
-    object-fit:contain!important;
-    object-position:right bottom!important;
-  }
-}
-@media(max-width:360px){
-  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-    height:365px!important;
-    min-height:365px!important;
-    max-height:365px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-    left:19px!important;
-    bottom:20px!important;
-    width:calc(50% - 24px)!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-    width:42%!important;
-    max-height:195px!important;
-    right:-11px!important;
-  }
-}
-@media(min-width:541px) and (max-width:767px){
-  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-    height:350px!important;
-    min-height:350px!important;
-    max-height:350px!important;
-    padding:23px 25px!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-    left:25px!important;
-    bottom:22px!important;
-    max-width:225px!important;
-    width:45%!important;
-  }
-  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-    right:-8px!important;
-    width:40%!important;
-    max-height:225px!important;
-  }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title{
+   font-size:14px!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text>p{
+   font-size:11.5px!important;
+ }
 }
