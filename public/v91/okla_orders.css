@@ -94,8 +94,8 @@ html body .okla-ord-modal__box{
   box-shadow:0 20px 50px rgba(6,29,58,.3);animation:okla-ord-pop .18s ease;font-family:Roboto,Arial,sans-serif;
 }
 @keyframes okla-ord-pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
-html body .okla-ord-modal__ic{width:60px;height:60px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:#fdeaec;color:#e0112b}
-html body .okla-ord-modal__ic svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+html body .okla-ord-modal__ic{width:auto;height:auto;margin:0 auto 14px;display:grid;place-items:center;background:none;color:#e0112b}
+html body .okla-ord-modal__ic svg{width:44px;height:44px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 html body .okla-ord-modal__title{margin:0 0 9px;font:700 20px/1.2 "Exo 2",Roboto,Arial,sans-serif;color:#0b2540}
 html body .okla-ord-modal__text{margin:0 0 22px;font:400 14px/1.55 Roboto,Arial,sans-serif;color:#56657a}
 html body .okla-ord-modal__text b{color:#0b2540}
