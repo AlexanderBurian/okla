@@ -63,6 +63,31 @@ html.okla-acc-polished body .okla-acc-shell__main > #content,
 html.okla-acc-polished body .okla-acc-shell__main #content > .content-inner{
   border-left:0!important;border-right:0!important;
 }
+/* ============ ROOT CAUSE of the double line (proven) ============
+   1) legacy/v53/zapati_firsthalf.js: `#content-wrapper aside.sidebar.sidebar-left
+      {border-right:1px solid #d4dce6!important}` – specificity (1,2,1).
+   2) okla_sidebar.css: `html body #content-wrapper aside.sidebar.sidebar-left
+      {width/max-width/flex:250.75px!important}` – specificity (1,2,3), ≥992px.
+   V125 squeezes that sidebar into a 220px grid column with class-only rules
+   (0,3,2), which lose to both. The sidebar overflowed by ~31px and its legacy
+   border became a second line ~30px right of the V125 separator.
+   Fix with ID-level selectors: no legacy border, and a column as wide as the real
+   sidebar so the single V125 separator sits on its edge (menu keeps its width). */
+html.okla-acc-polished body #content-wrapper .okla-acc-shell > .okla-acc-shell__nav,
+html.okla-acc-polished body #content-wrapper .okla-acc-shell > aside.sidebar.sidebar-left.okla-acc-shell__nav{
+  border-right:0!important;border-left:0!important;box-shadow:none!important;background:#fff!important;
+}
+@media(min-width:992px){
+  html.okla-acc-polished body #content-wrapper .okla-acc-shell,
+  html.okla-acc-polished body #content-wrapper.okla-acc-shell{
+    --okla-acc-nav-width:251px;
+    grid-template-columns:251px minmax(0,1fr)!important;
+  }
+  html.okla-acc-polished body #content-wrapper .okla-acc-shell > aside.sidebar.sidebar-left.okla-acc-shell__nav{
+    flex:none!important;width:100%!important;max-width:100%!important;min-width:0!important;
+  }
+}
+
 /* ============ MOBILE: menu button + category-style drawer ============ */
 /* Both live only on phones. Without this base rule the drawer (appended to <body>)
    rendered on desktop as an unstyled block BELOW the footer – the blue strip. */
@@ -71,7 +96,8 @@ html body #okla-acc-pop{display:none}
 
 @media(max-width:767px){
   /* Hide the inline sidebar column; the drawer takes over. */
-  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{display:none!important}
+  html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav,
+  html.okla-acc-polished body #content-wrapper .okla-acc-shell > .okla-acc-shell__nav{display:none!important}
 
   /* The menu button at the top of the account content. */
   html body .okla-acc-trigger{
