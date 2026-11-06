@@ -46,6 +46,33 @@
   html.okla-acc-polished body .okla-acc-nav{justify-content:center!important}
 }
 
+/* ============ Kill the legacy (v53) sidebar divider — the "double line" ============
+   legacy/v53/zapati_firsthalf.js styles `.sidebar.sidebar-left{border-right:1px}`
+   and injects #okla-sidebar-vertical / -horizontal. Next to the V125 separator that
+   becomes a second vertical line in the client centre. Remove any such border/line
+   inside the account area so only the single V125 separator remains. */
+html.okla-acc-center #okla-sidebar-vertical,
+html.okla-acc-center #okla-sidebar-horizontal,
+html.okla-acc-center #okla-sidebar-top-white{display:none!important}
+html.okla-acc-center body .sidebar.sidebar-left,
+html.okla-acc-center body .sidebar-left{border-right:0!important;border-left:0!important;background:transparent!important}
+html.okla-acc-polished body .okla-acc-shell__nav,
+html.okla-acc-polished body .okla-acc-shell__nav *:not(svg):not(path),
+html.okla-acc-polished body .okla-acc-shell__main,
+html.okla-acc-polished body .okla-acc-shell__main > #content,
+html.okla-acc-polished body .okla-acc-shell__main #content > .content-inner{
+  border-left:0!important;border-right:0!important;
+}
+
+/* ============ Footer: white continues to the bottom (desktop) ============
+   V125 fills the account page with a blue colour below its 950px gradient, so a
+   blue strip shows under the footer. Keep the gradient wash at the top but let the
+   fallback be white, so the area below the footer stays white down to the edge. */
+@media(min-width:768px){
+  html.okla-acc-center,
+  html.okla-acc-center body{background-color:#fff!important}
+}
+
 /* ============ MOBILE: menu button + category-style drawer ============ */
 html body .okla-acc-trigger{display:none}
 
