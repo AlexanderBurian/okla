@@ -63,14 +63,22 @@ html.okla-acc-polished body .okla-acc-shell__main > #content,
 html.okla-acc-polished body .okla-acc-shell__main #content > .content-inner{
   border-left:0!important;border-right:0!important;
 }
-
-/* ============ Footer: white continues to the bottom (desktop) ============
-   V125 fills the account page with a blue colour below its 950px gradient, so a
-   blue strip shows under the footer. Keep the gradient wash at the top but let the
-   fallback be white, so the area below the footer stays white down to the edge. */
+/* Belt-and-suspenders: widen V125's white seam mask to the FULL height and ~52px,
+   so whatever still draws a second line at the seam (old code we cannot pin down
+   blindly) is painted over, leaving only the single V125 separator line. V125's
+   own rule is #content-wrapper.okla-acc-shell::before (has an ID), so we must
+   match that specificity and load later (this file does) to win. */
 @media(min-width:768px){
-  html.okla-acc-center,
-  html.okla-acc-center body{background-color:#fff!important}
+  html.okla-acc-polished body #content-wrapper.okla-acc-shell::before,
+  html.okla-acc-polished body #content-wrapper .okla-acc-shell::before{
+    top:0!important;bottom:0!important;
+    left:calc(var(--okla-acc-pad,26px) + var(--okla-acc-nav-width,220px) - 26px)!important;
+    width:52px!important;background:#fff!important;z-index:2!important;
+  }
+  html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
+  html.okla-acc-polished body #content-wrapper .okla-acc-shell::after{
+    top:0!important;bottom:0!important;z-index:3!important;
+  }
 }
 
 /* ============ MOBILE: menu button + category-style drawer ============ */
