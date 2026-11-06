@@ -6,7 +6,7 @@
 html body .oka-contact{
   width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
   overflow-x:hidden;
-  font-family:'Exo 2','Roboto',Arial,sans-serif;
+  font-family:'Exo 2',Arial,sans-serif;
   color:#1a2330;background:#fff;
   --b:#16478B;--bd:#0e2f66;--mut:#5a6676;--line:#e3e7ee;--grey:#f2f4f7;
 }

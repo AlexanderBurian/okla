@@ -6,7 +6,7 @@ html body .breadcrumbs::before{content:none!important;display:none!important}
  html body .breadcrumbs [itemprop="itemListElement"]{display:inline-flex!important;align-items:center!important;gap:0!important;min-height:22px!important;width:auto!important;margin:0!important;padding:0!important;float:none!important;background:none!important}
  html body .breadcrumbs [itemprop="itemListElement"]::before,html body .breadcrumbs [itemprop="itemListElement"]::after{display:none!important;content:none!important}
  html body .breadcrumbs .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
- html body .breadcrumbs a:not(.navigation-home-icon){color:#2C5F9E!important;text-decoration:none!important;font:400 12px/1.45 Roboto,Arial,sans-serif!important}
+ html body .breadcrumbs a:not(.navigation-home-icon){color:#2C5F9E!important;text-decoration:none!important;font:400 12px/1.45 Exo 2,Arial,sans-serif!important}
  html body .breadcrumbs a:not(.navigation-home-icon):hover{text-decoration:underline!important}
  html body .breadcrumbs #navigation-first a.navigation-home-icon{display:inline-flex!important;align-items:center!important;justify-content:center!important;position:static!important;width:20px!important;height:22px!important;margin:0!important;padding:0!important;float:none!important;text-indent:0!important;background:none!important;background-image:none!important;box-shadow:none!important;border:0!important;transform:none!important}
  html body .breadcrumbs #navigation-first a.navigation-home-icon::before,html body .breadcrumbs #navigation-first a.navigation-home-icon::after{content:none!important;display:none!important;background:none!important;border:0!important;box-shadow:none!important}
@@ -14,15 +14,15 @@ html body .breadcrumbs::before{content:none!important;display:none!important}
  html body .breadcrumbs #navigation-first a.navigation-home-icon svg.ok91-home-icon{display:block!important;width:16px!important;height:16px!important;min-width:16px!important;max-width:16px!important;fill:none!important;stroke:#2C5F9E!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
  html body .breadcrumbs .navigation-bullet{display:inline-flex!important;align-items:center!important;justify-content:center!important;position:static!important;vertical-align:middle!important;float:none!important;flex:0 0 12px!important;min-width:12px!important;max-width:12px!important;width:12px!important;height:18px!important;min-height:0!important;max-height:18px!important;margin:0 7px!important;padding:0!important;background:none!important;background-image:none!important;border:0!important;box-shadow:none!important;clip-path:none!important;transform:none!important;overflow:visible!important;text-indent:0!important;font-size:0!important;line-height:1!important;color:transparent!important}
  html body .breadcrumbs .navigation-bullet::before,html body .breadcrumbs .navigation-bullet::after{display:none!important;content:none!important;border:0!important;background:none!important;box-shadow:none!important;transform:none!important}
- html body .breadcrumbs .navigation-bullet .ok91-chevron{display:inline-block!important;position:static!important;line-height:1!important;font:400 13px/1 Roboto,Arial,sans-serif!important;letter-spacing:0!important;color:#A6ADB6!important;transform:none!important}
- html body .breadcrumbs [data-testid="breadcrumbsLastLevel"] [itemprop="name"]{color:#777!important;font:400 12px/1.45 Roboto,Arial,sans-serif!important}
+ html body .breadcrumbs .navigation-bullet .ok91-chevron{display:inline-block!important;position:static!important;line-height:1!important;font:400 13px/1 Exo 2,Arial,sans-serif!important;letter-spacing:0!important;color:#A6ADB6!important;transform:none!important}
+ html body .breadcrumbs [data-testid="breadcrumbsLastLevel"] [itemprop="name"]{color:#777!important;font:400 12px/1.45 Exo 2,Arial,sans-serif!important}
  @media(max-width:375px){html body .breadcrumbs .navigation-bullet{margin:0 4px!important}}
  
 /* Native or legacy second-home icon decoration is never displayed. */
 html body .breadcrumbs #navigation-first a.navigation-home-icon :is(i,img,.okla-home-icon,.navigation-home-icon)::before{display:none!important;content:none!important}
 html body .breadcrumbs #navigation-first a.navigation-home-icon :is(i,img,.okla-home-icon){display:none!important}
 html body .breadcrumbs .navigation-bullet{flex-basis:9px!important;min-width:9px!important;max-width:9px!important;margin:0 5px!important}
-html body .breadcrumbs .navigation-bullet .ok91-chevron{font:400 12px/1 Roboto,Arial,sans-serif!important}
+html body .breadcrumbs .navigation-bullet .ok91-chevron{font:400 12px/1 Exo 2,Arial,sans-serif!important}
 html body .breadcrumbs #navigation-first :is(svg,i,img):not(.ok91-home-icon){display:none!important}
 /* Header on every page, desktop only: piktogramy share one baseline (cart glyph was 8px higher);
    Shoptet's menu-helper hamburger is hidden on desktop. Mobile keeps its menu. */
@@ -60,7 +60,7 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-
 
 /* Drobečková navigace: stejný vzhled na všech stránkách (jako na produktu): řádek 40 px, šedé odkazy 14 px. */
 html body .breadcrumbs.navigation-home-icon-wrapper,html body.ok89-detail .breadcrumbs.navigation-home-icon-wrapper{min-height:39px!important;padding:0!important;border-bottom:0!important}
-html body .breadcrumbs a:not(.navigation-home-icon),html body.ok89-detail .breadcrumbs a:not(.navigation-home-icon),html body .breadcrumbs [data-testid="breadcrumbsLastLevel"],html body .breadcrumbs [data-testid="breadcrumbsLastLevel"] [itemprop="name"]{color:#767676!important;font:400 14px/1.4 Roboto,Arial,sans-serif!important}
+html body .breadcrumbs a:not(.navigation-home-icon),html body.ok89-detail .breadcrumbs a:not(.navigation-home-icon),html body .breadcrumbs [data-testid="breadcrumbsLastLevel"],html body .breadcrumbs [data-testid="breadcrumbsLastLevel"] [itemprop="name"]{color:#767676!important;font:400 14px/1.4 Exo 2,Arial,sans-serif!important}
 
 /* Drobečková navigace: žádný pseudo-element ani tvar z Shoptetu nezůstane vidět (na článku se kreslil velký šíp).
    Oddělovač je vždy malé šedé „›“ z okla skriptu. */

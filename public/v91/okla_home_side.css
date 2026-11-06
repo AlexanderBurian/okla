@@ -1,7 +1,7 @@
 /* OKLA homepage side art: desktop only, in the page margins beside the white card, never over the content.
    The script shows it only where both margins are wide enough and hides it everywhere else.
    Sizes are percentages of the container width, so the art scales with the margin. */
-.okla-side-art{position:absolute;display:none;z-index:0;box-sizing:border-box;color:#0b2540;font-family:Roboto,Arial,sans-serif;pointer-events:none;user-select:none;container-type:inline-size}
+.okla-side-art{position:absolute;display:none;z-index:0;box-sizing:border-box;color:#0b2540;font-family:Exo 2,Arial,sans-serif;pointer-events:none;user-select:none;container-type:inline-size}
 .okla-side-art.is-on{display:block}
 .okla-side-art__img{display:block;width:100%;background-repeat:no-repeat;background-size:100% 100%}
 
