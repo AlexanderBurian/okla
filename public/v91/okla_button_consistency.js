@@ -1,12 +1,20 @@
-/* OKLA V126 – retain each button's resting colours on hover.
-   Shoptet and older modules use many unrelated hover fills; snapshotting the
-   final computed resting state lets the last CSS layer add only an outline. */
+/* OKLA V127 – retain each button's resting colours and classify its fill.
+   The last CSS layer can then darken filled actions very slightly and softly
+   tint empty actions without inheriting unrelated legacy hover colours. */
 (function(){
  'use strict';
- if(window.__oklaButtonConsistencyV126)return;
- window.__oklaButtonConsistencyV126=true;
+ if(window.__oklaButtonConsistencyV127)return;
+ window.__oklaButtonConsistencyV127=true;
 
  var selector='button,input[type="button"],input[type="submit"],input[type="reset"],.btn,a.btn,.button,a.button,[role="button"]';
+
+ function isFilled(value){
+  var numbers=(value.match(/[\d.]+/g)||[]).map(Number);
+  if(numbers.length<3)return false;
+  var alpha=numbers.length>3?numbers[3]:1;
+  if(alpha<.15)return false;
+  return !(numbers[0]>242&&numbers[1]>242&&numbers[2]>242);
+ }
 
  function remember(button,force){
   if(!button||button.nodeType!==1||!button.matches(selector))return;
@@ -16,6 +24,9 @@
   button.style.setProperty('--okla-button-rest-image',style.backgroundImage);
   button.style.setProperty('--okla-button-rest-border',style.borderColor);
   button.style.setProperty('--okla-button-rest-color',style.color);
+  var filled=isFilled(style.backgroundColor)||style.backgroundImage!=='none';
+  button.classList.toggle('okla-button--filled',filled);
+  button.classList.toggle('okla-button--empty',!filled);
   button.dataset.oklaButtonRest='1';
  }
 

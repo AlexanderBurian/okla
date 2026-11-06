@@ -1,10 +1,10 @@
-/* OKLA V126 – one button language across the storefront.
-   Every text/action button is rounded. Hover keeps the resting colours and
-   communicates interactivity with a clean outline instead of a new fill. */
+/* OKLA V127 – one button language across the storefront.
+   Every text/action button is rounded. Button hover never uses the blue field
+   outline: filled actions darken very slightly, empty actions get a soft tint. */
 
 :root{
   --okla-button-radius:10px;
-  --okla-button-outline:#168bd2;
+  --okla-field-outline:#168bd2;
 }
 
 html body :is(
@@ -37,12 +37,86 @@ html body :is(
     background-image:var(--okla-button-rest-image)!important;
     border-color:var(--okla-button-rest-border)!important;
     color:var(--okla-button-rest-color)!important;
-    outline:2px solid var(--okla-button-outline)!important;
-    outline-offset:2px!important;
+    outline:0!important;
+    outline-offset:0!important;
     box-shadow:none!important;
     filter:none!important;
     transform:none!important;
   }
+  html body :is(
+    button,input[type="button"],input[type="submit"],input[type="reset"],
+    .btn,a.btn,.button,a.button,[role="button"]
+  ).okla-button--filled:not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
+    filter:brightness(.96)!important;
+  }
+  html body :is(
+    button,input[type="button"],input[type="submit"],input[type="reset"],
+    .btn,a.btn,.button,a.button,[role="button"]
+  ).okla-button--empty:not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
+    background-color:#f6f9fd!important;
+    background-image:none!important;
+    filter:none!important;
+  }
+}
+
+/* Small opt-in controls in account/complaint forms use one circular outer
+   control and one perfectly centred circular selected state. */
+html.okla-acc-polished body #content input[type="checkbox"],
+html body .okla-rk__consent input[type="checkbox"]{
+  appearance:none!important;
+  -webkit-appearance:none!important;
+  position:relative!important;
+  display:inline-grid!important;
+  place-items:center!important;
+  float:none!important;
+  flex:0 0 18px!important;
+  width:18px!important;
+  min-width:18px!important;
+  max-width:18px!important;
+  height:18px!important;
+  min-height:18px!important;
+  max-height:18px!important;
+  margin:0 9px 0 0!important;
+  padding:0!important;
+  border:1.5px solid #aeb9c5!important;
+  border-radius:50%!important;
+  background:#fff!important;
+  box-shadow:none!important;
+  vertical-align:middle!important;
+  cursor:pointer!important;
+}
+html.okla-acc-polished body #content input[type="checkbox"]::before,
+html body .okla-rk__consent input[type="checkbox"]::before{
+  content:none!important;
+  display:none!important;
+}
+html.okla-acc-polished body #content input[type="checkbox"]::after,
+html body .okla-rk__consent input[type="checkbox"]::after{
+  content:""!important;
+  display:block!important;
+  position:static!important;
+  width:8px!important;
+  height:8px!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  background:#168bd2!important;
+  box-shadow:none!important;
+  transform:scale(0)!important;
+  transition:transform .12s ease!important;
+}
+html.okla-acc-polished body #content input[type="checkbox"]:checked,
+html body .okla-rk__consent input[type="checkbox"]:checked{
+  border-color:#168bd2!important;
+}
+html.okla-acc-polished body #content input[type="checkbox"]:checked::after,
+html body .okla-rk__consent input[type="checkbox"]:checked::after{
+  transform:scale(1)!important;
+}
+html.okla-acc-polished body #content input[type="checkbox"]:focus-visible,
+html body .okla-rk__consent input[type="checkbox"]:focus-visible{
+  outline:2px solid var(--okla-field-outline)!important;
+  outline-offset:2px!important;
 }
 
 /* Customer centre: preserve the normal OKLA colours on hover. */
@@ -58,9 +132,11 @@ html.okla-acc-polished body #content :is(.btn.btn-default,.btn.btn-secondary):is
   background:#fff!important;
   color:#087fc2!important;
 }
-html.okla-acc-polished body .okla-acc-nav__link:hover{
-  background:#fff!important;
+html.okla-acc-polished body :is(.okla-acc-nav__link,.okla-acc-nav__head):hover{
+  background:#f6f9fd!important;
   color:#193650!important;
+  outline:0!important;
+  box-shadow:none!important;
 }
 html body .okla-acc-confirm__cancel:is(:hover,:active,:focus){
   border-color:#cfd9e3!important;
@@ -74,7 +150,7 @@ html body .okla-acc-confirm__logout:is(:hover,:active,:focus){
 }
 
 /* Complaint/return form: remove Shoptet's stray radio dot and keep one exact
-   custom indicator. Radio cards use an outline on hover, never a hover fill. */
+   custom indicator. Radio cards are fields, so their field outline remains. */
 html body .okla-rk__choice input[type="radio"]::before,
 html body .okla-rk__choice input[type="radio"]::after{
   content:none!important;
@@ -82,7 +158,7 @@ html body .okla-rk__choice input[type="radio"]::after{
 }
 @media(hover:hover) and (pointer:fine){
   html body .okla-rk__choice label:hover{
-    outline:2px solid var(--okla-button-outline)!important;
+    outline:2px solid var(--okla-field-outline)!important;
     outline-offset:2px!important;
     background:#fff!important;
     box-shadow:none!important;
@@ -110,7 +186,7 @@ html body .okla-rk__done-links .is-ghost:is(:hover,:active,:focus){
   color:#0b2540!important;
 }
 
-/* Product-list buttons stay white on hover; the outline is the only new cue. */
+/* Product-list outline buttons use only a very light surface tint. */
 html body.type-index #content .okla-slider-track .p-tools .btn-cart:is(:hover,:active,:focus),
 html body.type-category #products .product .p-tools .btn-cart:is(:hover,:active,:focus),
 html body.type-search #products .product .p-tools .btn-cart:is(:hover,:active,:focus){
@@ -141,11 +217,10 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
   color:#fff!important;
 }
 
-/* Footer action keeps its white fill; hover is outline-only. */
+/* Footer action remains a white/very lightly tinted button. */
 html body #okla-footer-promo .okla-promo-btn:is(:hover,:active,:focus){
   background:#fff!important;
   color:#243e9b!important;
-  outline-color:#fff!important;
 }
 
 /* Desktop navbar: move the complete account action 15px to the right without
