@@ -134,6 +134,22 @@
   return s;
  }
 
+ function appendHistoryLogin(section){
+  // Tracking is public; order HISTORY requires Shoptet customer sign-in.
+  // This call-to-action is visible only on phones, styled by the mobile module.
+  if(!/^\/stav-objednavky(?:\/|$)/.test(location.pathname))return;
+  var card=el('section','okla-os-history-login');
+  card.setAttribute('aria-label','Historie objednávek');
+  card.appendChild(el('h2','okla-os-history-title','Vaše předchozí objednávky'));
+  card.appendChild(el('p','okla-os-history-text',
+   'Chcete vidět své dřívější objednávky? Přihlaste se ke svému zákaznickému účtu.'));
+  var a=el('a','okla-os-history-button','Přihlásit se a zobrazit objednávky');
+  a.href='/login/?backTo=%2Fklient%2F';
+  a.rel='nofollow';
+  card.appendChild(a);
+  section.appendChild(card);
+ }
+
  function buildLookup(){
   var sec=el('section','okla-order-status');
   sec.appendChild(el('h1','okla-os-title','Stav objednávky'));
@@ -207,6 +223,7 @@
 
   card.appendChild(wrap);
   sec.appendChild(card);
+  appendHistoryLogin(sec);
   return sec;
  }
 
@@ -272,6 +289,7 @@
    hint.appendChild(document.createTextNode(' (odkaz pošlete z potvrzovacího e-mailu se Shoptet proměnnými).'));
    sec.appendChild(hint);
   }
+  appendHistoryLogin(sec);
   return sec;
  }
 

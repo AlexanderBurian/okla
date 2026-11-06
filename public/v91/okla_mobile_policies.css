@@ -1,0 +1,98 @@
+/* OKLA V113 — isolated mobile cart/menu/footer, order-history CTA, safe-area polish.
+   No existing layout modules are removed or rewritten. */
+@media (max-width:767px) {
+  /* Match the light-blue upper header in browser/standalone safe areas where
+     supported; the main page body remains white. */
+  html { background-color:#e5f5ff!important; }
+
+  /* Hide the native and bespoke footers ONLY on mobile cart / checkout,
+     or while the fullscreen menu or search drawer is open. */
+  html.okla-mobile-no-footer body #footer,
+  html.okla-mobile-no-footer body #okla-footer-shell,
+  html.okla-mobile-no-footer body footer#footer,
+  html body.okla-v61-locked #footer,
+  html body.okla-v61-locked #okla-footer-shell,
+  html.okla-m-lock body #footer,
+  html.okla-m-lock body #okla-footer-shell {
+    display:none!important;
+    visibility:hidden!important;
+    height:0!important;
+    min-height:0!important;
+    max-height:0!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    pointer-events:none!important;
+  }
+
+  /* No blue focus ring, highlight or browser tap outline around the
+     mobile drawer X button. Keyboard focus gets a discreet NEUTRAL fill. */
+  html body #okla-v61-drawer .okm61-drawer-close,
+  html body #okla-v61-drawer .okm61-drawer-close:is(:focus,:focus-visible,:active) {
+    border:0!important;
+    outline:0!important;
+    outline-offset:0!important;
+    box-shadow:none!important;
+    -webkit-box-shadow:none!important;
+    filter:none!important;
+    -webkit-tap-highlight-color:transparent!important;
+    background:transparent!important;
+  }
+  html body #okla-v61-drawer .okm61-drawer-close:focus-visible {
+    background:#f1f3f6!important;
+    border-radius:8px!important;
+  }
+  html body #okla-v61-drawer .okm61-drawer-close::before,
+  html body #okla-v61-drawer .okm61-drawer-close::after {
+    content:none!important;
+    display:none!important;
+  }
+
+  /* Order status is public. Previous orders are available through customer
+     sign-in, displayed beneath the existing tracking form or timeline. */
+  html body .okla-order-status .okla-os-history-login {
+    display:block!important;
+    box-sizing:border-box!important;
+    max-width:100%!important;
+    margin:18px 0 24px!important;
+    padding:20px 17px!important;
+    border:1px solid #e2eaf5!important;
+    border-radius:13px!important;
+    background:#f9fbfe!important;
+    box-shadow:none!important;
+    text-align:left!important;
+  }
+  html body .okla-order-status .okla-os-history-title {
+    margin:0 0 7px!important;
+    font:750 17px/1.3 Roboto,Arial,sans-serif!important;
+    color:#102a54!important;
+  }
+  html body .okla-order-status .okla-os-history-text {
+    margin:0 0 16px!important;
+    font:400 13.5px/1.55 Roboto,Arial,sans-serif!important;
+    color:#56657a!important;
+  }
+  html body .okla-order-status .okla-os-history-button {
+    display:flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:100%!important;
+    min-height:46px!important;
+    padding:10px 14px!important;
+    box-sizing:border-box!important;
+    border:1px solid #2c5f9e!important;
+    border-radius:10px!important;
+    background:#fff!important;
+    text-decoration:none!important;
+    color:#2c5f9e!important;
+    font:700 14px/1.3 Roboto,Arial,sans-serif!important;
+    text-align:center!important;
+    -webkit-tap-highlight-color:transparent!important;
+  }
+  html body .okla-order-status .okla-os-history-button:active {
+    background:#eaf1f8!important;
+  }
+}
+@media(min-width:768px){
+  html body .okla-os-history-login{display:none!important}
+}

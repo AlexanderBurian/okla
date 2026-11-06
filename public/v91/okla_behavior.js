@@ -137,7 +137,7 @@ if(!mq.matches)return;
 var bar=document.getElementById('okla-v61-bottom');if(bar)return;
 bar=n('nav');bar.id='okla-v61-bottom';bar.setAttribute('aria-label','Hlavní mobilní navigace');
 var raw=document.querySelector('#header a.cart-count'),cart=raw&&raw.getAttribute('href');
-var menuItems=[['home','Domů','/'],['catalog','Katalog',null],['cart','Košík',cart&&cart!=='#'?cart:'/kosik/'],['orders','Objednávky','/klient/'],['menu','Menu',null]];
+var menuItems=[['home','Domů','/'],['catalog','Katalog',null],['cart','Košík',cart&&cart!=='#'?cart:'/kosik/'],['orders','Objednávky','/stav-objednavky/'],['menu','Menu',null]];
 menuItems.forEach(function(it){var a=n(it[2]?'a':'button','okm61-bottom-action'+(it[0]==='home'&&isHome()?' is-active':''));if(it[2])a.href=it[2];else{a.type='button';a.addEventListener('click',function(){drawer(it[0])})}a.setAttribute('aria-label',it[1]);a.append(svg(it[0]),n('span','',it[1]));bar.appendChild(a)});
 document.body.appendChild(bar);
 }
@@ -151,7 +151,7 @@ var head=n('div','okm61-drawer-head'),name=n('strong','','Katalog'),close=n('but
 var body=n('div','okm61-drawer-body');panel.append(head,body);overlay.append(panel);overlay.addEventListener('click',function(e){if(e.target===overlay)closeDrawer()});document.body.append(overlay);overlay.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer()})}
 var area=overlay.querySelector('.okm61-drawer-body');area.replaceChildren();overlay.querySelector('.okm61-drawer-head strong').textContent=kind==='menu'?'Menu':'Všechny kategorie';
 var list=n('div','okm61-drawer-list'),items=getCats();items.forEach(function(item,i){list.appendChild(catRow(item,i))});area.appendChild(list);
-if(kind==='menu'){var links=[['Úvodní stránka','/'],['Košík',(document.querySelector('#header a.cart-count')||{}).getAttribute?.('href')||'/kosik/'],['Moje objednávky','/klient/']];links.forEach(function(l){var a=n('a','okm61-menu-item',l[0]);a.href=l[1];area.appendChild(a)})}
+if(kind==='menu'){var links=[['Úvodní stránka','/'],['Košík',(document.querySelector('#header a.cart-count')||{}).getAttribute?.('href')||'/kosik/'],['Sledovat zásilku','/stav-objednavky/']];links.forEach(function(l){var a=n('a','okm61-menu-item',l[0]);a.href=l[1];area.appendChild(a)})}
 overlay.hidden=false;
 document.body.classList.add('okla-v61-locked');
 // Commit the off-screen position before transitioning the panel into view.
