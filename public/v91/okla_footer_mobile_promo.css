@@ -207,3 +207,75 @@
    height:350px!important;max-width:65%!important;
  }
 }
+
+/* OKLA V115 — mobile: separate the lower support copy from the hand/phone.
+   Both elements now occupy non-overlapping horizontal columns; the photo
+   remains anchored at bottom-right and the original text/buttons are intact. */
+@media(max-width:767px){
+ html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
+   height:530px!important;
+   min-height:530px!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+   left:22px!important;
+   right:auto!important;
+   bottom:30px!important;
+   width:calc(50% - 35px)!important;
+   max-width:160px!important;
+   min-width:0!important;
+   z-index:4!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+   top:auto!important;
+   left:auto!important;
+   right:-8px!important;
+   bottom:2px!important;
+   width:49%!important;
+   max-width:205px!important;
+   min-width:0!important;
+   height:auto!important;
+   max-height:270px!important;
+   object-fit:contain!important;
+   object-position:right bottom!important;
+   z-index:2!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title,
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text p{
+   overflow-wrap:break-word!important;
+   word-break:normal!important;
+ }
+}
+@media(max-width:360px){
+ html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
+   height:560px!important;
+   min-height:560px!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+   left:19px!important;
+   bottom:22px!important;
+   width:calc(50% - 34px)!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+   right:-6px!important;
+   width:48%!important;
+   max-height:245px!important;
+ }
+}
+@media(min-width:541px) and (max-width:767px){
+ html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
+   height:525px!important;
+   min-height:525px!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
+   left:27px!important;
+   width:calc(50% - 45px)!important;
+   max-width:240px!important;
+   bottom:29px!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+   width:43%!important;
+   max-width:300px!important;
+   max-height:315px!important;
+   right:-10px!important;
+ }
+}
