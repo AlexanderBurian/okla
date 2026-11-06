@@ -162,5 +162,7 @@ html body .okla-rk__done-links .is-ghost:hover{background:#f4f7fb}
   html body .okla-rk__title{font-size:25px}
   html body .okla-rk__card{padding:22px 18px 24px;border-radius:16px}
   html body .okla-rk__grid{grid-template-columns:minmax(0,1fr)}
-  html body .okla-rk__choices{grid-template-columns:minmax(0,1fr)}
+  html body .okla-rk__choices{grid-template-columns:minmax(0,1fr)!important}
+  /* No footer on mobile on the complaint page. */
+  html.okla-rk-takeover #footer{display:none!important}
 }
