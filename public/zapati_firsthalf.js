@@ -81,6 +81,8 @@ modules.push('v91/okla_desktop_sticky.css','v91/okla_desktop_sticky.js');
 modules.push('v91/okla_mobile_policies.css','v91/okla_mobile_policies.js');
 /* Alza-inspired vertically composed mobile footer banner; desktop untouched. */
 modules.push('v91/okla_footer_mobile_promo.css','v91/okla_footer_mobile_promo.js');
+/* Keep footer promotion flexible in CS, SK, EN and HU across all screen sizes. */
+modules.push('v91/okla_footer_i18n_safe.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
