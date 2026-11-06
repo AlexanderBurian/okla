@@ -1,11 +1,11 @@
-/* OKLA V120 — customer centre: one unified account layout with
-   simple 2D transparent PNG icons cut/matched from the supplied reference.
+/* OKLA V121 — customer centre: one unified, symmetrical account layout with
+   crisp inline vector icons and no duplicate native navigation.
    Applies ONLY to authenticated account pages, not login/cart/home. */
 
 html.okla-acc-polished body #content-wrapper.okla-acc-shell,
 html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  display:grid!important;
- grid-template-columns:minmax(220px,252px) minmax(0,1fr)!important;
+ grid-template-columns:260px minmax(0,1fr)!important;
  grid-auto-flow:row!important;
  grid-auto-rows:auto!important;
  align-items:stretch!important;
@@ -14,9 +14,9 @@ html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  width:100%!important;
  min-width:0!important;
  max-width:1320px!important;
- min-height:620px!important;
+ min-height:660px!important;
  margin:22px auto 42px!important;
- padding:24px!important;
+ padding:24px 26px!important;
  background:#fff!important;
  border:1px solid #dfe7f0!important;
  border-top:5px solid #205b9c!important;
@@ -39,7 +39,7 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
  height:auto!important;
  min-height:0!important;
  margin:0!important;
- padding:0 22px 0 0!important;
+ padding:0 26px 0 0!important;
  box-sizing:border-box!important;
  border:0!important;
  background:#fff!important;
@@ -55,10 +55,10 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main{
  width:100%!important;
  min-width:0!important;
  max-width:none!important;
- min-height:575px!important;
+ min-height:610px!important;
  height:auto!important;
  margin:0!important;
- padding:2px 0 18px 28px!important;
+ padding:4px 6px 20px 32px!important;
  box-sizing:border-box!important;
  border:0!important;
  border-left:1px solid #e5edf5!important;
@@ -83,12 +83,12 @@ html.okla-acc-polished body .okla-acc-nav{
  display:flex!important;
  flex-direction:column!important;
  align-items:stretch!important;
- gap:5px!important;
+ gap:2px!important;
  flex:1 1 auto!important;
  width:100%!important;
  min-width:0!important;
  max-width:100%!important;
- min-height:575px!important;
+ min-height:610px!important;
  height:100%!important;
  margin:0!important;
  padding:0!important;
@@ -103,10 +103,10 @@ html.okla-acc-polished body .okla-acc-nav__head{
  display:flex!important;
  align-items:center!important;
  justify-content:flex-start!important;
- gap:7px!important;
- min-height:48px!important;
+ gap:10px!important;
+ min-height:54px!important;
  margin:0 0 10px!important;
- padding:5px 4px 12px!important;
+ padding:4px 8px 12px!important;
  border:0!important;
  border-bottom:1px solid #e7eef6!important;
  border-radius:0!important;
@@ -118,45 +118,64 @@ html.okla-acc-polished body .okla-acc-nav__head{
 }
 html.okla-acc-polished body .okla-acc-head-icon,
 html.okla-acc-polished body .okla-acc-menu-icon{
- display:block!important;
+ display:grid!important;
+ place-items:center!important;
  position:relative!important;
- flex:0 0 32px!important;
- width:32px!important;
- min-width:32px!important;
- max-width:32px!important;
- height:32px!important;
- min-height:32px!important;
- max-height:32px!important;
+ flex:0 0 30px!important;
+ width:30px!important;
+ min-width:30px!important;
+ max-width:30px!important;
+ height:30px!important;
+ min-height:30px!important;
+ max-height:30px!important;
  margin:0!important;
  padding:0!important;
  box-sizing:border-box!important;
  border:0!important;
  border-radius:0!important;
- background-color:transparent!important;
- background-image:url('img/account_icons_flat.png')!important;
- background-size:448px 32px!important;
- background-repeat:no-repeat!important;
- image-rendering:auto!important;
+ background:transparent!important;
+ color:#184f88!important;
  filter:none!important;
  box-shadow:none!important;
  pointer-events:none!important;
 }
+html.okla-acc-polished body .okla-acc-menu-icon svg{
+ display:block!important;
+ width:24px!important;
+ height:24px!important;
+ overflow:visible!important;
+ fill:none!important;
+ stroke:currentColor!important;
+ stroke-width:1.75!important;
+ stroke-linecap:round!important;
+ stroke-linejoin:round!important;
+ vector-effect:non-scaling-stroke!important;
+}
+html.okla-acc-polished body .okla-acc-menu-icon--orders,
+html.okla-acc-polished body .okla-acc-menu-icon--delivery,
+html.okla-acc-polished body .okla-acc-menu-icon--discount{color:#f36b2d!important}
+html.okla-acc-polished body .okla-acc-menu-icon--tax,
+html.okla-acc-polished body .okla-acc-menu-icon--discussion,
+html.okla-acc-polished body .okla-acc-menu-icon--personal{color:#263746!important}
+html.okla-acc-polished body .okla-acc-menu-icon--logout{color:#d93c4c!important}
+html.okla-acc-polished body .okla-acc-menu-icon--review svg{fill:#2b70b8!important;stroke:#2b70b8!important}
 html.okla-acc-polished body .okla-acc-head-icon{
- background-position:0 0!important;
+ color:#263746!important;
 }
 html.okla-acc-polished body .okla-acc-nav__link{
- display:flex!important;
+ display:grid!important;
+ grid-template-columns:30px minmax(0,1fr)!important;
  align-items:center!important;
  justify-content:flex-start!important;
- gap:10px!important;
+ column-gap:12px!important;
  width:100%!important;
  min-width:0!important;
- min-height:43px!important;
+ min-height:46px!important;
  height:auto!important;
  margin:0!important;
- padding:5px 10px!important;
+ padding:6px 8px!important;
  border:0!important;
- border-radius:8px!important;
+ border-radius:7px!important;
  box-shadow:none!important;
  box-sizing:border-box!important;
  background:transparent!important;
@@ -185,8 +204,8 @@ html.okla-acc-polished body .okla-acc-nav__link:focus-visible{
 html.okla-acc-polished body .okla-acc-nav__link.is-logout{
  order:99!important;
  margin-top:auto!important;
- padding:13px 10px 4px!important;
- min-height:55px!important;
+ padding:14px 8px 4px!important;
+ min-height:58px!important;
  border:0!important;
  border-top:1px solid #e6edf6!important;
  border-radius:0!important;
@@ -338,7 +357,8 @@ html.okla-acc-polished body #content .okla-ord-card.is-open{
  }
  html.okla-acc-polished body .okla-acc-nav__link{
   font-size:12.5px!important;
-  gap:7px!important;
+  column-gap:10px!important;
+  row-gap:0!important;
   padding:5px 7px!important;
  }
 }

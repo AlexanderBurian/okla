@@ -11,6 +11,23 @@
 
  function tclean(s){return String(s||'').replace(/\s+/g,' ').trim()}
 
+ function itemKey(label,href,isLogout){
+  if(isLogout)return 'logout';
+  var t=(tclean(label)+' '+String(href||'')).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  if(/diskuz|discussion|vita|hozzaszolas/.test(t))return 'discussion';
+  if(/hodnocen|review|rating|ertekeles/.test(t))return 'review';
+  if(/slev|discount|kedvezmen|zlav/.test(t))return 'discount';
+  if(/prijat|received|accepted|kapott/.test(t))return 'receipt';
+  if(/dodaci|delivery.note|szallitolevel|szallitas/.test(t))return 'delivery';
+  if(/dobropis|credit.note|helyesbito|jovair/.test(t))return 'credits';
+  if(/zaloh|advance|proforma|eloleg/.test(t))return 'invoices';
+  if(/danov|tax|ado/.test(t))return 'tax';
+  if(/platb|payment|fizet/.test(t))return 'payments';
+  if(/objednav|order|rendel/.test(t))return 'orders';
+  if(/osob|personal|profile|profil|moje udaje|adat/.test(t))return 'personal';
+  return 'url:'+String(href||'').replace(/^https?:\/\/[^/]+/,'').replace(/[?#].*$/,'').replace(/\/+$/,'').toLowerCase();
+ }
+
  function isFormPage(){
   return document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo)(\b|-)/.test(document.body.className);
  }
@@ -33,14 +50,17 @@
 
  function buildNav(){
   var all=accountLinks();
-  var items=[],nodes=[];
+  var items=[],nodes=[],keys={};
   all.forEach(function(a){
    var raw=tclean(a.textContent),t=raw.toLowerCase(),href=a.getAttribute('href')||'';
    if(!raw||!href||href==='#'||/^javascript:/i.test(href))return;
    var isLogout=/^odhl[aá]sit/.test(t);
    if(!(/^moje\s/.test(t)||isLogout))return;
-   if(items.some(function(x){return x.href===href&&x.logout===isLogout}))return;
-   items.push({label:raw,href:href,logout:isLogout});nodes.push(a);
+   nodes.push(a);
+   var key=itemKey(raw,href,isLogout);
+   if(keys[key])return;
+   keys[key]=true;
+   items.push({label:raw,href:href,logout:isLogout,key:key});
   });
   if(items.length<3)return false;   /* not a real account menu – leave the page alone */
 
@@ -67,6 +87,9 @@
   if(anchor&&anchor.parentNode)anchor.parentNode.insertBefore(nav,anchor);
   else (document.querySelector('#content-wrapper')||document.body).insertBefore(nav,(document.querySelector('#content-wrapper')||document.body).firstChild);
   nodes.forEach(function(a){var li=a.closest('li');(li||a).classList.add('okla-acc-native-hide')});
+  /* Remove the complete native menu shell as well. Hiding only its links left
+     empty dividers/headings behind and made the sidebar look duplicated. */
+  if(anchor&&anchor!==nav)anchor.classList.add('okla-acc-native-hide');
   return true;
  }
 
