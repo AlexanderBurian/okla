@@ -11,6 +11,9 @@ var aiApiUrl=current&&current.getAttribute('data-api-url');
 if(!base){console.error('[OKLA V91] External loader URL required');return}
 window.__oklaAssetBase=base;
 window.__oklaApiUrl=(aiApiUrl||'').replace(/\/$/,'');
+/* Wake the Render service while the storefront modules are still loading, so
+   the first customer message does not pay the cold-start delay. */
+if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cache:'no-store'}).catch(function(){})}catch(e){}}
 /* The shop's uploaded logo (user/logos/…) is missing on the live site, so the header shows a broken image. We serve the
    OKLA logo from the bundle instead and repoint every logo image to it — the desktop header, the mobile header and any
    copy it makes. Runs now and on later DOM changes (the mobile header is built after load). */

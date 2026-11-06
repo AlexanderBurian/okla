@@ -40,7 +40,7 @@ function mockAnswer(message: string, items: KnowledgeItem[], isFirst: boolean): 
 }
 
 export class MockEngine implements ChatEngine {
-  constructor(private readonly initialDelayMs = 650, private readonly chunkDelayMs = 18) {}
+  constructor(private readonly initialDelayMs = 80, private readonly chunkDelayMs = 6) {}
 
   async *stream(context: ChatContext): AsyncIterable<string> {
     const answer = mockAnswer(context.message, context.knowledge, context.history.length === 0);

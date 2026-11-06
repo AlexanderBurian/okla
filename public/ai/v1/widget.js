@@ -171,7 +171,7 @@
       .delivery-slot time, .assistant-time { font-variant-numeric: tabular-nums; }
       .assistant-time-slot { width: 100%; height: 18px; padding-top: 4px; color: #7b838e; font-size: 10.5px; line-height: 14px; text-align: left; }
       .assistant-time { display: block; }
-      .typing-row { display: flex; height: 25px; align-items: center; gap: 8px; margin: -2px 0 11px; padding-left: 39px; color: #747b86; font-size: 11.5px; line-height: 16px; animation: message-in .18s ease both; }
+      .typing-row { display: flex; height: 25px; align-items: center; gap: 8px; margin: -2px 0 11px; padding-left: 0; color: #747b86; font-size: 11.5px; line-height: 16px; animation: message-in .18s ease both; }
       .typing-dots { display: inline-flex; width: 31px; flex: 0 0 31px; align-items: center; gap: 5px; }
       .typing-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--okla-purple); animation: typing-pulse 1.05s infinite ease-in-out; }
       .typing-dot:nth-child(2) { animation-delay: .14s; }

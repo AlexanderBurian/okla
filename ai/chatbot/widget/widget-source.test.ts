@@ -54,7 +54,9 @@ describe("geometrie widgetu", () => {
     expect(source).toContain("justify-content: flex-end");
     expect(source).toContain(".assistant-time-slot");
     expect(source).toContain("text-align: left");
-    expect(source).toContain("padding-left: 39px");
+    expect(source).toContain("padding-left: 0");
+    expect(source).toContain("firstTokenTimedOut");
+    expect(source).toContain("15_000");
     expect(source).toContain("assistant-avatar");
     expect(source).toContain("typingIndicator.show(messages)");
     expect(source).toContain("typingIndicator.moveToEnd(messages)");

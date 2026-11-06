@@ -18,6 +18,7 @@ import {
 
   const ownScript = document.currentScript as HTMLScriptElement | null;
   const apiBase = (ownScript?.dataset.apiUrl || (ownScript?.src ? new URL(ownScript.src).origin : "")).replace(/\/$/, "");
+  if (apiBase) void fetch(`${apiBase}/health`, { mode: "cors", cache: "no-store" }).catch(() => undefined);
   const assetOptions = {
     scriptSrc: ownScript?.src,
     apiUrl: ownScript?.dataset.apiUrl || apiBase,
@@ -217,7 +218,7 @@ import {
       .delivery-slot time, .assistant-time { font-variant-numeric: tabular-nums; }
       .assistant-time-slot { width: 100%; height: 18px; padding-top: 4px; color: #7b838e; font-size: 10.5px; line-height: 14px; text-align: left; }
       .assistant-time { display: block; }
-      .typing-row { display: flex; height: 25px; align-items: center; gap: 8px; margin: -2px 0 11px; padding-left: 39px; color: #747b86; font-size: 11.5px; line-height: 16px; animation: message-in .18s ease both; }
+      .typing-row { display: flex; height: 25px; align-items: center; gap: 8px; margin: -2px 0 11px; padding-left: 0; color: #747b86; font-size: 11.5px; line-height: 16px; animation: message-in .18s ease both; }
       .typing-dots { display: inline-flex; width: 31px; flex: 0 0 31px; align-items: center; gap: 5px; }
       .typing-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--okla-purple); animation: typing-pulse 1.05s infinite ease-in-out; }
       .typing-dot:nth-child(2) { animation-delay: .14s; }
@@ -695,6 +696,11 @@ import {
     typingIndicator.show(messages);
     status.textContent = "";
     controller = new AbortController();
+    let firstTokenTimedOut = false;
+    let firstTokenTimer: number | undefined = window.setTimeout(() => {
+      firstTokenTimedOut = true;
+      controller?.abort();
+    }, 15_000);
     let answer = "";
     let assistant: ReturnType<typeof addAssistantMessage> | null = null;
 
@@ -707,6 +713,10 @@ import {
       });
       await readSse(response, (token) => {
         if (run !== lifecycle) return;
+        if (firstTokenTimer !== undefined) {
+          clearTimeout(firstTokenTimer);
+          firstTokenTimer = undefined;
+        }
         answer += token;
         if (!assistant) {
           assistant = addAssistantMessage();
@@ -722,8 +732,10 @@ import {
       history.push({ role: "assistant", content: answer });
       status.textContent = "Odpověď je hotová.";
     } catch (error) {
-      if (run !== lifecycle || (error as Error).name === "AbortError") return;
-      const messageText = error instanceof Error ? error.message : "Odpověď se nepodařilo načíst.";
+      if (run !== lifecycle || ((error as Error).name === "AbortError" && !firstTokenTimedOut)) return;
+      const messageText = firstTokenTimedOut
+        ? "Odpověď trvala příliš dlouho. Zkuste dotaz prosím znovu."
+        : error instanceof Error ? error.message : "Odpověď se nepodařilo načíst.";
       typingIndicator.hide();
       if (!assistant) assistant = addAssistantMessage();
       appendRichText(assistant.bubble, `Omlouvám se, něco se nepovedlo: ${messageText} Zkuste dotaz odeslat znovu.`);
@@ -731,6 +743,7 @@ import {
       completeAssistantMessage(assistant, new Date());
       status.textContent = messageText;
     } finally {
+      if (firstTokenTimer !== undefined) clearTimeout(firstTokenTimer);
       typingIndicator.hide();
       if (run !== lifecycle) return;
       busy = false;

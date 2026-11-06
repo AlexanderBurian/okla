@@ -41,7 +41,7 @@ Pro vývoj s automatickým restartem backendu spusťte `npm run dev`; při změn
 
 ```dotenv
 GROQ_API_KEY=
-GROQ_MODEL=llama-3.3-70b-versatile
+GROQ_MODEL=openai/gpt-oss-120b
 MOCK_MODE=false
 ```
 

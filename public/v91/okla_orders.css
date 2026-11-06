@@ -59,10 +59,14 @@ html.okla-ord-ready body .okla-ord-step.is-upcoming .okla-ord-step__t{color:#9aa
 html.okla-ord-ready body .okla-ord-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
 html.okla-ord-ready body .okla-ord-item{display:grid;grid-template-columns:68px minmax(0,1fr) auto;align-items:center;gap:15px;padding:13px 0}
 html.okla-ord-ready body .okla-ord-item+.okla-ord-item{border-top:1px solid #eaeef4}
+html.okla-ord-ready body .okla-ord-item__thumb-link{display:block;width:68px;height:68px;border-radius:10px;text-decoration:none}
 html.okla-ord-ready body .okla-ord-thumb{display:block;flex:none;width:68px;height:68px;border:1px solid #e1e7ee;border-radius:10px;object-fit:contain;background:#fff;padding:4px}
 html.okla-ord-ready body .okla-ord-thumb--ph{background:#edf1f6;border-radius:8px}
 html.okla-ord-ready body .okla-ord-item__info{display:flex;flex-direction:column;gap:5px;min-width:0}
 html.okla-ord-ready body .okla-ord-item__name{font:700 15px/1.32 Exo 2,Arial,sans-serif;color:#0b2540;overflow:hidden;text-overflow:ellipsis}
+html.okla-ord-ready body a.okla-ord-item__name{text-decoration:none}
+html.okla-ord-ready body a.okla-ord-item__name:hover{text-decoration:underline;text-underline-offset:2px}
+html.okla-ord-ready body :is(.okla-ord-item__thumb-link,a.okla-ord-item__name):focus-visible{outline:2px solid #1f6fd8;outline-offset:2px}
 html.okla-ord-ready body .okla-ord-item__meta{font:400 12.5px/1.35 Exo 2,Arial,sans-serif;color:#7a8698}
 html.okla-ord-ready body .okla-ord-item__price{min-width:118px;text-align:right;white-space:nowrap;color:#0b2540;font:800 19px/1.2 Exo 2,Arial,sans-serif}
 
@@ -137,6 +141,7 @@ html body .okla-ord-modal__ok:hover{background:#c20f26;border-color:#c20f26}
   html.okla-ord-ready body .okla-ord-btn{flex:1 1 100%}
   html.okla-ord-ready body .okla-ord-item{grid-template-columns:58px minmax(0,1fr);gap:11px}
   html.okla-ord-ready body .okla-ord-thumb{width:58px;height:58px}
+  html.okla-ord-ready body .okla-ord-item__thumb-link{width:58px;height:58px}
   html.okla-ord-ready body .okla-ord-item__price{grid-column:2;text-align:left;font-size:17px}
   html.okla-ord-ready body .okla-ord-details__grid{grid-template-columns:minmax(0,1fr)}
   html.okla-ord-ready body .okla-ord-step__t{font-size:10px}

@@ -133,7 +133,7 @@
     real (non-data:) URL so an actual product photo is shown. */
  function absoluteUrl(value,base){
   if(!value)return '';
-  try{return new URL(value,base||location.href).href}catch(e){return ''}
+  try{var url=new URL(value,base||location.href);return /^(?:https?:)$/.test(url.protocol)?url.href:''}catch(e){return ''}
  }
  function srcFromSet(value){
   if(!value)return '';
@@ -274,10 +274,12 @@
   var ul=el('ul','okla-ord-items');
   items.forEach(function(it){
    var li=el('li','okla-ord-item');
-   if(it.img){var im=el('img','okla-ord-thumb');im.src=it.img;im.alt=it.name||'';im.loading='lazy';im.decoding='async';im.width=56;im.height=56;im.onerror=function(){this.classList.add('okla-ord-thumb--ph');this.removeAttribute('src')};li.appendChild(im);}
-   else li.appendChild(el('span','okla-ord-thumb okla-ord-thumb--ph'));
+   var media;
+   if(it.img){var im=el('img','okla-ord-thumb');im.src=it.img;im.alt=it.name||'';im.loading='lazy';im.decoding='async';im.width=56;im.height=56;im.onerror=function(){this.classList.add('okla-ord-thumb--ph');this.removeAttribute('src')};media=im;}
+   else media=el('span','okla-ord-thumb okla-ord-thumb--ph');
+   if(it.href){var mediaLink=el('a','okla-ord-item__thumb-link');mediaLink.href=it.href;mediaLink.setAttribute('aria-label','Otevřít produkt '+(it.name||''));mediaLink.appendChild(media);li.appendChild(mediaLink)}else li.appendChild(media);
    var info=el('div','okla-ord-item__info');
-   info.appendChild(Object.assign(el('span','okla-ord-item__name'),{textContent:it.name||'Položka'}));
+   var nameNode=el(it.href?'a':'span','okla-ord-item__name');nameNode.textContent=it.name||'Položka';if(it.href)nameNode.href=it.href;info.appendChild(nameNode);
    if(it.meta)info.appendChild(Object.assign(el('span','okla-ord-item__meta'),{textContent:it.meta}));
    li.appendChild(info);
    if(it.price)li.appendChild(Object.assign(el('strong','okla-ord-item__price'),{textContent:it.price}));
