@@ -267,20 +267,27 @@ html body #okla-footer-promo .okla-promo-btn:is(:hover,:active,:focus){
   color:#243e9b!important;
 }
 
-/* Desktop navbar: move the complete account action 15px to the right without
-   changing the cart column or the live native cart value. */
+/* Natural desktop navbar: move the account artwork inside its reserved grid
+   column. The search and cart columns therefore stay exactly where they are. */
 @media(min-width:992px){
-  html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face],
-  html.okla-header-reference body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
-    transform:translateX(20px)!important;
+  html.okla-header-template103:not(.okla-desktop-sticky) body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face]{
+    transform:none!important;
+    justify-self:start!important;
   }
-  html body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account:is(:hover,:focus,:active){
+  html.okla-header-template103:not(.okla-desktop-sticky) body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face]>okla-action-face{
+    margin-left:28px!important;
+  }
+  html.okla-header-template103:not(.okla-desktop-sticky) body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account:is(:hover,:focus,:active){
     border-color:transparent!important;
     background:transparent!important;
     background-image:none!important;
     outline:0!important;
     box-shadow:none!important;
     filter:none!important;
-    transform:translateX(20px)!important;
+    transform:none!important;
+  }
+  html.okla-header-reference:not(.okla-header-template103):not(.okla-desktop-sticky) body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account,
+  html.okla-header-reference:not(.okla-header-template103):not(.okla-desktop-sticky) body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account:is(:hover,:focus,:active){
+    transform:translateX(28px)!important;
   }
 }
