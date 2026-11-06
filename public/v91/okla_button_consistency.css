@@ -270,6 +270,11 @@ html body #okla-footer-promo .okla-promo-btn:is(:hover,:active,:focus){
 /* Natural desktop navbar: move the account artwork inside its reserved grid
    column. The search and cart columns therefore stay exactly where they are. */
 @media(min-width:992px){
+  html.okla-header-template103:not(.okla-desktop-sticky) body #header#header .header-top>.search{
+    justify-self:start!important;
+    width:calc(100% + 12px)!important;
+    max-width:none!important;
+  }
   html.okla-header-template103:not(.okla-desktop-sticky) body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face]{
     transform:none!important;
     justify-self:start!important;
