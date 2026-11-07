@@ -160,3 +160,16 @@ html body #okla-acc-pop{display:none}
   html body #okla-acc-pop .okla-acc-menu-icon svg{width:28px!important;height:28px!important}
   html body.okla-acc-pop-open{overflow:hidden!important}
 }
+
+/* ============ MOBILE: account content full width (no card) ============
+   Like the product pages, the client centre on phones is plain page content
+   across the full width (20px gutters, aligned with the breadcrumbs) on the
+   page-top gradient – not a framed card ("island") with its own border,
+   blue top bar, radius and shadow from okla_account_polish.css. */
+@media(max-width:767px){
+  html.okla-acc-polished body #content-wrapper.okla-acc-shell,
+  html.okla-acc-polished body #content-wrapper .okla-acc-shell{
+    width:100%!important;max-width:none!important;margin:0 0 28px!important;padding:6px 20px 24px!important;
+    border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;
+  }
+}

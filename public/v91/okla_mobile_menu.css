@@ -1,16 +1,13 @@
-/* OKLA – mobile "Menu" drawer content (customer centre), built as floating
-   islands: a light page behind, the sign-in hero as one rounded card and
-   every link as its own white rounded card with side margins and gaps
+/* OKLA – mobile "Menu" drawer content (customer centre): a white panel,
+   the sign-in hero as one light-grey rounded card and every link as its own
+   light-grey rounded card with side margins and gaps
    (rows reuse the Katalog row anatomy .okm61-cat-row: icon, label, chevron). */
 #okla-v61-drawer.okla-mm-open .okm61-drawer-body{
-  padding:14px 0 calc(28px + env(safe-area-inset-bottom,0px))!important;background:#f2f5f9!important;
+  padding:14px 0 calc(28px + env(safe-area-inset-bottom,0px))!important;background:#fff!important;
 }
 #okla-v61-drawer .okla-mm-hero{
-  margin:0 16px!important;padding:20px 20px 20px!important;border:1px solid #e3eaf2!important;border-radius:18px!important;
-  box-shadow:0 2px 10px rgba(16,40,80,.06)!important;
-  /* same colours as the mobile page top (okla_mobile_gradient.css): blue fade with a faint violet tint on the right */
-  background:radial-gradient(90% 120% at 100% 0%,rgba(160,140,245,.07) 0%,rgba(160,140,245,.03) 42%,rgba(160,140,245,0) 75%),linear-gradient(180deg,#e2f1fe 0%,#edf6fe 45%,#f8fbff 80%,#fff 100%)!important;
-  font-family:"Exo 2",Arial,sans-serif!important;
+  margin:0 16px!important;padding:20px!important;border:0!important;border-radius:18px!important;
+  background:#f3f5f8!important;box-shadow:none!important;font-family:"Exo 2",Arial,sans-serif!important;
 }
 #okla-v61-drawer .okla-mm-hero__icon{display:grid!important;place-items:center!important;width:44px!important;height:44px!important;margin:0 0 10px!important;color:#19477e!important}
 #okla-v61-drawer .okla-mm-hero__icon svg{width:40px!important;height:40px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
@@ -29,9 +26,9 @@
 #okla-v61-drawer .okla-mm-title{margin:0!important;padding:22px 20px 10px!important;font:700 15px/1.3 "Exo 2",Arial,sans-serif!important;color:#16478B!important;text-transform:none!important;letter-spacing:0!important;border:0!important}
 #okla-v61-drawer .okla-mm-list{display:flex!important;flex-direction:column!important;gap:10px!important;padding:0 16px!important;border:0!important;background:transparent!important}
 #okla-v61-drawer .okla-mm-list .okla-mm-row{
-  min-height:60px!important;padding:12px 16px 12px 18px!important;border:1px solid #e6ecf3!important;border-radius:14px!important;
-  background:#fff!important;box-shadow:0 1px 4px rgba(16,40,80,.06)!important;
+  min-height:60px!important;padding:12px 16px 12px 18px!important;border:0!important;border-radius:14px!important;
+  background:#f3f5f8!important;box-shadow:none!important;
 }
-#okla-v61-drawer .okla-mm-list .okla-mm-row:active{background:#f6f9fc!important}
+#okla-v61-drawer .okla-mm-list .okla-mm-row:active{background:#e9edf2!important}
 #okla-v61-drawer .okla-mm-icon{color:#19477e!important}
 #okla-v61-drawer .okla-mm-icon svg{width:26px!important;height:26px!important;max-width:26px!important;max-height:26px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
