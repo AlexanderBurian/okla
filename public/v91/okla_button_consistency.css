@@ -39,6 +39,13 @@ html body .listSorting .listSorting__control--current{
   background:#fff!important;background-image:none!important;border-radius:0!important;
 }
 
+/* Expandable order summaries stay visually neutral on pointer hover. */
+html.okla-ord-ready body .okla-ord-head,
+html.okla-ord-ready body .okla-ord-head:is(:hover,:active){
+  background:transparent!important;background-image:none!important;border-color:transparent!important;
+  outline:0!important;box-shadow:none!important;filter:none!important;transform:none!important;
+}
+
 @media(hover:hover) and (pointer:fine){
   html body :is(
     button,
@@ -50,7 +57,7 @@ html body .listSorting .listSorting__control--current{
     .button,
     a.button,
     [role="button"]
-  ):not(.okla-header-account):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_hover_a#__okla_button_hover_b#__okla_button_hover_c#__okla_button_hover_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ):not(.okla-header-account):not(.okla-ord-head):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_hover_a#__okla_button_hover_b#__okla_button_hover_c#__okla_button_hover_d):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:var(--okla-button-rest-background)!important;
     background-image:var(--okla-button-rest-image)!important;
     border-color:var(--okla-button-rest-border)!important;
@@ -64,13 +71,13 @@ html body .listSorting .listSorting__control--current{
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--filled:not(.okla-header-account):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--filled:not(.okla-header-account):not(.okla-ord-head):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
     filter:brightness(.96)!important;
   }
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--empty:not(.okla-header-account):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--empty:not(.okla-header-account):not(.okla-ord-head):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:#f6f9fd!important;
     background-image:none!important;
     filter:none!important;
@@ -120,7 +127,8 @@ html body .okla-rk__consent input[type="checkbox"]::after,
 html body #filters .filter-section-boolean input[type="checkbox"]::after{
   content:""!important;
   display:block!important;
-  position:static!important;
+  position:absolute!important;
+  inset:50% auto auto 50%!important;
   width:11px!important;
   height:11px!important;
   margin:0!important;
@@ -129,7 +137,7 @@ html body #filters .filter-section-boolean input[type="checkbox"]::after{
   background:#168bd2!important;
   background-image:none!important;
   box-shadow:none!important;
-  transform:scale(0)!important;
+  transform:translate(-50%,-50%) scale(0)!important;
   transition:transform .12s ease!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]:checked,
@@ -140,7 +148,7 @@ html body #filters .filter-section-boolean input[type="checkbox"]:checked{
 html.okla-acc-polished body #content input[type="checkbox"]:checked::after,
 html body .okla-rk__consent input[type="checkbox"]:checked::after,
 html body #filters .filter-section-boolean input[type="checkbox"]:checked::after{
-  transform:scale(1)!important;
+  transform:translate(-50%,-50%) scale(1)!important;
 }
 html.okla-acc-polished body #content input[type="checkbox"]:focus-visible,
 html body .okla-rk__consent input[type="checkbox"]:focus-visible,

@@ -4,10 +4,10 @@
   'use strict';
   var desktop = matchMedia('(min-width:992px)');
   var arrow = '<svg class="arrow" viewBox="0 0 19 12"><path d="M1 2.5 9.5 10 18 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var person = '<svg width="20" height="29" viewBox="0 0 20 29" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="6.7" r="5.5"/><path d="M1 27.8v-5.2a9 9 0 0 1 18 0v5.2Z" stroke-linejoin="round"/></svg>';
+  var person = '<svg width="20" height="29" viewBox="0 0 20 29" fill="none" stroke="currentColor" stroke-width="2.1"><circle cx="10" cy="6.7" r="5.5"/><path d="M1 27.8v-5.2a9 9 0 0 1 18 0v5.2Z" stroke-linejoin="round"/></svg>';
   // Both wheel centers, the basket and the badge share the same coordinate system.
   var basket = '<svg class="figure" width="36" height="44" viewBox="0 0 36 44"><path d="M1 8.5h2.3c1.9 0 2.6 1.4 3 3.5l3 14.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M6.6 13.5H30l-2.4 11.2c-.3 1.4-1.3 2.3-3 2.3H12c-1.4 0-2.4-.8-2.8-2.2Z" fill="currentColor"/><g fill="currentColor"><circle cx="10.6" cy="32.5" r="3.5"/><circle cx="24.5" cy="32.5" r="3.5"/></g><g class="count"><circle cx="25" cy="11" r="10" fill="#1996df"/><text x="25" y="11.4" text-anchor="middle" dominant-baseline="central" fill="white"></text></g></svg>';
-  var style = '<style>.face{display:flex;align-items:center;height:44px;color:#78859e;white-space:nowrap;font:400 15px/20px Arial,Helvetica,sans-serif;letter-spacing:normal;text-transform:none}.face svg{display:block;flex:none}.label,.arrow{margin-left:10px}.arrow{width:19px;height:12px}.price{margin-left:5px;font:700 16px/20px Arial,Helvetica,sans-serif}.count text{font:700 12px Arial,Helvetica,sans-serif}.count[hidden]{display:none}</style>';
+  var style = '<style>.face{display:flex;align-items:center;height:44px;color:#78859e;white-space:nowrap;font:700 16px/20px Arial,Helvetica,sans-serif;letter-spacing:normal;text-transform:none}.face svg{display:block;flex:none}.label,.arrow{margin-left:10px}.label{font:700 16px/20px Arial,Helvetica,sans-serif}.arrow{width:19px;height:12px}.price{margin-left:5px;font:700 16px/20px Arial,Helvetica,sans-serif}.count text{font:700 12px Arial,Helvetica,sans-serif}.count[hidden]{display:none}</style>';
 
   function face(link, isCart) {
     var host = link.querySelector(':scope > okla-action-face');

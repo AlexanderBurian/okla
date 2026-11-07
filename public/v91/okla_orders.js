@@ -227,6 +227,70 @@
   var lines=sectionLines(container,heading);
   return lines.length?{title:isBilling?'Fakturační údaje':'Dodací údaje',lines:lines}:null;
  }
+
+ function moneyValue(text){
+  var found=String(text||'').match(/(\d+(?:[ . ]\d{3})*(?:[.,]\d{1,2})?)\s*(Kč|CZK|€|EUR|Ft|HUF)/i);
+  if(found)return tclean(found[1]+' '+found[2]);
+  return /\bzdarma\b|\bfree\b/i.test(String(text||''))?'Zdarma':'';
+ }
+ function trimShippingValue(value){
+  return tclean(String(value||'')
+   .replace(/\d+(?:[ . ]\d{3})*(?:[.,]\d{1,2})?\s*(?:Kč|CZK|€|EUR|Ft|HUF)/gi,'')
+   .replace(/^(?:zp[uů]sob\s+)?(?:doprava|dopravy|dopravn[eé]|doru[cč]en[ií]|po[sš]tovn[eé]|p[řr]eprava|p[řr]epravy|shipping|delivery)(?:\s*[:–—-]\s*|\s+)/i,'')
+   .replace(/^[\s:–—-]+|[\s:–—-]+$/g,''));
+ }
+ function shippingInfo(doc){
+  var price='',method='',pickup=[];
+  var pickupPattern=/z-?box|alza\s*box|parcel\s*(?:box|shop)|bal[ií]kovn|z[aá]silkovn|packeta|v[yý]dejn[ií]\s*(?:m[ií]sto|bod)|odb[eě]rn[ií]\s*m[ií]sto|pobo[cč]k|pickup\s*(?:point|place)|boxu\b/i;
+  var shippingPattern=/\b(?:doprava|dopravn[eé]|po[sš]tovn[eé]|p[řr]eprava|shipping|delivery)\b/i;
+  [].slice.call(doc.querySelectorAll('tr')).forEach(function(row){
+   var cells=[].slice.call(row.querySelectorAll('th,td')).map(function(cell){return tclean(cell.textContent)}).filter(Boolean);
+   var text=cells.length?cells.join(' '):tclean(row.textContent),normal=norm(text);
+   if(!text)return;
+   if(shippingPattern.test(normal)&&!/stav doruceni|doprava a platba/.test(normal)){
+    if(!price)price=moneyValue(text);
+    if(!method){
+     var candidate=trimShippingValue(cells.length>1?cells.slice(1).join(' '):text);
+     if(candidate&&candidate.length<140)method=candidate;
+    }
+   }
+   if(pickupPattern.test(normal)){
+    var point=trimShippingValue(cells.length>1?cells.slice(1).join(' — '):text);
+    if(point&&point.length<220)pickup.push(point);
+   }
+  });
+  /* Pickup widgets are often outside tables. Read only compact leaf-like
+     elements, never the text of the complete order page. */
+  [].slice.call(doc.querySelectorAll('address,dd,p,li,.form-group,[class*="pickup"],[class*="branch"],[class*="vydejn"],[class*="zasilkov"]')).forEach(function(node){
+   if(node.children.length>5)return;
+   var text=tclean(node.textContent),normal=norm(text);
+   if(!text||text.length>220||!pickupPattern.test(normal))return;
+   var point=trimShippingValue(text);if(point)pickup.push(point);
+  });
+  pickup=uniqueLines(pickup).slice(0,4);
+  var delivery=detailBlock(doc,'delivery');
+  var destination=pickup.length?pickup:(delivery?delivery.lines.slice(0,6):[]);
+  if(!method&&pickup.length)method=pickup[0];
+  return {price:price,method:method,destination:destination};
+ }
+ function shippingSummary(doc){
+  var info=shippingInfo(doc);
+  if(!info.price&&!info.method&&!info.destination.length)return null;
+  var section=el('section','okla-ord-sec okla-ord-shipping');
+  section.appendChild(Object.assign(el('h3','okla-ord-shipping__title'),{textContent:'Doprava a doručení'}));
+  var grid=el('dl','okla-ord-shipping__grid');
+  function row(label,values){
+   values=(Array.isArray(values)?values:[values]).filter(Boolean);if(!values.length)return;
+   var wrap=el('div','okla-ord-shipping__row');
+   wrap.appendChild(Object.assign(el('dt'),{textContent:label}));
+   var dd=el('dd');values.forEach(function(value,i){if(i)dd.appendChild(document.createElement('br'));dd.appendChild(document.createTextNode(value))});
+   wrap.appendChild(dd);grid.appendChild(wrap);
+  }
+  row('Cena dopravy',info.price);
+  row('Způsob dopravy',info.method);
+  row('Místo doručení',info.destination);
+  section.appendChild(grid);return section;
+ }
  function detailsGrid(doc){
   var billing=detailBlock(doc,'billing'),delivery=detailBlock(doc,'delivery');
   /* Shoptet omits a separate delivery block when it is identical to billing.
@@ -347,8 +411,8 @@
     .then(function(r){if(!r.ok)throw 0;return r.text()})
     .then(function(html){
      var doc=new DOMParser().parseFromString(html,'text/html');
-     var items=parseItems(doc,item.href), track=trackingLink(doc), invoice=invoiceLink(doc,item.href,html), details=detailsGrid(doc);
-     return hydrateImages(items).then(function(items){return {items:items,track:track,invoice:invoice,details:details}});
+     var items=parseItems(doc,item.href), track=trackingLink(doc), invoice=invoiceLink(doc,item.href,html), details=detailsGrid(doc), shipping=shippingSummary(doc);
+     return hydrateImages(items).then(function(items){return {items:items,track:track,invoice:invoice,details:details,shipping:shipping}});
     })
     .then(function(data){
      var items=data.items,track=data.track;
@@ -360,6 +424,7 @@
       var claimUrl='/reklamace/?order='+encodeURIComponent(num)+'&type=reklamace&product='+encodeURIComponent(items[0].name||'');
       rk.setAttribute('href',claimUrl);
      }
+     if(data.shipping)body.insertBefore(data.shipping,secA);
      if(data.details)body.insertBefore(data.details,secA);
      if(data.invoice){
       var invoice=el('a','okla-ord-btn okla-ord-btn--invoice');invoice.href=data.invoice;invoice.target='_blank';invoice.rel='noopener';invoice.innerHTML=INVOICE+'<span>Faktura (PDF)</span>';

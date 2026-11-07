@@ -96,7 +96,8 @@ html body .breadcrumbs .navigation-bullet::before{
  color:#8D96A2!important;font:500 12px/1 Exo 2,Arial,sans-serif!important;
  background:none!important;border:0!important;box-shadow:none!important;
 }
-html body .breadcrumbs .navigation-bullet .ok91-chevron{display:none!important}
+html body .breadcrumbs .navigation-bullet.ok91-generated-bullet::before{content:none!important;display:none!important}
+html body .breadcrumbs .navigation-bullet.ok91-generated-bullet .ok91-chevron{display:inline-block!important}
 
 /* Native responsive “Více” menu keeps its compact original scale. */
 html body .menu-helper,

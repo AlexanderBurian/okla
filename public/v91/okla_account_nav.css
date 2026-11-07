@@ -14,7 +14,12 @@
   html.okla-acc-polished body .okla-acc-nav__head{
     margin:0 0 16px!important;
     min-height:58px!important;
-    font-size:12px!important;
+    color:#193650!important;
+    font-size:15px!important;
+    line-height:1.3!important;
+    font-weight:600!important;
+    letter-spacing:0!important;
+    text-transform:none!important;
   }
   html.okla-acc-polished body .okla-acc-nav__link{
     grid-template-columns:36px minmax(0,1fr)!important;

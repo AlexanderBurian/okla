@@ -77,6 +77,13 @@ html.okla-ord-ready body .okla-ord-detail-card__title{margin:0 0 9px;color:#0b25
 html.okla-ord-ready body .okla-ord-detail-card__lines{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
 html.okla-ord-ready body .okla-ord-detail-card__lines li{margin:0;color:#5f6d7d;font:400 12.5px/1.4 Exo 2,Arial,sans-serif;overflow-wrap:anywhere}
 
+/* ---- Shipping price and the actual box / pickup point / address ---- */
+html.okla-ord-ready body .okla-ord-shipping__title{margin:0 0 12px;color:#0b2540;font:800 13px/1.25 Exo 2,Arial,sans-serif}
+html.okla-ord-ready body .okla-ord-shipping__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
+html.okla-ord-ready body .okla-ord-shipping__row{min-width:0;padding:13px 14px;background:#fff;border:0;border-radius:10px}
+html.okla-ord-ready body .okla-ord-shipping__row dt{margin:0 0 5px;color:#8995a5;font:700 11.5px/1.25 Exo 2,Arial,sans-serif;text-transform:uppercase;letter-spacing:.035em}
+html.okla-ord-ready body .okla-ord-shipping__row dd{margin:0;color:#34465a;font:600 12.5px/1.45 Exo 2,Arial,sans-serif;overflow-wrap:anywhere}
+
 /* ---- Actions: equal and symmetric; complaint is the red outlined action ---- */
 html.okla-ord-ready body .okla-ord-actions{display:flex;gap:12px;flex-wrap:wrap}
 html.okla-ord-ready body .okla-ord-actions .okla-ord-btn--rk{order:10;margin-left:auto}
@@ -144,6 +151,7 @@ html body .okla-ord-modal__ok:hover{background:#c20f26;border-color:#c20f26}
   html.okla-ord-ready body .okla-ord-item__thumb-link{width:58px;height:58px}
   html.okla-ord-ready body .okla-ord-item__price{grid-column:2;text-align:left;font-size:17px}
   html.okla-ord-ready body .okla-ord-details__grid{grid-template-columns:minmax(0,1fr)}
+  html.okla-ord-ready body .okla-ord-shipping__grid{grid-template-columns:minmax(0,1fr)}
   html.okla-ord-ready body .okla-ord-step__t{font-size:10px}
 }
 @media(max-width:520px){
