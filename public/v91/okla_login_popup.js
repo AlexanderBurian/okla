@@ -59,7 +59,8 @@
   box.classList.remove('is-shown');void box.offsetWidth;box.classList.add('is-shown');
   if(pop)pop.classList.add('okla-login-has-error');
   var pw=form.querySelector('input[type="password"]');
-  if(pw){pw.value='';pw.classList.add('okla-login-invalid');pw.setAttribute('aria-invalid','true');pw.focus()}
+  /* the password stays (emptying it would make Shoptet's validator complain at once); it is selected, so typing replaces it */
+  if(pw){pw.classList.add('okla-login-invalid');pw.setAttribute('aria-invalid','true');pw.focus();try{pw.select()}catch(e){}}
  }
  function clearError(form){
   var pop=document.getElementById('login');
@@ -168,7 +169,7 @@
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen())hide()});
   document.addEventListener('submit',onSubmit);
-  document.addEventListener('input',function(e){var f=loginForm();if(f&&e.target&&f.contains(e.target)&&e.target.type==='password'&&e.target.value)clearError(f)});
+  document.addEventListener('input',function(e){var f=loginForm();if(f&&e.target&&f.contains(e.target)&&(e.target.type==='password'||e.target.type==='email'))clearError(f)});
   document.addEventListener('pointerover',hoverAccount,true);
   document.addEventListener('pointerout',leaveAccount,true);
   document.addEventListener('pointerdown',function(e){
