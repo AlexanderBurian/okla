@@ -116,3 +116,12 @@ html body .okla-password-toggle:is(:hover,:focus,:active){
 }
 html body .okla-password-toggle:focus-visible{outline:2px solid #1f6fd8!important;outline-offset:0!important}
 html body .okla-password-toggle svg{display:block!important;width:21px!important;height:21px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;pointer-events:none!important}
+
+/* Close buttons (the X in drawers, dialogs, popups, cookie settings, gallery):
+   just the cross – no background, frame or shadow, in any state (the button
+   layer would otherwise tint them on hover/focus). */
+html body :is(#cboxClose,.okm61-drawer-close,.okla-cd__close,.okla-acc-pop__close,.mobile-close-icon,button.close,a.close,.okla-acc-confirm__close,[aria-label="Zavřít"],[aria-label="Close"]):not(#okla-x-a#okla-x-b#okla-x-c#okla-x-d#okla-x-e),
+html body :is(#cboxClose,.okm61-drawer-close,.okla-cd__close,.okla-acc-pop__close,.mobile-close-icon,button.close,a.close,.okla-acc-confirm__close,[aria-label="Zavřít"],[aria-label="Close"]):not(#okla-x-a#okla-x-b#okla-x-c#okla-x-d#okla-x-e):is(:hover,:focus,:active){
+  background:transparent!important;background-color:transparent!important;background-image:none!important;
+  border-color:transparent!important;box-shadow:none!important;filter:none!important;
+}

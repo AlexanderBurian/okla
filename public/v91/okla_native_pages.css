@@ -676,7 +676,7 @@ html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cook
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#66d400!important;border:1px solid #66d400!important;color:#000!important}
 html body #colorbox #cboxContent.cookiesDialog #cboxClose{
   position:fixed!important;top:calc(14px + env(safe-area-inset-top,0px))!important;right:14px!important;left:auto!important;bottom:auto!important;
-  width:44px!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:50%!important;background:#f3f5f8!important;
+  width:44px!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;
   color:#0b2540!important;z-index:3!important;
 }
 @media(min-width:768px){
