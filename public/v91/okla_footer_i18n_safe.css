@@ -482,7 +482,7 @@ html body footer#footer{
    The photo (461x480) is cut on its right edge and bottom (the wrist). It is
    taken out of the grid and anchored to the card's bottom-right corner,
    overflowing both edges, so the clipped card (overflow:hidden) hides both
-   cuts: only the image's natural x 0–272 stays visible (phone, thumb and
+   cuts: only the image's natural x 0–302 stays visible (phone, thumb and
    fingers whole) and the wrist runs out of the card like a real hand.
    Sizes follow the card width (100vw − 24px): width 70%, visible part 68%
    of the card width tall, so it sits high in the empty space under the
@@ -492,7 +492,7 @@ html body footer#footer{
  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
   position:absolute!important;grid-area:auto!important;
   top:auto!important;left:auto!important;
-  right:calc((100vw - 24px) * -.2873)!important;
+  right:calc((100vw - 24px) * -.2423)!important;
   bottom:calc((100vw - 24px) * -.0489)!important;
   width:calc((100vw - 24px) * .70)!important;min-width:0!important;max-width:none!important;
   height:calc((100vw - 24px) * .7289)!important;min-height:0!important;max-height:none!important;
