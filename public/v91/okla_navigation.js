@@ -11,10 +11,13 @@
  function ensureBullets(nav){
   var items=[].slice.call(nav.querySelectorAll('[itemprop="itemListElement"]'));
   if(items.length<2)return;
-  var correct=items.slice(1).every(function(item){var prev=item.previousElementSibling;return prev&&prev.classList.contains('ok91-generated-bullet')});
+  /* Keep the separator inside the level it introduces.  Account pages place
+     breadcrumb levels into separate layout cells, where a sibling separator
+     can be visually dropped even though it exists in the DOM. */
+  var correct=items.slice(1).every(function(item){var first=item.firstElementChild;return first&&first.classList.contains('ok91-generated-bullet')});
   if(correct&&nav.querySelectorAll('.ok91-generated-bullet').length===items.length-1)return;
   nav.querySelectorAll('.navigation-bullet').forEach(function(n){n.remove()});
-  items.slice(1).forEach(function(item){item.parentNode.insertBefore(makeBullet(),item)});
+  items.slice(1).forEach(function(item){item.insertBefore(makeBullet(),item.firstChild)});
  }
  function enhance(nav){
   var home=nav.querySelector('#navigation-first a.navigation-home-icon')||nav.querySelector('a.navigation-home-icon');

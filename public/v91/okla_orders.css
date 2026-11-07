@@ -107,6 +107,7 @@ html.okla-ord-ready body .okla-ord-btn--invoice:disabled{background:#e5e7ea;bord
 html.okla-ord-ready body .okla-ord-loading{display:flex;align-items:center;gap:10px;color:#56657a;font:400 13.5px/1 Exo 2,Arial,sans-serif}
 html.okla-ord-ready body .okla-ord-note{margin:0;color:#56657a;font-size:13.5px}
 html.okla-ord-ready body .okla-ord-note a{color:#008ddd;font-weight:600;text-decoration:underline}
+html body .okla-email-verify-link{position:relative!important;z-index:2!important;pointer-events:auto!important;cursor:pointer!important}
 html.okla-ord-ready body .okla-ord-spin{width:16px;height:16px;border-radius:50%;border:2.3px solid #cfe0ef;border-top-color:#008ddd;animation:okla-ord-spin .7s linear infinite;flex:none}
 @keyframes okla-ord-spin{to{transform:rotate(360deg)}}
 

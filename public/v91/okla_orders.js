@@ -356,6 +356,32 @@
   return a?a.getAttribute('href'):'';
  }
 
+ function repairEmailVerification(root){
+  if(!root)return;
+  var candidates=[].slice.call(root.querySelectorAll('a,button,[role="button"]'));
+  var link=candidates.find(function(node){return /ov[eě][řr].{0,20}(?:sv[uů]j\s+)?e-?mail/.test(norm(node.textContent))});
+  if(!link||link.dataset.oklaEmailVerification==='1')return;
+  var personal=[].slice.call(document.querySelectorAll('.okla-acc-nav__link,a[href]')).find(function(a){return /moje osobni udaje|osobni udaje/.test(norm(a.textContent))});
+  var attrs=['href','data-url','data-href','data-action','formaction'];
+  var target='';
+  attrs.some(function(name){
+   var value=link.getAttribute(name)||'';
+   if(value&&!/^\s*(?:#|javascript:|void\b)/i.test(value)){target=value;return true}
+   return false;
+  });
+  if(!target&&personal)target=personal.getAttribute('href')||'';
+  if(!target)target='/klient/';
+  try{target=new URL(target,location.href).href}catch(e){target='/klient/'}
+  link.dataset.oklaEmailVerification='1';
+  link.classList.add('okla-email-verify-link');
+  link.setAttribute('aria-label','Otevřít ověření e-mailu');
+  if(link.tagName==='A')link.setAttribute('href',target);
+  link.addEventListener('click',function(e){
+   if(e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+   e.preventDefault();e.stopImmediatePropagation();location.assign(target);
+  },true);
+ }
+
  function buildCard(item){
   var num=orderNumber(item), status=rowStatus(item.row),
       date=dateIn(item.row.textContent), total=totalIn(item.row.textContent);
@@ -474,6 +500,7 @@
 
  function run(){
   var root=scope();if(!root)return false;
+  repairEmailVerification(root);
   var orders=findOrders(root);if(!orders.length)return false;
   var first=orders[0].row;
   var host=first.closest('table')||first.closest('ul,ol,.orders,[class*="order-list"]')||first.parentNode;
@@ -487,6 +514,9 @@
   return true;
  }
  function start(){
+  repairEmailVerification(scope());
+  setTimeout(function(){repairEmailVerification(scope())},500);
+  setTimeout(function(){repairEmailVerification(scope())},1500);
   if(run())return;
   var tries=0;
   var mo=new MutationObserver(function(){if(run()||++tries>40)mo.disconnect()});
