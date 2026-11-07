@@ -36,18 +36,22 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
    for all of them. */
 .okla-side-art__stage{position:relative;width:100%;height:132cqw}
 .okla-side-art__product{position:absolute;inset:0;width:100%;height:100%;background-size:contain;background-position:center;background-repeat:no-repeat}
-.okla-side-art__stage--glasses .okla-side-art__product{background-image:url('assets/side-glasses.png');background-position:center 42%}
-.okla-side-art__stage--thermal .okla-side-art__product{background-image:url('assets/side-thermal.png');background-position:center 40%}
+/* glasses and the thermal camera are wider than tall, so they get a bit more width (running slightly past the art box) */
+.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('assets/side-glasses.png');background-position:center 34%}
+.okla-side-art__stage--thermal .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('assets/side-thermal.png');background-position:center 22%}
 .okla-side-art__stage--endoscope .okla-side-art__product{background-image:url('assets/side-endoscope.png')}
 
-/* Price tag, as on the big electronics shops: a yellow tag with a punched hole, slightly tilted, over the bottom
-   right of the product. Sizes in cqw, so it scales with the art. */
-.okla-side-price{position:absolute;right:2cqw;bottom:8cqw;z-index:2;display:inline-flex;flex-direction:column;align-items:flex-start;gap:.6cqw;
-  padding:2.6cqw 4.6cqw 2.8cqw 8.2cqw;border-radius:2.4cqw;background:#ffd800;color:#0b2540;
-  box-shadow:0 1.6cqw 4cqw rgba(11,37,64,.22),inset 0 -0.6cqw 0 rgba(0,0,0,.06);transform:rotate(-5deg);transform-origin:right bottom;
-  font-family:"Exo 2",Arial,sans-serif;line-height:1;white-space:nowrap;transition:transform .2s ease}
-.okla-side-price::before{content:"";position:absolute;left:3cqw;top:50%;width:2.4cqw;height:2.4cqw;margin-top:-1.2cqw;border-radius:50%;background:#eaf5ff;box-shadow:inset 0 .3cqw .5cqw rgba(0,0,0,.25)}
-.okla-side-price__label{font-size:3.6cqw;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
-.okla-side-price__value{font-size:9.6cqw;font-weight:800;letter-spacing:-.02em}
-.okla-side-art__link:hover .okla-side-price{transform:rotate(-5deg) scale(1.05)}
-.okla-side-art__stage--flipper .okla-side-price{bottom:4cqw}
+/* Price tag, as on the big electronics shops: a yellow tag with a punched hole, slightly tilted. It stays still
+   (no hover effect) and sits beside each product, covering at most a small corner of it. Sizes in cqw. */
+.okla-side-price{position:absolute;z-index:2;display:inline-flex;flex-direction:column;align-items:flex-start;gap:.8cqw;
+  padding:3.2cqw 5.6cqw 3.4cqw 9.8cqw;border-radius:2.8cqw;background:#ffd800;color:#0b2540;
+  box-shadow:0 1.8cqw 4.4cqw rgba(11,37,64,.22),inset 0 -0.7cqw 0 rgba(0,0,0,.06);transform:rotate(-5deg);
+  font-family:"Exo 2",Arial,sans-serif;line-height:1;white-space:nowrap}
+.okla-side-price::before{content:"";position:absolute;left:3.6cqw;top:50%;width:2.9cqw;height:2.9cqw;margin-top:-1.45cqw;border-radius:50%;background:#eaf5ff;box-shadow:inset 0 .35cqw .6cqw rgba(0,0,0,.25)}
+.okla-side-price__label{font-size:4.3cqw;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.okla-side-price__value{font-size:11.8cqw;font-weight:800;letter-spacing:-.02em}
+/* where each tag sits */
+.okla-side-art__stage--flipper .okla-side-price{right:-6cqw;bottom:-12cqw}
+.okla-side-art__stage--glasses .okla-side-price{right:2cqw;bottom:14cqw}
+.okla-side-art__stage--thermal .okla-side-price{right:-4cqw;bottom:-2cqw}
+.okla-side-art__stage--endoscope .okla-side-price{right:-6cqw;top:38cqw}
