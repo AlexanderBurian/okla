@@ -222,7 +222,7 @@ html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-ca
    overhang, no overshoot) with a navy accent bar, identical for hover and the
    selected category. High specificity so it wins over the template's own style. */
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon{
-  position:relative!important;border-radius:0 6px 6px 0!important;background:transparent!important;color:#1d2433!important;box-shadow:none!important;
+  position:relative!important;border-radius:0!important;background:transparent!important;color:#1d2433!important;box-shadow:none!important;
 }
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon::before{
   display:block!important;content:""!important;position:absolute!important;left:calc(-1 * var(--okla-hover-overhang,20px))!important;
@@ -416,6 +416,10 @@ html body #filters .filter-section-boolean fieldset>div{
   flex:0 0 27px!important;width:27px!important;height:27px!important;
 }
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:25px!important;height:25px!important}
+@media(min-width:768px){
+  #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{flex:0 0 32px!important;width:32px!important;height:32px!important}
+  #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:30px!important;height:30px!important}
+}
 /* Slightly larger pictograms in the mobile category grid. */
 #okla-v61-categories .okm61-category-icon{flex:0 0 32px!important;width:32px!important;height:32px!important}
 #okla-v61-categories .okm61-category-icon img.okla-category-png{width:32px!important;height:32px!important}
