@@ -332,6 +332,12 @@ html body #content button.ok97-related-arrow:not(#okla_related_hover_a#okla_rela
   color:#fff!important;
 }
 
+/* Quantity steppers are neutral controls, not hover actions. */
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>button:is(.decrease,.increase):not(#okla_qty_hover_a#okla_qty_hover_b#okla_qty_hover_c#okla_qty_hover_d):hover{
+  background:transparent!important;background-image:none!important;color:#7b8191!important;
+  box-shadow:none!important;filter:none!important;transform:none!important;
+}
+
 /* The lightweight homepage “Více” link keeps its original compact scale. */
 html body.type-index #content .homepage-group-title.okla-slider-heading .okla-section-more{
   gap:4px!important;

@@ -55,7 +55,7 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity 
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.decrease,button.increase){display:inline-flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;flex:0 0 42px!important;width:42px!important;min-width:42px!important;height:50px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#7B8191!important;font:800 25px/1 var(--okd-font)!important;cursor:pointer!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>button.decrease{order:1!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>button.increase{order:3!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.decrease,button.increase):hover{background:#F3F6FA!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.decrease,button.increase):hover{background:transparent!important;color:#7B8191!important;box-shadow:none!important;filter:none!important;transform:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>.ok86-qty-step{display:none!important}
 /* 5. One purchase CTA. Other Shoptet duplicate purchase buttons are hidden by JS marker. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button:not(.ok99-native-primary){display:none!important}
