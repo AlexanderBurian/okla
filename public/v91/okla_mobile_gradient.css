@@ -13,8 +13,8 @@
    - Colour: a mild, low-opacity blue wash with a light violet tint on the right. Both
      layers fade with a smoothstep curve (zero slope at the end), so they
      thin out gradually and reach pure white without any visible cut.
-   - Length: 820px, fixed to the viewport, on every page; product detail
-     differs, see the end of the file.
+   - Length: 820px, fixed to the viewport; product detail and category pages
+     end it exactly at their first UI element, see the end of the file.
    - The header that appears on scroll (stuck/shown) is plain white with a
      soft shadow.
    Phones only (≤767px). Loaded last; the selectors carry an ID boost because the
@@ -58,14 +58,15 @@
   }
   html.okla-m-stuck.okla-m-hidden body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{box-shadow:none!important}
 
-  /* Product detail (as on big shops): the gradient is part of the page top and
-     fades out gradually, reaching pure white exactly at the upper edge of the
-     main product image. okla_mobile_gradient.js measures that edge into
-     --okla-mg-h. The white product block above the image is transparent, so
-     nothing white starts before it. The layer is anchored to the document
-     (not the viewport), so it scrolls away with the page and never shows
-     beside the content. */
-  html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{position:absolute!important}
+  /* Product detail and category (as on big shops): the gradient is part of the
+     page top and fades out gradually, reaching pure white exactly where the
+     page's own UI starts – the main product image, or the category sorting
+     tabs (empty-category card / product grid without them). okla_mobile_gradient.js measures that edge into
+     --okla-mg-h and sets html.okla-mg-anchored: the layer is then anchored to
+     the document (not the viewport), so it scrolls away with the page and
+     never runs into that UI. On a product the white block above the image is
+     transparent, so nothing white starts before the image. */
+  html.okla-mg-anchored body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{position:absolute!important}
   html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail,
   html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail-inner{
     background-color:transparent!important;background-image:none!important;
