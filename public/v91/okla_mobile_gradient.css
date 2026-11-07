@@ -10,11 +10,11 @@
    The page wrappers are transparent on phones, so it shows behind the header
    and the top of every page. Cards, banners and the footer keep their own
    white surfaces.
-   - Colour: a mild, low-opacity blue wash with a light violet tint on the right. Both
+   - Colour: a mild, low-opacity blue wash with only a faint violet tint on the right. Both
      layers fade with a smoothstep curve (zero slope at the end), so they
      thin out gradually and reach pure white without any visible cut.
-   - Length: 820px, fixed to the viewport; product detail and category pages
-     end it exactly at their first UI element, see the end of the file.
+   - Length: 820px, fixed to the viewport; homepage, product detail and
+     category pages end it exactly at their first UI element (end of file).
    - The header that appears on scroll (stuck/shown) is plain white with a
      soft shadow.
    Phones only (≤767px). Loaded last; the selectors carry an ID boost because the
@@ -23,7 +23,7 @@
   :root{
     --okla-mg-h:820px;
     --okla-mg:
-      radial-gradient(110% 75% at 104% -6%,rgba(158,138,246,.140) 0%,rgba(158,138,246,.138) 7.1%,rgba(158,138,246,.132) 14.3%,rgba(158,138,246,.123) 21.4%,rgba(158,138,246,.112) 28.6%,rgba(158,138,246,.099) 35.7%,rgba(158,138,246,.085) 42.9%,rgba(158,138,246,.070) 50%,rgba(158,138,246,.055) 57.1%,rgba(158,138,246,.041) 64.3%,rgba(158,138,246,.028) 71.4%,rgba(158,138,246,.017) 78.6%,rgba(158,138,246,.008) 85.7%,rgba(158,138,246,.002) 92.9%,rgba(158,138,246,.000) 100%),
+      radial-gradient(110% 75% at 104% -6%,rgba(158,138,246,.050) 0%,rgba(158,138,246,.049) 7.1%,rgba(158,138,246,.047) 14.3%,rgba(158,138,246,.044) 21.4%,rgba(158,138,246,.040) 28.6%,rgba(158,138,246,.035) 35.7%,rgba(158,138,246,.030) 42.9%,rgba(158,138,246,.025) 50%,rgba(158,138,246,.020) 57.1%,rgba(158,138,246,.015) 64.3%,rgba(158,138,246,.010) 71.4%,rgba(158,138,246,.006) 78.6%,rgba(158,138,246,.003) 85.7%,rgba(158,138,246,.001) 92.9%,rgba(158,138,246,.000) 100%),
       linear-gradient(180deg,rgba(204,228,250,.420) 0%,rgba(204,228,250,.414) 7.1%,rgba(204,228,250,.397) 14.3%,rgba(204,228,250,.370) 21.4%,rgba(204,228,250,.337) 28.6%,rgba(204,228,250,.298) 35.7%,rgba(204,228,250,.255) 42.9%,rgba(204,228,250,.210) 50%,rgba(204,228,250,.165) 57.1%,rgba(204,228,250,.122) 64.3%,rgba(204,228,250,.083) 71.4%,rgba(204,228,250,.050) 78.6%,rgba(204,228,250,.023) 85.7%,rgba(204,228,250,.006) 92.9%,rgba(204,228,250,.000) 100%);
   }
   html:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e){background:#fff!important;background-image:none!important}
@@ -58,10 +58,11 @@
   }
   html.okla-m-stuck.okla-m-hidden body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{box-shadow:none!important}
 
-  /* Product detail and category (as on big shops): the gradient is part of the
-     page top and fades out gradually, reaching pure white exactly where the
-     page's own UI starts – the main product image, or the category sorting
-     tabs (empty-category card / product grid without them). okla_mobile_gradient.js measures that edge into
+  /* Homepage, product detail and category (as on big shops): the gradient is
+     part of the page top and fades out gradually, reaching pure white exactly
+     where the page's own UI starts – the category tiles under the homepage
+     banner, the main product image, or the category sorting tabs
+     (empty-category card / product grid without them). okla_mobile_gradient.js measures that edge into
      --okla-mg-h and sets html.okla-mg-anchored: the layer is then anchored to
      the document (not the viewport), so it scrolls away with the page and
      never runs into that UI. On a product the white block above the image is
