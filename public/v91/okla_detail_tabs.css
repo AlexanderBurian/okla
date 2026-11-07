@@ -20,7 +20,7 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs{
     display:grid!important;grid-template-columns:repeat(var(--okla-ptabs-n,3),minmax(0,1fr))!important;gap:0!important;
     width:100%!important;max-width:none!important;margin:0!important;padding:0!important;list-style:none!important;
-    border:0!important;border-radius:20px 20px 0 0!important;background:#f3f5f8!important;box-shadow:none!important;
+    border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
     overflow:visible!important;position:relative!important;z-index:2!important;
   }
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs::before,
@@ -35,49 +35,55 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a::after{content:none!important;display:none!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a{
     position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;
-    width:100%!important;height:62px!important;min-height:62px!important;margin:0 0 -1px!important;padding:0 16px!important;box-sizing:border-box!important;
-    border:1px solid transparent!important;border-bottom:0!important;border-radius:20px 20px 0 0!important;
+    width:100%!important;height:60px!important;min-height:60px!important;margin:0 0 -1px!important;padding:0 16px!important;box-sizing:border-box!important;
+    border:1px solid transparent!important;border-bottom:0!important;border-radius:18px 18px 0 0!important;
     background:transparent!important;box-shadow:none!important;
     font:700 17px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;
-    color:#7a8494!important;text-decoration:none!important;white-space:nowrap!important;cursor:pointer!important;
+    color:#6b7686!important;text-decoration:none!important;white-space:nowrap!important;cursor:pointer!important;
   }
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a:hover{color:#4b5563!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a:hover{color:#0b2540!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a{
-    z-index:3!important;background:#fff!important;border-color:#e6ebf2!important;color:#168bd2!important;
+    z-index:3!important;background:#fff!important;border-color:#e1e7ee!important;color:#168bd2!important;
   }
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs .ok99-tab-house{font-size:20px!important;line-height:1!important;color:inherit!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs .ok99-tab-house{display:none!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{
     display:block!important;position:relative!important;z-index:1!important;margin:0!important;padding:30px 34px 34px!important;
-    background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;
+    background:#fff!important;border:1px solid #e1e7ee!important;border-radius:20px!important;box-shadow:none!important;
   }
   html body #content .okla-ptabs[data-okla-active="first"]:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{border-top-left-radius:0!important}
   html body #content .okla-ptabs[data-okla-active="last"]:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{border-top-right-radius:0!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head{display:none!important}
 }
 
-/* ================= phone: accordion ================= */
+/* ================= phone: accordion =================
+   No grey box around: the rows themselves are the grey UI, the open content
+   sits straight on the white page. */
 @media(max-width:767px){
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .shp-tabs-row{display:none!important}
+  /* rows line up with the gallery and the rest of the page */
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) > .row > [class*="col-"]{padding-left:0!important;padding-right:0!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{
-    display:flex!important;flex-direction:column!important;gap:12px!important;margin:0!important;padding:16px!important;
-    background:#f3f5f8!important;border:0!important;border-radius:20px!important;box-shadow:none!important;
+    display:flex!important;flex-direction:column!important;gap:10px!important;margin:0!important;padding:0!important;
+    background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
   }
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head{
-    display:flex!important;align-items:center!important;gap:10px!important;width:100%!important;min-height:56px!important;
-    margin:0!important;padding:0 18px 0 20px!important;box-sizing:border-box!important;
-    border:1px solid #e1e7ee!important;border-radius:22px!important;background:#fff!important;box-shadow:none!important;
-    font:700 16px/1.2 "Exo 2",Arial,sans-serif!important;color:#6b7686!important;text-align:left!important;cursor:pointer!important;
-    -webkit-tap-highlight-color:transparent;
+    display:flex!important;align-items:center!important;gap:12px!important;width:100%!important;min-height:58px!important;
+    margin:0!important;padding:0 16px 0 20px!important;box-sizing:border-box!important;
+    border:0!important;border-radius:16px!important;background:#f3f5f8!important;box-shadow:none!important;
+    font:700 16px/1.2 "Exo 2",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;
+    color:#0b2540!important;text-align:left!important;cursor:pointer!important;
+    -webkit-tap-highlight-color:transparent;transition:background-color .15s ease!important;
   }
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:is(:hover,:focus,:active){background:#fff!important;box-shadow:none!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head.is-open{color:#0b2540!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-house{font-size:18px!important;line-height:1!important;color:inherit!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:is(:hover,:focus){background:#f3f5f8!important;box-shadow:none!important;outline:0!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:active{background:#eceff4!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:focus-visible{outline:2px solid #168bd2!important;outline-offset:2px!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-house{display:none!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-title{flex:1 1 auto!important;min-width:0!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev{display:grid!important;place-items:center!important;flex:0 0 22px!important;color:#7a8494!important;transition:transform .2s ease!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head.is-open .okla-ptab-chev{transform:rotate(180deg)!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev{display:grid!important;place-items:center!important;flex:0 0 32px!important;width:32px!important;height:32px!important;border-radius:50%!important;background:#fff!important;color:#0b2540!important;transition:transform .2s ease,color .2s ease!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head.is-open .okla-ptab-chev{transform:rotate(180deg)!important;color:#168bd2!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content > .tab-pane.okla-ptab-open{
-    margin:-4px 0 4px!important;padding:16px!important;background:#fff!important;border-radius:16px!important;
+    margin:0 0 8px!important;padding:8px 2px 4px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
   }
 }
 /* tab strip and content panel share the same column edges */

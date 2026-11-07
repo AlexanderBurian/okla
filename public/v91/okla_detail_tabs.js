@@ -1,5 +1,5 @@
 /* OKLA – product detail content switcher (like kratas.cz).
-   The three existing sections under the product – description (⌂), reviews and
+   The three existing sections under the product – description, reviews and
    parameters – keep their content and look; only the switching changes:
    - desktop: three equal tabs, the active one is a white tab joined to the
      white content panel below it;
@@ -38,7 +38,6 @@
   items.forEach(function(it,i){
    var head=document.createElement('button');head.type='button';head.className='okla-ptab-head';
    head.setAttribute('aria-expanded','false');head.setAttribute('aria-controls',it.pane.id);
-   if(it.desc){var h=document.createElement('span');h.className='okla-ptab-house';h.setAttribute('aria-hidden','true');h.textContent='⌂';head.appendChild(h)}
    var t=document.createElement('span');t.className='okla-ptab-title';t.textContent=it.label;head.appendChild(t);
    var c=document.createElement('span');c.className='okla-ptab-chev';c.appendChild(chevron());head.appendChild(c);
    head.style.order=String(i*2);it.pane.style.order=String(i*2+1);
