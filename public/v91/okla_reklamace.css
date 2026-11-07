@@ -181,3 +181,90 @@ html body .okla-rk__done-links .is-ghost:hover{background:#f4f7fb}
   /* No footer on mobile on the complaint page. */
   html.okla-rk-takeover #footer{display:none!important}
 }
+
+/* ===================== V2: roomier, sectioned layout =====================
+   Every step is its own white card with more air inside and between the
+   cards; consent and submit form one final card. One single control per
+   choice: the consent keeps only the round checkbox (Shoptet's square label
+   decoration is removed), and every round control uses integer geometry
+   (20px ring, 2px border, 10px dot at 5px) so the dot sits exactly in the
+   centre on any screen. Selectors carry one extra class because
+   okla_button_consistency.css (loaded later) styles these controls too. */
+html body .okla-rk{max-width:800px;margin-top:36px}
+html body .okla-rk__lead{margin-bottom:22px}
+html body .okla-rk__ref{margin-bottom:28px}
+html body .okla-rk .okla-rk__card{background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+html body .okla-rk .okla-rk__step{
+  display:block;margin:0 0 20px;padding:30px 34px 34px;
+  background:#fff;border:1px solid #e6ebf2;border-radius:20px;box-shadow:0 1px 4px rgba(6,29,58,.04);
+}
+html body .okla-rk .okla-rk__step:last-of-type{margin-bottom:20px}
+/* keep the legend inside the card (not on the fieldset edge) */
+html body .okla-rk .okla-rk__legend{
+  float:left;width:100%;margin:0 0 24px;padding:0 0 16px;border-bottom:1px solid #eef2f7;
+  font-size:18px;gap:12px;
+}
+html body .okla-rk .okla-rk__legend + *{clear:both}
+html body .okla-rk .okla-rk__num{width:30px;height:30px;font-size:14.5px}
+html body .okla-rk .okla-rk__grid{gap:22px 22px}
+html body .okla-rk .okla-rk__field{gap:9px}
+html body .okla-rk .okla-rk__hint{margin-top:3px}
+html body .okla-rk .okla-rk__choices{gap:14px}
+html body .okla-rk .okla-rk__choice label{min-height:84px;padding:15px 16px 15px 48px}
+html body .okla-rk .okla-rk__choice input[name=resolution]+label{min-height:58px;padding-top:12px;padding-bottom:12px}
+html body .okla-rk .okla-rk__step [data-field="resolution"]{margin-top:2px}
+html body .okla-rk input[type=text],html body .okla-rk input[type=email],html body .okla-rk input[type=tel],
+html body .okla-rk input[type=url],html body .okla-rk input[type=date],html body .okla-rk input[type=number],
+html body .okla-rk select{height:50px}
+
+/* round radio indicator: ring 20px (border 2px), dot 10px, centred with integers */
+html body .okla-rk .okla-rk__choice label::before{
+  left:16px!important;top:calc(50% - 10px)!important;width:20px!important;height:20px!important;
+  border:2px solid #aeb9c5!important;border-radius:50%!important;background:#fff!important;background-image:none!important;
+  transform:none!important;box-sizing:border-box!important;
+}
+html body .okla-rk .okla-rk__choice label::after{
+  left:21px!important;top:calc(50% - 5px)!important;width:10px!important;height:10px!important;
+  border-radius:50%!important;background:#168bd2!important;background-image:none!important;
+  transform:scale(0)!important;transform-origin:50% 50%!important;
+}
+html body .okla-rk .okla-rk__choice input:checked+label::before{border-color:#168bd2!important}
+html body .okla-rk .okla-rk__choice input:checked+label::after{transform:scale(1)!important}
+
+/* consent: one round checkbox only, aligned with the first text line */
+html body .okla-rk .okla-rk__consent{
+  align-items:flex-start;gap:12px;margin:26px 0 0;padding:18px 20px;
+  background:#f7f9fc;border:1px solid #e6ebf2;border-radius:14px;
+}
+html body .okla-rk .okla-rk__consent label::before,
+html body .okla-rk .okla-rk__consent label::after{content:none!important;display:none!important}
+html body .okla-rk .okla-rk__consent label{margin:0!important;padding:0!important;background-image:none!important;font-size:13.5px;line-height:20px}
+html body .okla-rk .okla-rk__consent input[type="checkbox"]{
+  flex:0 0 20px!important;width:20px!important;min-width:20px!important;max-width:20px!important;
+  height:20px!important;min-height:20px!important;max-height:20px!important;margin:0!important;
+  border:2px solid #aeb9c5!important;border-radius:50%!important;box-sizing:border-box!important;
+}
+html body .okla-rk .okla-rk__consent input[type="checkbox"]::after{
+  inset:3px auto auto 3px!important;width:10px!important;height:10px!important;
+  transform:scale(0)!important;transform-origin:50% 50%!important;
+}
+html body .okla-rk .okla-rk__consent input[type="checkbox"]:checked{border-color:#168bd2!important}
+html body .okla-rk .okla-rk__consent input[type="checkbox"]:checked::after{transform:scale(1)!important}
+html body .okla-rk .okla-rk__consent.is-invalid{border-color:#f5c6ce;background:#fff7f8}
+
+/* final card: submit + note */
+html body .okla-rk .okla-rk__actions{
+  margin:0;padding:26px 34px 28px;gap:14px;
+  background:#fff;border:1px solid #e6ebf2;border-radius:20px;box-shadow:0 1px 4px rgba(6,29,58,.04);
+}
+html body .okla-rk .okla-rk__done.is-on{
+  padding:36px 28px 32px;background:#fff;border:1px solid #e6ebf2;border-radius:20px;
+}
+@media(max-width:760px){
+  html body .okla-rk{margin-top:18px}
+  html body .okla-rk .okla-rk__step{padding:22px 18px 24px;margin-bottom:14px;border-radius:16px}
+  html body .okla-rk .okla-rk__legend{margin-bottom:20px;padding-bottom:14px;font-size:17px}
+  html body .okla-rk .okla-rk__grid{gap:18px}
+  html body .okla-rk .okla-rk__actions{padding:20px 18px 22px;border-radius:16px}
+  html body .okla-rk .okla-rk__consent{padding:16px}
+}
