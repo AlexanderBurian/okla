@@ -15,7 +15,10 @@ var image=document.createElement("img");image.src=a.img;image.alt="";image.loadi
 var body=node("div","okn-body"),title=node("a","okn-title",a.title);title.href=a.href;body.appendChild(title);body.appendChild(node("p","okn-desc",a.desc));article.appendChild(visual);article.appendChild(body);grid.appendChild(article)});section.appendChild(grid);
 var bottom=node("div","okn-bottom"),button=node("a","okn-button","Všechny novinky");button.href="/newsroom/";
 var arrow=document.createElementNS("http://www.w3.org/2000/svg","svg");arrow.setAttribute("viewBox","0 0 24 24");arrow.setAttribute("aria-hidden","true");var path=document.createElementNS("http://www.w3.org/2000/svg","path");path.setAttribute("d","m9 5 7 7-7 7");arrow.appendChild(path);button.appendChild(arrow);bottom.appendChild(button);section.appendChild(bottom);
-var group=main.querySelector(".homepage-products-2"),anchor=group&&(group.closest(".okla-slider-shell")||group);
+/* Product "Novinky" is followed by other curated product rows. The editorial
+   block belongs after the complete product area, never between product groups. */
+var anchor=main.querySelector('[data-okla-home-product-tail="1"]');
+if(!anchor){var group=main.querySelector(".homepage-products-10,.homepage-products-7,.homepage-products-2");anchor=group&&(group.closest(".okla-slider-shell")||group)}
 if(anchor){anchor.after(section)}else{var warranty=main.querySelector("#okla-warranty-strip"),benefit=main.querySelector(".benefitBanner.position--benefitHomepage");if(warranty)warranty.after(section);else if(benefit)benefit.before(section);else main.appendChild(section)}
 var native=main.querySelectorAll(".homepage-blog-wrapper,.homepage-blog,.homepage-news,.homepage-articles,.homepage-blog-posts");native.forEach(function(el){if(!el.contains(section))el.classList.add("okn-original-articles-hidden")});
 }

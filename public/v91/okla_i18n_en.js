@@ -23,7 +23,7 @@
   'Předchozí':'Previous','Následující':'Next','Chytré brýle':'Smart glasses','Kamera a AI asistent přímo v brýlích.':'A camera and an AI assistant right in your glasses.',
   'Dárek zdarma':'Free gift','Ke každé objednávce':'With every order','Doručení do druhého dne':'Next-day delivery','na jakékoliv místo':'to any place',
   'Garance doručení':'Delivery guarantee','nepoškozeného zboží':'of undamaged goods','Přes 3000 výdejních míst':'Over 3,000 pick-up points','po celé ČR':'across the Czech Republic',
-  'Akční zboží':'Special offers','Skladem':'In stock','Na skladě':'In stock','Do košíku':'Add to cart','Kód:':'Code:','To nejlepší od nás':'Our best picks','Novinky':'New arrivals',
+  'Akční zboží':'Special offers','Skladem':'In stock','Na skladě':'In stock','Do košíku':'Add to cart','Kód:':'Code:','To nejlepší od nás':'Our best picks','Novinky':'New arrivals','Vychytávky':'Gadgets','Nejlepší nářadí':'Best tools',
   'Poslední hodnocení':'Latest reviews','Zápatí':'Footer','Pečlivě vybraný sortiment pro každý den':'A carefully chosen range for every day',
   'Objednávky vyřizujeme co nejrychleji':'We process orders as fast as we can','Zákaznická podpora na e-mailu':'Customer support by email',
   'Bezpečné možnosti platby':'Secure payment options','Výdejní místa po celé ČR':'Pick-up points across the Czech Republic',

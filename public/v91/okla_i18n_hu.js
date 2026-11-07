@@ -23,7 +23,7 @@
   'Předchozí':'Előző','Následující':'Következő','Chytré brýle':'Okosszemüveg','Kamera a AI asistent přímo v brýlích.':'Kamera és AI-asszisztens közvetlenül a szemüvegben.',
   'Dárek zdarma':'Ajándék','Ke každé objednávce':'Minden rendeléshez','Doručení do druhého dne':'Kiszállítás másnapra','na jakékoliv místo':'bármely helyre',
   'Garance doručení':'Garantált kézbesítés','nepoškozeného zboží':'sértetlen áruval','Přes 3000 výdejních míst':'Több mint 3000 átvételi pont','po celé ČR':'Csehország-szerte',
-  'Akční zboží':'Akciós termékek','Skladem':'Raktáron','Na skladě':'Raktáron','Do košíku':'Kosárba','Kód:':'Kód:','To nejlepší od nás':'A legjobbjaink','Novinky':'Újdonságok',
+  'Akční zboží':'Akciós termékek','Skladem':'Raktáron','Na skladě':'Raktáron','Do košíku':'Kosárba','Kód:':'Kód:','To nejlepší od nás':'A legjobbjaink','Novinky':'Újdonságok','Vychytávky':'Kütyük','Nejlepší nářadí':'Legjobb szerszámok',
   'Poslední hodnocení':'Legutóbbi értékelések','Zápatí':'Lábléc','Pečlivě vybraný sortiment pro každý den':'Gondosan válogatott kínálat minden napra',
   'Objednávky vyřizujeme co nejrychleji':'A rendeléseket a lehető leggyorsabban teljesítjük','Zákaznická podpora na e-mailu':'Ügyfélszolgálat e-mailben',
   'Bezpečné možnosti platby':'Biztonságos fizetési módok','Výdejní místa po celé ČR':'Átvételi pontok Csehország-szerte',

@@ -23,7 +23,7 @@
   'Předchozí':'Predchádzajúce','Následující':'Nasledujúce','Chytré brýle':'Inteligentné okuliare','Kamera a AI asistent přímo v brýlích.':'Kamera a AI asistent priamo v okuliaroch.',
   'Dárek zdarma':'Darček zadarmo','Ke každé objednávce':'Ku každej objednávke','Doručení do druhého dne':'Doručenie na druhý deň','na jakékoliv místo':'na akékoľvek miesto',
   'Garance doručení':'Garancia doručenia','nepoškozeného zboží':'nepoškodeného tovaru','Přes 3000 výdejních míst':'Viac ako 3 000 výdajných miest','po celé ČR':'po celej ČR',
-  'Akční zboží':'Akciový tovar','Skladem':'Na sklade','Na skladě':'Na sklade','Do košíku':'Do košíka','Kód:':'Kód:','To nejlepší od nás':'To najlepšie od nás','Novinky':'Novinky',
+  'Akční zboží':'Akciový tovar','Skladem':'Na sklade','Na skladě':'Na sklade','Do košíku':'Do košíka','Kód:':'Kód:','To nejlepší od nás':'To najlepšie od nás','Novinky':'Novinky','Vychytávky':'Vychytávky','Nejlepší nářadí':'Najlepšie náradie',
   'Poslední hodnocení':'Posledné hodnotenia','Zápatí':'Päta stránky','Pečlivě vybraný sortiment pro každý den':'Starostlivo vybraný sortiment na každý deň',
   'Objednávky vyřizujeme co nejrychleji':'Objednávky vybavujeme čo najrýchlejšie','Zákaznická podpora na e-mailu':'Zákaznícka podpora e-mailom',
   'Bezpečné možnosti platby':'Bezpečné možnosti platby','Výdejní místa po celé ČR':'Výdajné miesta po celej ČR',
