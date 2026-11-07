@@ -27,6 +27,7 @@ html body .oka-c-card{text-align:center;padding:16px 28px;display:flex;flex-dire
 html body .oka-c-card + .oka-c-card{border-left:1px solid #d7dde6}
 html body .oka-c-card__ic{width:112px;height:112px;border:0;border-radius:0;background:transparent;display:grid;place-items:center;margin-bottom:20px;box-shadow:none}
 html body .oka-c-card__ic img{width:104px;height:104px;object-fit:contain;object-position:center;display:block}
+html body .oka-c-card__ic img[src*="icon-advice-user-reference"]{width:72px;height:72px}
 html body .oka-c-card h3{font-size:22px;font-weight:700;color:#141c28;margin-bottom:14px}
 html body .oka-c-card p{font-size:15px;line-height:1.6;color:var(--mut);max-width:270px;margin-bottom:28px}
 html body .oka-c-card .oka-c-btn{margin-top:auto}
