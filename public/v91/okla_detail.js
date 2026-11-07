@@ -97,11 +97,16 @@
   var fav=q('.okla-detail-favorite',buy);if(fav)fav.remove();
   var pr=q('.link-icon.print',buy);if(pr)pr.addEventListener('click',function(e){e.preventDefault();window.print()});
  }
- /* Shows either the review block or the native tab content. Never scrolls. */
+ /* Switches the review panel in place without scrolling. Native Shoptet tab
+    handlers remain attached to their original links and panels. */
  function showTabPanel(name){
   var review=q('.ok97-review-block'),content=q('#tab-content');
-  if(review)review.style.setProperty('display',name==='review'?'':'none','important');
-  if(content)content.style.setProperty('display',name==='review'?'none':'','important');
+  if(!review||!content)return;
+  content.style.removeProperty('display');
+  if(name==='review'){
+   qa('.tab-pane',content).forEach(panel=>panel.classList.remove('active','in'));
+   review.classList.add('active','in');
+  }else review.classList.remove('active','in');
  }
  /* Alza-style tabs: retain native Shoptet tab links, markup and event handlers. */
  function formatTabs(){
@@ -116,8 +121,9 @@
   /* Only real sections get navigable tabs; unsupported tabs are not fabricated. */
   var review=q('.ok97-review-block');
   if(review&&!q('li.ok97-review-tab',tabs)){
-   var reviewLi=el('li','shp-tab ok97-review-tab'),reviewLink=el('a','ok97-anchor-tab','Recenze');
+   var reviewLi=el('li','shp-tab ok97-review-tab'),reviewLink=el('a','shp-tab-link ok97-anchor-tab','Hodnocení');
    reviewLink.href='#ok97-review-block';
+   reviewLink.setAttribute('role','tab');reviewLink.setAttribute('aria-selected','false');
    reviewLi.append(reviewLink);
    homeLi.after(reviewLi);
    /* Panels switch in place: the click is prevented, so the page never jumps to the anchor. */
@@ -125,10 +131,13 @@
     e.preventDefault();
     qa('li.shp-tab',tabs).forEach(li=>li.classList.remove('active'));
     reviewLi.classList.add('active');
+    reviewLink.setAttribute('aria-selected','true');
     showTabPanel('review');
+    history.replaceState(history.state,'','#ok97-review-block');
    });
-   qa('a.shp-tab-link',tabs).forEach(a=>a.addEventListener('click',function(){
+   qa('a.shp-tab-link',tabs).filter(a=>a!==reviewLink).forEach(a=>a.addEventListener('click',function(){
     reviewLi.classList.remove('active');
+    reviewLink.setAttribute('aria-selected','false');
     showTabPanel('content');
    }));
   }
@@ -156,40 +165,47 @@
   var price=formattedPrice(holder.textContent);
   if(price&&holder.textContent.trim()!==price)holder.textContent=price;
  }
- function hasRealReviews(){
-  var ld=qa('script[type="application/ld+json"]');
-  for(var i=0;i<ld.length;i++){try{
-    var d=JSON.parse(ld[i].textContent),nodes=Array.isArray(d)?d:[d];
-    for(var node of nodes){
-      var x=node&&node.aggregateRating;
-      if(x&&Number(x.ratingCount||x.reviewCount)>0)return true;
-    }
-  }catch(e){}}
-  var label=q('#content .p-detail-info .stars-label')?.textContent||'';
-  return /[1-5](?:[,.][0-9])?\s*\/\s*5/.test(label);
+ function ratingData(detail){
+  var wrap=q('.p-detail-info .stars-wrapper',detail),label=wrap?(q('.stars-label',wrap)?.textContent||''):'';
+  var scoreMatch=label.replace(',','.').match(/([0-5](?:\.[0-9]+)?)\s*(?:\/\s*5|z\s*5)/i);
+  var score=scoreMatch?Math.max(0,Math.min(5,Number(scoreMatch[1]))):null;
+  var countNode=(wrap&&q('[data-micro-rating-count]',wrap))||q('[itemprop="ratingCount"]',detail);
+  var count=Number(countNode?.getAttribute('data-micro-rating-count')||countNode?.getAttribute('content'))||0;
+  if(!count){var countMatch=label.match(/(\d+)\s*(?:hodnocení|recenz)/i);if(countMatch)count=Number(countMatch[1])}
+  return {wrap:wrap,label:label.trim(),score:score,count:count};
  }
- /* Separate review section. Existing product-box ratings are intentionally left untouched. */
+ function reviewStars(score){
+  var stars=el('div','ok97-review-stars');
+  stars.setAttribute('aria-label',score===null?'Produkt zatím nemá hodnocení':'Průměrné hodnocení '+score.toLocaleString('cs-CZ')+' z 5');
+  for(var i=1;i<=5;i++)stars.append(el('span','ok99-star'+(score!==null&&i<=Math.round(score)?' is-filled':''),score!==null&&i<=Math.round(score)?'★':'☆'));
+  return stars;
+ }
+ /* Dedicated review tab. It uses the real Shoptet rating trigger and keeps
+    every native form/action intact; only presentation and placement change. */
  function reviewSection(detail){
-  if(hasRealReviews()||q('.ok97-review-block'))return;
-  var nativeLabel=q('.p-detail-info .stars-label',detail)?.textContent||'';
-  if(!/zatím bez hodnocení|neohodnoceno/i.test(nativeLabel))return;
-  var tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
-  if(!tabs)return;
-  var section=el('section','ok97-review-block');
+  if(q('.ok97-review-block'))return;
+  var content=q('#tab-content'),data=ratingData(detail);
+  if(!content||!data.wrap)return;
+  var section=el('div','tab-pane fade ok97-review-block');
   section.id='ok97-review-block';
+  section.setAttribute('role','tabpanel');
   section.setAttribute('aria-label','Hodnocení produktu');
-  section.append(el('h2',null,'Produkt zatím nikdo nehodnotil'));
-  /* Separate neutral outline symbols, not inline SVG and never a fabricated rating. */
-  var stars=el('div','ok97-review-stars');stars.setAttribute('aria-hidden','true');
-  for(var i=0;i<5;i++)stars.append(el('span','ok99-star','☆'));
-  section.append(stars);
-  /* No "Napsat recenzi" link unless a real Shoptet review URL is present. */
-  var nativeReview=qa('a[href]',detail).find(a=>/napsat (recenzi|hodnocení)|přidat hodnocení/i.test(a.textContent||'')&&!a.getAttribute('href')?.startsWith('javascript:'));
+  section.append(el('h2','ok97-review-title','Hodnocení zákazníků'));
+  var summary=el('div','ok97-review-summary'),scoreBox=el('div','ok97-review-score');
+  scoreBox.append(el('strong',null,data.score===null?'—':data.score.toLocaleString('cs-CZ',{minimumFractionDigits:1,maximumFractionDigits:1})),reviewStars(data.score));
+  scoreBox.append(el('span',null,data.count?('Hodnotilo '+data.count+' '+(data.count===1?'zákazník':'zákazníků')):'Produkt zatím nikdo nehodnotil'));
+  var action=el('div','ok97-review-action');
+  action.append(el('strong',null,'Máte s produktem zkušenost?'),el('span',null,'Pomozte ostatním zákazníkům s výběrem.'));
+  var nativeReview=q('button.js-ratingDialogTrigger',data.wrap)||qa('a[href]',detail).find(a=>/napsat (recenzi|hodnocení)|přidat hodnocení/i.test(a.textContent||'')&&!a.getAttribute('href')?.startsWith('javascript:'));
   if(nativeReview){
-   var link=el('a','ok97-write-review','Napsat recenzi');link.href=nativeReview.href;
-   var icon=document.createElementNS(NS,'svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');var pp=document.createElementNS(NS,'path');pp.setAttribute('d','M4 20h4l11-11-4-4L4 16v4z M13 7l4 4');icon.append(pp);link.prepend(icon);section.append(link);
+   nativeReview.classList.add('ok97-write-review');nativeReview.textContent=data.count?'Zobrazit hodnocení':'Napsat hodnocení';
+   var icon=document.createElementNS(NS,'svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');var pp=document.createElementNS(NS,'path');pp.setAttribute('d','M4 20h4l11-11-4-4L4 16v4z M13 7l4 4');icon.append(pp);nativeReview.prepend(icon);action.append(nativeReview);
   }
-  tabs.after(section);
+  summary.append(scoreBox,action);section.append(summary);
+  var nativeVotes=q('.votes-wrap',detail)||q('.product-ratings',detail)||q('[data-testid="productRating"]',detail);
+  if(nativeVotes){nativeVotes.classList.add('ok97-native-reviews');section.append(nativeVotes)}
+  else section.append(el('div','ok97-review-empty',data.count?'Jednotlivá hodnocení otevřete tlačítkem „Zobrazit hodnocení“.':'Buďte první, kdo tento produkt ohodnotí.'));
+  content.append(section);
  }
  /* A card may be actionable only after its own live Shoptet stock has been confirmed. */
  function shoptetAvailability(doc){
@@ -281,8 +297,10 @@
    liveCardState(r,item,btn);
   });
   sec.append(heading,group);
-  var review=q('.ok97-review-block'),tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
-  if(review)review.after(sec);else if(tabs)tabs.after(sec);else detail.after(sec);
+  var tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
+  /* The review panel belongs inside #tab-content; recommendations remain
+     outside the tab system and therefore never leak into Hodnocení. */
+  if(tabs)tabs.after(sec);else detail.after(sec);
   if(window.__oklaSliderFor)window.__oklaSliderFor(group,heading);
  }
  function init(){
