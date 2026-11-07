@@ -1,0 +1,18 @@
+/* OKLA – payment logos in the footer bottom row (okla_payment_logos.js): small white chips with a light border,
+   bottom left on desktop, centred under the copyright on smaller screens. */
+html body .footer-bottom.okla-has-pay{position:relative!important;flex-wrap:wrap!important}
+html body .okla-pay{display:flex!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important}
+html body .okla-pay__item{display:grid!important;place-items:center!important;width:52px!important;height:32px!important;box-sizing:border-box!important;
+  margin:0!important;padding:0 6px!important;border:1px solid #e1e7ee!important;border-radius:7px!important;background:#fff!important}
+html body .okla-pay__item svg{display:block!important;width:auto!important;max-width:100%!important;height:16px!important}
+html body .okla-pay__item--apple svg{height:23px!important}
+html body .okla-pay__item--google svg{height:14px!important}
+html body .okla-pay__item--mastercard svg{height:20px!important}
+html body .okla-pay__item--visa svg{height:12px!important}
+html body .okla-pay__name{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}
+@media(min-width:1200px){
+  html body .footer-bottom.okla-has-pay .okla-pay{position:absolute!important;left:48px!important;top:50%!important;transform:translateY(-50%)!important}
+}
+@media(max-width:1199px){
+  html body .footer-bottom.okla-has-pay .okla-pay{order:10!important;flex:0 0 100%!important;justify-content:center!important;margin-top:16px!important}
+}

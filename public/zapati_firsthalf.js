@@ -63,6 +63,8 @@ if((document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient|objednavk
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
 /* Empty states (404 wording, search without results, empty cart) and small layout fixes for them. */
 modules.push('v91/okla_empty_states.css','v91/okla_empty_states.js');
+/* Payment method logos (Apple Pay, Google Pay, Mastercard, Visa) at the bottom of the footer. */
+modules.push('v91/okla_payment_logos.css','v91/okla_payment_logos.js');
 /* Sitewide font and green CTA text fixes, last in the normal load order. */
 modules.push('v91/okla_global_typography.css','v91/okla_green_buttons.js');
 /* Shared OKLA header visual system + compatibility on all Shoptet page types. */
