@@ -594,3 +594,94 @@ html body #content .empty-content-category .btn:is(:hover,:focus-visible){backgr
   html body #content .empty-content-category h2{font-size:20px!important}
   html body #content .empty-content-category .btn{width:100%!important;min-width:0!important}
 }
+
+/* ---------- Cookie SETTINGS dialog (Shoptet colorbox .cookiesDialog) ----------
+   Full screen on every device, in the OKLA language: a white page with the
+   content centred (max 640px), Exo 2 navy headings, each cookie group as a
+   light-grey rounded card, the same round toggle as the rest of the site and
+   the site buttons (green "Povolit vše", blue "Potvrdit moje volby",
+   outlined "Vše vypnout"). Colorbox sets size and position inline, hence the
+   !important overrides. */
+html body #colorbox:has(#cboxContent.cookiesDialog){
+  position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;
+  width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;
+  margin:0!important;padding:0!important;z-index:2147483600!important;overflow:hidden!important;
+}
+html body:has(#cboxContent.cookiesDialog) #cboxOverlay{background:#fff!important;opacity:1!important}
+html body #colorbox:has(#cboxContent.cookiesDialog) #cboxWrapper,
+html body #colorbox:has(#cboxContent.cookiesDialog) #cboxWrapper>div,
+html body #colorbox #cboxContent.cookiesDialog,
+html body #colorbox #cboxContent.cookiesDialog #cboxLoadedContent{
+  position:static!important;float:none!important;width:100%!important;height:auto!important;max-width:none!important;
+  margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;
+}
+html body #colorbox:has(#cboxContent.cookiesDialog) #cboxWrapper{height:100%!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch;background:#fff!important}
+html body #colorbox:has(#cboxContent.cookiesDialog) [id^="cboxTop"],
+html body #colorbox:has(#cboxContent.cookiesDialog) [id^="cboxBottom"],
+html body #colorbox:has(#cboxContent.cookiesDialog) #cboxMiddleLeft,
+html body #colorbox:has(#cboxContent.cookiesDialog) #cboxMiddleRight{display:none!important}
+html body #colorbox #cboxContent.cookiesDialog .colorbox-html-content{
+  box-sizing:border-box!important;max-width:640px!important;margin:0 auto!important;
+  padding:28px 20px calc(28px + env(safe-area-inset-bottom,0px))!important;background:transparent!important;border:0!important;box-shadow:none!important;
+  font-family:"Exo 2",Arial,sans-serif!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__form{display:flex!important;flex-direction:column!important;gap:0!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__title{
+  margin:4px 52px 10px 0!important;padding:0!important;font:800 26px/1.2 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:-.2px!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__perex{margin:0 0 22px!important;font:400 15px/1.55 "Exo 2",Arial,sans-serif!important;color:#56657a!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__data{
+  display:flex!important;flex-direction:column!important;gap:12px!important;height:auto!important;max-height:none!important;overflow:visible!important;
+  margin:0 0 24px!important;padding:0!important;border:0!important;background:transparent!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item{
+  display:block!important;margin:0!important;padding:18px 18px 16px!important;border:0!important;border-radius:16px!important;background:#f3f5f8!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__col1,
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__col2{width:auto!important;float:none!important;margin:0!important;padding:0!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__name{margin:0 0 5px!important;font:400 15px/1.35 "Exo 2",Arial,sans-serif!important;color:#56657a!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__name strong{font-weight:700!important;font-size:16px!important;color:#0b2540!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__text{font:400 14px/1.5 "Exo 2",Arial,sans-serif!important;color:#56657a!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__col2{margin-top:14px!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__status{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;width:100%!important;min-height:50px!important;
+  margin:0!important;padding:0 16px!important;box-sizing:border-box!important;border:0!important;border-radius:12px!important;background:#fff!important;cursor:pointer!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox{
+  appearance:none!important;-webkit-appearance:none!important;position:relative!important;display:inline-grid!important;flex:0 0 20px!important;
+  width:20px!important;height:20px!important;min-width:20px!important;margin:0!important;padding:0!important;box-sizing:border-box!important;
+  border:2px solid #aeb9c5!important;border-radius:50%!important;background:#fff!important;opacity:1!important;clip:auto!important;clip-path:none!important;cursor:pointer!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox::before{content:none!important;display:none!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox::after{
+  content:""!important;position:absolute!important;inset:3px auto auto 3px!important;width:10px!important;height:10px!important;border-radius:50%!important;
+  background:#168bd2!important;transform:scale(0)!important;transition:transform .12s ease!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox:checked{border-color:#168bd2!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox:checked::after{transform:scale(1)!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__state{
+  margin:0!important;padding:0!important;font:600 14.5px/1.2 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;background:none!important;cursor:pointer!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__state::before,
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__state::after{content:none!important;display:none!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom{display:flex!important;flex-direction:column!important;gap:10px!important;margin:0!important;padding:0!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__uncheck{display:block!important;margin:0!important;padding:0!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom button{
+  display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:52px!important;margin:0!important;padding:0 18px!important;
+  box-sizing:border-box!important;border-radius:12px!important;font:700 15px/1 "Exo 2",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  box-shadow:none!important;cursor:pointer!important;
+}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__uncheckLink{background:#fff!important;border:1.5px solid #16478B!important;color:#16478B!important;text-decoration:none!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cookiesSetting__button--green){background:#16478B!important;border:1px solid #16478B!important;color:#fff!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#66d400!important;border:1px solid #66d400!important;color:#000!important}
+html body #colorbox #cboxContent.cookiesDialog #cboxClose{
+  position:fixed!important;top:calc(14px + env(safe-area-inset-top,0px))!important;right:14px!important;left:auto!important;bottom:auto!important;
+  width:44px!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:50%!important;background:#f3f5f8!important;
+  color:#0b2540!important;z-index:3!important;
+}
+@media(min-width:768px){
+  html body #colorbox #cboxContent.cookiesDialog .colorbox-html-content{padding-top:56px!important}
+  html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom{flex-direction:row-reverse!important}
+  html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom>*{flex:1 1 0!important}
+  html body #colorbox #cboxContent.cookiesDialog #cboxClose{top:24px!important;right:24px!important}
+}
