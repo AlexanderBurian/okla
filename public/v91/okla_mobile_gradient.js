@@ -4,7 +4,7 @@
       back to its original place in the info column.
    2. The page-top gradient fades out gradually and reaches pure white
       exactly where the page's own UI starts: the category tiles under the
-      homepage banner, the white main image (.p-image) on a product, the sorting tabs on a category (or the empty-category
+      homepage banner, the stats under the About hero, the white main image (.p-image) on a product, the sorting tabs on a category (or the empty-category
       card / product grid when there is no sorting). This script measures
       that edge into --okla-mg-h, anchors the layer to the document with
       html.okla-mg-anchored (see okla_mobile_gradient.css)
@@ -16,6 +16,7 @@
  var PHONE=window.matchMedia('(max-width:767px)');
  var root=document.documentElement,last=-1,queued=false,home=null;
  function isDetail(){var b=document.body;return !!b&&b.classList.contains('type-detail')}
+ function isAbout(){var b=document.body;return !!b&&(b.classList.contains('in-o-nas')||!!document.querySelector('.okla-about .oka-stats'))}
  function isHome(){var b=document.body;return !!b&&b.classList.contains('type-index')}
  function isCategory(){var b=document.body;return !!b&&b.classList.contains('type-category')}
  function visible(n){if(!n)return false;var r=n.getBoundingClientRect();return r.width>0&&r.height>0}
@@ -39,6 +40,7 @@
  /* 2 – gradient end = where the page's own UI starts */
  function edgeNode(){
   if(isDetail())return document.querySelector('#content .p-detail .p-image-wrapper .p-image')||document.querySelector('#content .p-detail .p-image-wrapper');
+  if(isAbout()){var stats=document.querySelector('.okla-about .oka-stats');if(visible(stats))return stats}
   if(isHome()){var tiles=document.querySelector('#okla-v61-categories');if(visible(tiles))return tiles}
   if(isCategory()){
    var list=['#content .listSorting','#content .empty-content-category','#content #products','#content .category-content-wrapper'];
@@ -59,7 +61,7 @@
  }
  function schedule(){if(!queued){queued=true;requestAnimationFrame(apply)}}
  function start(){
-  if(!isDetail()&&!isCategory()&&!isHome())return;
+  if(!isDetail()&&!isCategory()&&!isHome()&&!isAbout())return;
   apply();
   [300,1000,2500].forEach(function(t){setTimeout(schedule,t)});
   window.addEventListener('load',schedule);
@@ -68,7 +70,7 @@
   if(PHONE.addEventListener)PHONE.addEventListener('change',schedule);
   if(window.ResizeObserver){
    var ro=new ResizeObserver(schedule);
-   ['#header','.breadcrumbs','#content .p-detail-inner-header','#content .p-detail','#content .category-top','#content .category-perex','#content .listSorting','.okla-hero-wrap','#okla-v61-categories'].forEach(function(s){var n=document.querySelector(s);if(n)ro.observe(n)});
+   ['#header','.breadcrumbs','#content .p-detail-inner-header','#content .p-detail','#content .category-top','#content .category-perex','#content .listSorting','.okla-hero-wrap','#okla-v61-categories','.okla-about .oka-hero'].forEach(function(s){var n=document.querySelector(s);if(n)ro.observe(n)});
   }
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(schedule);
  }
