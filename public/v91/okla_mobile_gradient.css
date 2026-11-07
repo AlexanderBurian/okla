@@ -55,12 +55,7 @@
   html.okla-m-stuck body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header,
   html body.okla-v65-white-header:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header,
   html body.okla-v66-show-header:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{
-    /* white, carrying on the page-top gradient exactly where the page has it
-       (okla_mobile_gradient.js lines it up with the scroll position), so near
-       the top it blends into the page and further down it is plain white */
-    background-color:#fff!important;background-image:var(--okla-mg)!important;
-    background-size:100% var(--okla-mg-h)!important;background-repeat:no-repeat!important;
-    background-position:0 0;
+    background:#fff!important;background-image:none!important;
     box-shadow:0 1px 0 rgba(22,71,139,.06),0 4px 14px rgba(18,41,68,.08)!important;
   }
   html.okla-m-stuck.okla-m-hidden body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{box-shadow:none!important}
