@@ -125,3 +125,11 @@ html body :is(#cboxClose,.okm61-drawer-close,.okla-cd__close,.okla-acc-pop__clos
   background:transparent!important;background-color:transparent!important;background-image:none!important;
   border-color:transparent!important;box-shadow:none!important;filter:none!important;
 }
+
+/* Quantity steppers (product detail, cart): the − / number / + group already
+   has its own frame, so the number field inside never gets the blue field
+   ring on hover or focus. */
+html body :is(.quantity input,input.amount,input[name="amount"]):not(#okla-q-a#okla-q-b#okla-q-c#okla-q-d#okla-q-e#okla-q-f#okla-q-g),
+html body :is(.quantity input,input.amount,input[name="amount"]):not(#okla-q-a#okla-q-b#okla-q-c#okla-q-d#okla-q-e#okla-q-f#okla-q-g):is(:hover,:focus,:focus-visible,:active){
+  box-shadow:none!important;outline:0!important;border-color:transparent!important;
+}
