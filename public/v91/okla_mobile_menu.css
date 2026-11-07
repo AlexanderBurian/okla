@@ -1,0 +1,28 @@
+/* OKLA – mobile "Menu" drawer content (customer centre). Rows reuse the
+   Katalog row look (.okm61-cat-row); only the sign-in hero and the section
+   titles are new. */
+#okla-v61-drawer.okla-mm-open .okm61-drawer-body{padding:0 0 calc(24px + env(safe-area-inset-bottom,0px))!important;background:#fff!important}
+#okla-v61-drawer .okla-mm-hero{
+  margin:0!important;padding:22px 22px 24px!important;border-bottom:1px solid #e1e8ee!important;
+  /* same colours as the mobile page top (okla_mobile_gradient.css): blue fade with a light violet tint on the right */
+  background:radial-gradient(90% 120% at 100% 0%,rgba(160,140,245,.22) 0%,rgba(160,140,245,.10) 42%,rgba(160,140,245,0) 75%),linear-gradient(180deg,#e2f1fe 0%,#edf6fe 45%,#f8fbff 80%,#fff 100%)!important;
+  font-family:"Exo 2",Arial,sans-serif!important;
+}
+#okla-v61-drawer .okla-mm-hero__icon{display:grid!important;place-items:center!important;width:44px!important;height:44px!important;margin:0 0 12px!important;color:#19477e!important}
+#okla-v61-drawer .okla-mm-hero__icon svg{width:40px!important;height:40px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#okla-v61-drawer .okla-mm-hero__title{margin:0 0 6px!important;padding:0!important;font:700 19px/1.3 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:0!important}
+#okla-v61-drawer .okla-mm-hero__text{margin:0 0 16px!important;font:400 14px/1.45 "Exo 2",Arial,sans-serif!important;color:#5b6675!important}
+#okla-v61-drawer .okla-mm-hero__actions{display:flex!important;gap:10px!important}
+#okla-v61-drawer .okla-mm-btn{
+  flex:1 1 0!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:46px!important;padding:0 14px!important;box-sizing:border-box!important;
+  border-radius:10px!important;font:700 14.5px/1.1 "Exo 2",Arial,sans-serif!important;text-decoration:none!important;text-align:center!important;
+}
+#okla-v61-drawer .okla-mm-btn--primary{background:#16478B!important;border:1px solid #16478B!important;color:#fff!important}
+#okla-v61-drawer .okla-mm-btn--primary:active{background:#0f3a73!important}
+#okla-v61-drawer .okla-mm-btn--ghost{background:#fff!important;border:1px solid #16478B!important;color:#16478B!important}
+#okla-v61-drawer .okla-mm-btn--ghost:active{background:#eef4fb!important}
+#okla-v61-drawer .okla-mm-section{margin:0!important;padding:0!important}
+#okla-v61-drawer .okla-mm-title{margin:0!important;padding:20px 22px 8px!important;font:700 15px/1.3 "Exo 2",Arial,sans-serif!important;color:#16478B!important;text-transform:none!important;letter-spacing:0!important;border:0!important}
+#okla-v61-drawer .okla-mm-list{border-top:1px solid #edf1f6!important}
+#okla-v61-drawer .okla-mm-icon{color:#19477e!important}
+#okla-v61-drawer .okla-mm-icon svg{width:26px!important;height:26px!important;max-width:26px!important;max-height:26px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}

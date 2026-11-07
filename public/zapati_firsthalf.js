@@ -92,6 +92,8 @@ modules.push('v91/okla_footer_i18n_safe.css');
 modules.push('v91/okla_button_consistency.css','v91/okla_button_consistency.js');
 /* One solid login-blue hover/focus treatment for every real form field. */
 modules.push('v91/okla_field_consistency.css');
+/* Mobile: bottom-bar Menu = customer centre; one fixed page-top gradient everywhere (loaded last). */
+modules.push('v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
