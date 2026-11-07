@@ -177,7 +177,13 @@
  function reviewStars(score){
   var stars=el('div','ok97-review-stars');
   stars.setAttribute('aria-label',score===null?'Produkt zatím nemá hodnocení':'Průměrné hodnocení '+score.toLocaleString('cs-CZ')+' z 5');
-  for(var i=1;i<=5;i++)stars.append(el('span','ok99-star'+(score!==null&&i<=Math.round(score)?' is-filled':''),score!==null&&i<=Math.round(score)?'★':'☆'));
+  for(var i=1;i<=5;i++){
+   var filled=score!==null&&i<=Math.round(score),star=document.createElementNS(NS,'svg');
+   star.classList.add('ok99-star');if(filled)star.classList.add('is-filled');
+   star.setAttribute('viewBox','0 0 24 24');star.setAttribute('aria-hidden','true');
+   var path=document.createElementNS(NS,'path');path.setAttribute('d','M12 2.7 14.86 8.5l6.4.93-4.63 4.51 1.09 6.37L12 17.3l-5.72 3.01 1.09-6.37-4.63-4.51 6.4-.93L12 2.7Z');
+   star.append(path);stars.append(star);
+  }
   return stars;
  }
  /* Dedicated review tab. It uses the real Shoptet rating trigger and keeps
@@ -192,7 +198,7 @@
   section.setAttribute('aria-label','Hodnocení produktu');
   section.append(el('h2','ok97-review-title','Hodnocení zákazníků'));
   var summary=el('div','ok97-review-summary'),scoreBox=el('div','ok97-review-score');
-  scoreBox.append(el('strong',null,data.score===null?'—':data.score.toLocaleString('cs-CZ',{minimumFractionDigits:1,maximumFractionDigits:1})),reviewStars(data.score));
+  scoreBox.append(el('strong',data.score===null?'is-empty':null,data.score===null?'Bez hodnocení':data.score.toLocaleString('cs-CZ',{minimumFractionDigits:1,maximumFractionDigits:1})),reviewStars(data.score));
   scoreBox.append(el('span',null,data.count?('Hodnotilo '+data.count+' '+(data.count===1?'zákazník':'zákazníků')):'Produkt zatím nikdo nehodnotil'));
   var action=el('div','ok97-review-action');
   action.append(el('strong',null,'Máte s produktem zkušenost?'),el('span',null,'Pomozte ostatním zákazníkům s výběrem.'));
