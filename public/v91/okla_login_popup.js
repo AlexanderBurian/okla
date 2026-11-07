@@ -34,6 +34,70 @@
  }
 
  function isOpen(){return document.body.classList.contains('login-window-visible')}
+ function pinned(){
+  var pop=document.getElementById('login');if(!pop)return false;
+  if(pop.classList.contains('okla-login-busy')||pop.classList.contains('okla-login-has-error'))return true;
+  return [].slice.call(pop.querySelectorAll('input[type="email"],input[type="password"]')).some(function(i){return !!i.value});
+ }
+
+ /* Signing in from the popup happens in the background: a wrong e-mail or
+    password shows an error right in the popup and the popup stays open with the
+    e-mail kept; a successful sign-in reloads the page signed in. Shoptet's own
+    validation runs first (it stops invalid submits before they reach document). */
+ var ERROR_TEXT='Nesprávný e-mail nebo heslo. Zkontrolujte je a zkuste to znovu.';
+ function loginForm(){return document.querySelector('#login form[action*="Customer/Login"]')}
+ function showError(form,text){
+  var pop=document.getElementById('login');
+  var box=form.querySelector('.okla-login-error');
+  if(!box){
+   box=document.createElement('div');box.className='okla-login-error';box.setAttribute('role','alert');
+   var ic=document.createElement('span');ic.className='okla-login-error__icon';ic.setAttribute('aria-hidden','true');ic.textContent='!';
+   var tx=document.createElement('span');tx.className='okla-login-error__text';
+   box.append(ic,tx);form.insertBefore(box,form.firstChild);
+  }
+  box.querySelector('.okla-login-error__text').textContent=text||ERROR_TEXT;
+  box.classList.remove('is-shown');void box.offsetWidth;box.classList.add('is-shown');
+  if(pop)pop.classList.add('okla-login-has-error');
+  var pw=form.querySelector('input[type="password"]');
+  if(pw){pw.value='';pw.classList.add('okla-login-invalid');pw.setAttribute('aria-invalid','true');pw.focus()}
+ }
+ function clearError(form){
+  var pop=document.getElementById('login');
+  var box=form.querySelector('.okla-login-error');if(box)box.remove();
+  if(pop)pop.classList.remove('okla-login-has-error');
+  [].slice.call(form.querySelectorAll('.okla-login-invalid')).forEach(function(i){i.classList.remove('okla-login-invalid');i.removeAttribute('aria-invalid')});
+ }
+ function serverMessage(doc){
+  var n=doc.querySelector('.msg-error, .message-error, .alert-danger');
+  var t=n&&(n.textContent||'').replace(/\s+/g,' ').trim();
+  return t&&t.length<200?t:'';
+ }
+ function signedIn(doc){
+  return !doc.querySelector('.top-navigation-bar .top-nav-button-login')&&[].slice.call(doc.querySelectorAll('a[href]')).some(function(a){return /logout|odhlas/i.test(a.getAttribute('href')||'')});
+ }
+ function onSubmit(e){
+  var form=e.target;
+  if(!form||form!==loginForm()||e.defaultPrevented||!window.fetch||!window.DOMParser)return;
+  e.preventDefault();
+  var pop=document.getElementById('login'),btn=form.querySelector('[type="submit"]');
+  if(pop.classList.contains('okla-login-busy'))return;
+  pop.classList.add('okla-login-busy');if(btn){btn.disabled=true;btn.setAttribute('aria-busy','true')}
+  var data=new URLSearchParams();
+  new FormData(form).forEach(function(v,k){if(typeof v==='string')data.append(k,v)});
+  var c=window.shoptet&&window.shoptet.csrf;
+  if(c&&c.enabled&&c.token&&!data.has('__csrf__'))data.append('__csrf__',c.token);
+  function done(){pop.classList.remove('okla-login-busy');if(btn){btn.disabled=false;btn.removeAttribute('aria-busy')}}
+  fetch(form.action,{method:'POST',body:data,credentials:'same-origin',redirect:'follow',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'}})
+   .then(function(r){return r.text().then(function(html){return {url:r.url,html:html}})})
+   .then(function(res){
+    var doc=new DOMParser().parseFromString(res.html,'text/html');
+    if(signedIn(doc)){location.reload();return}
+    /* Shoptet asks for something more (e.g. a security check): continue on its page */
+    if(doc.querySelector('.g-recaptcha, [data-sitekey], img[src*="captcha" i]')){location.href=res.url;return}
+    done();showError(form,serverMessage(doc));
+   })
+   .catch(function(){done();HTMLFormElement.prototype.submit.call(form)});
+ }
 
  /* Closes the widget through Shoptet's own popup code. */
  function hide(){
@@ -58,8 +122,9 @@
   if(hoverCloseTimer)return;
   hoverCloseTimer=setTimeout(function(){
    hoverCloseTimer=null;
-   // Focus/click does NOT pin the popup after the cursor leaves both regions.
-   if(isOpen()&&!pointerInside())hide();
+   // Moving the pointer away closes the popup, unless the visitor is using the form
+   // (something typed in, signing in, or an error shown): then only a click outside or Escape closes it.
+   if(isOpen()&&!pointerInside()&&!pinned())hide();
   },180);
  }
  window.__oklaLoginHoverClose=function(){
@@ -102,6 +167,8 @@
    hide();
   });
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen())hide()});
+  document.addEventListener('submit',onSubmit);
+  document.addEventListener('input',function(e){var f=loginForm();if(f&&e.target&&f.contains(e.target)&&e.target.type==='password'&&e.target.value)clearError(f)});
   document.addEventListener('pointerover',hoverAccount,true);
   document.addEventListener('pointerout',leaveAccount,true);
   document.addEventListener('pointerdown',function(e){

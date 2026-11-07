@@ -18,3 +18,13 @@ html body #login.login-widget .btn.btn-primary:hover{background:#5bbd00!importan
 html body #login.login-widget p.alternative-links{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px 24px!important;margin:16px 0 0!important;padding:0!important;text-align:center!important}
 html body #login.login-widget p.alternative-links>a{display:inline-block!important;width:auto!important;margin:0!important;padding:0!important;float:none!important;font-size:14px!important;font-weight:600!important;color:#1f6fd8!important;text-decoration:none!important}
 html body #login.login-widget p.alternative-links>a:hover{text-decoration:underline!important}
+
+/* Wrong e-mail or password (okla_login_popup.js): a red note at the top of the form, the password field marked;
+   the popup stays open. While signing in the button is dimmed. */
+html body #login.login-widget .okla-login-error{display:flex!important;align-items:flex-start!important;gap:10px!important;margin:0 0 16px!important;padding:12px 14px!important;border:1px solid #f5c6ce!important;border-radius:12px!important;background:#fdeef0!important;font-family:"Exo 2",Arial,sans-serif!important;font-size:14px!important;font-weight:600!important;line-height:1.4!important;color:#a3243a!important;text-align:left!important}
+html body #login.login-widget .okla-login-error.is-shown{animation:okla-login-shake .36s ease}
+html body #login.login-widget .okla-login-error__icon{display:grid!important;place-items:center!important;flex:0 0 20px!important;width:20px!important;height:20px!important;border-radius:50%!important;background:#e0112b!important;color:#fff!important;font-size:13px!important;font-weight:800!important;line-height:1!important}
+html body #login.login-widget input.form-control.okla-login-invalid{border-color:#e0112b!important;box-shadow:inset 0 0 0 1px #e0112b!important}
+html body #login.okla-login-busy .btn.btn-primary{opacity:.7!important;cursor:progress!important}
+@keyframes okla-login-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(3px)}}
+@media(prefers-reduced-motion:reduce){html body #login.login-widget .okla-login-error.is-shown{animation:none}}
