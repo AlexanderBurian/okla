@@ -1,6 +1,8 @@
 /* OKLA V91: DOM-only breadcrumb enhancer; visual rules in standalone CSS. */
 (function(){'use strict';
- if(window.__oklaBreadcrumbV89)return;window.__oklaBreadcrumbV89=true;
+ /* Use a version-specific guard.  Older navigation helpers can still be
+    present in Shoptet's cached page and must not prevent this repair pass. */
+ if(window.__oklaBreadcrumbV91)return;window.__oklaBreadcrumbV91=true;
  
  function makeBullet(){
   var n=document.createElement('span');n.className='navigation-bullet ok91-generated-bullet';n.setAttribute('aria-hidden','true');

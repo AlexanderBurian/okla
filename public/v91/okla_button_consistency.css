@@ -21,6 +21,24 @@ html body :is(
   border-radius:var(--okla-button-radius)!important;
 }
 
+/* Product-list sorting is a tab strip, not a row of standalone rounded
+   buttons.  Its selected white tab fills the grey rail from top to bottom and
+   stays square on every category/search listing. */
+html body .listSorting .listSorting__controls{
+  display:flex!important;align-items:stretch!important;
+}
+html body .listSorting .listSorting__controls>li{
+  display:flex!important;align-items:stretch!important;margin-top:0!important;margin-bottom:0!important;
+}
+html body .listSorting .listSorting__control{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  align-self:stretch!important;height:auto!important;margin-top:0!important;margin-bottom:0!important;
+  border-radius:0!important;
+}
+html body .listSorting .listSorting__control--current{
+  background:#fff!important;background-image:none!important;border-radius:0!important;
+}
+
 @media(hover:hover) and (pointer:fine){
   html body :is(
     button,

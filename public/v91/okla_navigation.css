@@ -83,6 +83,21 @@ html body .breadcrumbs .navigation-bullet .ok91-chevron{
  color:#8D96A2!important;font:500 12px/1 Exo 2,Arial,sans-serif!important;
 }
 
+/* Breadcrumb fail-safe: Shoptet can repaint this row after the JS pass.  Keep
+   the home glyph and every native/generated separator visible even during that
+   hand-over; the enhancer then only normalises the DOM structure. */
+html body .breadcrumbs #navigation-first a.navigation-home-icon::before{
+ content:""!important;display:block!important;width:16px!important;height:16px!important;
+ background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232C5F9E' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z'/%3E%3C/svg%3E") center/16px 16px no-repeat!important;
+}
+html body .breadcrumbs #navigation-first a.navigation-home-icon .ok91-home-icon{display:none!important}
+html body .breadcrumbs .navigation-bullet::before{
+ content:">"!important;display:block!important;visibility:visible!important;opacity:1!important;
+ color:#8D96A2!important;font:500 12px/1 Exo 2,Arial,sans-serif!important;
+ background:none!important;border:0!important;box-shadow:none!important;
+}
+html body .breadcrumbs .navigation-bullet .ok91-chevron{display:none!important}
+
 /* Native responsive “Více” menu keeps its compact original scale. */
 html body .menu-helper,
 html body .menu-helper>span{font-size:12px!important;line-height:1.2!important;font-weight:600!important}
