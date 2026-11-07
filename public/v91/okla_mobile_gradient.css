@@ -90,3 +90,12 @@
   /* no share button next to the title on phones */
   html body.type-detail #content .p-detail-inner-header .okla-m-share{display:none!important}
 }
+
+/* Client centre (signed-in account pages): the same gradient, very faint. */
+@media(max-width:767px){
+  html.okla-acc-polished{
+    --okla-mg:
+      radial-gradient(110% 75% at 104% -6%,rgba(158,138,246,.020) 0%,rgba(158,138,246,.020) 7.1%,rgba(158,138,246,.019) 14.3%,rgba(158,138,246,.018) 21.4%,rgba(158,138,246,.016) 28.6%,rgba(158,138,246,.014) 35.7%,rgba(158,138,246,.012) 42.9%,rgba(158,138,246,.010) 50%,rgba(158,138,246,.008) 57.1%,rgba(158,138,246,.006) 64.3%,rgba(158,138,246,.004) 71.4%,rgba(158,138,246,.002) 78.6%,rgba(158,138,246,.001) 85.7%,rgba(158,138,246,.000) 92.9%,rgba(158,138,246,.000) 100%),
+      linear-gradient(180deg,rgba(204,228,250,.150) 0%,rgba(204,228,250,.148) 7.1%,rgba(204,228,250,.142) 14.3%,rgba(204,228,250,.132) 21.4%,rgba(204,228,250,.120) 28.6%,rgba(204,228,250,.106) 35.7%,rgba(204,228,250,.091) 42.9%,rgba(204,228,250,.075) 50%,rgba(204,228,250,.059) 57.1%,rgba(204,228,250,.044) 64.3%,rgba(204,228,250,.030) 71.4%,rgba(204,228,250,.018) 78.6%,rgba(204,228,250,.008) 85.7%,rgba(204,228,250,.002) 92.9%,rgba(204,228,250,.000) 100%);
+  }
+}
