@@ -55,3 +55,33 @@ html body .okla-rk__choice input:checked+label{
   background:#fff!important;
   background-image:none!important;
 }
+
+/* Filter checkboxes: one identical round control in EVERY filter section
+   (stock, brands, parameters …), not only the stock switch. Shoptet hides the
+   brand inputs (1px) and paints a square on label::before – that square is
+   removed and the real input is shown as the same circle. Integer geometry
+   (18px, 2px border, 10px dot inset 2px) keeps the dot exactly centred. */
+html body #filters .filter-section input[type="checkbox"]{
+  appearance:none!important;-webkit-appearance:none!important;
+  position:relative!important;display:inline-grid!important;place-items:center!important;float:none!important;
+  flex:0 0 18px!important;width:18px!important;min-width:18px!important;max-width:18px!important;
+  height:18px!important;min-height:18px!important;max-height:18px!important;
+  margin:0 9px 0 0!important;padding:0!important;box-sizing:border-box!important;
+  border:2px solid #aeb9c5!important;border-radius:50%!important;background:#fff!important;background-image:none!important;box-shadow:none!important;
+  opacity:1!important;clip:auto!important;clip-path:none!important;overflow:visible!important;
+  vertical-align:middle!important;cursor:pointer!important;left:auto!important;top:auto!important;
+}
+html body #filters .filter-section input[type="checkbox"]::before{content:none!important;display:none!important}
+html body #filters .filter-section input[type="checkbox"]::after{
+  content:""!important;display:block!important;position:absolute!important;inset:2px auto auto 2px!important;
+  width:10px!important;height:10px!important;margin:0!important;border:0!important;border-radius:50%!important;
+  background:#168bd2!important;background-image:none!important;box-shadow:none!important;
+  transform:scale(0)!important;transform-origin:50% 50%!important;transition:transform .12s ease!important;
+}
+html body #filters .filter-section input[type="checkbox"]:checked{border-color:#168bd2!important}
+html body #filters .filter-section input[type="checkbox"]:checked::after{transform:scale(1)!important}
+html body #filters .filter-section input[type="checkbox"]:disabled{opacity:.55!important;cursor:default!important}
+html body #filters .filter-section input[type="checkbox"] + label::before,
+html body #filters .filter-section input[type="checkbox"] + label::after{content:none!important;display:none!important}
+html body #filters .filter-section input[type="checkbox"] + label{margin-left:0!important;padding-left:0!important;background-image:none!important}
+html body #filters .filter-section input[type="checkbox"]:focus-visible{outline:2px solid #1f6fd8!important;outline-offset:2px!important}
