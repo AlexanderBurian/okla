@@ -58,9 +58,10 @@
   }
   html.okla-m-stuck.okla-m-hidden body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{box-shadow:none!important}
 
-  /* Product detail: its one long white product block becomes a card like the
-     other pages' white surfaces (it used to vanish in the white page). */
-  html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail{
-    border-radius:16px!important;border:1px solid #e6ebf2!important;box-shadow:none!important;
-  }
+  /* Product detail (as on big shops): the gradient is part of the page top and
+     fades into pure white exactly at the upper edge of the white product block.
+     okla_mobile_gradient.js measures that edge into --okla-mg-h; the layer is
+     anchored to the document here (not to the viewport), so it can never show
+     beside the white block while scrolling. */
+  html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{position:absolute!important}
 }
