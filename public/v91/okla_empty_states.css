@@ -1,0 +1,89 @@
+/* OKLA – empty states (okla_empty_states.js): 404, search without results,
+   empty cart; plus two small layout fixes (no sidebar next to the forgotten
+   password form, no blue bar over the mobile cart). Same card language as
+   the empty category: white card, 1px #e6ebf2 border, radius 20, Exo 2. */
+
+/* ---------- shared: search field + category chips ---------- */
+html body #content .okla-empty-extra{display:flex!important;flex-direction:column!important;gap:16px!important;margin:4px 0 24px!important}
+html body #content .okla-empty-search{
+  position:relative!important;display:flex!important;align-items:center!important;width:100%!important;max-width:440px!important;margin:0 auto!important;
+}
+html body #content .okla-empty-search input{
+  flex:1 1 auto!important;width:100%!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 60px 0 18px!important;box-sizing:border-box!important;
+  border:1px solid #d9e0e8!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important;outline:0!important;
+  font:400 16px/1.2 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;-webkit-appearance:none;appearance:none;
+}
+html body #content .okla-empty-search input::placeholder{color:#8a96a6!important;opacity:1!important}
+html body #content .okla-empty-search input:focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+html body #content .okla-empty-search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
+html body #content .okla-empty-search button{
+  position:absolute!important;top:6px!important;right:6px!important;display:grid!important;place-items:center!important;
+  width:40px!important;height:40px!important;min-width:0!important;margin:0!important;padding:0!important;
+  border:0!important;border-radius:10px!important;background:#168bd2!important;background-image:none!important;box-shadow:none!important;color:#fff!important;cursor:pointer!important;
+}
+html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#0b74b5!important}
+html body #content .okla-empty-search button svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important}
+html body #content .okla-empty-chips{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important;margin:0!important;padding:0!important}
+html body #content .okla-empty-chip{
+  display:inline-flex!important;align-items:center!important;min-height:38px!important;padding:0 14px!important;box-sizing:border-box!important;
+  border:0!important;border-radius:999px!important;background:#f3f5f8!important;
+  font:600 14px/1.2 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-decoration:none!important;text-transform:none!important;
+  transition:background-color .15s ease,color .15s ease!important;
+}
+html body #content .okla-empty-chip:is(:hover,:focus-visible){background:#e7f1fb!important;color:#16478b!important}
+html body #content .okla-empty-chip::before,html body #content .okla-empty-chip::after{content:none!important;display:none!important}
+
+/* ---------- 404 (the card itself is okla_404.css) ---------- */
+html body.in-404 #content .empty-content-404 h2{font-size:16px!important;font-weight:400!important;line-height:1.5!important;color:#6b7280!important;margin:0 auto 22px!important;max-width:420px!important}
+html body.in-404 #content .empty-content-404{max-width:620px!important}
+
+/* ---------- search without results ---------- */
+html.okla-search-empty body.in-vyhledavani #content > h2,
+html.okla-search-empty body.in-vyhledavani #content .search-results-groups:empty{display:none!important}
+html body.in-vyhledavani #content .okla-empty-card{
+  max-width:620px!important;margin:32px auto 56px!important;padding:40px 36px 36px!important;box-sizing:border-box!important;
+  background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;text-align:center!important;
+  font-family:"Exo 2",Arial,sans-serif!important;
+}
+html body.in-vyhledavani #content .okla-empty-icon{
+  display:grid!important;place-items:center!important;width:72px!important;height:72px!important;margin:0 auto 16px!important;border-radius:50%!important;background:#eef6fd!important;
+}
+html body.in-vyhledavani #content .okla-empty-icon::before{
+  content:""!important;width:34px!important;height:34px!important;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23168bd2%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%226.5%22%2F%3E%3Cpath%20d%3D%22m16%2016%204.5%204.5M8.5%2011h5%22%2F%3E%3C%2Fsvg%3E") center/34px 34px no-repeat!important;
+}
+html body.in-vyhledavani #content .okla-empty-title{
+  margin:0 0 8px!important;padding:0!important;border:0!important;background:none!important;overflow-wrap:anywhere!important;
+  font:700 22px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#0b2540!important;
+}
+html body.in-vyhledavani #content .okla-empty-title::before,html body.in-vyhledavani #content .okla-empty-title::after{content:none!important;display:none!important}
+html body.in-vyhledavani #content .okla-empty-text{margin:0 auto 22px!important;max-width:440px!important;font:400 16px/1.5 "Exo 2",Arial,sans-serif!important;color:#6b7280!important}
+html body.in-vyhledavani #content .okla-empty-card .okla-empty-search{margin-bottom:18px!important}
+
+/* ---------- empty cart: categories as chips ---------- */
+html body .cart-empty .empty-cart-boxes ul{display:flex!important;flex-wrap:wrap!important;gap:8px!important}
+html body .cart-empty .empty-cart-boxes ul li{margin:0!important;padding:0!important;list-style:none!important}
+html body .cart-empty .empty-cart-boxes ul li::before,html body .cart-empty .empty-cart-boxes ul li a::before{content:none!important;display:none!important}
+html body .cart-empty .empty-cart-boxes ul li a{
+  display:inline-flex!important;align-items:center!important;min-height:38px!important;padding:0 14px!important;box-sizing:border-box!important;
+  border-radius:999px!important;background:#f3f5f8!important;
+  font:600 14px/1.2 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-decoration:none!important;text-transform:none!important;
+}
+html body .cart-empty .empty-cart-boxes ul li a:is(:hover,:focus-visible){background:#e7f1fb!important;color:#16478b!important}
+html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){height:48px!important;border-radius:12px!important;border:1px solid #d9e0e8!important;box-shadow:none!important}
+html body .cart-empty .empty-cart-boxes .search-form button[type="submit"]{height:48px!important;border-radius:12px!important;padding:0 20px!important}
+
+/* ---------- forgotten password: just the form, no sidebar ---------- */
+@media(min-width:768px){
+  html body.in-zapomenute-heslo aside.sidebar{display:none!important}
+  html body.in-zapomenute-heslo #content-wrapper main#content{float:none!important;width:100%!important;max-width:none!important;margin-left:0!important;border-left:0!important}
+}
+
+/* ---------- phones ---------- */
+@media(max-width:767px){
+  /* the cart has no blue bar on phones, like every other page */
+  html body.ordering-process:not(#okla-es-a#okla-es-b) #content-wrapper::before{display:none!important;content:none!important}
+  html body.in-vyhledavani #content .okla-empty-card{margin:16px 0 32px!important;padding:32px 20px 28px!important}
+  html body.in-vyhledavani #content .okla-empty-title{font-size:20px!important}
+  html body #content .okla-empty-chips{justify-content:center!important}
+}

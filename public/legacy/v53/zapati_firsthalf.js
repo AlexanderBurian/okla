@@ -1134,7 +1134,10 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:
       var nav=document.querySelectorAll('#navigation a[href], aside.sidebar a[href], .menu-level-1 a[href], .menu-level-2 a[href]');
       outer: for(var z=0;z<choices.length;z++){for(var n=0;n<nav.length;n++){var text=(nav[n].textContent||'').trim(),href=nav[n].getAttribute('href')||'';if(text.toLocaleLowerCase('cs')===choices[z].toLocaleLowerCase('cs') && href && href!=='#' && !/^javascript:/i.test(href)){destination=href;break outer;}}}
     }
-    if(!destination || destination==='#')destination=isNews?'/novinky/':isAction?'/akcni-zbozi/':'/vsechny-produkty/';
+    // sections whose own page has a different name in the menu
+    if(!destination || destination==='#'){var known={'vychytávky':'/prakticke-vychytavky/','nejlepší nářadí':'/merici-technika-a-naradi/'};destination=known[title.toLocaleLowerCase('cs')]||'';}
+    // no real page for this section (e.g. Akční zboží, Novinky): no "Více" link rather than one leading to a 404
+    if(!destination || destination==='#')return;
     var more=document.createElement('a');more.className='okla-section-more';more.href=destination;
     more.setAttribute('aria-label','Zobrazit kategorii '+(title||'produktů'));
     var label=document.createElement('span');label.textContent='Více';

@@ -9,16 +9,16 @@
 
  // On desktop the top slot stays on the projector: only the projector is shown there. The other slides are mobile only.
  var SLIDES=[
-  {n:2,title:'Kino ve vašem obýváku',lead:'Velký obraz kdekoli doma, bez velké televize.',alt:'Projektor'},
-  {n:3,title:'Chytré brýle s AI',lead:'Kamera, asistent a poslech v běžných brýlích.',alt:'Chytré brýle',mobileOnly:true},
-  {n:4,title:'Laserový dálkoměr',lead:'Přesné měření vzdáleností jedním stisknutím.',alt:'Laserový dálkoměr',mobileOnly:true},
-  {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',mobileOnly:true}
+  {n:2,title:'Kino ve vašem obýváku',lead:'Velký obraz kdekoli doma, bez velké televize.',alt:'Projektor',href:'/wanbo-x5-pro-chytry-full-hd-projektor/'},
+  {n:3,title:'Chytré brýle s AI',lead:'Kamera, asistent a poslech v běžných brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/ai-chytre-bryle-wai4-bezdratova-elektronika/'},
+  {n:4,title:'Laserový dálkoměr',lead:'Přesné měření vzdáleností jedním stisknutím.',alt:'Laserový dálkoměr',mobileOnly:true,href:'/laserovy-dalkomer-rychle-digitalni-mereni/'},
+  {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',mobileOnly:true,href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'}
  ];
  var TILES=[
-  {n:1,title:'Chytré brýle',lead:'Kamera a AI asistent přímo v brýlích.',alt:'Chytré brýle'},
-  {n:2,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero'}
+  {n:1,title:'Chytré brýle',lead:'Kamera a AI asistent přímo v brýlích.',alt:'Chytré brýle',href:'/ai-chytre-bryle-wai4-bezdratova-elektronika/'},
+  {n:2,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'}
  ];
- var CTA_HREF='/goal';
+ // each banner's CTA leads to its product
  var CTA_TEXT='Kup teď';
  var INTERVAL=6000;
 
@@ -28,7 +28,7 @@
    '<div class="okla-hero__text">'+
     '<h2 class="okla-hero__title">'+s.title+'</h2>'+
     '<p class="okla-hero__lead">'+s.lead+'</p>'+
-    '<a class="okla-hero__cta" href="'+CTA_HREF+'">'+CTA_TEXT+'</a>'+
+    '<a class="okla-hero__cta" href="'+s.href+'">'+CTA_TEXT+'</a>'+
    '</div>'+
   '</article>';
  }
@@ -39,7 +39,7 @@
    '<div class="okla-tile__text">'+
     '<h3 class="okla-tile__title">'+t.title+'</h3>'+
     '<p class="okla-tile__lead">'+t.lead+'</p>'+
-    '<a class="okla-tile__cta" href="'+CTA_HREF+'">'+CTA_TEXT+'</a>'+
+    '<a class="okla-tile__cta" href="'+t.href+'">'+CTA_TEXT+'</a>'+
    '</div>'+
   '</article>';
  }

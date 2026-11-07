@@ -61,6 +61,8 @@ if(/^\/o-nas(\/|$)/.test(location.pathname)) modules.push('v91/okla_about.css','
  if((document.body&&document.body.classList.contains('in-kontakt'))||/^\/kontakt(y)?(\/|$)/.test(location.pathname)) modules.push('v91/okla_contact.css','v91/okla_contact.js');
 if((document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient|objednavky|platby|osobni-udaje|danove-doklady|zalohove-faktury|dobropisy|dodaci-listy|slevy|hodnoceni|diskuze|doklady|muj-ucet|zakaznik)/.test(document.body.className))||(function(){try{var a=document.querySelectorAll('#content-wrapper a,#content a,.sidebar a');for(var i=0;i<a.length;i++){if(/^\s*odhl[aá]sit/i.test(a[i].textContent))return true}}catch(e){}return false})()) modules.push('v91/okla_account.css','v91/okla_account.js','v91/okla_account_polish.css','v91/okla_account_polish.js','v91/okla_account_nav.css','v91/okla_account_nav.js');
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
+/* Empty states (404 wording, search without results, empty cart) and small layout fixes for them. */
+modules.push('v91/okla_empty_states.css','v91/okla_empty_states.js');
 /* Sitewide font and green CTA text fixes, last in the normal load order. */
 modules.push('v91/okla_global_typography.css','v91/okla_green_buttons.js');
 /* Shared OKLA header visual system + compatibility on all Shoptet page types. */
