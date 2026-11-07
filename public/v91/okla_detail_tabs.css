@@ -90,3 +90,12 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
 @media(min-width:768px){
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) > .row > [class*="col-"]{padding-left:20px!important;padding-right:20px!important}
 }
+
+/* the description starts with its content (okla_detail_tabs.js marks the
+   "Detailní popis produktu" caption and the repeated product name) */
+html body #content #description .okla-ptab-hidden-el{display:none!important}
+/* no separator line above "Mohlo by vás zajímat" */
+html body.ok89-detail #content .ok86-related:not(#okla-pt-a#okla-pt-b#okla-pt-c){border-top:0!important}
+/* with the name gone, the first content row needs no separator line above it */
+html body #content #description .okla-rich-intro.okla-ptab-hidden-el + .okla-editorial-row{border-top:0!important;padding-top:0!important}
+html body #content #description .okla-rich:has(> .okla-rich-intro.okla-ptab-hidden-el){padding-top:0!important}

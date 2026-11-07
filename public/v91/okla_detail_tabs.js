@@ -13,6 +13,24 @@
  var PHONE=window.matchMedia('(max-width:767px)');
  var NS='http://www.w3.org/2000/svg';
  function chevron(){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');var p=document.createElementNS(NS,'path');p.setAttribute('d','m6 9 6 6 6-6');s.appendChild(p);return s}
+ /* the description starts straight with its content: no "Detailní popis produktu"
+    caption and no repeated product name (the title is already above the image) */
+ function norm(t){return (t||'').replace(/\s+/g,' ').trim().toLowerCase()}
+ function tidyDescription(){
+  var d=document.getElementById('description');if(!d)return;
+  [].slice.call(d.querySelectorAll('.basic-description > h2, .basic-description > h3, .description-inner > h2, .description-inner > h3')).forEach(function(h){
+   if(/^detailn[ií] popis/.test(norm(h.textContent)))h.classList.add('okla-ptab-hidden-el');
+  });
+  var title=document.querySelector('#content .p-detail-inner-header h1');var name=title&&norm(title.textContent);
+  if(!name)return;
+  [].slice.call(d.querySelectorAll('.okla-rich-intro h1, .okla-rich-intro h2, .basic-description > h1, .basic-description > h2, .okla-rich > h1, .okla-rich > h2')).forEach(function(h){
+   if(norm(h.textContent)===name)h.classList.add('okla-ptab-hidden-el');
+  });
+  [].slice.call(d.querySelectorAll('.okla-rich-intro')).forEach(function(intro){
+   var rest=[].slice.call(intro.children).filter(function(c){return !c.classList.contains('okla-ptab-hidden-el')&&norm(c.textContent)});
+   if(!rest.length)intro.classList.add('okla-ptab-hidden-el');
+  });
+ }
  function setup(){
   var tabs=document.querySelector('#content ul.p-detail-tabs'),content=document.querySelector('#content #tab-content');
   if(!tabs||!content)return false;
@@ -33,6 +51,7 @@
    items.push({li:li,a:a,pane:pane,id:id,label:isDesc?'Popis produktu':(a.textContent||'').trim(),desc:isDesc});
   });
   if(!items.length)return true;
+  tidyDescription();
   /* panes that are not one of the tabs (e.g. discussion) stay hidden */
   [].slice.call(content.children).forEach(function(n){if(n.classList.contains('tab-pane')&&!items.some(function(it){return it.pane===n}))n.classList.add('okla-ptab-hidden')});
   items.forEach(function(it,i){
