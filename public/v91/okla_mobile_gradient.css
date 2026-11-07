@@ -1,28 +1,30 @@
 /* OKLA – one mobile page-top gradient, identical on every page.
    ------------------------------------------------------------------------
    Before: every template painted its own short gradient on the scrolling
-   header (60px, ending in white), the homepage had a fixed layer that the white
-   <body> hid, and the header turned plain white once it got stuck while
-   scrolling – so the gradient scrolled away, snapped to white and looked broken.
+   header (60px, ending in white), and the homepage had a fixed layer that the
+   white <body> hid, so the gradient scrolled away and looked broken.
 
-   Now: ONE layer, fixed to the top of the viewport behind all content: body::before
-   with a negative z-index sits in the root stacking context, above the white
-   canvas and below the page (html::before/::after belong to the loading
-   curtain in zapati_firsthalf.js). It replaces the old homepage-only body::before. It is long (--okla-mg-h) and smooth (many eased stops), with a light
-   violet tint on the right, and it never moves. The page wrappers are
-   transparent on phones, so it shows behind the header and the top of every
-   page; cards, banners and the footer keep their own white surfaces.
-   The stuck header (fixed at top:0) paints exactly the same gradient box, so it
-   blends into the layer behind it with no seam in any scroll state.
-
+   Now ONE layer sits behind all content: body::before with a negative z-index,
+   in the root stacking context above the white canvas and below the page
+   (html::before and ::after belong to the loading curtain in zapati_firsthalf.js).
+   The page wrappers are transparent on phones, so it shows behind the header
+   and the top of every page. Cards, banners and the footer keep their own
+   white surfaces.
+   - Colour: a mild, low-opacity blue wash with a light violet tint on the right. Both
+     layers fade with a smoothstep curve (zero slope at the end), so they
+     thin out gradually and reach pure white without any visible cut.
+   - Length: 820px, fixed to the viewport, on every page; product detail
+     differs, see the end of the file.
+   - The header that appears on scroll (stuck/shown) is plain white with a
+     soft shadow.
    Phones only (≤767px). Loaded last; the selectors carry an ID boost because the
    product-detail header rules use up to four IDs. */
 @media(max-width:767px){
   :root{
-    --okla-mg-h:720px;
+    --okla-mg-h:820px;
     --okla-mg:
-      radial-gradient(95% 62% at 104% -4%,rgba(156,136,246,.30) 0%,rgba(156,136,246,.20) 22%,rgba(156,136,246,.10) 46%,rgba(156,136,246,.035) 68%,rgba(156,136,246,0) 86%),
-      linear-gradient(180deg,#dbeefd 0%,#dff0fd 7%,#e4f2fe 15%,#e9f5fe 24%,#eef7fe 34%,#f2f9ff 45%,#f6fbff 56%,#f9fcff 67%,#fbfdff 77%,#fdfeff 87%,#fff 100%);
+      radial-gradient(110% 75% at 104% -6%,rgba(158,138,246,.140) 0%,rgba(158,138,246,.138) 7.1%,rgba(158,138,246,.132) 14.3%,rgba(158,138,246,.123) 21.4%,rgba(158,138,246,.112) 28.6%,rgba(158,138,246,.099) 35.7%,rgba(158,138,246,.085) 42.9%,rgba(158,138,246,.070) 50%,rgba(158,138,246,.055) 57.1%,rgba(158,138,246,.041) 64.3%,rgba(158,138,246,.028) 71.4%,rgba(158,138,246,.017) 78.6%,rgba(158,138,246,.008) 85.7%,rgba(158,138,246,.002) 92.9%,rgba(158,138,246,.000) 100%),
+      linear-gradient(180deg,rgba(204,228,250,.420) 0%,rgba(204,228,250,.414) 7.1%,rgba(204,228,250,.397) 14.3%,rgba(204,228,250,.370) 21.4%,rgba(204,228,250,.337) 28.6%,rgba(204,228,250,.298) 35.7%,rgba(204,228,250,.255) 42.9%,rgba(204,228,250,.210) 50%,rgba(204,228,250,.165) 57.1%,rgba(204,228,250,.122) 64.3%,rgba(204,228,250,.083) 71.4%,rgba(204,228,250,.050) 78.6%,rgba(204,228,250,.023) 85.7%,rgba(204,228,250,.006) 92.9%,rgba(204,228,250,.000) 100%);
   }
   html:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e){background:#fff!important;background-image:none!important}
   html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{
@@ -47,21 +49,40 @@
   html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{
     background:transparent!important;background-image:none!important;box-shadow:none!important;
   }
-  /* Stuck header (fixed at top:0 while scrolling): the very same gradient box,
-     so it is pixel-identical to the layer it covers; a hairline shadow only
-     separates the content scrolling underneath. */
+  /* Header that appears while scrolling (stuck / shown on scroll-up): plain white. */
   html.okla-m-stuck body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header,
   html body.okla-v65-white-header:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header,
   html body.okla-v66-show-header:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{
-    background:var(--okla-mg)!important;background-size:100% var(--okla-mg-h)!important;background-position:0 0!important;background-repeat:no-repeat!important;
-    box-shadow:0 1px 0 rgba(22,71,139,.07),0 4px 14px rgba(22,71,139,.06)!important;
+    background:#fff!important;background-image:none!important;
+    box-shadow:0 1px 0 rgba(22,71,139,.06),0 4px 14px rgba(18,41,68,.08)!important;
   }
   html.okla-m-stuck.okla-m-hidden body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{box-shadow:none!important}
 
   /* Product detail (as on big shops): the gradient is part of the page top and
-     fades into pure white exactly at the upper edge of the white product block.
-     okla_mobile_gradient.js measures that edge into --okla-mg-h; the layer is
-     anchored to the document here (not to the viewport), so it can never show
-     beside the white block while scrolling. */
+     fades out gradually, reaching pure white exactly at the upper edge of the
+     main product image. okla_mobile_gradient.js measures that edge into
+     --okla-mg-h. The white product block above the image is transparent, so
+     nothing white starts before it. The layer is anchored to the document
+     (not the viewport), so it scrolls away with the page and never shows
+     beside the content. */
   html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{position:absolute!important}
+  html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail,
+  html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail-inner{
+    background-color:transparent!important;background-image:none!important;
+  }
+}
+/* Product title moved above the image on phones (okla_mobile_gradient.js):
+   edges aligned with
+   the breadcrumbs (the script measures that offset into --okla-m-title-shift). */
+@media(max-width:767px){
+  html body.type-detail #content .product-top > .p-detail-inner-header.okla-m-title-top{
+    display:flex!important;align-items:flex-start!important;justify-content:space-between!important;gap:12px!important;flex-wrap:nowrap!important;
+    flex:0 0 auto!important;width:auto!important;max-width:none!important;box-sizing:border-box!important;order:0!important;
+    margin:6px var(--okla-m-title-shift,0px) 18px var(--okla-m-title-shift,0px)!important;padding:0!important;
+  }
+  html body.type-detail #content .product-top > .p-detail-inner-header.okla-m-title-top h1{
+    flex:1 1 auto!important;min-width:0!important;margin:0!important;padding:0!important;
+  }
+  /* no share button next to the title on phones */
+  html body.type-detail #content .p-detail-inner-header .okla-m-share{display:none!important}
 }
