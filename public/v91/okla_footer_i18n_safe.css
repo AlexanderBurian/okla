@@ -477,3 +477,29 @@ html body footer#footer{
   transform:translateY(28px) scale(1.16)!important;
  }
 }
+
+/* OKLA – phones: bigger hand with phone, placed higher, cut edges hidden.
+   The photo (461x480) is cut on its right edge and bottom (the wrist). It is
+   taken out of the grid and anchored to the card's bottom-right corner,
+   overflowing both edges, so the clipped card (overflow:hidden) hides both
+   cuts: only the image's natural x 0–285 stays visible (phone, thumb and
+   fingers whole) and the wrist runs out of the card like a real hand.
+   Sizes follow the card width (100vw − 24px): width 78%, visible part
+   63.7% of the card width tall, so it fills the empty space between the
+   newsroom button and the bottom while staying clear of the left texts. */
+@media(max-width:540px){
+ html body #okla-footer-shell #okla-footer-content #okla-footer-promo{min-height:405px!important}
+ html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
+  position:absolute!important;grid-area:auto!important;
+  top:auto!important;left:auto!important;
+  right:calc((100vw - 24px) * -.2978)!important;
+  bottom:calc((100vw - 24px) * -.1756)!important;
+  width:calc((100vw - 24px) * .78)!important;min-width:0!important;max-width:none!important;
+  height:calc((100vw - 24px) * .8122)!important;min-height:0!important;max-height:none!important;
+  margin:0!important;padding:0!important;transform:none!important;
+  object-fit:contain!important;object-position:0 0!important;
+  z-index:1!important;pointer-events:none!important;
+ }
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-text,
+ html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{position:relative!important;z-index:2!important}
+}
