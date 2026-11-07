@@ -5,19 +5,29 @@
  if(window.__oklaBreadcrumbV91)return;window.__oklaBreadcrumbV91=true;
  
  function makeBullet(){
-  var n=document.createElement('span');n.className='navigation-bullet ok91-generated-bullet';n.setAttribute('aria-hidden','true');
+  var n=document.createElement('span');n.className='navigation-bullet ok91-generated-bullet ok91-normalized-bullet';n.setAttribute('aria-hidden','true');
   var span=document.createElement('span');span.className='ok91-chevron';span.textContent='>';n.appendChild(span);return n;
+ }
+ function normalizeBullet(bullet){
+  if(!bullet)return;
+  bullet.classList.add('ok91-normalized-bullet');
+  bullet.setAttribute('aria-hidden','true');
+  var children=[].slice.call(bullet.children);
+  var chevron=children.length===1&&children[0].classList.contains('ok91-chevron')?children[0]:null;
+  if(chevron&&chevron.textContent==='>')return;
+  bullet.textContent='';
+  chevron=document.createElement('span');chevron.className='ok91-chevron';chevron.textContent='>';bullet.appendChild(chevron);
  }
  function ensureBullets(nav){
   var items=[].slice.call(nav.querySelectorAll('[itemprop="itemListElement"]'));
   if(items.length<2)return;
-  /* Keep the separator inside the level it introduces.  Account pages place
-     breadcrumb levels into separate layout cells, where a sibling separator
-     can be visually dropped even though it exists in the DOM. */
-  var correct=items.slice(1).every(function(item){var first=item.firstElementChild;return first&&first.classList.contains('ok91-generated-bullet')});
-  if(correct&&nav.querySelectorAll('.ok91-generated-bullet').length===items.length-1)return;
-  nav.querySelectorAll('.navigation-bullet').forEach(function(n){n.remove()});
-  items.slice(1).forEach(function(item){item.insertBefore(makeBullet(),item.firstChild)});
+  /* Shoptet puts the separator at the end of the preceding breadcrumb item.
+     Preserve that native node; removing it breaks the account-page grid. */
+  items.slice(0,-1).forEach(function(item){
+   var bullet=[].slice.call(item.children).find(function(child){return child.classList&&child.classList.contains('navigation-bullet')});
+   if(!bullet){bullet=makeBullet();item.appendChild(bullet)}
+   normalizeBullet(bullet);
+  });
  }
  function enhance(nav){
   var home=nav.querySelector('#navigation-first a.navigation-home-icon')||nav.querySelector('a.navigation-home-icon');
