@@ -1,5 +1,7 @@
-/* OKLA homepage side art: a phone on the left, a Flipper Zero with its Wi-Fi module on the right.
-   They sit in the page margins beside the white card and touch its edges. Shown only when both margins are wide enough. */
+/* OKLA homepage side art: a phone on the left; on the right one of four products, picked at random on every page
+   load (Flipper Zero with its Wi-Fi module, AI glasses, thermal camera, USB-C endoscope), each with its price on a
+   price tag. They sit in the page margins beside the white card and touch its edges. Shown only when both margins are
+   wide enough. The price comes from the product page (cached for the session), so it never goes stale. */
 (function(){
  'use strict';
  if(window.__oklaHomeSideV1)return;
@@ -29,12 +31,47 @@
    '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem OKLA"></div>'+
    '</a>'+
    '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>');
-  block('okla-side-right','right',
-   '<a class="okla-side-art__link" href="/flipper-zero-kapesni-multitool-pro-elektroniku/">'+
-   '<div class="okla-side-art__img okla-side-art__img--wifi" role="img" aria-label="Wi-Fi modul pro Flipper Zero"></div>'+
-   '<div class="okla-side-art__img okla-side-art__img--flipper" role="img" aria-label="Flipper Zero"></div>'+
+  var v=RIGHT[Math.floor(Math.random()*RIGHT.length)];
+  var right=block('okla-side-right','right',
+   '<a class="okla-side-art__link" href="'+v.href+'" aria-label="'+v.alt+'">'+
+   '<div class="okla-side-art__stage okla-side-art__stage--'+v.key+'">'+v.pictures+
+   '<span class="okla-side-price" aria-hidden="true"><span class="okla-side-price__label">jen za</span><span class="okla-side-price__value">'+price(v.price)+'</span></span>'+
+   '</div>'+
    '</a>'+
-   '<p class="okla-side-art__text">Flipper Zero: kapesní multitool pro kutily, elektroniku i experimenty.</p>');
+   '<p class="okla-side-art__text">'+v.text+'</p>');
+  right.setAttribute('data-product',v.key);
+  refreshPrice(right,v);
+ }
+
+ /* Right-side products. Prices are the shop's current ones; refreshPrice() replaces them with the live price. */
+ var RIGHT=[
+  {key:'flipper',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/',alt:'Flipper Zero',price:5690,
+   pictures:'<div class="okla-side-art__img okla-side-art__img--wifi" role="img" aria-label="Wi-Fi modul pro Flipper Zero"></div>'+
+            '<div class="okla-side-art__img okla-side-art__img--flipper" role="img" aria-label="Flipper Zero"></div>',
+   text:'Flipper Zero: kapesní multitool pro kutily, elektroniku i experimenty.'},
+  {key:'glasses',href:'/ai-chytre-bryle-wai4-bezdratova-elektronika/',alt:'Chytré brýle WAI4 s AI',price:1490,
+   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="Chytré brýle WAI4 s AI"></div>',
+   text:'Chytré brýle s AI: kamera, asistent a poslech v běžných brýlích.'},
+  {key:'thermal',href:'/mini-termokamera-kompaktni-termalni-zobrazeni/',alt:'Mini termokamera',price:3990,
+   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="Mini termokamera"></div>',
+   text:'Mini termokamera: rychlá orientační kontrola teplot.'},
+  {key:'endoscope',href:'/usb-c-endoskopicka-kamera-inspekce-tezko-dostupnych-mist/',alt:'Endoskopická kamera USB-C',price:899,
+   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="Endoskopická kamera USB-C"></div>',
+   text:'Endoskopická kamera USB-C: pohled do dutin a těžko dostupných míst.'}
+ ];
+ /* 1490 -> "1 490,-" (the shop's own price format) */
+ function price(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+',-'}
+ function refreshPrice(el,v){
+  var key='okla-side-price:'+v.href,cached=null;
+  try{cached=JSON.parse(sessionStorage.getItem(key)||'null')}catch(e){}
+  function show(n){var t=el.querySelector('.okla-side-price__value');if(t&&n>0)t.textContent=price(n)}
+  if(cached&&cached.t>Date.now()-3600000){show(cached.p);return}
+  if(!window.fetch)return;
+  fetch(v.href,{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(html){
+   var m=html.match(/itemprop="price"\s+content="([0-9.]+)"/);if(!m)return;
+   var n=parseFloat(m[1]);show(n);
+   try{sessionStorage.setItem(key,JSON.stringify({p:n,t:Date.now()}))}catch(e){}
+  }).catch(function(){});
  }
 
  /* Search, contacts, the cart and checkout pages, the account pages (login, registration, forgotten password,

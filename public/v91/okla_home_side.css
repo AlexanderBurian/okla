@@ -30,3 +30,24 @@
 .okla-side-art__text{position:relative;z-index:1;pointer-events:auto;margin:16px 0 0;font-size:17px;font-weight:400;line-height:1.5;letter-spacing:0;text-align:center}
 /* No side art on search, contacts, the cart and checkout. */
 body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering-process .okla-side-art{display:none!important}
+
+/* Right side: one of four products (okla_home_side.js). Every product sits in the same 132cqw tall stage as the
+   Flipper group (Wi-Fi board 57.3cqw + device 74.7cqw), so the caption lands 16 px under the hand's lowest point
+   for all of them. */
+.okla-side-art__stage{position:relative;width:100%;height:132cqw}
+.okla-side-art__product{position:absolute;inset:0;width:100%;height:100%;background-size:contain;background-position:center;background-repeat:no-repeat}
+.okla-side-art__stage--glasses .okla-side-art__product{background-image:url('assets/side-glasses.png');background-position:center 42%}
+.okla-side-art__stage--thermal .okla-side-art__product{background-image:url('assets/side-thermal.png');background-position:center 40%}
+.okla-side-art__stage--endoscope .okla-side-art__product{background-image:url('assets/side-endoscope.png')}
+
+/* Price tag, as on the big electronics shops: a yellow tag with a punched hole, slightly tilted, over the bottom
+   right of the product. Sizes in cqw, so it scales with the art. */
+.okla-side-price{position:absolute;right:2cqw;bottom:8cqw;z-index:2;display:inline-flex;flex-direction:column;align-items:flex-start;gap:.6cqw;
+  padding:2.6cqw 4.6cqw 2.8cqw 8.2cqw;border-radius:2.4cqw;background:#ffd800;color:#0b2540;
+  box-shadow:0 1.6cqw 4cqw rgba(11,37,64,.22),inset 0 -0.6cqw 0 rgba(0,0,0,.06);transform:rotate(-5deg);transform-origin:right bottom;
+  font-family:"Exo 2",Arial,sans-serif;line-height:1;white-space:nowrap;transition:transform .2s ease}
+.okla-side-price::before{content:"";position:absolute;left:3cqw;top:50%;width:2.4cqw;height:2.4cqw;margin-top:-1.2cqw;border-radius:50%;background:#eaf5ff;box-shadow:inset 0 .3cqw .5cqw rgba(0,0,0,.25)}
+.okla-side-price__label{font-size:3.6cqw;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.85}
+.okla-side-price__value{font-size:9.6cqw;font-weight:800;letter-spacing:-.02em}
+.okla-side-art__link:hover .okla-side-price{transform:rotate(-5deg) scale(1.05)}
+.okla-side-art__stage--flipper .okla-side-price{bottom:4cqw}
