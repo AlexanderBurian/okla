@@ -276,6 +276,32 @@ html body .menu-helper>span{
   font-weight:600!important;
 }
 
+/* Homepage micro-controls are deliberate exceptions to the sitewide rounded
+   button rule: carousel arrows stay attached to the viewport edge and the
+   lightweight “Více” link keeps its original compact scale. */
+html body.type-index #content .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#okla_slider_prev_a#okla_slider_prev_b#okla_slider_prev_c#okla_slider_prev_d){
+  border-radius:0 6px 6px 0!important;
+}
+html body.type-index #content .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#okla_slider_next_a#okla_slider_next_b#okla_slider_next_c#okla_slider_next_d){
+  border-radius:6px 0 0 6px!important;
+}
+html body.type-index #content .okla-slider-shell>.okla-slider-controls>button:is(.okla-slider-prev,.okla-slider-next):not(#okla_slider_hover_a#okla_slider_hover_b#okla_slider_hover_c#okla_slider_hover_d):is(:hover,:focus){
+  background:#103977!important;
+  color:#fff!important;
+}
+html body.type-index #content .homepage-group-title.okla-slider-heading .okla-section-more{
+  gap:4px!important;
+  padding:2px 0 2px 8px!important;
+  font-size:12px!important;
+  line-height:16px!important;
+  font-weight:600!important;
+}
+html body.type-index #content .homepage-group-title.okla-slider-heading .okla-section-more svg{
+  width:12px!important;
+  min-width:12px!important;
+  height:12px!important;
+}
+
 /* Natural desktop navbar: move the account artwork inside its reserved grid
    column. The search and cart columns therefore stay exactly where they are. */
 @media(min-width:992px){
