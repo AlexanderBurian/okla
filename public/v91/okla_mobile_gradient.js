@@ -69,6 +69,17 @@
   last=y;root.style.setProperty('--okla-mg-h',y+'px');
  }
  function schedule(){if(!queued){queued=true;requestAnimationFrame(apply)}}
+ /* the fixed header shows the part of the gradient that lies behind it */
+ var hdrQueued=false,hdrSet=false;
+ function alignHeader(){
+  hdrQueued=false;
+  var h=document.getElementById('okla-v61-header');if(!h)return;
+  if(PHONE.matches&&root.classList.contains('okla-m-stuck')){h.style.setProperty('background-position','0 '+(-Math.round(window.scrollY))+'px','important');hdrSet=true}
+  else if(hdrSet){h.style.removeProperty('background-position');hdrSet=false}
+ }
+ function scheduleHeader(){if(!hdrQueued){hdrQueued=true;requestAnimationFrame(alignHeader)}}
+ window.addEventListener('scroll',scheduleHeader,{passive:true});
+ if(window.MutationObserver)new MutationObserver(scheduleHeader).observe(root,{attributes:true,attributeFilter:['class']});
  function start(){
   if(!isDetail()&&!isCategory()&&!isHome()&&!isAbout()&&!isCheckout())return;
   apply();
