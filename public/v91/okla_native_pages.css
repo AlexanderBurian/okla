@@ -100,11 +100,11 @@ html body.type-search #products .product .p{
 }
 html body.type-category #products .product .p::after,
 html body.type-search #products .product .p::after{
-  content:''!important;display:block!important;pointer-events:none!important;position:absolute!important;inset:0 -2px -24px -2px!important;
+  content:''!important;display:block!important;pointer-events:none!important;position:absolute!important;inset:0 -5px -28px -5px!important;
   border-radius:10px!important;border:1px solid transparent!important;box-shadow:none!important;transition:border-color .16s ease,box-shadow .16s ease!important;z-index:-1!important;
 }
 html body.type-category #products .product:hover .p::after,
-html body.type-search #products .product:hover .p::after{border-color:#E0E0E0!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important}
+html body.type-search #products .product:hover .p::after{border-color:#E5E5E5!important;box-shadow:0 2px 10px rgba(0,0,0,.10)!important}
 /* image: 172px like the homepage, contained, zoom clipped */
 html body.type-category #products .product .p > a.image,
 html body.type-search #products .product .p > a.image{
@@ -122,16 +122,16 @@ html body.type-category #products .product .p-in,html body.type-category #produc
 html body.type-search #products .product .p-in,html body.type-search #products .product .p-in-in{
   display:flex!important;flex:1 1 auto!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;margin:0!important;padding:0!important;
 }
-/* ratings: centred, decorative gold stars */
+/* ratings: same left-aligned decorative gold stars as the homepage */
 html body.type-category #products .product .ratings-wrapper,
 html body.type-search #products .product .ratings-wrapper{
-  display:flex!important;align-items:center!important;justify-content:center!important;flex-wrap:wrap!important;
-  min-height:19px!important;margin:0 0 7px!important;padding:0!important;gap:3px!important;color:#888!important;font-size:12px!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:nowrap!important;
+  min-height:19px!important;margin:0 0 7px!important;padding:0!important;gap:5px!important;color:#888!important;font-size:12px!important;overflow:hidden!important;
 }
 html body.type-category #products .product .ok89-decor-stars,
 html body.type-search #products .product .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:1px!important;color:#F4B526!important}
 html body.type-category #products .product .ok89-decor-stars svg,
-html body.type-search #products .product .ok89-decor-stars svg{width:14px!important;height:14px!important;display:block!important;fill:currentColor!important;stroke:currentColor!important}
+html body.type-search #products .product .ok89-decor-stars svg{width:13px!important;height:13px!important;display:block!important;fill:currentColor!important;stroke:currentColor!important}
 /* On a reviewed product show only the real stars (hide the decorative ones) and
    render them as one centred gold row — exactly like the homepage card. The
    native availability line inside the rating wrapper drops to its own line so the
@@ -152,11 +152,11 @@ html body.type-search #products .product .ratings-wrapper .availability{flex:0 0
 html body.type-category #products .product a.name,
 html body.type-search #products .product a.name{
   display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;
-  width:100%!important;min-height:44px!important;margin:0 0 6px!important;text-align:center!important;
-  font-size:14px!important;font-weight:600!important;line-height:21px!important;color:#16438c!important;text-decoration:none!important;
+  width:100%!important;min-height:40px!important;height:40px!important;max-height:40px!important;margin:0 0 6px!important;text-align:left!important;
+  font-size:14px!important;font-weight:600!important;line-height:20px!important;color:#16438c!important;text-decoration:none!important;
 }
 html body.type-category #products .product .availability,
-html body.type-search #products .product .availability{display:block!important;width:100%!important;margin:0 0 2px!important;text-align:center!important;font-size:11px!important;line-height:1.4!important}
+html body.type-search #products .product .availability{display:block!important;width:100%!important;margin:0 0 2px!important;text-align:left!important;font-size:11px!important;line-height:1.4!important}
 /* homepage order inside the card: stars, then name, then availability */
 html body.type-category #products .product .p-in-in .ratings-wrapper,
 html body.type-search #products .product .p-in-in .ratings-wrapper{order:1!important}
@@ -190,9 +190,9 @@ html body.type-category #products .product .p-tools form,
 html body.type-search #products .product .p-tools form{width:100%!important;margin:0!important;display:flex!important;justify-content:center!important}
 html body.type-category #products .product .p-tools button.btn-cart,
 html body.type-search #products .product .p-tools button.btn-cart{
-  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
   width:min(144px,100%)!important;height:38px!important;min-height:38px!important;max-height:38px!important;box-sizing:border-box!important;padding:6px 12px!important;
-  border:1px solid #16478B!important;border-radius:6px!important;background:#fff!important;background-image:none!important;color:#16478B!important;
+  border:1px solid #16478B!important;border-radius:7px!important;background:#fff!important;background-image:none!important;color:#16478B!important;
   font:600 14px/20px Exo 2,'Segoe UI',Arial,sans-serif!important;box-shadow:none!important;text-shadow:none!important;
   transition:background-color .16s ease,color .16s ease,border-color .16s ease!important;
 }
@@ -387,6 +387,10 @@ html body #filters .filter-section-boolean .filter-label{
   background:transparent!important;
   background-image:none!important;
   box-shadow:none!important;
+}
+html body #filters .filter-sections,
+html body #filters .filter-section-boolean fieldset>div{
+  background:transparent!important;background-image:none!important;box-shadow:none!important;
 }
 
 /* ---------- Category pictograms ----------

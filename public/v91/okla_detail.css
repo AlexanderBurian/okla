@@ -392,7 +392,21 @@ html body.ok89-detail .okla-detail-favorite{display:none!important}
 /* 8bg. No rating row under the product title (stars, "Zatím bez hodnocení", "Podrobnosti hodnocení"). Reviews stay in their own tab.
    The row's only other item is "Značka: …", which repeats the "Vše od …" link above the title, so the whole row goes. */
 html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-info{display:none!important}
-/* 8bh. Stock after Alza: a light grey panel with the "zboží skladem" pictogram and the stock in black text, not a large green word.
+
+/* The native H1 must already be a real heading while the detail enhancement is
+   settling. This fallback does not depend on the late ok89-detail body class. */
+html body.type-detail #content .p-detail .p-detail-inner-header h1,
+html body.type-product #content .p-detail .p-detail-inner-header h1{
+ display:block!important;visibility:visible!important;opacity:1!important;
+ width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;
+ color:#1A1A1A!important;font:700 28px/1.28 Exo 2,"Segoe UI",Arial,sans-serif!important;
+ letter-spacing:-.3px!important;white-space:normal!important;overflow-wrap:break-word!important;
+}
+@media(max-width:991px){
+ html body.type-detail #content .p-detail .p-detail-inner-header h1,
+ html body.type-product #content .p-detail .p-detail-inner-header h1{font-size:23px!important}
+}
+/* 8bh. Stock with the "zboží skladem" pictogram and black text, not a large green word.
    Out of stock keeps its red label and has no pictogram. */
 html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{gap:4px 6px!important;min-height:64px!important;padding:12px 18px!important;border-radius:8px!important;background:#F5F5F5!important;font:400 16px/1.4 var(--okd-font)!important;color:#111!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value.ok86-in::before{content:""!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin-right:8px!important;background:url(img/okla_skladem.png) center/contain no-repeat!important}
@@ -400,6 +414,12 @@ html body.ok89-detail #content .p-detail .availability-value .availability-label
 html body.ok89-detail #content .p-detail .availability-value .availability-amount{font:inherit!important;color:#111!important}
 html body.ok89-detail #content .p-detail .availability-value.ok86-in .availability-label{font-weight:700!important;color:#111!important}
 html body.ok89-detail #content .p-detail .availability-value.ok86-out .availability-label{font-weight:700!important;color:#CC0000!important}
+/* Stock information is content, not a grey card. Keep it clean everywhere on
+   the product detail while preserving its icon, spacing and native text. */
+html body.type-detail #content .p-detail .availability-value,
+html body.type-product #content .p-detail .availability-value{
+ background:transparent!important;background-image:none!important;box-shadow:none!important;
+}
 
 /* Parametry tab: product data as a striped two-column table, label grey on the left, value dark on the right. */
 #ok86-parameters .ok86-params-title{font-size:28px;font-weight:500;line-height:1.25;color:#1d1d1d;margin:0 0 20px}

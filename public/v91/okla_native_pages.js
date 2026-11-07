@@ -75,6 +75,11 @@
     if(!isList())return;
     (root||document).querySelectorAll('#products.products-block .product').forEach(function(card){
       var wrap=card.querySelector('.ratings-wrapper');
+      var inner=card.querySelector('.p-in-in'),name=inner&&inner.querySelector('a.name'),availability=wrap&&wrap.querySelector('.availability');
+      /* Homepage anatomy is ratings -> name -> availability. Availability is
+         nested inside ratings in native listing markup, so move the original
+         node instead of cloning it. */
+      if(inner&&wrap&&name){inner.insertBefore(wrap,name);if(availability)name.after(availability)}
       if(wrap&&!wrap.querySelector('.ok89-decor-stars')){
         wrap.querySelectorAll('.okv80-stars,.okv73-rating-stars,.okla-empty-stars,.okv73-rating-placeholder,.stars-placeholder').forEach(function(e){e.remove()});
         wrap.prepend(stars());

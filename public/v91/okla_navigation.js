@@ -4,7 +4,7 @@
  
  function makeBullet(){
   var n=document.createElement('span');n.className='navigation-bullet ok91-generated-bullet';n.setAttribute('aria-hidden','true');
-  var span=document.createElement('span');span.className='ok91-chevron';span.textContent='›';n.appendChild(span);return n;
+  var span=document.createElement('span');span.className='ok91-chevron';span.textContent='>';n.appendChild(span);return n;
  }
  function ensureBullets(nav){
   var items=[].slice.call(nav.querySelectorAll('[itemprop="itemListElement"]'));
@@ -14,7 +14,7 @@
   nav.querySelectorAll('.navigation-bullet').forEach(function(n){n.remove()});
   items.slice(1).forEach(function(item){item.parentNode.insertBefore(makeBullet(),item)});
  }
- function run(){var nav=document.querySelector('.breadcrumbs');if(!nav)return;
+ function enhance(nav){
   var home=nav.querySelector('#navigation-first a.navigation-home-icon')||nav.querySelector('a.navigation-home-icon');
   if(home){
     // Hide only duplicate visual home links; keep their schema nodes and main link.
@@ -31,5 +31,15 @@
    nav.__oklaBulletObserver.observe(nav,{childList:true,subtree:true});
   }
  }
+ function run(){document.querySelectorAll('.breadcrumbs').forEach(enhance)}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+ window.addEventListener('load',run,{once:true});
+ setTimeout(run,250);setTimeout(run,900);setTimeout(run,1800);
+ if(window.MutationObserver){
+  var queued=false;
+  new MutationObserver(function(records){
+   if(queued||!records.some(function(record){return Array.from(record.addedNodes).some(function(node){return node.nodeType===1&&((node.matches&&node.matches('.breadcrumbs'))||(node.querySelector&&node.querySelector('.breadcrumbs')))})}))return;
+   queued=true;requestAnimationFrame(function(){queued=false;run()});
+  }).observe(document.documentElement,{childList:true,subtree:true});
+ }
 })();
