@@ -17,7 +17,7 @@ html body :is(
   .button,
   a.button,
   [role="button"]
-):not(#__okla_button_shape_a#__okla_button_shape_b#__okla_button_shape_c#__okla_button_shape_d){
+):not(.listSorting__control):not(#__okla_button_shape_a#__okla_button_shape_b#__okla_button_shape_c#__okla_button_shape_d){
   border-radius:var(--okla-button-radius)!important;
 }
 

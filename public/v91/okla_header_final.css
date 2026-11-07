@@ -165,7 +165,7 @@
   bottom:auto!important;
   transform:none!important;
   line-height:30px!important;
-  font:700 15px/30px Exo 2,Arial,sans-serif!important;
+  font:700 15px/30px "Exo 2",Arial,sans-serif!important;
   white-space:nowrap!important;
   vertical-align:middle!important;
  }
@@ -244,7 +244,7 @@
    height:30px!important;min-height:30px!important;max-height:30px!important;
    margin:0!important;padding:0!important;top:auto!important;
    transform:none!important;white-space:nowrap!important;
-   font:700 15px/30px Exo 2,Arial,sans-serif!important;
+   font:700 15px/30px "Exo 2",Arial,sans-serif!important;
    line-height:30px!important;color:#1e1e1e!important;
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-chevron{
@@ -276,7 +276,7 @@
    background:#1689d3!important;
    color:#fff!important;
    -webkit-text-fill-color:#fff!important;
-   font:700 11px/16px Exo 2,Arial,sans-serif!important;
+   font:700 11px/16px "Exo 2",Arial,sans-serif!important;
    transform:none!important;
    margin:0!important;
    z-index:12!important;

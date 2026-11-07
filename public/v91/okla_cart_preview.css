@@ -28,7 +28,7 @@
     display:block!important;
     height:auto!important;
     min-height:0!important;
-    font:400 15px/20px Exo 2,Arial,sans-serif!important;
+    font:400 15px/20px "Exo 2",Arial,sans-serif!important;
     line-height:20px!important;
     text-align:center!important;
     vertical-align:middle!important;
@@ -55,7 +55,7 @@
     height:auto!important;
     min-height:0!important;
     line-height:20px!important;
-    font:700 15px/20px Exo 2,Arial,sans-serif!important;
+    font:700 15px/20px "Exo 2",Arial,sans-serif!important;
     margin:0!important;
     padding:0!important;
     transform:none!important;
@@ -91,7 +91,7 @@
     border:2px solid #fff!important;
     border-radius:999px!important;
     box-sizing:border-box!important;
-    font:700 11px/17px Exo 2,Arial,sans-serif!important;
+    font:700 11px/17px "Exo 2",Arial,sans-serif!important;
     line-height:17px!important;
     z-index:6!important;
     pointer-events:none!important;
@@ -116,7 +116,7 @@
   background:#fff;
   color:#17243a;
   box-shadow:0 18px 44px rgba(14,35,60,.19),0 2px 10px rgba(14,35,60,.07);
-  font-family:Exo 2,Arial,sans-serif!important;
+  font-family:"Exo 2",Arial,sans-serif!important;
   opacity:0;
   transform:translateY(-7px);
   transition:opacity .15s ease,transform .15s ease,visibility 0s linear .15s;
@@ -140,11 +140,11 @@
 }
 #okla-cart-preview .okla-cp__heading{
   margin:0;
-  font:700 17px/1.35 Exo 2,Arial,sans-serif;
+  font:700 17px/1.35 "Exo 2",Arial,sans-serif;
   color:#11243d;
 }
 #okla-cart-preview .okla-cp__count{
-  font:500 12px/1.4 Exo 2,Arial,sans-serif;
+  font:500 12px/1.4 "Exo 2",Arial,sans-serif;
   color:#66758a;
   white-space:nowrap;
 }
@@ -175,24 +175,24 @@
   display:block;
   color:#103f78;
   text-decoration:none;
-  font:600 13px/1.35 Exo 2,Arial,sans-serif;
+  font:600 13px/1.35 "Exo 2",Arial,sans-serif;
   overflow-wrap:anywhere;
 }
 #okla-cart-preview .okla-cp__name:hover{text-decoration:underline}
 #okla-cart-preview .okla-cp__qty{
   margin-top:5px;
-  font:400 12px/1.4 Exo 2,Arial,sans-serif;
+  font:400 12px/1.4 "Exo 2",Arial,sans-serif;
   color:#66758a;
 }
 #okla-cart-preview .okla-cp__price{
-  font:700 13px/1.4 Exo 2,Arial,sans-serif;
+  font:700 13px/1.4 "Exo 2",Arial,sans-serif;
   color:#19283b;
   white-space:nowrap;
 }
 #okla-cart-preview .okla-cp__message{
   padding:22px 4px;
   color:#5b687c;
-  font:400 13px/1.5 Exo 2,Arial,sans-serif;
+  font:400 13px/1.5 "Exo 2",Arial,sans-serif;
 }
 #okla-cart-preview .okla-cp__footer{
   flex:none;
@@ -207,10 +207,10 @@
   gap:8px;
   margin-bottom:13px;
   color:#18283e;
-  font:600 14px/1.4 Exo 2,Arial,sans-serif;
+  font:600 14px/1.4 "Exo 2",Arial,sans-serif;
 }
 #okla-cart-preview .okla-cp__total strong{
-  font:700 17px/1.3 Exo 2,Arial,sans-serif;
+  font:700 17px/1.3 "Exo 2",Arial,sans-serif;
 }
 #okla-cart-preview .okla-cp__go{
   display:flex;
@@ -224,7 +224,7 @@
   background:#15548f;
   color:#fff!important;
   text-decoration:none!important;
-  font:700 14px/1.4 Exo 2,Arial,sans-serif!important;
+  font:700 14px/1.4 "Exo 2",Arial,sans-serif!important;
 }
 #okla-cart-preview .okla-cp__go:hover{background:#0d3d71}
 @media(max-width:991px){
@@ -310,7 +310,7 @@
   background:#df2235!important;
   color:#fff!important;
   -webkit-text-fill-color:#fff!important;
-  font:700 11px/17px Exo 2,Arial,sans-serif!important;
+  font:700 11px/17px "Exo 2",Arial,sans-serif!important;
   opacity:1!important;
   visibility:visible!important;
   z-index:10!important;
@@ -472,7 +472,7 @@ html body #okla-cart-preview .okla-cp__go:hover{
     transform:translateY(3px)!important;
     vertical-align:middle!important;
     white-space:nowrap!important;
-    font:700 15px/24px Exo 2,Arial,sans-serif!important;
+    font:700 15px/24px "Exo 2",Arial,sans-serif!important;
     color:#202020!important;
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-chevron{
@@ -494,7 +494,7 @@ html body #okla-cart-preview .okla-cp__go:hover{
     background:#1689d3!important;
     color:#fff!important;
     -webkit-text-fill-color:#fff!important;
-    font:700 11px/16px Exo 2,Arial,sans-serif!important;
+    font:700 11px/16px "Exo 2",Arial,sans-serif!important;
     box-sizing:border-box!important;
     align-items:center!important;
     justify-content:center!important;

@@ -51,7 +51,7 @@
    max-width:100%!important;
    margin:0 0 9px!important;
    color:#fff!important;
-   font:800 clamp(20px,5.7vw,24px)/1.22 Exo 2,Arial,sans-serif!important;
+   font:800 clamp(20px,5.7vw,24px)/1.22 "Exo 2",Arial,sans-serif!important;
    letter-spacing:-.35px!important;
    text-align:left!important;
    text-wrap:balance!important;
@@ -62,7 +62,7 @@
    display:block!important;
    max-width:100%!important;
    margin:0 0 14px!important;
-   font:400 12.5px/1.5 Exo 2,Arial,sans-serif!important;
+   font:400 12.5px/1.5 "Exo 2",Arial,sans-serif!important;
    color:#eef1ff!important;
    opacity:1!important;
    visibility:visible!important;
@@ -85,7 +85,7 @@
    box-sizing:border-box!important;
    background:#eef4ff!important;
    color:#224895!important;
-   font:700 12.5px/1.2 Exo 2,Arial,sans-serif!important;
+   font:700 12.5px/1.2 "Exo 2",Arial,sans-serif!important;
    text-decoration:none!important;
    white-space:nowrap!important;
    opacity:1!important;
@@ -171,7 +171,7 @@
    margin:0 0 6px!important;
    padding:0!important;
    color:#fff!important;
-   font:750 12.5px/1.32 Exo 2,Arial,sans-serif!important;
+   font:750 12.5px/1.32 "Exo 2",Arial,sans-serif!important;
    text-align:left!important;
    overflow-wrap:normal!important;
    word-break:normal!important;
@@ -182,7 +182,7 @@
    display:block!important;
    margin:0!important;
    padding:0!important;
-   font:400 10.5px/1.42 Exo 2,Arial,sans-serif!important;
+   font:400 10.5px/1.42 "Exo 2",Arial,sans-serif!important;
    color:#e5ebff!important;
    text-align:left!important;
    overflow-wrap:break-word!important;
@@ -222,7 +222,7 @@
    border-radius:9px!important;
    background:#fff!important;
    color:#244391!important;
-   font:700 11px/1.25 Exo 2,Arial,sans-serif!important;
+   font:700 11px/1.25 "Exo 2",Arial,sans-serif!important;
    text-align:center!important;
    text-decoration:none!important;
    white-space:normal!important;

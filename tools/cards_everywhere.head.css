@@ -1,0 +1,48 @@
+/* OKLA – every product grid uses the homepage product card.
+   okla_native_pages.js marks every product grid outside the homepage sliders
+   with .okla-cards (also after Shoptet re-renders a listing via AJAX sorting,
+   filtering or "load more"). Below the hand-written grid layout, the card look
+   itself is GENERATED from the homepage card rules by
+   tools/build_cards_everywhere.js – edit the homepage styles, then re-run it. */
+
+/* ---------- Grid: even columns, rows that never touch ----------
+   Real row gap instead of padding on the cells, and no zoom: the old listing
+   cards were zoomed 1.08x with a hover frame reaching 28px below the card, so
+   the frame of one row ran into the cards of the next one. */
+html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b){
+  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  column-gap:14px!important;row-gap:40px!important;align-items:stretch!important;
+  float:none!important;width:auto!important;max-width:none!important;height:auto!important;
+  margin-left:0!important;margin-right:0!important;padding:0!important;
+}
+@media(max-width:1199px){
+  html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b){grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:12px!important}
+}
+@media(max-width:767px){
+  html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b){grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:10px!important;row-gap:12px!important}
+}
+html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b)>.product{
+  display:block!important;flex:none!important;float:none!important;clear:none!important;
+  width:auto!important;min-width:0!important;max-width:none!important;height:auto!important;min-height:0!important;
+  margin:0!important;padding:0!important;zoom:1!important;transform:none!important;
+  border:0!important;box-shadow:none!important;background:#fff!important;box-sizing:border-box!important;position:relative!important;
+}
+/* Non-card children Shoptet may put in a grid (banners, pagination helpers) span the row. */
+html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b)>:not(.product){grid-column:1/-1!important}
+
+/* ---------- Reset the old listing-only card imitation ---------- */
+html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{min-height:0!important;overflow:visible!important}
+html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p::after,
+html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p::before{content:none!important;display:none!important}
+html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-code{display:none!important}
+/* Page-level typography of other templates must not leak into the card
+   (product detail paints its own big red .price-final for the main product). */
+html body #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product{font-family:"Exo 2",Arial,sans-serif!important;text-align:start!important}
+@media(min-width:992px){html body #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product{text-align:center!important}}
+html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{font-size:14px!important;font-weight:400!important;line-height:14px!important;color:#1f1f1f!important}
+/* Sliders outside the homepage (product detail "Mohlo by vás zajímat"): the
+   same 45px track padding as the homepage sliders, so the hover frame below a
+   card is not clipped by the slider viewport. */
+@media(min-width:992px){
+  html body #content .okla-cards.okla-slider-track:not(#okla-cards-a#okla-cards-b){padding-bottom:45px!important}
+}

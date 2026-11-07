@@ -724,7 +724,7 @@ body #header .navigation-buttons .okla-exact-header>.okla-exact-separator{displa
 #content .okla-warranty-intro .okla-warranty-more{display:inline-flex!important;align-items:center!important;justify-content:center!important;align-self:center!important;height:30px!important;min-height:30px!important;min-width:0!important;margin:0!important;padding:0 12px!important;border:1px solid #b9d2f1!important;border-radius:5px!important;background:#fff!important;color:#164b9e!important;font-size:12px!important;font-weight:700!important;line-height:1.2!important;text-decoration:none!important;box-shadow:none!important}
 #content .okla-warranty-intro .okla-warranty-more:hover{background:#e6f0fc!important;text-decoration:none!important}
 #content .homepage-group-title.okla-slider-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;width:100%!important;min-width:0!important}
-#content .homepage-group-title.okla-slider-heading .okla-section-more{display:inline-flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;margin-left:auto!important;padding:4px 0 4px 12px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#0d57a3!important;font:600 14px/20px Exo 2,'Segoe UI',Arial,sans-serif!important;letter-spacing:0!important;text-align:right!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:none!important;transition:color .15s ease!important}
+#content .homepage-group-title.okla-slider-heading .okla-section-more{display:inline-flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;margin-left:auto!important;padding:4px 0 4px 12px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#0d57a3!important;font:600 14px/20px 'Exo 2','Segoe UI',Arial,sans-serif!important;letter-spacing:0!important;text-align:right!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:none!important;transition:color .15s ease!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more:hover{color:#092e70!important;text-decoration:underline!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more svg{display:block!important;width:15px!important;height:15px!important;min-width:15px!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important;fill:none!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more:focus-visible{outline:2px solid #174793!important;outline-offset:4px!important}
@@ -752,7 +752,7 @@ body.type-detail #content .okla-detail-favorite.is-active svg{fill:#174793!impor
  display:block!important;position:static!important;align-self:flex-start!important;
  width:auto!important;max-width:100%!important;height:auto!important;min-height:0!important;
  margin:0!important;padding:0!important;
- font-family:Exo 2,'Segoe UI',Arial,sans-serif!important;
+ font-family:'Exo 2','Segoe UI',Arial,sans-serif!important;
  font-size:clamp(20px,1.9vw,27px)!important;font-weight:800!important;line-height:1.19!important;
  letter-spacing:-.35px!important;color:#071b38!important;text-align:left!important;text-transform:none!important;
 }
@@ -762,7 +762,7 @@ body.type-detail #content .okla-detail-favorite.is-active svg{fill:#174793!impor
  display:inline-flex!important;position:static!important;align-items:center!important;justify-content:center!important;
  align-self:flex-start!important;width:auto!important;max-width:100%!important;min-width:0!important;height:33px!important;min-height:33px!important;
  margin:11px 0 0!important;padding:0 14px!important;background:#194892!important;border:1px solid #194892!important;
- border-radius:7px!important;color:#fff!important;font-family:Exo 2,Arial,sans-serif!important;font-size:12px!important;
+ border-radius:7px!important;color:#fff!important;font-family:'Exo 2',Arial,sans-serif!important;font-size:12px!important;
  font-weight:700!important;line-height:1!important;text-decoration:none!important;box-shadow:none!important;white-space:nowrap!important;
 }
 #content .okla-warranty-intro .okla-warranty-more:hover,#content .okla-warranty-intro .okla-warranty-more:focus{
