@@ -165,11 +165,20 @@
    spacer = el('div', 'okla-m-header-spacer');
    h.parentNode.insertBefore(spacer, h.nextSibling);
   }
+  var root = document.documentElement, changed = on !== stuck;
   if (on && !stuck) spacer.style.height = h.offsetHeight + 'px';
   if (!on && stuck) spacer.style.height = '0px';
   stuck = on;
-  document.documentElement.classList.toggle('okla-m-stuck', on);
-  document.documentElement.classList.toggle('okla-m-hidden', on && hidden);
+  /* Switching between the header in the page and the fixed one happens without
+     animation: otherwise the fixed white bar would flash over the page-top
+     gradient and slide away (scrolling down), which looked like a broken gradient. */
+  if (changed) root.classList.add('okla-m-instant');
+  root.classList.toggle('okla-m-stuck', on);
+  root.classList.toggle('okla-m-hidden', on && hidden);
+  if (changed) {
+   void h.offsetWidth;
+   requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('okla-m-instant'); }); });
+  }
  }
  function onScroll() {
   ticking = false;
@@ -178,12 +187,17 @@
   lastY = y;
   if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
   if (isDetail) {
-    // Product pages: the gradient header stays on screen the whole time.
-    setSticky(y >= 80, false);
+    // Product pages: the header stays on screen the whole time; once fixed it
+    // stays fixed until the very top, so it never vanishes half way.
+    setSticky(y >= 80 || (stuck && y > 0), false);
     return;
   }
   if (y < 80) {
-   if (stuck) setSticky(false, false);
+   if (!stuck) return;
+   var hiddenNow = document.documentElement.classList.contains('okla-m-hidden');
+   // a hidden fixed header gives way to the one in the page; a shown one stays until the very top
+   if (hiddenNow || y <= 0) setSticky(false, false);
+   else if (dy > 4) setSticky(true, true);
    return;
   }
   if (dy < -4) setSticky(true, false);
