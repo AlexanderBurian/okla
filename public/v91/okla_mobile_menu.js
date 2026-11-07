@@ -57,7 +57,7 @@
   hero.appendChild(actions);
   body.appendChild(hero);
   body.appendChild(section('Moje nákupy',[
-   row('orders','Objednávky a stav doručení','/objednavky/'),
+   row('orders','Objednávky a stav doručení','/stav-objednavky/'),
    row('claim','Reklamace','/reklamace/'),
    row('back','Vrácení zboží','/vraceni-zbozi-a-odstoupeni/')
   ].concat(guest?[]:[row('account','Můj účet','/klient/')])));

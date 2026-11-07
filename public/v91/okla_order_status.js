@@ -301,8 +301,8 @@
   return sec;
  }
 
- /* The login page carries the combined page: the order search on top and the
-    native Shoptet sign-in form right below it, on both desktop and mobile. */
+ /* The combined "Stav objednávky" page (served by /login/?zobrazit=stav-objednavky):
+    the order search on top and the native Shoptet sign-in form right below it. */
  function onLoginPage(){
   var b=document.body;
   if(b&&/(^|\s)in-login(\s|$)/.test(b.className))return true;
@@ -327,11 +327,16 @@
   var onPage=/^\/stav-objednavky(\/|$)/.test(location.pathname);
   if(onPage){
    var order=getOrder();
-   /* "Stav objednávky" and "Moje objednávky" are ONE page. Only an e-mail deep
-      link (a specific order in the URL) shows the standalone timeline here; any
-      plain visit goes to /objednavky/ (Moje objednávky), which itself asks the
-      visitor to sign in or search when needed. */
-   if(order.needsLookup){location.replace('/objednavky/');return true}
+   /* "Stav objednávky" is its own page: the order search on top and the
+      sign-in right below it. Only an e-mail deep link (a specific order in
+      the URL) shows the standalone timeline here. A signed-in customer goes
+      straight to Moje objednávky; a guest gets the combined page, which is
+      served by /login/ (the only page with Shoptet's real sign-in form and
+      its styles) and keeps the /stav-objednavky/ address. */
+   if(order.needsLookup){
+    location.replace(isGuest()?'/login/?zobrazit=stav-objednavky':'/objednavky/');
+    return true;
+   }
    var host=document.querySelector('#content .content-inner')||document.querySelector('#content')||document.body;
    document.documentElement.classList.add('okla-os-takeover');
    host.insertBefore(build(order),host.firstChild);
@@ -339,9 +344,25 @@
    return true;
   }
 
-  if(onLoginPage())return mountLoginCombo();
+  if(onLoginPage()){
+   if(statusCombo()){
+    mountLoginCombo();
+    try{history.replaceState(history.state,'','/stav-objednavky/')}catch(e){}
+    document.title='Stav objednávky';
+    var crumb=document.querySelector('.breadcrumbs [data-testid="breadcrumbsLastLevel"] [itemprop="name"],.breadcrumbs [data-testid="breadcrumbsLastLevel"]');
+    if(crumb)crumb.textContent='Stav objednávky';
+    return true;
+   }
+   /* /login/ itself is a pure sign-in page (with registration and forgotten
+      password links), without the footer. */
+   document.documentElement.classList.add('okla-os-pure-login');
+   return true;
+  }
   return false;
  }
+ function statusCombo(){try{return new URLSearchParams(location.search).get('zobrazit')==='stav-objednavky'}catch(e){return false}}
+ /* Shoptet renders its native sign-in button only for guests. */
+ function isGuest(){return !!document.querySelector('.top-navigation-bar .top-nav-button-login')}
 
  if(!mount()){
   var tries=0;

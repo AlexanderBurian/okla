@@ -281,3 +281,8 @@ html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__err{text-align:cen
   }
   html body .okla-order-status .okla-os-history-button:hover{background:#eaf1f8}
 }
+
+/* /login/ is a pure sign-in page (registration + forgotten password links come
+   with Shoptet's form) and has no footer, on every screen size. */
+html.okla-os-pure-login #footer,
+html.okla-os-pure-login #okla-footer-shell{display:none!important}
