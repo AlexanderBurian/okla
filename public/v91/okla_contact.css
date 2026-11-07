@@ -42,6 +42,14 @@ html body .oka-c-btn{
 html body .oka-c-btn:hover{background:var(--bd);border-color:var(--bd);color:#fff}
 html body .oka-c-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
+html body .oka-c-consent{display:flex;align-items:flex-start;gap:10px;margin:4px 0 18px;color:var(--mut);font-size:13px;line-height:1.45;cursor:pointer}
+html body .oka-c-consent input{flex:0 0 18px;width:18px;height:18px;margin:1px 0 0;cursor:pointer}
+html body .oka-c-honeypot{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important}
+html body .oka-c-form__status{min-height:20px;margin:12px 0 0;font-size:13px;font-weight:600}
+html body .oka-c-form__status.is-success{color:#238048}
+html body .oka-c-form__status.is-error{color:#c0344a}
+html body .oka-c-form__status a{color:inherit;text-decoration:underline}
+
 /* ---------------- LOCATIONS ---------------- */
 html body .oka-c-loc{padding:88px 0 18px}
 html body .oka-c-loc__head{text-align:center;max-width:680px;margin:0 auto 16px}

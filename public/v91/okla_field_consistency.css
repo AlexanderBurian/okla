@@ -85,3 +85,34 @@ html body #filters .filter-section input[type="checkbox"] + label::before,
 html body #filters .filter-section input[type="checkbox"] + label::after{content:none!important;display:none!important}
 html body #filters .filter-section input[type="checkbox"] + label{margin-left:0!important;padding-left:0!important;background-image:none!important}
 html body #filters .filter-section input[type="checkbox"]:focus-visible{outline:2px solid #1f6fd8!important;outline-offset:2px!important}
+
+/* iOS Safari and mobile Chrome zoom focused controls whose text is below
+   16px. Keep every editable form control at the no-zoom threshold. */
+@media(max-width:767px){
+  html body :is(
+    input:not([type="hidden"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
+    textarea,
+    select
+  ){
+    font-size:16px!important;
+    -webkit-text-size-adjust:100%;
+  }
+}
+
+/* Password visibility control is added without replacing or cloning Shoptet's
+   original input, so its name, validation and submit binding remain native. */
+html body .okla-password-host{position:relative!important}
+html body input.okla-password-input{padding-right:52px!important}
+html body .okla-password-toggle{
+  position:absolute!important;z-index:3!important;right:6px!important;top:50%!important;
+  display:inline-grid!important;place-items:center!important;width:40px!important;height:40px!important;
+  margin:0!important;padding:0!important;transform:translateY(-50%)!important;
+  border:0!important;border-radius:50%!important;background:transparent!important;background-image:none!important;
+  color:#52677f!important;box-shadow:none!important;outline:0!important;cursor:pointer!important;
+}
+html body .okla-password-toggle:is(:hover,:focus,:active){
+  border:0!important;background:transparent!important;background-image:none!important;color:#174f89!important;
+  box-shadow:none!important;outline:0!important;filter:none!important;transform:translateY(-50%)!important;
+}
+html body .okla-password-toggle:focus-visible{outline:2px solid #1f6fd8!important;outline-offset:0!important}
+html body .okla-password-toggle svg{display:block!important;width:21px!important;height:21px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;pointer-events:none!important}

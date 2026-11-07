@@ -91,7 +91,7 @@ modules.push('v91/okla_footer_i18n_safe.css');
 /* Final sitewide button geometry and calm outline-only hover treatment. */
 modules.push('v91/okla_button_consistency.css','v91/okla_button_consistency.js');
 /* One solid login-blue hover/focus treatment for every real form field. */
-modules.push('v91/okla_field_consistency.css');
+modules.push('v91/okla_field_consistency.css','v91/okla_password_toggle.js');
 /* Mobile: bottom-bar Menu = customer centre; one fixed page-top gradient everywhere (loaded last). */
 modules.push('v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css','v91/okla_mobile_gradient.js');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a

@@ -1,7 +1,7 @@
 /* OKLA V91 – "Kontakty" page. Laid out after NVIDIA's contact page but in OKLA
    blue: three contact cards, a "where to find us" block with CZ/SK/HU tabs, and
-   a working contact form (opens the visitor's e-mail client pre-filled to
-   podpora@okla.cz). Shown on /kontakty/ (takes over the CMS page). */
+   a working contact form submitted through Shoptet's native MailForm action.
+   Shown on /kontakty/ (takes over the CMS page). */
 (function(){
  'use strict';
  if(window.__oklaContactV1)return;
@@ -26,6 +26,9 @@
  function panel(id,active,cols){return '<div class="oka-c-panel'+(active?' is-active':'')+'" data-panel="'+id+'"><div class="oka-c-grid">'+cols+'</div></div>'}
 
  var MAIL='podpora@okla.cz';
+ var ENDPOINT='/action/MailForm/SendEmail/';
+ var FORM_ID='1';
+ var CONSENT_ID='40';
 
  var HTML=''+
  '<section class="oka-contact" aria-label="Kontakty">'+
@@ -70,9 +73,10 @@
  /* FORM */
  '<div class="oka-c-form" id="okla-contact-form"><div class="oka-c-wrap"><div class="oka-c-form__inner">'+
    '<div class="oka-c-form__head"><h2>Napište nám</h2></div>'+
-   '<form class="oka-c-formel" novalidate>'+
+   '<form class="oka-c-formel" action="'+ENDPOINT+'" method="post">'+
+     '<input type="hidden" name="formId" value="'+FORM_ID+'">'+
      '<div class="oka-c-row">'+
-       '<div class="oka-c-field"><label for="okc-name">Jméno a příjmení</label><input id="okc-name" name="name" type="text" autocomplete="name" required placeholder="Jan Novák"></div>'+
+       '<div class="oka-c-field"><label for="okc-name">Jméno a příjmení</label><input id="okc-name" name="fullName" type="text" autocomplete="name" required placeholder="Jan Novák"></div>'+
        '<div class="oka-c-field"><label for="okc-email">E-mail</label><input id="okc-email" name="email" type="email" autocomplete="email" required placeholder="vas@email.cz"></div>'+
      '</div>'+
      '<div class="oka-c-row">'+
@@ -89,8 +93,11 @@
      '<div class="oka-c-row">'+
        '<div class="oka-c-field oka-c-field--full"><label for="okc-msg">Zpráva</label><textarea id="okc-msg" name="message" required placeholder="S čím vám můžeme pomoci?"></textarea></div>'+
      '</div>'+
+     '<label class="oka-c-consent"><input type="checkbox" name="consents[]" value="'+CONSENT_ID+'" required><span>Souhlasím se zpracováním uvedených údajů za účelem vyřízení dotazu.</span></label>'+
+     '<input type="text" name="surname" value="" autocomplete="off" tabindex="-1" aria-hidden="true" class="oka-c-honeypot">'+
      '<button type="submit" class="oka-c-btn">Odeslat zprávu'+ARROW+'</button>'+
-     '<p class="oka-c-form__note">Odesláním se otevře váš e-mailový klient s předvyplněnou zprávou. Nebo nám napište přímo na <a href="mailto:'+MAIL+'">'+MAIL+'</a>.</p>'+
+     '<p class="oka-c-form__status" role="status" aria-live="polite"></p>'+
+     '<p class="oka-c-form__note">Zpráva bude bezpečně odeslána přes kontaktní formulář Shoptetu. Nebo nám napište přímo na <a href="mailto:'+MAIL+'">'+MAIL+'</a>.</p>'+
    '</form>'+
  '</div></div></div>'+
 
@@ -118,21 +125,28 @@
    tabs.forEach(function(x){x.classList.toggle('is-active',x===t)});
    panels.forEach(function(p){p.classList.toggle('is-active',p.getAttribute('data-panel')===id)});
   })});
-  /* form -> mailto */
+  /* Real Shoptet mail form. The native action remains on the form as a
+     no-JavaScript fallback; AJAX only keeps the visitor on this page. */
   var form=root.querySelector('.oka-c-formel');
   if(form)form.addEventListener('submit',function(e){
    e.preventDefault();
    function v(n){var el=form.querySelector('[name="'+n+'"]');return el?el.value.trim():''}
-   var name=v('name'),email=v('email'),topic=v('topic'),msg=v('message');
-   if(!name||!email||!msg){
-    if(!name)form.querySelector('[name="name"]').focus();
-    else if(!email)form.querySelector('[name="email"]').focus();
-    else form.querySelector('[name="message"]').focus();
-    return;
-   }
-   var subject='Kontakt z webu: '+topic;
-   var body='Jméno: '+name+'\nE-mail: '+email+'\nTéma: '+topic+'\n\n'+msg+'\n';
-   window.location.href='mailto:'+MAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+   if(!form.checkValidity()){form.reportValidity();return}
+   var name=v('fullName'),email=v('email'),topic=v('topic'),msg=v('message');
+   var button=form.querySelector('button[type="submit"]'),status=form.querySelector('.oka-c-form__status');
+   var original=button.innerHTML;button.disabled=true;button.textContent='Odesílám…';status.textContent='';status.className='oka-c-form__status';
+   var body=new URLSearchParams();
+   body.set('formId',FORM_ID);body.set('fullName',name);body.set('email',email);body.set('surname','');
+   body.set('message','Téma: '+topic+'\n\n'+msg);body.append('consents[]',CONSENT_ID);
+   try{if(window.shoptet&&shoptet.csrf&&shoptet.csrf.token)body.set('__csrf__',shoptet.csrf.token)}catch(err){}
+   fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8','X-Requested-With':'XMLHttpRequest','Accept':'application/json, text/javascript, */*; q=0.01'},body:body.toString(),credentials:'same-origin'})
+    .then(function(response){if(!response.ok)throw new Error('http '+response.status);return response.text()})
+    .then(function(text){
+     if(/"errors?"\s*:\s*\[[^\]]+\]|has-error|js-error/i.test(text||''))throw new Error('form error');
+     form.reset();status.textContent='Zpráva byla odeslána. Ozveme se vám co nejdříve.';status.classList.add('is-success');
+    })
+    .catch(function(){status.innerHTML='Zprávu se nepodařilo odeslat. Napište nám na <a href="mailto:'+MAIL+'">'+MAIL+'</a>.';status.classList.add('is-error')})
+    .finally(function(){button.disabled=false;button.innerHTML=original});
   });
  }
 
