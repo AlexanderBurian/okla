@@ -102,3 +102,26 @@ html body .breadcrumbs .navigation-bullet.ok91-normalized-bullet .ok91-chevron{d
 /* Native responsive “Více” menu keeps its compact original scale. */
 html body .menu-helper,
 html body .menu-helper>span{font-size:12px!important;line-height:1.2!important;font-weight:600!important}
+
+/* Breadcrumb chevron centred between its neighbours (measured on the rendered glyphs):
+   - Shoptet's desktop theme pads every crumb 20px left/right
+     (.breadcrumbs > span > a|span), so the gap after a chevron was 28px but only
+     10px before the first one. The horizontal padding goes; the row height stays.
+   - The home box has 3.5px of empty space beside its 16px glyph, so the first
+     chevron gets a 3px left margin: about 8px of air on both sides everywhere.
+   - The ">" glyph sat 1.5px below the centre of the home icon and the capital
+     letters; it is lifted onto that line. */
+html body .breadcrumbs > span > a,
+html body .breadcrumbs > span > span,
+html body .breadcrumbs [itemprop="itemListElement"] > a,
+html body .breadcrumbs [itemprop="itemListElement"] > span:not(.navigation-bullet){padding-left:0!important;padding-right:0!important}
+html body .breadcrumbs .navigation-bullet,
+html body .breadcrumbs .navigation-bullet.ok91-generated-bullet{margin:0 5.5px!important}
+html body .breadcrumbs #navigation-first .navigation-bullet{margin-left:3px!important;margin-right:5.5px!important}
+html body .breadcrumbs .navigation-bullet .ok91-chevron,
+html body .breadcrumbs .navigation-bullet::before{position:relative!important;top:-1.5px!important}
+/* One home glyph only. The data-URI ::before is a fail-safe for the moment
+   before okla_navigation.js inserts svg.ok91-home-icon; once the SVG exists it
+   is the icon (line 14 keeps it display:block), and the squeezed ::before used
+   to peek out as a clipped second house on its left. */
+html body .breadcrumbs #navigation-first a.navigation-home-icon:has(svg.ok91-home-icon)::before{content:none!important;display:none!important}
