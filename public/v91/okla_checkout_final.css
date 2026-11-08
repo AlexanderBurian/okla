@@ -42,12 +42,14 @@ html body.in-kosik .okla-coupon__row{
  display:flex!important;
  align-items:center!important;
  gap:8px!important;
+ box-sizing:border-box!important;
+ padding-left:10px!important;
 }
 html body.in-kosik input.okla-coupon__input{
  box-sizing:border-box!important;
  height:46px!important;
  min-height:46px!important;
- padding:0 12px!important;
+ padding:0 12px 0 18px!important;
  border:1px solid #cdd2da!important;
  border-radius:999px!important;
  outline:0!important;
@@ -87,21 +89,21 @@ html body.in-kosik .cart-row>.col-md-4 .extra.delivery span{
  text-align:left!important;
 }
 
-/* Green checkout actions stay green on every pointer/keyboard state. */
+/* Checkout actions with dark text use the brighter OKLA green. */
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish{
- border-color:#49a700!important;
- background:#49a700!important;
- background-color:#49a700!important;
- color:#fff!important;
- -webkit-text-fill-color:#fff!important;
+ border-color:#66d400!important;
+ background:#66d400!important;
+ background-color:#66d400!important;
+ color:#111!important;
+ -webkit-text-fill-color:#111!important;
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){
- border-color:#3f9200!important;
- background:#3f9200!important;
- background-color:#3f9200!important;
- color:#fff!important;
- -webkit-text-fill-color:#fff!important;
+ border-color:#5bbd00!important;
+ background:#5bbd00!important;
+ background-color:#5bbd00!important;
+ color:#111!important;
+ -webkit-text-fill-color:#111!important;
  filter:none!important;
 }

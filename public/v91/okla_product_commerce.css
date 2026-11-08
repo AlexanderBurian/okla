@@ -85,15 +85,17 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
 /* Suggested-product button inside the native cart drawer. */
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled),
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled) :is(span,strong,b,small){
- color:#fff!important;
- -webkit-text-fill-color:#fff!important;
+ color:#111!important;
+ -webkit-text-fill-color:#111!important;
 }
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled){
  border-radius:8px!important;
- background:var(--okla-commerce-cart)!important;
+ border-color:#66d400!important;
+ background:#66d400!important;
 }
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled):is(:hover,:focus-visible){
- background:var(--okla-commerce-cart-hover)!important;
+ border-color:#5bbd00!important;
+ background:#5bbd00!important;
 }
 
 /* Datart-like final card anatomy: no synthetic NOVINKA ribbon or coloured
