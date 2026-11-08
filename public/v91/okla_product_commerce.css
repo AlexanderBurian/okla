@@ -3,8 +3,8 @@
    steppers, filters, forms and the rest of the button system remain untouched. */
 :root{
  --okla-commerce-price:#e30613;
- --okla-commerce-cart:#0074e8;
- --okla-commerce-cart-hover:#0068d1;
+ --okla-commerce-cart:#49a700;
+ --okla-commerce-cart-hover:#3f9200;
 }
 
 /* Product cards: the selling price is red in every listing and carousel. */
@@ -288,9 +288,9 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
 html body #content#content .okla-slider-shell > .okla-slider-controls > button,
 html body #content#content button.okla-slider-prev,
 html body #content#content button.okla-slider-next{
- border-color:#0074e8!important;
- background:#0074e8!important;
- background-color:#0074e8!important;
+ border-color:#49a700!important;
+ background:#49a700!important;
+ background-color:#49a700!important;
  color:#fff!important;
 }
 html body #content#content .okla-slider-shell > .okla-slider-controls > button:is(:hover,:focus-visible,:active),
@@ -325,9 +325,9 @@ html body #content#content button.okla-slider-next svg{
    so pin both rendered controls to the commerce palette in this final pass. */
 html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled){
- border-color:#0074e8!important;
- background:#0074e8!important;
- background-color:#0074e8!important;
+ border-color:#49a700!important;
+ background:#49a700!important;
+ background-color:#49a700!important;
 }
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled) :is(span,svg,i){
@@ -337,7 +337,7 @@ html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disa
 }
 html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):is(:hover,:focus-visible,:active),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled):is(:hover,:focus-visible,:active){
- border-color:#0068d1!important;
- background:#0068d1!important;
- background-color:#0068d1!important;
+ border-color:#3f9200!important;
+ background:#3f9200!important;
+ background-color:#3f9200!important;
 }

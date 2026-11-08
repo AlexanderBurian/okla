@@ -46,10 +46,9 @@
   if(button.dataset.oklaButtonRest==='1'&&!force)return;
   var style=getComputedStyle(button);
   var bg=style.backgroundColor,img=style.backgroundImage,bd=style.borderColor,col=style.color;
-  /* Every green action (and the navy filter button) becomes the OKLA blue, kept
-     in the resting variables so the whole button system (hover brightness, etc.)
-     works unchanged. */
-  if(isGreen(bg)||forceBlue(button)){
+  /* Only the navy filter button ("Otevřít filtr") becomes the OKLA blue; every
+     other button keeps its own resting colour (green stays green). */
+  if(forceBlue(button)){
    bg='rgb(0,116,232)';bd='rgb(0,116,232)';img='none';col='rgb(255,255,255)';
   }
   button.style.setProperty('--okla-button-rest-background',bg);
