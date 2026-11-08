@@ -18,6 +18,18 @@
 
  function remember(button,force){
   if(!button||button.nodeType!==1||!button.matches(selector))return;
+  /* A cross-sell row is a compound product picker that only exposes
+     role="button" for keyboard activation. It is not a visual button and must
+     never receive the global empty-button hover class. */
+  if(button.classList.contains('okla-xsell__item')){
+   button.classList.remove('okla-button--filled','okla-button--empty');
+   button.removeAttribute('data-okla-button-rest');
+   button.style.removeProperty('--okla-button-rest-background');
+   button.style.removeProperty('--okla-button-rest-image');
+   button.style.removeProperty('--okla-button-rest-border');
+   button.style.removeProperty('--okla-button-rest-color');
+   return;
+  }
   if(button.dataset.oklaButtonRest==='1'&&!force)return;
   var style=getComputedStyle(button);
   button.style.setProperty('--okla-button-rest-background',style.backgroundColor);
