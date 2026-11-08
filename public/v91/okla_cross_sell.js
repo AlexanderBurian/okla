@@ -82,6 +82,16 @@
  }
 
  function wire(sec,list){
+  /* The cart drawer uses only successfully added rows. The actual cart remains
+     authoritative (every checkbox still calls Shoptet's add/remove endpoint),
+     while this small read-only bridge lets the popup display the same items. */
+  window.__oklaXsellSelected=function(){
+   return list.map(function(it,i){
+    var row=sec.querySelector('.okla-xsell__item[data-i="'+i+'"]');
+    if(!row||!row.classList.contains('is-added'))return null;
+    return {name:it.name,image:it.img,price:it.price,href:it.href,amount:1};
+   }).filter(Boolean);
+  };
   function toggle(row){
    if(row.classList.contains('is-busy'))return;
    var it=list[+row.getAttribute('data-i')];
@@ -101,7 +111,7 @@
 
  function mount(){
   var list=items();
-  if(!list)return true;
+  if(!list){window.__oklaXsellSelected=null;return true;}
   if(document.querySelector('.okla-xsell'))return true;
   var host=document.querySelector('#content .p-detail .p-info-wrapper');
   if(!host)return false;

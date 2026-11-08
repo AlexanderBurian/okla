@@ -91,7 +91,8 @@
   close.setAttribute('aria-label','Zavřít');
   head.append(check,title,close);
 
-  var item=el('div','okla-cd__item');
+  var items=el('div','okla-cd__items');
+  var item=el('div','okla-cd__item okla-cd__item--main');
   var img=el('img','okla-cd__img');
   img.alt='';
   var info=el('div','okla-cd__info');
@@ -100,6 +101,7 @@
   info.append(name,qty);
   var price=el('div','okla-cd__price');
   item.append(img,info,price);
+  items.append(item);
 
   var body=el('div','okla-cd__body');
   var subtitle=el('h3','okla-cd__subtitle','Nejčastěji zakoupeno společně');
@@ -113,7 +115,7 @@
   go.href='/kosik/';
   foot.append(stay,go);
 
-  panel.append(head,item,body,foot);
+  panel.append(head,items,body,foot);
   root.append(overlay,panel);
   document.body.appendChild(root);
 
@@ -124,7 +126,7 @@
    if(e.key==='Escape'&&root.classList.contains('is-open'))hide();
   });
 
-  root._refs={img:img,name:name,qty:qty,price:price,cards:cards};
+  root._refs={items:items,item:item,img:img,name:name,qty:qty,price:price,cards:cards};
   return root;
  }
 
@@ -177,13 +179,42 @@
   setTimeout(function(){observer.disconnect()},until-Date.now()+100);
  }
 
- function show(p,amount){
-  var r=build()._refs;
-  r.img.src=p.image||'';
-  r.img.style.display=p.image?'':'none';
-  r.name.textContent=p.name||'';
+ function selectedCrossSell(){
+  try{
+   var fn=window.__oklaXsellSelected;
+   var list=typeof fn==='function'?fn():[];
+   return Array.isArray(list)?list:[];
+  }catch(e){return []}
+ }
+
+ function renderCartItems(main,amount){
+  var r=root._refs;
+  r.items.querySelectorAll('.okla-cd__item--extra').forEach(function(n){n.remove()});
+  r.img.src=main.image||'';
+  r.img.style.display=main.image?'':'none';
+  r.name.textContent=main.name||'';
   r.qty.textContent=(amount||1)+' ks';
-  r.price.textContent=p.priceText||priceText(p.price);
+  r.price.textContent=main.priceText||priceText(main.price);
+
+  selectedCrossSell().forEach(function(p){
+   /* The main product is already rendered above; guard against an accidental
+      duplicate if a future cross-sell map ever contains the current product. */
+   if(p.name&&main.name&&p.name===main.name)return;
+   var row=el('div','okla-cd__item okla-cd__item--extra');
+   var im=el('img','okla-cd__img');im.alt='';im.src=p.image||'';im.style.display=p.image?'':'none';
+   var info=el('div','okla-cd__info');
+   var name=p.href?el('a','okla-cd__name',p.name||''):el('div','okla-cd__name',p.name||'');
+   if(p.href)name.href=p.href;
+   var qty=el('div','okla-cd__qty',(p.amount||1)+' ks');
+   info.append(name,qty);
+   row.append(im,info,el('div','okla-cd__price',p.priceText||priceText(p.price)));
+   r.items.append(row);
+  });
+ }
+
+ function show(p,amount){
+  build();
+  renderCartItems(p,amount);
   renderSuggestions(p.code||null);
   quietNativePopups();
   root.classList.add('is-open');

@@ -18,10 +18,12 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer .okla-cd__title{margin:0;font-size:19px;font-weight:700;line-height:1.25;color:#0b2540}
 #okla-cart-drawer .okla-cd__close{position:absolute;top:14px;right:14px;width:36px;height:36px;border:0;border-radius:50%;background:transparent;font-size:28px;line-height:1;color:#0b2540;cursor:pointer}
 #okla-cart-drawer .okla-cd__close:hover{background:#f5f7fa}
-#okla-cart-drawer .okla-cd__item{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid #e6ebf2}
+#okla-cart-drawer .okla-cd__items{flex:0 1 auto;max-height:44vh;overflow:auto;border-bottom:1px solid #e6ebf2;background:#fff}
+#okla-cart-drawer .okla-cd__item{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid #eef2f6}
+#okla-cart-drawer .okla-cd__item:last-child{border-bottom:0}
 #okla-cart-drawer .okla-cd__img{width:72px;height:72px;flex:none;object-fit:contain;background:#f5f7fa;border-radius:8px}
 #okla-cart-drawer .okla-cd__info{flex:1;min-width:0}
-#okla-cart-drawer .okla-cd__name{font-size:15px;font-weight:600;line-height:1.35;color:#0b2540}
+#okla-cart-drawer .okla-cd__name{font-size:15px;font-weight:600;line-height:1.35;color:#0b2540;text-decoration:none}
 #okla-cart-drawer .okla-cd__qty{margin-top:4px;font-size:14px;color:#6b7280}
 #okla-cart-drawer .okla-cd__price{font-size:17px;font-weight:700;color:#0b2540;white-space:nowrap}
 #okla-cart-drawer .okla-cd__body{flex:1;overflow:auto;padding:18px 22px}
@@ -46,6 +48,7 @@ html.okla-cd-lock body{overflow:hidden!important}
 @media(max-width:767px){
  #okla-cart-drawer .okla-cd__panel{top:auto;left:0;right:40px;bottom:0;width:auto;max-height:92vh;border-radius:0;transform:translateY(100%)}
  #okla-cart-drawer.is-open .okla-cd__panel{transform:none}
+ #okla-cart-drawer .okla-cd__items{max-height:38vh}
  #okla-cart-drawer .okla-cd__cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 /* The native Shoptet popup is replaced by the drawer. */
