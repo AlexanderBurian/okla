@@ -379,3 +379,13 @@ html body #content .votes-wrap .ok97-vote-cons li::before{background:#d6243a url
   /* the description lines up with the tabs */
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #description .description-inner{padding-left:0!important;padding-right:0!important}
 }
+
+/* Grey bands in the product description (.okla-feature-section, .okla-usecase-band--gray) run across the whole white
+   page card: the grey is extended sideways with a spread shadow, clipped vertically to the band; the page card
+   (#content-wrapper, overflow hidden) cuts it at its own edges. The description wrappers stop clipping for that. */
+html body #content #description .basic-description,
+html body #content #description .okla-rich{overflow:visible!important}
+html body #content #description :is(.okla-feature-section,.okla-usecase-band--gray){
+  border-radius:0!important;box-shadow:0 0 0 100vmax #f3f4f6!important;clip-path:inset(0 -100vmax)!important;
+}
+html body #content-wrapper:has(#description .okla-usecase-band--gray, #description .okla-feature-section){overflow:hidden!important}
