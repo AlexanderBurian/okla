@@ -116,7 +116,7 @@ modules.push('v91/okla_product_commerce.css');
 if(isOrdering) modules.push('v91/okla_checkout_final.css');
 /* Final brand palette: every former green CTA uses the same OKLA blue as the
    warranty action. This follows all product and checkout overrides. */
-modules.push('v91/okla_green_buttons.js','v91/okla_all_cta_blue.css');
+modules.push('v91/okla_green_buttons.js','v91/okla_all_cta_blue.css','v91/okla_cta_shape.js');
 /* Mobile text controls stay at 16 px or larger, preventing Safari/Chrome from
    zooming the page when the visitor starts typing. */
 modules.push('v91/okla_mobile_no_zoom.css');
