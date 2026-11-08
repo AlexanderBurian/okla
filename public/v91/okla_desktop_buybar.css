@@ -19,7 +19,7 @@
   .okla-dbb__stock{font-weight:700}
   .okla-dbb__stock.is-in{color:#1b7a3d}
   .okla-dbb__stock.is-out{color:#d00000}
-  .okla-dbb__price{flex:0 0 auto;font:800 24px/1 "Exo 2",Arial,sans-serif;color:#0b2540;letter-spacing:-.3px;white-space:nowrap}
+  .okla-dbb__price{flex:0 0 auto;font:800 24px/1 "Exo 2",Arial,sans-serif;color:#e30613;letter-spacing:-.3px;white-space:nowrap}
   .okla-dbb__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:46px;padding:0 24px;border:1px solid #66d400;border-radius:12px;background:#66d400;color:#000;font:700 15px/1 "Exo 2",Arial,sans-serif;cursor:pointer;transition:background-color .15s ease}
   .okla-dbb__btn:hover,.okla-dbb__btn:focus-visible{background:#5bbd00;border-color:#5bbd00}
   .okla-dbb__btn.is-watch{background:#fff;border-color:#168bd2;color:#16478b}
