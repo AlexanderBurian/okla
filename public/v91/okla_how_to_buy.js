@@ -91,7 +91,10 @@
    });
    if(!g.children.length)return;
    host.append(heading,g);
-   if(window.__oklaSliderFor)window.__oklaSliderFor(g,heading);
+   /* desktop with five or fewer products: all of them in one static row (a slider would keep one hidden and rotate);
+      otherwise, and on phones/tablets, the homepage slider */
+   if(window.innerWidth>=992&&g.children.length<=5){host.classList.add('ohb-news--all');g.classList.add('ohb-news__row')}
+   else if(window.__oklaSliderFor)window.__oklaSliderFor(g,heading);
   }).catch(function(){});
  }
  function start(){

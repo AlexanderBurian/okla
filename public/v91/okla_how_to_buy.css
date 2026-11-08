@@ -2,13 +2,15 @@
    white page card; content in a centred column. Exo 2, navy headings, OKLA blue accents. */
 html.okla-htb-page main#content .okla-htb-replaced{display:none!important}
 html.okla-htb-page body main#content{padding:0!important}
-.okla-htb{margin:0 -20px;font-family:"Exo 2",Arial,sans-serif;color:#1f2d3d}
+/* full width of the white page card (the page template limits content to 800px) */
+html.okla-htb-page body main#content > .content-inner{max-width:none!important;width:auto!important;margin:0!important;padding:0!important}
+.okla-htb{margin:0;font-family:"Exo 2",Arial,sans-serif;color:#1f2d3d}
 .okla-htb *{box-sizing:border-box}
 .okla-htb svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .ohb-sec{padding:56px 0}
 .ohb-sec--white{background:#fff}
 .ohb-sec--grey{background:#f3f5f8}
-.ohb-wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.ohb-wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 .okla-htb h1{margin:0 0 14px;font:800 38px/1.15 "Exo 2",Arial,sans-serif;color:#0b2540;letter-spacing:-.4px;text-transform:none}
 .okla-htb h2{margin:0 0 26px;font:800 28px/1.2 "Exo 2",Arial,sans-serif;color:#0b2540;letter-spacing:-.2px;text-transform:none}
 .okla-htb h2::before,.okla-htb h2::after,.okla-htb h1::before,.okla-htb h1::after,.okla-htb h3::before,.okla-htb h3::after{content:none;display:none}
@@ -59,13 +61,17 @@ html.okla-htb-page body main#content{padding:0!important}
 /* Novinky slider */
 .ohb-news{padding:8px 0 48px}
 .ohb-news .ohb-wrap{max-width:none;padding:0 20px}
+@media(min-width:992px){
+  html body #content .ohb-news .ohb-news__row:not(#okla-hn-a#okla-hn-b){display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:24px!important;margin:0!important;padding:0 20px!important;width:auto!important;transform:none!important}
+  html body #content .ohb-news .ohb-news__row:not(#okla-hn-a#okla-hn-b) > .product{width:auto!important;max-width:none!important;min-width:0!important;flex:none!important;margin:0!important;float:none!important}
+  html body #content .ohb-news--all > .homepage-group-title{padding-left:20px!important}
+}
 /* phones and tablets */
 @media(max-width:991px){
   .ohb-steps,.ohb-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ohb-split{grid-template-columns:1fr;gap:20px}
 }
 @media(max-width:767px){
-  .okla-htb{margin:0 -14px}
   .ohb-sec{padding:38px 0}
   .ohb-hero{padding:30px 0 32px}
   .ohb-wrap{padding:0 18px}
