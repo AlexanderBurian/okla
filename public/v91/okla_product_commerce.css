@@ -271,12 +271,12 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
     upward, leaving a calm white inset at the bottom of the card. */
  html body #content#content .products .product .prices,
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{
-  transform:translateY(-6px)!important;
+  transform:translateY(-12px)!important;
  }
  html body #content#content .products .product .p-tools,
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools,
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools{
   border-top:0!important;
-  transform:translateY(-6px)!important;
+  transform:translateY(-8px)!important;
  }
 }
