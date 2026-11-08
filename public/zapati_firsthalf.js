@@ -48,6 +48,7 @@ modules.push('v91/okla_home_side.css','v91/okla_home_side.js');
 modules.push('okla_v86_catalog.js','v91/okla_live_catalog.js');
 if(isDetail) modules.push('content-v91/layout.css','content-v91/catalog.js');
 if(isDetail) modules.push('v91/okla_detail.css','v91/okla_detail.js');
+if(isDetail) modules.push('v91/okla_cross_sell.css','v91/okla_cross_sell.js');
 modules.push('v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js','v91/okla_product_cards.css','v91/okla_native_pages.css','v91/okla_cards_everywhere.css','v91/okla_native_pages.js','v91/okla_sidebar.css','v91/okla_sidebar.js');
 modules.push('v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js');
 if(isDetail) modules.push('v91/okla_detail_mobile.css');

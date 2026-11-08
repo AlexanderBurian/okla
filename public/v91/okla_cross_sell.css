@@ -1,0 +1,27 @@
+/* OKLA – "Doporučujeme přidat k nákupu" cross-sell block on product detail
+   (okla_cross_sell.js). A titled card with compatible companion products; each
+   row is a link to that product's page. One blue accent, clean white, no
+   gradients. */
+.okla-xsell{margin:26px 0 4px;font-family:"Exo 2",Arial,sans-serif}
+.okla-xsell__title{margin:0 0 12px;font:800 18px/1.25 "Exo 2",Arial,sans-serif;color:#0b2540}
+.okla-xsell__list{display:flex;flex-direction:column;gap:8px}
+.okla-xsell__item{display:flex;align-items:center;gap:12px;box-sizing:border-box;padding:10px 12px;border:1px solid #e3e9f1;border-radius:14px;background:#fff;color:#0b2540;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease}
+.okla-xsell__item:hover,.okla-xsell__item:focus-visible{border-color:#bcd3ef;box-shadow:0 4px 14px rgba(18,41,68,.08);text-decoration:none;color:#0b2540}
+.okla-xsell__thumb{flex:0 0 56px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #eef2f7;border-radius:10px;overflow:hidden}
+.okla-xsell__thumb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+.okla-xsell__info{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}
+.okla-xsell__name{font:700 14.5px/1.3 "Exo 2",Arial,sans-serif;color:#0b2540;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.okla-xsell__note{font:400 12.5px/1.35 "Exo 2",Arial,sans-serif;color:#64748b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.okla-xsell__buy{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
+.okla-xsell__price{font:800 15px/1 "Exo 2",Arial,sans-serif;color:#0b2540;white-space:nowrap}
+.okla-xsell__cta{display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 12px;border-radius:15px;background:#16478b;color:#fff;font:700 12.5px/1 "Exo 2",Arial,sans-serif;white-space:nowrap}
+.okla-xsell__item:hover .okla-xsell__cta,.okla-xsell__item:focus-visible .okla-xsell__cta{background:#0f3568}
+.okla-xsell__cta svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:767px){
+ .okla-xsell{margin:22px 0 2px}
+ .okla-xsell__title{font-size:17px}
+ .okla-xsell__note{display:none}
+ .okla-xsell__thumb{flex:0 0 48px;width:48px;height:48px}
+ .okla-xsell__name{font-size:13.5px}
+}
