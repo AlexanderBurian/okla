@@ -159,12 +159,12 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
  align-items:center!important;
  justify-content:center!important;
  gap:0!important;
- width:calc(100% - 28px)!important;
+ width:calc(100% - 40px)!important;
  min-width:0!important;
- max-width:calc(100% - 28px)!important;
- height:38px!important;
- min-height:38px!important;
- max-height:38px!important;
+ max-width:calc(100% - 40px)!important;
+ height:36px!important;
+ min-height:36px!important;
+ max-height:36px!important;
  padding:0 14px!important;
  border:1px solid var(--okla-commerce-cart)!important;
  border-radius:8px!important;
@@ -247,21 +247,36 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
 html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools{
  flex-basis:auto!important;
  height:auto!important;
- min-height:44px!important;
+ min-height:38px!important;
  max-height:none!important;
- margin-top:2px!important;
- padding-top:2px!important;
+ margin-top:-2px!important;
+ padding-top:0!important;
 }
 @media(min-width:992px){
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p,
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover,
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p{
-  min-height:404px!important;
+  min-height:398px!important;
  }
  /* Let the first card's soft shadow render outside the carousel crop while
     keeping the off-screen cards clipped. */
  html body.type-index #content#content .okla-slider-shell .okla-slider-viewport{
   overflow:clip!important;
   overflow-clip-margin:14px!important;
+ }
+}
+
+@media(max-width:767px){
+ /* Mobile cards: no separator above the CTA. Price and button move together
+    upward, leaving a calm white inset at the bottom of the card. */
+ html body #content#content .products .product .prices,
+ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{
+  transform:translateY(-6px)!important;
+ }
+ html body #content#content .products .product .p-tools,
+ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools,
+ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools{
+  border-top:0!important;
+  transform:translateY(-6px)!important;
  }
 }
