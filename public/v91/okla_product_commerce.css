@@ -294,9 +294,9 @@ html body #content#content button.okla-slider-next{
 html body #content#content .okla-slider-shell > .okla-slider-controls > button:is(:hover,:focus-visible,:active),
 html body #content#content button.okla-slider-prev:is(:hover,:focus-visible,:active),
 html body #content#content button.okla-slider-next:is(:hover,:focus-visible,:active){
- border-color:#005cbd!important;
- background:#005cbd!important;
- background-color:#005cbd!important;
+ border-color:#006edb!important;
+ background:#006edb!important;
+ background-color:#006edb!important;
  color:#fff!important;
 }
 html body #content#content .okla-slider-shell > .okla-slider-controls > button svg,
