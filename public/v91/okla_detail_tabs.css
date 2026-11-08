@@ -13,7 +13,7 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .navigation-b
 html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links{display:none!important}
 
 /* ================= desktop / tablet: three equal tabs ================= */
-@media(min-width:768px){
+@media(min-width:0px){
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .shp-tabs-row,
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .shp-tabs-holder{
     display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;
@@ -49,8 +49,13 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
   }
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs .ok99-tab-house{display:none!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{
-    display:block!important;position:relative!important;z-index:1!important;margin:0!important;padding:30px 34px 34px!important;
-    background:#fff!important;border:1px solid #e1e7ee!important;border-radius:20px!important;box-shadow:none!important;
+    display:block!important;position:relative!important;z-index:1!important;margin:0!important;padding:30px 0 0!important;
+    background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
+  }
+  /* only a separator line under the tabs, across the whole white page card */
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content::before{
+    content:""!important;display:block!important;position:absolute!important;top:0!important;height:1px!important;
+    left:calc(-1 * var(--okla-pt-l,0px))!important;right:calc(-1 * var(--okla-pt-r,0px))!important;background:#e1e7ee!important;z-index:0!important;pointer-events:none!important;
   }
   html body #content .okla-ptabs[data-okla-active="first"]:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{border-top-left-radius:0!important}
   html body #content .okla-ptabs[data-okla-active="last"]:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{border-top-right-radius:0!important}
@@ -60,7 +65,7 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
 /* ================= phone: accordion =================
    No grey box around: the rows themselves are the grey UI, the open content
    sits straight on the white page. */
-@media(max-width:767px){
+@media(max-width:0px){
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .shp-tabs-row{display:none!important}
   /* rows line up with the gallery and the rest of the page */
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) > .row > [class*="col-"]{padding-left:0!important;padding-right:0!important}
@@ -364,4 +369,13 @@ html body #content .votes-wrap .ok97-vote-pc li::before{content:""!important;pos
 html body #content .votes-wrap .ok97-vote-cons li::before{background:#d6243a url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M6%2012h12%22%2F%3E%3C%2Fsvg%3E") center/13px 13px no-repeat!important}
 @media(max-width:767px){
   html body #content .ok97-review-bars{padding:6px 20px 22px!important}
+}
+
+/* phones: the same tabs, a little smaller */
+@media(max-width:767px){
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) > .row > [class*="col-"]{padding-left:0!important;padding-right:0!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a{height:50px!important;min-height:50px!important;padding:0 6px!important;font-size:15px!important;border-radius:14px 14px 0 0!important;white-space:nowrap!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{padding-top:22px!important}
+  /* the description lines up with the tabs */
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #description .description-inner{padding-left:0!important;padding-right:0!important}
 }

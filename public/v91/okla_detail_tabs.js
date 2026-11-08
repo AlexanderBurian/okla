@@ -10,7 +10,8 @@
 (function(){
  'use strict';
  if(window.__oklaDetailTabsV1)return;window.__oklaDetailTabsV1=true;
- var PHONE=window.matchMedia('(max-width:767px)');
+ /* tabs on every screen size (the phone accordion is no longer used) */
+ var PHONE=window.matchMedia('(max-width:0px)');
  var NS='http://www.w3.org/2000/svg';
  function chevron(){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');var p=document.createElementNS(NS,'path');p.setAttribute('d','m6 9 6 6 6-6');s.appendChild(p);return s}
  /* the description starts straight with its content: no "Detailní popis produktu"
@@ -52,6 +53,10 @@
    items.push({li:li,a:a,pane:pane,id:id,label:isDesc?'Popis produktu':(a.textContent||'').trim(),desc:isDesc});
   });
   if(!items.length)return true;
+  /* order: description, parameters, reviews (the li elements are moved, their listeners stay) */
+  var rank=function(it){return it.desc?0:/param/i.test(it.id)?1:/review|rating|hodnoc/i.test(it.id)?2:3};
+  items.sort(function(a,b){return rank(a)-rank(b)});
+  items.forEach(function(it){tabs.appendChild(it.li)});
   tidyDescription();
   /* panes that are not one of the tabs (e.g. discussion) stay hidden */
   [].slice.call(content.children).forEach(function(n){if(n.classList.contains('tab-pane')&&!items.some(function(it){return it.pane===n}))n.classList.add('okla-ptab-hidden')});
@@ -96,6 +101,14 @@
   if(PHONE.addEventListener)PHONE.addEventListener('change',onChange);else if(PHONE.addListener)PHONE.addListener(onChange);
   wrapper.style.setProperty('--okla-ptabs-n',String(items.length));
   wrapper.classList.add('okla-ptabs');
+  /* the line under the tabs runs across the whole white page card: its overhang on both sides */
+  function line(){
+   var card=document.getElementById('content-wrapper')||document.body,c=card.getBoundingClientRect(),t=content.getBoundingClientRect();
+   if(!t.width)return;
+   content.style.setProperty('--okla-pt-l',Math.max(0,Math.round(t.left-c.left))+'px');
+   content.style.setProperty('--okla-pt-r',Math.max(0,Math.round(c.right-t.right))+'px');
+  }
+  line();addEventListener('resize',line);addEventListener('load',line);setTimeout(line,800);
   tabs.dataset.oklaTabs='1';
   return true;
  }
