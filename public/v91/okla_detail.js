@@ -173,6 +173,12 @@
   var countNode=(wrap&&q('[data-micro-rating-count]',wrap))||q('[itemprop="ratingCount"]',detail);
   var count=Number(countNode?.getAttribute('data-micro-rating-count')||countNode?.getAttribute('content'))||0;
   if(!count){var countMatch=label.match(/(\d+)\s*(?:hodnocení|recenz)/i);if(countMatch)count=Number(countMatch[1])}
+  /* the label shows only the count ("1 hodnocení"); the average is in the page's structured data */
+  if(score===null&&count){
+   var valueNode=q('[itemprop="ratingValue"]',detail)||q('[data-micro-rating-value]',detail);
+   var v=Number(String(valueNode?.getAttribute('content')||valueNode?.getAttribute('data-micro-rating-value')||'').replace(',','.'));
+   if(v>0)score=Math.max(0,Math.min(5,v));
+  }
   return {wrap:wrap,label:label.trim(),score:score,count:count};
  }
  function reviewStars(score){

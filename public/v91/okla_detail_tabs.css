@@ -104,29 +104,29 @@ html body #content #description .okla-rich:has(> .okla-rich-intro.okla-ptab-hidd
    In the OKLA language: a white rounded card in the middle of the screen (a sheet from the bottom on phones) over a
    dimmed page, Exo 2 navy heading, big gold SVG stars (with hover preview), the meaning of the chosen star under
    them and the green full-width button. Colorbox sets size and position inline, hence the !important overrides. */
-html body:has(#dialogFormRating) #cboxOverlay{background:rgba(11,37,64,.5)!important;opacity:1!important}
-html body #colorbox:has(#dialogFormRating){
+html body:has(#dialogFormRating,#ratingWrapper) #cboxOverlay{background:rgba(11,37,64,.5)!important;opacity:1!important}
+html body #colorbox:has(#dialogFormRating,#ratingWrapper){
   position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;
   width:min(460px,calc(100vw - 32px))!important;height:auto!important;max-height:calc(100vh - 32px)!important;margin:0!important;padding:0!important;
   overflow:auto!important;border-radius:22px!important;background:#fff!important;box-shadow:0 24px 60px rgba(11,37,64,.28)!important;z-index:2147483600!important;
 }
-html body #colorbox:has(#dialogFormRating) #cboxWrapper,
-html body #colorbox:has(#dialogFormRating) #cboxWrapper>div,
-html body #colorbox:has(#dialogFormRating) #cboxContent,
-html body #colorbox:has(#dialogFormRating) #cboxLoadedContent{
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxWrapper,
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxWrapper>div,
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxContent,
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxLoadedContent{
   position:static!important;float:none!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;
   margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important;
 }
-html body #colorbox:has(#dialogFormRating) [id^="cboxTop"],
-html body #colorbox:has(#dialogFormRating) [id^="cboxBottom"],
-html body #colorbox:has(#dialogFormRating) #cboxMiddleLeft,
-html body #colorbox:has(#dialogFormRating) #cboxMiddleRight{display:none!important}
-html body #colorbox .content-modal:has(#dialogFormRating){padding:30px 26px 26px!important;margin:0!important;border:0!important;background:none!important;font-family:"Exo 2",Arial,sans-serif!important;text-align:center!important}
-html body #colorbox .content-modal:has(#dialogFormRating) > h2{
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) [id^="cboxTop"],
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) [id^="cboxBottom"],
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxMiddleLeft,
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxMiddleRight{display:none!important}
+html body #colorbox .content-modal:has(#dialogFormRating,#ratingWrapper){padding:30px 26px 26px!important;margin:0!important;border:0!important;background:none!important;font-family:"Exo 2",Arial,sans-serif!important;text-align:center!important}
+html body #colorbox .content-modal:has(#dialogFormRating,#ratingWrapper) > h2{
   margin:0 36px 10px!important;padding:0!important;border:0!important;background:none!important;
   font:800 23px/1.2 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:-.2px!important;text-align:center!important;
 }
-html body #colorbox .content-modal:has(#dialogFormRating) > h2::before,html body #colorbox .content-modal:has(#dialogFormRating) > h2::after{content:none!important;display:none!important}
+html body #colorbox .content-modal:has(#dialogFormRating,#ratingWrapper) > h2::before,html body #colorbox .content-modal:has(#dialogFormRating,#ratingWrapper) > h2::after{content:none!important;display:none!important}
 html body #colorbox #dialogFormRating{margin:0!important;padding:0!important;border:0!important;background:none!important}
 html body #colorbox #dialogFormRating .rating-stars-group{margin:0 0 6px!important;padding:0!important}
 html body #colorbox #dialogFormRating .rating-stars-description{margin:0 0 18px!important;padding:0!important;font:400 15px/1.5 "Exo 2",Arial,sans-serif!important;color:#56657a!important;text-align:center!important;text-transform:none!important;letter-spacing:0!important}
@@ -159,17 +159,41 @@ html body #colorbox #dialogFormRating .dialog__actionButtons .btn{
   font:700 15px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
 }
 html body #colorbox #dialogFormRating .dialog__actionButtons .btn:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
-html body #colorbox:has(#dialogFormRating) #cboxClose{
+html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxClose{
   position:absolute!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;
   border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;z-index:3!important;
 }
 /* phones: a sheet from the bottom, above the bottom bar and the buy bar */
 @media(max-width:767px){
-  html body #colorbox:has(#dialogFormRating){
+  html body #colorbox:has(#dialogFormRating,#ratingWrapper){
     top:auto!important;bottom:0!important;left:0!important;transform:none!important;width:100%!important;max-height:88vh!important;
     border-radius:24px 24px 0 0!important;box-shadow:0 -12px 40px rgba(11,37,64,.25)!important;
   }
-  html body #colorbox .content-modal:has(#dialogFormRating){padding:26px 20px calc(22px + env(safe-area-inset-bottom,0px))!important}
-  html body #colorbox .content-modal:has(#dialogFormRating) > h2{font-size:21px!important}
+  html body #colorbox .content-modal:has(#dialogFormRating,#ratingWrapper){padding:26px 20px calc(22px + env(safe-area-inset-bottom,0px))!important}
+  html body #colorbox .content-modal:has(#dialogFormRating,#ratingWrapper) > h2{font-size:21px!important}
   html body #colorbox #dialogFormRating label.rating-star{width:52px!important;height:52px!important;background-size:44px 44px!important}
 }
+
+/* Rating summary in the same dialog (#ratingWrapper): the big average with gold stars, then one row per score
+   with a rounded blue bar, as on the big shops. */
+html body #colorbox #ratingWrapper{margin:0!important;padding:0!important;border:0!important;background:none!important}
+html body #colorbox #ratingWrapper .rate-wrap{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:22px!important;margin:6px 0 0!important;padding:0!important;border:0!important;background:none!important}
+html body #colorbox #ratingWrapper .rate-average-wrap,html body #colorbox #ratingWrapper .rate-average-inner{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;margin:0!important;padding:0!important;width:auto!important;border:0!important;background:none!important}
+html body #colorbox #ratingWrapper .rate-average{display:block!important;margin:0!important;font:800 54px/1 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;letter-spacing:-1px!important}
+html body #colorbox #ratingWrapper .rate-star-wrap{display:flex!important;flex-direction:column!important;align-items:center!important;gap:6px!important;margin:0!important}
+html body #colorbox #ratingWrapper .rate-average-inner .stars{display:flex!important;gap:4px!important;margin:0!important}
+html body #colorbox #ratingWrapper .rate-average-inner .star{display:block!important;width:26px!important;height:26px!important;margin:0!important;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23dfe5ec%22%2F%3E%3C%2Fsvg%3E") center/26px 26px no-repeat!important}
+html body #colorbox #ratingWrapper .rate-average-inner .star.star-on,html body #colorbox #ratingWrapper .rate-average-inner .star.star-half{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%2F%3E%3C%2Fsvg%3E")!important}
+html body #colorbox #ratingWrapper .star::before,html body #colorbox #ratingWrapper .star::after{content:none!important;display:none!important}
+html body #colorbox #ratingWrapper .stars-label{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:4px!important;margin:6px 0 0!important;font:600 14px/1.4 "Exo 2",Arial,sans-serif!important;color:#56657a!important}
+html body #colorbox #ratingWrapper .votes{display:flex!important;flex-direction:column!important;gap:9px!important;margin:0!important;padding:16px 18px!important;border-radius:16px!important;background:#f3f5f8!important;width:auto!important;float:none!important}
+html body #colorbox #ratingWrapper .rate-list{display:grid!important;grid-template-columns:34px 1fr!important;align-items:center!important;gap:10px!important;margin:0!important;padding:0!important}
+html body #colorbox #ratingWrapper .rate-star{display:flex!important;align-items:center!important;gap:5px!important;margin:0!important;width:auto!important}
+html body #colorbox #ratingWrapper .rate-value{font:700 14px/1 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;min-width:9px!important}
+html body #colorbox #ratingWrapper .rate-star .star{display:block!important;width:16px!important;height:16px!important;margin:0!important;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%2F%3E%3C%2Fsvg%3E") center/16px 16px no-repeat!important}
+html body #colorbox #ratingWrapper .rate-block{position:relative!important;display:block!important;height:10px!important;margin:0 44px 0 0!important;padding:0!important;border-radius:6px!important;background:#e2e9f1!important;overflow:visible!important}
+html body #colorbox #ratingWrapper .rate-bar{position:static!important;display:block!important;width:var(--rate-bar-width,0%)!important;min-width:0!important;height:100%!important;margin:0!important;padding:0!important;border-radius:6px!important;background:linear-gradient(90deg,#168bd2,#3ba9f0)!important}
+html body #colorbox #ratingWrapper .rate-bar::before,html body #colorbox #ratingWrapper .rate-bar::after{content:none!important;display:none!important}
+html body #colorbox #ratingWrapper .rate-count{position:absolute!important;left:auto!important;right:-44px!important;width:34px!important;text-align:left!important;top:50%!important;transform:translateY(-50%)!important;margin:0!important;padding:0!important;font:600 13px/1 "Exo 2",Arial,sans-serif!important;color:#56657a!important;white-space:nowrap!important;background:none!important}
+html body #colorbox #ratingWrapper .rate-count.active{color:#0b2540!important}
+/* the bar is static, so the count is placed after the end of the whole track (.rate-block), not after the fill */
