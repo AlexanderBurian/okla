@@ -87,3 +87,6 @@ html body .cart-empty .empty-cart-boxes .search-form button[type="submit"]{heigh
   html body.in-vyhledavani #content .okla-empty-title{font-size:20px!important}
   html body #content .okla-empty-chips{justify-content:center!important}
 }
+
+/* Top 10 box with too few current products left (okla_live_catalog.js) */
+html body .box-topProducts.okla-hidden-box{display:none!important}

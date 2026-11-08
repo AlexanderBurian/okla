@@ -6,8 +6,9 @@
  if (window.__oklaV88) return;
  window.__oklaV88 = true;
  
- var catalog=window.OKLA_V86_CATALOG;
- if (!catalog) return;
+ /* The catalogue (OKLA_V86_CATALOG) holds the original products; every other product is described from its own
+    page (pageProduct), so new products get the same layout. */
+ var catalog=window.OKLA_V86_CATALOG||{};
  var NS='http://www.w3.org/2000/svg';
  var q=(s,root=document)=>root.querySelector(s);
  var qa=(s,root=document)=>Array.from(root.querySelectorAll(s));
@@ -263,57 +264,66 @@
  function cardRatings(){var wrap=el('div','ratings-wrapper');var group=el('span','ok89-decor-stars');group.title='Dekorativní hvězdy, nejde o zákaznické hodnocení';group.setAttribute('aria-hidden','true');
   for(var i=0;i<5;i++){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');var p=document.createElementNS(NS,'path');p.setAttribute('d','M12 2l3.09 6.26L22 9.27l-5 4.88 1.18 6.9L12 17.8l-6.18 3.25L7 14.15 2 9.27l6.91-1.01L12 2z');s.appendChild(p);group.appendChild(s)}
   wrap.append(group,el('div','stars-placeholder','Bez hodnocení'));return wrap}
+ /* Breadcrumb category of the product (name + link). */
+ function breadcrumbCategory(){
+  var links=qa('.breadcrumbs a[href], #navigation-breadcrumbs a[href], .navigation-breadcrumbs a[href]').filter(a=>{var h=a.getAttribute('href')||'';return h&&h!=='/'&&!/^#/.test(h)&&!/^https?:\/\/[^/]+\/?$/.test(h)});
+  var last=links[links.length-1];
+  return last?{name:(last.textContent||'').replace(/\s+/g,' ').trim(),href:new URL(last.getAttribute('href'),location.origin).pathname}:null;
+ }
+ /* A product outside the catalogue, described from its own page. */
+ function pageProduct(sku,detail){
+  var h1=q('h1',detail),cat=breadcrumbCategory();
+  var brand='';
+  var info=q('.p-detail-info',detail);
+  if(info){var m=(info.textContent||'').match(/Značka:\s*([^\n|]+)/i);if(m)brand=m[1].trim()}
+  if(/^(n\/a|-|–)$/i.test(brand))brand='';
+  var name=h1?(h1.textContent||'').replace(/\s+/g,' ').trim():'';
+  return {fromPage:true,code:sku,name:name,brand:brand,parameters:{},defaultCategory:cat?cat.name:'',categoryHref:cat?cat.href:'',url:location.pathname,imageDesc:name};
+ }
+ /* "Mohlo by vás zajímat": real product cards from the shop (the product's category first, then the homepage
+    sections), so links, images, prices, stock and the cart button are always current. Cached per category for
+    10 minutes. Nothing is shown when the shop cannot be read (never stale catalogue products). */
+ function liveCards(path){
+  var key='okla-related:'+path,cached=null;
+  try{cached=JSON.parse(sessionStorage.getItem(key)||'null')}catch(e){}
+  if(cached&&cached.t>Date.now()-600000)return Promise.resolve(cached.cards);
+  return fetch(path,{credentials:'same-origin'}).then(r=>r.ok?r.text():'').then(function(html){
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   var cards=qa('.products .product',doc).filter(c=>q('a.name, a.image',c)&&!c.closest('.products-inline,#productsTop')).map(c=>{
+    var a=q('a.name',c)||q('a.image',c);return {url:new URL(a.getAttribute('href'),location.origin).pathname,html:c.outerHTML};
+   });
+   try{sessionStorage.setItem(key,JSON.stringify({t:Date.now(),cards:cards}))}catch(e){}
+   return cards;
+  }).catch(()=>[]);
+ }
  function relatedCarousel(p,detail){
-  /* Same category first, then other products, so the row can be full at homepage card size (six cards). */
-  var byCode=(a,b)=>a.code.localeCompare(b.code,'cs');
-  var same=Object.values(catalog).filter(x=>x.defaultCategory===p.defaultCategory&&x.code!==p.code).sort(byCode);
-  var others=Object.values(catalog).filter(x=>x.defaultCategory!==p.defaultCategory&&x.code!==p.code).sort(byCode);
-  var records=same.concat(others).slice(0,6);
-  if(!records.length||q('.ok86-related'))return;
-  var sec=el('section','ok86-related');
-  /* Same markup as the homepage slider (.okla-slider-*). The native loader's sliderFor() builds the shell, arrows,
-     autoplay and swipe, so the product slider behaves exactly like the homepage one. */
-  var heading=el('div','homepage-group-title h4 okla-slider-heading','Mohlo by vás zajímat');
-  var href=categoryHref(p.defaultCategory);
-  if(href)heading.setAttribute('data-category-url',href);
-  var group=el('div','products products-block');
-  records.forEach(r=>{
-   var item=el('div','product');
-   var box=el('div','p');box.dataset.testid='productItem';
-   var destination=knownUrl(r);
-   var url=destination?new URL(destination,location.origin).pathname:null;
-   var image=el(url?'a':'span','image');if(url)image.href=url;
-   var img=el('img');img.src=r.image;img.alt=r.imageDesc||r.name;img.loading='lazy';img.width=423;img.height=318;image.append(img);
-   var pin=el('div','p-in'),inner=el('div','p-in-in');
-   inner.append(cardRatings());
-   var name=el(url?'a':'span','name');if(url)name.href=url;name.dataset.micro='url';name.append(el('span',null,r.name));
-   var availability=el('div','availability');
-   inner.append(name,availability);
-   var pBottom=el('div','p-bottom'),offer=el('div'),prices=el('div','prices'),priceBox=el('div','price price-final');
-   priceBox.append(el('strong',null,Number(r.price).toLocaleString('cs-CZ')+',-'));
-   prices.append(priceBox);offer.append(prices);
-   var tools=el('div','p-tools'),btn=el('button','btn btn-cart add-to-cart-button ok97-unavailable');
-   btn.type='button';btn.disabled=true;btn.setAttribute('aria-disabled','true');btn.setAttribute('aria-label','Do košíku '+r.name);
-   btn.append(cardCartIcon(),el('span',null,'Do košíku'));
-   tools.append(btn);
-   pBottom.append(offer,tools,el('p','p-desc',r.shortDescription||''));
-   pin.append(inner,pBottom);
-   box.append(image,pin,el('span','p-code','Kód: '+r.code));
-   item.append(box);group.append(item);
-   liveCardState(r,item,btn);
+  if(q('.ok86-related')||!window.fetch||!window.DOMParser)return;
+  var cat=breadcrumbCategory(),catHref=(cat&&cat.href)||p.categoryHref||categoryHref(p.defaultCategory)||'';
+  var here=location.pathname,seen={},records=[];
+  function add(list){list.forEach(c=>{if(records.length<6&&c.url!==here&&!seen[c.url]){seen[c.url]=1;records.push(c)}})}
+  var first=catHref?liveCards(catHref):Promise.resolve([]);
+  first.then(function(list){add(list);return records.length<6?liveCards('/').then(add):null}).then(function(){
+   if(!records.length||q('.ok86-related'))return;
+   var sec=el('section','ok86-related');
+   /* Same markup as the homepage slider (.okla-slider-*); the native loader's sliderFor() builds the shell, arrows,
+      autoplay and swipe; okla_native_pages.js gives the cards the homepage look. */
+   var heading=el('div','homepage-group-title h4 okla-slider-heading','Mohlo by vás zajímat');
+   if(catHref)heading.setAttribute('data-category-url',catHref);
+   var group=el('div','products products-block');
+   records.forEach(r=>{var t=document.createElement('template');t.innerHTML=r.html.trim();var card=t.content.firstElementChild;if(card){delete card.dataset.oklaCardsDone;qa('img[data-src]',card).forEach(i=>{i.src=i.getAttribute('data-src');i.removeAttribute('data-src')});group.append(card)}});
+   sec.append(heading,group);
+   var tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
+   /* The review panel belongs inside #tab-content; recommendations remain outside the tab system. */
+   if(tabs)tabs.after(sec);else detail.after(sec);
+   if(window.__oklaSliderFor)window.__oklaSliderFor(group,heading);
   });
-  sec.append(heading,group);
-  var tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
-  /* The review panel belongs inside #tab-content; recommendations remain
-     outside the tab system and therefore never leak into Hodnocení. */
-  if(tabs)tabs.after(sec);else detail.after(sec);
-  if(window.__oklaSliderFor)window.__oklaSliderFor(group,heading);
  }
  function init(){
   var detail=q('#content .p-detail'),form=q('#product-detail-form',detail||document),top=q('.row.product-top',detail||document)||q('.row.product-top',document),sku=q('[itemprop="sku"]',form||document)?.getAttribute('content')||q('.p-code>span:last-child',detail||document)?.textContent?.trim();
-  if(!detail||!form||!top||!sku||!catalog[sku])return;
+  if(!detail||!form||!top||!sku)return;
   if(detail.dataset.ok89Complete==='1')return;
-  var p=catalog[sku],gallery=q(':scope > .p-image-wrapper',top),buy=q(':scope > .p-info-wrapper',top),header=q('.p-detail-inner-header',detail),rating=q('.p-detail-info',top)||q('.p-detail-info',detail),btn=q('.add-to-cart button.add-to-cart-button.btn-conversion',buy||document)||q('.add-to-cart button.add-to-cart-button',buy||document),price=q('.p-final-price-wrapper',buy||document);
+  /* live-index entries (okla_live_catalog.js) are listing data only: such products are described from their page */
+  var p=(catalog[sku]&&!catalog[sku].live)?catalog[sku]:pageProduct(sku,detail),gallery=q(':scope > .p-image-wrapper',top),buy=q(':scope > .p-info-wrapper',top),header=q('.p-detail-inner-header',detail),rating=q('.p-detail-info',top)||q('.p-detail-info',detail),btn=q('.add-to-cart button.add-to-cart-button.btn-conversion',buy||document)||q('.add-to-cart button.add-to-cart-button',buy||document),price=q('.p-final-price-wrapper',buy||document);
   if(!gallery||!buy||!header||!btn||!price)return;
   /* V87 duplicate boot could leave the buy box marked empty and entirely invisible. */
   buy.classList.remove('ok86-empty');
@@ -363,9 +373,9 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);updateSeo(p);
+   paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);if(!p.fromPage)updateSeo(p);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
-   window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters).length};
+   window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters||{}).length};
   }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();

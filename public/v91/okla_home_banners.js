@@ -1,5 +1,5 @@
-/* OKLA homepage banners: the hero (projector first; the Flipper Zero is the last slide and shows on mobile only) in the
-   main Shoptet carousel slot, and the two lower tiles (glasses, then the Flipper Zero bottom right). Every banner has the
+/* OKLA homepage banners: the hero (Flipper Zero on desktop, plus the glasses on mobile) in the
+   main Shoptet carousel slot, and the two lower tiles (glasses, then the endoscopes bottom right). Every banner has the
    same darkening, text and blue CTA. The hero has dots and autoplay; the dots show only on mobile, under the picture.
    Autoplay pauses on hover and focus and skips slides that are hidden on the current screen. */
 (function(){
@@ -8,15 +8,14 @@
  window.__oklaHomeBannersV1=true;
 
  // On desktop the top slot stays on the projector: only the projector is shown there. The other slides are mobile only.
+ // Desktop shows the first slide only (Flipper Zero); the glasses slide is mobile only. Only products the shop sells.
  var SLIDES=[
-  {n:2,title:'Kino ve vašem obýváku',lead:'Velký obraz kdekoli doma, bez velké televize.',alt:'Projektor',href:'/wanbo-x5-pro-chytry-full-hd-projektor/'},
-  {n:3,title:'Chytré brýle s AI',lead:'Kamera, asistent a poslech v běžných brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/ai-chytre-bryle-wai4-bezdratova-elektronika/'},
-  {n:4,title:'Laserový dálkoměr',lead:'Přesné měření vzdáleností jedním stisknutím.',alt:'Laserový dálkoměr',mobileOnly:true,href:'/laserovy-dalkomer-rychle-digitalni-mereni/'},
-  {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',mobileOnly:true,href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'}
+  {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'},
+  {n:3,title:'Chytré brýle s AI',lead:'Kamera a AI překlad v lehkých brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'}
  ];
  var TILES=[
-  {n:1,title:'Chytré brýle',lead:'Kamera a AI asistent přímo v brýlích.',alt:'Chytré brýle',href:'/ai-chytre-bryle-wai4-bezdratova-elektronika/'},
-  {n:2,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'}
+  {n:1,title:'Chytré brýle',lead:'Kamera a AI překlad přímo v brýlích.',alt:'Chytré brýle',href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'},
+  {n:3,title:'Endoskopy',lead:'Nahlédněte do motoru, stěny i potrubí.',alt:'Endoskop',href:'/endoskopy-a-inspekcni-kamery/'}
  ];
  // each banner's CTA leads to its product
  var CTA_TEXT='Kup teď';

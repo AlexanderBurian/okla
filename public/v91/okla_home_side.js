@@ -1,5 +1,5 @@
 /* OKLA homepage side art: a phone on the left; on the right one of four products, picked at random on every page
-   load (Flipper Zero with its Wi-Fi module, AI glasses, thermal camera, USB-C endoscope), each with its price on a
+   load (Flipper Zero with its Wi-Fi module, A2 glasses, ANENG AOS03 meter, P80 endoscope), each with its price on a
    price tag. They sit in the page margins beside the white card and touch its edges. Shown only when both margins are
    wide enough. The price comes from the product page (cached for the session), so it never goes stale. */
 (function(){
@@ -31,7 +31,17 @@
    '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem OKLA"></div>'+
    '</a>'+
    '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>');
-  var v=RIGHT[Math.floor(Math.random()*RIGHT.length)];
+  renderRight(shuffled(RIGHT.slice()));
+ }
+ function shuffled(list){for(var i=list.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=list[i];list[i]=list[j];list[j]=t}return list}
+ /* Shows the first product of the list that the shop still sells (known from this session); when its page is gone,
+    the next one takes its place. The Flipper Zero is the last resort. */
+ function renderRight(list){
+  var known={};try{known=JSON.parse(sessionStorage.getItem('okla-side-gone')||'{}')}catch(e){}
+  list=list.filter(function(x){return known[x.href]!==false});
+  if(!list.length)list=RIGHT.filter(function(x){return x.key==='flipper'});
+  var v=list[0],old=document.getElementById('okla-side-right');
+  if(old)old.remove();
   var right=block('okla-side-right','right',
    '<a class="okla-side-art__link" href="'+v.href+'" aria-label="'+v.alt+'">'+
    '<div class="okla-side-art__stage okla-side-art__stage--'+v.key+'">'+v.pictures+
@@ -40,7 +50,11 @@
    '</a>'+
    '<p class="okla-side-art__text">'+v.text+'</p>');
   right.setAttribute('data-product',v.key);
-  refreshPrice(right,v);
+  if(typeof layout==='function')layout();
+  refreshPrice(right,v,function(){
+   try{known[v.href]=false;sessionStorage.setItem('okla-side-gone',JSON.stringify(known))}catch(e){}
+   if(v.key!=='flipper')renderRight(list.slice(1));
+  });
  }
 
  /* Right-side products. Prices are the shop's current ones; refreshPrice() replaces them with the live price. */
@@ -49,28 +63,35 @@
    pictures:'<div class="okla-side-art__img okla-side-art__img--wifi" role="img" aria-label="Wi-Fi modul pro Flipper Zero"></div>'+
             '<div class="okla-side-art__img okla-side-art__img--flipper" role="img" aria-label="Flipper Zero"></div>',
    text:'Flipper Zero: kapesní multitool pro kutily, elektroniku i experimenty.'},
-  {key:'glasses',href:'/ai-chytre-bryle-wai4-bezdratova-elektronika/',alt:'Chytré brýle WAI4 s AI',price:1490,
-   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="Chytré brýle WAI4 s AI"></div>',
-   text:'Chytré brýle s AI: kamera, asistent a poslech v běžných brýlích.'},
-  {key:'thermal',href:'/mini-termokamera-kompaktni-termalni-zobrazeni/',alt:'Mini termokamera',price:3990,
-   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="Mini termokamera"></div>',
-   text:'Mini termokamera: rychlá orientační kontrola teplot.'},
-  {key:'endoscope',href:'/usb-c-endoskopicka-kamera-inspekce-tezko-dostupnych-mist/',alt:'Endoskopická kamera USB-C',price:899,
-   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="Endoskopická kamera USB-C"></div>',
-   text:'Endoskopická kamera USB-C: pohled do dutin a těžko dostupných míst.'}
+  {key:'glasses',href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/',alt:'A2 chytré brýle s kamerou a AI překladem',price:2089,
+   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="A2 chytré brýle s kamerou a AI překladem"></div>',
+   text:'Chytré brýle A2: kamera a AI překlad v lehkých brýlích.'},
+  {key:'meter',href:'/aneng-aos03-osciloskopicky-multimetr/',alt:'ANENG AOS03 osciloskopický multimetr',price:3789,
+   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="ANENG AOS03 osciloskopický multimetr"></div>',
+   text:'ANENG AOS03: osciloskop a multimetr v jednom přístroji.'},
+  {key:'endoscope',href:'/p80-prumyslovy-endoskop-4-3-5-m/',alt:'P80 průmyslový endoskop',price:789,
+   pictures:'<div class="okla-side-art__img okla-side-art__product" role="img" aria-label="P80 průmyslový endoskop"></div>',
+   text:'Průmyslový endoskop P80: 4,3" displej a 5m kabel.'}
  ];
  /* 1490 -> "1 490,-" (the shop's own price format) */
  function price(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+',-'}
- function refreshPrice(el,v){
+ function refreshPrice(el,v,unavailable){
   var key='okla-side-price:'+v.href,cached=null;
   try{cached=JSON.parse(sessionStorage.getItem(key)||'null')}catch(e){}
   function show(n){var t=el.querySelector('.okla-side-price__value');if(t&&n>0)t.textContent=price(n)}
-  if(cached&&cached.t>Date.now()-3600000){show(cached.p);return}
+  if(cached&&cached.t>Date.now()-3600000){if(cached.gone){if(unavailable)unavailable()}else show(cached.p);return}
   if(!window.fetch)return;
   fetch(v.href,{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(html){
-   var m=html.match(/itemprop="price"\s+content="([0-9.]+)"/);if(!m)return;
-   var n=parseFloat(m[1]);show(n);
-   try{sessionStorage.setItem(key,JSON.stringify({p:n,t:Date.now()}))}catch(e){}
+   /* the product's own offer (not the other product cards on its page) */
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   var form=doc.querySelector('#product-detail-form');
+   var priceEl=form&&form.querySelector('[itemprop="price"]');
+   var n=priceEl?parseFloat(priceEl.getAttribute('content')):NaN;
+   /* only a product the shop no longer has is skipped (a sold-out one keeps its place and price) */
+   var out=!form||!(n>0);
+   try{sessionStorage.setItem(key,JSON.stringify(out?{gone:true,t:Date.now()}:{p:n,t:Date.now()}))}catch(e){}
+   if(out){if(unavailable)unavailable();return}
+   show(n);
   }).catch(function(){});
  }
 

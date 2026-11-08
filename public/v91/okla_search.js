@@ -7,7 +7,7 @@
  if(window.__oklaSearchV1)return;
  window.__oklaSearchV1=true;
 
- var POPULAR_TERMS=['Flipper Zero','ESP32','Chytré brýle','Endoskop','Projektor'];
+ var POPULAR_TERMS=['Flipper Zero','ESP32','Chytré brýle','Endoskop','Multimetr'];
  var POPULAR_CODES=['OKL-001','OKL-030','OKL-006','OKL-020','OKL-004','OKL-032'];
  var HOT=3;
  var MAX_RESULTS=6;
@@ -97,10 +97,12 @@
    inst.panel.appendChild(chips);
    /* The cart (lite) field shows only the popular chips when empty, no product list. */
    if(!inst.lite){
-    var all=catalog();
-    POPULAR_CODES.forEach(function(code,i){
-     if(!all[code])return;
-     var row=productRow(all[code],i<HOT);
+    /* the popular products the shop still has, topped up with other products in stock (live catalogue) */
+    var all=catalog(),pick=[];
+    POPULAR_CODES.forEach(function(code){if(all[code])pick.push(all[code])});
+    Object.keys(all).forEach(function(code){var p=all[code];if(pick.length<6&&pick.indexOf(p)===-1&&p.available!==false&&p.url)pick.push(p)});
+    pick.slice(0,6).forEach(function(p,i){
+     var row=productRow(p,i<HOT);
      inst.panel.appendChild(row);
      inst.items.push(row);
     });
