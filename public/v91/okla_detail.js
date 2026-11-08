@@ -204,6 +204,25 @@
   if(head&&head.offsetParent){if(head.getAttribute('aria-expanded')!=='true')head.click();head.scrollIntoView({block:'start',behavior:'smooth'})}
   else if(tab){tab.click();(q('.shp-tabs-wrapper')||target).scrollIntoView({block:'start',behavior:'smooth'})}
  },true);
+ /* one review in the Alza layout: date under the name, stars on their own row, and lines starting with + / −
+    shown as green pros and red cons next to each other; the rest of the text stays a paragraph */
+ function alzaReview(v){
+  if(v.dataset.oklaAlza)return;v.dataset.oklaAlza='1';
+  var sum=q('.vote-summary',v),time=q('.vote-time',v),stars=q('.vote-rating .stars',v),name=q('.vote-name',v);
+  if(sum&&time&&name){var t=el('span','ok97-vote-date','Hodnoceno '+time.textContent.trim().replace(/\.(?=\d)/g,'. '));name.after(t)}
+  if(stars){var row=el('div','ok97-vote-stars');row.append(stars);var hdr=q('.vote-header',v);if(hdr)hdr.after(row)}
+  var body=q('.vote-content',v);if(!body)return;
+  var tmp=document.createElement('div');tmp.innerHTML=body.innerHTML.replace(/<br\s*\/?>/gi,'\n');
+  var lines=(tmp.textContent||'').split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  var pros=[],cons=[],rest=[];
+  lines.forEach(function(l){var m=l.match(/^([+＋]|[-−–])\s*(.+)$/);if(m){(/[+＋]/.test(m[1])?pros:cons).push(m[2])}else rest.push(l)});
+  if(!pros.length&&!cons.length)return;
+  body.replaceChildren();
+  if(rest.length)body.append(el('p','ok97-vote-text',rest.join(' ')));
+  var grid=el('div','ok97-vote-pc');
+  [['pros',pros],['cons',cons]].forEach(function(g){if(!g[1].length)return;var ul=el('ul','ok97-vote-'+g[0]);g[1].forEach(function(x){ul.append(el('li',null,x))});grid.append(ul)});
+  body.append(grid);
+ }
  function reviewSection(detail){
   if(q('.ok97-review-block'))return;
   var content=q('#tab-content'),data=ratingData(detail);
@@ -242,13 +261,25 @@
    });
    action.append(writeBtn);
   }
-  summary.append(scoreBox,action);section.append(summary);
-  if(formBox)section.append(formBox);
+  /* already rated from this device: Shoptet sends no form, so say thanks instead of an empty box */
+  if(!rateForm&&!nativeReview&&/již jste hlasovali/i.test(q('#ratingTab .stars-label')?.textContent||'')){
+   action.replaceChildren(el('strong',null,'Děkujeme za vaše hodnocení'),el('span',null,'Tento produkt jste už ohodnotili. Recenze se zobrazí po kontrole.'));
+  }
+  /* the per-score bars (Shoptet's #ratingWrapper .votes) between the average and the call to action, as on Alza */
+  var bars=q('#ratingTab .votes');
+  if(bars&&data.count){var barsBox=el('div','ok97-review-bars');barsBox.append(bars);summary.append(scoreBox,barsBox,action);summary.classList.add('has-bars')}
+  else summary.append(scoreBox,action);
+  section.append(summary);
+  if(formBox){
+   section.append(formBox);
+   var ta=q('textarea[name="description"]',formBox);
+   if(ta&&!ta.placeholder)ta.placeholder='Jak jste s produktem spokojeni? Výhody můžete psát na řádky začínající +, nevýhody na řádky začínající −.';
+  }
   /* written reviews (Shoptet "Pokročilé hodnocení s diskusí"): Shoptet's list moves here; its own rating tab
      (summary + list) is hidden so the product has a single "Hodnocení" */
   var nativeVotes=q('#ratingsList')||q('.votes-wrap',document)||q('.product-ratings',detail)||q('[data-testid="productRating"]',detail);
   var nativeTab=q('#ratingTab');
-  if(nativeVotes&&nativeVotes.querySelector('.vote-wrap')){nativeVotes.classList.add('ok97-native-reviews');section.append(nativeVotes)}
+  if(nativeVotes&&nativeVotes.querySelector('.vote-wrap')){nativeVotes.classList.add('ok97-native-reviews');section.append(nativeVotes);qa('.vote-wrap',nativeVotes).forEach(alzaReview)}
   else nativeVotes=null;
   if(nativeTab){nativeTab.classList.add('okla-ptab-hidden');var nl=q('ul.p-detail-tabs a[href$="#ratingTab"]');if(nl&&nl.closest('li'))nl.closest('li').classList.add('okla-ptab-hidden')}
   else section.append(el('div','ok97-review-empty',data.count?'Zatím tu nejsou žádné slovní recenze. Napište první.':'Buďte první, kdo tento produkt ohodnotí.'));
