@@ -105,3 +105,10 @@ html body .quantity button.okla-qty:not(#okla-cq-a#okla-cq-b#okla-cq-c#okla-cq-d
 @media(min-width:992px){
   html body #header .okla-exact-header > .okla-header-account:not(#okla-ha-a#okla-ha-b#okla-ha-c){translate:-22px 0!important}
 }
+
+/* Search results: room above the heading (as on a category page) and under the last row of cards, so a
+   highlighted card is never cut by the white card's edge */
+html body.type-search:not(#okla-sr-a#okla-sr-b) main#content{padding-bottom:64px!important}
+@media(min-width:768px){
+  html body.type-search:not(#okla-sr-a#okla-sr-b) main#content{padding-top:13px!important}
+}
