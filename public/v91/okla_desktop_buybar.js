@@ -1,4 +1,4 @@
-/* OKLA – desktop product page: once the product's own buy button scrolls out of view, the sticky header gives way to
+/* OKLA – desktop product page: whenever the page is scrolled far enough for the sticky header, a buy bar takes its place
    a buy bar (as on the big shops): picture, name, stars, stock, price and the green "Do košíku" (it clicks Shoptet's
    own button, so the cart, quantity and drawer work as usual). Sold-out products get "Hlídat dostupnost", which opens
    Shoptet's watchdog. The bar's content has the width of the header's content. Desktop (>=992px) only. */
@@ -81,8 +81,12 @@
   var tries=0;
   (function wait(){
    if(build()){
-    var io=new IntersectionObserver(function(es){var e=es[0];show(!e.isIntersecting&&e.boundingClientRect.top<0)},{threshold:0});
-    io.observe(native);
+    /* the bar takes the sticky header's place at the very moment the header would pin (okla_desktop_sticky.js sets
+       html.okla-desktop-sticky), so the normal header never shows on a scrolled product page */
+    root.classList.add('okla-dbb-ready');
+    var sync=function(){show(root.classList.contains('okla-desktop-sticky'))};
+    new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:['class']});
+    sync();
     addEventListener('resize',function(){if(shown)place()});
     if(DESKTOP.addEventListener)DESKTOP.addEventListener('change',function(){if(!DESKTOP.matches)show(false)});
    }else if(++tries<40)setTimeout(wait,250);

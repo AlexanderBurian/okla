@@ -26,5 +26,6 @@
   .okla-dbb__btn.is-watch:hover{background:#eef6fd}
   .okla-dbb__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
   /* the buy bar replaces the sticky header while shown */
-  html.okla-dbb-on body #header .header-top{visibility:hidden!important;opacity:0!important;pointer-events:none!important}
+  html.okla-dbb-on body #header .header-top,
+  html.okla-dbb-ready.okla-desktop-sticky body.type-detail #header .header-top{visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:none!important}
 }
