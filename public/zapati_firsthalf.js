@@ -155,16 +155,21 @@ function loadAi(){
  (document.head||document.documentElement).appendChild(script);
 }
 function url(file,attempt){return base+file+(base.includes('?')?'&':'?')+'v=91'+(attempt?'&retry='+attempt:'')}
-/* Every module starts downloading at once (preload). They are still put into the page one after another in the same
-   order as before, so the styles and scripts end up exactly as they always did; each step now takes the file from the
-   browser's cache instead of waiting for the network. */
+function isCss(f){return f.endsWith('.css')}
+/* Every module starts downloading at once (preload), so each one is taken from
+   the browser cache the moment it is added to the page. */
 function preload(href,as){
  var hint=document.createElement('link');
  hint.rel='preload';hint.as=as;hint.href=href;
  head.appendChild(hint);
  return hint;
 }
-var hints=modules.map(function(file){return preload(url(file,0),file.endsWith('.css')?'style':'script')});
+/* Non-critical behaviour modules (search, login popup, cart drawer, footer) are
+   not needed for the first paint, so they load AFTER the page is revealed. */
+var deferNames=['v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js','v91/okla_cart_drawer.css','v91/okla_cart_drawer.js','okla_footer.js'];
+var deferred=modules.filter(function(f){return deferNames.indexOf(f)>=0});
+modules=modules.filter(function(f){return deferNames.indexOf(f)<0});
+var hints=modules.concat(deferred).map(function(file){return preload(url(file,0),isCss(file)?'style':'script')});
 /* The language packs are requested by okla_i18n.js only after it runs; for a visitor with another language they start
    downloading now with everything else. The address matches the one okla_i18n.js asks for. */
 (function(){
@@ -175,52 +180,106 @@ var hints=modules.map(function(file){return preload(url(file,0),file.endsWith('.
  preload(base+'v91/okla_i18n_'+lang+'.js?v=1','script');
  preload(base+'v91/okla_i18n_products_'+lang+'.js?v=1','script');
 })();
-/* Non-critical behaviour modules (search, login popup, cart drawer, footer) are not
-   needed for the first paint, so they are pulled out of the reveal-blocking chain
-   and loaded AFTER the page is revealed — the curtain lifts sooner. They were still
-   preloaded above, so they come straight from cache. */
-var deferNames=['v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js','v91/okla_cart_drawer.css','v91/okla_cart_drawer.js','okla_footer.js'];
-var deferred=modules.filter(function(f){return deferNames.indexOf(f)>=0});
-modules=modules.filter(function(f){return deferNames.indexOf(f)<0});
+
+/* ---- Instant look from the device (localStorage) ------------------------
+   The look of the shop is its CSS. We keep every stylesheet's text on the
+   visitor's own device, under a key that carries THIS release (the commit hash
+   is part of `base`). On the next visit the whole look is injected in ONE
+   <style> straight from the device — no network, no flash, byte-for-byte the
+   same rules in the same order. A new release has a new key, so the stored look
+   refreshes itself once after each change and is instant again afterwards.
+   The scripts still load over the network/browser cache (so their behaviour is
+   unchanged), only now ALL AT ONCE in their fixed order instead of one by one,
+   so the page is ready far sooner. The finished page is identical: same files,
+   same order. It is all-or-nothing per release, so the cascade order can never
+   be partly inlined and partly linked. If storage is full or disabled,
+   everything simply loads from the network exactly as before. */
+var CSS_CACHE_KEY='okla.css.cache';
+var cssHave={};         /* file -> text already on the device (this release) */
+var cssCachedOk=false;  /* the device holds CSS for this exact release */
+try{
+ var raw=localStorage.getItem(CSS_CACHE_KEY);
+ if(raw){var parsed=JSON.parse(raw);if(parsed&&parsed.fp===base&&parsed.css){cssHave=parsed.css;cssCachedOk=true}}
+}catch(e){cssCachedOk=false;cssHave={}}
+var cssFresh={};        /* CSS text read during this visit, to store for next time */
+
+function allCssCached(list){
+ if(!cssCachedOk)return false;
+ for(var i=0;i<list.length;i++){var f=list[i];if(isCss(f)&&cssHave[f]==null)return false}
+ return true;
+}
+function injectCachedCss(list,id){
+ var covered=[],buf='';
+ for(var i=0;i<list.length;i++){var f=list[i];if(isCss(f)&&cssHave[f]!=null){buf+='\n/* '+f+' */\n'+cssHave[f];covered.push(f)}}
+ if(buf){var st=document.createElement('style');st.id=id;st.setAttribute('data-okla-css-cache','1');st.textContent=buf;head.appendChild(st)}
+ return covered;
+}
+/* Best-effort: read a stylesheet we just loaded (from cache) so it can be stored
+   for an instant next visit. */
+function grabCss(file){
+ if(cssHave[file]!=null||cssFresh[file]!=null)return;
+ try{fetch(url(file,0),{cache:'force-cache'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t!=null)cssFresh[file]=t}).catch(function(){})}catch(e){}
+}
+function saveCssCache(){
+ setTimeout(function(){
+  try{
+   var css={},any=false,k;
+   if(cssCachedOk){for(k in cssHave)css[k]=cssHave[k]}
+   for(k in cssFresh){css[k]=cssFresh[k];any=true}
+   if(!any)return;
+   localStorage.setItem(CSS_CACHE_KEY,JSON.stringify({fp:base,css:css}));
+  }catch(e){try{localStorage.removeItem(CSS_CACHE_KEY)}catch(e2){}}
+ },1500);
+}
+
+/* If the device already has this release's full look, paint it at once. */
+var mainCssHit=allCssCached(modules);
+var cachedNow=mainCssHit?injectCachedCss(modules,'okla-css-cache-main'):[];
+
+/* Deferred modules load after reveal, same as before, using the cached look when
+   the device holds all of it. */
 function loadDeferred(){
+ var coveredDef=allCssCached(deferred)?injectCachedCss(deferred,'okla-css-cache-deferred'):[];
  deferred.forEach(function(file){
+  if(coveredDef.indexOf(file)>=0)return;
   var src=url(file,0);
-  if(file.endsWith('.css')){var link=document.createElement('link');link.rel='stylesheet';link.href=src;head.appendChild(link);}
+  if(isCss(file)){var link=document.createElement('link');link.rel='stylesheet';link.href=src;link.onload=function(){grabCss(file)};head.appendChild(link);}
   else{var s=document.createElement('script');s.src=src;s.async=false;head.appendChild(s);}
  });
 }
-var index=0;
-function next(){
- if(index>=modules.length){
-  window.__oklaAssetLoaderStatus='v91-loaded';
-  loadAi();
-  hints.forEach(function(hint){hint.remove()});
-  /* One more turn so the last scripts can draw before the page is shown. */
-  setTimeout(revealWhenTranslated,30);
-  loadDeferred();
-  return;
- }
- load(modules[index++],0);
+function finalize(){
+ window.__oklaAssetLoaderStatus='v91-loaded';
+ loadAi();
+ hints.forEach(function(hint){hint.remove()});
+ /* One more turn so the last scripts can draw before the page is shown. */
+ setTimeout(revealWhenTranslated,30);
+ loadDeferred();
+ saveCssCache();
 }
-/* A module that fails to load (a transient CDN error) is requested again twice before the loader moves on, so one failed
-   request does not leave the page with half of its styles. */
-function load(file,attempt){
+/* Load the rest — every script, plus any stylesheet not served from the device —
+   ALL AT ONCE in order. Scripts keep their exact order via async=false; a
+   transient CDN error is retried twice. The page is revealed once everything has
+   settled. */
+var toLoad=modules.filter(function(f){return cachedNow.indexOf(f)<0});
+var pending=toLoad.length;
+function settle(){if(--pending<=0)finalize()}
+function loadOne(file,attempt){
  var src=url(file,attempt);
  function failed(){
-  if(attempt<2){setTimeout(function(){load(file,attempt+1)},400);return}
-  console.error('[OKLA] module missing:',file);
-  next();
+  if(attempt<2){setTimeout(function(){loadOne(file,attempt+1)},400);return}
+  console.error('[OKLA] module missing:',file);settle();
  }
- if(file.endsWith('.css')){
+ if(isCss(file)){
   var link=document.createElement('link');link.rel='stylesheet';link.href=src;
-  link.onload=next;link.onerror=failed;
+  link.onload=function(){grabCss(file);settle()};link.onerror=failed;
   head.appendChild(link);
  }else{
   var script=document.createElement('script');script.src=src;script.async=false;
-  script.onload=next;script.onerror=failed;
+  script.onload=settle;script.onerror=failed;
   head.appendChild(script);
  }
 }
 window.__oklaAssetLoaderStatus='v91-loading';
-next();
+if(pending===0)finalize();
+else toLoad.forEach(function(file){loadOne(file,0)});
 })();
