@@ -8,7 +8,7 @@
  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon{gap:6px!important}
  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon>.cat-trigger{flex:0 0 0!important;width:0!important;min-width:0!important;margin:0!important;padding:0!important;overflow:hidden!important}
  /* Larger category pictograms. */
- html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{flex:0 0 30px!important;min-width:30px!important;width:30px!important;height:30px!important}
- html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:28px!important;height:28px!important}
- html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg img.okla-category-png{width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important;object-fit:contain!important}
+ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{flex:0 0 40px!important;min-width:40px!important;width:40px!important;height:40px!important}
+ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:38px!important;height:38px!important}
+ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg img.okla-category-png{width:40px!important;height:40px!important;max-width:40px!important;max-height:40px!important;object-fit:contain!important}
 }
