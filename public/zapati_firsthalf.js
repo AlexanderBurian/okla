@@ -112,6 +112,8 @@ if(isDetail) modules.push('v91/okla_desktop_buybar.css','v91/okla_desktop_buybar
 modules.push('v91/okla_global_typography.css');
 /* Final product-commerce palette: red prices and rounded green add-to-cart CTAs. */
 modules.push('v91/okla_product_commerce.css');
+/* Homepage editorial block: asymmetric retail-magazine composition. */
+if(isHome) modules.push('v91/okla_news_home_datart.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,

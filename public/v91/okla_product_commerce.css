@@ -159,12 +159,12 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
  align-items:center!important;
  justify-content:center!important;
  gap:0!important;
- width:calc(100% - 16px)!important;
+ width:calc(100% - 28px)!important;
  min-width:0!important;
- max-width:calc(100% - 16px)!important;
- height:40px!important;
- min-height:40px!important;
- max-height:40px!important;
+ max-width:calc(100% - 28px)!important;
+ height:38px!important;
+ min-height:38px!important;
+ max-height:38px!important;
  padding:0 14px!important;
  border:1px solid var(--okla-commerce-cart)!important;
  border-radius:8px!important;
@@ -257,5 +257,11 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover,
  html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p{
   min-height:404px!important;
+ }
+ /* Let the first card's soft shadow render outside the carousel crop while
+    keeping the off-screen cards clipped. */
+ html body.type-index #content#content .okla-slider-shell .okla-slider-viewport{
+  overflow:clip!important;
+  overflow-clip-margin:14px!important;
  }
 }
