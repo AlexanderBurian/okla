@@ -58,6 +58,8 @@ if(/^\/stav-objednavky(\/|$)/.test(location.pathname)||(document.body&&/(^|\s)in
 if(/^\/reklamace(\/|$)/.test(location.pathname)||document.querySelector('[data-okla-reklamace]')) modules.push('v91/okla_reklamace.css','v91/okla_reklamace.js');
 if(/^\/objednavky(\/|$)/.test(location.pathname)||(document.body&&/(^|\s)in-(klient|objednavky)/.test(document.body.className))) modules.push('v91/okla_orders.css','v91/okla_orders.js');
 if(/^\/o-nas(\/|$)/.test(location.pathname)) modules.push('v91/okla_about.css','v91/okla_about.js');
+/* "Jak nakupovat": the page content and the homepage Novinky slider. */
+if(/^\/jak-nakupovat(\/|$)/.test(location.pathname)) modules.push('v91/okla_how_to_buy.css','v91/okla_how_to_buy.js');
  if((document.body&&document.body.classList.contains('in-kontakt'))||/^\/kontakt(y)?(\/|$)/.test(location.pathname)) modules.push('v91/okla_contact.css','v91/okla_contact.js');
 if((document.body&&/(^|\s)in-(login|registrace|zapomenute-heslo|klient|objednavky|platby|osobni-udaje|danove-doklady|zalohove-faktury|dobropisy|dodaci-listy|slevy|hodnoceni|diskuze|doklady|muj-ucet|zakaznik)/.test(document.body.className))||(function(){try{var a=document.querySelectorAll('#content-wrapper a,#content a,.sidebar a');for(var i=0;i<a.length;i++){if(/^\s*odhl[aá]sit/i.test(a[i].textContent))return true}}catch(e){}return false})()) modules.push('v91/okla_account.css','v91/okla_account.js','v91/okla_account_polish.css','v91/okla_account_polish.js','v91/okla_account_nav.css','v91/okla_account_nav.js');
 if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/okla_404.css');
@@ -74,7 +76,7 @@ modules.push('v91/okla_header_reference.css','v91/okla_header_reference.js');
 /* Desktop hover cart: loaded last to preserve Shoptet checkout and native pricing. */
 modules.push('v91/okla_cart_preview.css','v91/okla_cart_preview.js');
 /* Every native legal/information article uses the full content card width. */
-if(/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vraceni-zbozi-a-odstoupeni|podminky-reklamnich-akci|prohlaseni-o-pristupnosti|doprava-a-platba|jak-nakupovat)(?:\/|$)/.test(location.pathname)){
+if(/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vraceni-zbozi-a-odstoupeni|podminky-reklamnich-akci|prohlaseni-o-pristupnosti|doprava-a-platba)(?:\/|$)/.test(location.pathname)){
  document.documentElement.classList.add('okla-legal-wide');
  modules.push('v91/okla_legal_fullwidth.css');
 }
