@@ -8,6 +8,19 @@
 
  var selector='button,input[type="button"],input[type="submit"],input[type="reset"],.btn,a.btn,.button,a.button,[role="button"]';
 
+ /* A genuinely green fill (bright or medium green, not turquoise/grey/blue). */
+ function isGreen(value){
+  var n=(value||'').match(/[0-9.]+/g);
+  if(!n||n.length<3)return false;
+  var r=+n[0],g=+n[1],b=+n[2];
+  return g>=110&&g>r*1.23&&g>b*1.36&&r<180&&b<125;
+ }
+ /* Buttons that must adopt the OKLA blue even though their base colour is not
+    green (e.g. the dark-navy "Otevřít filtr"). */
+ function forceBlue(button){
+  try{return button.matches('.unveil-button,.filter-toggle,.js-filter-toggle')}catch(e){return false}
+ }
+
  function isFilled(value){
   var numbers=(value.match(/[\d.]+/g)||[]).map(Number);
   if(numbers.length<3)return false;
@@ -32,11 +45,18 @@
   }
   if(button.dataset.oklaButtonRest==='1'&&!force)return;
   var style=getComputedStyle(button);
-  button.style.setProperty('--okla-button-rest-background',style.backgroundColor);
-  button.style.setProperty('--okla-button-rest-image',style.backgroundImage);
-  button.style.setProperty('--okla-button-rest-border',style.borderColor);
-  button.style.setProperty('--okla-button-rest-color',style.color);
-  var filled=isFilled(style.backgroundColor)||style.backgroundImage!=='none';
+  var bg=style.backgroundColor,img=style.backgroundImage,bd=style.borderColor,col=style.color;
+  /* Every green action (and the navy filter button) becomes the OKLA blue, kept
+     in the resting variables so the whole button system (hover brightness, etc.)
+     works unchanged. */
+  if(isGreen(bg)||forceBlue(button)){
+   bg='rgb(0,116,232)';bd='rgb(0,116,232)';img='none';col='rgb(255,255,255)';
+  }
+  button.style.setProperty('--okla-button-rest-background',bg);
+  button.style.setProperty('--okla-button-rest-image',img);
+  button.style.setProperty('--okla-button-rest-border',bd);
+  button.style.setProperty('--okla-button-rest-color',col);
+  var filled=isFilled(bg)||img!=='none';
   button.classList.toggle('okla-button--filled',filled);
   button.classList.toggle('okla-button--empty',!filled);
   button.dataset.oklaButtonRest='1';
