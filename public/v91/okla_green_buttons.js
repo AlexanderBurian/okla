@@ -1,5 +1,6 @@
-/* OKLA V91: apply black text to genuinely green action buttons,
-   including recommendations inserted after page load. */
+/* OKLA V91: identify genuinely green action buttons, including controls
+   inserted after page load. The marker remains stable after the final palette
+   changes their computed colour from green to OKLA blue. */
 (function(){
 'use strict';
 if(window.__oklaGreenCtaV91)return;
@@ -16,8 +17,8 @@ function mark(el){
  if(!el||el.nodeType!==1||!el.matches||!el.matches(selector))return;
  var bg=getComputedStyle(el).backgroundColor;
  var green=isGreen(bg);
- if(green!==el.classList.contains('okla-green-cta'))
-  el.classList.toggle('okla-green-cta',green);
+ if(green&&!el.classList.contains('okla-green-cta'))
+  el.classList.add('okla-green-cta');
 }
 function scan(node){
  if(!node||node.nodeType!==1)return;

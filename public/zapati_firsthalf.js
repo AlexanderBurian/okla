@@ -69,8 +69,6 @@ if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/
 modules.push('v91/okla_empty_states.css','v91/okla_empty_states.js');
 /* Payment method logos (Apple Pay, Google Pay, Mastercard, Visa) at the bottom of the footer. */
 modules.push('v91/okla_payment_logos.css','v91/okla_payment_logos.js');
-/* Green CTA text fixes. The sitewide font pass is deliberately loaded last below. */
-modules.push('v91/okla_green_buttons.js');
 /* Shared OKLA header visual system + compatibility on all Shoptet page types. */
 modules.push('v91/okla_header_consistency.css','v91/okla_header_consistency.js');
 /* Reference look: soft gray search with right magnifier, sign-in, language and native-priced cart. */
@@ -116,6 +114,15 @@ modules.push('v91/okla_product_commerce.css');
 /* Checkout corrections must follow the global field/button passes: stable
    parcel, aligned total, clean coupon field and green-only purchase hover. */
 if(isOrdering) modules.push('v91/okla_checkout_final.css');
+/* Final brand palette: every former green CTA uses the same OKLA blue as the
+   warranty action. This follows all product and checkout overrides. */
+modules.push('v91/okla_green_buttons.js','v91/okla_all_cta_blue.css');
+/* Mobile text controls stay at 16 px or larger, preventing Safari/Chrome from
+   zooming the page when the visitor starts typing. */
+modules.push('v91/okla_mobile_no_zoom.css');
+/* The live AI widget keeps its multilingual runtime; this small bridge swaps
+   only its branding and assistant avatar after the shadow UI is mounted. */
+modules.push('v91/okla_ai_brand.js');
 /* Homepage editorial block: asymmetric retail-magazine composition. */
 if(isHome) modules.push('v91/okla_news_home_datart.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a

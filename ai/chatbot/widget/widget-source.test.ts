@@ -11,6 +11,7 @@ describe("geometrie widgetu", () => {
     expect(textareaCss).toContain("border: 0 !important;");
     expect(textareaCss).toContain("outline: 0 !important;");
     expect(textareaCss).toContain("box-shadow: none !important;");
+    expect(textareaCss).toContain("font-size: 16px;");
   });
 
   it("neobsahuje sekundární X překrývající launcher", async () => {
@@ -63,6 +64,15 @@ describe("geometrie widgetu", () => {
     expect(source.match(/typingIndicator\.hide\(\)/g)?.length).toBeGreaterThanOrEqual(3);
     expect(source).not.toContain("setTypingState");
     expect(source).not.toContain("addAssistantMessage(\"\", true)");
+  });
+
+  it("používá skutečné logo OKLA, samostatný avatar a mobilní textarea bez zoomu", async () => {
+    const source = await readFile("./widget/widget.ts", "utf8");
+    expect(source).toContain('assets/okla-brand-logo.png');
+    expect(source).toContain('assets/okla-assistant-avatar.png');
+    expect(source).not.toContain('<h2 class="welcome-title"');
+    expect(source).not.toContain('<span class="welcome-logo"');
+    expect(source).toContain('avatarImage.src = assistantAvatarUrl;');
   });
 
 });

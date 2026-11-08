@@ -3,6 +3,7 @@ import {
   DeliveryReceiptController,
   installImageFallback,
   resolveRobotAssetUrl,
+  resolveWidgetAssetUrl,
   TypingIndicatorController
 } from "./chat-ui.js";
 
@@ -26,6 +27,8 @@ import {
     locationOrigin: window.location.origin
   };
   const assetUrl = resolveRobotAssetUrl(assetOptions);
+  const brandLogoUrl = resolveWidgetAssetUrl(assetOptions, "assets/okla-brand-logo.png");
+  const assistantAvatarUrl = resolveWidgetAssetUrl(assetOptions, "assets/okla-assistant-avatar.png");
   let teardown = () => undefined;
 
   if (!customElements.get(tagName)) {
@@ -111,13 +114,12 @@ import {
         position: absolute;
         left: 50%;
         top: 50%;
-        width: 34px;
-        height: 34px;
+        width: 116px;
+        height: 30px;
         background: transparent;
         transform: translate(-50%, -50%);
-        display: none;
+        display: block;
       }
-      .panel.chatting .brand-mini { display: block; }
       .brand-mini img, .launcher img, .assistant-avatar img { width: 100%; height: 100%; object-fit: contain; display: block; }
       .launcher .launcher-search-icon { display: none; width: 28px; height: 28px; margin: auto; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
       .launcher .launcher-desktop-icon { display: block; }
@@ -145,19 +147,8 @@ import {
         scrollbar-width: thin;
         scrollbar-color: #bdcada transparent;
       }
-      .welcome { display: flex; min-height: 100%; flex-direction: column; padding: 52px 0 8px; }
-      .welcome-brand { display: flex; align-items: center; justify-content: center; gap: 10px; }
-      .welcome-logo {
-        position: relative;
-        width: 74px;
-        height: 74px;
-        flex: none;
-        background: transparent;
-      }
-      .welcome-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
-      .welcome-logo.robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-size: 15px; font-weight: 800; }
-      .welcome-title { margin: 18px 0 0; text-align: center; color: #15181d; font-size: 25px; line-height: 1.05; font-weight: 820; letter-spacing: -.025em; }
-      .welcome-input { margin-top: 24px; }
+      .welcome { display: flex; min-height: 100%; flex-direction: column; padding: 30px 0 8px; }
+      .welcome-input { margin-top: 0; }
       .welcome-input .composer { border-color: #e4e9f1; box-shadow: 0 1px 3px rgba(16, 40, 80, .05); }
       .welcome-input .composer:focus-within { border-color: #1f6fd8; box-shadow: inset 0 0 0 1px #1f6fd8; }
       .suggestions { margin-top: 12px; }
@@ -255,7 +246,7 @@ import {
         outline: 0 !important;
         box-shadow: none !important;
         background: transparent;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.45;
       }
       textarea:focus, textarea:focus-visible { border: 0 !important; outline: 0 !important; box-shadow: none !important; }
@@ -416,11 +407,7 @@ import {
       }
     </style>
     <template id="welcome-template">
-      <section class="welcome" aria-labelledby="okla-welcome-title">
-        <div class="welcome-brand">
-          <span class="welcome-logo" aria-hidden="true"><img data-robot-image src="${assetUrl}" alt=""></span>
-        </div>
-        <h2 class="welcome-title" id="okla-welcome-title">OKLA poradce</h2>
+      <section class="welcome" aria-label="OKLA.cz">
         <div class="welcome-input"></div>
         <div class="suggestions">
           <div class="suggestions-list">
@@ -436,7 +423,7 @@ import {
         <div class="topbar-group">
           <button class="top-action info-control" type="button" aria-label="Informace o AI poradci" title="Informace o AI poradci">${infoIcon}</button>
         </div>
-        <span class="brand-mini" aria-hidden="true"><img data-robot-image src="${assetUrl}" alt=""></span>
+        <span class="brand-mini" aria-hidden="true"><img data-brand-image data-fallback-class="brand-fallback" src="${brandLogoUrl}" alt=""></span>
         <div class="topbar-group">
           <button class="top-action expand" type="button" aria-label="Zvětšit chat" aria-pressed="false" title="Zvětšit chat">${expandIcon}</button>
           <button class="top-action collapse" type="button" aria-label="Zavřít chat" title="Zavřít chat">${collapseIcon}${mobileCloseIcon}</button>
@@ -473,7 +460,7 @@ import {
   const status = shadow.querySelector<HTMLElement>("#okla-status")!;
   const deliveryReceipt = new DeliveryReceiptController();
   const typingIndicator = new TypingIndicatorController();
-  shadow.querySelectorAll<HTMLImageElement>("[data-robot-image], [data-mobile-assistant-image]").forEach(installImageFallback);
+  shadow.querySelectorAll<HTMLImageElement>("[data-robot-image], [data-mobile-assistant-image], [data-brand-image], [data-assistant-avatar]").forEach(installImageFallback);
   let history: Array<{ role: "user" | "assistant"; content: string }> = [];
   let busy = false;
   let controller: AbortController | null = null;
@@ -604,9 +591,10 @@ import {
     avatar.className = "assistant-avatar";
     avatar.setAttribute("aria-hidden", "true");
     const avatarImage = document.createElement("img");
-    avatarImage.src = assetUrl;
+    avatarImage.src = assistantAvatarUrl;
     avatarImage.alt = "";
-    avatarImage.dataset.robotImage = "";
+    avatarImage.dataset.assistantAvatar = "";
+    avatarImage.dataset.fallbackClass = "avatar-fallback";
     avatar.append(avatarImage);
     installImageFallback(avatarImage);
     const stack = document.createElement("div");
