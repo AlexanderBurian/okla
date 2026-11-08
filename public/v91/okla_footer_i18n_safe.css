@@ -492,10 +492,10 @@ html body footer#footer{
  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
   position:absolute!important;grid-area:auto!important;
   top:auto!important;left:auto!important;
-  right:calc((100vw - 24px) * -.2423)!important;
-  bottom:calc((100vw - 24px) * -.0489)!important;
-  width:calc((100vw - 24px) * .70)!important;min-width:0!important;max-width:none!important;
-  height:calc((100vw - 24px) * .7289)!important;min-height:0!important;max-height:none!important;
+  right:calc((100vw - 24px) * -.23)!important;
+  bottom:calc((100vw - 24px) * -.016)!important;
+  width:calc((100vw - 24px) * .74)!important;min-width:0!important;max-width:none!important;
+  height:calc((100vw - 24px) * .7706)!important;min-height:0!important;max-height:none!important;
   margin:0!important;padding:0!important;transform:none!important;
   object-fit:contain!important;object-position:0 0!important;
   z-index:1!important;pointer-events:none!important;
