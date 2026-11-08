@@ -67,8 +67,8 @@ if(document.body&&document.body.classList.contains('in-404')) modules.push('v91/
 modules.push('v91/okla_empty_states.css','v91/okla_empty_states.js');
 /* Payment method logos (Apple Pay, Google Pay, Mastercard, Visa) at the bottom of the footer. */
 modules.push('v91/okla_payment_logos.css','v91/okla_payment_logos.js');
-/* Sitewide font and green CTA text fixes, last in the normal load order. */
-modules.push('v91/okla_global_typography.css','v91/okla_green_buttons.js');
+/* Green CTA text fixes. The sitewide font pass is deliberately loaded last below. */
+modules.push('v91/okla_green_buttons.js');
 /* Shared OKLA header visual system + compatibility on all Shoptet page types. */
 modules.push('v91/okla_header_consistency.css','v91/okla_header_consistency.js');
 /* Reference look: soft gray search with right magnifier, sign-in, language and native-priced cart. */
@@ -106,6 +106,9 @@ if(isDetail) modules.push('v91/okla_detail_tabs.css','v91/okla_detail_tabs.js');
 if(isDetail) modules.push('v91/okla_product_tools.css','v91/okla_product_tools.js');
 /* Desktop product buy bar instead of the sticky header once the buy button scrolls away. */
 if(isDetail) modules.push('v91/okla_desktop_buybar.css','v91/okla_desktop_buybar.js');
+/* Absolute final CSS pass: every textual UI element uses the same Exo 2 family.
+   Icon-font classes are excluded inside the stylesheet so pictograms remain intact. */
+modules.push('v91/okla_global_typography.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
