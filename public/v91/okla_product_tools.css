@@ -85,14 +85,17 @@ html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input,textarea)
 /* hlídací pes: the three choices as tappable rows with our checkbox */
 html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox){
   display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:10px 12px!important;margin:0 0 8px!important;padding:13px 14px!important;
-  border:1px solid #e1e7ee!important;border-radius:14px!important;background:#fff!important;cursor:pointer!important;transition:border-color .15s ease,background-color .15s ease!important;
+  border:1px solid #e1e7ee!important;border-radius:14px!important;background:#fff!important;cursor:pointer!important;transition:none!important;
 }
-html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox:checked){border-color:#168bd2!important;background:#eef6fd!important}
+/* chosen row: just a simple blue outline; the row has no hover effect */
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox):is(:hover,:focus-within){border-color:#e1e7ee!important;background:#fff!important;box-shadow:none!important}
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox:checked),
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox:checked):is(:hover,:focus-within){border-color:#168bd2!important;background:#fff!important;box-shadow:inset 0 0 0 1px #168bd2!important}
 html body #colorbox #watchdog-form input.watchdog-checkbox{
   -webkit-appearance:none!important;appearance:none!important;position:relative!important;flex:0 0 22px!important;width:22px!important;height:22px!important;margin:0!important;padding:0!important;
   border:2px solid #b7c2ce!important;border-radius:7px!important;background:#fff!important;cursor:pointer!important;opacity:1!important;clip:auto!important;
 }
-html body #colorbox #watchdog-form input.watchdog-checkbox:checked{border-color:#168bd2!important;background:#168bd2 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012.5l4.5%204.5L19%207%22%2F%3E%3C%2Fsvg%3E") center/16px 16px no-repeat!important}
+html body #colorbox #watchdog-form input.watchdog-checkbox:checked{border-color:#168bd2!important;background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23168bd2%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012.5l4.5%204.5L19%207%22%2F%3E%3C%2Fsvg%3E") center/15px 15px no-repeat!important}
 html body #colorbox #watchdog-form input.watchdog-checkbox::before,html body #colorbox #watchdog-form input.watchdog-checkbox::after{content:none!important;display:none!important}
 html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label{flex:1 1 auto!important;margin:0!important;padding:0!important;font:600 15px/1.3 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;cursor:pointer!important;text-transform:none!important;letter-spacing:0!important}
 html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label::before,html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label::after{content:none!important;display:none!important}
@@ -130,3 +133,6 @@ html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit
 .okla-share__item:hover,.okla-share__item:focus-visible{background:#f3f5f8;color:#16478b;text-decoration:none}
 .okla-share__item svg{flex:0 0 22px;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .okla-share__item--copy.is-done{color:#1b7a3d}
+/* no glow around the checkbox after a click (keyboard focus keeps a thin outline) */
+html body #colorbox #watchdog-form input.watchdog-checkbox:not(#okla-wd-a#okla-wd-b):is(:focus,:active,:hover){box-shadow:none!important;outline:0!important}
+html body #colorbox #watchdog-form input.watchdog-checkbox:not(#okla-wd-a#okla-wd-b):focus-visible{outline:2px solid #168bd2!important;outline-offset:2px!important}
