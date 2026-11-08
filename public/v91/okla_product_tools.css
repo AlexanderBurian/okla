@@ -80,7 +80,7 @@ html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input[type="tex
   font:400 15px/1.45 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;
 }
 html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input[type="text"],input[type="email"]){height:48px!important}
-html body #colorbox :is(#watchdog-form,#formProductQuestion) textarea{min-height:130px!important;padding:12px 14px!important;resize:vertical!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) textarea.form-control[name]{min-height:130px!important;padding:12px 14px!important;line-height:1.5!important;resize:vertical!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
 /* hlídací pes: the three choices as tappable rows with our checkbox */
 html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox){
