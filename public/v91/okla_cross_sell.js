@@ -74,23 +74,11 @@
   sec.innerHTML=
    '<div class="okla-xsell__head"><h2 class="okla-xsell__title">Doporučujeme přidat k nákupu</h2>'+
    '<p class="okla-xsell__sub">Zaškrtněte, co chcete přidat do košíku spolu s tímto produktem.</p></div>'+
-   '<div class="okla-xsell__list">'+list.map(rowHtml).join('')+'</div>'+
-   '<div class="okla-xsell__foot" aria-live="polite"><span class="okla-xsell__count">Nic zatím nevybráno</span>'+
-   '<a class="okla-xsell__cart" href="/kosik/" hidden>Zobrazit košík</a></div>';
+   '<div class="okla-xsell__list">'+list.map(rowHtml).join('')+'</div>';
   return sec;
  }
 
  function wire(sec,list){
-  var foot=sec.querySelector('.okla-xsell__foot');
-  var countEl=sec.querySelector('.okla-xsell__count');
-  var cartLink=sec.querySelector('.okla-xsell__cart');
-  function updateFoot(){
-   var rows=sec.querySelectorAll('.okla-xsell__item.is-added');
-   var n=rows.length,sum=0;
-   rows.forEach(function(r){sum+=list[+r.getAttribute('data-i')].price});
-   if(n===0){countEl.textContent='Nic zatím nevybráno';cartLink.hidden=true;foot.classList.remove('is-active');}
-   else{countEl.innerHTML='Přidáno '+n+' '+(n===1?'položka':(n<5?'položky':'položek'))+' · <strong>+'+fmt(sum)+'</strong>';cartLink.hidden=false;foot.classList.add('is-active');}
-  }
   function toggle(row){
    if(row.classList.contains('is-busy'))return;
    var it=list[+row.getAttribute('data-i')];
@@ -98,7 +86,7 @@
    row.classList.add('is-busy');
    var done=function(ok){
     row.classList.remove('is-busy');
-    if(ok){row.classList.toggle('is-added',adding);row.setAttribute('aria-pressed',String(adding));refreshCart();updateFoot();}
+    if(ok){row.classList.toggle('is-added',adding);row.setAttribute('aria-pressed',String(adding));refreshCart();}
    };
    (adding?addToCart(it):removeFromCart(it)).then(function(){done(true)}).catch(function(){done(false);});
   }
@@ -106,7 +94,6 @@
    row.addEventListener('click',function(e){if(e.target.closest('a'))return;toggle(row);});
    row.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(row);}});
   });
-  updateFoot();
  }
 
  function mount(){

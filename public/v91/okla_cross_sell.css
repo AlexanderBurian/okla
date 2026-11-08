@@ -9,7 +9,6 @@
 
 .okla-xsell__item{position:relative;display:flex;align-items:center;gap:12px;box-sizing:border-box;padding:10px;border-radius:12px;cursor:pointer;background:#fff;transition:background-color .15s ease}
 .okla-xsell__item+.okla-xsell__item{margin-top:2px}
-.okla-xsell__item:hover{background:#f5f8fc}
 .okla-xsell__item.is-busy{opacity:.6;pointer-events:none}
 .okla-xsell__item.is-added{background:#f1faec}
 .okla-xsell__item:focus-visible{outline:2px solid #16478b;outline-offset:2px}
@@ -17,7 +16,6 @@
 /* The "přidat" checkbox */
 .okla-xsell__check{flex:0 0 24px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #c2cedd;border-radius:7px;background:#fff;color:#fff;transition:border-color .15s ease,background-color .15s ease}
 .okla-xsell__check svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease}
-.okla-xsell__item:hover .okla-xsell__check{border-color:#8fb96f}
 .okla-xsell__item.is-added .okla-xsell__check{background:#66D400;border-color:#66D400}
 .okla-xsell__item.is-added .okla-xsell__check svg{opacity:1;transform:none}
 
@@ -36,12 +34,7 @@
 .okla-xsell__detail svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 .okla-xsell__price{flex:0 0 auto;font:800 15px/1 "Exo 2",Arial,sans-serif;color:#0b2540;white-space:nowrap;text-align:right}
-
-.okla-xsell__foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid #eef2f7;background:#fbfdff;font:600 13.5px/1.3 "Exo 2",Arial,sans-serif;color:#64748b}
-.okla-xsell__foot.is-active{color:#0b2540;background:#f1faec;border-top-color:#dcefc8}
-.okla-xsell__count strong{font-weight:800;color:#2f7a00}
-.okla-xsell__cart{flex:0 0 auto;color:#16478b;font-weight:700;text-decoration:none;white-space:nowrap}
-.okla-xsell__cart:hover{text-decoration:underline}
+.okla-xsell__list{padding-bottom:12px}
 
 @media(max-width:767px){
  .okla-xsell{margin:22px 0 2px;border-radius:16px}
