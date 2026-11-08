@@ -262,3 +262,68 @@ html body #colorbox #dialogFormRating textarea{min-height:120px!important;resize
 html body #colorbox #dialogFormRating :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
 html body #colorbox #dialogFormRating .consents,html body #colorbox #dialogFormRating .consents .label{font:400 13px/1.45 "Exo 2",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
 html body #colorbox #dialogFormRating .consents a{color:#168bd2!important}
+
+/* ================= "Napsat recenzi" form (Shoptet #rate-form, moved under the summary by okla_detail.js) =================
+   A light-grey rounded card: stars first, then name + e-mail side by side, the review, the consent line and the
+   green button. */
+html body #content .ok97-review-form{margin:18px 0 0!important;padding:26px 28px 24px!important;border:0!important;border-radius:20px!important;background:#f3f5f8!important;font-family:"Exo 2",Arial,sans-serif!important}
+html body #content .ok97-review-form[hidden]{display:none!important}
+html body #content .ok97-review-form__title{margin:0 0 4px!important;padding:0!important;border:0!important;font:800 21px/1.25 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important}
+html body #content .ok97-review-form__title::before,html body #content .ok97-review-form__title::after{content:none!important;display:none!important}
+html body #content .ok97-review-form__note{margin:0 0 18px!important;font:400 14px/1.45 "Exo 2",Arial,sans-serif!important;color:#6b7280!important}
+html body #content .ok97-review-form #rate-form{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+html body #content .ok97-review-form #formRating{display:grid!important;grid-template-columns:1fr 1fr!important;gap:14px 16px!important;width:100%!important;max-width:760px!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+html body #content .ok97-review-form #formRating > *{grid-column:1 / -1!important;margin:0!important}
+html body #content .ok97-review-form #formRating > .form-group:has(#ratingName),
+html body #content .ok97-review-form #formRating > .form-group:has(#ratingEmail){grid-column:auto!important}
+html body #content .ok97-review-form #formRating > .rating-stars-group{order:-1!important}
+html body #content .ok97-review-form #formRating .form-legend{display:none!important}
+html body #content .ok97-review-form #formRating .form-group{width:auto!important;max-width:none!important;padding:0!important;float:none!important}
+html body #content .ok97-review-form #formRating .form-group > label{display:block!important;position:static!important;margin:0 0 6px!important;padding:0!important;font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important;transform:none!important}
+html body #content .ok97-review-form #formRating .form-control-wrapper{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
+html body #content .ok97-review-form #formRating :is(input[type="text"],input[type="email"],textarea){
+  display:block!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important;padding:0 14px!important;
+  border:1px solid #d9e0e8!important;border-radius:12px!important;background:#fff!important;box-shadow:none!important;outline:0!important;
+  font:400 15px/1.45 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;
+}
+html body #content .ok97-review-form #formRating :is(input[type="text"],input[type="email"]){height:48px!important}
+html body #content .ok97-review-form #formRating textarea{min-height:130px!important;padding:12px 14px!important;resize:vertical!important}
+html body #content .ok97-review-form #formRating :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+html body #content .ok97-review-form #formRating .rating-stars-description{margin:0 0 8px!important;font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important}
+html body #content .ok97-review-form #formRating .rating-stars-description .required-asterisk{font-size:0!important}
+html body #content .ok97-review-form #formRating .rating-stars-description .required-asterisk{color:#0b2540!important}
+html body #content .ok97-review-form #formRating .rating-stars-description .required-asterisk::before{content:"Vaše hodnocení"!important;font-size:12px!important;display:inline!important;color:#0b2540!important}
+html body #content .ok97-review-form #formRating .rating-stars-description .required-asterisk::after{content:none!important;display:none!important}
+html body #content .ok97-review-form #formRating .rating-stars-wrapper{display:flex!important;gap:4px!important;margin:0!important;padding:0!important}
+html body #content .ok97-review-form #formRating label.rating-star{
+  position:relative!important;display:block!important;width:44px!important;height:44px!important;margin:0!important;padding:0!important;cursor:pointer!important;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23fff%22%20stroke%3D%22%23c3ccd6%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/38px 38px no-repeat!important;
+  transition:transform .12s ease!important;
+}
+html body #content .ok97-review-form #formRating label.rating-star::before,html body #content .ok97-review-form #formRating label.rating-star::after{content:none!important;display:none!important}
+html body #content .ok97-review-form #formRating label.rating-star input{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;opacity:0!important;cursor:pointer!important}
+html body #content .ok97-review-form #formRating label.rating-star.full,
+html body #content .ok97-review-form #formRating .rating-stars-wrapper:hover label.rating-star:has(~ label.rating-star:hover),
+html body #content .ok97-review-form #formRating .rating-stars-wrapper:hover label.rating-star:hover{
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%20stroke%3D%22%23e3a400%22%20stroke-width%3D%221.2%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E")!important;
+}
+html body #content .ok97-review-form #formRating .rating-stars-wrapper:hover label.rating-star:hover ~ label.rating-star{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23fff%22%20stroke%3D%22%23c3ccd6%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E")!important}
+html body #content .ok97-review-form #formRating label.rating-star:hover{transform:scale(1.08)!important}
+html body #content .ok97-review-form #formRating label.rating-star:has(input:focus-visible){outline:2px solid #168bd2!important;outline-offset:2px!important;border-radius:10px!important}
+html body #content .ok97-review-form #formRating p.rating-star-description{min-height:20px!important;margin:6px 0 0!important;font:600 14px/1.4 "Exo 2",Arial,sans-serif!important;color:#168bd2!important}
+html body #content .ok97-review-form #formRating .consents,html body #content .ok97-review-form #formRating .consents .label{margin:0!important;font:400 13px/1.45 "Exo 2",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
+html body #content .ok97-review-form #formRating .consents a{color:#168bd2!important}
+html body #content .ok97-review-form #formRating button[type="submit"]{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:240px!important;height:52px!important;margin:4px 0 0!important;padding:0 28px!important;box-sizing:border-box!important;
+  border:1px solid #66d400!important;border-radius:12px!important;background:#66d400!important;background-image:none!important;box-shadow:none!important;
+  font:700 15px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
+}
+html body #content .ok97-review-form #formRating button[type="submit"]:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+html body #content .ok97-review-form #formRating .js-validator-msg{margin:6px 0 0!important;font-size:13px!important}
+@media(max-width:767px){
+  html body #content .ok97-review-form{padding:22px 18px 20px!important;border-radius:18px!important}
+  html body #content .ok97-review-form #formRating{grid-template-columns:1fr!important}
+  html body #content .ok97-review-form #formRating > .form-group:has(#ratingName),
+  html body #content .ok97-review-form #formRating > .form-group:has(#ratingEmail){grid-column:1 / -1!important}
+  html body #content .ok97-review-form #formRating button[type="submit"]{width:100%!important;min-width:0!important}
+}

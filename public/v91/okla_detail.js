@@ -195,6 +195,15 @@
  }
  /* Dedicated review tab. It uses the real Shoptet rating trigger and keeps
     every native form/action intact; only presentation and placement change. */
+ /* links to Shoptet's rating tab ("Podrobnosti hodnocení" under the title) open our "Hodnocení" */
+ document.addEventListener('click',function(e){
+  var a=e.target&&e.target.closest&&e.target.closest('a[href$="#ratingTab"]');if(!a)return;
+  var tab=q('ul.p-detail-tabs a[href="#ok97-review-block"]'),head=qa('.okla-ptab-head').find(h=>h.getAttribute('aria-controls')==='ok97-review-block');
+  var target=q('#ok97-review-block');if(!target)return;
+  e.preventDefault();e.stopImmediatePropagation();
+  if(head&&head.offsetParent){if(head.getAttribute('aria-expanded')!=='true')head.click();head.scrollIntoView({block:'start',behavior:'smooth'})}
+  else if(tab){tab.click();(q('.shp-tabs-wrapper')||target).scrollIntoView({block:'start',behavior:'smooth'})}
+ },true);
  function reviewSection(detail){
   if(q('.ok97-review-block'))return;
   var content=q('#tab-content'),data=ratingData(detail);
@@ -214,7 +223,27 @@
    nativeReview.classList.add('ok97-write-review');nativeReview.textContent='Napsat recenzi';
    var icon=document.createElementNS(NS,'svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');var pp=document.createElementNS(NS,'path');pp.setAttribute('d','M4 20h4l11-11-4-4L4 16v4z M13 7l4 4');icon.append(pp);nativeReview.prepend(icon);action.append(nativeReview);
   }
+  /* written reviews: Shoptet's own form (#rate-form, name, e-mail, review, stars) opens under the summary with
+     "Napsat recenzi"; it is the native form, so Shoptet's validation, consent and sending stay as they are */
+  var rateForm=q('#rate-form');
+  var formBox=null;
+  if(rateForm&&!nativeReview){
+   formBox=el('div','ok97-review-form');formBox.id='ok97-review-form';formBox.hidden=true;
+   formBox.append(el('h3','ok97-review-form__title','Napsat recenzi'));
+   formBox.append(el('p','ok97-review-form__note','Recenzi zveřejníme po kontrole. E-mail se nezobrazuje.'));
+   rateForm.classList.remove('js-hidden');rateForm.removeAttribute('hidden');formBox.append(rateForm);
+   var writeBtn=el('button','btn btn--link ok97-write-review');writeBtn.type='button';
+   writeBtn.setAttribute('aria-expanded','false');writeBtn.setAttribute('aria-controls','ok97-review-form');
+   var wIcon=document.createElementNS(NS,'svg');wIcon.setAttribute('viewBox','0 0 24 24');wIcon.setAttribute('aria-hidden','true');var wp=document.createElementNS(NS,'path');wp.setAttribute('d','M4 20h4l11-11-4-4L4 16v4z M13 7l4 4');wIcon.append(wp);
+   writeBtn.append(wIcon,document.createTextNode('Napsat recenzi'));
+   writeBtn.addEventListener('click',function(){
+    formBox.hidden=!formBox.hidden;writeBtn.setAttribute('aria-expanded',formBox.hidden?'false':'true');
+    if(!formBox.hidden){formBox.scrollIntoView({block:'start',behavior:'smooth'});setTimeout(function(){var f=q('input[name="fullName"]',formBox);if(f)f.focus({preventScroll:true})},350)}
+   });
+   action.append(writeBtn);
+  }
   summary.append(scoreBox,action);section.append(summary);
+  if(formBox)section.append(formBox);
   /* written reviews (Shoptet "Pokročilé hodnocení s diskusí"): Shoptet's list moves here; its own rating tab
      (summary + list) is hidden so the product has a single "Hodnocení" */
   var nativeVotes=q('#ratingsList')||q('.votes-wrap',document)||q('.product-ratings',detail)||q('[data-testid="productRating"]',detail);
