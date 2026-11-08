@@ -19,7 +19,17 @@
   s.setAttribute('viewBox','0 0 24 24');s.setAttribute('class','okla-cta-cart');s.setAttribute('aria-hidden','true');
   s.setAttribute('fill','none');s.setAttribute('stroke','currentColor');s.setAttribute('stroke-width','2');
   s.setAttribute('stroke-linecap','round');s.setAttribute('stroke-linejoin','round');
-  s.style.cssText='flex:0 0 auto;width:18px;height:18px;margin-right:8px;display:inline-block;vertical-align:middle;color:inherit';
+  /* inline !important beats the stylesheet rules that hide cart glyphs inside these buttons */
+  s.style.setProperty('display','inline-block','important');
+  s.style.setProperty('width','18px','important');
+  s.style.setProperty('height','18px','important');
+  s.style.setProperty('min-width','18px','important');
+  s.style.setProperty('margin','0 8px 0 0','important');
+  s.style.setProperty('flex','0 0 auto','important');
+  s.style.setProperty('opacity','1','important');
+  s.style.setProperty('visibility','visible','important');
+  s.style.setProperty('vertical-align','middle','important');
+  s.style.setProperty('color','inherit','important');
   var p=document.createElementNS(NS,'path');p.setAttribute('d','M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6');s.appendChild(p);
   [[9,20],[18,20]].forEach(function(c){var ci=document.createElementNS(NS,'circle');ci.setAttribute('cx',c[0]);ci.setAttribute('cy',c[1]);ci.setAttribute('r','1.5');s.appendChild(ci)});
   return s;
