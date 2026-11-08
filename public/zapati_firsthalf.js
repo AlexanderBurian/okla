@@ -6,6 +6,9 @@
 
   var current = document.currentScript;
   var apiUrl = current && current.getAttribute('data-api-url');
+  var assetBase = current && current.src
+    ? current.src.split(/[?#]/)[0].replace(/[^/]*$/, '')
+    : '';
 
   /*
    * Native Shoptet article previews for the custom OKLA homepage news grid.
@@ -117,6 +120,81 @@
     });
   }
   syncNativeArticleImages();
+
+  /*
+   * Two compact trust badges below Shoptet's native Visa/Mastercard row.
+   * Together they are exactly as wide as the native 148 px payment image.
+   */
+  function mountPaymentTrustBadges() {
+    var paymentBox = document.querySelector('.box-onlinePayments');
+    var paymentRow = paymentBox && paymentBox.querySelector('p.text-center');
+    if (!paymentRow || document.getElementById('okla-payment-trust-badges')) return false;
+
+    var style = document.getElementById('okla-payment-trust-badges-style');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'okla-payment-trust-badges-style';
+      style.textContent =
+        '#okla-payment-trust-badges{' +
+          'display:grid!important;' +
+          'grid-template-columns:repeat(2,minmax(0,1fr))!important;' +
+          'align-items:center!important;' +
+          'gap:8px!important;' +
+          'width:148px!important;' +
+          'max-width:100%!important;' +
+          'margin:10px auto 0!important;' +
+          'padding:0!important' +
+        '}' +
+        '#okla-payment-trust-badges .okla-payment-trust-badge{' +
+          'display:flex!important;' +
+          'align-items:center!important;' +
+          'justify-content:center!important;' +
+          'min-width:0!important;' +
+          'height:28px!important;' +
+          'margin:0!important;' +
+          'padding:0!important' +
+        '}' +
+        '#okla-payment-trust-badges img{' +
+          'display:block!important;' +
+          'width:100%!important;' +
+          'height:28px!important;' +
+          'max-width:none!important;' +
+          'margin:0!important;' +
+          'object-fit:contain!important;' +
+          'object-position:center!important' +
+        '}';
+      (document.head || document.documentElement).appendChild(style);
+    }
+
+    var badges = document.createElement('div');
+    badges.id = 'okla-payment-trust-badges';
+    badges.setAttribute('aria-label', 'Bezpečné připojení a Shoptet Pay');
+    badges.innerHTML =
+      '<span class="okla-payment-trust-badge">' +
+        '<img src="' + assetBase + 'okla_sidebar/https-secure.png" alt="HTTPS zabezpečené připojení" width="70" height="28" loading="lazy">' +
+      '</span>' +
+      '<span class="okla-payment-trust-badge">' +
+        '<img src="' + assetBase + 'okla_sidebar/shoptet-pay.png" alt="Shoptet Pay" width="70" height="28" loading="lazy">' +
+      '</span>';
+    paymentRow.insertAdjacentElement('afterend', badges);
+    return true;
+  }
+
+  function initPaymentTrustBadges() {
+    if (mountPaymentTrustBadges()) return;
+    var root = document.getElementById('content-wrapper') || document.body;
+    if (!root) return;
+    var observer = new MutationObserver(function () {
+      if (mountPaymentTrustBadges()) observer.disconnect();
+    });
+    observer.observe(root, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPaymentTrustBadges, { once: true });
+  } else {
+    initPaymentTrustBadges();
+  }
 
   var storefrontUrl = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@4bbf6608f1a9bbd5c106a86e9623f0b5485b6033/public/zapati_firsthalf.js?v=100';
   var aiBase = 'https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@cf6fd489ea3a618a1bc2726a9ca5806b3705a93d/public/ai/v1/';
