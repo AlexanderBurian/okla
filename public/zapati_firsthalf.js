@@ -110,6 +110,8 @@ if(isDetail) modules.push('v91/okla_desktop_buybar.css','v91/okla_desktop_buybar
 /* Absolute final CSS pass: every textual UI element uses the same Exo 2 family.
    Icon-font classes are excluded inside the stylesheet so pictograms remain intact. */
 modules.push('v91/okla_global_typography.css');
+/* Final product-commerce palette: red prices and rounded green add-to-cart CTAs. */
+modules.push('v91/okla_product_commerce.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,

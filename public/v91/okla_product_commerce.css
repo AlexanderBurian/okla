@@ -1,0 +1,97 @@
+/* OKLA product-commerce palette.
+   Deliberately limited to product prices and real add-to-cart controls: quantity
+   steppers, filters, forms and the rest of the button system remain untouched. */
+:root{
+ --okla-commerce-price:#e30613;
+ --okla-commerce-cart:#49a700;
+ --okla-commerce-cart-hover:#3f9200;
+}
+
+/* Product cards: the selling price is red in every listing and carousel. */
+html body #content .products .product .price-final,
+html body #content .products .product .price-final *,
+html body #content .okla-cards .product .price-final,
+html body #content .okla-cards .product .price-final *{
+ color:var(--okla-commerce-price)!important;
+ -webkit-text-fill-color:var(--okla-commerce-price)!important;
+}
+
+/* Product-card CTAs: one solid green treatment on desktop and mobile. */
+html body #content .products .product .p-tools .btn-cart:not(:disabled),
+html body #content .okla-slider-track .product .p-tools .btn-cart:not(:disabled),
+html body #content .okla-cards .product .p-tools .btn-cart:not(:disabled){
+ border:1px solid var(--okla-commerce-cart)!important;
+ border-radius:8px!important;
+ background:var(--okla-commerce-cart)!important;
+ background-color:var(--okla-commerce-cart)!important;
+ background-image:none!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ box-shadow:none!important;
+ text-shadow:none!important;
+ transition:background-color .16s ease,border-color .16s ease!important;
+}
+html body #content .products .product .p-tools .btn-cart:not(:disabled) :is(span,i,svg),
+html body #content .okla-slider-track .product .p-tools .btn-cart:not(:disabled) :is(span,i,svg),
+html body #content .okla-cards .product .p-tools .btn-cart:not(:disabled) :is(span,i,svg){
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ stroke:currentColor!important;
+}
+html body #content .products .product .p-tools .btn-cart:not(:disabled)::before,
+html body #content .okla-slider-track .product .p-tools .btn-cart:not(:disabled)::before,
+html body #content .okla-cards .product .p-tools .btn-cart:not(:disabled)::before{
+ background-color:#fff!important;
+}
+html body #content .products .product .p-tools .btn-cart:not(:disabled):is(:hover,:focus-visible),
+html body #content .products .product:hover .p-tools .btn-cart:not(:disabled),
+html body #content .okla-slider-track .product .p-tools .btn-cart:not(:disabled):is(:hover,:focus-visible),
+html body #content .okla-slider-track .product:hover .p-tools .btn-cart:not(:disabled),
+html body #content .okla-cards .product .p-tools .btn-cart:not(:disabled):is(:hover,:focus-visible),
+html body #content .okla-cards .product:hover .p-tools .btn-cart:not(:disabled){
+ border-color:var(--okla-commerce-cart-hover)!important;
+ background:var(--okla-commerce-cart-hover)!important;
+ background-color:var(--okla-commerce-cart-hover)!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+
+/* Product detail and the native price keep the same palette. */
+html body.ok89-detail #content .p-detail .price-final,
+html body.ok89-detail #content .p-detail .price-final *{
+ color:var(--okla-commerce-price)!important;
+ -webkit-text-fill-color:var(--okla-commerce-price)!important;
+}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary:not(:disabled){
+ border:1px solid var(--okla-commerce-cart)!important;
+ border-radius:8px!important;
+ background:var(--okla-commerce-cart)!important;
+ background-color:var(--okla-commerce-cart)!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary:not(:disabled):is(:hover,:focus-visible){
+ border-color:var(--okla-commerce-cart-hover)!important;
+ background:var(--okla-commerce-cart-hover)!important;
+ background-color:var(--okla-commerce-cart-hover)!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{
+ color:#fff!important;
+ filter:brightness(0) invert(1)!important;
+}
+
+/* Suggested-product button inside the native cart drawer. */
+#okla-cart-drawer .okla-cd__card-btn:not(:disabled),
+#okla-cart-drawer .okla-cd__card-btn:not(:disabled) :is(span,strong,b,small){
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+#okla-cart-drawer .okla-cd__card-btn:not(:disabled){
+ border-radius:8px!important;
+ background:var(--okla-commerce-cart)!important;
+}
+#okla-cart-drawer .okla-cd__card-btn:not(:disabled):is(:hover,:focus-visible){
+ background:var(--okla-commerce-cart-hover)!important;
+}

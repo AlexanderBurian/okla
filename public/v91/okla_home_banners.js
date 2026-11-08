@@ -1,7 +1,8 @@
 /* OKLA homepage banners: the hero (Flipper Zero on desktop, plus the glasses on mobile) in the
    main Shoptet carousel slot, and the two lower tiles (glasses, then the endoscopes bottom right). Every banner has the
    same darkening, text and blue CTA. The hero has dots and autoplay; the dots show only on mobile, under the picture.
-   Autoplay pauses on hover and focus and skips slides that are hidden on the current screen. */
+   Autoplay stays continuous on phones, pauses on desktop hover/focus and skips
+   slides that are hidden on the current screen. */
 (function(){
  'use strict';
  if(window.__oklaHomeBannersV1)return;
@@ -93,9 +94,10 @@
     restart();
    });
   });
-  hero.addEventListener('mouseenter',function(){ paused=true; });
+  function isPhone(){ return window.matchMedia&&window.matchMedia('(max-width:767px)').matches; }
+  hero.addEventListener('mouseenter',function(){ if(!isPhone())paused=true; });
   hero.addEventListener('mouseleave',function(){ paused=false; });
-  hero.addEventListener('focusin',function(){ paused=true; });
+  hero.addEventListener('focusin',function(){ if(!isPhone())paused=true; });
   hero.addEventListener('focusout',function(){ paused=false; });
 
   set(0);

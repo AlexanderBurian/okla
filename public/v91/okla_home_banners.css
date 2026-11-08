@@ -88,9 +88,10 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  .okla-hero__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
  /* Room under the picture for the dots, so the sections below start under them. */
  html body.type-index #content .banners-row{padding-bottom:26px!important}
- /* Four distinct clickable dots sit close under the picture on mobile. */
- .okla-hero__dots{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;min-height:10px}
- .okla-hero__dots button{display:block;flex:0 0 9px;width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#c9d2de;box-shadow:none;cursor:pointer;transition:background-color .18s ease}
- .okla-hero__dots button[aria-current="true"]{width:9px;background:#0a7ad9;box-shadow:none;transform:none}
+ /* Compact neutral pagination: dots for waiting banners, a long pill for the
+    banner that is playing now. */
+ .okla-hero__dots{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:7px;margin-top:8px;min-height:10px}
+ .okla-hero__dots button{display:block;flex:0 0 8px;width:8px;height:8px;padding:0;border:0;border-radius:999px;background:#c7ced8;box-shadow:none;cursor:pointer;transition:flex-basis .22s ease,width .22s ease,background-color .22s ease}
+ .okla-hero__dots button[aria-current="true"]{flex-basis:38px;width:38px;background:#aeb7c3;box-shadow:none;transform:none}
  .okla-hero__dots button:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 }
