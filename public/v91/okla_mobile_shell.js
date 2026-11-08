@@ -7,7 +7,7 @@
  window.__oklaMobileShell = true;
 
  var narrow = window.matchMedia('(max-width:767px)');
- var isDetail = !!(document.body && document.body.classList.contains('ok89-detail'));
+ var isDetail = !!((document.body && document.body.classList.contains('ok89-detail')) || document.querySelector('#content .p-detail'));
  var NS = 'http://www.w3.org/2000/svg';
  var SEARCH_ACTION = '/action/ProductSearch/prepareString/';
  var SEARCH_PATHS = ['M10.8 17.5a6.7 6.7 0 1 0 0-13.4 6.7 6.7 0 0 0 0 13.4Z', 'm15.9 15.9 4.7 4.7'];
@@ -156,11 +156,25 @@
  }
 
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
- var spacer = null, stuck = false, lastY = 0, ticking = false;
+ var spacer = null, stuck = false, lastY = 0, ticking = false, stickyAfter = 80;
+
+ function measureStickyAfter() {
+  if (stuck) return;
+  var pageHeader = document.getElementById('header');
+  if (!pageHeader) return;
+  var rect = pageHeader.getBoundingClientRect();
+  stickyAfter = Math.max(80, Math.round((window.pageYOffset || document.documentElement.scrollTop || 0) + rect.bottom + 8));
+ }
 
  function setSticky(on, hidden) {
   var h = document.getElementById('okla-v61-header');
   if (!h) return;
+  /* A product detail keeps only its ordinary in-page header. The floating
+     mobile header must never cover the gallery, breadcrumb or page gradient. */
+  if (isDetail) {
+   document.documentElement.classList.remove('okla-m-stuck', 'okla-m-hidden', 'okla-m-instant');
+   return;
+  }
   if (!spacer) {
    spacer = el('div', 'okla-m-header-spacer');
    h.parentNode.insertBefore(spacer, h.nextSibling);
@@ -187,17 +201,13 @@
   lastY = y;
   if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
   if (isDetail) {
-    // Product pages: the header stays on screen the whole time; once fixed it
-    // stays fixed until the very top, so it never vanishes half way.
-    setSticky(y >= 80 || (stuck && y > 0), false);
-    return;
+   if (stuck) setSticky(false, false);
+   return;
   }
-  if (y < 80) {
-   if (!stuck) return;
-   var hiddenNow = document.documentElement.classList.contains('okla-m-hidden');
-   // a hidden fixed header gives way to the one in the page; a shown one stays until the very top
-   if (hiddenNow || y <= 0) setSticky(false, false);
-   else if (dy > 4) setSticky(true, true);
+  /* Do not create the floating header while any part of the original header
+     and its gradient is still in the viewport. */
+  if (y <= stickyAfter) {
+   if (stuck) setSticky(false, false);
    return;
   }
   if (dy < -4) setSticky(true, false);
@@ -280,11 +290,16 @@
  }
 
  function init() {
+  if (isDetail) {
+   document.documentElement.classList.add('okla-m-detail-no-sticky');
+   document.documentElement.classList.remove('okla-m-stuck', 'okla-m-hidden', 'okla-m-instant');
+  }
   addHeaderButton();
   buildBuyBar();
   addShare();
   lastY = window.pageYOffset || 0;
-  window.addEventListener('resize', placeBar);
+  measureStickyAfter();
+  window.addEventListener('resize', function () { placeBar(); measureStickyAfter(); });
   narrow.addEventListener('change', function (e) {
    if (e.matches) return;
    closeSearch();
@@ -303,5 +318,6 @@
   addHeaderButton();
   buildBuyBar();
   addShare();
+  measureStickyAfter();
  });
 })();

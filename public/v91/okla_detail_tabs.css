@@ -374,7 +374,9 @@ html body #content .votes-wrap .ok97-vote-cons li::before{background:#d6243a url
 /* phones: the same tabs, a little smaller */
 @media(max-width:767px){
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) > .row > [class*="col-"]{padding-left:0!important;padding-right:0!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a{height:50px!important;min-height:50px!important;padding:0 6px!important;font-size:15px!important;border-radius:14px 14px 0 0!important;white-space:nowrap!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a{height:50px!important;min-height:50px!important;min-width:0!important;padding:0 4px!important;font-size:14px!important;border-radius:14px 14px 0 0!important;white-space:nowrap!important;overflow:hidden!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a .okla-tab-label{font-size:0!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a .okla-tab-label::after{content:"Popis"!important;font-size:14px!important;line-height:1!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{padding-top:22px!important}
   /* the description lines up with the tabs */
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #description .description-inner{padding-left:0!important;padding-right:0!important}
