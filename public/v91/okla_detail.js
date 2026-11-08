@@ -211,13 +211,18 @@
   action.append(el('strong',null,'Máte s produktem zkušenost?'),el('span',null,'Pomozte ostatním zákazníkům s výběrem.'));
   var nativeReview=q('button.js-ratingDialogTrigger',data.wrap)||qa('a[href]',detail).find(a=>/napsat (recenzi|hodnocení)|přidat hodnocení/i.test(a.textContent||'')&&!a.getAttribute('href')?.startsWith('javascript:'));
   if(nativeReview){
-   nativeReview.classList.add('ok97-write-review');nativeReview.textContent=data.count?'Zobrazit hodnocení':'Napsat hodnocení';
+   nativeReview.classList.add('ok97-write-review');nativeReview.textContent='Napsat recenzi';
    var icon=document.createElementNS(NS,'svg');icon.setAttribute('viewBox','0 0 24 24');icon.setAttribute('aria-hidden','true');var pp=document.createElementNS(NS,'path');pp.setAttribute('d','M4 20h4l11-11-4-4L4 16v4z M13 7l4 4');icon.append(pp);nativeReview.prepend(icon);action.append(nativeReview);
   }
   summary.append(scoreBox,action);section.append(summary);
-  var nativeVotes=q('.votes-wrap',detail)||q('.product-ratings',detail)||q('[data-testid="productRating"]',detail);
-  if(nativeVotes){nativeVotes.classList.add('ok97-native-reviews');section.append(nativeVotes)}
-  else section.append(el('div','ok97-review-empty',data.count?'Jednotlivá hodnocení otevřete tlačítkem „Zobrazit hodnocení“.':'Buďte první, kdo tento produkt ohodnotí.'));
+  /* written reviews (Shoptet "Pokročilé hodnocení s diskusí"): Shoptet's list moves here; its own rating tab
+     (summary + list) is hidden so the product has a single "Hodnocení" */
+  var nativeVotes=q('#ratingsList')||q('.votes-wrap',document)||q('.product-ratings',detail)||q('[data-testid="productRating"]',detail);
+  var nativeTab=q('#ratingTab');
+  if(nativeVotes&&nativeVotes.querySelector('.vote-wrap')){nativeVotes.classList.add('ok97-native-reviews');section.append(nativeVotes)}
+  else nativeVotes=null;
+  if(nativeTab){nativeTab.classList.add('okla-ptab-hidden');var nl=q('ul.p-detail-tabs a[href$="#ratingTab"]');if(nl&&nl.closest('li'))nl.closest('li').classList.add('okla-ptab-hidden')}
+  else section.append(el('div','ok97-review-empty',data.count?'Zatím tu nejsou žádné slovní recenze. Napište první.':'Buďte první, kdo tento produkt ohodnotí.'));
   content.append(section);
  }
  /* A card may be actionable only after its own live Shoptet stock has been confirmed. */

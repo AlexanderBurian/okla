@@ -6,7 +6,9 @@
 /* a pane is visible only when this module opens it */
 html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content > .tab-pane{display:none!important}
 html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content > .tab-pane.okla-ptab-open{display:block!important;opacity:1!important;visibility:visible!important}
-html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content > .tab-pane.okla-ptab-hidden{display:none!important}
+html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content > .tab-pane.okla-ptab-hidden,
+html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.okla-ptab-hidden,
+html body #content ul.p-detail-tabs > li.okla-ptab-hidden{display:none!important}
 html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .navigation-btn,
 html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links{display:none!important}
 
@@ -197,3 +199,66 @@ html body #colorbox #ratingWrapper .rate-bar::before,html body #colorbox #rating
 html body #colorbox #ratingWrapper .rate-count{position:absolute!important;left:auto!important;right:-44px!important;width:34px!important;text-align:left!important;top:50%!important;transform:translateY(-50%)!important;margin:0!important;padding:0!important;font:600 13px/1 "Exo 2",Arial,sans-serif!important;color:#56657a!important;white-space:nowrap!important;background:none!important}
 html body #colorbox #ratingWrapper .rate-count.active{color:#0b2540!important}
 /* the bar is static, so the count is placed after the end of the whole track (.rate-block), not after the fill */
+
+/* ================= Written product reviews (Shoptet "Pokročilé hodnocení s diskusí") =================
+   Shoptet's own review list (#ratingsList .vote-wrap) in the Alza-like layout: avatar with initials, name and date,
+   gold stars, the review text; reviews separated by a thin line. okla_detail.js moves the list into the
+   "Hodnocení" tab under the summary. */
+html body #content .votes-wrap{display:block!important;margin:22px 0 0!important;padding:0!important;border:0!important;background:none!important}
+html body #content .votes-wrap .vote-wrap{
+  display:block!important;margin:0!important;padding:22px 4px!important;border:0!important;border-top:1px solid #e6ebf2!important;border-radius:0!important;
+  background:none!important;box-shadow:none!important;font-family:"Exo 2",Arial,sans-serif!important;
+}
+html body #content .votes-wrap .vote-wrap:first-child{border-top:0!important;padding-top:6px!important}
+html body #content .votes-wrap .vote-header{display:flex!important;align-items:center!important;gap:12px!important;margin:0 0 10px!important;padding:0!important}
+html body #content .votes-wrap .vote-pic{position:relative!important;display:block!important;flex:0 0 44px!important;width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;max-height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:50%!important;overflow:hidden!important;background:#eef6fd!important;transform:none!important}
+html body #content .votes-wrap .vote-initials{
+  position:absolute!important;inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;min-width:0!important;display:grid!important;place-items:center!important;margin:0!important;padding:0!important;border-radius:50%!important;transform:none!important;
+  background:var(--avatar-bg,#168bd2)!important;color:#fff!important;font:700 15px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:.02em!important;
+}
+html body #content .votes-wrap .vote-pic img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+html body #content .votes-wrap .vote-summary{display:flex!important;flex-direction:column!important;gap:3px!important;min-width:0!important}
+html body #content .votes-wrap .vote-name{display:block!important;font:700 16px/1.25 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;white-space:normal!important}
+html body #content .votes-wrap .vote-rating{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:10px!important}
+html body #content .votes-wrap .vote-rating .stars{display:flex!important;gap:2px!important}
+html body #content .votes-wrap .vote-rating .star{
+  display:block!important;width:18px!important;height:18px!important;margin:0!important;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23dfe5ec%22%2F%3E%3C%2Fsvg%3E") center/18px 18px no-repeat!important;
+}
+html body #content .votes-wrap .vote-rating .star.star-on,html body #content .votes-wrap .vote-rating .star.star-half{
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%2F%3E%3C%2Fsvg%3E")!important;
+}
+html body #content .votes-wrap .star::before,html body #content .votes-wrap .star::after{content:none!important;display:none!important}
+html body #content .votes-wrap .vote-delimeter{display:none!important}
+html body #content .votes-wrap .vote-time{font:400 13px/1.3 "Exo 2",Arial,sans-serif!important;color:#8a96a6!important}
+html body #content .votes-wrap .vote-time::before{content:"Hodnoceno "!important}
+html body #content .votes-wrap .vote-content{margin:0 0 0 56px!important;padding:0!important;font:400 15.5px/1.6 "Exo 2",Arial,sans-serif!important;color:#1f2d3d!important;white-space:pre-line!important;overflow-wrap:anywhere!important}
+/* the shop's answer under a review, when there is one */
+html body #content .votes-wrap .vote-wrap .vote-wrap,
+html body #content .votes-wrap .vote-reply,
+html body #content .votes-wrap .admin-response{margin:14px 0 0 56px!important;padding:14px 16px!important;border:0!important;border-radius:14px!important;background:#f3f5f8!important}
+@media(max-width:767px){
+  html body #content .votes-wrap .vote-content{margin-left:0!important}
+  html body #content .votes-wrap .vote-wrap .vote-wrap,
+  html body #content .votes-wrap .vote-reply,
+  html body #content .votes-wrap .admin-response{margin-left:0!important}
+}
+
+/* Text fields in the rating dialog (name, e-mail, review) once written reviews are on */
+html body #colorbox #dialogFormRating .form-group:not(.rating-stars-group):not(.dialog__actionButtons){margin:14px 0 0!important;padding:0!important;text-align:left!important}
+html body #colorbox #dialogFormRating .form-group > label,
+html body #colorbox #dialogFormRating .form-group > .label:not(.rating-stars-description){display:block!important;position:static!important;margin:0 0 6px!important;padding:0!important;font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important;text-align:left!important}
+html body #colorbox #dialogFormRating input.form-control,
+html body #colorbox #dialogFormRating textarea.form-control,
+html body #colorbox #dialogFormRating input[type="text"],
+html body #colorbox #dialogFormRating input[type="email"],
+html body #colorbox #dialogFormRating textarea{
+  display:block!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important;padding:12px 14px!important;
+  border:1px solid #cdd2da!important;border-radius:12px!important;background:#fff!important;box-shadow:none!important;outline:0!important;
+  font:400 15px/1.45 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;
+}
+html body #colorbox #dialogFormRating input.form-control,html body #colorbox #dialogFormRating input[type="text"],html body #colorbox #dialogFormRating input[type="email"]{height:46px!important;padding-top:0!important;padding-bottom:0!important}
+html body #colorbox #dialogFormRating textarea{min-height:120px!important;resize:vertical!important}
+html body #colorbox #dialogFormRating :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+html body #colorbox #dialogFormRating .consents,html body #colorbox #dialogFormRating .consents .label{font:400 13px/1.45 "Exo 2",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
+html body #colorbox #dialogFormRating .consents a{color:#168bd2!important}

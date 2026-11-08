@@ -42,9 +42,10 @@
   [].slice.call(tabs.children).forEach(function(li){
    var a=li.querySelector('a');if(!a)return;
    var id=(a.getAttribute('href')||'').replace(/^[^#]*#/,'');
-   var isDiscussion=/discussion|diskuz/i.test(id+' '+li.className+' '+(li.getAttribute('data-testid')||''));
+   /* discussion is not offered; Shoptet's own rating tab is folded into our "Hodnocení" (okla_detail.js) */
+   var isDiscussion=/discussion|diskuz|ratingTab/i.test(id+' '+li.className+' '+(li.getAttribute('data-testid')||''));
    var pane=id&&document.getElementById(id);
-   if(isDiscussion){li.style.display='none';if(pane)pane.classList.add('okla-ptab-hidden');return}
+   if(isDiscussion){li.style.display='none';li.classList.add('okla-ptab-hidden');if(pane)pane.classList.add('okla-ptab-hidden');return}
    if(!pane||!content.contains(pane))return;
    var isDesc=/description/.test(id);
    if(isDesc&&!a.querySelector('.okla-tab-label')){var lab=document.createElement('span');lab.className='okla-tab-label';lab.textContent='Popis produktu';a.appendChild(lab)}
