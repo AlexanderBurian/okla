@@ -1,0 +1,107 @@
+/* Absolute final cart/checkout pass. Loaded after the global field and button
+   systems so native Shoptet functionality stays intact while the visuals no
+   longer get recoloured by generic hover/focus rules. */
+
+/* The parcel may travel to the active checkout step, but never jumps/bounces. */
+html body.ordering-process .okla-parcel{
+ animation:none!important;
+}
+
+/* Goods total: label and live Shoptet value share one centred row. */
+html body.in-kosik .okla-goods-total-row{
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr) auto!important;
+ align-items:center!important;
+ gap:16px!important;
+ width:100%!important;
+ min-width:0!important;
+ margin:0!important;
+}
+html body.in-kosik .okla-goods-total-row>.okla-goods-total-label{
+ grid-column:1!important;
+ align-self:center!important;
+ justify-self:start!important;
+ margin:0!important;
+ text-align:left!important;
+}
+html body.in-kosik .okla-goods-total-row>.okla-goods-total-price{
+ grid-column:2!important;
+ align-self:center!important;
+ justify-self:end!important;
+ margin:0!important;
+ text-align:right!important;
+ white-space:nowrap!important;
+}
+html body.in-kosik .okla-goods-total-price,
+html body.in-kosik .okla-goods-total-price *{
+ line-height:1.15!important;
+}
+
+/* Coupon input and action are one clean, vertically aligned control row. */
+html body.in-kosik .okla-coupon__row{
+ display:flex!important;
+ align-items:center!important;
+ gap:8px!important;
+}
+html body.in-kosik input.okla-coupon__input{
+ box-sizing:border-box!important;
+ height:46px!important;
+ min-height:46px!important;
+ padding:0 12px!important;
+ border:1px solid #cdd2da!important;
+ border-radius:999px!important;
+ outline:0!important;
+ box-shadow:none!important;
+ background:#fff!important;
+ line-height:44px!important;
+}
+html body.in-kosik input.okla-coupon__input:focus{
+ border-color:#0074e8!important;
+ outline:0!important;
+ box-shadow:none!important;
+}
+html body.in-kosik .okla-coupon__btn{
+ box-sizing:border-box!important;
+ height:46px!important;
+ min-height:46px!important;
+ margin:0!important;
+}
+
+/* Centre the truck and message as one group inside the whole blue card. */
+html body.in-kosik .cart-row>.col-md-4 .extra.delivery{
+ display:flex!important;
+ flex-direction:row!important;
+ align-items:center!important;
+ justify-content:center!important;
+ gap:18px!important;
+ text-align:center!important;
+}
+html body.in-kosik .cart-row>.col-md-4 .extra.delivery::before{
+ display:block!important;
+ flex:0 0 46px!important;
+ margin:0!important;
+}
+html body.in-kosik .cart-row>.col-md-4 .extra.delivery span{
+ flex:0 1 auto!important;
+ margin:0!important;
+ text-align:left!important;
+}
+
+/* Green checkout actions stay green on every pointer/keyboard state. */
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish{
+ border-color:#49a700!important;
+ background:#49a700!important;
+ background-color:#49a700!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){
+ border-color:#3f9200!important;
+ background:#3f9200!important;
+ background-color:#3f9200!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ filter:none!important;
+}

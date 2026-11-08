@@ -216,8 +216,6 @@
   box.className='okla-parcel';
   box.setAttribute('aria-hidden','true');
   box.innerHTML='<svg viewBox="0 0 48 48"><path d="M24 5 42 14 24 23 6 14Z" fill="#ebc996"/><path d="M6 14 24 23V43L6 34Z" fill="#cf9a5f"/><path d="M42 14 24 23V43L42 34Z" fill="#b8814a"/><path d="M17.2 8.4 35.2 17.4 30.8 19.6 12.8 10.6Z" fill="#f6e6c6"/><path d="M30.8 19.6 35.2 17.4V24.4L30.8 26.6Z" fill="#e3c99d"/><path d="M10 27.5 17 31V35.2L10 31.7Z" fill="#fbf3e3"/><path d="M6 14 24 23 42 14" fill="none" stroke="#f4dcb2" stroke-width=".8" stroke-linejoin="round"/><path d="M24 23V43" stroke="#9a6a38" stroke-width=".8"/></svg>';
-  /* The bounce plays once; it is not replayed when the page scrolls back. */
-  box.addEventListener('animationend',function(){box.style.animation='none'});
   var stops,segs,from=0;
   /* The stops are the measured centres of the steps; the track and the parcel read one position, so they always move together. */
   function layout(){
@@ -256,11 +254,6 @@
    /* Measured after the layout is forced, so the stops are the real step centres. */
    layout();
    ol.style.setProperty('--pos',stops[from]+'px');
-   var arrive=segs.length?400+(segs.length-1)*2600+2400:0;
-   box.style.animation='none';
-   box.getBoundingClientRect();
-   box.style.animation='';
-   box.style.animationDelay=((arrive+300)/1000)+'s';
    if(reduce){place(Infinity);return}
    var me=++run,t0=Date.now();
    (function tick(){if(me===run&&!place(Date.now()-t0))setTimeout(tick,16)})();
@@ -417,6 +410,24 @@
   return null;
  }
 
+ /* Mark the native goods-total label and price without cloning or replacing
+    them. Shoptet remains the only owner of the live calculated value. */
+ function alignGoodsTotal(){
+  var label=Array.prototype.find.call(document.querySelectorAll('body *'),function(e){return e.children.length===0&&/^\s*Celkem za zboží\s*:?\s*$/.test(e.textContent||'')});
+  if(!label)return;
+  var scope=label.closest('.box,.summary-wrapper,.col-md-4')||label.parentElement;
+  var price=Array.prototype.find.call(scope.querySelectorAll('*'),function(e){return e!==label&&e.children.length===0&&kcNumber(e.textContent)!==null});
+  if(!price)return;
+  var row=label.parentElement;
+  while(row&&row!==scope&&!row.contains(price))row=row.parentElement;
+  if(!row||!row.contains(price))return;
+  function branch(node){while(node.parentElement&&node.parentElement!==row)node=node.parentElement;return node}
+  var labelPart=branch(label),pricePart=branch(price);
+  row.classList.add('okla-goods-total-row');
+  labelPart.classList.add('okla-goods-total-label');
+  pricePart.classList.add('okla-goods-total-price');
+ }
+
  function freeShippingText(total){
   var rest=5000-total;
   var parts=[];
@@ -487,6 +498,7 @@
   hideExtrasHeading();
   moveNextStep();
   freeShipping();
+  alignGoodsTotal();
   alignNav();
  }
 
@@ -533,6 +545,7 @@
   addSectionIcons();
   moveNextStep();
   moveTerms();
+  alignGoodsTotal();
   alignNav();
   window.addEventListener('resize',alignNav);
   if(window.ResizeObserver)new ResizeObserver(function(){alignNav()}).observe(document.body);

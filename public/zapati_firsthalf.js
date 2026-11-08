@@ -34,6 +34,7 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
 })();
 var isHome=document.body&&document.body.classList.contains('type-index');
 var isDetail=!!document.querySelector('#content .p-detail');
+var isOrdering=document.body&&document.body.classList.contains('ordering-process');
 var modules=[
  'v91/okla_i18n.css',
  'v91/okla_i18n.js',
@@ -112,6 +113,9 @@ if(isDetail) modules.push('v91/okla_desktop_buybar.css','v91/okla_desktop_buybar
 modules.push('v91/okla_global_typography.css');
 /* Final product-commerce palette: red prices and rounded green add-to-cart CTAs. */
 modules.push('v91/okla_product_commerce.css');
+/* Checkout corrections must follow the global field/button passes: stable
+   parcel, aligned total, clean coupon field and green-only purchase hover. */
+if(isOrdering) modules.push('v91/okla_checkout_final.css');
 /* Homepage editorial block: asymmetric retail-magazine composition. */
 if(isHome) modules.push('v91/okla_news_home_datart.css');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
