@@ -1,7 +1,8 @@
 /* OKLA – payment logos in the footer bottom row (okla_payment_logos.js): plain logos, no frame,
    bottom left on desktop, centred under the copyright on smaller screens. */
 html body .footer-bottom.okla-has-pay{position:relative!important;flex-wrap:wrap!important}
-html body .okla-pay{display:flex!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important}
+html body .okla-pay-stack{display:flex!important;flex-direction:column!important;align-items:center!important;width:232px!important;gap:8px!important;margin:0!important;padding:0!important}
+html body .okla-pay{display:flex!important;align-items:center!important;width:232px!important;gap:8px!important;margin:0!important;padding:0!important}
 html body .okla-pay__item{display:grid!important;place-items:center!important;width:52px!important;height:32px!important;box-sizing:border-box!important;
   margin:0!important;padding:0 4px!important;border:0!important;border-radius:0!important;background:transparent!important}
 html body .okla-pay__item svg{display:block!important;width:auto!important;max-width:100%!important;height:16px!important}
@@ -10,9 +11,12 @@ html body .okla-pay__item--google svg{height:14px!important}
 html body .okla-pay__item--mastercard svg{height:20px!important}
 html body .okla-pay__item--visa svg{height:12px!important}
 html body .okla-pay__name{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important}
+html body .okla-pay-trust{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:center!important;width:232px!important;gap:8px!important;margin:0!important;padding:0!important}
+html body .okla-pay-trust__item{display:flex!important;align-items:center!important;justify-content:center!important;width:112px!important;height:30px!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;overflow:hidden!important}
+html body .okla-pay-trust__item img{display:block!important;width:100%!important;height:30px!important;object-fit:contain!important;margin:0!important;padding:0!important;border:0!important}
 @media(min-width:1200px){
-  html body .footer-bottom.okla-has-pay .okla-pay{position:absolute!important;left:48px!important;top:50%!important;transform:translateY(-50%)!important}
+  html body .footer-bottom.okla-has-pay .okla-pay-stack{position:absolute!important;left:48px!important;top:50%!important;transform:translateY(-50%)!important}
 }
 @media(max-width:1199px){
-  html body .footer-bottom.okla-has-pay .okla-pay{order:10!important;flex:0 0 100%!important;justify-content:center!important;margin-top:16px!important}
+  html body .footer-bottom.okla-has-pay .okla-pay-stack{order:10!important;flex:0 0 232px!important;margin:16px auto 0!important}
 }
