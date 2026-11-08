@@ -305,3 +305,19 @@ html body #content#content button.okla-slider-next svg{
  color:#fff!important;
  stroke:currentColor!important;
 }
+
+/* Product detail: the sticky buy bar and the native purchase CTA must use one
+   identical green. The detail module still exposes its older, brighter green,
+   so pin both rendered controls to the commerce palette in this final pass. */
+html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled),
+html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled){
+ border-color:#49a700!important;
+ background:#49a700!important;
+ background-color:#49a700!important;
+}
+html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):is(:hover,:focus-visible,:active),
+html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled):is(:hover,:focus-visible,:active){
+ border-color:#3f9200!important;
+ background:#3f9200!important;
+ background-color:#3f9200!important;
+}
