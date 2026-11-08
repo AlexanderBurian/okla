@@ -71,9 +71,11 @@ html.okla-ord-ready body .okla-ord-head:is(:hover,:active){
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--filled:not(.okla-header-account):not(.okla-ord-head):not(.oka-c-tab):not(.okla-password-toggle):not(.okla-xsell__item):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--filled:not(.okla-header-account):not(.okla-ord-head):not(.oka-c-tab):not(.okla-password-toggle):not(.okla-xsell__item):not(.btn-cart):not(.add-to-cart-button):not(.unveil-button):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
     filter:brightness(.96)!important;
   }
+  /* "Otevřít filtr": no hover change at all — keep the flat OKLA blue. */
+  html body .unveil-button:is(:hover,:focus,:focus-visible,:active){filter:none!important;background:#0074e8!important;background-color:#0074e8!important;border-color:#0074e8!important;color:#fff!important}
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
