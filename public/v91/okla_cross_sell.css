@@ -1,27 +1,55 @@
-/* OKLA – "Doporučujeme přidat k nákupu" cross-sell block on product detail
-   (okla_cross_sell.js). A titled card with compatible companion products; each
-   row is a link to that product's page. One blue accent, clean white, no
-   gradients. */
-.okla-xsell{margin:26px 0 4px;font-family:"Exo 2",Arial,sans-serif}
-.okla-xsell__title{margin:0 0 12px;font:800 18px/1.25 "Exo 2",Arial,sans-serif;color:#0b2540}
-.okla-xsell__list{display:flex;flex-direction:column;gap:8px}
-.okla-xsell__item{display:flex;align-items:center;gap:12px;box-sizing:border-box;padding:10px 12px;border:1px solid #e3e9f1;border-radius:14px;background:#fff;color:#0b2540;text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease}
-.okla-xsell__item:hover,.okla-xsell__item:focus-visible{border-color:#bcd3ef;box-shadow:0 4px 14px rgba(18,41,68,.08);text-decoration:none;color:#0b2540}
-.okla-xsell__thumb{flex:0 0 56px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #eef2f7;border-radius:10px;overflow:hidden}
+/* OKLA – "Doporučujeme přidat k nákupu" unified cross-sell panel (okla_cross_sell.js).
+   One card, a "přidat" checkbox per row that adds/removes the item from the cart,
+   and a live footer summary. One blue accent, clean white, no gradients. */
+.okla-xsell{margin:26px 0 6px;font-family:"Exo 2",Arial,sans-serif;border:1px solid #e3e9f1;border-radius:18px;background:#fff;overflow:hidden}
+.okla-xsell__head{padding:16px 18px 2px}
+.okla-xsell__title{margin:0;font:800 18px/1.25 "Exo 2",Arial,sans-serif;color:#0b2540}
+.okla-xsell__sub{margin:4px 0 0;font:400 13px/1.4 "Exo 2",Arial,sans-serif;color:#64748b}
+.okla-xsell__list{padding:10px 8px 6px}
+
+.okla-xsell__item{position:relative;display:flex;align-items:center;gap:12px;box-sizing:border-box;padding:10px;border-radius:12px;cursor:pointer;background:#fff;transition:background-color .15s ease}
+.okla-xsell__item+.okla-xsell__item{margin-top:2px}
+.okla-xsell__item:hover{background:#f5f8fc}
+.okla-xsell__item.is-busy{opacity:.6;pointer-events:none}
+.okla-xsell__item.is-added{background:#f1faec}
+.okla-xsell__item:focus-visible{outline:2px solid #16478b;outline-offset:2px}
+
+/* The "přidat" checkbox */
+.okla-xsell__check{flex:0 0 24px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #c2cedd;border-radius:7px;background:#fff;color:#fff;transition:border-color .15s ease,background-color .15s ease}
+.okla-xsell__check svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease}
+.okla-xsell__item:hover .okla-xsell__check{border-color:#8fb96f}
+.okla-xsell__item.is-added .okla-xsell__check{background:#66D400;border-color:#66D400}
+.okla-xsell__item.is-added .okla-xsell__check svg{opacity:1;transform:none}
+
+.okla-xsell__thumb{flex:0 0 52px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #eef2f7;border-radius:10px;overflow:hidden}
 .okla-xsell__thumb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+
 .okla-xsell__info{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}
 .okla-xsell__name{font:700 14.5px/1.3 "Exo 2",Arial,sans-serif;color:#0b2540;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .okla-xsell__note{font:400 12.5px/1.35 "Exo 2",Arial,sans-serif;color:#64748b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.okla-xsell__buy{flex:0 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:7px}
-.okla-xsell__price{font:800 15px/1 "Exo 2",Arial,sans-serif;color:#0b2540;white-space:nowrap}
-.okla-xsell__cta{display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 12px;border-radius:15px;background:#16478b;color:#fff;font:700 12.5px/1 "Exo 2",Arial,sans-serif;white-space:nowrap}
-.okla-xsell__item:hover .okla-xsell__cta,.okla-xsell__item:focus-visible .okla-xsell__cta{background:#0f3568}
-.okla-xsell__cta svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.okla-xsell__state{display:none;font:700 12.5px/1.35 "Exo 2",Arial,sans-serif;color:#4a9e00}
+.okla-xsell__item.is-added .okla-xsell__note{display:none}
+.okla-xsell__item.is-added .okla-xsell__state{display:block}
+
+.okla-xsell__detail{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#9aa6b4;text-decoration:none;transition:color .15s ease,background-color .15s ease}
+.okla-xsell__detail:hover{color:#16478b;background:#eaf1fb}
+.okla-xsell__detail svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.okla-xsell__price{flex:0 0 auto;font:800 15px/1 "Exo 2",Arial,sans-serif;color:#0b2540;white-space:nowrap;text-align:right}
+
+.okla-xsell__foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid #eef2f7;background:#fbfdff;font:600 13.5px/1.3 "Exo 2",Arial,sans-serif;color:#64748b}
+.okla-xsell__foot.is-active{color:#0b2540;background:#f1faec;border-top-color:#dcefc8}
+.okla-xsell__count strong{font-weight:800;color:#2f7a00}
+.okla-xsell__cart{flex:0 0 auto;color:#16478b;font-weight:700;text-decoration:none;white-space:nowrap}
+.okla-xsell__cart:hover{text-decoration:underline}
 
 @media(max-width:767px){
- .okla-xsell{margin:22px 0 2px}
+ .okla-xsell{margin:22px 0 2px;border-radius:16px}
  .okla-xsell__title{font-size:17px}
+ .okla-xsell__sub{font-size:12.5px}
  .okla-xsell__note{display:none}
- .okla-xsell__thumb{flex:0 0 48px;width:48px;height:48px}
+ .okla-xsell__thumb{flex:0 0 46px;width:46px;height:46px}
  .okla-xsell__name{font-size:13.5px}
+ .okla-xsell__detail{display:none}
+ .okla-xsell__price{font-size:14px}
 }
