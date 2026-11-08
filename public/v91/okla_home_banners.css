@@ -59,6 +59,17 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  html body.type-index #content .banners-row #carousel,
  html body.type-index #content .banners-row #carousel .carousel-inner,
  html body.type-index #content .banners-row .okla-hero-wrap{overflow:visible!important}
+ /* #carousel used to contain only the picture, so the mobile shell gave it a
+    pale-blue fallback background and a shadow. It now also wraps our dots;
+    leaving that old surface in place paints a rectangular blue strip below
+    the hero instead of showing the single page gradient. Shoptet may also
+    write an inline min-height on .carousel-inner, so neutralise that here. */
+ html body.type-index #content .banners-row #carousel{
+  min-height:0!important;background:transparent!important;box-shadow:none!important
+ }
+ html body.type-index #content .banners-row #carousel .carousel-inner{
+  min-height:0!important;height:auto!important;background:transparent!important;box-shadow:none!important
+ }
  /* Shoptet's .carousel-inner is absolutely positioned, which collapses #carousel to
     zero height on phones (syncHeroHeight only sizes #carousel on desktop). That let
     the hero overflow its row and the category tiles slid up behind it. Put it back
