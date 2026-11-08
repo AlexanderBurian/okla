@@ -8,7 +8,8 @@
       cart/checkout step card, the white main image (.p-image) on a product, the sorting tabs on a category (or the empty-category
       card / product grid when there is no sorting). This script measures
       that edge into --okla-mg-h, anchors the layer to the document with
-      html.okla-mg-anchored (see okla_mobile_gradient.css)
+      html.okla-mg-anchored (see okla_mobile_gradient.css); the layer itself
+      remains viewport-fixed, only its fade length is measured
       and keeps it right when fonts, translations or the header change the
       layout above it. */
 (function(){

@@ -4,7 +4,7 @@
    header (60px, ending in white), and the homepage had a fixed layer that the
    white <body> hid, so the gradient scrolled away and looked broken.
 
-   Now ONE layer sits behind all content at the top of the page: body::before with a negative z-index,
+   Now ONE fixed layer sits behind all content: body::before with a negative z-index,
    in the root stacking context above the white canvas and below the page
    (html::before and ::after belong to the loading curtain in zapati_firsthalf.js).
    The page wrappers are transparent on phones, so it shows behind the header
@@ -13,10 +13,9 @@
    - Colour: a mild, low-opacity blue wash with only a faint violet tint on the right. Both
      layers fade with a smoothstep curve (zero slope at the end), so they
      thin out gradually and reach pure white without any visible cut.
-   - It belongs to the top of the page (anchored to the document, not the
-     viewport): it never follows the visitor down, it scrolls away with the
-     page. Length 820px; homepage, product detail and category pages end it
-     exactly at their first UI element (end of file).
+   - It is part of the viewport background and never moves or gets repainted
+     into a different state while the visitor scrolls. Length 820px by default;
+     measured templates can adjust the fade length without changing its fixed position.
    - The header that appears on scroll (stuck/shown) is plain white with a
      soft shadow.
    Phones only (≤767px). Loaded last; the selectors carry an ID boost because the
@@ -29,14 +28,23 @@
       linear-gradient(180deg,rgba(204,228,250,.420) 0%,rgba(204,228,250,.414) 7.1%,rgba(204,228,250,.397) 14.3%,rgba(204,228,250,.370) 21.4%,rgba(204,228,250,.337) 28.6%,rgba(204,228,250,.298) 35.7%,rgba(204,228,250,.255) 42.9%,rgba(204,228,250,.210) 50%,rgba(204,228,250,.165) 57.1%,rgba(204,228,250,.122) 64.3%,rgba(204,228,250,.083) 71.4%,rgba(204,228,250,.050) 78.6%,rgba(204,228,250,.023) 85.7%,rgba(204,228,250,.006) 92.9%,rgba(204,228,250,.000) 100%);
   }
   html:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e){background:#fff!important;background-image:none!important}
-  html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{
-    content:""!important;display:block!important;position:absolute!important;top:0!important;left:0!important;right:0!important;
-    height:var(--okla-mg-h)!important;z-index:-1!important;pointer-events:none!important;
-    background:var(--okla-mg)!important;background-size:100% var(--okla-mg-h)!important;background-repeat:no-repeat!important;
+  /* The gradient is PART OF THE DOCUMENT BACKGROUND: it is painted on <body>
+     with background-attachment:scroll, so it sits at the top of the page and
+     scrolls WITH the page. There is no fixed/absolute overlay and no
+     negative-z-index layer, so it can never tear, jump or wash back over the
+     content while scrolling — on any mobile browser (incl. iOS Safari with its
+     collapsing address bar). Length = --okla-mg-h (measured per template);
+     pure white below it. */
+  html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e){
+    background-color:#fff!important;
+    background-image:var(--okla-mg)!important;
+    background-repeat:no-repeat!important;
+    background-position:left top!important;
+    background-size:100% var(--okla-mg-h)!important;
+    background-attachment:scroll!important;
   }
 
-  /* Transparent page surfaces so the layer shows through. */
-  html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e),
+  /* Transparent page surfaces so the body gradient shows through (NOT body itself). */
   html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header,
   html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content-wrapper,
   html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content-wrapper .content-wrapper-in,
@@ -47,29 +55,19 @@
     background-color:transparent!important;background-image:none!important;
   }
 
-  /* Header at the real top of the page: transparent, the layer is behind it. */
+  /* Header at the real top of the page: transparent, the gradient is behind it. */
   html body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{
     background:transparent!important;background-image:none!important;box-shadow:none!important;
   }
   /* Header that appears while scrolling (stuck / shown on scroll-up): plain white. */
-  html.okla-m-stuck body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header,
-  html body.okla-v65-white-header:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header,
-  html body.okla-v66-show-header:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{
+  html.okla-m-stuck:not(.okla-m-detail-no-sticky) body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{
     background:#fff!important;background-image:none!important;
     box-shadow:0 1px 0 rgba(22,71,139,.06),0 4px 14px rgba(18,41,68,.08)!important;
   }
   html.okla-m-stuck.okla-m-hidden body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #header #okla-v61-header{box-shadow:none!important}
 
-  /* Homepage, product detail and category (as on big shops): the gradient is
-     part of the page top and fades out gradually, reaching pure white exactly
-     where the page's own UI starts – the category tiles under the homepage
-     banner, the main product image, or the category sorting tabs
-     (empty-category card / product grid without them). okla_mobile_gradient.js measures that edge into
-     --okla-mg-h and sets html.okla-mg-anchored: the layer is then anchored to
-     the document (not the viewport), so it scrolls away with the page and
-     never runs into that UI. On a product the white block above the image is
-     transparent, so nothing white starts before the image. */
-  html.okla-mg-anchored body:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e)::before{position:absolute!important}
+  /* Product detail: the white block above the image is transparent, so the
+     gradient reaches the main image cleanly with nothing white before it. */
   html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail,
   html body.type-detail:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e) #content .p-detail-inner{
     background-color:transparent!important;background-image:none!important;

@@ -251,13 +251,10 @@ btn.querySelectorAll('.okm65-cart-svg').forEach(x=>x.remove());
 function fixCategories(){if(!narrow.matches)return;document.querySelectorAll('#okla-v61-categories .okm61-category').forEach(el=>{
 let name=(el.textContent||'').trim().toLocaleLowerCase('cs-CZ');if(/^(obchodní podmínky|ochrana osobních údajů|reklamace|doprava a platba|kontakt|o nás)$/.test(name)){el.remove()}
 });}
-let lastY=0,raf=0;
-function updateScroll(){if(!narrow.matches){document.body.classList.remove('okla-v65-white-header');return}
-let y=Math.max(0,window.scrollY||window.pageYOffset||0);
-document.body.classList.toggle('okla-v65-white-header',y>40);
-lastY=y;
-}
-function onScroll(){if(raf)return;raf=requestAnimationFrame(()=>{raf=0;updateScroll()})}
+/* Retired: this legacy listener used to repaint the mobile header white after
+   40 px, cutting through the fixed page gradient. The V91 mobile shell owns
+   the floating header now; V65 only clears its obsolete state class. */
+function updateScroll(){document.body.classList.remove('okla-v65-white-header')}
 function resetLegacy(){if(!narrow.matches)return;const old=document.getElementById('okla-m-header');if(old)old.style.setProperty('display','none','important');
 document.querySelectorAll('#content .okla-slider-shell .okla-slider-viewport').forEach(v=>{
 if(!v.dataset.okm65Paused){v.dataset.okm65Paused='1';v.dispatchEvent(new Event('mouseenter'))}
@@ -266,7 +263,6 @@ if(!v.dataset.okm65Paused){v.dataset.okm65Paused='1';v.dispatchEvent(new Event('
 function init(){resetLegacy();fixSearch();fixCategories();fixCart();updateScroll()}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 window.addEventListener('load',init,{once:true});
-window.addEventListener('scroll',onScroll,{passive:true});
 window.addEventListener('resize',init,{passive:true});
 setTimeout(init,250);setTimeout(init,800);setTimeout(init,1600);
 window.oklaMobileV65Inspect=function(){
@@ -287,22 +283,13 @@ return result;
 const mobile=window.matchMedia('(max-width:767px)');
 
 const body=document.body;
-let y0=Math.max(0,window.scrollY||0),raf=0,visible=true;
+let y0=Math.max(0,window.scrollY||0),visible=true;
 function update(force){
- if(!mobile.matches){body.classList.remove('okla-v66-hide-header','okla-v66-show-header');return;}
- const y=Math.max(0,window.scrollY||window.pageYOffset||0),d=y-y0;
- const focus=document.activeElement,searching=focus&&focus.closest&&focus.closest('#okla-v61-header');
- if(y<24){visible=true;body.classList.remove('okla-v66-hide-header','okla-v66-show-header');}
- else {
-  if(searching){visible=true}
-  else if(d>5&&y>115){visible=false}
-  else if(d< -4){visible=true}
-  body.classList.toggle('okla-v66-hide-header',!visible);
-  body.classList.toggle('okla-v66-show-header',visible);
- }
- y0=y;
+ /* Retired directional header. V91 owns the only scroll header; keeping these
+    classes off prevents old CSS from changing the fixed gradient. */
+ visible=true;body.classList.remove('okla-v66-hide-header','okla-v66-show-header');
+ y0=Math.max(0,window.scrollY||window.pageYOffset||0);
 }
-function scrolling(){if(raf)return;raf=requestAnimationFrame(function(){raf=0;update()})}
 function constrainCards(){
  if(!mobile.matches)return;
  document.querySelectorAll('main#content .okla-slider-shell .product').forEach(function(product){
@@ -325,7 +312,6 @@ function constrainCards(){
 }
 function init(){constrainCards();update(true)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
-window.addEventListener('scroll',scrolling,{passive:true});
 window.addEventListener('resize',init,{passive:true});
 window.addEventListener('load',init,{once:true});
 window.addEventListener('focusin',update);
