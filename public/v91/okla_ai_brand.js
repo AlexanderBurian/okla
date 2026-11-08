@@ -19,7 +19,7 @@ function patch(host){
   +'.welcome-brand,.welcome-title{display:none!important}'
   +'.welcome{justify-content:center!important;padding-top:30px!important}'
   +'.welcome-input{margin-top:0!important}'
-  +'.assistant-avatar{overflow:hidden!important;border-radius:50%!important}'
+  +'.assistant-avatar{overflow:visible!important;border-radius:0!important;background:transparent!important}'
   +'.assistant-avatar img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}'
   +'textarea{font-size:16px!important}';
  root.appendChild(style);
