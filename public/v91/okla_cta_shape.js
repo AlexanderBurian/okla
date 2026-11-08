@@ -9,9 +9,42 @@
 
  var RADIUS='5px';
  /* every commerce call-to-action gets the squarer corner */
- var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,.unveil-button,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track';
+ var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track';
  /* only the real add-to-cart buttons get the cart icon */
  var ICON_SEL='.btn-cart,.add-to-cart-button,.okla-m-buybar__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary';
+
+ /* Any button that still computes to a green fill becomes the OKLA blue. This is
+    the final safety net over every green source (product commerce, login,
+    detail, drawer, …). It targets BUTTONS only, so green text ("Skladem") and
+    the green cross-sell checkmark are never touched. */
+ var GREEN_BTN_SEL='button,input[type="submit"],input[type="button"],input[type="reset"],.btn,a.btn,.button,[role="button"],.add-to-cart-button,.btn-cart,.btn-conversion,.btn-primary,.okla-green-cta,.unveil-button';
+ function isGreenFill(v){var n=(v||'').match(/[0-9.]+/g);if(!n||n.length<3)return false;var r=+n[0],g=+n[1],b=+n[2];var a=n.length>3?+n[3]:1;return a>=.2&&g>=110&&g>r*1.23&&g>b*1.36&&r<180&&b<125;}
+ function blueify(b){
+  b.style.setProperty('background','#0074e8','important');
+  b.style.setProperty('background-color','#0074e8','important');
+  b.style.setProperty('background-image','none','important');
+  b.style.setProperty('border-color','#0074e8','important');
+  b.style.setProperty('color','#fff','important');
+  b.classList.add('okla-cta-blueforced');
+  b.querySelectorAll('span,strong,b,small,i').forEach(function(x){x.style.setProperty('color','#fff','important')});
+ }
+ function greenToBlue(){
+  /* The navy "Otevřít filtr" is not green, so colour it blue via its own button
+     variables — colour only, nothing about its size or width changes. */
+  document.querySelectorAll('.unveil-button').forEach(function(b){
+   b.style.setProperty('--okla-button-rest-background','#0074e8','important');
+   b.style.setProperty('--okla-button-rest-border','#0074e8','important');
+   b.style.setProperty('--okla-button-rest-color','#fff','important');
+  });
+  document.querySelectorAll(GREEN_BTN_SEL).forEach(function(b){
+   if(b.classList.contains('okla-xsell__item'))return;
+   if(isGreenFill(getComputedStyle(b).backgroundColor))blueify(b);
+  });
+ }
+ var HB='#0068d1',RB='#0074e8';
+ function setHoverBlue(b,c){b.style.setProperty('background',c,'important');b.style.setProperty('background-color',c,'important');b.style.setProperty('border-color',c,'important')}
+ document.addEventListener('mouseover',function(e){var b=e.target.closest&&e.target.closest('.okla-cta-blueforced');if(b)setHoverBlue(b,HB)},true);
+ document.addEventListener('mouseout',function(e){var b=e.target.closest&&e.target.closest('.okla-cta-blueforced');if(!b)return;if(e.relatedTarget&&b.contains(e.relatedTarget))return;setHoverBlue(b,RB)},true);
 
  var NS='http://www.w3.org/2000/svg';
  function cartSvg(){
@@ -39,6 +72,7 @@
  function decorate(){
   if(busy)return;busy=true;
   try{
+   greenToBlue();
    document.querySelectorAll(RADIUS_SEL).forEach(function(b){b.style.setProperty('border-radius',RADIUS,'important')});
    document.querySelectorAll(ICON_SEL).forEach(function(b){
     if(b.querySelector(':scope > svg.okla-cta-cart'))return;       /* already has our icon */
@@ -49,19 +83,13 @@
     for(var i=0;i<svgs.length;i++){if(!svgs[i].classList.contains('okla-cta-cart'))svgs[i].style.setProperty('display','none','important')}
     b.insertBefore(cartSvg(),b.firstChild);
    });
-   /* Phones: give the product-card buttons room so the cart icon + "Do košíku"
-      sit comfortably — a taller button, comfortable side padding and a slightly
-      smaller icon. */
+   /* Phones: only make the cart icon a touch smaller so the icon + "Do košíku"
+      fit in the EXISTING button — the button's own size/width is left untouched. */
    var mobile=!window.matchMedia||window.matchMedia('(max-width:767px)').matches;
    if(mobile){
     document.querySelectorAll('.product .btn-cart,.product .add-to-cart-button').forEach(function(b){
-     b.style.setProperty('min-height','42px','important');
-     b.style.setProperty('height','42px','important');
-     b.style.setProperty('padding-left','12px','important');
-     b.style.setProperty('padding-right','12px','important');
-     b.style.setProperty('width','min(168px,100%)','important');
      var ic=b.querySelector(':scope > svg.okla-cta-cart');
-     if(ic){ic.style.setProperty('width','16px','important');ic.style.setProperty('height','16px','important');ic.style.setProperty('min-width','16px','important');ic.style.setProperty('margin','0 7px 0 0','important');}
+     if(ic){ic.style.setProperty('width','16px','important');ic.style.setProperty('height','16px','important');ic.style.setProperty('min-width','16px','important');ic.style.setProperty('margin','0 6px 0 0','important');}
     });
    }
   }catch(e){}
