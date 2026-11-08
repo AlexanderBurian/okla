@@ -95,3 +95,146 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled):is(:hover,:focus-visible){
  background:var(--okla-commerce-cart-hover)!important;
 }
+
+/* Datart-like final card anatomy: no synthetic NOVINKA ribbon or coloured
+   price tile. The price stands on white and the CTA is a wide, calm rectangle. */
+html body #content#content .products .product .prices::before,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices::before{
+ content:none!important;
+ display:none!important;
+}
+html body #content#content .products .product :is(.flag-new,.flag.flag-new),
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product :is(.flag-new,.flag.flag-new){
+ display:none!important;
+}
+html body #content#content .products .product .prices,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .prices{
+ width:100%!important;
+ height:auto!important;
+ min-height:50px!important;
+ max-height:none!important;
+ margin:10px 0 0!important;
+ padding:0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ overflow:visible!important;
+}
+html body #content#content .products .product .price-final,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{
+ width:100%!important;
+ height:auto!important;
+ min-height:50px!important;
+ max-height:none!important;
+ margin:0!important;
+ padding:8px 0!important;
+ border:0!important;
+ border-radius:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ color:var(--okla-commerce-price)!important;
+ -webkit-text-fill-color:var(--okla-commerce-price)!important;
+}
+html body #content#content .products .product .price-final *,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final *{
+ color:var(--okla-commerce-price)!important;
+ -webkit-text-fill-color:var(--okla-commerce-price)!important;
+}
+
+/* High-specificity final CTA pass. Older desktop/mobile card rules deliberately
+   use strong selectors, so this block owns every available product CTA after
+   those rules without touching quantity, filter or form buttons. */
+html body #content#content .products .product .p-tools form,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{
+ width:100%!important;
+ max-width:100%!important;
+}
+html body #content#content .products .product .p-tools button.btn-cart:not(:disabled),
+html body #content#content .okla-slider-track.okla-slider-track .product .p-tools button.btn-cart:not(:disabled),
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:not(:disabled),
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools button.btn-cart:not(:disabled):not(:hover){
+ display:inline-flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ gap:0!important;
+ width:100%!important;
+ min-width:0!important;
+ max-width:100%!important;
+ height:44px!important;
+ min-height:44px!important;
+ max-height:44px!important;
+ padding:0 16px!important;
+ border:1px solid var(--okla-commerce-cart)!important;
+ border-radius:8px!important;
+ background:var(--okla-commerce-cart)!important;
+ background-color:var(--okla-commerce-cart)!important;
+ background-image:none!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ font:600 15px/1.2 "Exo 2","Segoe UI",Arial,sans-serif!important;
+ opacity:1!important;
+ box-shadow:none!important;
+ text-shadow:none!important;
+ transform:none!important;
+}
+html body #content#content .products .product .p-tools button.btn-cart:not(:disabled):is(:hover,:focus-visible),
+html body #content#content .okla-slider-track.okla-slider-track .product .p-tools button.btn-cart:not(:disabled):is(:hover,:focus-visible),
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:not(:disabled):is(:hover,:focus-visible){
+ border-color:var(--okla-commerce-cart-hover)!important;
+ background:var(--okla-commerce-cart-hover)!important;
+ background-color:var(--okla-commerce-cart-hover)!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+html body #content#content .products .product .p-tools button.btn-cart:not(:disabled) span,
+html body #content#content .okla-slider-track.okla-slider-track .product .p-tools button.btn-cart:not(:disabled) span,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:not(:disabled) span{
+ display:inline!important;
+ position:static!important;
+ margin:0!important;
+ padding:0!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ font:inherit!important;
+ opacity:1!important;
+ visibility:visible!important;
+}
+/* The Datart reference uses the text only, without a cart pictogram. */
+html body #content#content .products .product .p-tools button.btn-cart :is(svg,i),
+html body #content#content .okla-slider-track.okla-slider-track .product .p-tools button.btn-cart :is(svg,i),
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart :is(svg,i),
+html body #content#content .products .product .p-tools button.btn-cart::before,
+html body #content#content .okla-slider-track.okla-slider-track .product .p-tools button.btn-cart::before,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart::before{
+ content:none!important;
+ display:none!important;
+}
+
+/* The same text-only green CTA on the detail, mobile and desktop buy bars. */
+html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled),
+html body .okla-m-buybar .okla-m-buybar__btn:not(:disabled),
+html body .okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled){
+ border:1px solid var(--okla-commerce-cart)!important;
+ border-radius:8px!important;
+ background:var(--okla-commerce-cart)!important;
+ background-color:var(--okla-commerce-cart)!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+ box-shadow:none!important;
+}
+html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):is(:hover,:focus-visible),
+html body .okla-m-buybar .okla-m-buybar__btn:not(:disabled):is(:hover,:focus-visible,:active),
+html body .okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled):is(:hover,:focus-visible){
+ border-color:var(--okla-commerce-cart-hover)!important;
+ background:var(--okla-commerce-cart-hover)!important;
+ background-color:var(--okla-commerce-cart-hover)!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
+}
+html body.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic,
+html body .okla-m-buybar .okla-m-buybar__btn .okla-m-buybar__icon,
+html body .okla-dbb .okla-dbb__btn:not(.is-watch) svg{
+ display:none!important;
+}
