@@ -4,7 +4,7 @@
    - products the shop no longer has are removed (so search, the cart drawer and suggestions never offer them);
    - new products are added (code, name, URL, image, price, category, short description, stock);
    - prices and stock of the remaining ones are refreshed;
-   - rows of removed products are dropped from Shoptet's "Top 10 produktů" box.
+   - rows of removed products in Shoptet's "Top 10 produktů" box are replaced by current products.
    Modules that read the catalogue (search, mobile search, cart drawer, detail) keep working unchanged.
    A 'okla:catalog-updated' event is fired after every update. */
 (function(){
@@ -79,14 +79,36 @@
  }
  /* Shoptet's own "Top 10 produktů" box is recalculated with a delay and can still list removed products (404):
     drop those rows; with fewer than three left the box is hidden. */
+ /* Shoptet's own "Top 10 produktů" box is recalculated with a delay and can still list removed products (404):
+    those rows are dropped and the box is topped up to ten with current products (in stock first), in the box's own
+    markup, so it never shows dead links and never disappears. */
+ function priceText(n){return n==null||isNaN(n)?'':String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
+ function topRow(it){
+  var li=document.createElement('li');li.className='display-image okla-top-filled';
+  var url=path(it.url);
+  var img=document.createElement('a');img.href=url;img.className='top-products-image';img.setAttribute('aria-hidden','true');img.tabIndex=-1;
+  if(it.image){var im=document.createElement('img');im.src=it.image;im.alt='';im.loading='lazy';im.width=100;im.height=100;img.appendChild(im)}
+  var c=document.createElement('a');c.href=url;c.className='top-products-content';
+  var nm=document.createElement('span');nm.className='top-products-name';nm.textContent=it.name;c.appendChild(nm);
+  var pr=priceText(it.price);if(pr){var st=document.createElement('strong');st.textContent=pr;c.appendChild(st)}
+  li.append(img,c);return li;
+ }
  function prune(byPath){
   function run(){
-   [].slice.call(document.querySelectorAll('.box-topProducts ol.top-products > li')).forEach(function(li){
-    var a=li.querySelector('a[href]');var p=a&&path(a.getAttribute('href'));
-    if(p&&!byPath[p])li.remove();
-   });
-   [].slice.call(document.querySelectorAll('.box-topProducts')).forEach(function(box){
-    box.classList.toggle('okla-hidden-box',box.querySelectorAll('ol.top-products > li').length<3);
+   [].slice.call(document.querySelectorAll('.box-topProducts ol.top-products')).forEach(function(ol){
+    var have={};
+    [].slice.call(ol.children).forEach(function(li){
+     var a=li.querySelector('a[href]');var p=a&&path(a.getAttribute('href'));
+     if(p&&!byPath[p])li.remove();else if(p)have[p]=1;
+    });
+    var pool=Object.keys(byPath).map(function(p){return byPath[p]}).filter(function(it){return it.name&&!have[path(it.url)]});
+    pool.sort(function(x,y){return (y.available===true)-(x.available===true)});
+    /* take them in turns from every category, so the list is varied */
+    var groups={},order=[];pool.forEach(function(it){var k=it.defaultCategory||'';if(!groups[k]){groups[k]=[];order.push(k)}groups[k].push(it)});
+    var mixed=[];for(var more=true;more;){more=false;order.forEach(function(k){var it=groups[k].shift();if(it){mixed.push(it);more=true}})}
+    pool=mixed;
+    for(var i=0;ol.children.length<10&&i<pool.length;i++)ol.appendChild(topRow(pool[i]));
+    var box=ol.closest('.box-topProducts');if(box)box.classList.toggle('okla-hidden-box',ol.children.length===0);
    });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
