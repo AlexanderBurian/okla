@@ -112,9 +112,9 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
 html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .prices{
  width:100%!important;
  height:auto!important;
- min-height:50px!important;
+ min-height:44px!important;
  max-height:none!important;
- margin:10px 0 0!important;
+ margin:4px 0 0!important;
  padding:0!important;
  border:0!important;
  border-radius:0!important;
@@ -126,10 +126,10 @@ html body #content#content .products .product .price-final,
 html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{
  width:100%!important;
  height:auto!important;
- min-height:50px!important;
+ min-height:44px!important;
  max-height:none!important;
  margin:0!important;
- padding:8px 0!important;
+ padding:4px 0!important;
  border:0!important;
  border-radius:0!important;
  background:transparent!important;
@@ -159,13 +159,13 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
  align-items:center!important;
  justify-content:center!important;
  gap:0!important;
- width:100%!important;
+ width:calc(100% - 16px)!important;
  min-width:0!important;
- max-width:100%!important;
- height:44px!important;
- min-height:44px!important;
- max-height:44px!important;
- padding:0 16px!important;
+ max-width:calc(100% - 16px)!important;
+ height:40px!important;
+ min-height:40px!important;
+ max-height:40px!important;
+ padding:0 14px!important;
  border:1px solid var(--okla-commerce-cart)!important;
  border-radius:8px!important;
  background:var(--okla-commerce-cart)!important;
@@ -173,7 +173,7 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
  background-image:none!important;
  color:#fff!important;
  -webkit-text-fill-color:#fff!important;
- font:600 15px/1.2 "Exo 2","Segoe UI",Arial,sans-serif!important;
+ font:600 14px/1.2 "Exo 2","Segoe UI",Arial,sans-serif!important;
  opacity:1!important;
  box-shadow:none!important;
  text-shadow:none!important;
@@ -237,4 +237,25 @@ html body.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart bu
 html body .okla-m-buybar .okla-m-buybar__btn .okla-m-buybar__icon,
 html body .okla-dbb .okla-dbb__btn:not(.is-watch) svg{
  display:none!important;
+}
+
+/* Pull the compact CTA upward and let the cards lose the now-unused vertical
+   space. This affects product cards only; the primary product-detail CTA keeps
+   its comfortable touch size. */
+html body #content#content .products .product .p-tools,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools,
+html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools{
+ flex-basis:auto!important;
+ height:auto!important;
+ min-height:44px!important;
+ max-height:none!important;
+ margin-top:2px!important;
+ padding-top:2px!important;
+}
+@media(min-width:992px){
+ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p,
+ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover,
+ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p{
+  min-height:404px!important;
+ }
 }
