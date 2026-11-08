@@ -243,6 +243,8 @@
  }
 
  function onNativeAdd(){
+  /* Cross-sell "přidat" checkboxes add silently — no single-product popup. */
+  if(window.__oklaXsellAdding)return;
   if(Date.now()<pendingCartUntil)return;
   /* Product detail page: read the product from the page. */
   if(document.querySelector('.p-detail')){

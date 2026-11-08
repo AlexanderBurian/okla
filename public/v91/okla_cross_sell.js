@@ -29,8 +29,11 @@
   var b=new URLSearchParams();
   b.set('productId',it.pid);b.set('priceId',it.prc);b.set('amount','1');b.set('language','cs');
   var t=csrf();if(t)b.set('__csrf__',t);
+  /* Tell the cart drawer to stay closed for this add (silent); cleared shortly after. */
+  window.__oklaXsellAdding=true;
+  var release=function(){setTimeout(function(){window.__oklaXsellAdding=false},400)};
   return fetch('/action/Cart/addCartItem/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8','X-Requested-With':'XMLHttpRequest','Accept':'application/json'},body:b.toString(),credentials:'same-origin'})
-   .then(function(r){return r.json()}).then(function(j){if(!j||j.code!==200)throw new Error('add failed');return j});
+   .then(function(r){return r.json()}).then(function(j){release();if(!j||j.code!==200)throw new Error('add failed');return j},function(e){release();throw e});
  }
  function itemIdFor(href){
   return fetch('/kosik/',{cache:'no-store'}).then(function(r){return r.text()}).then(function(html){

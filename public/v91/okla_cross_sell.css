@@ -10,6 +10,8 @@
 .okla-xsell__item{position:relative;display:flex;align-items:center;gap:12px;box-sizing:border-box;padding:10px;border-radius:12px;cursor:pointer;background:#fff;transition:background-color .15s ease}
 .okla-xsell__item+.okla-xsell__item{margin-top:2px}
 .okla-xsell__item.is-busy{opacity:.6;pointer-events:none}
+/* No hover highlight on rows — selection shows only in the checkbox. */
+.okla-xsell .okla-xsell__item:hover,.okla-xsell .okla-xsell__item:focus{background:#fff}
 .okla-xsell__item:focus-visible{outline:2px solid #16478b;outline-offset:2px}
 
 /* The "přidat" checkbox */
