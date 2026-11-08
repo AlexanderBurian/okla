@@ -422,3 +422,19 @@ html body #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.produ
 html body #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .ratings-wrapper.okla-ratings .stars-wrapper{width:auto!important;flex:0 1 auto!important;flex-wrap:wrap!important;justify-content:center!important;row-gap:2px!important;max-width:100%!important;min-width:0!important}
 html body #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .ratings-wrapper .stars-placeholder{display:none!important}
 html body #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .ratings-wrapper.okla-ratings:has(.stars-wrapper) .ok89-decor-stars{display:none!important}
+
+/* Phones: the "Do košíku" button on product cards is the primary green again
+   (same green as the add-to-cart button), as it always was. */
+@media(max-width:767px){
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart,
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:not(:disabled),
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools button.btn-cart:not(:hover){
+    background:#66D400!important;background-image:none!important;border-color:#66D400!important;color:#111!important;
+  }
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:not(:disabled):is(:hover,:focus-visible){
+    background:#5BBD00!important;border-color:#5BBD00!important;color:#111!important;
+  }
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart :is(span,i,svg),
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:hover :is(span,i,svg){color:#111!important;stroke:#111!important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools button.btn-cart:disabled{background:#C8CDD3!important;border-color:#C8CDD3!important;color:#6B7280!important}
+}

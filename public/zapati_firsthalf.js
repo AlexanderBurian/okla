@@ -194,7 +194,7 @@ var hints=modules.concat(deferred).map(function(file){return preload(url(file,0)
    same order. It is all-or-nothing per release, so the cascade order can never
    be partly inlined and partly linked. If storage is full or disabled,
    everything simply loads from the network exactly as before. */
-var CSS_CACHE_KEY='okla.css.cache';
+var CSS_CACHE_KEY='okla.css.cache2';
 var cssHave={};         /* file -> text already on the device (this release) */
 var cssCachedOk=false;  /* the device holds CSS for this exact release */
 try{
@@ -214,11 +214,32 @@ function injectCachedCss(list,id){
  if(buf){var st=document.createElement('style');st.id=id;st.setAttribute('data-okla-css-cache','1');st.textContent=buf;head.appendChild(st)}
  return covered;
 }
+/* A stylesheet's url(...) references are RELATIVE to the stylesheet's own
+   address. As a <link> they resolve against the CDN; injected inline from the
+   device they would resolve against the shop's own URL and 404. So before the
+   text is stored, every relative url() (and @import) is rewritten to its
+   absolute CDN address — leaving data:, http(s):, protocol-relative and #fragment
+   references untouched. This keeps the cached look byte-equivalent to the linked
+   one (images, fonts and masks all load). */
+function absolutizeCss(css,cssUrl){
+ css=css.replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g,function(m,q,ref){
+  var r=ref.trim();
+  if(!r||/^(data:|https?:|\/\/|#)/i.test(r))return m;
+  try{return 'url("'+new URL(r,cssUrl).href+'")'}catch(e){return m}
+ });
+ css=css.replace(/@import\s+(['"])([^'"]+)\1/g,function(m,q,ref){
+  var r=ref.trim();
+  if(!r||/^(data:|https?:|\/\/)/i.test(r))return m;
+  try{return '@import "'+new URL(r,cssUrl).href+'"'}catch(e){return m}
+ });
+ return css;
+}
 /* Best-effort: read a stylesheet we just loaded (from cache) so it can be stored
    for an instant next visit. */
 function grabCss(file){
  if(cssHave[file]!=null||cssFresh[file]!=null)return;
- try{fetch(url(file,0),{cache:'force-cache'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t!=null)cssFresh[file]=t}).catch(function(){})}catch(e){}
+ var abs=url(file,0);
+ try{fetch(abs,{cache:'force-cache'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t!=null)cssFresh[file]=absolutizeCss(t,abs)}).catch(function(){})}catch(e){}
 }
 function saveCssCache(){
  setTimeout(function(){

@@ -99,7 +99,7 @@ function catNorm(t){return (t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').repla
 window.__oklaIsCat=function(l){return !!catImages[catNorm(l)]};
 function catPng(label){var f=catImages[catNorm(label)];if(!f)return null;var im=document.createElement('img');im.className='okla-category-png';im.src=(window.__oklaAssetBase||'')+'v91/img/cat/'+f;im.alt='';im.setAttribute('loading','lazy');return im}
 function catIcon(item,i){var iconSpan=n('span','okm61-category-icon'),png=catPng(item.label);if(!png){var op=item.original.querySelector('img.okla-category-png');if(op)png=op.cloneNode(true)}if(png){iconSpan.appendChild(png);return iconSpan}var source=item.original.querySelector('.okla-cat-svg svg');if(source)iconSpan.appendChild(source.cloneNode(true));else iconSpan.appendChild(svg(['chip','devices','measure','cam','bulb','spark','screen'][i%7]));return iconSpan}
-function catTile(item,i){var a=n('a','okm61-category');a.href=item.href;a.append(catIcon(item,i),n('span','okm61-category-label',item.label));return a}
+function catTile(item,i){var a=n('a','okm61-category');a.href=item.href;a.append(catIcon(item,i),n('span','okm61-category-label',/endoskop/i.test(item.label)?'Endoskopy':item.label));return a}
 function catRow(item,i){var a=n('a','okm61-cat-row');a.href=item.href;var lab=n('span','okm61-cat-row-label',item.label);var ch=n('span','okm61-cat-row-chevron');ch.appendChild(svg('arrow'));a.append(catIcon(item,i),lab,ch);return a}
 function categorySection(){
 if(!mq.matches||!isHome())return;
@@ -203,7 +203,7 @@ var banner=document.querySelector('main#content .banners-row');if(!banner)return
 var items=readCategories();if(!items.length)return;
 var sec=document.getElementById('okla-v61-categories');if(!sec){sec=make('section');sec.id='okla-v61-categories';sec.setAttribute('aria-label','Kategorie');
 var grid=make('div','okm61-category-grid');
-items.forEach(function(item,i){var a=make('a','okm61-category');a.href=item.href;var holder=make('span','okm61-category-icon'),png=catPng(item.label);if(!png){var op=item.original.querySelector('img.okla-category-png');if(op)png=op.cloneNode(true)}var from=item.original.querySelector('.okla-cat-svg svg');holder.appendChild(png?png:(from?from.cloneNode(true):icon(i)));a.append(holder,make('span','okm61-category-label',item.label));grid.appendChild(a)});sec.appendChild(grid);
+items.forEach(function(item,i){var a=make('a','okm61-category');a.href=item.href;var holder=make('span','okm61-category-icon'),png=catPng(item.label);if(!png){var op=item.original.querySelector('img.okla-category-png');if(op)png=op.cloneNode(true)}var from=item.original.querySelector('.okla-cat-svg svg');holder.appendChild(png?png:(from?from.cloneNode(true):icon(i)));a.append(holder,make('span','okm61-category-label',/endoskop/i.test(item.label)?'Endoskopy':item.label));grid.appendChild(a)});sec.appendChild(grid);
 if(items.length>8){var more=make('button','okm61-category-more','Všechny kategorie');more.type='button';more.addEventListener('click',function(){var on=sec.classList.toggle('is-expanded');more.textContent=on?'Zobrazit méně':'Všechny kategorie'});sec.append(more)}
 }
 var dots=document.getElementById('okla-v61-dots'),target=dots||banner;if(target.nextElementSibling!==sec)target.after(sec);

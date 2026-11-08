@@ -31,6 +31,14 @@ html body #content .p-info-wrapper .social-buttons-wrapper .social-buttons,
 html body #content .p-info-wrapper .social-buttons-wrapper .social-buttons-close,
 html body #content .p-info-wrapper .social-buttons-wrapper [class*="close"]{display:none!important}
 html body #content .p-info-wrapper .social-buttons-wrapper .link-icons{display:flex!important;visibility:visible!important;opacity:1!important}
+/* Phones: keep all four tools (Tisk / Zeptat se / Hlídat / Sdílet) on ONE row — a
+   full-width four-column grid where each tile shares the width, so the fourth
+   never wraps to a second line. */
+@media(max-width:767px){
+  html body #content .p-info-wrapper .social-buttons-wrapper:not(#okla-tl-a#okla-tl-b#okla-tl-c) .link-icons{margin-left:0!important}
+  html body #content .p-info-wrapper .link-icons{display:grid!important;grid-template-columns:repeat(4,1fr)!important;flex-wrap:nowrap!important;gap:4px!important;width:100%!important;box-sizing:border-box!important}
+  html body #content .p-info-wrapper .link-icons .link-icon{width:auto!important;min-width:0!important;padding:10px 2px 9px!important;font-size:12px!important}
+}
 
 /* ---------- 2. "Zeptat se" and "Hlídat" dialogs ---------- */
 html body:has(#watchdog-form,#formProductQuestion) #cboxOverlay{background:rgba(11,37,64,.5)!important;opacity:1!important}

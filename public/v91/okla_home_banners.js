@@ -11,7 +11,8 @@
  // Desktop shows the first slide only (Flipper Zero); the glasses slide is mobile only. Only products the shop sells.
  var SLIDES=[
   {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'},
-  {n:3,title:'Chytré brýle s AI',lead:'Kamera a AI překlad v lehkých brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'}
+  {n:3,title:'Chytré brýle s AI',lead:'Kamera a AI překlad v lehkých brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'},
+  {n:'endo',title:'Endoskopy',lead:'Nahlédněte do motoru, stěny i potrubí.',alt:'Endoskop',mobileOnly:true,href:'/endoskopy-a-inspekcni-kamery/'}
  ];
  var TILES=[
   {n:1,title:'Chytré brýle',lead:'Kamera a AI překlad přímo v brýlích.',alt:'Chytré brýle',href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'},

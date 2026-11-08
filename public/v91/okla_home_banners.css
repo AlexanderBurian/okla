@@ -16,6 +16,9 @@ html body.type-index #content #okla-v61-dots{display:none!important}
 .okla-hero__slide--2 .okla-hero__media{background-image:url('assets/hero-2-desktop.webp')}
 .okla-hero__slide--3 .okla-hero__media{background-image:url('assets/hero-3-desktop.webp')}
 .okla-hero__slide--4 .okla-hero__media{background-image:url('assets/hero-4-desktop.webp')}
+/* Endoscope hero slide (mobile only): the endoscope cut-out on a navy light,
+   reusing the lower endoscope tile's treatment. */
+.okla-hero__slide--endo .okla-hero__media{background:url('assets/side-endoscope.png') right 7% center/auto 94% no-repeat,radial-gradient(90% 140% at 82% 50%,#2a6bb8 0%,#123a6e 45%,#0b2540 80%)!important}
 .okla-hero__text{position:absolute;left:0;top:0;bottom:0;width:52%;padding:0 4% 0 3%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;z-index:2}
 .okla-hero__title{margin:0;font-size:30px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.25)}
 .okla-hero__lead{margin:0;font-size:15px;line-height:1.4;color:#fff}
