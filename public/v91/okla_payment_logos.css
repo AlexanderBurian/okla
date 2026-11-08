@@ -1,9 +1,9 @@
-/* OKLA – payment logos in the footer bottom row (okla_payment_logos.js): small white chips with a light border,
+/* OKLA – payment logos in the footer bottom row (okla_payment_logos.js): plain logos, no frame,
    bottom left on desktop, centred under the copyright on smaller screens. */
 html body .footer-bottom.okla-has-pay{position:relative!important;flex-wrap:wrap!important}
 html body .okla-pay{display:flex!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important}
 html body .okla-pay__item{display:grid!important;place-items:center!important;width:52px!important;height:32px!important;box-sizing:border-box!important;
-  margin:0!important;padding:0 6px!important;border:1px solid #e1e7ee!important;border-radius:7px!important;background:#fff!important}
+  margin:0!important;padding:0 4px!important;border:0!important;border-radius:0!important;background:transparent!important}
 html body .okla-pay__item svg{display:block!important;width:auto!important;max-width:100%!important;height:16px!important}
 html body .okla-pay__item--apple svg{height:23px!important}
 html body .okla-pay__item--google svg{height:14px!important}

@@ -37,7 +37,8 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
 .okla-side-art__stage{position:relative;width:100%;height:132cqw}
 .okla-side-art__product{position:absolute;inset:0;width:100%;height:100%;background-size:contain;background-position:center;background-repeat:no-repeat}
 /* glasses are wider than tall, so they get a bit more width (running slightly past the art box) */
-.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('assets/side-glasses.png');background-position:center 34%}
+.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('assets/side-glasses.png');background-position:center 34%;transform:scaleX(-1)}
+/* the glasses look to the right (mirrored); the price tag is not part of the picture, so it stays readable */
 .okla-side-art__stage--meter .okla-side-art__product{background-image:url('assets/side-meter.png');background-position:30% 20%;background-size:auto 92%}
 .okla-side-art__stage--endoscope .okla-side-art__product{background-image:url('assets/side-endoscope.png')}
 
