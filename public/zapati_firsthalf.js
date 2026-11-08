@@ -44,7 +44,7 @@ var modules=[
  'v91/okla_behavior.js'
 ];
 if(isHome) modules.push('v91/okla_news_native_images.js');
-if(isHome) modules.push('v91/okla_home.css','v91/okla_home.js','v91/okla_home_banners.css','v91/okla_home_banners.js');
+if(isHome) modules.push('v91/okla_home.css','v91/okla_home.js','v91/okla_home_banners.css','v91/okla_home_banners.js','v91/okla_home_search.js');
 modules.push('v91/okla_home_side.css','v91/okla_home_side.js');
 modules.push('okla_v86_catalog.js','v91/okla_live_catalog.js');
 if(isDetail) modules.push('content-v91/layout.css','content-v91/catalog.js');
