@@ -60,13 +60,10 @@
  }
  function edge(){
   var n=edgeNode();if(!n)return null;
-  var r=n.getBoundingClientRect();
-  /* On the homepage the big dark banner covers the gradient above the category
-     grid, so almost none of it shows. Let the gradient reach the BOTTOM of the
-     category grid instead, so the tiles sit on the wash like the top content of
-     every other page. Elsewhere it still ends where the content starts. */
-  var useBottom=isHome()&&n.id==='okla-v61-categories';
-  return Math.max(0,Math.round((useBottom?r.bottom:r.top)+window.scrollY));
+  /* Keep the homepage consistent with every other template: the wash reaches
+     pure white exactly where the page UI begins. Extending it to the bottom of
+     the whole category grid left a conspicuous blue band below the dark hero. */
+  return Math.max(0,Math.round(n.getBoundingClientRect().top+window.scrollY));
  }
  function reset(){if(last!==-1){root.style.removeProperty('--okla-mg-h');last=-1}root.classList.remove('okla-mg-anchored')}
  function apply(){
