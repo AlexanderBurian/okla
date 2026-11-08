@@ -107,3 +107,37 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-
  -webkit-text-fill-color:#111!important;
  filter:none!important;
 }
+
+/* The checkout actions sit vertically in the middle of their footer area. */
+html body.ordering-process #content#content .okla-step-nav{
+ padding-top:24px!important;
+ padding-bottom:24px!important;
+ box-sizing:border-box!important;
+}
+html body.ordering-process #content#content .okla-step-nav .next-step{
+ align-items:center!important;
+}
+
+/* Missing Zasilkovna pickup point: inline, close to the native picker link. */
+html body.ordering-process:not(.in-kosik) .co-delivery-method .radio-wrapper.okla-pickup-invalid{
+ border-color:#d71920!important;
+}
+html body.ordering-process:not(.in-kosik) .co-delivery-method .okla-pickup-error{
+ display:block!important;
+ width:100%!important;
+ margin:6px 0 0!important;
+ color:#d71920!important;
+ -webkit-text-fill-color:#d71920!important;
+ font-family:"Exo 2",Arial,sans-serif!important;
+ font-size:13px!important;
+ font-weight:700!important;
+ line-height:1.35!important;
+ text-transform:none!important;
+ text-decoration:none!important;
+}
+@media(max-width:767px){
+ html body.ordering-process #content#content .okla-step-nav{
+  padding-top:16px!important;
+  padding-bottom:16px!important;
+ }
+}

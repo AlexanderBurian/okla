@@ -282,6 +282,89 @@
   }
  }
 
+ /* A selected Zasilkovna shipping method is not enough: the shopper must also
+    choose a concrete pickup point. Keep Shoptet's native picker and state, but
+    surface the missing choice next to it before the form is allowed to move on. */
+ function requireZasilkovnaPoint(){
+  var ERROR_CLASS='okla-pickup-error';
+  var ERROR_TEXT='*Vyberte prosím odběrné místo Zásilkovny.';
+
+  function selectedRow(){
+   var checked=document.querySelector('.co-delivery-method .radio-wrapper input[type=radio]:checked');
+   var row=checked&&checked.closest('.radio-wrapper');
+   return row&&/z[aá]silkovna|packeta/i.test(row.textContent||'')?row:null;
+  }
+
+  function hasStoredPoint(row){
+   var inputs=document.querySelectorAll('.co-delivery-method input:not([type=radio]), .co-delivery-method [data-branch-id], .co-delivery-method [data-pickup-point]');
+   return Array.prototype.some.call(inputs,function(node){
+    var key=[node.name,node.id,node.className,node.getAttribute('data-branch-id'),node.getAttribute('data-pickup-point')].join(' ');
+    if(!/branch|pickup|point|place|zasilkov|packeta/i.test(key))return false;
+    var value=('value' in node?node.value:'')||node.getAttribute('data-branch-id')||node.getAttribute('data-pickup-point')||'';
+    return String(value).trim()!=='';
+   });
+  }
+
+  function chooser(row){
+   return Array.prototype.find.call(row.querySelectorAll('a,button,.sublabel'),function(node){
+    return /zvolte|vyberte|choose/i.test(node.textContent||'')&&/m[ií]sto|pobo[cč]k|point/i.test(node.textContent||'');
+   })||null;
+  }
+
+  function isMissing(row){
+   if(!row||hasStoredPoint(row))return false;
+   return !!chooser(row);
+  }
+
+  function clearError(){
+   document.querySelectorAll('.'+ERROR_CLASS).forEach(function(note){note.remove()});
+   document.querySelectorAll('.radio-wrapper.okla-pickup-invalid').forEach(function(row){row.classList.remove('okla-pickup-invalid')});
+   document.querySelectorAll('[aria-describedby="okla-pickup-error"]').forEach(function(node){node.removeAttribute('aria-describedby')});
+  }
+
+  function showError(row){
+   clearError();
+   row.classList.add('okla-pickup-invalid');
+   var anchor=chooser(row);
+   var host=(anchor&&anchor.closest('.sublabel,.payment-info'))||row.querySelector('.payment-info')||row;
+   var note=el('span',ERROR_CLASS);
+   note.setAttribute('role','alert');
+   note.textContent=ERROR_TEXT;
+   host.appendChild(note);
+   if(anchor){
+    anchor.setAttribute('aria-describedby','okla-pickup-error');
+    note.id='okla-pickup-error';
+   }
+   note.scrollIntoView({block:'center',behavior:'smooth'});
+   if(anchor&&typeof anchor.focus==='function')anchor.focus({preventScroll:true});
+  }
+
+  function validate(event){
+   var row=selectedRow();
+   if(!isMissing(row)){clearError();return true}
+   if(event){event.preventDefault();event.stopImmediatePropagation()}
+   showError(row);
+   return false;
+  }
+
+  document.addEventListener('click',function(event){
+   if(event.target.closest('.okla-step-nav .next-step-forward'))validate(event);
+  },true);
+  document.addEventListener('submit',function(event){
+   if(event.target.closest&&event.target.closest('.ordering-process'))validate(event);
+   else if(document.body.classList.contains('ordering-process'))validate(event);
+  },true);
+  document.addEventListener('change',function(event){
+   if(event.target.closest&&event.target.closest('.co-delivery-method'))setTimeout(function(){
+    var row=selectedRow();if(!isMissing(row))clearError();
+   },0);
+  });
+  var delivery=document.querySelector('.co-delivery-method');
+  if(delivery&&window.MutationObserver)new MutationObserver(function(){
+   var row=selectedRow();if(!isMissing(row))clearError();
+  }).observe(delivery,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['value','data-branch-id','data-pickup-point']});
+ }
+
  /* The coupon card, in the empty left column of the cart extras. It sends the code to Shoptet's own coupon action, shows Shoptet's
     answer in the card (Shoptet's top messages are hidden on this site) and reloads the cart when the coupon is accepted. */
  function addCoupon(){
@@ -551,6 +634,7 @@
   if(window.ResizeObserver)new ResizeObserver(function(){alignNav()}).observe(document.body);
   freeShipping();
   keepOnlyZasilkovna();
+  requireZasilkovnaPoint();
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);
  else init();
