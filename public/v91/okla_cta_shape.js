@@ -49,6 +49,21 @@
     for(var i=0;i<svgs.length;i++){if(!svgs[i].classList.contains('okla-cta-cart'))svgs[i].style.setProperty('display','none','important')}
     b.insertBefore(cartSvg(),b.firstChild);
    });
+   /* Phones: give the product-card buttons room so the cart icon + "Do košíku"
+      sit comfortably — a taller button, comfortable side padding and a slightly
+      smaller icon. */
+   var mobile=!window.matchMedia||window.matchMedia('(max-width:767px)').matches;
+   if(mobile){
+    document.querySelectorAll('.product .btn-cart,.product .add-to-cart-button').forEach(function(b){
+     b.style.setProperty('min-height','42px','important');
+     b.style.setProperty('height','42px','important');
+     b.style.setProperty('padding-left','12px','important');
+     b.style.setProperty('padding-right','12px','important');
+     b.style.setProperty('width','min(168px,100%)','important');
+     var ic=b.querySelector(':scope > svg.okla-cta-cart');
+     if(ic){ic.style.setProperty('width','16px','important');ic.style.setProperty('height','16px','important');ic.style.setProperty('min-width','16px','important');ic.style.setProperty('margin','0 7px 0 0','important');}
+    });
+   }
   }catch(e){}
   busy=false;
  }

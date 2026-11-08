@@ -86,6 +86,9 @@ body.type-index #content-wrapper main#content{display:block!important;float:none
 #okla-v61-bottom .okm61-bottom-action{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:4px!important;min-width:0!important;height:59px!important;margin:0!important;padding:2px!important;border:0!important;border-radius:0!important;background:transparent!important;text-decoration:none!important;color:#636b75!important;cursor:pointer!important;font:500 10.5px/1.1 "Exo 2",Arial,sans-serif!important}
 #okla-v61-bottom .okm61-bottom-action svg{display:block!important;width:25px!important;height:25px!important;stroke:currentColor!important;stroke-width:1.9!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 #okla-v61-bottom .okm61-bottom-action.is-active{color:#184e96!important;font-weight:800!important}
+#okla-v61-bottom .okm61-bottom-action.is-active svg{stroke-width:2.15!important}
+/* Blue feedback when an item is tapped/selected. */
+#okla-v61-bottom .okm61-bottom-action:active{color:#184e96!important}
 #okla-v61-bottom .okm61-bottom-action:focus-visible{outline:2px solid #1788cb!important;outline-offset:-3px!important}
 #okla-v61-drawer{display:flex!important;position:fixed!important;inset:0!important;z-index:2147483647!important;background:rgba(7,27,49,.43)!important}
 #okla-v61-drawer[hidden]{display:none!important}
