@@ -90,3 +90,18 @@ html body .cart-empty .empty-cart-boxes .search-form button[type="submit"]{heigh
 
 /* Top 10 box with too few current products left (okla_live_catalog.js) */
 html body .box-topProducts.okla-hidden-box{display:none!important}
+
+/* Cart: Shoptet's contact box (only the shop name, no details) is not shown */
+html body .sidebar-in-cart .box:has(> .contact-box),
+html body .cart-content .box:has(> .contact-box){display:none!important}
+
+/* Cart quantity − / +: no background in any state (hover, focus, active), like on the product page */
+html body .quantity button.okla-qty:not(#okla-cq-a#okla-cq-b#okla-cq-c#okla-cq-d#okla-cq-e#okla-cq-f),
+html body .quantity button.okla-qty:not(#okla-cq-a#okla-cq-b#okla-cq-c#okla-cq-d#okla-cq-e#okla-cq-f):is(:hover,:focus,:focus-visible,:active){
+  background:transparent!important;background-image:none!important;box-shadow:none!important;
+}
+
+/* Header: "Přihlášení" a little to the left, so the cart badge has room next to its arrow */
+@media(min-width:992px){
+  html body #header .okla-exact-header > .okla-header-account:not(#okla-ha-a#okla-ha-b#okla-ha-c){translate:-22px 0!important}
+}
