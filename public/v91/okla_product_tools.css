@@ -1,0 +1,132 @@
+/* OKLA – product page tools and their dialogs (okla_product_tools.js).
+   1. Tisk / Zeptat se / Hlídat / Sdílet: a little lower, outline SVG pictograms, rounded hover tiles.
+   2. "Zeptat se" (Dotaz na prodejce) and "Hlídat" (hlídací pes) dialogs: the same white card / bottom sheet as the
+      rating dialog, labels above rounded fields, custom checkboxes, green full-width button.
+   3. Our share panel. */
+
+/* ---------- 1. tool row ---------- */
+html body #content .p-info-wrapper .social-buttons-wrapper:not(#okla-tl-a#okla-tl-b#okla-tl-c){margin:28px 0 0!important;padding:0!important;border:0!important}
+/* the tiles are 78px wide with the icon centred: pull the row left so the first icon lines up with the icons above */
+html body #content .p-info-wrapper .social-buttons-wrapper:not(#okla-tl-a#okla-tl-b#okla-tl-c) .link-icons{margin-left:-26px!important}
+html body #content .p-info-wrapper .link-icons{display:flex!important;flex-wrap:wrap!important;align-items:stretch!important;gap:6px!important;margin:0!important;padding:0!important;border:0!important}
+html body #content .p-info-wrapper .link-icons .link-icon{
+  display:inline-flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:7px!important;
+  width:78px!important;min-width:78px!important;margin:0!important;padding:10px 4px 9px!important;box-sizing:border-box!important;border:0!important;border-radius:14px!important;
+  background:transparent!important;color:#0b2540!important;text-decoration:none!important;cursor:pointer!important;
+  font:600 13px/1.2 "Exo 2",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;transition:background-color .15s ease,color .15s ease!important;
+}
+html body #content .p-info-wrapper .link-icons .link-icon:is(:hover,:focus-visible){background:#f3f5f8!important;color:#16478b!important}
+html body #content .p-info-wrapper .link-icons .link-icon span{display:block!important;color:inherit!important;font:inherit!important}
+html body #content .p-info-wrapper .link-icons .link-icon::before{
+  content:""!important;display:block!important;width:26px!important;height:26px!important;margin:0!important;font-family:inherit!important;font-size:0!important;
+  background:currentColor!important;-webkit-mask:var(--okla-tool-icon) center/26px 26px no-repeat!important;mask:var(--okla-tool-icon) center/26px 26px no-repeat!important;
+}
+html body #content .p-info-wrapper .link-icons .link-icon::after{content:none!important;display:none!important}
+html body #content .p-info-wrapper .link-icons .link-icon.print{--okla-tool-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M7%209V3.5h10V9%22%2F%3E%3Cpath%20d%3D%22M7%2017H5a2%202%200%200%201-2-2v-4a2%202%200%200%201%202-2h14a2%202%200%200%201%202%202v4a2%202%200%200%201-2%202h-2%22%2F%3E%3Cpath%20d%3D%22M7%2014h10v6.5H7z%22%2F%3E%3Cpath%20d%3D%22M17.5%2012h.01%22%2F%3E%3C%2Fsvg%3E")}
+html body #content .p-info-wrapper .link-icons .link-icon.chat{--okla-tool-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%205.5A2.5%202.5%200%200%201%206.5%203h11A2.5%202.5%200%200%201%2020%205.5v8a2.5%202.5%200%200%201-2.5%202.5H10l-5%204v-4.2A2.5%202.5%200%200%201%204%2013.5z%22%2F%3E%3Cpath%20d%3D%22M8.5%208.2h7%22%2F%3E%3Cpath%20d%3D%22M8.5%2011.6h4.5%22%2F%3E%3C%2Fsvg%3E")}
+html body #content .p-info-wrapper .link-icons .link-icon.watchdog{--okla-tool-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%2016.5V11a6%206%200%200%201%2012%200v5.5l1.8%201.8H4.2z%22%2F%3E%3Cpath%20d%3D%22M10%2021a2.2%202.2%200%200%200%204%200%22%2F%3E%3Cpath%20d%3D%22M12%203V2%22%2F%3E%3C%2Fsvg%3E")}
+html body #content .p-info-wrapper .link-icons .link-icon.share{--okla-tool-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%2015V3.5%22%2F%3E%3Cpath%20d%3D%22M7.5%208L12%203.5%2016.5%208%22%2F%3E%3Cpath%20d%3D%22M8%2011H6.5A2.5%202.5%200%200%200%204%2013.5v5A2.5%202.5%200%200%200%206.5%2021h11a2.5%202.5%200%200%200%202.5-2.5v-5a2.5%202.5%200%200%200-2.5-2.5H16%22%2F%3E%3C%2Fsvg%3E")}
+/* Shoptet's own share block (third-party widgets) is replaced by our panel */
+html body #content .p-info-wrapper .social-buttons-wrapper .social-buttons,
+html body #content .p-info-wrapper .social-buttons-wrapper .social-buttons-close,
+html body #content .p-info-wrapper .social-buttons-wrapper [class*="close"]{display:none!important}
+html body #content .p-info-wrapper .social-buttons-wrapper .link-icons{display:flex!important;visibility:visible!important;opacity:1!important}
+
+/* ---------- 2. "Zeptat se" and "Hlídat" dialogs ---------- */
+html body:has(#watchdog-form,#formProductQuestion) #cboxOverlay{background:rgba(11,37,64,.5)!important;opacity:1!important}
+html body #colorbox:has(#watchdog-form,#formProductQuestion){
+  position:fixed!important;top:50%!important;left:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;
+  width:min(480px,calc(100vw - 32px))!important;height:auto!important;max-height:calc(100vh - 32px)!important;margin:0!important;padding:0!important;
+  overflow:auto!important;border-radius:22px!important;background:#fff!important;box-shadow:0 24px 60px rgba(11,37,64,.28)!important;z-index:2147483600!important;
+}
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxWrapper,
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxWrapper>div,
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxContent,
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxLoadedContent{
+  position:static!important;float:none!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;
+  margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;overflow:visible!important;
+}
+html body #colorbox:has(#watchdog-form,#formProductQuestion) [id^="cboxTop"],
+html body #colorbox:has(#watchdog-form,#formProductQuestion) [id^="cboxBottom"],
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxMiddleLeft,
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxMiddleRight{display:none!important}
+html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxClose{
+  position:absolute!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;
+  border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;z-index:3!important;
+}
+html body #colorbox .content-modal:has(#watchdog-form,#formProductQuestion){padding:30px 26px 26px!important;margin:0!important;border:0!important;background:none!important;font-family:"Exo 2",Arial,sans-serif!important}
+html body #colorbox .content-modal:has(#formProductQuestion) > h1,
+html body #colorbox #watchdog-form .watchdog-title{
+  margin:0 36px 8px!important;padding:0!important;border:0!important;background:none!important;text-align:center!important;
+  font:800 23px/1.25 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:-.2px!important;
+}
+html body #colorbox #watchdog-form .watchdog-title strong{font-weight:800!important}
+html body #colorbox :is(.content-modal:has(#formProductQuestion) > h1,#watchdog-form .watchdog-title)::before,
+html body #colorbox :is(.content-modal:has(#formProductQuestion) > h1,#watchdog-form .watchdog-title)::after{content:none!important;display:none!important}
+html body #colorbox .content-modal:has(#formProductQuestion) > h1::after{content:"Odpovíme co nejdřív na váš e-mail."!important;display:block!important;margin:6px 0 0!important;font:400 15px/1.5 "Exo 2",Arial,sans-serif!important;color:#56657a!important;letter-spacing:0!important}
+html body #colorbox .content-modal:has(#watchdog-form) #watchdog-form h2.watchdog-title::after{content:"Pošleme vám e-mail, jakmile nastane, co si vyberete."!important;display:block!important;margin:6px 0 0!important;font:400 15px/1.5 "Exo 2",Arial,sans-serif!important;color:#56657a!important;letter-spacing:0!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion){margin:18px 0 0!important;padding:0!important;border:0!important;background:none!important}
+html body #colorbox #formProductQuestion fieldset{margin:0!important;padding:0!important;border:0!important;min-width:0!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .form-legend{display:none!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .form-group{margin:0 0 14px!important;padding:0!important;text-align:left!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .smart-label-wrapper > label{
+  display:block!important;position:static!important;transform:none!important;margin:0 0 6px!important;padding:0!important;background:none!important;
+  font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important;
+}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .form-control-wrapper{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input[type="text"],input[type="email"],textarea){
+  display:block!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important;padding:0 14px!important;
+  border:1px solid #d9e0e8!important;border-radius:12px!important;background:#fff!important;box-shadow:none!important;outline:0!important;
+  font:400 15px/1.45 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;
+}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input[type="text"],input[type="email"]){height:48px!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) textarea{min-height:130px!important;padding:12px 14px!important;resize:vertical!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+/* hlídací pes: the three choices as tappable rows with our checkbox */
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox){
+  display:flex!important;flex-wrap:wrap!important;align-items:center!important;gap:10px 12px!important;margin:0 0 8px!important;padding:13px 14px!important;
+  border:1px solid #e1e7ee!important;border-radius:14px!important;background:#fff!important;cursor:pointer!important;transition:border-color .15s ease,background-color .15s ease!important;
+}
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox:checked){border-color:#168bd2!important;background:#eef6fd!important}
+html body #colorbox #watchdog-form input.watchdog-checkbox{
+  -webkit-appearance:none!important;appearance:none!important;position:relative!important;flex:0 0 22px!important;width:22px!important;height:22px!important;margin:0!important;padding:0!important;
+  border:2px solid #b7c2ce!important;border-radius:7px!important;background:#fff!important;cursor:pointer!important;opacity:1!important;clip:auto!important;
+}
+html body #colorbox #watchdog-form input.watchdog-checkbox:checked{border-color:#168bd2!important;background:#168bd2 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012.5l4.5%204.5L19%207%22%2F%3E%3C%2Fsvg%3E") center/16px 16px no-repeat!important}
+html body #colorbox #watchdog-form input.watchdog-checkbox::before,html body #colorbox #watchdog-form input.watchdog-checkbox::after{content:none!important;display:none!important}
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label{flex:1 1 auto!important;margin:0!important;padding:0!important;font:600 15px/1.3 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;cursor:pointer!important;text-transform:none!important;letter-spacing:0!important}
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label::before,html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label::after{content:none!important;display:none!important}
+html body #colorbox #watchdog-form #priceUnder{flex:1 1 100%!important;width:100%!important;height:44px!important;margin:0!important}
+html body #colorbox #watchdog-form .disclaimer{flex:1 1 100%!important;margin:0!important;font:400 13px/1.4 "Exo 2",Arial,sans-serif!important;color:#8a96a6!important}
+html body #colorbox #watchdog-form .disclaimer.hidden{display:none!important}
+html body #colorbox #watchdog-form .watchdog-messages:empty{display:none!important}
+html body #colorbox #watchdog-form .form-group.smart-label-wrapper{margin-top:16px!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents,
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents .label{margin:0!important;font:400 12.5px/1.5 "Exo 2",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents a{color:#168bd2!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .submit-wrapper{margin:18px 0 0!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]{
+  display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:52px!important;margin:0!important;padding:0 20px!important;box-sizing:border-box!important;
+  border:1px solid #66d400!important;border-radius:12px!important;background:#66d400!important;background-image:none!important;box-shadow:none!important;
+  font:700 15px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
+}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+@media(max-width:767px){
+  html body #colorbox:has(#watchdog-form,#formProductQuestion){
+    top:auto!important;bottom:0!important;left:0!important;transform:none!important;width:100%!important;max-height:90vh!important;
+    border-radius:24px 24px 0 0!important;box-shadow:0 -12px 40px rgba(11,37,64,.25)!important;
+  }
+  html body #colorbox .content-modal:has(#watchdog-form,#formProductQuestion){padding:26px 20px calc(22px + env(safe-area-inset-bottom,0px))!important}
+  html body #colorbox .content-modal:has(#formProductQuestion) > h1,
+  html body #colorbox #watchdog-form .watchdog-title{font-size:21px!important}
+}
+
+/* ---------- 3. share panel ---------- */
+.okla-share{position:absolute;z-index:9000;width:260px;box-sizing:border-box;padding:14px;border:1px solid #e6ebf2;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(11,37,64,.18);font-family:"Exo 2",Arial,sans-serif}
+.okla-share[hidden]{display:none}
+.okla-share__title{margin:2px 6px 10px;font:800 16px/1.2 "Exo 2",Arial,sans-serif;color:#0b2540}
+.okla-share__list{display:flex;flex-direction:column;gap:2px}
+.okla-share__item{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;margin:0;padding:0 10px;box-sizing:border-box;border:0;border-radius:12px;background:transparent;color:#0b2540;font:600 14.5px/1.2 "Exo 2",Arial,sans-serif;text-align:left;text-decoration:none;cursor:pointer}
+.okla-share__item:hover,.okla-share__item:focus-visible{background:#f3f5f8;color:#16478b;text-decoration:none}
+.okla-share__item svg{flex:0 0 22px;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.okla-share__item--copy.is-done{color:#1b7a3d}

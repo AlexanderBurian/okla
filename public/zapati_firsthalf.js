@@ -100,6 +100,8 @@ modules.push('v91/okla_field_consistency.css','v91/okla_password_toggle.js');
 modules.push('v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css','v91/okla_mobile_gradient.js');
 /* Product detail: description / reviews / parameters switcher (tabs on desktop, accordion on phones). */
 if(isDetail) modules.push('v91/okla_detail_tabs.css','v91/okla_detail_tabs.js');
+/* Product page tools (Tisk, Zeptat se, Hlídat, Sdílet), their dialogs and our share panel. */
+if(isDetail) modules.push('v91/okla_product_tools.css','v91/okla_product_tools.js');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
