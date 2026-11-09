@@ -1,0 +1,36 @@
+/* OKLA – isolated, Alza-style sign-in / sign-up pages. On /login/ and
+   /registrace/ the whole shop chrome (header, category menu, breadcrumbs,
+   footer, bottom nav) is hidden and just the OKLA logo sits above the card on
+   the page-top gradient — a focused auth screen. The registration form also
+   drops its social sign-up buttons: signing in with Google/Facebook/Seznam
+   already creates the account, so a separate social sign-up is redundant. */
+
+/* Hide the shop chrome. */
+body.in-login #header,body.in-registrace #header,
+body.in-login #footer,body.in-registrace #footer,
+body.in-login .breadcrumbs-wrapper,body.in-registrace .breadcrumbs-wrapper,
+body.in-login .breadcrumbs,body.in-registrace .breadcrumbs,
+body.in-login .navigation-in,body.in-registrace .navigation-in,
+body.in-login #okla-v61-bottom,body.in-registrace #okla-v61-bottom,
+body.in-login .okla-m-bottomnav,body.in-registrace .okla-m-bottomnav,
+body.in-login .okla-footer-mobile-promo,body.in-registrace .okla-footer-mobile-promo{display:none!important}
+
+/* Registration: no social sign-up buttons (social login already creates the
+   account), no wholesale/customer-type choice, and no optional company billing
+   section — a plain end-customer sign-up. */
+body.in-registrace .social-login,body.in-registrace .social-login-buttons{display:none!important}
+body.in-registrace fieldset.co-registration{display:none!important}
+body.in-registrace .okla-auth-hide{display:none!important}
+
+/* A calm page-top gradient behind the card. */
+body.in-login,body.in-registrace{background:#c2e8ff linear-gradient(180deg,#eaf6ff 0%,#dff0ff 42%,#cfe9ff 100%) no-repeat!important;min-height:100vh!important}
+body.in-login #content-wrapper,body.in-registrace #content-wrapper,
+body.in-login main#content,body.in-registrace main#content,
+body.in-login .content-inner,body.in-registrace .content-inner{background:transparent!important}
+body.in-login #content-wrapper,body.in-registrace #content-wrapper{border-top:0!important}
+
+/* The OKLA logo bar injected above the card. */
+.okla-auth-top{display:flex!important;justify-content:center!important;align-items:center!important;padding:34px 16px 10px!important}
+.okla-auth-top a{display:inline-flex!important;align-items:center!important;text-decoration:none!important}
+.okla-auth-top img{height:42px!important;width:auto!important;display:block!important}
+@media(max-width:767px){.okla-auth-top{padding:22px 16px 6px!important}.okla-auth-top img{height:36px!important}}
