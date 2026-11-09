@@ -69,8 +69,8 @@
      b.style.setProperty('width','140px','important');
      b.style.setProperty('max-width','100%','important');
      b.style.setProperty('min-width','0','important');
-     b.style.setProperty('height','38px','important');
-     b.style.setProperty('min-height','38px','important');
+     b.style.setProperty('height','36px','important');
+     b.style.setProperty('min-height','36px','important');
      b.style.setProperty('padding-top','0','important');
      b.style.setProperty('padding-bottom','0','important');
      var ic=b.querySelector(':scope > svg.okla-cta-cart');

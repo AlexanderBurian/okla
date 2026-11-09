@@ -2,9 +2,9 @@
    Deliberately limited to product prices and real add-to-cart controls: quantity
    steppers, filters, forms and the rest of the button system remain untouched. */
 :root{
- --okla-commerce-price:#e30613;
- --okla-commerce-cart:#49a700;
- --okla-commerce-cart-hover:#3f9200;
+ --okla-commerce-price:#d92b20;
+ --okla-commerce-cart:#5aa02a;
+ --okla-commerce-cart-hover:#4e8c24;
 }
 
 /* Product cards: the selling price is red in every listing and carousel. */
