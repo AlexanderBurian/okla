@@ -281,9 +281,10 @@ html body.in-vyhledavani .search-results-group-list li a,html body.type-search .
   color:#12438a!important;font-weight:600!important;font-size:14px!important;text-decoration:none!important;
   box-shadow:0 1px 3px rgba(6,29,58,.05)!important;transition:border-color .15s ease,box-shadow .15s ease,color .15s ease!important;
 }
+/* A proper article pictogram: a soft blue rounded badge with a document glyph. */
 html body.in-vyhledavani .search-results-group-list li a:before,html body.type-search .search-results-group-list li a:before{
-  content:""!important;flex:0 0 20px!important;width:20px!important;height:20px!important;
-  background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23008ddd' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h8l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z'/%3E%3Cpath d='M14 3v4h4M8 12h8M8 16h5'/%3E%3C/svg%3E")!important;
+  content:""!important;flex:0 0 40px!important;width:40px!important;height:40px!important;border-radius:10px!important;
+  background:#eaf4fd no-repeat center/22px 22px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b74c4' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z'/%3E%3Cpath d='M14 3v4h4'/%3E%3Cpath d='M9 12h6M9 15.5h6M9 19h4'/%3E%3C/svg%3E")!important;
 }
 html body.in-vyhledavani .search-results-group-list li a:after,html body.type-search .search-results-group-list li a:after{
   content:"\203A"!important;margin-left:auto!important;color:#9aa7b8!important;font-size:20px!important;line-height:1!important;
@@ -292,6 +293,12 @@ html body.in-vyhledavani .search-results-group-list li a:hover,html body.type-se
   border-color:#008ddd!important;box-shadow:0 3px 10px rgba(6,29,58,.1)!important;color:#065ba7!important;
 }
 html body.in-vyhledavani .search-results-group-list li a:hover:after,html body.type-search .search-results-group-list li a:hover:after{color:#008ddd!important}
+/* "Zobrazit vše (N)" link: keep it clear of the list above (it was cramped). */
+html body.in-vyhledavani .search-results-group .display-results-group,html body.type-search .search-results-group .display-results-group{
+  display:inline-block!important;margin:18px 0 4px!important;padding:0!important;
+  color:#0074e8!important;font-weight:700!important;font-size:13.5px!important;text-decoration:none!important;
+}
+html body.in-vyhledavani .search-results-group .display-results-group:hover,html body.type-search .search-results-group .display-results-group:hover{text-decoration:underline!important}
 /* A touch more breathing room between product rows. */
 html body.in-vyhledavani #products:not(.okla-cards).products-block,html body.type-search #products:not(.okla-cards).products-block{gap:22px 0!important}
 
