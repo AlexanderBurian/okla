@@ -314,10 +314,9 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* Centre of the visible part: the padding box starts 17.7px off-screen
-             (left: -19.7px minus the 2px border); nudged 2px towards the screen
-             edge because the rounded right end makes the true centre read as right. */
-          left: calc((100% + 17.7px) / 2 - 2px);
+          /* Exact centre of the visible part: the padding box starts 17.7px
+             off-screen (left: -19.7px minus the 2px border). */
+          left: calc((100% + 17.7px) / 2);
           right: auto;
           display: block;
           width: 22px;
