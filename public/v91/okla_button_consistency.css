@@ -397,7 +397,10 @@ html body.type-index #content .homepage-group-title.okla-slider-heading .okla-se
    hollow round handles (white fill + a thin blue ring).
    ============================================================ */
 html body .slider-wrapper h4{margin:0 0 12px!important;text-align:center!important}
-html body .slider-wrapper h4 span{font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#8a97a8!important}
+html body .slider-wrapper h4 span{font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#1a1a1a!important}
+/* The slider-content wrapper carries a grey (#dadada) background in the theme,
+   which shows past the track ends as ugly grey stubs. Clear it. */
+html body .slider-wrapper .slider-content{background:transparent!important;background-color:transparent!important}
 html body .slider-wrapper .slider-header{display:flex!important;justify-content:space-between!important;align-items:center!important;margin:6px 2px 0!important}
 html body .slider-wrapper .slider-header :is(.from,.to){font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;color:#1a1a1a!important}
 html body .slider-wrapper #min,html body .slider-wrapper #max,html body .slider-wrapper .slider-header .from *,html body .slider-wrapper .slider-header .to *{color:#1a1a1a!important}
