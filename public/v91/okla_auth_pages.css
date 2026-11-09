@@ -24,10 +24,24 @@ body.in-registrace .okla-auth-hide{display:none!important}
 
 /* A calm page-top gradient behind the card. */
 body.in-login,body.in-registrace{background:#c2e8ff linear-gradient(180deg,#eaf6ff 0%,#dff0ff 42%,#cfe9ff 100%) no-repeat!important;min-height:100vh!important}
-body.in-login #content-wrapper,body.in-registrace #content-wrapper,
+/* Strip the account "shell" box (#content-wrapper.okla-acc-shell: white card +
+   shadow + rounded border + ::before/::after) so only the login card floats on
+   the gradient. ID-boosted to beat html.okla-acc-polished …#content-wrapper. */
+body.in-login #content-wrapper#content-wrapper,body.in-registrace #content-wrapper#content-wrapper,
 body.in-login main#content,body.in-registrace main#content,
-body.in-login .content-inner,body.in-registrace .content-inner{background:transparent!important}
-body.in-login #content-wrapper,body.in-registrace #content-wrapper{border-top:0!important}
+body.in-login .content-wrapper-in,body.in-registrace .content-wrapper-in{
+  background:transparent!important;background-image:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding-top:0!important;padding-bottom:0!important
+}
+body.in-login #content-wrapper::before,body.in-login #content-wrapper::after,
+body.in-registrace #content-wrapper::before,body.in-registrace #content-wrapper::after{content:none!important;display:none!important;background:none!important;box-shadow:none!important}
+
+/* Mobile: Alza-style full-width — the card goes edge-to-edge (no box) under a
+   light logo band, instead of a floating card. */
+@media(max-width:767px){
+  .okla-auth-top{width:100%!important;background:linear-gradient(180deg,#eaf6ff 0%,#dff0ff 100%)!important;padding:26px 16px 22px!important;margin:0!important}
+  body.in-login main#content,body.in-registrace main#content{padding:0!important}
+  body.in-login .content-inner,body.in-registrace .content-inner{width:100%!important;max-width:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;padding:24px 18px 30px!important}
+}
 
 /* The OKLA logo bar injected above the card. */
 .okla-auth-top{display:flex!important;justify-content:center!important;align-items:center!important;padding:34px 16px 10px!important}
