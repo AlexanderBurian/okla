@@ -24,6 +24,7 @@
 
  var CSS=''
   +'.okla-hsearch{width:100%;margin:0 0 16px;font-family:"Exo 2",Arial,sans-serif}'
+  +'@media(min-width:768px){.okla-hsearch{display:none!important}}'
   +'.okla-hsearch__form{display:flex;align-items:center;gap:10px;width:100%;max-width:680px;margin:0 auto;box-sizing:border-box;height:52px;padding:0 8px 0 16px;background:#fff;border:1px solid #e1e8f1;border-radius:12px;box-shadow:0 4px 16px rgba(18,41,68,.08)}'
   +'.okla-hsearch__form:focus-within{border-color:#0074e8;box-shadow:0 4px 18px rgba(0,116,232,.16)}'
   +'html body .okla-hsearch .okla-hsearch__form,html body .okla-hsearch .okla-hsearch__in,html body .okla-hsearch .okla-hsearch__btn{outline:none!important}'
