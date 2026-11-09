@@ -399,15 +399,16 @@ html body.type-index #content .homepage-group-title.okla-slider-heading .okla-se
 html body .slider-wrapper h4{margin:0 0 12px!important;text-align:center!important}
 html body .slider-wrapper h4 span{font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#8a97a8!important}
 html body .slider-wrapper .slider-header{display:flex!important;justify-content:space-between!important;align-items:center!important;margin:6px 2px 0!important}
-html body .slider-wrapper .slider-header :is(.from,.to){font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;color:#0b2540!important}
-html body .slider-wrapper #min,html body .slider-wrapper #max,html body .slider-wrapper .slider-header .from *,html body .slider-wrapper .slider-header .to *{color:#0b2540!important}
-html body #slider.ui-slider{height:3px!important;margin:20px 12px 8px!important;padding:0!important;border:0!important;border-radius:4px!important;background:#e3e9f1!important;box-shadow:none!important}
-html body #slider .ui-slider-range{height:3px!important;top:0!important;border:0!important;border-radius:4px!important;background:#0074e8!important;box-shadow:none!important}
-/* box-sizing:border-box so the 2px ring is counted inside the 22px — otherwise
-   the handle is really 26px and the centring margin leaves it off-track. Large,
-   clean hollow rings to match the reference. */
-html body #slider .ui-slider-handle{box-sizing:border-box!important;width:22px!important;height:22px!important;top:50%!important;margin:0 0 0 -11px!important;transform:translateY(-50%)!important;border:2px solid #0074e8!important;border-radius:50%!important;background:#fff!important;box-shadow:0 1px 4px rgba(11,37,64,.22)!important;outline:none!important;cursor:pointer!important}
-html body #slider .ui-slider-handle:is(:hover,:focus,:active){border-color:#0068d1!important;background:#fff!important;outline:none!important}
+html body .slider-wrapper .slider-header :is(.from,.to){font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;color:#1a1a1a!important}
+html body .slider-wrapper #min,html body .slider-wrapper #max,html body .slider-wrapper .slider-header .from *,html body .slider-wrapper .slider-header .to *{color:#1a1a1a!important}
+/* A narrow 2px line (grey base + blue selected range). */
+html body #slider.ui-slider{height:2px!important;margin:20px 12px 8px!important;padding:0!important;border:0!important;border-radius:2px!important;background:#dfe5ee!important;box-shadow:none!important}
+html body #slider .ui-slider-range{height:2px!important;top:0!important;border:0!important;border-radius:2px!important;background:#0074e8!important;box-shadow:none!important}
+/* Hollow ring handle: the ring (2px border) is exactly the width of the line,
+   box-sizing:border-box so it is counted inside the 20px and the handle stays
+   centred on the track. No shadow — a clean, minimal look to match the reference. */
+html body #slider .ui-slider-handle{box-sizing:border-box!important;width:20px!important;height:20px!important;top:50%!important;margin:0 0 0 -10px!important;transform:translateY(-50%)!important;border:2px solid #0074e8!important;border-radius:50%!important;background:#fff!important;box-shadow:none!important;outline:none!important;cursor:pointer!important}
+html body #slider .ui-slider-handle:is(:hover,:focus,:active){border-color:#0068d1!important;background:#fff!important;outline:none!important;box-shadow:none!important}
 /* The theme paints a 10px white ::after block inside each handle — it overlaps
    the ring and makes the circle look cut/clipped. Remove both pseudo-elements
    so the handle is a clean, unbroken hollow ring. */

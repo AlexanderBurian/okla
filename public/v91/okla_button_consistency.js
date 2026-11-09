@@ -47,9 +47,10 @@
   var style=getComputedStyle(button);
   var bg=style.backgroundColor,img=style.backgroundImage,bd=style.borderColor,col=style.color;
   /* Only the navy filter button ("Otevřít filtr") becomes the OKLA blue; every
-     other button keeps its own resting colour (green stays green). */
+     other button keeps its own resting colour (green stays green). Use the deeper
+     #005cbd (rgb 0,92,189) — the lighter #0074e8 read as "light blue". */
   if(forceBlue(button)){
-   bg='rgb(0,116,232)';bd='rgb(0,116,232)';img='none';col='rgb(255,255,255)';
+   bg='rgb(0,92,189)';bd='rgb(0,92,189)';img='none';col='rgb(255,255,255)';
   }
   button.style.setProperty('--okla-button-rest-background',bg);
   button.style.setProperty('--okla-button-rest-image',img);
