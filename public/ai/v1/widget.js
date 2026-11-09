@@ -272,7 +272,7 @@
           left: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 60px;
+          width: 57px;
           height: 80.7px;
           border: 2px solid #fff;
           border-radius: 23.8px 0 0 23.8px;
@@ -313,9 +313,10 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* Centre of the visible green part: the tab sits 19.7px off-screen
-             (right: -19.7px) and has a 2px white border on the left. */
-          left: calc((100% + 2px - 19.7px) / 2);
+          /* Centre of the visible green part (the tab sits 19.7px off-screen
+             and has a 2px white border on the left), nudged 2px to the right
+             because the rounded left end makes the true centre read as left. */
+          left: calc((100% + 2px - 19.7px) / 2 + 2px);
           right: auto;
           display: block;
           width: 22px;
