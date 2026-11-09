@@ -272,7 +272,7 @@
           left: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 55px;
+          width: 60px;
           height: 80.7px;
           border: 2px solid #fff;
           border-radius: 23.8px 0 0 23.8px;
@@ -313,7 +313,9 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          left: calc(50% - 9.5px);
+          /* Centre of the visible green part: the tab sits 19.7px off-screen
+             (right: -19.7px) and has a 2px white border on the left. */
+          left: calc((100% + 2px - 19.7px) / 2);
           right: auto;
           display: block;
           width: 22px;
