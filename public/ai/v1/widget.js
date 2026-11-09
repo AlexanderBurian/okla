@@ -268,23 +268,23 @@
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          right: -19.7px;
-          left: auto;
+          /* Mobile: tab sticks out of the LEFT screen edge (mirror of the old right-edge tab). */
+          left: -19.7px;
+          right: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
           width: 53px;
           height: 80.7px;
           border: 2px solid #fff;
-          border-radius: 23.8px 0 0 23.8px;
+          border-radius: 0 23.8px 23.8px 0;
           padding: 5.75px;
-          /* Mirrored for the right edge: light side at the screen edge, shadow cast inwards. */
-          background: linear-gradient(200deg, #3fa2ff 4%, #0074e8 50%, #0b4ea6 100%);
+          background: linear-gradient(160deg, #3fa2ff 4%, #0074e8 50%, #0b4ea6 100%);
           color: #fff;
-          box-shadow: -3.5px 5px 12px rgba(0, 50, 120, .3);
+          box-shadow: 3.5px 5px 12px rgba(0, 50, 120, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(118%) scale(.94);
+          transform: translateY(-50%) translateX(-118%) scale(.94);
           transform-origin: center;
           transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .56s, box-shadow .22s ease;
         }
@@ -297,7 +297,7 @@
         }
         .launcher:hover {
           border-color: #fff;
-          box-shadow: -3px 5.5px 12px rgba(0, 50, 120, .32);
+          box-shadow: 3px 5.5px 12px rgba(0, 50, 120, .32);
           transform: translateY(-50%);
         }
         .launcher:focus-visible {
@@ -314,10 +314,10 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* Centre of the visible green part (the tab sits 19.7px off-screen
-             and has a 2px white border on the left), nudged 2px to the right
-             because the rounded left end makes the true centre read as left. */
-          left: calc((100% + 2px - 19.7px) / 2 + 2px);
+          /* Centre of the visible part: the padding box starts 17.7px off-screen
+             (left: -19.7px minus the 2px border); nudged 2px towards the screen
+             edge because the rounded right end makes the true centre read as right. */
+          left: calc((100% + 17.7px) / 2 - 2px);
           right: auto;
           display: block;
           width: 22px;
@@ -330,7 +330,7 @@
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(8px);
+          transform: translateY(-50%) translateX(-8px);
           transition: opacity .14s ease, transform .18s ease, visibility 0s linear .18s;
         }
         .panel {
