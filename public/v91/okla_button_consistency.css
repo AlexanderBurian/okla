@@ -385,3 +385,19 @@ html body.type-index #content .homepage-group-title.okla-slider-heading .okla-se
     transform:translateX(28px)!important;
   }
 }
+
+/* ============================================================
+   Clean price-range filter (jQuery UI slider)
+   A minimal look: an uppercase grey "CENA" title, neutral price
+   labels, a thin grey track with a blue selected range, and
+   hollow round handles (white fill + a thin blue ring).
+   ============================================================ */
+html body .slider-wrapper h4{margin:0 0 12px!important;text-align:center!important}
+html body .slider-wrapper h4 span{font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#8a97a8!important}
+html body .slider-wrapper .slider-header{display:flex!important;justify-content:space-between!important;align-items:center!important;margin:6px 2px 0!important}
+html body .slider-wrapper .slider-header :is(.from,.to){font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;color:#0b2540!important}
+html body .slider-wrapper #min,html body .slider-wrapper #max,html body .slider-wrapper .slider-header .from *,html body .slider-wrapper .slider-header .to *{color:#0b2540!important}
+html body #slider.ui-slider{height:4px!important;margin:16px 9px 6px!important;padding:0!important;border:0!important;border-radius:4px!important;background:#e3e9f1!important;box-shadow:none!important}
+html body #slider .ui-slider-range{height:4px!important;top:0!important;border:0!important;border-radius:4px!important;background:#0074e8!important;box-shadow:none!important}
+html body #slider .ui-slider-handle{width:16px!important;height:16px!important;top:50%!important;margin:0 0 0 -8px!important;transform:translateY(-50%)!important;border:2px solid #0074e8!important;border-radius:50%!important;background:#fff!important;box-shadow:0 1px 3px rgba(11,37,64,.2)!important;outline:none!important;cursor:pointer!important}
+html body #slider .ui-slider-handle:is(:hover,:focus,:active){border-color:#0068d1!important;background:#fff!important;outline:none!important}

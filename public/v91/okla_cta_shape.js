@@ -18,9 +18,22 @@
     keeps its own colour: green stays green. */
  function filterBlue(){
   document.querySelectorAll('.unveil-button').forEach(function(b){
+   /* Drive the button variables … */
    b.style.setProperty('--okla-button-rest-background','#0074e8','important');
    b.style.setProperty('--okla-button-rest-border','#0074e8','important');
    b.style.setProperty('--okla-button-rest-color','#fff','important');
+   /* …and, because the theme paints a navy `background` directly (beating the
+      variable) and lightens it on :hover, pin the real colours inline. An inline
+      !important beats every stylesheet rule — rest AND hover — so the button is
+      one flat blue with no hover change at all. */
+   b.style.setProperty('background','#0074e8','important');
+   b.style.setProperty('background-color','#0074e8','important');
+   b.style.setProperty('background-image','none','important');
+   b.style.setProperty('border-color','#0074e8','important');
+   b.style.setProperty('color','#fff','important');
+   b.style.setProperty('box-shadow','none','important');
+   b.style.setProperty('transition','none','important');
+   b.style.setProperty('-webkit-tap-highlight-color','transparent','important');
   });
  }
 
