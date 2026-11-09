@@ -423,3 +423,15 @@ html body #filters .filter-section-count{text-align:center!important}
 html body #filters p#clear-filters{margin:6px 0 8px!important;padding:0!important;background:none!important;border:0!important;text-align:center!important}
 html body #filters p#clear-filters,html body #filters p#clear-filters a{color:#d92b20!important;background:none!important;font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.01em!important;text-decoration:none!important}
 html body #filters p#clear-filters a:hover{text-decoration:underline!important}
+
+/* ============================================================
+   Green buttons: one shared hover colour — the lighter lime green
+   of the reference "Vložit do košíku" (#8cc63f). okla_button_consistency.js
+   tags every green filled button with .okla-button--green; the ID-boost
+   beats the older per-button hover rules (incl. the brightness filter).
+   ============================================================ */
+html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c):is(:hover,:focus-visible,:active){
+  background:#8cc63f!important;background-color:#8cc63f!important;background-image:none!important;
+  border-color:#8cc63f!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  filter:none!important;box-shadow:none!important;
+}

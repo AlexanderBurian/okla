@@ -59,6 +59,8 @@
   var filled=isFilled(bg)||img!=='none';
   button.classList.toggle('okla-button--filled',filled);
   button.classList.toggle('okla-button--empty',!filled);
+  /* Green buttons share one hover colour (see okla_button_consistency.css). */
+  button.classList.toggle('okla-button--green',filled&&!forceBlue(button)&&isGreen(bg));
   button.dataset.oklaButtonRest='1';
  }
 
