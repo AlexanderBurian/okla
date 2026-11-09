@@ -403,6 +403,10 @@ html body #slider .ui-slider-range{height:4px!important;top:0!important;border:0
    the handle is really 20px and the -8px centring margin leaves it off-track. */
 html body #slider .ui-slider-handle{box-sizing:border-box!important;width:16px!important;height:16px!important;top:50%!important;margin:0 0 0 -8px!important;transform:translateY(-50%)!important;border:2px solid #0074e8!important;border-radius:50%!important;background:#fff!important;box-shadow:0 1px 3px rgba(11,37,64,.2)!important;outline:none!important;cursor:pointer!important}
 html body #slider .ui-slider-handle:is(:hover,:focus,:active){border-color:#0068d1!important;background:#fff!important;outline:none!important}
+/* The theme paints a 10px white ::after block inside each handle — it overlaps
+   the ring and makes the circle look cut/clipped. Remove both pseudo-elements
+   so the handle is a clean, unbroken hollow ring. */
+html body #slider .ui-slider-handle::before,html body #slider .ui-slider-handle::after{content:none!important;display:none!important}
 
 /* "Vymazat filtry" stays at the bottom of the filter column, but as plain,
    centred red text — no pill, no background, no border. */
