@@ -36,8 +36,8 @@
     nav.querySelectorAll('a.navigation-home-icon').forEach(function(a,i){if(a!==home){a.hidden=true;a.style.setProperty('display','none','important');a.setAttribute('aria-hidden','true');a.tabIndex=-1;}});
     // Remove old injected icons only, preserve native visually hidden name and structured-data markup.
     home.querySelectorAll('svg,img,i').forEach(function(el){el.remove()});
-    var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('ok91-home-icon');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');
-    var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d','M3 10.5 12 3l9 7.5V21h-6.5v-6.5h-5V21H3z');svg.appendChild(p);home.appendChild(svg);
+    var svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.classList.add('ok91-home-icon');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');svg.setAttribute('fill','none');svg.setAttribute('stroke-linecap','round');svg.setAttribute('stroke-linejoin','round');
+    ['M3.4 11.3 12 4l8.6 7.3','M5.7 9.8V19a.9.9 0 0 0 .9.9h10.8a.9.9 0 0 0 .9-.9V9.8','M9.8 19.9v-5a.8.8 0 0 1 .8-.8h2.8a.8.8 0 0 1 .8.8v5'].forEach(function(d){var p=document.createElementNS('http://www.w3.org/2000/svg','path');p.setAttribute('d',d);svg.appendChild(p)});home.appendChild(svg);
     home.setAttribute('aria-label','Domů');
   }
   ensureBullets(nav);
