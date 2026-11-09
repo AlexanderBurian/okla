@@ -10,5 +10,7 @@ html body.in-login .okla-login-social>a{flex:1 1 0!important;display:inline-flex
 html body.in-login .okla-login-social>a:hover,html body.in-login .okla-login-social>a:focus{border-color:#cfd9e6!important;box-shadow:0 2px 10px rgba(18,41,68,.1)!important;background:#fff!important}
 html body.in-login .okla-login-social>a:active{background:#f7faff!important}
 html body.in-login .okla-login-social svg{width:24px!important;height:24px!important;display:block!important}
+/* A provider we have no brand icon for just shows its name. */
+html body.in-login .okla-login-social>a.okla-social-btn--text{color:#1a1a1a!important;font:600 13px/1.2 "Exo 2",Arial,sans-serif!important}
 /* Hide the shop's own single Seznam button and the "nebo" divider it sat under. */
 html body.in-login .okla-login-native-hidden{display:none!important}

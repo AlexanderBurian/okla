@@ -19,11 +19,25 @@
   Facebook:'<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.95H16.9c-1.49 0-1.95.93-1.95 1.87v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>',
   Seznam:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#CC0000"/><g transform="translate(5.28 4.8) scale(0.48)"><path fill="#fff" d="M.406 30c5.403 0 27.429-2.575 27.429-9.47 0-4.2-5.627-6.203-7.938-6.874-4.405-1.278-7.979-2.596-7.979-3.752s2.504-1.397 5.191-1.992c3.58-.791 5.085-1.228 5.085-3.131 0-1.24-.952-2.753-1.437-3.405C19.912.24 19.778 0 19.502 0c-.596 0-.125.773-6.859 1.908-4.266.72-9.943 2.64-9.943 6.53s5.077 5.695 10.16 7.534c5.238 1.896 9.618 2.589 9.618 5.613 0 4.823-20.7 7.868-22.041 8.09-.628.105-.525.325-.031.325Z"/></g></svg>'
  };
- var PROVIDERS=['Google','Facebook','Seznam'];
+ /* Preferred display order; the actual set comes from what Shoptet renders. */
+ var ORDER=['Google','Facebook','Seznam','Apple'];
 
  function visible(e){return !!(e&&(e.offsetParent!==null||e.getBoundingClientRect().height>0));}
 
- function makeRow(){
+ /* The social providers Shoptet actually rendered here = the ones enabled in the
+    admin. We show only those, so there is never a dead button; add a provider in
+    the Shoptet admin and it appears here on its own. */
+ function detectProviders(cont){
+  var seen={},list=[];
+  [].slice.call(cont.querySelectorAll('a[href*="/action/Social/login/"]')).forEach(function(a){
+   var m=(a.getAttribute('href')||'').match(/provider=([A-Za-z]+)/);
+   if(m&&!seen[m[1]]){seen[m[1]]=1;list.push(m[1]);}
+  });
+  list.sort(function(a,b){var ia=ORDER.indexOf(a),ib=ORDER.indexOf(b);return (ia<0?99:ia)-(ib<0?99:ib);});
+  return list;
+ }
+
+ function makeRow(providers){
   var wrap=document.createElement('div');
   wrap.className='okla-login-social-wrap';
   var label=document.createElement('div');
@@ -31,13 +45,14 @@
   label.textContent='Přihlásit přes';
   var row=document.createElement('div');
   row.className='okla-login-social';
-  PROVIDERS.forEach(function(p){
+  providers.forEach(function(p){
    var a=document.createElement('a');
    a.className='okla-social-btn okla-social-'+p.toLowerCase();
    a.href='/action/Social/login/?provider='+encodeURIComponent(p);
    a.setAttribute('rel','nofollow');
    a.setAttribute('aria-label','Přihlásit se přes '+p);
-   a.innerHTML=ICONS[p];
+   if(ICONS[p]){a.innerHTML=ICONS[p];}
+   else{a.className+=' okla-social-btn--text';a.textContent=p;}   /* unknown provider: show its name */
    row.appendChild(a);
   });
   wrap.appendChild(label);wrap.appendChild(row);
@@ -56,14 +71,17 @@
   if(!conts.length)return false;
   conts.forEach(function(cont){
    if(cont.querySelector('.okla-login-social'))return;
-   /* Hide the shop's own "nebo" divider and single Seznam button. Inline
+   var providers=detectProviders(cont);
+   if(!providers.length)return;   /* nothing configured: leave the native UI as-is */
+   cont.__oklaProviders=providers;
+   /* Hide the shop's own "nebo" divider and native social buttons. Inline
       display:none beats the theme's own !important rules on .form-group. */
    [].slice.call(cont.children).forEach(function(ch){
     if(ch.classList.contains('okla-login-social-wrap'))return;
     ch.classList.add('okla-login-native-hidden');
     ch.style.setProperty('display','none','important');
    });
-   cont.appendChild(makeRow());
+   cont.appendChild(makeRow(providers));
   });
   return true;
  }
