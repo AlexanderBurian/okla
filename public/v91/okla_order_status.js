@@ -24,8 +24,30 @@
   params:{code:['code','c','order'],status:['status','s'],date:['date','d'],tracking:['tracking','t'],carrier:['carrier']},
   /* Public Zásilkovna tracking for a bare parcel number (used only when a full
      tracking URL is not supplied). Change here if the format ever differs. */
-  packetaTrackBase:'https://tracking.packeta.com/cs/'
+  packetaTrackBase:'https://tracking.packeta.com/cs/',
+  /* A full tracking URL from the ?t= param is only accepted when it points at a
+     known carrier — otherwise the "Sledovat zásilku" button would be an open
+     redirect (an okla.cz-looking page whose CTA sends the visitor anywhere).
+     Add carriers here if you start shipping with others. */
+  trackingHosts:['packeta.com','zasilkovna.cz','zasilkovna.sk','ppl.cz','dpd.cz','dpdgroup.com','ceskaposta.cz','cpost.cz','postaonline.cz','balikovna.cz','gls-group.com','gls-group.eu','geis.cz','geis-group.cz']
  };
+
+ /* Turn the ?t= value into a safe tracking URL: a full URL is kept only if its
+    host is an allow-listed carrier; anything else is treated as a bare parcel
+    number and routed through the canonical carrier tracker. Off-site URLs are
+    dropped (the button then shows as disabled), never followed. */
+ function safeTrackingUrl(raw){
+  raw=String(raw||'').trim();
+  if(!raw)return '';
+  if(/^https?:/i.test(raw)){
+   try{
+    var h=new URL(raw).hostname.toLowerCase().replace(/^www\./,'');
+    var ok=CONFIG.trackingHosts.some(function(d){return h===d||h.slice(-(d.length+1))==='.'+d;});
+    return ok?raw:'';
+   }catch(e){return '';}
+  }
+  return CONFIG.packetaTrackBase+encodeURIComponent(raw);
+ }
 
  var ICONS={
   received:['M9 4h6v3H9z','M7 6h10v14H7z','M9.4 13l1.9 1.9L15 11'],
@@ -110,7 +132,7 @@
 
   var trackingUrl=base.trackingUrl||'';
   if(!trackingUrl&&base.trackingRaw){
-   trackingUrl=/^https?:/i.test(base.trackingRaw)?base.trackingRaw:CONFIG.packetaTrackBase+encodeURIComponent(base.trackingRaw);
+   trackingUrl=safeTrackingUrl(base.trackingRaw);
   }
 
   return {
