@@ -75,7 +75,8 @@ html.okla-ord-ready body .okla-ord-head:is(:hover,:active){
     filter:brightness(.96)!important;
   }
   /* "Otevřít filtr": no hover change at all — keep the flat OKLA blue. */
-  html body .unveil-button:is(:hover,:focus,:focus-visible,:active){filter:none!important;background:#0074e8!important;background-color:#0074e8!important;border-color:#0074e8!important;color:#fff!important}
+  html body .unveil-button{-webkit-tap-highlight-color:transparent!important}
+  html body .unveil-button:is(:hover,:focus,:focus-visible,:active){filter:none!important;background:#0074e8!important;background-color:#0074e8!important;border-color:#0074e8!important;color:#fff!important;box-shadow:none!important;outline:none!important;transform:none!important}
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
@@ -280,9 +281,10 @@ html body .cart-empty :is(.search .btn,form button[type="submit"]):is(:hover,:ac
   color:#fff!important;
 }
 html body.type-category :is(a.unveil-button,.unveil-button.btn):is(:hover,:active,:focus){
-  border-color:#123d84!important;
-  background:#123d84!important;
+  border-color:#0074e8!important;
+  background:#0074e8!important;
   color:#fff!important;
+  filter:none!important;box-shadow:none!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:is(:hover,:active,:focus){
   border-color:#cdd2da!important;
