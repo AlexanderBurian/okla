@@ -16,18 +16,9 @@
  function lang(){var l=document.querySelector('input[name="language"]');return (l&&l.value)||document.documentElement.lang||'cs';}
  function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
 
- function runSearch(term){
-  term=(term||'').trim();
-  if(!term)return;
-  var ns=document.querySelector('input[name="string"]');
-  if(ns){
-   var form=ns.closest('form');
-   ns.value=term;
-   ns.dispatchEvent(new Event('input',{bubbles:true}));
-   if(form){try{if(form.requestSubmit)form.requestSubmit();else form.submit();return;}catch(e){}}
-  }
-  location.href='/vyhledavani/?q='+encodeURIComponent(term);
- }
+ /* Shoptet's search results live at /vyhledavani/?string=… (a GET page). */
+ function searchUrl(term){return '/vyhledavani/?string='+encodeURIComponent((term||'').trim());}
+ function runSearch(term){term=(term||'').trim();if(!term)return;location.href=searchUrl(term);}
 
  /* --- the shop's client-side catalogue ----------------------------------- */
  function catalog(){
@@ -83,7 +74,8 @@
   +'.okla-hsearch__meta{flex:1 1 auto;min-width:0}'
   +'.okla-hsearch__name{display:block;color:#1a1a1a;font:600 14px/1.3 "Exo 2",Arial,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}'
   +'.okla-hsearch__price{flex:0 0 auto;color:#d92b20;font:700 14px/1 "Exo 2",Arial,sans-serif;white-space:nowrap}'
-  +'.okla-hsearch__all{display:block;padding:13px 14px;text-align:center;text-decoration:none;color:#0074e8;background:#f6faff;border-top:1px solid #eef1f5;font:700 13px/1 "Exo 2",Arial,sans-serif;cursor:pointer}'
+  +'.okla-hsearch__all{display:block;padding:13px 14px;text-align:center;text-decoration:none;color:#0074e8;background:#fff;border-top:1px solid #eef1f5;font:700 13px/1 "Exo 2",Arial,sans-serif;cursor:pointer}'
+  +'.okla-hsearch__all:active{background:#f4f7fb}'
   +'.okla-hsearch__empty{padding:16px 14px;text-align:center;color:#555;font:500 13px/1.4 "Exo 2",Arial,sans-serif}'
   +'@media(max-width:767px){.okla-hsearch{margin:2px 0 14px}.okla-hsearch__form{height:48px;padding:0 6px 0 14px}.okla-hsearch__btn{height:38px;padding:0 14px;font-size:13px}}';
 
@@ -92,7 +84,7 @@
  function esc(s){return (s||'').toString().replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
  /* Render a list of {name,url,image,price} rows (+ a show-all footer). */
- function renderItems(box,items){
+ function renderItems(box,items,term){
   if(!items||!items.length){box.innerHTML='<div class="okla-hsearch__empty">Nic jsme nenašli. Zkuste jiný výraz.</div>';box.classList.add('is-open');return;}
   var parts='';
   items.forEach(function(it){
@@ -102,7 +94,8 @@
      +(it.price?'<span class="okla-hsearch__price">'+esc(it.price)+'</span>':'')
      +'</a>';
   });
-  parts+='<a class="okla-hsearch__all" data-okla-all="1">Zobrazit všechny výsledky</a>';
+  /* a real link, so it navigates even if the JS handler is missed */
+  parts+='<a class="okla-hsearch__all" data-okla-all="1" href="'+esc(searchUrl(term))+'">Zobrazit všechny výsledky</a>';
   box.innerHTML=parts;box.classList.add('is-open');
  }
 
@@ -124,7 +117,7 @@
        image:img?(img.getAttribute('data-src')||img.getAttribute('src')||''):'',
        price:pr?pr.textContent.replace(/\s+/g,' ').trim():''};
     });
-    renderItems(box,items);
+    renderItems(box,items,term);
    })
    .catch(function(){/* aborted / offline: leave as-is */});
  }
@@ -148,7 +141,7 @@
    var term=input.value.trim();
    if(!term){box.classList.remove('is-open');box.innerHTML='';return;}
    var local=localSearch(term);          /* from the very first letter */
-   if(local!==null){renderItems(box,local);return;}
+   if(local!==null){renderItems(box,local,term);return;}
    if(term.length>=3)fetchResults(box,term);   /* catalogue missing: use endpoint (3+ chars) */
    else{box.classList.remove('is-open');box.innerHTML='';}
   }
