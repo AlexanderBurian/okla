@@ -243,14 +243,14 @@
         place-items: center;
         border: 1px solid #eceff4;
         border-radius: 50%;
-        background: linear-gradient(145deg, #8cc63f 0%, #4fa033 52%, #1f7a3e 100%);
+        background: linear-gradient(145deg, #3fa2ff 0%, #0074e8 52%, #0b4ea6 100%);
         color: #fff;
-        box-shadow: 0 10px 28px rgba(28, 92, 40, .24), 0 2px 8px rgba(28, 92, 40, .14);
+        box-shadow: 0 10px 28px rgba(0, 50, 120, .24), 0 2px 8px rgba(0, 50, 120, .14);
         cursor: pointer;
         transition: box-shadow .2s ease;
       }
-      .launcher:hover { box-shadow: 0 13px 32px rgba(28, 92, 40, .3), 0 3px 9px rgba(28, 92, 40, .18); }
-      .launcher:active { box-shadow: 0 6px 18px rgba(28, 92, 40, .24); }
+      .launcher:hover { box-shadow: 0 13px 32px rgba(0, 50, 120, .3), 0 3px 9px rgba(0, 50, 120, .18); }
+      .launcher:active { box-shadow: 0 6px 18px rgba(0, 50, 120, .24); }
       .panel.open + .launcher { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .16s ease, visibility 0s linear .16s; }
       .launcher img { border-radius: 50%; }
       /* The launcher shows a filled robot-with-headset glyph (desktop and mobile). */
@@ -272,14 +272,15 @@
           left: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 57px;
+          width: 53px;
           height: 80.7px;
           border: 2px solid #fff;
           border-radius: 23.8px 0 0 23.8px;
           padding: 5.75px;
-          background: linear-gradient(160deg, #8cc63f 4%, #4fa033 50%, #1f7a3e 100%);
+          /* Mirrored for the right edge: light side at the screen edge, shadow cast inwards. */
+          background: linear-gradient(200deg, #3fa2ff 4%, #0074e8 50%, #0b4ea6 100%);
           color: #fff;
-          box-shadow: 3.5px 5px 12px rgba(20, 70, 32, .3);
+          box-shadow: -3.5px 5px 12px rgba(0, 50, 120, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
@@ -296,7 +297,7 @@
         }
         .launcher:hover {
           border-color: #fff;
-          box-shadow: 3px 5.5px 12px rgba(20, 70, 32, .32);
+          box-shadow: -3px 5.5px 12px rgba(0, 50, 120, .32);
           transform: translateY(-50%);
         }
         .launcher:focus-visible {
