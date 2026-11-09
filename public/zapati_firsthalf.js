@@ -109,6 +109,8 @@ if(isDetail) modules.push('v91/okla_desktop_buybar.css','v91/okla_desktop_buybar
 /* Absolute final CSS pass: every textual UI element uses the same Exo 2 family.
    Icon-font classes are excluded inside the stylesheet so pictograms remain intact. */
 modules.push('v91/okla_global_typography.css');
+/* Repaint the scattered washed-out grey texts to black / a softer black. */
+modules.push('v91/okla_text_contrast.js');
 /* Final product-commerce palette: red prices and rounded green add-to-cart CTAs. */
 modules.push('v91/okla_product_commerce.css');
 /* Checkout corrections must follow the global field/button passes: stable
