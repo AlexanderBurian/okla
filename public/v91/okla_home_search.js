@@ -1,15 +1,20 @@
 /* OKLA – an open search bar at the very top of the homepage, so visitors can
-   type straight away instead of first tapping the magnifier. As they type it
-   shows live product results (name, photo, price) in a dropdown — the same
-   results as the shop's own whisper search (/action/ProductSearch/ajaxSearch/) —
-   and still submits the real Shoptet search on Enter / the button. Mobile only;
-   the 16px input keeps iOS from zooming in. Not a copy of anyone else's layout. */
+   type straight away instead of first tapping the magnifier. From the very first
+   letter it shows live product results (photo, name, price) in a dropdown.
+
+   Results come from the shop's own client-side catalogue (OKLA_V86_CATALOG) so
+   they appear instantly and already from a single character — Shoptet's own
+   whisper endpoint only answers from three letters, which is why typing "fl"
+   used to show nothing. If the catalogue is not loaded yet it falls back to that
+   endpoint (/action/ProductSearch/ajaxSearch/). Enter / the button still run the
+   real Shoptet search. Mobile only; the 16px input keeps iOS from zooming in. */
 (function(){
  'use strict';
  if(window.__oklaHomeSearchV1)return;window.__oklaHomeSearchV1=true;
 
  function isHome(){return !!(document.body&&document.body.classList.contains('type-index'))}
  function lang(){var l=document.querySelector('input[name="language"]');return (l&&l.value)||document.documentElement.lang||'cs';}
+ function norm(s){return (s||'').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');}
 
  function runSearch(term){
   term=(term||'').trim();
@@ -22,6 +27,38 @@
    if(form){try{if(form.requestSubmit)form.requestSubmit();else form.submit();return;}catch(e){}}
   }
   location.href='/vyhledavani/?q='+encodeURIComponent(term);
+ }
+
+ /* --- the shop's client-side catalogue ----------------------------------- */
+ function catalog(){
+  try{var c=window.OKLA_V86_CATALOG;if(!c)return null;
+   var a=Array.isArray(c)?c:(c.products||c.items||Object.values(c));
+   return (a&&a.length)?a:null;}catch(e){return null;}
+ }
+ function mapUrl(u){try{return location.origin+new URL(u,location.origin).pathname;}catch(e){return u;}}
+ function fmtPrice(n){
+  if(n==null||n==='')return '';
+  var v=typeof n==='number'?n:parseFloat(String(n).replace(/[^\d.,]/g,'').replace(',','.'));
+  if(!isFinite(v))return String(n);
+  try{return v.toLocaleString('cs-CZ')+' Kč';}catch(e){return v+' Kč';}
+ }
+ /* name/brand match, diacritics-insensitive, ranked (name-prefix first) */
+ function localSearch(term){
+  var arr=catalog();if(!arr)return null;
+  var q=norm(term);if(!q)return [];
+  var out=[];
+  arr.forEach(function(p){
+   var n=norm(p.name),b=norm(p.brand);
+   if((n+' '+b).indexOf(q)<0)return;
+   var score=4;
+   if(n.indexOf(q)===0)score=0;
+   else if((' '+n).indexOf(' '+q)>=0)score=1;
+   else if(n.indexOf(q)>=0)score=2;
+   else if(b.indexOf(q)===0)score=3;
+   out.push({p:p,s:score});
+  });
+  out.sort(function(a,b){return a.s-b.s;});
+  return out.slice(0,7).map(function(x){return {name:x.p.name,url:mapUrl(x.p.url),image:x.p.image,price:fmtPrice(x.p.price)};});
  }
 
  var CSS=''
@@ -37,15 +74,10 @@
   +'.okla-hsearch__in::placeholder{color:#8a97a8}'
   +'.okla-hsearch__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border:0;border-radius:9px;background:#0074e8;color:#fff;font:700 14px/1 "Exo 2",Arial,sans-serif;cursor:pointer}'
   +'.okla-hsearch__btn:hover{background:#0068d1}'
-  /* live results dropdown */
   +'.okla-hsearch__res{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;box-sizing:border-box;width:100%;max-width:680px;margin:0 auto;background:#fff;border:1px solid #e6ecf4;border-radius:12px;box-shadow:0 14px 34px rgba(18,41,68,.16);overflow:hidden;max-height:70vh;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}'
   +'.okla-hsearch__res.is-open{display:block}'
-  +'.okla-hsearch__cats{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px 4px}'
-  +'.okla-hsearch__cat{display:inline-flex;align-items:center;padding:6px 12px;border-radius:999px;background:#eef4fd;color:#005cbd;font:600 12.5px/1 "Exo 2",Arial,sans-serif;text-decoration:none;white-space:nowrap}'
-  +'.okla-hsearch__cat:active{background:#e0ebfb}'
   +'.okla-hsearch__item{display:flex;align-items:center;gap:12px;padding:10px 14px;text-decoration:none;border-top:1px solid #f1f4f8}'
   +'.okla-hsearch__item:first-child{border-top:0}'
-  +'.okla-hsearch__cats + .okla-hsearch__item{border-top:1px solid #f1f4f8;margin-top:6px}'
   +'.okla-hsearch__item:active{background:#f7faff}'
   +'.okla-hsearch__thumb{flex:0 0 46px;width:46px;height:46px;border-radius:8px;object-fit:contain;background:#fff;border:1px solid #eef1f5}'
   +'.okla-hsearch__meta{flex:1 1 auto;min-width:0}'
@@ -57,55 +89,44 @@
 
  var MAG='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>';
 
- function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+ function esc(s){return (s||'').toString().replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 
- /* Turn the whisperer HTML into a small, clean set of rows. */
- function render(box,html,term){
-  var doc=new DOMParser().parseFromString(html,'text/html');
+ /* Render a list of {name,url,image,price} rows (+ a show-all footer). */
+ function renderItems(box,items){
+  if(!items||!items.length){box.innerHTML='<div class="okla-hsearch__empty">Nic jsme nenašli. Zkuste jiný výraz.</div>';box.classList.add('is-open');return;}
   var parts='';
-  /* category / section shortcuts */
-  var cats=[].slice.call(doc.querySelectorAll('a.search-whisperer-category')).slice(0,4);
-  if(cats.length){
-   parts+='<div class="okla-hsearch__cats">';
-   cats.forEach(function(a){
-    var name=(a.querySelector('span')?a.querySelector('span').textContent:a.textContent).trim();
-    parts+='<a class="okla-hsearch__cat" href="'+esc(a.getAttribute('href'))+'">'+esc(name)+'</a>';
-   });
-   parts+='</div>';
-  }
-  /* products */
-  var lis=[].slice.call(doc.querySelectorAll('.search-whisperer-products li, li[data-testid="productItem"]')).slice(0,6);
-  lis.forEach(function(li){
-   var a=li.querySelector('a');if(!a)return;
-   var img=li.querySelector('img');
-   var src=img?(img.getAttribute('data-src')||img.getAttribute('src')||''):'';
-   var name=(li.querySelector('.p-name')||{}).textContent||a.textContent;
-   var pr=li.querySelector('.price-final,.price');
-   var price=pr?pr.textContent.replace(/\s+/g,' ').trim():'';
-   parts+='<a class="okla-hsearch__item" href="'+esc(a.getAttribute('href'))+'">'
-     +(src?'<img class="okla-hsearch__thumb" src="'+esc(src)+'" alt="" loading="lazy">':'<span class="okla-hsearch__thumb"></span>')
-     +'<span class="okla-hsearch__meta"><span class="okla-hsearch__name">'+esc(name.trim())+'</span></span>'
-     +(price?'<span class="okla-hsearch__price">'+esc(price)+'</span>':'')
+  items.forEach(function(it){
+   parts+='<a class="okla-hsearch__item" href="'+esc(it.url)+'">'
+     +(it.image?'<img class="okla-hsearch__thumb" src="'+esc(it.image)+'" alt="" loading="lazy">':'<span class="okla-hsearch__thumb"></span>')
+     +'<span class="okla-hsearch__meta"><span class="okla-hsearch__name">'+esc(it.name)+'</span></span>'
+     +(it.price?'<span class="okla-hsearch__price">'+esc(it.price)+'</span>':'')
      +'</a>';
   });
-  if(!parts){
-   box.innerHTML='<div class="okla-hsearch__empty">Nic jsme nenašli. Zkuste jiný výraz.</div>';
-  }else{
-   parts+='<a class="okla-hsearch__all" data-okla-all="1">Zobrazit všechny výsledky</a>';
-   box.innerHTML=parts;
-  }
-  box.classList.add('is-open');
+  parts+='<a class="okla-hsearch__all" data-okla-all="1">Zobrazit všechny výsledky</a>';
+  box.innerHTML=parts;box.classList.add('is-open');
  }
 
+ /* Fallback: Shoptet whisper endpoint (answers from 3 characters). */
  var ctrl=null;
  function fetchResults(box,term){
   if(ctrl){try{ctrl.abort();}catch(e){}}
   ctrl=('AbortController' in window)?new AbortController():null;
   var url='/action/ProductSearch/ajaxSearch/?language='+encodeURIComponent(lang())+'&string='+encodeURIComponent(term);
   fetch(url,{headers:{'X-Requested-With':'XMLHttpRequest'},signal:ctrl?ctrl.signal:undefined})
-   .then(function(r){return r.json();})            /* response is a JSON string of HTML */
-   .then(function(html){if(typeof html!=='string')html=String(html||'');render(box,html,term);})
-   .catch(function(){/* aborted or network error: leave the dropdown as-is */});
+   .then(function(r){return r.json();})
+   .then(function(html){
+    if(typeof html!=='string')html=String(html||'');
+    var doc=new DOMParser().parseFromString(html,'text/html');
+    var items=[].slice.call(doc.querySelectorAll('.search-whisperer-products li, li[data-testid="productItem"]')).slice(0,7).map(function(li){
+     var a=li.querySelector('a');var img=li.querySelector('img');var pr=li.querySelector('.price-final,.price');
+     return {name:((li.querySelector('.p-name')||{}).textContent||(a?a.textContent:'')).trim(),
+       url:a?a.getAttribute('href'):'#',
+       image:img?(img.getAttribute('data-src')||img.getAttribute('src')||''):'',
+       price:pr?pr.textContent.replace(/\s+/g,' ').trim():''};
+    });
+    renderItems(box,items);
+   })
+   .catch(function(){/* aborted / offline: leave as-is */});
  }
 
  function build(){
@@ -123,21 +144,18 @@
   form.addEventListener('submit',function(e){e.preventDefault();runSearch(input.value);});
 
   var timer=null;
-  input.addEventListener('input',function(){
+  function query(){
    var term=input.value.trim();
-   if(timer)clearTimeout(timer);
-   if(term.length<2){box.classList.remove('is-open');box.innerHTML='';return;}
-   timer=setTimeout(function(){fetchResults(box,term);},170);
-  });
-  input.addEventListener('focus',function(){if(box.innerHTML&&input.value.trim().length>=2)box.classList.add('is-open');});
+   if(!term){box.classList.remove('is-open');box.innerHTML='';return;}
+   var local=localSearch(term);          /* from the very first letter */
+   if(local!==null){renderItems(box,local);return;}
+   if(term.length>=3)fetchResults(box,term);   /* catalogue missing: use endpoint (3+ chars) */
+   else{box.classList.remove('is-open');box.innerHTML='';}
+  }
+  input.addEventListener('input',function(){if(timer)clearTimeout(timer);timer=setTimeout(query,110);});
+  input.addEventListener('focus',function(){if(input.value.trim())query();});
 
-  /* "show all" footer runs the full search */
-  box.addEventListener('click',function(e){
-   var all=e.target.closest('[data-okla-all]');
-   if(all){e.preventDefault();runSearch(input.value);}
-  });
-
-  /* close on outside tap / Escape */
+  box.addEventListener('click',function(e){var all=e.target.closest('[data-okla-all]');if(all){e.preventDefault();runSearch(input.value);}});
   document.addEventListener('click',function(e){if(!sec.contains(e.target))box.classList.remove('is-open');});
   input.addEventListener('keydown',function(e){if(e.key==='Escape')box.classList.remove('is-open');});
 
