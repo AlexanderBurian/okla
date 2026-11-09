@@ -243,25 +243,21 @@
         place-items: center;
         border: 1px solid #eceff4;
         border-radius: 50%;
-        background: linear-gradient(145deg, #2742ad 0%, #5137b4 55%, #7e2fa0 100%);
+        background: linear-gradient(145deg, #8cc63f 0%, #4fa033 52%, #1f7a3e 100%);
         color: #fff;
-        box-shadow: 0 10px 28px rgba(40, 33, 120, .22), 0 2px 8px rgba(40, 33, 120, .12);
+        box-shadow: 0 10px 28px rgba(28, 92, 40, .24), 0 2px 8px rgba(28, 92, 40, .14);
         cursor: pointer;
         transition: box-shadow .2s ease;
       }
-      .launcher:hover { box-shadow: 0 13px 32px rgba(25, 54, 99, .28), 0 3px 9px rgba(25, 54, 99, .16); }
-      .launcher:active { box-shadow: 0 6px 18px rgba(25, 54, 99, .22); }
+      .launcher:hover { box-shadow: 0 13px 32px rgba(28, 92, 40, .3), 0 3px 9px rgba(28, 92, 40, .18); }
+      .launcher:active { box-shadow: 0 6px 18px rgba(28, 92, 40, .24); }
       .panel.open + .launcher { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .16s ease, visibility 0s linear .16s; }
       .launcher img { border-radius: 50%; }
-      /* The launcher shows only the magnifier (like the mobile launcher), not the robot logo. */
+      /* The launcher shows a simple filled chat bubble (desktop and mobile), not the robot logo. */
       .launcher .launcher-desktop-icon { display: none; }
       .launcher .launcher-search-icon {
-        display: block; width: 27px; height: 27px;
-        fill: none; stroke: #fff; stroke-width: 2.1; stroke-linecap: round; stroke-linejoin: round;
-      }
-      /* PC only: slightly bolder magnifier while preserving mobile icon weight. */
-      @media (min-width: 768px) {
-        .launcher .launcher-search-icon { stroke-width: 2.65; }
+        display: block; width: 28px; height: 28px;
+        fill: #fff; stroke: none;
       }
       .robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--okla-purple); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
       .mobile-glyph-fallback::after { content: "OK"; position: absolute; inset: 0; display: none; place-items: center; color: #fff; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
@@ -281,9 +277,9 @@
           border: 2px solid #fff;
           border-radius: 23.8px 0 0 23.8px;
           padding: 5.75px;
-          background: linear-gradient(160deg, #254daa 4%, #38369c 50%, #6d2d96 100%);
+          background: linear-gradient(160deg, #8cc63f 4%, #4fa033 50%, #1f7a3e 100%);
           color: #fff;
-          box-shadow: 3.5px 5px 12px rgba(22, 25, 72, .3);
+          box-shadow: 3.5px 5px 12px rgba(20, 70, 32, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
@@ -300,7 +296,7 @@
         }
         .launcher:hover {
           border-color: #fff;
-          box-shadow: 3px 5.5px 12px rgba(10, 25, 58, .32);
+          box-shadow: 3px 5.5px 12px rgba(20, 70, 32, .32);
           transform: translateY(-50%);
         }
         .launcher:focus-visible {
@@ -419,7 +415,7 @@
     </section>
     <button class="launcher" type="button" aria-label="${Tx.open}" aria-controls="okla-panel" aria-expanded="false">
       <img class="launcher-desktop-icon" data-robot-image src="${x}" alt="">
-      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="10.5" r="6.5"></circle><path d="m8.5 15.5-5 5"></path></svg>
+      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c-5.08 0-9.2 3.55-9.2 7.93 0 2.3 1.14 4.37 2.96 5.82l-.86 3.18c-.13.48.38.88.82.64l3.66-2.02c.83.2 1.71.31 2.62.31 5.08 0 9.2-3.55 9.2-7.93S17.08 3.2 12 3.2Z"></path></svg>
     </button>
     <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;let v=m.querySelector(".panel"),S=m.querySelector(".launcher"),pe=m.querySelector(".info-control"),H=m.querySelector(".expand"),ue=m.querySelector(".collapse"),h=m.querySelector(".messages"),me=m.querySelector("#welcome-template"),C=m.querySelector("form"),b=m.querySelector("textarea"),q=m.querySelector(".send"),Y=m.querySelector(".composer-area"),he=m.querySelector(".disclaimer"),z=m.querySelector("#okla-status"),W=new R,k=new j;m.querySelectorAll("[data-robot-image], [data-mobile-assistant-image]").forEach(V);let O=[],E=!1,I=null,L,w=0,T=window.matchMedia("(max-width: 466px)"),J=!T.matches;function y(){let e=Math.min(520,Math.max(320,window.innerHeight*.55));(!T.matches||window.scrollY>=e)&&(J=!0),B.classList.toggle("mobile-launcher-visible",J)}window.addEventListener("scroll",y,{passive:!0}),T.addEventListener("change",y),y();function P(e){v.classList.toggle("open",e),v.setAttribute("aria-hidden",String(!e)),v.setAttribute("aria-modal",String(e&&T.matches)),S.setAttribute("aria-expanded",String(e)),S.setAttribute("aria-label",e?Tx.closeL:Tx.open),L!==void 0&&clearTimeout(L),e?L=setTimeout(()=>b.focus(),180):S.focus(),y()}function A(){h.scrollTop=h.scrollHeight}function be(e){try{let s=new URL(e,window.location.href);return["http:","https:","mailto:"].includes(s.protocol)?s.toString():void 0}catch{return}}function M(e){return e.replace(/-{2,}/g,"\u2014")}function X(e,s){let r=/\*\*([^*\n]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g,i=0;for(let t of s.matchAll(r)){let n=t.index??0;if(e.append(document.createTextNode(M(s.slice(i,n)))),t[1]!==void 0){let c=document.createElement("strong");c.textContent=M(t[1]),e.append(c)}else{let c=be(t[3]??"");if(c){let g=document.createElement("a");g.textContent=M(t[2]??c),g.href=c,/^https?:/i.test(c)&&(g.target="_blank",g.rel="noopener noreferrer"),e.append(g)}else e.append(document.createTextNode(M(t[0])))}i=n+t[0].length}e.append(document.createTextNode(M(s.slice(i))))}let N=/^\s*[-•*]\s+/;function Z(e,s){e.replaceChildren();let r=s.split(`
 `),i=0;for(;i<r.length;)if(N.test(r[i])){let t=document.createElement("ul");for(t.className="md-list";i<r.length&&N.test(r[i]);){let n=document.createElement("li");X(n,r[i].replace(N,"")),t.append(n),i+=1}e.append(t)}else{let t=[];for(;i<r.length&&!N.test(r[i]);)t.push(r[i]),i+=1;for(;t.length&&t[t.length-1].trim()==="";)t.pop();for(;t.length&&t[0].trim()==="";)t.shift();if(t.length){let n=document.createElement("div");n.className="md-par",X(n,t.join(`
