@@ -269,7 +269,7 @@
       @media (max-width: 466px) {
         .launcher {
           /* Mobile: tab sticks out of the LEFT screen edge (mirror of the old right-edge tab). */
-          left: -19.7px;
+          left: -22.7px;
           right: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
@@ -314,9 +314,9 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* Exact centre of the visible part: the padding box starts 17.7px
-             off-screen (left: -19.7px minus the 2px border). */
-          left: calc((100% + 17.7px) / 2);
+          /* Exact centre of the visible part: the padding box starts 20.7px
+             off-screen (left: -22.7px minus the 2px border). */
+          left: calc((100% + 20.7px) / 2);
           right: auto;
           display: block;
           width: 22px;
