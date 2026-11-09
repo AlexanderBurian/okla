@@ -143,11 +143,9 @@
   if(e.relatedTarget&&a.contains(e.relatedTarget))return;
   cancelHoverClose();
   if(typeof window.__oklaCartPreviewClose==='function')window.__oklaCartPreviewClose();
-  if(isOpen())return;
-  var native=document.querySelector('.top-navigation-bar .top-nav-button-login');
-  if(!native)return; // Do not show a sign-in form to logged-in customers.
-  native.click(); // Preserves Shoptet's own login form, validation and actions.
-  requestAnimationFrame(place);
+  /* The sign-in widget is no longer opened on hover: the account button leads
+     straight to the /login/ page, so there is just one login UI (no popup that
+     duplicates the page). */
  }
  function leaveAccount(e){
   if(!desktop.matches||!e.target||!e.target.closest)return;
@@ -182,18 +180,18 @@
    if(pointerInside())cancelHoverClose();
    else closeOnLeave();
   },true);
-  // Legacy header button already has a click listener; suppress its second
-  // native toggle if the same login window was opened by hovering first.
+  // Account button (desktop and mobile): a logged-out visitor is sent to the
+  // /login/ page instead of the popup, so there is a single login experience.
   document.addEventListener('click',function(e){
-   if(!desktop.matches||!e.target.closest)return;
+   if(!e.target.closest)return;
    var a=e.target.closest('#header .okla-header-account');
    if(!a)return;
    var native=document.querySelector('.top-navigation-bar .top-nav-button-login');
-   if(!native)return; // preserve login/account navigation fallback
+   if(!native)return; // logged in: leave Shoptet's account navigation alone
    e.preventDefault();e.stopImmediatePropagation();
    cancelHoverClose();
-   if(!isOpen())native.click();
-   requestAnimationFrame(place);
+   if(isOpen())hide();
+   location.href='/login/';   // one login experience: the page, not a popup
   },true);
   window.addEventListener('scroll',function(){
    if(!desktop.matches||!isOpen())return;
