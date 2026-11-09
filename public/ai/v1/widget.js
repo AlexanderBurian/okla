@@ -272,7 +272,7 @@
           left: auto;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 49.5px;
+          width: 55px;
           height: 80.7px;
           border: 2px solid #fff;
           border-radius: 23.8px 0 0 23.8px;
