@@ -14,6 +14,23 @@ window.__oklaApiUrl=(aiApiUrl||'').replace(/\/$/,'');
 /* Wake the Render service while the storefront modules are still loading, so
    the first customer message does not pay the cold-start delay. */
 if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cache:'no-store'}).catch(function(){})}catch(e){}}
+/* Touch tablets held upright (768-991 px wide) fall between the phone layout
+   (<=767 px) and the desktop one (>=992 px) and get a mix of both. They get the
+   polished phone layout instead: the viewport is laid out 767 px wide (about
+   1:1 on such a tablet). Re-evaluated when the tablet is turned. */
+(function(){
+ try{
+  var meta=document.querySelector('meta[name="viewport"]');
+  if(!meta||!window.matchMedia||!matchMedia('(pointer:coarse)').matches)return;
+  var orig=meta.getAttribute('content')||'width=device-width,initial-scale=1';
+  var land=matchMedia('(orientation: landscape)');
+  function deviceWidth(){var a=screen.width||0,b=screen.height||0;return land.matches?Math.max(a,b):Math.min(a,b)}
+  function fit(){var w=deviceWidth(),want=(w>=768&&w<=991)?'width=767':orig;if(meta.getAttribute('content')!==want)meta.setAttribute('content',want)}
+  fit();
+  if(land.addEventListener)land.addEventListener('change',fit);
+  window.addEventListener('orientationchange',function(){setTimeout(fit,60)});
+ }catch(e){}
+})();
 /* Desktop (>=992 px): the whole page scales with the window, proportionally to
    the 1920 px design - a 1366 px laptop shows the same page at 71 %, a 2560 px
    monitor at 133 % - so content and margins keep the same ratio everywhere.
