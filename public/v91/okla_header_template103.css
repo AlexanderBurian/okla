@@ -68,7 +68,7 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
     /* The login column is kept a little tighter than the reference (32px from
        the login chevron to the cart instead of 53px) so the pair reads as one
        group; the grid is right-aligned, so this moves the login to the right. */
-    grid-template-columns:minmax(173px,max-content) max-content!important;
+    grid-template-columns:minmax(176px,max-content) max-content!important;
     position:relative!important;
     justify-content:flex-end!important;
     align-items:center!important;
@@ -113,7 +113,7 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
     color:#7c7e8f!important;
     font-size:0!important;
   }
-  html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face]{grid-column:1!important;grid-row:1!important}
+  html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account[data-action-face]{grid-column:1!important;grid-row:1!important;left:3px!important}
   html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>a.cart-count[data-action-face]{--action-col:2;}
   html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>[data-action-face]>:not(okla-action-face),
   html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>[data-action-face]::before,
