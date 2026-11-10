@@ -14,6 +14,27 @@ window.__oklaApiUrl=(aiApiUrl||'').replace(/\/$/,'');
 /* Wake the Render service while the storefront modules are still loading, so
    the first customer message does not pay the cold-start delay. */
 if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cache:'no-store'}).catch(function(){})}catch(e){}}
+/* Desktop (>=992 px): the whole page scales with the window, proportionally to
+   the 1920 px design - a 1366 px laptop shows the same page at 71 %, a 2560 px
+   monitor at 133 % - so content and margins keep the same ratio everywhere.
+   The page itself (.overall-wrapper: header, content, footer) gets CSS zoom;
+   overlays outside it (cart drawer, search, cookies, chat) keep their size.
+   Scripts that measure the page divide by element.currentCSSZoom. */
+(function(){
+ var REF=1920,MIN=0.66,MAX=1.5,root=document.documentElement;
+ var st=document.createElement('style');st.id='okla-desktop-scale';
+ st.textContent='@media(min-width:992px){html.okla-dz-on .overall-wrapper{zoom:var(--okla-dz)}}';
+ (document.head||root).appendChild(st);
+ function apply(){
+  var w=window.innerWidth||root.clientWidth;
+  var z=w>=992?Math.max(MIN,Math.min(MAX,w/REF)):1;
+  z=Math.round(z*10000)/10000;
+  root.style.setProperty('--okla-dz',String(z));
+  root.classList.toggle('okla-dz-on',z!==1);
+  window.__oklaDZ=z;
+ }
+ apply();window.addEventListener('resize',apply);
+})();
 /* The shop's uploaded logo (user/logos/…) is missing on the live site, so the header shows a broken image. We serve the
    OKLA logo from the bundle instead and repoint every logo image to it — the desktop header, the mobile header and any
    copy it makes. Runs now and on later DOM changes (the mobile header is built after load). */

@@ -61,15 +61,18 @@
   if(!rect||rect.width<=0||rect.height<=0)return;
   // Snap the fixed header to physical pixels to avoid fractional raster blur.
   var scale=Math.max(1,window.devicePixelRatio||1);
-  var snap=function(n){return Math.round(n*scale)/scale};
-  var x=snap(rect.left),width=snap(rect.width);
+  /* The bar sits inside the proportionally zoomed page: measured (screen) px
+     are converted to its own CSS px. */
+  var z=(spacer&&spacer.currentCSSZoom)||(header&&header.currentCSSZoom)||1;
+  var snap=function(n){return Math.round(n/z*scale)/scale};
+  var x=snap(rect.left),width=snap(rect.width),h=rect.height/z;
   root.style.setProperty('--okla-sticky-left',x+'px');
   root.style.setProperty('--okla-sticky-negative-left',(-x)+'px');
   root.style.setProperty('--okla-sticky-width',width+'px');
-  root.style.setProperty('--okla-sticky-height',rect.height.toFixed(2)+'px');
+  root.style.setProperty('--okla-sticky-height',h.toFixed(2)+'px');
   // Approximately 30% shorter than natural 80px (usually 56px) while pinned only.
-  root.style.setProperty('--okla-sticky-compact-height',Math.max(56,Math.round(rect.height*0.70))+'px');
-  spacer.style.height=rect.height.toFixed(2)+'px';
+  root.style.setProperty('--okla-sticky-compact-height',Math.max(56,Math.round(h*0.70))+'px');
+  spacer.style.height=h.toFixed(2)+'px';
  }
  function geometry(){
   if(!locate())return;

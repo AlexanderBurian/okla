@@ -133,7 +133,7 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
-  card.style.minHeight=Math.ceil(ART_TOP_OFFSET+HAND_BOTTOM*width)+'px';
+  card.style.minHeight=Math.ceil((ART_TOP_OFFSET+HAND_BOTTOM*width)/(card.currentCSSZoom||1))+'px';
  }
 
  var frame=0;
