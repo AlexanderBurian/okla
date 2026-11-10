@@ -122,3 +122,9 @@ html:has(>body.in-registrace){scrollbar-gutter:auto!important}
   html body:is(.in-login,.in-registrace) .okla-auth-top{padding:20px 16px 14px!important}
   html body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{padding-bottom:20px!important}
 }
+/* Registration: no theme margins around the card either, so the logo gap is
+   the same as on the login page and the group centres correctly. */
+html body.in-registrace #content#content .content-inner{margin-top:0!important;margin-bottom:0!important}
+@media(max-width:767px){
+  html body.in-registrace #content-wrapper#content-wrapper main#content#content{padding-top:0!important;margin-top:0!important}
+}
