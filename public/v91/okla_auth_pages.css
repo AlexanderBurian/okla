@@ -110,3 +110,15 @@ html body.in-login #content-wrapper#content-wrapper{margin-bottom:auto!important
 html:has(>body.in-login){scrollbar-gutter:auto!important}
 /* No AI assistant on the sign-in / sign-up screens. */
 html body:is(.in-login,.in-registrace) okla-ai-chat{display:none!important}
+/* Login AND registration, PC and phone: the logo sits close above the card and
+   logo + card are centred together as one group in the space under anything
+   at the top of the page (the admin bar). A taller page (registration on a
+   small screen) simply starts at the top and scrolls. */
+html body:is(.in-login,.in-registrace) .overall-wrapper{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;min-height:100vh!important;min-height:100dvh!important}
+html body:is(.in-login,.in-registrace) .okla-auth-top{margin-top:auto!important;padding:24px 16px 16px!important;background:transparent!important}
+html body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{flex:0 0 auto!important;margin-top:0!important;margin-bottom:auto!important;padding-bottom:24px!important}
+html:has(>body.in-registrace){scrollbar-gutter:auto!important}
+@media(max-width:767px){
+  html body:is(.in-login,.in-registrace) .okla-auth-top{padding:20px 16px 14px!important}
+  html body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{padding-bottom:20px!important}
+}
