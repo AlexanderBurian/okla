@@ -435,3 +435,22 @@ html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c):is(:hover,:foc
   border-color:#8cc63f!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
   filter:none!important;box-shadow:none!important;
 }
+
+/* Checkboxes (Shoptet draws them as label::before / ::after): a rounded 18 px
+   box instead of the sharp 14 px square, and when ticked a filled OKLA-blue box
+   with a white check mark instead of a smaller square inside. Centred on the
+   same point as before, so the label text does not move. Radios untouched. */
+html body input[type=checkbox]+label::before{
+  width:18px!important;height:18px!important;box-sizing:border-box!important;
+  border:1.5px solid #9aa6b5!important;border-radius:5px!important;background:#fff!important;
+  transform:translateY(-50%)!important;
+}
+html body input[type=checkbox]:checked+label::before{border-color:#0074e8!important;background:#0074e8!important}
+html body input[type=checkbox]:checked+label::after{
+  content:""!important;display:block!important;position:absolute!important;
+  left:0!important;width:18px!important;height:18px!important;box-sizing:border-box!important;
+  border:0!important;border-radius:5px!important;
+  background:#0074e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M4.5 9.3l3 3 6-6.4' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px 18px no-repeat!important;
+  transform:translateY(-50%)!important;
+}
+html body input[type=checkbox]:focus-visible+label::before{outline:2px solid #0074e8!important;outline-offset:2px!important}
