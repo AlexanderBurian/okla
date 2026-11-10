@@ -32,13 +32,14 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
  }catch(e){}
 })();
 /* Desktop (>=992 px): the whole page scales with the window, proportionally to
-   the 1920 px design - a 1366 px laptop shows the same page at 71 %, a 2560 px
-   monitor at 133 % - so content and margins keep the same ratio everywhere.
+   the 1920 px design - a 1366 px laptop shows the same page at 71 % - so content
+   and margins keep the same ratio. It only ever scales DOWN: windows of 1920 px
+   and wider show the page at its natural 100 % size.
    The page itself (.overall-wrapper: header, content, footer) gets CSS zoom;
    overlays outside it (cart drawer, search, cookies, chat) keep their size.
    Scripts that measure the page divide by element.currentCSSZoom. */
 (function(){
- var REF=1920,MIN=0.66,MAX=1.5,root=document.documentElement;
+ var REF=1920,MIN=0.66,MAX=1,root=document.documentElement;
  var st=document.createElement('style');st.id='okla-desktop-scale';
  st.textContent='@media(min-width:992px){html.okla-dz-on .overall-wrapper,html.okla-dz-on body>#footer{zoom:var(--okla-dz)}}';
  (document.head||root).appendChild(st);
