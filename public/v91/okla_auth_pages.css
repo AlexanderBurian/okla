@@ -139,3 +139,9 @@ html body.in-registrace #content#content .content-inner{margin-top:0!important;m
   html body.in-registrace{padding-bottom:0!important}
   html body.in-registrace #content-wrapper#content-wrapper{padding-bottom:0!important}
 }
+
+/* Proportional desktop scaling: the page wrapper is zoomed (--okla-dz), so a
+   full-screen height is 100dvh divided by the zoom in its own units. */
+@media(min-width:992px){
+  html.okla-dz-on body:is(.in-login,.in-registrace) .overall-wrapper{min-height:calc(100vh / var(--okla-dz))!important;min-height:calc(100dvh / var(--okla-dz))!important}
+}

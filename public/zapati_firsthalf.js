@@ -34,6 +34,21 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
   window.__oklaDZ=z;
  }
  apply();window.addEventListener('resize',apply);
+ /* jQuery UI sliders (price filter) mix screen px (mouse, offset) with the
+    zoomed element's own px (width); convert the mouse position so the handle
+    follows the cursor exactly. */
+ function patchSlider(){
+  var $=window.jQuery;if(!$||!$.ui||!$.ui.slider)return false;
+  var P=$.ui.slider.prototype;if(P.__oklaDZ)return true;
+  var orig=P._normValueFromMouse;
+  P._normValueFromMouse=function(pos){
+   var el=this.element&&this.element[0],z=(el&&el.currentCSSZoom)||1,o=this.elementOffset;
+   if(z!==1&&o)pos={x:o.left+(pos.x-o.left)/z,y:o.top+(pos.y-o.top)/z};
+   return orig.call(this,pos);
+  };
+  P.__oklaDZ=true;return true;
+ }
+ if(!patchSlider()){var sTries=0,sTimer=setInterval(function(){if(patchSlider()||++sTries>60)clearInterval(sTimer)},250);}
 })();
 /* The shop's uploaded logo (user/logos/…) is missing on the live site, so the header shows a broken image. We serve the
    OKLA logo from the bundle instead and repoint every logo image to it — the desktop header, the mobile header and any
