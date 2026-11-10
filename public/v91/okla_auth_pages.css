@@ -48,3 +48,13 @@ body.in-registrace #content-wrapper::before,body.in-registrace #content-wrapper:
 .okla-auth-top a{display:inline-flex!important;align-items:center!important;text-decoration:none!important}
 .okla-auth-top img{height:42px!important;width:auto!important;display:block!important}
 @media(max-width:767px){.okla-auth-top{padding:22px 16px 6px!important}.okla-auth-top img{height:36px!important}}
+
+/* Login / registration: the green submit button has dark text (the generic
+   .okla-green-cta rule would paint it white). */
+html body:is(.in-login,.in-registrace) #content#content :is(button,input,a).okla-green-cta,
+html body:is(.in-login,.in-registrace) #content#content :is(button,input,a).okla-green-cta:is(:hover,:focus,:focus-visible,:active),
+html body:is(.in-login,.in-registrace) #content#content :is(button,a).okla-green-cta :is(span,strong,b,small,i){
+ color:#111!important;
+ -webkit-text-fill-color:#111!important;
+ text-shadow:none!important;
+}

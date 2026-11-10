@@ -68,7 +68,7 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
     /* The login column is kept a little tighter than the reference (32px from
        the login chevron to the cart instead of 53px) so the pair reads as one
        group; the grid is right-aligned, so this moves the login to the right. */
-    grid-template-columns:minmax(186px,max-content) max-content!important;
+    grid-template-columns:minmax(176px,max-content) max-content!important;
     position:relative!important;
     justify-content:flex-end!important;
     align-items:center!important;

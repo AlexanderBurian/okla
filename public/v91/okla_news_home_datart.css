@@ -39,7 +39,7 @@ html body.type-index #content #okla-news-v55 .okn-button:hover{background:#066da
  html body.type-index #content #okla-news-v55 .okn-card:nth-child(1) .okn-image{aspect-ratio:16/9!important}
  html body.type-index #content #okla-news-v55 .okn-card:nth-child(1) .okn-body{padding:15px 2px 0!important}
  html body.type-index #content #okla-news-v55 .okn-card:nth-child(1) .okn-title{font-size:19px!important}
- html body.type-index #content #okla-news-v55 .okn-card:nth-child(n+2){display:grid!important;grid-template-columns:148px minmax(0,1fr)!important;min-height:96px!important}
+ html body.type-index #content #okla-news-v55 .okn-card:nth-child(n+2){display:grid!important;grid-template-columns:164px minmax(0,1fr)!important;min-height:96px!important}
  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n+2) .okn-image{height:100%!important;min-height:96px!important;aspect-ratio:auto!important;border-radius:6px!important}
  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n+2) .okn-body{justify-content:center!important;padding:7px 0 7px 12px!important}
  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n+2) .okn-title{margin-bottom:4px!important;font-size:14px!important;line-height:1.35!important}
