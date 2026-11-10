@@ -703,12 +703,13 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
 @media(max-width:720px){
   html body .siteCookies.js-siteCookies .siteCookies__form{
     gap:14px!important;padding:18px 16px calc(14px + env(safe-area-inset-bottom))!important;
-    max-height:88vh!important;max-height:88dvh!important;overflow:hidden!important;
-    display:flex!important;flex-direction:column!important;
+    max-height:88vh!important;max-height:88dvh!important;height:auto!important;overflow:hidden!important;
+    display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;grid-template-columns:minmax(0,1fr)!important;
   }
   html body .siteCookies.js-siteCookies .siteCookies__content{
-    flex:0 1 auto!important;min-height:0!important;overflow:auto!important;-webkit-overflow-scrolling:touch;
+    min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;
   }
+  html body .siteCookies.js-siteCookies .siteCookies__text{columns:auto!important;column-count:auto!important}
   html body .siteCookies.js-siteCookies .siteCookies__content:before{font-size:18px!important;margin:0 0 8px!important}
   html body .siteCookies.js-siteCookies .siteCookies__text{font-size:13px!important;line-height:1.5!important}
   html body .siteCookies.js-siteCookies .siteCookies__text p{margin:0 0 8px!important}
