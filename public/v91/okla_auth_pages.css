@@ -84,5 +84,5 @@ html body.in-login #content-wrapper#content-wrapper{
 html body.in-login #content#content .content-inner{margin-top:0!important;margin-bottom:0!important}
 @media(max-width:767px){
   html body.in-login{padding-bottom:0!important}
-  html body.in-login main#content#content{padding:0!important;margin:0!important}
+  html body.in-login #content-wrapper#content-wrapper main#content#content{padding:0!important;margin:0!important}
 }
