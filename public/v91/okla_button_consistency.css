@@ -430,7 +430,7 @@ html body #filters p#clear-filters a:hover{text-decoration:underline!important}
    tags every green filled button with .okla-button--green; the ID-boost
    beats the older per-button hover rules (incl. the brightness filter).
    ============================================================ */
-html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c):is(:hover,:focus-visible,:active){
+html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c#okla-gh-d#okla-gh-e):is(:hover,:focus-visible,:active){
   background:#8cc63f!important;background-color:#8cc63f!important;background-image:none!important;
   border-color:#8cc63f!important;
   /* the text keeps its resting colour (dark text stays dark, never turns white) */
