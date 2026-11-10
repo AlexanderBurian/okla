@@ -697,10 +697,9 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
   html body #colorbox #cboxContent.cookiesDialog #cboxClose{top:24px!important;right:24px!important}
 }
 
-/* Cookie consent on phones: a compact bottom sheet. The heading, the first
-   paragraph and the privacy-policy link stay; the long middle paragraphs are
-   left for the policy page. Decline / Accept sit side by side and are always
-   visible (only the text may scroll), "Nastavení" stays under the text. */
+/* Cookie consent on phones: a bottom sheet with the full text. Only the text
+   scrolls inside the sheet; Decline / Accept sit side by side and are always
+   visible, "Nastavení" stays under the text. */
 @media(max-width:720px){
   html body .siteCookies.js-siteCookies .siteCookies__form{
     gap:14px!important;padding:18px 16px calc(14px + env(safe-area-inset-bottom))!important;
@@ -712,7 +711,6 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
   }
   html body .siteCookies.js-siteCookies .siteCookies__content:before{font-size:18px!important;margin:0 0 8px!important}
   html body .siteCookies.js-siteCookies .siteCookies__text{font-size:13px!important;line-height:1.5!important}
-  html body .siteCookies.js-siteCookies .siteCookies__text[data-okla-expanded="1"] p:not(:first-child):not(:last-child){display:none!important}
   html body .siteCookies.js-siteCookies .siteCookies__text p{margin:0 0 8px!important}
   html body .siteCookies.js-siteCookies .siteCookies__links{margin:10px 0 0!important;text-align:left!important}
   html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{

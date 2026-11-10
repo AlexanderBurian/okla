@@ -93,3 +93,8 @@ html body.in-login .overall-wrapper{justify-content:center!important}
 html body.in-login #content-wrapper#content-wrapper{flex:0 0 auto!important}
 html body.in-login .okla-auth-top{padding:0 16px 24px!important;background:transparent!important}
 @media(max-width:767px){html body.in-login .okla-auth-top{padding:0 16px 20px!important}}
+/* Phones: the login card spans the full width edge to edge - square corners,
+   no side borders (the zoom in okla_auth_pages.js is width / 330). */
+@media(max-width:767px){
+  html body.in-login #content#content .content-inner{border-radius:0!important;border-left:0!important;border-right:0!important}
+}

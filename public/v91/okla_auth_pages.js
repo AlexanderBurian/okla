@@ -49,13 +49,13 @@
 
  /* Login: the card is centred in the whole viewport (CSS pads the bottom by
     the logo bar height) and, on phones, scaled up as a whole from its 330 px
-    design so it spans the screen with a 12 px edge (capped for small tablets). */
+    design so it spans the full screen width (capped for small tablets). */
  function layoutLogin(){
   if(!/(^|\s)in-login(\s|$)/.test(document.body.className))return;
   var root=document.documentElement,bar=document.querySelector('.okla-auth-top');
   root.style.setProperty('--okla-auth-top-h',(bar?bar.offsetHeight:0)+'px');
   var vw=root.clientWidth||window.innerWidth;
-  var z=vw<768?Math.min((vw-24)/330,1.35):1;
+  var z=vw<768?Math.min(vw/330,1.35):1;
   root.style.setProperty('--okla-auth-zoom',String(Math.max(z,0.8)));
  }
 
