@@ -23,7 +23,7 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
 (function(){
  var REF=1920,MIN=0.66,MAX=1.5,root=document.documentElement;
  var st=document.createElement('style');st.id='okla-desktop-scale';
- st.textContent='@media(min-width:992px){html.okla-dz-on .overall-wrapper{zoom:var(--okla-dz)}}';
+ st.textContent='@media(min-width:992px){html.okla-dz-on .overall-wrapper,html.okla-dz-on body>#footer{zoom:var(--okla-dz)}}';
  (document.head||root).appendChild(st);
  function apply(){
   var w=window.innerWidth||root.clientWidth;
