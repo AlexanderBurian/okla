@@ -129,3 +129,8 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
   }
 }
 @media(max-width:991px){okla-action-face{display:none!important}}
+/* Homepage on PC: the gap between the header and the white content card is a
+   third smaller (46 -> 31 px from the search bar to the card). */
+@media(min-width:992px){
+  html body.type-index #content-wrapper#content-wrapper{margin-top:9px!important}
+}
