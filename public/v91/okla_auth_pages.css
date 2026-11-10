@@ -98,3 +98,15 @@ html body.in-login .okla-auth-top{padding:0 16px 24px!important;background:trans
 @media(max-width:767px){
   html body.in-login #content#content .content-inner{border-radius:0!important;border-left:0!important;border-right:0!important}
 }
+/* Anything above the logo (e.g. the Shoptet admin bar a signed-in admin sees)
+   stays at the top of the page: instead of centring the whole column, the
+   logo takes the free space above it and the card the free space below. */
+html body.in-login .overall-wrapper{justify-content:flex-start!important}
+html body.in-login .okla-auth-top{margin-top:auto!important}
+html body.in-login #content-wrapper#content-wrapper{margin-bottom:auto!important}
+/* The login page never scrolls, so no gutter is reserved for a scrollbar:
+   with the 15 px "scrollbar-gutter: stable" the card sat 7.5 px left of the
+   middle of the window. */
+html:has(>body.in-login){scrollbar-gutter:auto!important}
+/* No AI assistant on the sign-in / sign-up screens. */
+html body:is(.in-login,.in-registrace) okla-ai-chat{display:none!important}
