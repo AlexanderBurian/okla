@@ -134,3 +134,9 @@ html body.in-registrace #content#content .content-inner{margin-top:0!important;m
   html body.in-registrace #content-wrapper#content-wrapper main#content#content{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
   html body.in-registrace #content#content .content-inner{width:100%!important;max-width:none!important;margin-left:0!important;margin-right:0!important;border-radius:0!important;border-left:0!important;border-right:0!important;box-sizing:border-box!important}
 }
+/* Phones: no empty space under the registration card (no room kept for the
+   hidden bottom navigation, no bottom padding). */
+@media(max-width:767px){
+  html body.in-registrace{padding-bottom:0!important}
+  html body.in-registrace #content-wrapper#content-wrapper{padding-bottom:0!important}
+}

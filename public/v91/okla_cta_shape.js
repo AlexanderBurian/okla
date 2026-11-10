@@ -66,7 +66,10 @@
   if(busy)return;busy=true;
   try{
    filterBlue();
-   document.querySelectorAll(RADIUS_SEL).forEach(function(b){b.style.setProperty('border-radius',RADIUS,'important')});
+   /* Login / registration: the submit button matches the 10 px rounding of
+      the form fields instead of the squarer commerce corner. */
+   var authPage=!!(document.body&&/(^|\s)in-(login|registrace)(\s|$)/.test(document.body.className));
+   document.querySelectorAll(RADIUS_SEL).forEach(function(b){b.style.setProperty('border-radius',(authPage&&b.closest('#content'))?'10px':RADIUS,'important')});
    document.querySelectorAll(ICON_SEL).forEach(function(b){
     if(b.querySelector(':scope > svg.okla-cta-cart'))return;       /* already has our icon */
     b.style.setProperty('display','inline-flex','important');
