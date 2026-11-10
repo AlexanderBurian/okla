@@ -18,7 +18,6 @@ body.in-login .okla-footer-mobile-promo,body.in-registrace .okla-footer-mobile-p
 /* Registration: no social sign-up buttons (social login already creates the
    account), no wholesale/customer-type choice, and no optional company billing
    section — a plain end-customer sign-up. */
-body.in-registrace .social-login,body.in-registrace .social-login-buttons{display:none!important}
 body.in-registrace fieldset.co-registration{display:none!important}
 body.in-registrace .okla-auth-hide{display:none!important}
 

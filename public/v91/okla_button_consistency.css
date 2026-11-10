@@ -432,7 +432,9 @@ html body #filters p#clear-filters a:hover{text-decoration:underline!important}
    ============================================================ */
 html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c):is(:hover,:focus-visible,:active){
   background:#8cc63f!important;background-color:#8cc63f!important;background-image:none!important;
-  border-color:#8cc63f!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border-color:#8cc63f!important;
+  /* the text keeps its resting colour (dark text stays dark, never turns white) */
+  color:var(--okla-button-rest-color,#fff)!important;-webkit-text-fill-color:var(--okla-button-rest-color,#fff)!important;
   filter:none!important;box-shadow:none!important;
 }
 

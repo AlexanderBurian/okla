@@ -11,7 +11,8 @@
  'use strict';
  if(window.__oklaLoginSocialV1)return;window.__oklaLoginSocialV1=true;
 
- function onLogin(){return !!(document.body&&/(^|\s)in-login(\s|$)/.test(document.body.className));}
+ function onLogin(){return !!(document.body&&/(^|\s)in-(login|registrace)(\s|$)/.test(document.body.className));}
+ function onReg(){return !!(document.body&&/(^|\s)in-registrace(\s|$)/.test(document.body.className));}
 
  /* Brand marks (official colours). */
  var ICONS={
@@ -42,7 +43,7 @@
   wrap.className='okla-login-social-wrap';
   var label=document.createElement('div');
   label.className='okla-login-social__label';
-  label.textContent='Přihlásit přes';
+  label.textContent=onReg()?'Registrovat přes':'Přihlásit přes';
   var row=document.createElement('div');
   row.className='okla-login-social';
   providers.forEach(function(p){
@@ -50,7 +51,7 @@
    a.className='okla-social-btn okla-social-'+p.toLowerCase();
    a.href='/action/Social/login/?provider='+encodeURIComponent(p);
    a.setAttribute('rel','nofollow');
-   a.setAttribute('aria-label','Přihlásit se přes '+p);
+   a.setAttribute('aria-label',(onReg()?'Registrovat se přes ':'Přihlásit se přes ')+p);
    if(ICONS[p]){a.innerHTML=ICONS[p];}
    else{a.className+=' okla-social-btn--text';a.textContent=p;}   /* unknown provider: show its name */
    row.appendChild(a);
@@ -63,7 +64,9 @@
   if(!onLogin())return true;
   /* The page carries two login widgets (a visible form and a hidden included
      one). Only enhance the VISIBLE social-login section(s). */
-  var conts=[].slice.call(document.querySelectorAll('.social-login-buttons')).filter(visible);
+  /* Registration renders its social links in .social-login (under the
+     Registrovat button); login uses .social-login-buttons. */
+  var conts=[].slice.call(document.querySelectorAll('.social-login-buttons,.social-login')).filter(visible);
   if(!conts.length){
    var f=[].slice.call(document.querySelectorAll('#formLogin,form.login-form')).filter(visible)[0];
    if(f)conts=[f];
