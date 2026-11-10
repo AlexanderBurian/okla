@@ -58,3 +58,23 @@ html body:is(.in-login,.in-registrace) #content#content :is(button,a).okla-green
  -webkit-text-fill-color:#111!important;
  text-shadow:none!important;
 }
+
+/* The login card sits in the middle of the screen (PC and phone): the page is a
+   full-height column, the logo bar on top, and the card centred in the rest
+   with a bottom pad equal to the logo bar (set by okla_auth_pages.js), so the
+   card is centred in the whole viewport, not just below the logo. */
+html body:is(.in-login,.in-registrace) .overall-wrapper{
+  display:flex!important;flex-direction:column!important;min-height:100vh!important;min-height:100dvh!important;
+}
+html body.in-login #content-wrapper#content-wrapper{
+  flex:1 0 auto!important;display:flex!important;flex-direction:column!important;justify-content:center!important;
+  margin-top:0!important;margin-bottom:0!important;padding-bottom:var(--okla-auth-top-h,0px)!important;box-sizing:border-box!important;
+}
+/* Phones: the card keeps its 330 px design and is scaled up as a whole
+   (zoom set by okla_auth_pages.js) so it spans the screen with a 12 px edge. */
+@media(max-width:767px){
+  html body.in-login #content#content .content-inner{
+    width:330px!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important;
+    zoom:var(--okla-auth-zoom,1);
+  }
+}
