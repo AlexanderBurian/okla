@@ -63,7 +63,7 @@
   var scale=Math.max(1,window.devicePixelRatio||1);
   /* The bar sits inside the proportionally zoomed page: measured (screen) px
      are converted to its own CSS px. */
-  var z=(spacer&&spacer.currentCSSZoom)||(header&&header.currentCSSZoom)||1;
+  var z=(header&&header.currentCSSZoom)||window.__oklaDZ||1;
   var snap=function(n){return Math.round(n/z*scale)/scale};
   var x=snap(rect.left),width=snap(rect.width),h=rect.height/z;
   root.style.setProperty('--okla-sticky-left',x+'px');
