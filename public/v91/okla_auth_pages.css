@@ -82,7 +82,6 @@ html body.in-login #content-wrapper#content-wrapper{
    that would push the scaled card off-centre, and no space reserved for the
    (hidden) bottom navigation. */
 html body.in-login #content#content .content-inner{margin-top:0!important;margin-bottom:0!important}
-html body.in-login .content-wrapper-in>:not(#content){display:none!important}
 @media(max-width:767px){
   html body.in-login{padding-bottom:0!important}
   html body.in-login main#content#content{padding:0!important;margin:0!important}
