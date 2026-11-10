@@ -86,3 +86,10 @@ html body.in-login #content#content .content-inner{margin-top:0!important;margin
   html body.in-login{padding-bottom:0!important}
   html body.in-login #content-wrapper#content-wrapper main#content#content{padding:0!important;margin:0!important}
 }
+/* Login: the logo sits just above the card instead of at the top of the page.
+   Logo + card + a spacer as tall as the logo are centred as one group, so the
+   card itself stays exactly in the middle of the screen. */
+html body.in-login .overall-wrapper{justify-content:center!important}
+html body.in-login #content-wrapper#content-wrapper{flex:0 0 auto!important}
+html body.in-login .okla-auth-top{padding:0 16px 24px!important;background:transparent!important}
+@media(max-width:767px){html body.in-login .okla-auth-top{padding:0 16px 20px!important}}
