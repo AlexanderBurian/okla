@@ -56,3 +56,6 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
 .okla-side-art__stage--glasses .okla-side-price{right:2cqw;bottom:14cqw}
 .okla-side-art__stage--meter .okla-side-price{right:-8cqw;bottom:-11cqw}
 .okla-side-art__stage--endoscope .okla-side-price{right:-8cqw;bottom:-6cqw}
+
+/* Proportional desktop scaling: the side art scales with the page (see zapati_firsthalf.js). */
+@media(min-width:992px){html.okla-dz-on .okla-side-art{zoom:var(--okla-dz)}}

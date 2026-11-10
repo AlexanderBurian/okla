@@ -52,7 +52,8 @@
     position:absolute!important;
     top:0!important;
     left:var(--okla-sticky-negative-left,0px)!important;
-    width:100vw!important;
+    /* the page is zoomed proportionally (--okla-dz): 100vw of the window in its units */
+    width:calc(100vw / var(--okla-dz,1))!important;
     height:100%!important;
     box-sizing:border-box!important;
     border:0!important;

@@ -108,13 +108,18 @@
   var right=document.getElementById('okla-side-right');
   var card=document.querySelector('#content-wrapper');
   if(!left||!right)return;
-  var viewport=document.documentElement.clientWidth;
+  /* Everything is computed in the units of the proportionally zoomed page
+     (window.__oklaDZ); the art itself is zoomed the same way in CSS. */
+  var z=window.__oklaDZ||1;
+  var viewport=document.documentElement.clientWidth/z;
   if(!card||!window.matchMedia('(min-width:768px)').matches||offPage()){
    left.classList.remove('is-on');right.classList.remove('is-on');
    if(card)card.style.minHeight='';
    return;
   }
-  var c=card.getBoundingClientRect();
+  var c0=card.getBoundingClientRect();
+  var c={left:c0.left/z,right:c0.right/z,top:c0.top/z};
+  var sx=window.pageXOffset/z,sy=window.pageYOffset/z;
   var leftSpace=c.left;
   var rightSpace=viewport-c.right;
   var space=Math.min(leftSpace,rightSpace);
@@ -124,16 +129,16 @@
    return;
   }
   var width=Math.min(MAX_WIDTH,Math.floor((space-SIDE_GUTTER)*0.9));
-  var top=c.top+window.pageYOffset+ART_TOP_OFFSET;
+  var top=c.top+sy+ART_TOP_OFFSET;
   left.style.width=width+'px';
-  left.style.left=(c.left+window.pageXOffset-width)+'px';
+  left.style.left=(c.left+sx-width)+'px';
   left.style.top=top+'px';
   right.style.width=width+'px';
-  right.style.left=(c.right+window.pageXOffset+RIGHT_GAP)+'px';
+  right.style.left=(c.right+sx+RIGHT_GAP)+'px';
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
-  card.style.minHeight=Math.ceil((ART_TOP_OFFSET+HAND_BOTTOM*width)/(card.currentCSSZoom||1))+'px';
+  card.style.minHeight=Math.ceil(ART_TOP_OFFSET+HAND_BOTTOM*width)+'px';
  }
 
  var frame=0;
