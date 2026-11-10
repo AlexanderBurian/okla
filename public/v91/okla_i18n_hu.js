@@ -31,7 +31,7 @@
   'Napište nám a poradíme podle toho, k čemu ho budete používat.':'Írjon nekünk, és aszerint tanácsot adunk, mire fogja használni.',
   'Naskenujte a napište nám':'Olvassa be és írjon nekünk',
   'Flipper Zero, Wi-Fi endoskopy, USB-C testery, NFC karty a měřicí technika. Vysvětlujeme parametry a ukazujeme, jak s produktem zacházet.':'Flipper Zero, Wi-Fi endoszkópok, USB-C teszterek, NFC-kártyák és mérőeszközök. Elmagyarázzuk a paramétereket, és megmutatjuk, hogyan bánjon a termékkel.',
-  'Nakupování':'Vásárlás','Možnosti doručení':'Szállítási lehetőségek','Možnosti platby':'Fizetési lehetőségek','Reklamace a vrácení':'Reklamáció és visszaküldés',
+  'Nakupování':'Vásárlás','Vrácení zboží a odstoupení':'Visszaküldés és elállás','Změna nebo zrušení objednávky':'Rendelés módosítása vagy lemondása','Nahlásit reklamaci':'Reklamáció bejelentése','Kdo jsme':'Rólunk','Velkoobchod a spolupráce':'Nagykereskedelem és együttműködés','Podmínky reklamních akcí':'Promóciós feltételek','Možnosti doručení':'Szállítási lehetőségek','Možnosti platby':'Fizetési lehetőségek','Reklamace a vrácení':'Reklamáció és visszaküldés',
   'Jak nakoupit':'Hogyan vásároljon','Prohlášení o přístupnosti':'Akadálymentességi nyilatkozat','Podmínky akcí':'Akciós feltételek','Ochrana osobních údajů':'Adatvédelem',
   'Odstoupení od smlouvy':'Elállás a szerződéstől','Způsoby dopravy':'Szállítási módok','Dotaz před nákupem':'Kérdés vásárlás előtt','Objednávky':'Rendelések',
   'Stav objednávky':'Rendelés állapota','Stav reklamace':'Reklamáció állapota','Změna objednávky':'Rendelés módosítása','Zrušení objednávky':'Rendelés lemondása',

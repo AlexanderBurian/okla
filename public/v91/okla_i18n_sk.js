@@ -31,7 +31,7 @@
   'Napište nám a poradíme podle toho, k čemu ho budete používat.':'Napíšte nám a poradíme podľa toho, na čo ho budete používať.',
   'Naskenujte a napište nám':'Naskenujte a napíšte nám',
   'Flipper Zero, Wi-Fi endoskopy, USB-C testery, NFC karty a měřicí technika. Vysvětlujeme parametry a ukazujeme, jak s produktem zacházet.':'Flipper Zero, Wi-Fi endoskopy, USB-C testery, NFC karty a meracia technika. Vysvetľujeme parametre a ukazujeme, ako s produktom zaobchádzať.',
-  'Nakupování':'Nakupovanie','Možnosti doručení':'Možnosti doručenia','Možnosti platby':'Možnosti platby','Reklamace a vrácení':'Reklamácie a vrátenie',
+  'Nakupování':'Nakupovanie','Vrácení zboží a odstoupení':'Vrátenie tovaru a odstúpenie','Změna nebo zrušení objednávky':'Zmena alebo zrušenie objednávky','Nahlásit reklamaci':'Nahlásiť reklamáciu','Kdo jsme':'Kto sme','Velkoobchod a spolupráce':'Veľkoobchod a spolupráca','Podmínky reklamních akcí':'Podmienky reklamných akcií','Možnosti doručení':'Možnosti doručenia','Možnosti platby':'Možnosti platby','Reklamace a vrácení':'Reklamácie a vrátenie',
   'Jak nakoupit':'Ako nakúpiť','Prohlášení o přístupnosti':'Vyhlásenie o prístupnosti','Podmínky akcí':'Podmienky akcií','Ochrana osobních údajů':'Ochrana osobných údajov',
   'Odstoupení od smlouvy':'Odstúpenie od zmluvy','Způsoby dopravy':'Spôsoby dopravy','Dotaz před nákupem':'Otázka pred nákupom','Objednávky':'Objednávky',
   'Stav objednávky':'Stav objednávky','Stav reklamace':'Stav reklamácie','Změna objednávky':'Zmena objednávky','Zrušení objednávky':'Zrušenie objednávky',
