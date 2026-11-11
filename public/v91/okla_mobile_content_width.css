@@ -1,0 +1,50 @@
+/* OKLA mobile content rail.
+   The navbar uses a 14px inner gutter. Every page now uses the same rail;
+   individual templates must not silently switch between 12, 14 and 16px. */
+@media(max-width:767px){
+  :root{--okla-mobile-gutter:14px}
+
+  html body #header #okla-v61-header{
+    box-sizing:border-box!important;
+    padding-left:var(--okla-mobile-gutter)!important;
+    padding-right:var(--okla-mobile-gutter)!important;
+  }
+
+  html body #content-wrapper main#content{
+    box-sizing:border-box!important;
+    width:100%!important;max-width:100%!important;
+    margin-left:0!important;margin-right:0!important;
+    padding-left:var(--okla-mobile-gutter)!important;
+    padding-right:var(--okla-mobile-gutter)!important;
+  }
+
+  /* Components on the common rail may fill it, but never bleed past it. */
+  html body #content :is(
+    .banners-row,#okla-v61-categories,.okla-slider-shell,#okla-news-v55,
+    #okla-warranty,.okla-order-status,.okla-rk,.oka-contact,.okla-about,.okla-rich
+  ){
+    box-sizing:border-box!important;width:100%!important;max-width:100%!important;
+    margin-left:0!important;margin-right:0!important;
+  }
+
+  /* The homepage hero is deliberately one physical pixel shorter on each
+     side than the search field immediately above it. */
+  html body.type-index #content .banners-row{
+    width:calc(100% - 2px)!important;
+    margin-left:1px!important;margin-right:1px!important;
+  }
+  html body.type-index #content .banners-row :is(.okla-hero,#carousel){
+    width:100%!important;max-width:100%!important;
+  }
+
+  /* Combined order-status page: the lookup follows the common rail. The
+     native Shoptet sign-in remains a visibly separate, narrower template
+     instead of becoming an edge-to-edge section. */
+  html.okla-os-login-combo body #content .okla-order-status{
+    width:100%!important;max-width:100%!important;margin:16px 0 0!important;
+  }
+  html.okla-os-login-combo body #content .content-inner{
+    box-sizing:border-box!important;width:calc(100% - 24px)!important;max-width:420px!important;
+    margin:18px auto 28px!important;
+  }
+}

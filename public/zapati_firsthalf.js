@@ -158,6 +158,8 @@ modules.push('v91/okla_button_consistency.css','v91/okla_button_consistency.js')
 modules.push('v91/okla_field_consistency.css','v91/okla_password_toggle.js');
 /* Mobile: bottom-bar Menu = customer centre; one fixed page-top gradient everywhere (loaded last). */
 modules.push('v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css','v91/okla_mobile_gradient.js');
+/* One 14px mobile content rail (matching the navbar); homepage hero is inset by one additional pixel. */
+modules.push('v91/okla_mobile_content_width.css');
 /* Product detail: description / reviews / parameters switcher (tabs on desktop, accordion on phones). */
 if(isDetail) modules.push('v91/okla_detail_tabs.css','v91/okla_detail_tabs.js');
 /* Product page tools (Tisk, Zeptat se, Hlídat, Sdílet), their dialogs and our share panel. */
