@@ -187,6 +187,9 @@ modules.push('v91/okla_mobile_no_zoom.css');
 modules.push('v91/okla_ai_brand.js');
 /* Homepage editorial block: asymmetric retail-magazine composition. */
 if(isHome) modules.push('v91/okla_news_home_datart.css');
+/* Isolated, easily reversible retail refresh: a more DATART-like homepage
+   composition without touching the shared header or any Shoptet behaviour. */
+if(isHome) modules.push('v91/okla_home_retail_refresh.css','v91/okla_home_retail_refresh.js');
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,

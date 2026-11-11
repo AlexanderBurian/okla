@@ -25,6 +25,7 @@
  function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
  function row(icon,label,href){
   var a=el('a','okm61-cat-row okla-mm-row');a.href=href;
+  a.setAttribute('data-mm-icon',icon);
   var ic=el('span','okm61-category-icon okla-mm-icon');ic.appendChild(svg(icon));
   var ch=el('span','okm61-cat-row-chevron');ch.appendChild(svg('chevron'));
   a.append(ic,el('span','okm61-cat-row-label',label),ch);return a;
@@ -56,6 +57,9 @@
   }
   hero.appendChild(actions);
   body.appendChild(hero);
+  var accountCard=guest?row('account','Přihlásit se','/login/?backTo='+backTo()):row('account','Otevřít můj účet','/klient/');
+  accountCard.classList.add('okla-mm-account-card');
+  body.appendChild(accountCard);
   body.appendChild(section('Moje nákupy',[
    row('orders','Objednávky a stav doručení','/stav-objednavky/'),
    row('claim','Reklamace','/reklamace/'),
@@ -74,7 +78,11 @@
   var body=overlay.querySelector('.okm61-drawer-body'),head=overlay.querySelector('.okm61-drawer-head strong');
   if(!body)return;
   body.replaceChildren();build(body);
-  if(head)head.textContent='Zákaznické centrum';
+  if(head){
+   head.replaceChildren();
+   var logo=el('img','okla-mm-logo');logo.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';logo.alt='OKLA.cz';
+   head.appendChild(logo);
+  }
   overlay.classList.add('okla-mm-open');
  });
  /* Katalog reuses the same overlay: drop the menu marker when it opens. */
