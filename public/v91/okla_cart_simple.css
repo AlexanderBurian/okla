@@ -8,7 +8,7 @@ html body.ordering-process #content-wrapper{
 }
 
 /* Calm, brand-blue progress instead of pulses, gradients and moving parcels. */
-html body.ordering-process .okla-parcel{animation:none!important;filter:none!important}
+html body.ordering-process .okla-parcel{display:none!important;animation:none!important;filter:none!important}
 html body.ordering-process .cart-header::before{height:3px!important;background:#e1e6ed!important}
 html body.ordering-process .cart-header::after{height:3px!important;background:#245b9e!important;transition:none!important}
 html body.ordering-process .cart-header .step::before{
@@ -25,6 +25,9 @@ html body.in-krok-2 .cart-header .step-1::before,
 html body.in-krok-2 .cart-header .step-2::before{
   border-color:#245b9e!important;background-color:#245b9e!important
 }
+html body.ordering-process .cart-header .step{color:#657184!important}
+html body.ordering-process .cart-header .step.active,
+html body.ordering-process .cart-header .step.completed{color:#0b2540!important}
 
 /* Cart lines are rows, not floating cards. */
 html body.in-kosik table.cart-table{border-collapse:collapse!important;border-spacing:0!important}
@@ -92,6 +95,10 @@ html body.ordering-process:not(.in-kosik) .radio-wrapper.checked,
 html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked){
   border-color:#245b9e!important;background:#f3f7fc!important;box-shadow:none!important
 }
+html body.ordering-process:not(.in-kosik) .radio-wrapper :is(.payment-shipping-price,.payment-shipping-price *),
+html body.ordering-process:not(.in-kosik) .shipping-billing-summary :is(.price,strong){
+  color:#245b9e!important;-webkit-text-fill-color:#245b9e!important
+}
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
   position:static!important;border:0!important;border-left:1px solid #e1e6ed!important;
   border-radius:0!important;background:#fafbfc!important;padding:20px!important;box-shadow:none!important
@@ -101,6 +108,12 @@ html body.ordering-process textarea,
 html body.ordering-process select{
   border-radius:5px!important;box-shadow:none!important
 }
+
+/* The checkout itself is intentionally plain: no custom heading pictograms,
+   illustrated benefit strip or editorial promo below the form. */
+html body.ordering-process .order-icon .okla-h-icon{display:none!important}
+html body.ordering-process .order-icon{padding-left:0!important}
+html body.ordering-process :is(.okla-footer-benefits,.okla-footer-promo){display:none!important}
 
 /* A simple footer action row; global OKLA blue remains the CTA colour. */
 html body.ordering-process #content#content .okla-step-nav{
