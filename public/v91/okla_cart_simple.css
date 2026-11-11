@@ -216,10 +216,11 @@ html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{
   width:auto!important;max-width:none!important;min-width:0!important;flex:none!important;margin:0!important
 }
 html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8{
-  padding:38px 32px 26px!important;background:#fff!important
+  grid-column:1!important;grid-row:1!important;padding:38px 32px 26px!important;background:#fff!important
 }
 html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{
-  padding:24px 18px!important;border-left:1px solid #e1e6ed!important;background:#f7f8fa!important
+  grid-column:2!important;grid-row:1!important;padding:24px 18px!important;
+  border-left:1px solid #e1e6ed!important;background:#f7f8fa!important
 }
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
   border:0!important;border-left:0!important;background:transparent!important;padding:0!important
@@ -267,4 +268,6 @@ html body.in-krok-2 #order-form :is(.co-contact-information>h2,.co-billing-addre
   html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{
     padding:18px 16px!important;border-left:0!important;border-top:1px solid #e1e6ed!important
   }
+  html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8,
+  html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{grid-column:auto!important;grid-row:auto!important}
 }
