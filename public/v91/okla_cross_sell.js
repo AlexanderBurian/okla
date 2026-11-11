@@ -73,6 +73,42 @@
  function fmt(n){try{return n.toLocaleString('cs-CZ')+' Kč'}catch(e){return n+' Kč'}}
  function refreshCart(){try{if(window.shoptet&&shoptet.cart&&shoptet.cart.getCartContent)shoptet.cart.getCartContent()}catch(e){}}
 
+ /* The large product price, desktop sticky price and mobile buy-bar price all
+    represent the total purchase triggered by the main CTA. Keep that total in
+    step with the successfully selected companion products. */
+ var mainPrice=null;
+ function numberFromPrice(text){
+  var digits=String(text||'').replace(/[^0-9]/g,'');
+  return digits?parseInt(digits,10):0;
+ }
+ function priceView(){
+  if(mainPrice&&mainPrice.target&&document.documentElement.contains(mainPrice.target))return mainPrice;
+  var root=document.querySelector('#product-detail-form .p-final-price-wrapper .price-final')||document.querySelector('.p-info-wrapper .p-final-price-wrapper .price-final')||document.querySelector('.p-info-wrapper .price-final');
+  if(!root)return null;
+  var target=root.querySelector('.price-final-holder')||root.querySelector('strong')||root;
+  var original=(target.textContent||'').replace(/\s+/g,' ').trim();
+  var base=numberFromPrice(original);
+  if(!base)return null;
+  mainPrice={root:root,target:target,base:base,usesCrown:/Kč/i.test(original)};
+  return mainPrice;
+ }
+ function mainFmt(view,n){
+  var amount;try{amount=n.toLocaleString('cs-CZ')}catch(e){amount=String(n)}
+  return amount+(view.usesCrown?' Kč':',-');
+ }
+ function updateTotal(sec,list){
+  var view=priceView();if(!view)return;
+  var extra=0,selected=0;
+  list.forEach(function(it,i){
+   var row=sec.querySelector('.okla-xsell__item[data-i="'+i+'"]');
+   if(row&&row.classList.contains('is-added')){extra+=it.price;selected++;}
+  });
+  var total=view.base+extra,formatted=mainFmt(view,total);
+  if((view.target.textContent||'').trim()!==formatted)view.target.textContent=formatted;
+  document.querySelectorAll('.okla-m-buybar__price,.okla-dbb__price').forEach(function(el){el.textContent=formatted});
+  try{window.dispatchEvent(new CustomEvent('okla:xsell-total',{detail:{base:view.base,extra:extra,total:total,selected:selected,formatted:formatted}}))}catch(e){}
+ }
+
  function addToCart(it){
   var b=new URLSearchParams();
   b.set('productId',it.pid);b.set('priceId',it.prc);b.set('amount','1');b.set('language','cs');
@@ -147,7 +183,7 @@
    row.classList.add('is-busy');
    var done=function(ok){
     row.classList.remove('is-busy');
-    if(ok){row.classList.toggle('is-added',adding);row.setAttribute('aria-pressed',String(adding));refreshCart();}
+    if(ok){row.classList.toggle('is-added',adding);row.setAttribute('aria-pressed',String(adding));updateTotal(sec,list);refreshCart();}
    };
    (adding?addToCart(it):removeFromCart(it)).then(function(){done(true)}).catch(function(){done(false);});
   }
@@ -155,6 +191,7 @@
    row.addEventListener('click',function(e){if(e.target.closest('a'))return;toggle(row);});
    row.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle(row);}});
   });
+  updateTotal(sec,list);
  }
 
  function mount(){
