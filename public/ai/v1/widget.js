@@ -314,9 +314,8 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* The previous position was 3px left of the visible-part centre.
-             Moving it to that centre shifts the retained robot exactly 3px right. */
-          left: calc((100% + 17.7px) / 2);
+          /* Keep the retained robot 1px left of the visible-part centre. */
+          left: calc((100% + 17.7px) / 2 - 1px);
           right: auto;
           display: block;
           width: 22px;
