@@ -32,10 +32,15 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
 }
 
 @media(max-width:767px){
- html body.type-index{background-color:#f3f4f5!important}
- html body.type-index #content-wrapper,
- html body.type-index #content-wrapper main#content{
-  background-color:#f3f4f5!important
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e),
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#f3f4f5!important}
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper,
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper>.container,
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper,
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper .content-wrapper-in,
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper main#content>.content-inner,
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper main#content{
+  background-color:transparent!important;background-image:none!important
  }
  html body.type-index #footer,
  html body.type-index footer#footer,

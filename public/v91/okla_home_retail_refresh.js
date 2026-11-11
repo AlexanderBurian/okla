@@ -2,6 +2,7 @@
 (function(){
  'use strict';
  if(window.__oklaHomeRetailRefresh)return;window.__oklaHomeRetailRefresh=true;
+ document.documentElement.classList.add('okla-home-retail');
  function numeric(node,names){
   if(!node)return 0;
   for(var i=0;i<names.length;i++){
