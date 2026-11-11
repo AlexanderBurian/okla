@@ -17,12 +17,14 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #content .okla-hero__lead{max-width:430px!important;font-size:16px!important}
  html body.type-index #content .okla-tile{aspect-ratio:450/175!important}
  html body.type-index #content .okla-slider-shell .okla-slider-viewport{overflow:hidden!important}
+ html body.type-index #content .okla-slider-shell .okla-slider-track>.product{zoom:1!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p,
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p{
   min-height:400px!important;padding:11px 12px 18px!important;border:1px solid #dfe5eb!important;border-radius:5px!important;overflow:hidden!important;box-shadow:none!important
  }
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p::after{display:none!important;content:none!important}
- html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p{border-color:#b9c9da!important;box-shadow:0 3px 10px rgba(13,42,70,.08)!important}
+ html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p,
+ html body.type-index #content .okla-slider-shell .okla-slider-track>.product:focus-within .p{border-color:#dfe5eb!important;box-shadow:none!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .prices,
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .prices{
   height:55px!important;min-height:55px!important;max-height:55px!important;margin-top:7px!important;background:transparent!important
