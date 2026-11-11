@@ -181,6 +181,22 @@ html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxClose{
   html body #colorbox #dialogFormRating label.rating-star{width:52px!important;height:52px!important;background-size:44px 44px!important}
 }
 
+/* Final tab-label state. The older product-detail stylesheet colors the
+   active anchor black, while the injected description label inherits the
+   switcher's blue. Apply one state to the anchor and every nested label so
+   Popis, Parametry and Hodnocení behave identically. */
+html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li:not(.active) > a,
+html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li:not(.active) > a :is(span,strong,b){
+  color:#1a1a1a!important;
+  -webkit-text-fill-color:#1a1a1a!important;
+}
+html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a,
+html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a :is(span,strong,b),
+html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a .okla-tab-label::after{
+  color:#168bd2!important;
+  -webkit-text-fill-color:#168bd2!important;
+}
+
 /* Rating summary in the same dialog (#ratingWrapper): the big average with gold stars, then one row per score
    with a rounded blue bar, as on the big shops. */
 html body #colorbox #ratingWrapper{margin:0!important;padding:0!important;border:0!important;background:none!important}
