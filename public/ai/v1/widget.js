@@ -314,9 +314,9 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* Centre of the visible part (the padding box starts 17.7px off-screen:
-             left -19.7px minus the 2px border), moved 3px towards the screen edge. */
-          left: calc((100% + 17.7px) / 2 - 3px);
+          /* The previous position was 3px left of the visible-part centre.
+             Moving it to that centre shifts the retained robot exactly 3px right. */
+          left: calc((100% + 17.7px) / 2);
           right: auto;
           display: block;
           width: 22px;
