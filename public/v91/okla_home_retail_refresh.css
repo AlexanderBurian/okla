@@ -48,9 +48,27 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #okla-v61-categories .okm61-category-icon img,
  html body.type-index #okla-v61-categories .okm61-category-icon svg{width:36px!important;height:36px!important;max-width:36px!important;max-height:36px!important}
  html body.type-index #okla-v61-categories .okm61-category-label{font-size:12px!important;line-height:1.25!important}
- html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{
-  border-radius:5px!important;border-color:#dfe5eb!important;box-shadow:none!important
+ html body.type-index #content .homepage-group-title{
+  box-sizing:border-box!important;width:100%!important;margin:18px 0 0!important;padding:18px 10px 9px!important;
+  background:#f3f4f5!important;color:#111827!important
  }
+ html body.type-index #content .okla-slider-shell{
+  box-sizing:border-box!important;width:100%!important;margin:0 0 14px!important;padding:8px 8px 16px!important;
+  background:#f3f4f5!important;border-radius:0!important
+ }
+ html body.type-index #content .okla-slider-shell .okla-slider-track>.product{background:transparent!important}
+ html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{
+  border-radius:3px!important;border-color:#eceff2!important;background:#fff!important;box-shadow:none!important
+ }
+ html body.type-index #content .okla-slider-shell .product .ratings-wrapper{
+  justify-content:center!important;gap:4px!important;color:#111827!important
+ }
+ html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okla-retail-rating .stars-wrapper::after{content:none!important;display:none!important}
+ html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okla-retail-rating :is(.rating-count,.votes-wrap){display:none!important}
+ html body.type-index #content .okla-slider-shell .product .okla-retail-rating-meta{display:inline-flex!important;align-items:center!important;gap:3px!important;flex:0 0 auto!important;white-space:nowrap!important}
+ html body.type-index #content .okla-slider-shell .product .okla-retail-rating-score{color:#111827!important;font:750 10px/1 "Exo 2",Arial,sans-serif!important}
+ html body.type-index #content .okla-slider-shell .product .okla-retail-rating-count{color:#143f77!important;font:500 10px/1 "Exo 2",Arial,sans-serif!important;text-decoration:underline!important;text-underline-offset:2px!important}
+ html body.type-index #content .okla-slider-shell .product .okv73-rating-caption{color:#697586!important;font-size:9px!important}
  html body.type-index #content .okla-slider-shell .product .p-tools{border-top:0!important;margin-top:4px!important}
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){border-radius:4px!important}
