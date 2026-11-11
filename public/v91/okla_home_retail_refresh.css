@@ -10,8 +10,8 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
 
 @media(min-width:768px){
  html.okla-home-retail body.type-index #content-wrapper main#content,
- html.okla-home-retail body.type-index #content-wrapper main#content>.content-inner{background-color:#fafafa!important}
- html body.type-index #content .okla-hero{aspect-ratio:909/220!important}
+ html.okla-home-retail body.type-index #content-wrapper main#content>.content-inner{background-color:#fcfcfc!important}
+ html body.type-index #content .okla-hero{aspect-ratio:909/187!important}
  html body.type-index #content .okla-hero__text{width:49%!important;padding-left:4.2%!important}
  html body.type-index #content .okla-hero__title{font-size:32px!important;letter-spacing:-.35px!important}
  html body.type-index #content .okla-hero__lead{max-width:430px!important;font-size:16px!important}
@@ -38,7 +38,7 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
 
 @media(max-width:767px){
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e),
- html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#fafafa!important}
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#fcfcfc!important}
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper,
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper>.container,
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper,
@@ -68,11 +68,11 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #okla-v61-categories .okm61-category-label{font-size:12px!important;line-height:1.25!important}
  html body.type-index #content .homepage-group-title{
   box-sizing:border-box!important;width:100%!important;margin:18px 0 0!important;padding:18px 10px 9px!important;
-  background:#fafafa!important;color:#111827!important
+  background:#fcfcfc!important;color:#111827!important
  }
  html body.type-index #content .okla-slider-shell{
   box-sizing:border-box!important;width:100%!important;margin:0 0 14px!important;padding:8px 8px 16px!important;
-  background:#fafafa!important;border-radius:0!important
+  background:#fcfcfc!important;border-radius:0!important
  }
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product{background:transparent!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{

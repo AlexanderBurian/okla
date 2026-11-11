@@ -217,7 +217,7 @@ html body.type-index #content .okla-slider-shell+#okla-news-v55{margin-top:0!imp
 }
 /* Warranty band between the second and third product rows (insertWarrantyBlock, legacy v53).
    Edge to edge of the white content area next to the sidebar: the 20 px gutter of #content is cancelled by the negative side margins. */
-html body.type-index #content #okla-warranty{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin:0 -20px 42px!important;padding:35px 32px!important;background:#eaf5ff!important;border-radius:0!important}
+html body.type-index #content #okla-warranty{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin:0 -20px 42px!important;padding:35px 32px!important;background:#e3f1ff!important;border-radius:0!important}
 html body.type-index #content #okla-warranty *,html body.type-index #content #okla-warranty *::before,html body.type-index #content #okla-warranty *::after{box-sizing:border-box!important}
 html body.type-index #content #okla-warranty .okla-warranty-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:32px!important;width:100%!important}
 html body.type-index #content #okla-warranty .okla-warranty-title,html body.type-index #content #okla-warranty .okla-warranty-subtitle{margin:0!important;padding:0!important;color:#111827!important;font-size:32px!important;font-weight:700!important;line-height:1.2!important;letter-spacing:-.8px!important;text-align:left!important}
