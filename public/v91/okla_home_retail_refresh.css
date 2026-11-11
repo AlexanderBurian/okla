@@ -32,6 +32,14 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
 }
 
 @media(max-width:767px){
+ html body.type-index{background-color:#f3f4f5!important}
+ html body.type-index #content-wrapper,
+ html body.type-index #content-wrapper main#content{
+  background-color:#f3f4f5!important
+ }
+ html body.type-index #footer,
+ html body.type-index footer#footer,
+ html body.type-index #okla-footer-shell{background-color:#fff!important}
  html body.type-index #content .banners-row{margin-bottom:0!important;padding-bottom:20px!important}
  html body.type-index #content .okla-hero{border-radius:4px!important}
  html body.type-index #content .okla-hero__slide::after{background:linear-gradient(90deg,rgba(4,18,40,.91) 0%,rgba(4,18,40,.68) 48%,rgba(4,18,40,0) 84%)!important}
@@ -58,10 +66,14 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  }
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product{background:transparent!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{
-  border-radius:3px!important;border-color:#eceff2!important;background:#fff!important;box-shadow:none!important
+  padding:10px 8px 0!important;border-radius:3px!important;border-color:#eceff2!important;background:#fff!important;box-shadow:none!important
+ }
+ html body.type-index #content .okla-slider-shell .product .p>a.image{
+  flex-basis:142px!important;height:142px!important;min-height:142px!important;max-height:142px!important;margin-bottom:7px!important
  }
  html body.type-index #content .okla-slider-shell .product .ratings-wrapper{
-  justify-content:center!important;gap:4px!important;color:#111827!important
+  flex-basis:18px!important;height:18px!important;min-height:18px!important;max-height:18px!important;
+  justify-content:center!important;gap:4px!important;margin-bottom:4px!important;color:#111827!important
  }
  html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okla-retail-rating .stars-wrapper::after{content:none!important;display:none!important}
  html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okla-retail-rating :is(.rating-count,.votes-wrap){display:none!important}
@@ -69,7 +81,25 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #content .okla-slider-shell .product .okla-retail-rating-score{color:#111827!important;font:750 10px/1 "Exo 2",Arial,sans-serif!important}
  html body.type-index #content .okla-slider-shell .product .okla-retail-rating-count{color:#143f77!important;font:500 10px/1 "Exo 2",Arial,sans-serif!important;text-decoration:underline!important;text-underline-offset:2px!important}
  html body.type-index #content .okla-slider-shell .product .okv73-rating-caption{color:#697586!important;font-size:9px!important}
- html body.type-index #content .okla-slider-shell .product .p-tools{border-top:0!important;margin-top:4px!important}
+ html body.type-index #content .okla-slider-shell .product a.name{
+  flex-basis:38px!important;height:38px!important;min-height:38px!important;max-height:38px!important;
+  margin-bottom:4px!important;font-size:15px!important;line-height:19px!important
+ }
+ html body.type-index #content .okla-slider-shell .product .availability{
+  height:22px!important;min-height:22px!important;max-height:22px!important;margin-bottom:2px!important
+ }
+ html body.type-index #content .okla-slider-shell .product .price-final{
+  min-height:42px!important;padding:6px 2px!important;border-radius:0!important;background:transparent!important
+ }
+ html body.type-index #content .okla-slider-shell .product .price-final strong{
+  font-size:27px!important;line-height:1.08!important;letter-spacing:-.55px!important
+ }
+ html body.type-index #content .okla-slider-shell .product .p-tools{
+  width:calc(100% + 16px)!important;height:45px!important;min-height:45px!important;max-height:45px!important;
+  margin:5px -8px 0!important;padding:0 8px!important;border-top:0!important
+ }
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){border-radius:4px!important}
+ html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
+  width:100%!important;height:38px!important;min-height:38px!important;max-height:38px!important;border-radius:1px!important
+ }
 }
