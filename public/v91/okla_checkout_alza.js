@@ -7,6 +7,16 @@
   document.querySelectorAll('.okla-parcel,.order-icon .okla-h-icon,#order-form h2 .okla-h-icon').forEach(function(node){node.remove()});
  }
 
+ function simplifyCopy(){
+  var labels=['Košík','Doprava a platba','Dodací údaje'];
+  document.querySelectorAll('.cart-header .step').forEach(function(step,index){
+   var span=step.querySelector('span');
+   if(span&&labels[index])span.textContent=labels[index];
+  });
+  var delivery=document.querySelector('h2.order-delivery');
+  if(delivery)delivery.textContent='Zvolte způsob doručení';
+ }
+
  function moveCartTotal(){
   if(!document.body.classList.contains('in-kosik'))return;
   var actions=document.querySelector('.okla-step-nav .next-step');
@@ -27,7 +37,7 @@
   document.body.classList.add('okla-alza-ready');
  }
 
- function run(){removeDecorations();moveCartTotal()}
+ function run(){removeDecorations();simplifyCopy();moveCartTotal()}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});
  else run();
  setTimeout(run,100);

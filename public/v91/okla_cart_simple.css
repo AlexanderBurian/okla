@@ -113,7 +113,7 @@ html body.ordering-process select{
    illustrated benefit strip or editorial promo below the form. */
 html body.ordering-process .order-icon .okla-h-icon{display:none!important}
 html body.ordering-process .order-icon{padding-left:0!important}
-html body.ordering-process :is(.okla-footer-benefits,.okla-footer-promo){display:none!important}
+html body.ordering-process :is(.okla-footer-benefits,.okla-footer-promo,#okla-footer-benefits,#okla-footer-promo){display:none!important}
 
 /* A simple footer action row; global OKLA blue remains the CTA colour. */
 html body.ordering-process #content#content .okla-step-nav{
@@ -225,6 +225,7 @@ html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
   border:0!important;border-left:0!important;background:transparent!important;padding:0!important
 }
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box>h2{display:none!important}
 html body.ordering-process:not(.in-kosik) .order-icon{
   margin:0 0 16px!important;padding:0!important;font-size:21px!important;text-transform:none!important
 }
@@ -246,6 +247,14 @@ html body.in-krok-2 #order-form :is(.co-contact-information,.co-billing-address>
 }
 html body.in-krok-2 #order-form :is(.co-contact-information>h2,.co-billing-address>fieldset>h2,.co-shipping-address>h2){
   font-size:18px!important;text-transform:none!important
+}
+html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish){
+  border-color:#66d400!important;background:#66d400!important;color:#111!important;
+  -webkit-text-fill-color:#111!important
+}
+html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish):is(:hover,:focus,:active){
+  border-color:#5fc600!important;background:#5fc600!important;color:#111!important;
+  -webkit-text-fill-color:#111!important
 }
 
 @media(max-width:767px){
