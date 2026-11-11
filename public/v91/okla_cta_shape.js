@@ -7,7 +7,7 @@
  'use strict';
  if(window.__oklaCtaShapeV1)return;window.__oklaCtaShapeV1=true;
 
- var RADIUS='5px';
+ var RADIUS='5px',CART_RADIUS='0px';
  /* every commerce call-to-action gets the squarer corner */
  var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track';
  /* only the real add-to-cart buttons get the cart icon */
@@ -69,7 +69,11 @@
    /* Login / registration: the submit button matches the 10 px rounding of
       the form fields instead of the squarer commerce corner. */
    var authPage=!!(document.body&&/(^|\s)in-(login|registrace)(\s|$)/.test(document.body.className));
-   document.querySelectorAll(RADIUS_SEL).forEach(function(b){b.style.setProperty('border-radius',(authPage&&b.closest('#content'))?'10px':RADIUS,'important')});
+   document.querySelectorAll(RADIUS_SEL).forEach(function(b){
+    var radius=(authPage&&b.closest('#content'))?'10px':(b.matches(ICON_SEL)?CART_RADIUS:RADIUS);
+    b.style.setProperty('border-radius',radius,'important');
+    b.style.setProperty('-webkit-border-radius',radius,'important');
+   });
    document.querySelectorAll(ICON_SEL).forEach(function(b){
     var drawerPrimary=!!b.matches('#okla-cart-drawer .okla-cd__btn--primary');
     b.style.setProperty('display',drawerPrimary?'grid':'inline-flex','important');

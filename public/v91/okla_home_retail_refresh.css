@@ -9,6 +9,19 @@ html body.type-index #content .okla-hero__cta,
 html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-shadow:none!important}
 
 @media(min-width:768px){
+ html.okla-home-retail,
+ html.okla-home-retail body.type-index{background-color:#fafafa!important}
+ html.okla-home-retail body.type-index .overall-wrapper,
+ html.okla-home-retail body.type-index .overall-wrapper>.container,
+ html.okla-home-retail body.type-index #content-wrapper,
+ html.okla-home-retail body.type-index #content-wrapper .content-wrapper-in,
+ html.okla-home-retail body.type-index #content-wrapper main#content>.content-inner,
+ html.okla-home-retail body.type-index #content-wrapper main#content{
+  background-color:transparent!important;background-image:none!important
+ }
+ html body.type-index #footer,
+ html body.type-index footer#footer,
+ html body.type-index #okla-footer-shell{background-color:#fff!important}
  html body.type-index #content .okla-hero{aspect-ratio:909/220!important}
  html body.type-index #content .okla-hero__text{width:49%!important;padding-left:4.2%!important}
  html body.type-index #content .okla-hero__title{font-size:32px!important;letter-spacing:-.35px!important}
@@ -27,13 +40,13 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #content .okla-slider-shell .product .p-tools{padding-top:10px!important;min-height:50px!important}
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
-  width:min(164px,100%)!important;height:40px!important;min-height:40px!important;max-height:40px!important;border-radius:4px!important
+  width:min(164px,100%)!important;height:40px!important;min-height:40px!important;max-height:40px!important;border-radius:0!important
  }
 }
 
 @media(max-width:767px){
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e),
- html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#f7f8f9!important}
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#fafafa!important}
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper,
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper>.container,
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper,
@@ -63,11 +76,11 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #okla-v61-categories .okm61-category-label{font-size:12px!important;line-height:1.25!important}
  html body.type-index #content .homepage-group-title{
   box-sizing:border-box!important;width:100%!important;margin:18px 0 0!important;padding:18px 10px 9px!important;
-  background:#f7f8f9!important;color:#111827!important
+  background:#fafafa!important;color:#111827!important
  }
  html body.type-index #content .okla-slider-shell{
   box-sizing:border-box!important;width:100%!important;margin:0 0 14px!important;padding:8px 8px 16px!important;
-  background:#f7f8f9!important;border-radius:0!important
+  background:#fafafa!important;border-radius:0!important
  }
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product{background:transparent!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{
