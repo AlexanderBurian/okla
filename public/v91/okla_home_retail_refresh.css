@@ -33,7 +33,7 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
 
 @media(max-width:767px){
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e),
- html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#f3f4f5!important}
+ html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#f7f8f9!important}
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper,
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index .overall-wrapper>.container,
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index #content-wrapper,
@@ -63,11 +63,11 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #okla-v61-categories .okm61-category-label{font-size:12px!important;line-height:1.25!important}
  html body.type-index #content .homepage-group-title{
   box-sizing:border-box!important;width:100%!important;margin:18px 0 0!important;padding:18px 10px 9px!important;
-  background:#f3f4f5!important;color:#111827!important
+  background:#f7f8f9!important;color:#111827!important
  }
  html body.type-index #content .okla-slider-shell{
   box-sizing:border-box!important;width:100%!important;margin:0 0 14px!important;padding:8px 8px 16px!important;
-  background:#f3f4f5!important;border-radius:0!important
+  background:#f7f8f9!important;border-radius:0!important
  }
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product{background:transparent!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p{
@@ -105,6 +105,7 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  }
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
-  width:100%!important;height:38px!important;min-height:38px!important;max-height:38px!important;border-radius:1px!important
+  width:calc(100% - 8px)!important;max-width:150px!important;height:40px!important;min-height:40px!important;max-height:40px!important;
+  padding:0 10px!important;border-radius:0!important;box-shadow:none!important
  }
 }
