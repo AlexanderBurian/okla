@@ -111,7 +111,8 @@
   var foot=el('div','okla-cd__foot');
   var stay=el('button','okla-cd__btn okla-cd__btn--ghost','Pokračovat v nákupu');
   stay.type='button';
-  var go=el('a','okla-cd__btn okla-cd__btn--primary','Pokračovat do košíku');
+  var go=el('a','okla-cd__btn okla-cd__btn--primary');
+  go.appendChild(el('span','okla-cd__btn-label','Pokračovat do košíku'));
   go.href='/kosik/';
   foot.append(stay,go);
 

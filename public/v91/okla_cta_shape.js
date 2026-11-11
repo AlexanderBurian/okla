@@ -71,13 +71,21 @@
    var authPage=!!(document.body&&/(^|\s)in-(login|registrace)(\s|$)/.test(document.body.className));
    document.querySelectorAll(RADIUS_SEL).forEach(function(b){b.style.setProperty('border-radius',(authPage&&b.closest('#content'))?'10px':RADIUS,'important')});
    document.querySelectorAll(ICON_SEL).forEach(function(b){
-    if(b.querySelector(':scope > svg.okla-cta-cart'))return;       /* already has our icon */
-    b.style.setProperty('display','inline-flex','important');
+    var drawerPrimary=!!b.matches('#okla-cart-drawer .okla-cd__btn--primary');
+    b.style.setProperty('display',drawerPrimary?'grid':'inline-flex','important');
     b.style.setProperty('align-items','center','important');
     b.style.setProperty('justify-content','center','important');
+    if(drawerPrimary){
+     b.style.setProperty('grid-template-columns','18px minmax(0,auto) 18px','important');
+     b.style.setProperty('column-gap','8px','important');
+     b.style.setProperty('padding-left','10px','important');
+     b.style.setProperty('padding-right','10px','important');
+    }
+    var existing=b.querySelector(':scope > svg.okla-cta-cart');
+    if(existing){if(drawerPrimary)existing.style.setProperty('margin','0','important');return;} /* already has our icon */
     var svgs=b.querySelectorAll('svg');                            /* hide the shop's own cart glyph */
     for(var i=0;i<svgs.length;i++){if(!svgs[i].classList.contains('okla-cta-cart'))svgs[i].style.setProperty('display','none','important')}
-    b.insertBefore(cartSvg(),b.firstChild);
+    var cart=cartSvg();if(drawerPrimary)cart.style.setProperty('margin','0','important');b.insertBefore(cart,b.firstChild);
    });
    /* Phones: the product "Do košíku" button a touch wider (so the cart icon +
       label sit comfortably) and the whole thing a touch shorter. */
