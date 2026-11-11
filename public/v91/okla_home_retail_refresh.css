@@ -30,9 +30,9 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
   height:55px!important;min-height:55px!important;max-height:55px!important;margin-top:7px!important;background:transparent!important
  }
  html body.type-index #content .okla-slider-shell .product .p-tools{padding-top:10px!important;min-height:50px!important}
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
-  height:36px!important;min-height:36px!important;max-height:36px!important;border-radius:0!important
+ html body.type-index #content#content .okla-slider-shell .product .p-tools button.btn-cart,
+ html body.type-index #content#content .okla-slider-shell .product .p-tools button.btn-cart:not(:disabled){
+  height:34px!important;min-height:34px!important;max-height:34px!important;border-radius:0!important
  }
 }
 
