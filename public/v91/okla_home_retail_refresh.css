@@ -9,22 +9,14 @@ html body.type-index #content .okla-hero__cta,
 html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-shadow:none!important}
 
 @media(min-width:768px){
- html.okla-home-retail,
- html.okla-home-retail body.type-index{background-color:#fafafa!important}
- html.okla-home-retail body.type-index #content-wrapper,
- html.okla-home-retail body.type-index #content-wrapper .content-wrapper-in,
- html.okla-home-retail body.type-index #content-wrapper main#content>.content-inner,
- html.okla-home-retail body.type-index #content-wrapper main#content{
-  background-color:#fafafa!important;background-image:none!important
- }
- html body.type-index #footer,
- html body.type-index footer#footer,
- html body.type-index #okla-footer-shell{background-color:#fff!important}
+ html.okla-home-retail body.type-index #content-wrapper main#content,
+ html.okla-home-retail body.type-index #content-wrapper main#content>.content-inner{background-color:#fafafa!important}
  html body.type-index #content .okla-hero{aspect-ratio:909/220!important}
  html body.type-index #content .okla-hero__text{width:49%!important;padding-left:4.2%!important}
  html body.type-index #content .okla-hero__title{font-size:32px!important;letter-spacing:-.35px!important}
  html body.type-index #content .okla-hero__lead{max-width:430px!important;font-size:16px!important}
  html body.type-index #content .okla-tile{aspect-ratio:450/175!important}
+ html body.type-index #content .okla-slider-shell .okla-slider-viewport{overflow:hidden!important}
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p,
  html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hover .p{
   min-height:400px!important;padding:11px 12px 18px!important;border:1px solid #dfe5eb!important;border-radius:5px!important;overflow:hidden!important;box-shadow:none!important
@@ -38,11 +30,7 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #content .okla-slider-shell .product .p-tools{padding-top:10px!important;min-height:50px!important}
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
-  width:min(164px,100%)!important;height:40px!important;min-height:40px!important;max-height:40px!important;
-  border:1px solid #0074e8!important;border-radius:0!important;background:#0074e8!important;background-image:none!important;color:#fff!important
- }
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled):is(:hover,:focus-visible){
-  border-color:#0068d1!important;background:#0068d1!important;color:#fff!important
+  height:36px!important;min-height:36px!important;max-height:36px!important;border-radius:0!important
  }
 }
 
