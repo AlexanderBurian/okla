@@ -183,7 +183,7 @@ if(isOrdering) modules.push('v91/okla_checkout_final.css');
 modules.push('v91/okla_green_buttons.js','v91/okla_all_cta_blue.css','v91/okla_cta_shape.js');
 /* Final, isolated checkout skin: keeps native Shoptet behaviour, but removes
    the accumulated decorative cards, shadows and animated checkout effects. */
-if(isOrdering) modules.push('v91/okla_cart_simple.css');
+if(isOrdering) modules.push('v91/okla_cart_simple.css','v91/okla_checkout_alza.js');
 /* Mobile text controls stay at 16 px or larger, preventing Safari/Chrome from
    zooming the page when the visitor starts typing. */
 modules.push('v91/okla_mobile_no_zoom.css');
