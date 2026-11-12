@@ -4,7 +4,7 @@
  window.__oklaCheckoutAlza=true;
 
  function removeDecorations(){
-  document.querySelectorAll('.okla-parcel,.order-icon .okla-h-icon,#order-form h2 .okla-h-icon').forEach(function(node){node.remove()});
+  document.querySelectorAll('.okla-parcel,.order-icon .okla-h-icon,#order-form h2 .okla-h-icon,#okla-footer-benefits,#okla-footer-promo').forEach(function(node){node.remove()});
  }
 
  function simplifyCopy(){
@@ -42,4 +42,5 @@
  else run();
  setTimeout(run,100);
  setTimeout(run,600);
+ new MutationObserver(removeDecorations).observe(document.documentElement,{childList:true,subtree:true});
 })();
