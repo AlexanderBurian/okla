@@ -93,9 +93,9 @@
 
  /* While the Katalog / Menu panel or the phone search is open, the page underneath is pinned where it is (iPhones
     ignore overflow:hidden on the page and would scroll it, or bounce it into view); on closing it is put back exactly
-    where it was. */
+    where it was. The same while the AI chat is open full-screen on a phone (html.okla-ai-open, set by the widget). */
  var pinnedY=null;
- function pinned(){return document.body&&(document.body.classList.contains('okla-v61-locked')||root.classList.contains('okla-m-lock'))}
+ function pinned(){return document.body&&(document.body.classList.contains('okla-v61-locked')||root.classList.contains('okla-m-lock')||root.classList.contains('okla-ai-open'))}
  function pinUpdate(){
   var b=document.body;if(!b)return;
   if(pinned()&&pinnedY===null){

@@ -1,15 +1,15 @@
 /* OKLA CTA shape. On top of the blue CTA palette (okla_all_cta_blue.css):
    1. A cart pictogram on the LEFT of every "do košíku / přidat do košíku" button.
-   2. Less rounded corners on all commerce CTAs (still slightly rounded).
+   2. One corner rounding (RADIUS) on every button of the shop - commerce CTAs, form submits, page CTAs.
    Done with inline styles / a prepended inline SVG, so it beats every stylesheet
    rule regardless of specificity and survives the shop's own re-renders. */
 (function(){
  'use strict';
  if(window.__oklaCtaShapeV1)return;window.__oklaCtaShapeV1=true;
 
- var RADIUS='5px',CART_RADIUS='0px';
- /* every commerce call-to-action gets the squarer corner */
- var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track';
+ var RADIUS='8px';
+ /* every button gets the same corner */
+ var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track,.btn:not(.okla-hsearch__btn),.okla-hero__cta,.okla-warranty-button,.okn-button,.okla-promo-btn,.oka-c-btn,.ohb-btn,.okla-social-btn,.okla-os-lookup__btn,.okla-rk__submit,#okla-cart-drawer .okla-cd__btn,.loadMore__button,.okla-lang-pill';
  /* only the real add-to-cart buttons get the cart icon */
  var ICON_SEL='.btn-cart,.add-to-cart-button,.okla-m-buybar__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary';
 
@@ -66,13 +66,10 @@
   if(busy)return;busy=true;
   try{
    filterBlue();
-   /* Login / registration: the submit button matches the 10 px rounding of
-      the form fields instead of the squarer commerce corner. */
-   var authPage=!!(document.body&&/(^|\s)in-(login|registrace)(\s|$)/.test(document.body.className));
    document.querySelectorAll(RADIUS_SEL).forEach(function(b){
-    var radius=(authPage&&b.closest('#content'))?'10px':(b.matches(ICON_SEL)?CART_RADIUS:RADIUS);
-    b.style.setProperty('border-radius',radius,'important');
-    b.style.setProperty('-webkit-border-radius',radius,'important');
+    if(b.closest('#okla-v61-bottom,#okla-v61-drawer .okm61-drawer-close'))return;
+    b.style.setProperty('border-radius',RADIUS,'important');
+    b.style.setProperty('-webkit-border-radius',RADIUS,'important');
    });
    document.querySelectorAll(ICON_SEL).forEach(function(b){
     var drawerPrimary=!!b.matches('#okla-cart-drawer .okla-cd__btn--primary');

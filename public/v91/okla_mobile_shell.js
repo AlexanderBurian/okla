@@ -196,13 +196,15 @@
    requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('okla-m-instant'); }); });
   }
  }
+ function inCheckout() { return !!(document.body && document.body.classList.contains('ordering-process')); }
  function onScroll() {
   ticking = false;
   var y = window.pageYOffset || document.documentElement.scrollTop || 0;
   var dy = y - lastY;
   lastY = y;
   if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
-  if (isDetail) {
+  /* product pages and the cart / checkout steps never get the floating header */
+  if (isDetail || inCheckout()) {
    if (stuck) setSticky(false, false);
    return;
   }

@@ -135,10 +135,10 @@
   html.okla-tb-on body.in-kosik #content table.cart-table tr.removeable:not(:has(~ tr.removeable))>td{border-bottom-color:transparent!important}
   html.okla-tb-on body.ordering-process:not(#okla-tb-a#okla-tb-b) #content-wrapper{border-bottom-color:transparent!important}
 }
-/* Phones: the page under the footer (above the bottom bar) is white, not the off-white page colour */
+/* Phones: the page keeps its own (grey) colour down to the footer; only the strip under the footer (above the bottom
+   bar) is white: the footer's white continues below it */
 @media(max-width:767px){
-  html.okla-tb-on:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f),
-  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f){background-color:#fff!important}
+  html.okla-tb-on body #footer:not(#okla-tb-a#okla-tb-b){box-shadow:0 240px 0 0 #fff!important}
   /* cart: the discount code field runs the full width, "Aplikovat" beside it */
   html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon{width:100%!important;max-width:none!important;align-self:stretch!important}
   html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon :is(.okla-cart-summary__coupon-body,.okla-coupon){width:100%!important;max-width:none!important}
