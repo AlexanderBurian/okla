@@ -1,8 +1,8 @@
 /* OKLA – desktop product page (>=992px):
-   - buy bar at the bottom of the window (as on the big shops) once the page's own buy button has scrolled away: picture, name, stars, stock, price and the green "Do košíku" (it clicks Shoptet's own button, so the cart,
-     quantity and drawer work as usual). Sold-out products get "Hlídat dostupnost", which opens Shoptet's watchdog.
-     The bar's content has the width of the header's content. While it is shown, the AI chat button (which sits under
-     it) is hidden; an open chat stays open.
+   - buy bar at the top of the window, in the sticky header's place (as on the big shops), once the page's own buy
+     button has scrolled away: picture, name, stars, stock, price and the green "Do košíku" (it clicks Shoptet's own
+     button, so the cart, quantity and drawer work as usual). Sold-out products get "Hlídat dostupnost", which opens
+     Shoptet's watchdog. The bar's content has the width of the header's content.
    - the product gallery stays in view while the right-hand column is scrolled (CSS), when it fits the window. */
 (function(){
  'use strict';
@@ -77,22 +77,6 @@
   if(on===shown)return;shown=on;
   if(on){place();bar.hidden=false;void bar.offsetWidth;bar.classList.add('is-on');root.classList.add('okla-dbb-on')}
   else{bar.classList.remove('is-on');root.classList.remove('okla-dbb-on');setTimeout(function(){if(!shown)bar.hidden=true},220)}
-  aiLauncher(on);
- }
- /* the AI chat button sits where the bar is: hide it (not an open chat) while the bar is shown */
- var AI_CSS=':host(.okla-ai-under-bar) .panel:not(.open)+.launcher{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .16s ease,visibility 0s linear .16s!important}';
- function aiLauncher(hide){
-  var host=q('okla-ai-chat'),sr=host&&host.shadowRoot;
-  if(!host)return;
-  if(sr&&!sr.querySelector('style[data-okla-dbb]')){var st=document.createElement('style');st.setAttribute('data-okla-dbb','');st.textContent=AI_CSS;sr.appendChild(st)}
-  host.classList.toggle('okla-ai-under-bar',!!hide);
- }
- /* the widget is added after the page modules: apply the current state once it appears */
- function watchAi(){
-  if(q('okla-ai-chat')){aiLauncher(shown);return}
-  var mo=new MutationObserver(function(){var h=q('okla-ai-chat');if(h&&h.shadowRoot){mo.disconnect();aiLauncher(shown)}});
-  mo.observe(document.body,{childList:true});
-  setTimeout(function(){mo.disconnect();aiLauncher(shown)},15000);
  }
  /* the gallery sticks only when it fits the window under the sticky header (84px of page space) */
  function galleryFit(){
@@ -106,8 +90,8 @@
   var tries=0;
   (function wait(){
    if(build()){
-    /* the bar slides up once the page's own "Přidat do košíku" has scrolled away under the sticky header, and goes
-       again when it comes back */
+    /* the bar slides down from the top (in the sticky header's place) once the page's own "Přidat do košíku" has
+       scrolled away under it, and goes again when it comes back */
     root.classList.add('okla-dbb-ready');
     var ticking=false;
     var sync=function(){ticking=false;var r=native.getBoundingClientRect();show(r.width>0&&r.bottom<70*(window.__oklaDZ||1))};
@@ -115,7 +99,6 @@
     sync();
     addEventListener('resize',function(){if(shown)place();galleryFit()});
     galleryFit();addEventListener('load',galleryFit);setTimeout(galleryFit,1500);
-    watchAi();
     if(DESKTOP.addEventListener)DESKTOP.addEventListener('change',function(){if(!DESKTOP.matches)show(false)});
    }else if(++tries<40)setTimeout(wait,250);
   })();

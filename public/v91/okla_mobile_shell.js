@@ -242,20 +242,22 @@
   placeBar();
   new MutationObserver(function () { go.disabled = nativeBtn.disabled; })
    .observe(nativeBtn, { attributes: true, attributeFilter: ['disabled'] });
-  if (isDetail) {
-   // Product pages: the buy bar is there the whole time.
-   bar.classList.add('is-visible');
-  } else if ('IntersectionObserver' in window) {
-   new IntersectionObserver(function (entries) {
-    bar.classList.toggle('is-visible', narrow.matches && !entries[0].isIntersecting);
-   }).observe(nativeBtn);
+  // The bar slides down from the top once the page's own buy button has scrolled up out of view, and goes again
+  // when the button comes back.
+  var ticking = false;
+  function syncBar() {
+   ticking = false;
+   var r = nativeBtn.getBoundingClientRect();
+   bar.classList.toggle('is-visible', narrow.matches && r.width > 0 && r.bottom < 0);
   }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(syncBar); } }, { passive: true });
+  window.addEventListener('resize', syncBar);
+  syncBar();
  }
 
- /* the bar sits on top of the bottom navigation, whatever its real height is */
+ /* the bar sits at the top of the window (CSS) */
  function placeBar() {
-  var nav = document.getElementById('okla-v61-bottom');
-  if (bar) bar.style.bottom = (nav ? nav.offsetHeight : 0) + 'px';
+  if (bar) bar.style.removeProperty('bottom');
  }
 
  /* ---------- Share button beside the product title ---------- */
