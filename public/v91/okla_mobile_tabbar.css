@@ -49,9 +49,19 @@
   html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel) svg{stroke-width:1.9!important}
   /* one label colour for links and buttons (the link labels are darkened by the text-contrast pass) */
   html.okla-tb-on body #okla-v61-bottom button.okm61-bottom-action:not(.is-panel):not(.is-active) span{color:#1a1a1a!important}
-  /* the product page's buy bar: its white reaches down behind the bottom bar (no gap, the notch is white too), its
-     content stays above the raised cart */
-  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:0!important;padding-bottom:calc(52px + 34px + env(safe-area-inset-bottom,0px))!important}
+  /* bars that sit on the bottom bar: their white reaches down behind it (no gap, the notch is white too) and their
+     buttons keep 12px above and 12px to the raised cart.
+     The product page's buy bar: */
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:0!important;padding-top:12px!important;padding-bottom:calc(52px + 33px + env(safe-area-inset-bottom,0px))!important}
+  /* the cart's sticky bar (total + Pokračovat): right on the bottom bar, the same gaps (12px over the buttons, 12px to
+     the raised cart), its white continuing behind the bottom bar while it is stuck */
+  html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav{
+    bottom:calc(52px + env(safe-area-inset-bottom,0px))!important;padding-top:12px!important;padding-bottom:33px!important;
+  }
+  html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav.is-stuck::after{
+    content:""!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;display:block!important;
+    height:calc(52px + env(safe-area-inset-bottom,0px))!important;background:#fff!important;pointer-events:none!important;
+  }
 
   /* ---- the page's top bar: fixed at the top on every page ----
      It keeps its look from the top of the page: the same gradient (painted the same way as on the page, so nothing
