@@ -559,15 +559,9 @@
  /* The row of step buttons runs from the left edge of the page content to the right edge of the summary, measured. */
  function alignNav(){
   var nav=document.querySelector('.okla-step-nav');
-  var left=document.querySelector('.cart-row>.col-md-8 table.cart-table')||document.querySelector('.cart-row>.col-md-8');
-  var right=document.querySelector('.cart-row>.col-md-4 .summary-wrapper>.box')||document.querySelector('.cart-row>.col-md-4');
-  if(!nav||!left||!right)return;
+   if(!nav)return;
   nav.style.marginLeft='0px';
   nav.style.width='';
-  var l=left.getBoundingClientRect().left,r=right.getBoundingClientRect().right;
-  if(r-l<200)return;
-  nav.style.marginLeft=(l-nav.getBoundingClientRect().left)+'px';
-  nav.style.width=(r-l)+'px';
  }
 
  /* Shoptet redraws the cart after a product is added or removed, and the redraw drops the cart enhancements: they are applied again. Each one is safe to repeat. */
@@ -587,18 +581,13 @@
 
  /* When a product is added or removed the summary and the bar change: they are followed here. Changes inside the cards are ignored, so nothing loops. */
  function followCart(){
-  var root=document.querySelector('#content-wrapper')||document.body;
-  var timer=null;
-  var mo=new MutationObserver(function(list){
-   var real=list.some(function(m){
-    var t=m.target.nodeType===1?m.target:m.target.parentElement;
-    return !(t&&t.closest&&t.closest('.extras-wrapper,#header,#okla-cart-drawer'));
+   if(window.__oklaCheckoutCartEvents)return;
+   window.__oklaCheckoutCartEvents=true;
+   var timer=0;
+   function schedule(){clearTimeout(timer);timer=setTimeout(refreshCart,100)}
+   ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(name){
+    document.documentElement.addEventListener(name,schedule);
    });
-   if(!real)return;
-   clearTimeout(timer);
-   timer=setTimeout(refreshCart,150);
-  });
-  mo.observe(root,{childList:true,subtree:true,characterData:true});
  }
 
  function moveCartExtras(){
@@ -630,8 +619,6 @@
   moveTerms();
   alignGoodsTotal();
   alignNav();
-  window.addEventListener('resize',alignNav);
-  if(window.ResizeObserver)new ResizeObserver(function(){alignNav()}).observe(document.body);
   freeShipping();
   keepOnlyZasilkovna();
   requireZasilkovnaPoint();

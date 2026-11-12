@@ -19,7 +19,7 @@
   if(delivery)delivery.textContent='Zvolte způsob doručení';
  }
 
- function moveCartTotal(){
+ function syncCartTotal(){
   if(!document.body.classList.contains('in-kosik'))return;
   var actions=document.querySelector('.okla-step-nav .next-step');
   var price=document.querySelector('.okla-goods-total-price');
@@ -32,31 +32,34 @@
    label.className='okla-alza-total__label';
    label.textContent='Cena k úhradě s DPH';
    holder.appendChild(label);
+   var value=document.createElement('strong');
+   value.className='okla-alza-total__value';
+   holder.appendChild(value);
    var forward=actions.querySelector('.next-step-forward,.next-step-finish');
    actions.insertBefore(holder,forward||null);
   }
-  if(!holder.contains(price))holder.appendChild(price);
+  var valueNode=holder.querySelector('.okla-alza-total__value');
+  var nextValue=(price.textContent||'').replace(/\s+/g,' ').trim();
+  if(valueNode&&valueNode.textContent!==nextValue)valueNode.textContent=nextValue;
   document.body.classList.add('okla-alza-ready');
  }
 
- var redrawTimer;
- function observeChanges(){
-  removeDecorations();
-  simplifyCopy();
-  if(document.body.classList.contains('in-kosik')&&!document.querySelector('.okla-alza-total')&&document.querySelector('.okla-goods-total-price')){
-   clearTimeout(redrawTimer);
-   redrawTimer=setTimeout(moveCartTotal,0);
-  }
+ var redrawTimer=0;
+ function run(){removeDecorations();simplifyCopy();syncCartTotal()}
+ function schedule(){
+  clearTimeout(redrawTimer);
+  redrawTimer=setTimeout(run,80);
  }
-
- function run(){removeDecorations();simplifyCopy();moveCartTotal()}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});
  else run();
- setTimeout(run,100);
- setTimeout(run,600);
- window.addEventListener('resize',simplifyCopy);
+ var bootTries=0,bootTimer=setInterval(function(){
+  run();
+  if(document.querySelector('.okla-step-nav')||++bootTries>=8)clearInterval(bootTimer);
+ },250);
+ var media=window.matchMedia('(max-width:767px)');
+ if(media.addEventListener)media.addEventListener('change',simplifyCopy);
+ else if(media.addListener)media.addListener(simplifyCopy);
  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(eventName){
-  document.documentElement.addEventListener(eventName,function(){setTimeout(run,0);setTimeout(run,150)});
+  document.documentElement.addEventListener(eventName,schedule);
  });
- new MutationObserver(observeChanges).observe(document.documentElement,{childList:true,subtree:true});
 })();
