@@ -46,7 +46,8 @@
 
   /* ---- the page's top bar: fixed at the top on every page ----
      It keeps its look from the top of the page: the same gradient (painted the same way as on the page, so nothing
-     changes while the page is at the top) and the same logo and search; once the page moves under it, a soft shadow.
+     changes while the page is at the top) and the same logo and search; once the page moves under it, plain white
+     with a soft shadow, the same size.
      The space it leaves in the page is kept by .okla-tb-head-space (okla_mobile_tabbar.js). It sits under the panels
      and the bottom bar. */
   html.okla-tb-on body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f) #header #okla-v61-header{
@@ -55,7 +56,9 @@
     background-position:left top!important;background-size:100% var(--okla-mg-h,820px)!important;
     box-shadow:none!important;transition:box-shadow .2s ease!important;
   }
+  /* once the page moves under it: plain white, the same size, a soft shadow */
   html.okla-tb-on.okla-m-scrolled body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f) #header #okla-v61-header{
+    background-color:#fff!important;background-image:none!important;
     box-shadow:0 1px 0 rgba(22,71,139,.06),0 4px 14px rgba(18,41,68,.07)!important;
   }
   html.okla-tb-on body .okla-tb-head-space{display:block;height:var(--okla-tb-head-h,60px)}
