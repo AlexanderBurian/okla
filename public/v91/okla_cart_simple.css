@@ -718,3 +718,10 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-
 @media(min-width:768px){
   html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(.is-stuck){padding-bottom:32px!important}
 }
+/* steps: the strip was a 30px box with overflow hidden and the circles sat 1px lower,
+   so their bottom edge was cut off - let it size to the circles and never clip them */
+html body.ordering-process #content#content ol.cart-header{height:auto!important;min-height:0!important;overflow:visible!important;align-items:center!important;padding-top:2px!important;padding-bottom:2px!important}
+html body.ordering-process #content#content ol.cart-header>li.step{height:auto!important;min-height:30px!important;overflow:visible!important;margin-top:0!important;margin-bottom:0!important;align-items:center!important}
+@media(max-width:767px){
+  html body.ordering-process #content#content ol.cart-header>li.step{min-height:26px!important}
+}
