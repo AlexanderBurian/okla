@@ -725,3 +725,5 @@ html body.ordering-process #content#content ol.cart-header>li.step{height:auto!i
 @media(max-width:767px){
   html body.ordering-process #content#content ol.cart-header>li.step{min-height:26px!important}
 }
+/* steps 30% larger - the whole thing (circle, icon, label, connector) scales together */
+html body.ordering-process #content#content ol.cart-header>li.step{zoom:1.3}
