@@ -8,7 +8,9 @@
  }
 
  function simplifyCopy(){
-  var labels=['Košík','Doprava a platba','Dodací údaje'];
+  var labels=window.matchMedia('(max-width:767px)').matches
+   ?['Košík','Doprava','Údaje']
+   :['Košík','Doprava a platba','Dodací údaje'];
   document.querySelectorAll('.cart-header .step').forEach(function(step,index){
    var span=step.querySelector('span');
    if(span&&labels[index])span.textContent=labels[index];
@@ -42,5 +44,6 @@
  else run();
  setTimeout(run,100);
  setTimeout(run,600);
+ window.addEventListener('resize',simplifyCopy);
  new MutationObserver(removeDecorations).observe(document.documentElement,{childList:true,subtree:true});
 })();
