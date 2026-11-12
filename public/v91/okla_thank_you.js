@@ -20,13 +20,7 @@
   d.split('|').map(function(p){return '<path d="'+p+'"/>'}).join('')+'</svg>'}
  var IC={
   check:'M5 12.5l4.5 4.5L19 7',
-  arrow:'M5 12h14|M13 6l6 6-6 6',
-  truck:'M2.5 6.5h11v9.5h-11z|M13.5 9.5h4l3 3.4V16h-7|M7 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z|M17 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z',
-  bank:'M3 9 12 4l9 5|M5 10v7|M9.7 10v7|M14.3 10v7|M19 10v7|M3.5 20h17',
-  qr:'M4 4h6v6H4z|M14 4h6v6h-6z|M4 14h6v6H4z|M14 14h2.5v2.5H14z|M17.5 17.5H20V20h-2.5z|M14 20h.01|M20 14h.01',
-  copy:'M9 9h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1z|M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1',
-  phone:'M8 2.5h8a1.5 1.5 0 0 1 1.5 1.5v16a1.5 1.5 0 0 1-1.5 1.5H8A1.5 1.5 0 0 1 6.5 20V4A1.5 1.5 0 0 1 8 2.5z|M11 18.5h2',
-  mail:'M3.5 5.5h17v13h-17z|M4 6.5l8 6 8-6'
+  copy:'M9 9h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1z|M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1'
  };
  /* the shop's bank account for payments by bank transfer */
  var BANK={iban:'CZ3203000000000361065328',account:'361065328/0300'};
@@ -109,13 +103,12 @@
     '<button type="button" class="okla-ty__copy" data-copy="'+esc(copy)+'" aria-label="Zkopírovat: '+label+'" title="Zkopírovat">'+svg(IC.copy,'okla-ty__cp')+svg(IC.check,'okla-ty__copied')+'</button></dd></div>'};
    html+='<div class="okla-ty__pay">'+
     '<div class="okla-ty__payhead">'+
-     '<span class="okla-ty__badge">'+svg(IC.bank)+'</span>'+
      '<div><h2 class="okla-ty__h">Zaplaťte převodem</h2><p class="okla-ty__paylead">Uhraďte objednávku přes QR kód, nebo zadejte platbu ručně.</p></div>'+
     '</div>'+
     '<div class="okla-ty__paybody">'+
      '<figure class="okla-ty__qrbox">'+
       '<div class="okla-ty__qr" data-spd="'+esc(pay.spd)+'" role="img" aria-label="QR kód pro platbu '+esc(pay.amountText)+'"></div>'+
-      '<figcaption>'+svg(IC.phone)+'<span>Naskenujte v aplikaci své banky</span></figcaption>'+
+      '<figcaption>Naskenujte v aplikaci své banky</figcaption>'+
      '</figure>'+
      '<dl class="okla-ty__pdl">'+
       row('Částka k úhradě',pay.amountText,pay.amount.replace('.',','),true)+
@@ -124,12 +117,12 @@
       row('Variabilní symbol',pay.vs,pay.vs)+
      '</dl>'+
     '</div>'+
-    '<p class="okla-ty__paynote">'+svg(IC.mail)+'<span>QR kód pro platbu najdete i v potvrzovacím e-mailu.</span></p>'+
+    '<p class="okla-ty__paynote">QR kód pro platbu najdete i v potvrzovacím e-mailu.</p>'+
    '</div>';
   }
   html+='<div class="okla-ty__actions">'+
-    '<a class="okla-ty__btn okla-ty__btn--primary" href="/stav-objednavky/">'+svg(IC.truck)+'<span>Sledovat objednávku</span></a>'+
-    '<a class="okla-ty__btn okla-ty__btn--ghost" href="/"><span>Pokračovat v nákupu</span>'+svg(IC.arrow)+'</a>'+
+    '<a class="okla-ty__btn okla-ty__btn--primary" href="/stav-objednavky/">Sledovat objednávku</a>'+
+    '<a class="okla-ty__btn okla-ty__btn--ghost" href="/">Pokračovat v nákupu</a>'+
    '</div>'+
   '</section>';
 
@@ -160,7 +153,7 @@
     var q=window.qrcode(0,'M');q.addData(box.getAttribute('data-spd'));q.make();
     /* every module is a whole number of screen pixels, also under the desktop page zoom and on HiDPI screens */
     var n=q.getModuleCount(),k=(box.currentCSSZoom||window.__oklaDZ||1)*(window.devicePixelRatio||1);
-    var dev=Math.max(2,Math.floor(224*k/n)),css=n*dev/k,d='';
+    var dev=Math.max(4,Math.floor(224*k/n)),css=n*dev/k,d='';
     for(var r=0;r<n;r++){
      for(var c=0;c<n;c++){
       if(!q.isDark(r,c))continue;
