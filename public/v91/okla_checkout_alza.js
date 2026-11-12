@@ -39,6 +39,15 @@
   document.body.classList.add('okla-alza-ready');
  }
 
+ var redrawTimer;
+ function observeChanges(){
+  removeDecorations();
+  if(document.body.classList.contains('in-kosik')&&!document.querySelector('.okla-alza-total')&&document.querySelector('.okla-goods-total-price')){
+   clearTimeout(redrawTimer);
+   redrawTimer=setTimeout(moveCartTotal,0);
+  }
+ }
+
  function run(){removeDecorations();simplifyCopy();moveCartTotal()}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});
  else run();
@@ -48,5 +57,5 @@
  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(eventName){
   document.documentElement.addEventListener(eventName,function(){setTimeout(run,0);setTimeout(run,150)});
  });
- new MutationObserver(removeDecorations).observe(document.documentElement,{childList:true,subtree:true});
+ new MutationObserver(observeChanges).observe(document.documentElement,{childList:true,subtree:true});
 })();
