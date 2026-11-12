@@ -81,7 +81,7 @@ html.okla-ord-ready body .okla-ord-head:is(:hover,:active){
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
-  ).okla-button--empty:not(.okla-header-account):not(.okla-ord-head):not(.oka-c-tab):not(.okla-password-toggle):not(.okla-xsell__item):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not([disabled]):not([aria-disabled="true"]):hover{
+  ).okla-button--empty:not(.okla-header-account):not(.okla-ord-head):not(.oka-c-tab):not(.okla-password-toggle):not(.okla-xsell__item):not(.btn-cart):not(.add-to-cart-button):not(#__okla_button_empty_a#__okla_button_empty_b#__okla_button_empty_c#__okla_button_empty_d):not(.ordering-process *):not([disabled]):not([aria-disabled="true"]):hover{
     background-color:#f6f9fd!important;
     background-image:none!important;
     filter:none!important;

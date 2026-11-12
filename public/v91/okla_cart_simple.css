@@ -761,3 +761,11 @@ html body.in-kosik #content#content table.cart-table td.p-total .price-final[dat
 
 /* No AI assistant anywhere in the order process (the loader does not start it here; this hides it if it ever is). */
 html body.ordering-process okla-ai-chat,html.okla-ty-page okla-ai-chat{display:none!important}
+
+/* Cart and checkout: no hover background on the remove crosses, the coupon link, the quantity buttons or
+   "Zpět do obchodu" (the light hover fill of empty buttons is switched off on ordering pages in
+   okla_button_consistency.css; this keeps them transparent whatever else applies). */
+html body.ordering-process #content#content :is(.remove-item,.okla-cart-summary__toggle,.okla-qty,.p-name a,td.p-image a,.cart-header a):is(:hover,:focus,:active){background:transparent!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important}
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-back:is(:hover,:focus,:active){background:#fff!important;background-color:#fff!important;box-shadow:none!important}
+/* Steps 2/3: the grey recap column has its outline at the bottom too, not only on the left. */
+html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{border-bottom:1px solid #e6eaf0!important}
