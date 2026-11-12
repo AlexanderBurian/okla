@@ -606,3 +606,18 @@ html body.ordering-process:not(.in-kosik) #content#content .payment-shipping-pri
   html body.in-kosik #content#content .okla-step-nav .okla-alza-total__value{font-size:18px!important}
   html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .next-step-back{display:none!important}
 }
+/* --- final layer fixes ---------------------------------------------------- */
+html body.ordering-process #content#content ol.cart-header{display:flex!important;grid-template-columns:none!important}
+html body.ordering-process #content#content ol.cart-header>li.step{flex-direction:row!important;flex-wrap:nowrap!important;width:auto!important;grid-template-columns:none!important}
+html body.ordering-process #content#content ol.cart-header>li.step>:is(strong,a){width:auto!important;flex:none!important}
+html body.in-kosik #content#content .cart-inner>.okla-step-nav{width:auto!important;max-width:100%!important;left:auto!important;right:auto!important;box-sizing:border-box!important}
+/* recap: one grey column, no white card inside it, full product names */
+html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4 :is(.order-summary,#summary-box,.order-summary-inner,.checkout-box,.checkout-box-wrapper,.summary-wrapper,.box){background:none!important;border:0!important;box-shadow:none!important}
+html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4>*{background:none!important;box-shadow:none!important;border:0!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name,
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name a{display:block!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;-webkit-line-clamp:unset!important;max-height:none!important;max-width:none!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{float:left!important;margin-right:4px!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single{flex-wrap:nowrap!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-label{display:none!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info{min-width:0!important;flex-wrap:nowrap!important;align-items:center!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single:last-of-type::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2346556a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6' width='18' height='12' rx='2'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E")!important}

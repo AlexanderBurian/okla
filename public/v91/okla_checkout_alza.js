@@ -122,6 +122,10 @@
    var qty=isFinite(q)?String(q):'1';
    if(name.getAttribute('data-qty')!==qty)name.setAttribute('data-qty',qty);
   });
+  /* shipping / payment prices: "0 Kč" reads as "zdarma" like the options */
+  document.querySelectorAll('.order-summary .recapitulation-shipping-billing-info span').forEach(function(sp){
+   if(/^\s*0\s*Kč\s*$/i.test(sp.textContent))sp.textContent='zdarma';
+  });
   var wrap=document.querySelector('.order-summary .order-summary-item.price');
   var total=wrap&&wrap.querySelector('.price-wrapper strong.price');
   if(!wrap||!total)return;
