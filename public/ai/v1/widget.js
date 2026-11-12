@@ -273,7 +273,7 @@
           right: 0;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 52px;
+          width: 42px;
           height: 56px;
           border: 2px solid #fff;
           border-right: 0;
