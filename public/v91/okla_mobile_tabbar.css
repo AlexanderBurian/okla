@@ -18,26 +18,26 @@
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg>i{
     position:absolute;inset:0;display:block;background:#dce3eb;
-    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H19.01A6 6 0 0 1 25.01 5.83A30 30 0 0 0 84.99 5.83A6 6 0 0 1 90.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H19.01A6 6 0 0 1 25.01 5.83A30 30 0 0 0 84.99 5.83A6 6 0 0 1 90.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H18.05A6 6 0 0 1 24.04 5.68A31 31 0 0 0 85.96 5.68A6 6 0 0 1 91.95 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H18.05A6 6 0 0 1 24.04 5.68A31 31 0 0 0 85.96 5.68A6 6 0 0 1 91.95 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg::after{
     content:"";position:absolute;inset:0;display:block;background:#fff;
-    -webkit-mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H19.01A5 5 0 0 1 24.01 5.86A31 31 0 0 0 85.99 5.86A5 5 0 0 1 90.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H19.01A5 5 0 0 1 24.01 5.86A31 31 0 0 0 85.99 5.86A5 5 0 0 1 90.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+    -webkit-mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H18.05A5 5 0 0 1 23.04 5.73A32 32 0 0 0 86.96 5.73A5 5 0 0 1 91.95 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H18.05A5 5 0 0 1 23.04 5.73A32 32 0 0 0 86.96 5.73A5 5 0 0 1 91.95 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
   }
   /* the items: icons a little higher, labels low enough to stay clear of the notch's line */
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action{
     position:relative!important;z-index:1!important;overflow:visible!important;
     height:52px!important;max-height:52px!important;padding:0 1px 2px!important;justify-content:flex-end!important;gap:5px!important;
   }
-  /* the cart: the round button lower in the notch (its centre 5px under the bar's edge), the label in line with the others */
+  /* the cart: a 50px round button low in the notch (its centre 4px under the bar's edge, 6px of air around it), the label in line with the others */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart::before{
-    content:""!important;position:absolute!important;left:50%!important;top:-22px!important;z-index:-1!important;display:block!important;
-    box-sizing:border-box!important;width:54px!important;height:54px!important;margin-left:-27px!important;border-radius:50%!important;
+    content:""!important;position:absolute!important;left:50%!important;top:-21px!important;z-index:-1!important;display:block!important;
+    box-sizing:border-box!important;width:50px!important;height:50px!important;margin-left:-25px!important;border-radius:50%!important;
     border:1px solid #dce3eb!important;background:#fff!important;box-shadow:none!important;transition:transform .15s ease!important;
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action.okla-tb-cart svg{
     position:relative!important;z-index:1!important;width:26px!important;height:26px!important;flex:0 0 26px!important;margin:-1px 0!important;
-    transform:translateY(-16px)!important;color:#0b2540!important;stroke-width:1.95!important;
+    transform:translateY(-17px)!important;color:#0b2540!important;stroke-width:1.95!important;
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#184e96!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
