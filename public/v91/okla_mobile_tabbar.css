@@ -40,6 +40,13 @@
     transform:translateY(-17px)!important;color:#0b2540!important;stroke-width:1.95!important;
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#184e96!important}
+  /* the number of items, top right on the round button (the PC badge's blue) */
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart .okla-tb-count{
+    position:absolute!important;left:calc(50% + 7px)!important;top:-24px!important;z-index:2!important;display:block!important;
+    box-sizing:border-box!important;min-width:20px!important;height:20px!important;padding:0 5px!important;border:2px solid #fff!important;border-radius:10px!important;
+    background:#2093d9!important;color:#fff!important;font:700 11px/16px "Exo 2",Arial,sans-serif!important;text-align:center!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart .okla-tb-count[hidden]{display:none!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible{outline:0!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{border-color:#1788cb!important}
@@ -62,25 +69,6 @@
     content:""!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;display:block!important;
     height:calc(52px + env(safe-area-inset-bottom,0px))!important;background:#fff!important;pointer-events:none!important;
   }
-
-  /* ---- the page's top bar: fixed at the top on every page ----
-     It keeps its look from the top of the page: the same gradient (painted the same way as on the page, so nothing
-     changes while the page is at the top) and the same logo and search; once the page moves under it, plain white
-     with a soft shadow, the same size.
-     The space it leaves in the page is kept by .okla-tb-head-space (okla_mobile_tabbar.js). It sits under the panels
-     and the bottom bar. */
-  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f) #header #okla-v61-header{
-    position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:398!important;transform:none!important;
-    background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;
-    background-position:left top!important;background-size:100% var(--okla-mg-h,820px)!important;
-    box-shadow:none!important;transition:box-shadow .2s ease!important;
-  }
-  /* once the page moves under it: plain white, the same size, a soft shadow */
-  html.okla-tb-on.okla-m-scrolled body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f) #header #okla-v61-header{
-    background-color:#fff!important;background-image:none!important;
-    box-shadow:0 1px 0 rgba(22,71,139,.06),0 4px 14px rgba(18,41,68,.07)!important;
-  }
-  html.okla-tb-on body .okla-tb-head-space{display:block;height:var(--okla-tb-head-h,60px)}
 
   /* ---- Katalog / Menu panels ---- */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b){
@@ -114,9 +102,11 @@
   html.okla-tb-on body #okla-v61-drawer.is-open:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transform:none}
   /* Katalog: the title over the gradient, the categories in a white block */
   html.okla-tb-on body #okla-v61-drawer .okla-tb-cats-title{
-    margin:0!important;padding:18px 20px 14px!important;font:800 22px/1.25 "Exo 2",Arial,sans-serif!important;color:#0d356b!important;
+    margin:0!important;padding:24px 20px 14px!important;font:800 22px/1.25 "Exo 2",Arial,sans-serif!important;color:#0d356b!important;
     text-transform:none!important;letter-spacing:-.2px!important;border:0!important;background:transparent!important;
   }
+  /* the same space under the top in both panels: 24px to the first thing (Katalog's title, Menu's sign-in block) */
+  html.okla-tb-on body #okla-v61-drawer.okla-mm-open .okla-mm-hero{padding-top:24px!important}
   /* the categories run over the same gradient, only the lines between them */
   html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list{background:transparent!important;border-top:1px solid rgba(160,184,210,.4)!important}
   html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list .okm61-cat-row{background:transparent!important;border-color:rgba(160,184,210,.4)!important}

@@ -98,3 +98,9 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 /* Phones: while a banner is being swiped (okla_home_banners.js) the slides move with the finger instead of fading. */
 .okla-hero.is-swiping .okla-hero__slide{transition:none!important}
 .okla-hero{touch-action:pan-y}
+/* Phones: the AI glasses banner has a softer darkening (the picture is dark on its own) */
+@media(max-width:767px){
+  html body.type-index #content .okla-hero .okla-hero__slide--3::after{background:linear-gradient(90deg,rgba(4,18,40,.70) 0%,rgba(4,18,40,.46) 42%,rgba(4,18,40,.12) 70%,rgba(4,18,40,0) 86%)!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--3::before{background:linear-gradient(270deg,rgba(4,18,40,.22) 0%,rgba(4,18,40,0) 35%)!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--3 .okla-hero__text{text-shadow:0 1px 8px rgba(4,18,40,.35)}
+}

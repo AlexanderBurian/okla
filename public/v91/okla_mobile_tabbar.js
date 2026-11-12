@@ -65,18 +65,25 @@
  }
  document.addEventListener('click',function(){setTimeout(watchPanel,0)},true);
 
- /* the page's top bar is fixed (okla_mobile_tabbar.css): a spacer of its height keeps its place in the page */
- function headSpace(){
-  var h=document.getElementById('okla-v61-header');
-  if(!h||!matchMedia('(max-width:767px)').matches)return false;
-  var sp=h.nextElementSibling;
-  if(!sp||!sp.classList.contains('okla-tb-head-space')){sp=document.createElement('div');sp.className='okla-tb-head-space';sp.setAttribute('aria-hidden','true');h.parentNode.insertBefore(sp,h.nextSibling)}
-  function size(){root.style.setProperty('--okla-tb-head-h',h.offsetHeight+'px')}
-  size();
-  if(window.ResizeObserver)new ResizeObserver(size).observe(h);
+ /* the number of items in the cart on the round cart button (the same number as the cart badge on PC); kept up to date
+    when Shoptet refreshes its header cart after "Do košíku" */
+ function cartCount(){
+  var bar=document.getElementById('okla-v61-bottom'),cart=bar&&bar.querySelector('.okla-tb-cart');
+  if(!cart)return false;
+  var badge=cart.querySelector('.okla-tb-count');
+  if(!badge){badge=document.createElement('b');badge.className='okla-tb-count';badge.setAttribute('aria-hidden','true');badge.__oktc=1;cart.appendChild(badge)}
+  function read(){
+   var i=document.querySelector('#header a.cart-count [data-testid="headerCartCount"]')||document.querySelector('#header a.cart-count i');
+   var n=parseInt(((i&&i.textContent)||'').replace(/\D+/g,''),10)||0;
+   badge.textContent=n>99?'99+':String(n);badge.hidden=!n;
+   cart.setAttribute('aria-label',n?'Košík, '+n+' ks':'Košík');
+  }
+  read();
+  var head=document.getElementById('header'),queued=false;
+  if(head&&window.MutationObserver)new MutationObserver(function(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;read()})}).observe(head,{childList:true,subtree:true,characterData:true});
   return true;
  }
 
- var tries=0,headDone=false;
- (function start(){var a=decorate();if(!headDone)headDone=headSpace();if((!a||!headDone)&&++tries<40)setTimeout(start,250)})();
+ var tries=0,countDone=false;
+ (function start(){var a=decorate();if(a&&!countDone)countDone=cartCount();if((!a||!countDone)&&++tries<40)setTimeout(start,250)})();
 })();

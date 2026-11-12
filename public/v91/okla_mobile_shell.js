@@ -157,7 +157,7 @@
   top.appendChild(b);
  }
 
- /* ---------- Top bar: fixed at the top (okla_mobile_tabbar.css); setSticky is no longer used ---------- */
+ /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
  var spacer = null, stuck = false, lastY = 0, ticking = false, stickyAfter = 80;
 
  function measureStickyAfter() {
@@ -199,11 +199,21 @@
  function onScroll() {
   ticking = false;
   var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+  var dy = y - lastY;
   lastY = y;
-  if (!narrow.matches) return;
-  /* The top bar stays fixed at the top on every page (okla_mobile_tabbar.css); it only gets its shadow once the page
-     has moved under it. */
-  document.documentElement.classList.toggle('okla-m-scrolled', y > 2);
+  if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
+  if (isDetail) {
+   if (stuck) setSticky(false, false);
+   return;
+  }
+  /* Do not create the floating header while any part of the original header
+     and its gradient is still in the viewport. */
+  if (y <= stickyAfter) {
+   if (stuck) setSticky(false, false);
+   return;
+  }
+  if (dy < -4) setSticky(true, false);
+  else if (dy > 4) setSticky(true, true);
  }
 
  /* ---------- Buy bar on product pages (shown after the buy button scrolls away) ---------- */
