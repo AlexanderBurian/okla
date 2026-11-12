@@ -113,7 +113,8 @@ html body.ordering-process select{
    illustrated benefit strip or editorial promo below the form. */
 html body.ordering-process .order-icon .okla-h-icon{display:none!important}
 html body.ordering-process .order-icon{padding-left:0!important}
-html body.ordering-process :is(.okla-footer-benefits,.okla-footer-promo,#okla-footer-benefits,#okla-footer-promo){display:none!important}
+html body.ordering-process :is(.okla-footer-benefits,.okla-footer-promo,#okla-footer-benefits,#okla-footer-promo),
+html body.ordering-process #footer :is(#okla-footer-benefits,#okla-footer-promo){display:none!important}
 
 /* A simple footer action row; global OKLA blue remains the CTA colour. */
 html body.ordering-process #content#content .okla-step-nav{
