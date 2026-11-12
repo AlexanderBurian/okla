@@ -1,0 +1,91 @@
+/* OKLA – phones (≤767px): the bottom bar and the Katalog / Menu panels (okla_mobile_tabbar.js).
+
+   Bottom bar: white and 56px tall as before; the cart is a round white button raised out of the middle of the bar and
+   sitting in a rounded notch cut into the bar's top edge. The bar's shape is drawn by .okla-tb-bg (a masked white
+   layer with its own soft shadow), so the shadow follows the notch.
+
+   Panels: the top of a panel (logo + close) stands exactly where the page's own top bar is and does not move - it shows
+   at once, the same as the page's top bar; only the content slides in under it. Both panels have the same top gradient as the pages. Both end above the bottom bar. */
+@media(max-width:767px){
+  /* ---- bottom bar ---- */
+  html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b){
+    border-top:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;
+  }
+  html.okla-tb-on #okla-v61-bottom .okla-tb-bg{
+    position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;display:block!important;
+    filter:drop-shadow(0 -1px 0 rgba(22,52,88,.09)) drop-shadow(0 -4px 12px rgba(18,41,68,.07));
+  }
+  html.okla-tb-on #okla-v61-bottom .okla-tb-bg>i{
+    position:absolute;inset:0;display:block;background:#fff;
+    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17C21 0 23.1 1.9 23.1 4.9A32 32 0 0 0 86.9 4.9C86.9 1.9 89 0 93 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+    mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17C21 0 23.1 1.9 23.1 4.9A32 32 0 0 0 86.9 4.9C86.9 1.9 89 0 93 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+  }
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action{position:relative!important;z-index:1!important;overflow:visible!important}
+  /* the raised cart */
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart::before{
+    content:""!important;position:absolute!important;left:50%!important;top:-25px!important;z-index:-1!important;display:block!important;
+    width:54px!important;height:54px!important;margin-left:-27px!important;border-radius:50%!important;background:#fff!important;
+    box-shadow:0 0 0 1px rgba(22,52,88,.07),0 5px 14px rgba(18,41,68,.16)!important;transition:transform .15s ease!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart svg{
+    position:relative!important;z-index:1!important;width:26px!important;height:26px!important;flex-basis:26px!important;
+    transform:translateY(-24px)!important;color:#0b2540!important;stroke-width:1.95!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#184e96!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible{outline:0!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{box-shadow:0 0 0 2px #1788cb,0 5px 14px rgba(18,41,68,.16)!important}
+  /* the item whose panel is open is the highlighted one (the page's own item steps back meanwhile) */
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.is-panel{color:#184e96!important;font-weight:800!important}
+  html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel){color:#636b75!important;font-weight:inherit!important}
+  html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel) svg{stroke-width:1.9!important}
+  /* one label colour for links and buttons (the link labels are darkened by the text-contrast pass) */
+  html.okla-tb-on body #okla-v61-bottom button.okm61-bottom-action:not(.is-panel):not(.is-active) span{color:#1a1a1a!important}
+  /* the product page's buy bar and the cart's step bar sit right above the bottom bar: room for the raised cart */
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{padding-bottom:38px!important}
+
+  /* ---- Katalog / Menu panels ---- */
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b){
+    z-index:399!important;top:0!important;bottom:calc(56px + env(safe-area-inset-bottom,0px))!important;
+    background:transparent!important;opacity:1!important;transition:none!important;
+  }
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-panel{
+    left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;max-width:none!important;
+    display:flex!important;flex-direction:column!important;overflow:hidden!important;box-shadow:none!important;
+    transform:none!important;transition:none!important;opacity:1!important;background:transparent!important;
+  }
+  /* the top: same height, logo and button place as the page's own top bar */
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-head{
+    position:relative!important;top:auto!important;flex:0 0 60px!important;display:flex!important;align-items:flex-start!important;justify-content:space-between!important;
+    box-sizing:border-box!important;height:60px!important;min-height:0!important;margin:0!important;padding:7px 8px 0 14px!important;
+    border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+    background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;background-position:left top!important;background-size:100% 820px!important;
+  }
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-head strong{display:flex!important;align-items:center!important;height:32px!important;margin:0!important;padding:0!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okla-mm-logo{display:block!important;width:auto!important;height:32px!important;max-width:none!important;object-fit:contain!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-close{
+    display:grid!important;place-items:center!important;width:40px!important;height:40px!important;min-width:0!important;margin:-4px 0 0!important;padding:0!important;
+    border:0!important;border-radius:50%!important;background:transparent!important;color:#123b6d!important;box-shadow:none!important;
+  }
+  /* the content scrolls on its own and slides in from the right */
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{
+    flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;background-position:left -60px!important;background-size:100% 820px!important;
+    transform:translateX(100%);transition:transform .34s cubic-bezier(.22,1,.36,1)!important;
+  }
+  html.okla-tb-on body #okla-v61-drawer.is-open:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transform:none}
+  /* Katalog: the title over the gradient, the categories in a white block */
+  html.okla-tb-on body #okla-v61-drawer .okla-tb-cats-title{
+    margin:0!important;padding:18px 20px 14px!important;font:800 22px/1.25 "Exo 2",Arial,sans-serif!important;color:#0d356b!important;
+    text-transform:none!important;letter-spacing:-.2px!important;border:0!important;background:transparent!important;
+  }
+  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list{background:#fff!important;border-top:1px solid #e1e8ee!important}
+  /* Menu: the sign-in card keeps the same side margins as the cards under it */
+  html.okla-tb-on body #okla-v61-drawer .okla-mm-account-card{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin-left:16px!important;margin-right:16px!important}
+  /* menu icons are drawn as outlines: their inner marks (the "i", the tick, the dots) take the icon's colour */
+  html.okla-tb-on body #okla-v61-drawer .okla-mm-row .okla-mm-svg .okla-mm-cut{stroke:currentColor!important}
+  html.okla-tb-on body #okla-v61-drawer .okla-mm-row .okla-mm-svg .okla-mm-dot{fill:currentColor!important}
+  @media(prefers-reduced-motion:reduce){
+    html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transition:none!important}
+  }
+}

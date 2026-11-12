@@ -95,3 +95,6 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  .okla-hero__dots button[aria-current="true"]{flex-basis:42px;width:42px;background:#aeb7c3;box-shadow:none;transform:none}
  .okla-hero__dots button:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 }
+/* Phones: while a banner is being swiped (okla_home_banners.js) the slides move with the finger instead of fading. */
+.okla-hero.is-swiping .okla-hero__slide{transition:none!important}
+.okla-hero{touch-action:pan-y}

@@ -100,6 +100,64 @@
   hero.addEventListener('focusin',function(){ if(!isPhone())paused=true; });
   hero.addEventListener('focusout',function(){ paused=false; });
 
+  /* Phones: the banner follows the finger. A swipe of a fifth of its width (or a quick flick) brings the next or the
+     previous banner, a shorter one springs back; a vertical move scrolls the page as usual and a tap still opens the
+     banner's link. Autoplay waits while the finger is down and starts its count again afterwards. */
+  (function swipe(){
+   var x0=0,y0=0,t0=0,dx=0,w=1,lock='',dir=0,other=-1,moved=false,busy=false;
+   var EASE='transform .3s cubic-bezier(.22,.61,.36,1)';
+   function neighbour(d){var list=shown();if(list.length<2)return -1;var p=list.indexOf(cur);if(p<0)return -1;return list[(p+d+list.length)%list.length]}
+   function put(k,x,anim){
+    var s=slides[k];if(!s)return;
+    s.style.setProperty('transition',anim?EASE:'none','important');
+    s.style.setProperty('transform','translate3d('+x+'px,0,0)','important');
+    s.style.setProperty('opacity','1','important');
+    s.style.setProperty('visibility','visible','important');
+   }
+   function clear(k){var s=slides[k];if(!s)return;['transition','transform','opacity','visibility'].forEach(function(p){s.style.removeProperty(p)})}
+   function end(){hero.classList.remove('is-swiping');busy=false;paused=false;restart()}
+   hero.addEventListener('touchstart',function(e){
+    if(busy||!isPhone()||e.touches.length!==1)return;
+    x0=e.touches[0].clientX;y0=e.touches[0].clientY;t0=Date.now();dx=0;lock='';dir=0;other=-1;moved=false;
+    w=hero.offsetWidth||1;paused=true;
+   },{passive:true});
+   hero.addEventListener('touchmove',function(e){
+    if(busy||!isPhone()||e.touches.length!==1||lock==='y')return;
+    var mx=e.touches[0].clientX-x0,my=e.touches[0].clientY-y0;
+    if(!lock){
+     if(Math.abs(mx)<8&&Math.abs(my)<8)return;
+     lock=Math.abs(mx)>Math.abs(my)?'x':'y';
+     if(lock==='y'){paused=false;return}
+     hero.classList.add('is-swiping');
+    }
+    e.preventDefault();moved=true;
+    var d=mx<0?1:-1;
+    if(d!==dir){if(other>=0&&other!==cur)clear(other);dir=d;other=neighbour(d)}
+    dx=other<0?mx/3:mx;
+    put(cur,dx,false);
+    if(other>=0&&other!==cur)put(other,dx+dir*w,false);
+   },{passive:false});
+   function release(){
+    if(lock!=='x'){if(!busy)paused=false;return}
+    lock='';busy=true;
+    var fast=Math.abs(dx)>30&&Math.abs(dx)/Math.max(1,Date.now()-t0)>0.45;
+    var go=other>=0&&other!==cur&&(Math.abs(dx)>w*0.2||fast);
+    var from=cur,to=other;
+    if(go){put(from,-dir*w,true);put(to,0,true)}
+    else{put(from,0,true);if(to>=0&&to!==from)put(to,dir*w,true)}
+    setTimeout(function(){
+     if(go)set(to);
+     clear(from);if(to>=0)clear(to);
+     /* one frame without fading, so the slides do not cross-fade after the swipe */
+     requestAnimationFrame(function(){requestAnimationFrame(end)});
+    },310);
+   }
+   hero.addEventListener('touchend',release);
+   hero.addEventListener('touchcancel',release);
+   /* a swipe that ends on the "Kup teď" link is not a tap on it */
+   hero.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+  })();
+
   set(0);
   restart();
  }
