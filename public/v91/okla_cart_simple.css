@@ -709,3 +709,9 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-
   content:attr(data-unit)!important;display:block!important;margin-top:3px!important;
   color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 11px/1.3 "Exo 2",Arial,sans-serif!important;white-space:nowrap!important;
 }
+/* desktop: the card is only as tall as its content (few items = card ends under the buttons, like Alza) */
+@media(min-width:768px){
+  html body.ordering-process #content-wrapper#content-wrapper{min-height:0!important;height:auto!important;margin-bottom:40px!important}
+  html body.ordering-process #content-wrapper#content-wrapper :is(.content-wrapper-in,#content,.content-inner,.cart-wrapper,.cart-inner){min-height:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content .okla-step-nav{padding-bottom:28px!important}
+}
