@@ -6,7 +6,9 @@
    1px inside it, so the line keeps its width along the curve.
 
    Panels: the top of a panel (logo + close) stands exactly where the page's own top bar is and does not move - it shows
-   at once, the same as the page's top bar; only the content slides in under it. Both panels have the same top gradient as the pages. Both end above the bottom bar. */
+   at once, the same as the page's top bar; only the content slides in under it. Both panels have the same top gradient as the pages. They reach down behind the
+   bottom bar (its notch shows the panel, never the page), their content ends above it. While a panel or the search is
+   open the page underneath is pinned (okla_mobile_tabbar.js), so it cannot move or peek out, also on iPhones. */
 @media(max-width:767px){
   /* ---- bottom bar ---- */
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b){
@@ -72,8 +74,8 @@
 
   /* ---- Katalog / Menu panels ---- */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b){
-    z-index:399!important;top:0!important;bottom:calc(50px + env(safe-area-inset-bottom,0px))!important;
-    background:transparent!important;opacity:1!important;transition:none!important;
+    z-index:399!important;top:0!important;bottom:0!important;
+    background:transparent!important;opacity:1!important;transition:none!important;overscroll-behavior:none;
   }
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-panel{
     left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;max-width:none!important;
@@ -96,6 +98,7 @@
   /* the content scrolls on its own and slides in from the right */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{
     flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    padding-bottom:calc(50px + 28px + env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important;
     background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;background-position:left -60px!important;background-size:100% 820px!important;
     transform:translateX(100%);transition:transform .34s cubic-bezier(.22,1,.36,1)!important;
   }

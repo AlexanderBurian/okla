@@ -84,6 +84,29 @@
   return true;
  }
 
+ /* While the Katalog / Menu panel or the phone search is open, the page underneath is pinned where it is (iPhones
+    ignore overflow:hidden on the page and would scroll it, or bounce it into view); on closing it is put back exactly
+    where it was. */
+ var pinnedY=null;
+ function pinned(){return document.body&&(document.body.classList.contains('okla-v61-locked')||root.classList.contains('okla-m-lock'))}
+ function pinUpdate(){
+  var b=document.body;if(!b)return;
+  if(pinned()&&pinnedY===null){
+   pinnedY=window.scrollY||window.pageYOffset||0;
+   b.style.setProperty('position','fixed','important');b.style.setProperty('top',(-pinnedY)+'px','important');
+   b.style.setProperty('left','0','important');b.style.setProperty('right','0','important');b.style.setProperty('width','100%','important');
+  }else if(!pinned()&&pinnedY!==null){
+   var y=pinnedY;pinnedY=null;
+   ['position','top','left','right','width'].forEach(function(p){b.style.removeProperty(p)});
+   var se=root.style.scrollBehavior;root.style.scrollBehavior='auto';window.scrollTo(0,y);root.style.scrollBehavior=se;
+  }
+ }
+ if(window.MutationObserver){
+  new MutationObserver(pinUpdate).observe(root,{attributes:true,attributeFilter:['class']});
+  var watchBody=function(){if(document.body)new MutationObserver(pinUpdate).observe(document.body,{attributes:true,attributeFilter:['class']})};
+  if(document.body)watchBody();else document.addEventListener('DOMContentLoaded',watchBody,{once:true});
+ }
+
  var tries=0,countDone=false;
  (function start(){var a=decorate();if(a&&!countDone)countDone=cartCount();if((!a||!countDone)&&++tries<40)setTimeout(start,250)})();
 })();
