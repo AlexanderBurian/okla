@@ -178,6 +178,7 @@ html body.ordering-process .cart-header .step:not(:last-of-type)::after{
   width:42px!important;height:2px!important;margin-left:10px!important;background:#c9cdd2!important;
   border:0!important;border-radius:0!important;transform:none!important
 }
+html body.ordering-process .cart-header .step:last-of-type::after{display:none!important;content:none!important}
 
 /* Cart: one full-width product list and one restrained bottom action bar. */
 html body.in-kosik.okla-alza-ready .cart-row>.col-md-8{
