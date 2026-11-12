@@ -621,3 +621,19 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-label{display:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info{min-width:0!important;flex-wrap:nowrap!important;align-items:center!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single:last-of-type::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2346556a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6' width='18' height='12' rx='2'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E")!important}
+/* connectors: an old layer masks pseudo elements with a check mark */
+html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{-webkit-mask:none!important;mask:none!important}
+/* recap column: tighter padding so names get room; names at most 3 lines */
+html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{padding:24px 20px!important}
+html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4 .cart-content{padding:0!important;margin:0!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;overflow:hidden!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{float:none!important;margin:0!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name a{display:inline!important}
+/* step 3 recap: shipping and payment as "icon  name  price" without the label */
+html body.ordering-process:not(.in-kosik) #content#content .order-summary-inner>.cart-items:not(.okla-goods-total-price){margin:4px 0 0!important;padding:12px 0 2px!important;border-top:1px solid #dfe4ea!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>span:first-child{display:none!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong{
+  flex:1 1 auto!important;min-width:0!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:10px!important;
+  color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.35 "Exo 2",Arial,sans-serif!important;
+}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong>span{order:2!important;flex:none!important;color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;white-space:nowrap!important}
