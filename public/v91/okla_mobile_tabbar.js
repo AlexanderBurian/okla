@@ -113,6 +113,27 @@
   var watchBody=function(){if(document.body)new MutationObserver(pinUpdate).observe(document.body,{attributes:true,attributeFilter:['class']})};
   if(document.body)watchBody();else document.addEventListener('DOMContentLoaded',watchBody,{once:true});
  }
+ /* …and while it is pinned, a finger drag never moves the whole screen: iPhones rubber-band the entire page - the
+    panel's fixed top included - when a drag starts on something that cannot scroll (the panel's top, a short list)
+    or pushes a list past its end. Such drags are stopped; a list that can still scroll that way scrolls as usual.
+    (composedPath: the AI chat's lists are inside its shadow root.) */
+ var touchY=0;
+ function scrollerFor(e){
+  var path=e.composedPath?e.composedPath():[];
+  for(var i=0;i<path.length;i++){
+   var n=path[i];if(!n||n.nodeType!==1)continue;if(n===document.body||n===root)break;
+   var oy=getComputedStyle(n).overflowY;
+   if((oy==='auto'||oy==='scroll')&&n.scrollHeight>n.clientHeight+1)return n;
+  }
+  return null;
+ }
+ document.addEventListener('touchstart',function(e){if(e.touches.length===1)touchY=e.touches[0].clientY},{passive:true});
+ document.addEventListener('touchmove',function(e){
+  if(!pinned()||e.touches.length!==1||!e.cancelable)return;
+  var y=e.touches[0].clientY,dy=y-touchY,sc=scrollerFor(e);touchY=y;
+  if(!dy)return;
+  if(!sc||(dy>0&&sc.scrollTop<=0)||(dy<0&&sc.scrollTop+sc.clientHeight>=sc.scrollHeight-1))e.preventDefault();
+ },{passive:false});
 
  var tries=0,countDone=false;
  (function start(){var a=decorate();if(a&&!countDone)countDone=cartCount();if((!a||!countDone)&&++tries<40)setTimeout(start,250)})();
