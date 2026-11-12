@@ -155,7 +155,7 @@
  function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();polishRecap();polishRecapAlza()}
  function schedule(){
   clearTimeout(redrawTimer);
-  redrawTimer=setTimeout(run,80);
+  redrawTimer=setTimeout(run,260);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});
  else run();
@@ -166,7 +166,7 @@
  var media=window.matchMedia('(max-width:767px)');
  if(media.addEventListener)media.addEventListener('change',simplifyCopy);
  else if(media.addListener)media.addListener(simplifyCopy);
- ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(eventName){
-  document.documentElement.addEventListener(eventName,schedule);
+ ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated','ShoptetDOMCartContentLoaded'].forEach(function(eventName){
+  document.addEventListener(eventName,schedule);
  });
 })();

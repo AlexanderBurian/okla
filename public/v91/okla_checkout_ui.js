@@ -585,8 +585,10 @@
    window.__oklaCheckoutCartEvents=true;
    var timer=0;
    function schedule(){clearTimeout(timer);timer=setTimeout(refreshCart,100)}
-   ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(name){
-    document.documentElement.addEventListener(name,schedule);
+   /* Shoptet dispatches these on document (not on <html>), e.g. after a
+      quantity change redraws the whole cart. */
+   ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated','ShoptetDOMCartContentLoaded'].forEach(function(name){
+    document.addEventListener(name,schedule);
    });
  }
 
