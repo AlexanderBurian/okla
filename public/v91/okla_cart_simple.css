@@ -715,3 +715,6 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-
   html body.ordering-process #content-wrapper#content-wrapper :is(.content-wrapper-in,#content,.content-inner,.cart-wrapper,.cart-inner){min-height:0!important}
   html body.ordering-process:not(.in-kosik) #content#content .okla-step-nav{padding-bottom:28px!important}
 }
+@media(min-width:768px){
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(.is-stuck){padding-bottom:32px!important}
+}
