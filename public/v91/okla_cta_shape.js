@@ -76,20 +76,24 @@
    });
    document.querySelectorAll(ICON_SEL).forEach(function(b){
     var drawerPrimary=!!b.matches('#okla-cart-drawer .okla-cd__btn--primary');
-    b.style.setProperty('display',drawerPrimary?'grid':'inline-flex','important');
+    /* phones: "Pokračovat do košíku" does not fit one line beside the icon - the label alone, centred
+       (okla_cart_drawer.css hides the icon there) */
+    var phoneDrawer=drawerPrimary&&!!window.matchMedia&&window.matchMedia('(max-width:767px)').matches;
+    b.style.setProperty('display',phoneDrawer?'flex':drawerPrimary?'grid':'inline-flex','important');
     b.style.setProperty('align-items','center','important');
     b.style.setProperty('justify-content','center','important');
-    if(drawerPrimary){
+    if(phoneDrawer){b.style.setProperty('padding-left','12px','important');b.style.setProperty('padding-right','12px','important')}
+    else if(drawerPrimary){
      b.style.setProperty('grid-template-columns','18px minmax(0,auto) 18px','important');
      b.style.setProperty('column-gap','8px','important');
      b.style.setProperty('padding-left','10px','important');
      b.style.setProperty('padding-right','10px','important');
     }
     var existing=b.querySelector(':scope > svg.okla-cta-cart');
-    if(existing){if(drawerPrimary)existing.style.setProperty('margin','0','important');return;} /* already has our icon */
+    if(existing){if(drawerPrimary)existing.style.setProperty('margin','0','important');if(phoneDrawer)existing.style.setProperty('display','none','important');return;} /* already has our icon */
     var svgs=b.querySelectorAll('svg');                            /* hide the shop's own cart glyph */
     for(var i=0;i<svgs.length;i++){if(!svgs[i].classList.contains('okla-cta-cart'))svgs[i].style.setProperty('display','none','important')}
-    var cart=cartSvg();if(drawerPrimary)cart.style.setProperty('margin','0','important');b.insertBefore(cart,b.firstChild);
+    var cart=cartSvg();if(drawerPrimary)cart.style.setProperty('margin','0','important');if(phoneDrawer)cart.style.setProperty('display','none','important');b.insertBefore(cart,b.firstChild);
    });
    /* Phones: the product "Do košíku" button a touch wider (so the cart icon +
       label sit comfortably) and the whole thing a touch shorter. */

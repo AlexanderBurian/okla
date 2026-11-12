@@ -253,11 +253,11 @@
       .launcher:active { box-shadow: 0 6px 18px rgba(0, 50, 120, .24); }
       .panel.open + .launcher { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .16s ease, visibility 0s linear .16s; }
       .launcher img { border-radius: 50%; }
-      /* The launcher shows a filled robot-with-headset glyph (desktop and mobile). */
+      /* The launcher shows a speech bubble with text lines (desktop and mobile). */
       .launcher .launcher-desktop-icon { display: none; }
       .launcher .launcher-search-icon {
-        display: block; width: 36px; height: 24px;
-        fill: #fff; stroke: none; overflow: visible;
+        display: block; width: 28px; height: 28px;
+        fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; overflow: visible;
       }
       .robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--okla-purple); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
       .mobile-glyph-fallback::after { content: "OK"; position: absolute; inset: 0; display: none; place-items: center; color: #fff; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
@@ -268,23 +268,24 @@
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          /* Mobile: tab sticks out of the LEFT screen edge (mirror of the old right-edge tab). */
-          left: -19.7px;
-          right: auto;
+          /* Mobile: a tab on the RIGHT screen edge, rounded on the screen side. */
+          left: auto;
+          right: 0;
           top: clamp(180px, 82dvh, calc(100dvh - 86px));
           bottom: auto;
-          width: 50px;
-          height: 80.7px;
+          width: 52px;
+          height: 56px;
           border: 2px solid #fff;
-          border-radius: 0 23.8px 23.8px 0;
-          padding: 5.75px;
+          border-right: 0;
+          border-radius: 22px 0 0 22px;
+          padding: 0;
           background: linear-gradient(160deg, #3fa2ff 4%, #0074e8 50%, #0b4ea6 100%);
           color: #fff;
-          box-shadow: 3.5px 5px 12px rgba(0, 50, 120, .3);
+          box-shadow: -3.5px 5px 12px rgba(0, 50, 120, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(-118%) scale(.94);
+          transform: translateY(-50%) translateX(118%) scale(.94);
           transform-origin: center;
           transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .56s, box-shadow .22s ease;
         }
@@ -297,7 +298,7 @@
         }
         .launcher:hover {
           border-color: #fff;
-          box-shadow: 3px 5.5px 12px rgba(0, 50, 120, .32);
+          box-shadow: -3px 5.5px 12px rgba(0, 50, 120, .32);
           transform: translateY(-50%);
         }
         .launcher:focus-visible {
@@ -314,12 +315,11 @@
         .launcher .launcher-search-icon {
           position: absolute;
           top: 50%;
-          /* Keep the retained robot 1px left of the visible-part centre. */
-          left: calc((100% + 17.7px) / 2 - 1px);
+          left: 50%;
           right: auto;
           display: block;
-          width: 22px;
-          height: 14.75px;
+          width: 26px;
+          height: 26px;
           border-radius: 0;
           transform: translate(-50%, -50%);
         }
@@ -417,7 +417,7 @@
     </section>
     <button class="launcher" type="button" aria-label="${Tx.open}" aria-controls="okla-panel" aria-expanded="false">
       <img class="launcher-desktop-icon" data-robot-image src="${x}" alt="">
-      <svg class="launcher-search-icon" viewBox="148 258 674 452" aria-hidden="true"><path d="M222 388H200a47 47 0 0 0-47 47v71a47 47 0 0 0 47 47h22Z"></path><path d="M748 388h22a47 47 0 0 1 47 47v71a47 47 0 0 1-47 47h-22Z"></path><path fill-rule="evenodd" d="M326 343H644c12 0 19 6 25 17Q698 412 698 470T669 581c-6 11-13 17-25 17H326c-12 0-19-6-25-17Q274 528 274 470T301 360c6-11 13-17 25-17ZM339 469a31 31 0 1 0 62 0a31 31 0 1 0-62 0ZM569 469a31 31 0 1 0 62 0a31 31 0 1 0-62 0Z"></path><path d="M439 703a6 6 0 0 1-6-6V674a21 21 0 0 1 21-21H522a21 21 0 0 1 21 21v4H632v25Z"></path><path d="M234 553Q222 470 228 420Q242 328 308 275H662Q730 328 743 420C754 525 718 632 632 690" fill="none" stroke="#fff" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 4h13A2.5 2.5 0 0 1 21 6.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V18h0A2.5 2.5 0 0 1 3 15.5v-9A2.5 2.5 0 0 1 5.5 4z"/><path d="M7.5 9h9M7.5 12.5h6"/></svg>
     </button>
     <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;let v=m.querySelector(".panel"),S=m.querySelector(".launcher"),pe=m.querySelector(".info-control"),H=m.querySelector(".expand"),ue=m.querySelector(".collapse"),h=m.querySelector(".messages"),me=m.querySelector("#welcome-template"),C=m.querySelector("form"),b=m.querySelector("textarea"),q=m.querySelector(".send"),Y=m.querySelector(".composer-area"),he=m.querySelector(".disclaimer"),z=m.querySelector("#okla-status"),W=new R,k=new j;m.querySelectorAll("[data-robot-image], [data-mobile-assistant-image]").forEach(V);let O=[],E=!1,I=null,L,w=0,T=window.matchMedia("(max-width: 466px)"),J=!T.matches;function y(){let e=Math.min(520,Math.max(320,window.innerHeight*.55));(!T.matches||window.scrollY>=e)&&(J=!0),B.classList.toggle("mobile-launcher-visible",J)}window.addEventListener("scroll",y,{passive:!0}),T.addEventListener("change",y),y();function P(e){v.classList.toggle("open",e),v.setAttribute("aria-hidden",String(!e)),v.setAttribute("aria-modal",String(e&&T.matches)),S.setAttribute("aria-expanded",String(e)),S.setAttribute("aria-label",e?Tx.closeL:Tx.open),L!==void 0&&clearTimeout(L),e?L=setTimeout(()=>b.focus(),180):S.focus(),y()}function A(){h.scrollTop=h.scrollHeight}function be(e){try{let s=new URL(e,window.location.href);return["http:","https:","mailto:"].includes(s.protocol)?s.toString():void 0}catch{return}}function M(e){return e.replace(/-{2,}/g,"\u2014")}function X(e,s){let r=/\*\*([^*\n]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g,i=0;for(let t of s.matchAll(r)){let n=t.index??0;if(e.append(document.createTextNode(M(s.slice(i,n)))),t[1]!==void 0){let c=document.createElement("strong");c.textContent=M(t[1]),e.append(c)}else{let c=be(t[3]??"");if(c){let g=document.createElement("a");g.textContent=M(t[2]??c),g.href=c,/^https?:/i.test(c)&&(g.target="_blank",g.rel="noopener noreferrer"),e.append(g)}else e.append(document.createTextNode(M(t[0])))}i=n+t[0].length}e.append(document.createTextNode(M(s.slice(i))))}let N=/^\s*[-•*]\s+/;function Z(e,s){e.replaceChildren();let r=s.split(`
 `),i=0;for(;i<r.length;)if(N.test(r[i])){let t=document.createElement("ul");for(t.className="md-list";i<r.length&&N.test(r[i]);){let n=document.createElement("li");X(n,r[i].replace(N,"")),t.append(n),i+=1}e.append(t)}else{let t=[];for(;i<r.length&&!N.test(r[i]);)t.push(r[i]),i+=1;for(;t.length&&t[t.length-1].trim()==="";)t.pop();for(;t.length&&t[0].trim()==="";)t.shift();if(t.length){let n=document.createElement("div");n.className="md-par",X(n,t.join(`

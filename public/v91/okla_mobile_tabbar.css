@@ -1,6 +1,6 @@
 /* OKLA – phones (≤767px): the bottom bar and the Katalog / Menu panels (okla_mobile_tabbar.js).
 
-   Bottom bar: white, 52px; the cart is a round white button sitting in a rounded notch cut into the bar's top edge.
+   Bottom bar: white, 50px, as low as it goes (the labels sit on its bottom edge); the cart is a round white button sitting in a rounded notch cut into the bar's top edge.
    One 1px line (the same colour everywhere) runs along the bar's top edge, around the notch and around the button.
    The bar's shape is drawn by .okla-tb-bg: its <i> is the line colour in the bar's shape, its ::after the white bar
    1px inside it, so the line keeps its width along the curve.
@@ -10,7 +10,7 @@
 @media(max-width:767px){
   /* ---- bottom bar ---- */
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b){
-    height:calc(52px + env(safe-area-inset-bottom,0px))!important;
+    height:calc(50px + env(safe-area-inset-bottom,0px))!important;
     border-top:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;align-items:start!important;
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg{
@@ -27,7 +27,7 @@
   /* the items: icons a little higher, labels low enough to stay clear of the notch's line */
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action{
     position:relative!important;z-index:1!important;overflow:visible!important;
-    height:52px!important;max-height:52px!important;padding:0 1px 2px!important;justify-content:flex-end!important;gap:5px!important;
+    height:50px!important;max-height:50px!important;padding:0 1px!important;justify-content:flex-end!important;gap:5px!important;
   }
   /* the cart: a 50px round button low in the notch (its centre 4px under the bar's edge, 6px of air around it), the label in line with the others */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart::before{
@@ -59,20 +59,20 @@
   /* bars that sit on the bottom bar: their white reaches down behind it (no gap, the notch is white too) and their
      buttons keep 12px above and 12px to the raised cart.
      The product page's buy bar: */
-  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:0!important;padding-top:12px!important;padding-bottom:calc(52px + 33px + env(safe-area-inset-bottom,0px))!important}
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:0!important;padding-top:12px!important;padding-bottom:calc(50px + 33px + env(safe-area-inset-bottom,0px))!important}
   /* the cart's sticky bar (total + Pokračovat): right on the bottom bar, the same gaps (12px over the buttons, 12px to
      the raised cart), its white continuing behind the bottom bar while it is stuck */
   html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav{
-    bottom:calc(52px + env(safe-area-inset-bottom,0px))!important;padding-top:12px!important;padding-bottom:33px!important;
+    bottom:calc(50px + env(safe-area-inset-bottom,0px))!important;padding-top:12px!important;padding-bottom:33px!important;
   }
   html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav.is-stuck::after{
     content:""!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;display:block!important;
-    height:calc(52px + env(safe-area-inset-bottom,0px))!important;background:#fff!important;pointer-events:none!important;
+    height:calc(50px + env(safe-area-inset-bottom,0px))!important;background:#fff!important;pointer-events:none!important;
   }
 
   /* ---- Katalog / Menu panels ---- */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b){
-    z-index:399!important;top:0!important;bottom:calc(52px + env(safe-area-inset-bottom,0px))!important;
+    z-index:399!important;top:0!important;bottom:calc(50px + env(safe-area-inset-bottom,0px))!important;
     background:transparent!important;opacity:1!important;transition:none!important;
   }
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-panel{
@@ -118,4 +118,22 @@
   @media(prefers-reduced-motion:reduce){
     html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transition:none!important}
   }
+}
+/* Phones: no double lines.
+   - cart: the last product has no line of its own, the summary's line closes the list (as on PC)
+   - cart and checkout: the content card has no bottom edge, the bottom bar's line is right under it */
+@media(max-width:767px){
+  html.okla-tb-on body.in-kosik #content table.cart-table tr.removeable:not(:has(~ tr.removeable)),
+  html.okla-tb-on body.in-kosik #content table.cart-table tr.removeable:not(:has(~ tr.removeable))>td{border-bottom-color:transparent!important}
+  html.okla-tb-on body.ordering-process:not(#okla-tb-a#okla-tb-b) #content-wrapper{border-bottom-color:transparent!important}
+}
+/* Phones: the page under the footer (above the bottom bar) is white, not the off-white page colour */
+@media(max-width:767px){
+  html.okla-tb-on:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f),
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f){background-color:#fff!important}
+  /* cart: the discount code field runs the full width, "Aplikovat" beside it */
+  html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon{width:100%!important;max-width:none!important;align-self:stretch!important}
+  html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon :is(.okla-cart-summary__coupon-body,.okla-coupon){width:100%!important;max-width:none!important}
+  html.okla-tb-on body.in-kosik #content .okla-coupon__row{width:100%!important;max-width:none!important}
+  html.okla-tb-on body.in-kosik #content .okla-coupon__row .okla-coupon__input{flex:1 1 auto!important;width:auto!important;min-width:0!important;max-width:none!important}
 }
