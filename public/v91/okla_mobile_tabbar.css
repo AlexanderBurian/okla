@@ -67,6 +67,11 @@
   html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav{
     bottom:calc(50px + env(safe-area-inset-bottom,0px))!important;padding-top:12px!important;padding-bottom:33px!important;
   }
+  /* in its place under the summary the bar adds no second line or shadow (the summary already has its line);
+     only while it floats over the items it gets its one line + shadow */
+  html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav:not(.is-stuck){
+    border-top-color:transparent!important;box-shadow:none!important;
+  }
   html.okla-tb-on body.in-kosik:not(#okla-tb-a#okla-tb-b) #content .cart-inner>.okla-step-nav.is-stuck::after{
     content:""!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;display:block!important;
     height:calc(50px + env(safe-area-inset-bottom,0px))!important;background:#fff!important;pointer-events:none!important;
@@ -139,4 +144,15 @@
   html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon :is(.okla-cart-summary__coupon-body,.okla-coupon){width:100%!important;max-width:none!important}
   html.okla-tb-on body.in-kosik #content .okla-coupon__row{width:100%!important;max-width:none!important}
   html.okla-tb-on body.in-kosik #content .okla-coupon__row .okla-coupon__input{flex:1 1 auto!important;width:auto!important;min-width:0!important;max-width:none!important}
+}
+/* Phones: articles keep the same 14px rail as the top bar and every other page (the article box adds no side padding
+   of its own: title, text, pictures and products start where the logo starts) */
+@media(max-width:767px){
+  html body #content #content .okla-clanek:not(#okla-tb-a#okla-tb-b),
+  html body:not(#okla-tb-a#okla-tb-b) #content .okla-clanek{padding-left:0!important;padding-right:0!important}
+}
+/* Phones: the breadcrumb on the same 14px rail as the logo */
+@media(max-width:767px){
+  html body:not(#okla-tb-a#okla-tb-b#okla-tb-c) .container.breadcrumbs-wrapper{padding-left:14px!important;padding-right:14px!important}
+  html body:not(#okla-tb-a#okla-tb-b#okla-tb-c) .container.breadcrumbs-wrapper>.breadcrumbs{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
 }

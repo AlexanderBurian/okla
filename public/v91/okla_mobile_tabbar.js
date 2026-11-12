@@ -24,6 +24,13 @@
     var lab=cart.querySelector('span');if(lab){lab.__oktc=1;lab.style.setProperty('color','#184e96','important')}
    }
   }
+  /* "Objednávky" is the current item on the order-status page (/stav-objednavky/, served by
+     /login/?zobrazit=stav-objednavky) and on the account's order list */
+  var orders=bar.querySelector('.okm61-bottom-action[aria-label="Objednávky"]');
+  if(orders&&!orders.classList.contains('is-active')&&(/^\/(stav-objednavky|objednavky)(\/|$)/.test(location.pathname)||/[?&]zobrazit=stav-objednavky(&|$)/.test(location.search))){
+   orders.classList.add('is-active');
+   var ol=orders.querySelector('span');if(ol){ol.__oktc=1;ol.style.setProperty('color','#184e96','important')}
+  }
   root.classList.add('okla-tb-on');
   return true;
  }

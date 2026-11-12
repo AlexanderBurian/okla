@@ -37,14 +37,5 @@
     width:100%!important;max-width:100%!important;
   }
 
-  /* Combined order-status page: the lookup follows the common rail. The
-     native Shoptet sign-in remains a visibly separate, narrower template
-     instead of becoming an edge-to-edge section. */
-  html.okla-os-login-combo body #content .okla-order-status{
-    width:100%!important;max-width:100%!important;margin:16px 0 0!important;
-  }
-  html.okla-os-login-combo body #content .content-inner{
-    box-sizing:border-box!important;width:calc(100% - 24px)!important;max-width:420px!important;
-    margin:18px auto 28px!important;
-  }
+  /* Combined order-status page: its layout (open, on the 14px rail) lives in okla_order_status.css. */
 }

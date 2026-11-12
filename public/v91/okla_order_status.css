@@ -235,34 +235,38 @@ html body .okla-os-card--open .okla-os-lookup__icon{width:fit-content!important}
 }
 
 /* ===== Combined page: order search on top + the native sign-in form below =====
-   Shown on /login/ (the page a customer reaches from "Přihlášení" or /objednavky/).
-   The search is our own card; the Shoptet login card is the page's own content. */
-html.okla-os-login-combo #content .okla-order-status{
-  box-sizing:border-box;max-width:480px;margin:32px auto 0;padding:0;
+   /login/?zobrazit=stav-objednavky, shown as /stav-objednavky/. A regular shop page (normal header, bottom bar
+   on phones) with an open layout - no card boxes: the title, a short note, the fields and a full-width button,
+   then the shop's own sign-in form below it, both on the page rail (14px on phones). */
+html.okla-os-login-combo body #content#content .okla-order-status{
+  box-sizing:border-box!important;width:auto!important;max-width:480px!important;margin:36px auto 0!important;padding:0!important;
 }
-html.okla-os-login-combo #content .content-inner{margin-top:18px!important}
 html.okla-os-login-combo .okla-order-status .okla-os-title{
-  text-align:center;font-family:"Exo 2",sans-serif;font-size:26px;font-weight:700;margin:0 0 18px;
+  text-align:center;font-family:"Exo 2",sans-serif;font-size:26px;line-height:1.25;font-weight:700;margin:0 0 14px;
 }
-html.okla-os-login-combo .okla-os-card--open{
-  background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;
-  box-shadow:none!important;padding:28px 32px!important;text-align:center!important;
+html.okla-os-login-combo body .okla-os-card--open{
+  background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important;text-align:center!important;
 }
 html.okla-os-login-combo .okla-os-card--open .okla-os-lookup{text-align:center!important;max-width:none}
-html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__icon{margin:0 auto 14px!important;width:-moz-fit-content!important;width:fit-content!important}
-html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__icon svg{width:64px!important;height:64px!important}
+html.okla-os-login-combo body .okla-os-card--open .okla-os-lookup__icon{display:none!important}
 html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__intro{margin:0 0 20px!important;font-size:14px;text-align:center}
 html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__form{flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;max-width:none!important;gap:14px!important;margin:0!important}
 html.okla-os-login-combo .okla-os-card--open .okla-os-field{flex:0 0 auto!important;width:100%!important;text-align:left!important}
 html.okla-os-login-combo .okla-os-card--open .okla-os-field input{width:100%!important}
-html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__btn{width:100%!important;height:52px!important;text-transform:uppercase;letter-spacing:.03em}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__btn{width:100%!important;height:52px!important;margin-top:4px!important;text-transform:uppercase;letter-spacing:.03em}
 html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__err{text-align:center!important}
+/* the shop's sign-in form: open as well (no box, no zoom), a clear gap under the search */
+html.okla-os-login-combo body #content#content .content-inner{
+  box-sizing:border-box!important;width:auto!important;max-width:480px!important;margin:56px auto 56px!important;padding:0!important;
+  background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;zoom:1!important;
+}
+html.okla-os-login-combo body #content#content .content-inner h1{font-size:24px!important;margin-bottom:20px!important}
 @media(max-width:767px){
-  html.okla-os-login-combo #content .okla-order-status{max-width:none;margin:16px 16px 0}
-  html.okla-os-login-combo .okla-os-card--open{padding:24px 20px!important}
+  /* the page's own 14px rail gives the side edges */
+  html.okla-os-login-combo body #content#content .okla-order-status{max-width:none!important;margin:20px 0 0!important}
+  html.okla-os-login-combo body #content#content .content-inner{max-width:none!important;margin:48px 0 32px!important}
   /* No footer on the combined search + sign-in page on mobile. */
   html.okla-os-login-combo #footer{display:none!important}
-  html.okla-os-login-combo #content .content-inner{margin-bottom:28px!important}
 }
 
 /* Desktop parity for the "previous orders" sign-in card on the timeline view

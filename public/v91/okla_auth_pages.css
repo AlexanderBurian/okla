@@ -6,14 +6,14 @@
    already creates the account, so a separate social sign-up is redundant. */
 
 /* Hide the shop chrome. */
-body.in-login #header,body.in-registrace #header,
-body.in-login #footer,body.in-registrace #footer,
-body.in-login .breadcrumbs-wrapper,body.in-registrace .breadcrumbs-wrapper,
-body.in-login .breadcrumbs,body.in-registrace .breadcrumbs,
-body.in-login .navigation-in,body.in-registrace .navigation-in,
-body.in-login #okla-v61-bottom,body.in-registrace #okla-v61-bottom,
-body.in-login .okla-m-bottomnav,body.in-registrace .okla-m-bottomnav,
-body.in-login .okla-footer-mobile-promo,body.in-registrace .okla-footer-mobile-promo{display:none!important}
+:where(html:not(.okla-os-login-combo)) body.in-login #header,body.in-registrace #header,
+:where(html:not(.okla-os-login-combo)) body.in-login #footer,body.in-registrace #footer,
+:where(html:not(.okla-os-login-combo)) body.in-login .breadcrumbs-wrapper,body.in-registrace .breadcrumbs-wrapper,
+:where(html:not(.okla-os-login-combo)) body.in-login .breadcrumbs,body.in-registrace .breadcrumbs,
+:where(html:not(.okla-os-login-combo)) body.in-login .navigation-in,body.in-registrace .navigation-in,
+:where(html:not(.okla-os-login-combo)) body.in-login #okla-v61-bottom,body.in-registrace #okla-v61-bottom,
+:where(html:not(.okla-os-login-combo)) body.in-login .okla-m-bottomnav,body.in-registrace .okla-m-bottomnav,
+:where(html:not(.okla-os-login-combo)) body.in-login .okla-footer-mobile-promo,body.in-registrace .okla-footer-mobile-promo{display:none!important}
 
 /* Registration: no social sign-up buttons (social login already creates the
    account), no wholesale/customer-type choice, and no optional company billing
@@ -22,24 +22,24 @@ body.in-registrace fieldset.co-registration{display:none!important}
 body.in-registrace .okla-auth-hide{display:none!important}
 
 /* A calm page-top gradient behind the card. */
-body.in-login,body.in-registrace{background:#c2e8ff linear-gradient(180deg,#eaf6ff 0%,#dff0ff 42%,#cfe9ff 100%) no-repeat!important;min-height:100vh!important}
+:where(html:not(.okla-os-login-combo)) body.in-login,body.in-registrace{background:#c2e8ff linear-gradient(180deg,#eaf6ff 0%,#dff0ff 42%,#cfe9ff 100%) no-repeat!important;min-height:100vh!important}
 /* Strip the account "shell" box (#content-wrapper.okla-acc-shell: white card +
    shadow + rounded border + ::before/::after) so only the login card floats on
    the gradient. ID-boosted to beat html.okla-acc-polished …#content-wrapper. */
-body.in-login #content-wrapper#content-wrapper,body.in-registrace #content-wrapper#content-wrapper,
-body.in-login main#content,body.in-registrace main#content,
-body.in-login .content-wrapper-in,body.in-registrace .content-wrapper-in{
+:where(html:not(.okla-os-login-combo)) body.in-login #content-wrapper#content-wrapper,body.in-registrace #content-wrapper#content-wrapper,
+:where(html:not(.okla-os-login-combo)) body.in-login main#content,body.in-registrace main#content,
+:where(html:not(.okla-os-login-combo)) body.in-login .content-wrapper-in,body.in-registrace .content-wrapper-in{
   background:transparent!important;background-image:none!important;box-shadow:none!important;border:0!important;border-radius:0!important;padding-top:0!important;padding-bottom:0!important
 }
-body.in-login #content-wrapper::before,body.in-login #content-wrapper::after,
+:where(html:not(.okla-os-login-combo)) body.in-login #content-wrapper::before,:where(html:not(.okla-os-login-combo)) body.in-login #content-wrapper::after,
 body.in-registrace #content-wrapper::before,body.in-registrace #content-wrapper::after{content:none!important;display:none!important;background:none!important;box-shadow:none!important}
 
 /* Mobile: Alza-style full-width — the card goes edge-to-edge (no box) under a
    light logo band, instead of a floating card. */
 @media(max-width:767px){
   .okla-auth-top{width:100%!important;background:linear-gradient(180deg,#eaf6ff 0%,#dff0ff 100%)!important;padding:26px 16px 22px!important;margin:0!important}
-  body.in-login main#content,body.in-registrace main#content{padding:0!important}
-  body.in-login .content-inner,body.in-registrace .content-inner{width:100%!important;max-width:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;padding:24px 18px 30px!important}
+  :where(html:not(.okla-os-login-combo)) body.in-login main#content,body.in-registrace main#content{padding:0!important}
+  :where(html:not(.okla-os-login-combo)) body.in-login .content-inner,body.in-registrace .content-inner{width:100%!important;max-width:none!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;padding:24px 18px 30px!important}
 }
 
 /* The OKLA logo bar injected above the card. */
@@ -50,9 +50,9 @@ body.in-registrace #content-wrapper::before,body.in-registrace #content-wrapper:
 
 /* Login / registration: the green submit button has dark text (the generic
    .okla-green-cta rule would paint it white). */
-html body:is(.in-login,.in-registrace) #content#content :is(button,input,a).okla-green-cta,
-html body:is(.in-login,.in-registrace) #content#content :is(button,input,a).okla-green-cta:is(:hover,:focus,:focus-visible,:active),
-html body:is(.in-login,.in-registrace) #content#content :is(button,a).okla-green-cta :is(span,strong,b,small,i){
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) #content#content :is(button,input,a).okla-green-cta,
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) #content#content :is(button,input,a).okla-green-cta:is(:hover,:focus,:focus-visible,:active),
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) #content#content :is(button,a).okla-green-cta :is(span,strong,b,small,i){
  color:#111!important;
  -webkit-text-fill-color:#111!important;
  text-shadow:none!important;
@@ -62,17 +62,17 @@ html body:is(.in-login,.in-registrace) #content#content :is(button,a).okla-green
    full-height column, the logo bar on top, and the card centred in the rest
    with a bottom pad equal to the logo bar (set by okla_auth_pages.js), so the
    card is centred in the whole viewport, not just below the logo. */
-html body:is(.in-login,.in-registrace) .overall-wrapper{
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) .overall-wrapper{
   display:flex!important;flex-direction:column!important;min-height:100vh!important;min-height:100dvh!important;
 }
-html body.in-login #content-wrapper#content-wrapper{
+html:where(:not(.okla-os-login-combo)) body.in-login #content-wrapper#content-wrapper{
   flex:1 0 auto!important;display:flex!important;flex-direction:column!important;justify-content:center!important;
   margin-top:0!important;margin-bottom:0!important;padding-bottom:var(--okla-auth-top-h,0px)!important;box-sizing:border-box!important;
 }
 /* Phones: the card keeps its 330 px design and is scaled up as a whole
    (zoom set by okla_auth_pages.js) so it spans the screen with a 12 px edge. */
 @media(max-width:767px){
-  html body.in-login #content#content .content-inner{
+  html:where(:not(.okla-os-login-combo)) body.in-login #content#content .content-inner{
     width:330px!important;max-width:none!important;margin-left:auto!important;margin-right:auto!important;
     zoom:var(--okla-auth-zoom,1);
   }
@@ -80,46 +80,46 @@ html body.in-login #content-wrapper#content-wrapper{
 /* Exact centring: no uneven theme margins around the card, no side padding
    that would push the scaled card off-centre, and no space reserved for the
    (hidden) bottom navigation. */
-html body.in-login #content#content .content-inner{margin-top:0!important;margin-bottom:0!important}
+html:where(:not(.okla-os-login-combo)) body.in-login #content#content .content-inner{margin-top:0!important;margin-bottom:0!important}
 @media(max-width:767px){
-  html body.in-login{padding-bottom:0!important}
-  html body.in-login #content-wrapper#content-wrapper main#content#content{padding:0!important;margin:0!important}
+  html:where(:not(.okla-os-login-combo)) body.in-login{padding-bottom:0!important}
+  html:where(:not(.okla-os-login-combo)) body.in-login #content-wrapper#content-wrapper main#content#content{padding:0!important;margin:0!important}
 }
 /* Login: the logo sits just above the card instead of at the top of the page.
    Logo + card + a spacer as tall as the logo are centred as one group, so the
    card itself stays exactly in the middle of the screen. */
-html body.in-login .overall-wrapper{justify-content:center!important}
-html body.in-login #content-wrapper#content-wrapper{flex:0 0 auto!important}
-html body.in-login .okla-auth-top{padding:0 16px 24px!important;background:transparent!important}
-@media(max-width:767px){html body.in-login .okla-auth-top{padding:0 16px 20px!important}}
+html:where(:not(.okla-os-login-combo)) body.in-login .overall-wrapper{justify-content:center!important}
+html:where(:not(.okla-os-login-combo)) body.in-login #content-wrapper#content-wrapper{flex:0 0 auto!important}
+html:where(:not(.okla-os-login-combo)) body.in-login .okla-auth-top{padding:0 16px 24px!important;background:transparent!important}
+@media(max-width:767px){html:where(:not(.okla-os-login-combo)) body.in-login .okla-auth-top{padding:0 16px 20px!important}}
 /* Phones: the login card spans the full width edge to edge - square corners,
    no side borders (the zoom in okla_auth_pages.js is width / 330). */
 @media(max-width:767px){
-  html body.in-login #content#content .content-inner{border-radius:0!important;border-left:0!important;border-right:0!important}
+  html:where(:not(.okla-os-login-combo)) body.in-login #content#content .content-inner{border-radius:0!important;border-left:0!important;border-right:0!important}
 }
 /* Anything above the logo (e.g. the Shoptet admin bar a signed-in admin sees)
    stays at the top of the page: instead of centring the whole column, the
    logo takes the free space above it and the card the free space below. */
-html body.in-login .overall-wrapper{justify-content:flex-start!important}
-html body.in-login .okla-auth-top{margin-top:auto!important}
-html body.in-login #content-wrapper#content-wrapper{margin-bottom:auto!important}
+html:where(:not(.okla-os-login-combo)) body.in-login .overall-wrapper{justify-content:flex-start!important}
+html:where(:not(.okla-os-login-combo)) body.in-login .okla-auth-top{margin-top:auto!important}
+html:where(:not(.okla-os-login-combo)) body.in-login #content-wrapper#content-wrapper{margin-bottom:auto!important}
 /* The login page never scrolls, so no gutter is reserved for a scrollbar:
    with the 15 px "scrollbar-gutter: stable" the card sat 7.5 px left of the
    middle of the window. */
-html:has(>body.in-login){scrollbar-gutter:auto!important}
+html:where(:not(.okla-os-login-combo)):has(>body.in-login){scrollbar-gutter:auto!important}
 /* No AI assistant on the sign-in / sign-up screens. */
-html body:is(.in-login,.in-registrace) okla-ai-chat{display:none!important}
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) okla-ai-chat{display:none!important}
 /* Login AND registration, PC and phone: the logo sits close above the card and
    logo + card are centred together as one group in the space under anything
    at the top of the page (the admin bar). A taller page (registration on a
    small screen) simply starts at the top and scrolls. */
-html body:is(.in-login,.in-registrace) .overall-wrapper{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;min-height:100vh!important;min-height:100dvh!important}
-html body:is(.in-login,.in-registrace) .okla-auth-top{margin-top:auto!important;padding:24px 16px 16px!important;background:transparent!important}
-html body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{flex:0 0 auto!important;margin-top:0!important;margin-bottom:auto!important;padding-bottom:24px!important}
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) .overall-wrapper{display:flex!important;flex-direction:column!important;justify-content:flex-start!important;min-height:100vh!important;min-height:100dvh!important}
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) .okla-auth-top{margin-top:auto!important;padding:24px 16px 16px!important;background:transparent!important}
+html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{flex:0 0 auto!important;margin-top:0!important;margin-bottom:auto!important;padding-bottom:24px!important}
 html:has(>body.in-registrace){scrollbar-gutter:auto!important}
 @media(max-width:767px){
-  html body:is(.in-login,.in-registrace) .okla-auth-top{padding:20px 16px 14px!important}
-  html body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{padding-bottom:20px!important}
+  html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) .okla-auth-top{padding:20px 16px 14px!important}
+  html:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) #content-wrapper#content-wrapper{padding-bottom:20px!important}
 }
 /* Registration: no theme margins around the card either, so the logo gap is
    the same as on the login page and the group centres correctly. */
@@ -143,5 +143,10 @@ html body.in-registrace #content#content .content-inner{margin-top:0!important;m
 /* Proportional desktop scaling: the page wrapper is zoomed (--okla-dz), so a
    full-screen height is 100dvh divided by the zoom in its own units. */
 @media(min-width:992px){
-  html.okla-dz-on body:is(.in-login,.in-registrace) .overall-wrapper{min-height:calc(100vh / var(--okla-dz))!important;min-height:calc(100dvh / var(--okla-dz))!important}
+  html.okla-dz-on:where(:not(.okla-os-login-combo)) body:is(.in-login,.in-registrace) .overall-wrapper{min-height:calc(100vh / var(--okla-dz))!important;min-height:calc(100dvh / var(--okla-dz))!important}
 }
+
+/* The combined "Stav objednávky" page (/login/?zobrazit=stav-objednavky, html.okla-os-login-combo) is a
+   regular shop page: none of the isolated sign-in look above applies there (all of it is scoped with a
+   zero-specificity :where), and it has the normal header instead of the logo bar. */
+html.okla-os-login-combo .okla-auth-top{display:none!important}
