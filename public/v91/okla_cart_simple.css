@@ -642,3 +642,9 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
   html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8{padding-top:22px!important;padding-left:24px!important}
   html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8>.cart-content{padding-top:0!important;padding-left:0!important}
 }
+/* shipping / payment options: separate cards with a gap, never touching */
+html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper{
+  margin:0 0 10px!important;border:1px solid #dde2e9!important;border-radius:8px!important;
+}
+html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:last-child{margin-bottom:0!important}
+html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:has(input:checked){border-color:#2a86d9!important}
