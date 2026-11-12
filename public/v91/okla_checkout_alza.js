@@ -13,7 +13,7 @@
    :['Košík','Doprava a platba','Dodací údaje'];
   document.querySelectorAll('.cart-header .step').forEach(function(step,index){
    var span=step.querySelector('span');
-   if(span&&labels[index])span.textContent=labels[index];
+   if(span&&labels[index]&&span.textContent!==labels[index])span.textContent=labels[index];
   });
   var delivery=document.querySelector('h2.order-delivery');
   if(delivery)delivery.textContent='Zvolte způsob doručení';
@@ -42,6 +42,7 @@
  var redrawTimer;
  function observeChanges(){
   removeDecorations();
+  simplifyCopy();
   if(document.body.classList.contains('in-kosik')&&!document.querySelector('.okla-alza-total')&&document.querySelector('.okla-goods-total-price')){
    clearTimeout(redrawTimer);
    redrawTimer=setTimeout(moveCartTotal,0);
