@@ -407,3 +407,8 @@ html body #content #description :is(.okla-feature-section,.okla-usecase-band--gr
   border-radius:0!important;box-shadow:0 0 0 100vmax #f3f4f6!important;clip-path:inset(0 -100vmax)!important;
 }
 html body #content-wrapper:has(#description .okla-usecase-band--gray, #description .okla-feature-section){overflow:hidden!important}
+
+/* desktop: the rounded tab is a little narrower than its third of the row, centred over its label */
+@media(min-width:768px){
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a{width:78%!important;margin:0 auto -1px!important}
+}
