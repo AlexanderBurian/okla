@@ -727,3 +727,10 @@ html body.ordering-process #content#content ol.cart-header>li.step{height:auto!i
 }
 /* steps 30% larger - the whole thing (circle, icon, label, connector) scales together */
 html body.ordering-process #content#content ol.cart-header>li.step{zoom:1.3}
+/* phones: no room for a 30% zoom of the whole row, so the circles grow 30%
+   (26 -> 34px) and the lines and gaps get shorter so all three steps still fit */
+@media(max-width:767px){
+  html body.ordering-process #content#content ol.cart-header>li.step{zoom:1!important;font-size:13px!important;min-height:34px!important}
+  html body.ordering-process #content#content ol.cart-header>li.step::before{width:34px!important;height:34px!important;margin-right:5px!important;background-size:18px 18px!important}
+  html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{width:10px!important;margin:0 4px!important}
+}
