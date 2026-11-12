@@ -121,6 +121,13 @@
    var q=parseFloat((amount.textContent||'').replace(',','.'));
    var qty=isFinite(q)?String(q):'1';
    if(name.getAttribute('data-qty')!==qty)name.setAttribute('data-qty',qty);
+   /* more than one piece: the price per piece under the line total (like Alza) */
+   var price=item.querySelector('.cart-item-price'),unit='';
+   if(price&&q>1){
+    var sum=amountOf(price.textContent);
+    if(isFinite(sum)){var u=sum/q;unit=new Intl.NumberFormat('cs-CZ',{minimumFractionDigits:u%1?2:0,maximumFractionDigits:2}).format(u)+' Kč / ks'}
+   }
+   if(price&&(price.getAttribute('data-unit')||'')!==unit){if(unit)price.setAttribute('data-unit',unit);else price.removeAttribute('data-unit')}
   });
   /* shipping / payment prices: "0 Kč" reads as "zdarma" like the options */
   document.querySelectorAll('.order-summary .recapitulation-single strong span').forEach(function(sp){

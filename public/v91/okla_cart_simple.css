@@ -694,3 +694,18 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   html body.in-kosik #content#content table.cart-table tr.removeable:not(:has(~ tr.removeable)),
   html body.in-kosik #content#content table.cart-table tr.removeable:not(:has(~ tr.removeable))>td{border-bottom-color:transparent!important}
 }
+
+/* the current step is drawn complete: filled blue circle, white icon */
+html body.ordering-process #content#content ol.cart-header>li.step.active::before{background-color:#0074e8!important;border-color:#0074e8!important}
+html body.ordering-process #content#content ol.cart-header>li.step-1.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2.4 10.2a1.5 1.5 0 0 0 1.5 1.1h7.7a1.5 1.5 0 0 0 1.5-1.1L20 8H6.2'/%3E%3Ccircle cx='9.5' cy='19' r='1.3'/%3E%3Ccircle cx='17' cy='19' r='1.3'/%3E%3C/svg%3E")!important}
+html body.ordering-process #content#content ol.cart-header>li.step-2.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5h11v9.5h-11z'/%3E%3Cpath d='M13.5 9.5h4l3 3.4V16h-7'/%3E%3Ccircle cx='6.5' cy='17.5' r='1.6'/%3E%3Ccircle cx='17' cy='17.5' r='1.6'/%3E%3C/svg%3E")!important}
+html body.ordering-process #content#content ol.cart-header>li.step-3.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}
+/* steps 2 and 3: the recap column a little wider (grows to the left); price per piece under the line total */
+@media(min-width:768px){
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row{grid-template-columns:minmax(0,1fr) 360px!important}
+}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price{text-align:right!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price[data-unit]::after{
+  content:attr(data-unit)!important;display:block!important;margin-top:3px!important;
+  color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 11px/1.3 "Exo 2",Arial,sans-serif!important;white-space:nowrap!important;
+}
