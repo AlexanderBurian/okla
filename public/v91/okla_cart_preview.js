@@ -69,7 +69,7 @@ function render(html){
  }else message(effectiveCount()>0?lang()[6]:lang()[4]);
 }
 function move(){
- if(!anchor||!pop)return;var r=anchor.getBoundingClientRect(),w=Math.min(420,innerWidth-24);
+ if(!anchor||!pop)return;var r=anchor.getBoundingClientRect(),w=Math.min(441,innerWidth-24);
  var left=Math.max(12,Math.min(innerWidth-w-12,r.right-w));
  pop.style.width=w+'px';pop.style.left=left+'px';pop.style.top=Math.max(8,r.bottom+12)+'px';
  var face=anchor.querySelector('okla-action-face');
@@ -130,13 +130,16 @@ function start(){
   lastX=e.clientX;lastY=e.clientY;
   if(pointerInside()){clearTimeout(timer);timer=0}else delay();
  },true);
- // Click opens the same hover preview; the button inside it still opens /kosik/.
+ // Click goes straight to the cart (the preview stays a hover-only peek). Ctrl/Cmd/Shift/middle click keep
+ // the browser's own new-tab/window behaviour; no other script may turn the click into a dropdown toggle.
  document.addEventListener('click',function(e){
   var c=target(e.target);
   if(!mq.matches||!c||e.button>0)return;
-  e.preventDefault();e.stopImmediatePropagation();
+  e.stopImmediatePropagation();
+  if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
+  e.preventDefault();
   clearTimeout(timer);timer=0;
-  if(anchor!==c)show(c);
+  window.location.href=c.getAttribute('href')||'/kosik/';
  },true);
  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
  document.addEventListener('pointerdown',function(e){if(anchor&&pop&&!pop.contains(e.target)&&!target(e.target))close()},true);

@@ -106,7 +106,7 @@
   display:flex;
   flex-direction:column;
   visibility:hidden;
-  width:min(420px,calc(100vw - 24px));
+  width:min(441px,calc(100vw - 24px)); /* 5% wider than 420px */
   max-height:min(560px,calc(100vh - 95px));
   overflow:hidden;
   padding:0;
@@ -387,8 +387,9 @@ html body #okla-cart-preview .okla-cp__go:focus{
  text-shadow:none!important;
  box-shadow:none!important;
 }
+/* the shared green hover: 8% towards black (102,212,0 -> 94,195,0) */
 html body #okla-cart-preview .okla-cp__go:hover{
- background:#59bc00!important;
+ background:#5ec300!important;
 }
 @media(max-width:991px){
  #okla-cart-preview{display:none!important}

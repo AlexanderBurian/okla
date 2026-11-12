@@ -76,6 +76,7 @@
     width, so we never leave an empty sidebar column behind. */
  function cleanupAsides(){
   document.querySelectorAll('.okla-clanek__aside').forEach(function(aside){
+   if(aside.querySelector('.okla-art-products'))return;   /* rebuilt from live homepage cards (okla_article_products.js) */
    var alive=[].slice.call(aside.querySelectorAll('.okla-clanek__card')).some(function(c){return getComputedStyle(c).display!=='none';});
    if(!alive){
     aside.style.setProperty('display','none','important');

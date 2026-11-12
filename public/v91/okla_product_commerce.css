@@ -4,7 +4,7 @@
 :root{
  --okla-commerce-price:#d92b20;
  --okla-commerce-cart:#5aa02a;
- --okla-commerce-cart-hover:#8cc63f; /* lighter lime green on hover (reference "Vložit do košíku") */
+ --okla-commerce-cart-hover:#539327; /* a very subtle darkening of the cart green on hover (8% towards black) */
 }
 
 /* Product cards: the selling price is red in every listing and carousel. */

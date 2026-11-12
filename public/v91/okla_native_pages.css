@@ -598,7 +598,8 @@ html body #content .empty-content-category .btn{
   font:700 15px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;text-decoration:none!important;
   transition:background-color .15s ease,border-color .15s ease!important;
 }
-html body #content .empty-content-category .btn:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+/* hover: the shared subtle darkening of the green (8% towards black), never Shoptet's purple default */
+html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec-c#okla-ec-d#okla-ec-e#okla-ec-f):is(:hover,:focus,:focus-visible,:active){background:#5ec300!important;background-color:#5ec300!important;background-image:none!important;border-color:#5ec300!important;color:#000!important;-webkit-text-fill-color:#000!important;filter:none!important;box-shadow:none!important}
 @media(max-width:767px){
   html body #content .empty-content-category{margin:16px 0 32px!important;padding:32px 20px 28px!important}
   html body #content .empty-content-category::before{width:64px!important;height:64px!important;background-size:64px 64px!important}
@@ -718,4 +719,42 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
     flex:none!important;width:100%!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;
   }
   html body .siteCookies.js-siteCookies .siteCookies__button{height:46px!important;padding:0 10px!important;font-size:14px!important;white-space:nowrap!important}
+}
+
+/* Sidebar categories: the navy accent bar reaches 1px lower, over the separator line under the item,
+   so its bottom corner is complete (no light pixel under the bar). */
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon::before{bottom:-1px!important}
+
+/* ---------- Listing controls under the products (category, search): "Nahoru" left, "Načíst další" in the middle,
+   the pages right - one row, everything 38px high with the same 10px corners, and the same roomy gap above and
+   below so a hovered product card never touches the buttons. ---------- */
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b){
+  display:grid!important;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)!important;align-items:center!important;column-gap:16px!important;
+  margin:56px 0 40px!important;padding:0!important;
+}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.goToTop{grid-column:1!important;grid-row:1!important;justify-self:start!important;width:auto!important;flex:none!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.loadMore{grid-column:2!important;grid-row:1!important;justify-self:center!important;width:auto!important;flex:none!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.pagination{grid-column:3!important;grid-row:1!important;justify-self:end!important;width:auto!important;flex:none!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>:is(.goToTop,.loadMore,.pagination){display:flex!important;align-items:center!important;margin:0!important;padding:0!important;min-height:38px!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__list{display:flex!important;align-items:center!important;gap:6px!important;margin:0!important;padding:0!important;list-style:none!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__list>li{display:flex!important;margin:0!important;padding:0!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__list>li::before{content:none!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) :is(.goToTop__button,.loadMore__button){
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;
+  height:38px!important;min-height:38px!important;margin:0!important;padding:0 16px!important;border-radius:10px!important;line-height:1!important;box-sizing:border-box!important;
+}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) :is(.pagination__currentPage,.pagination__link){
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  min-width:38px!important;width:auto!important;height:38px!important;min-height:38px!important;margin:0!important;padding:0 8px!important;
+  border-radius:10px!important;line-height:1!important;box-sizing:border-box!important;text-decoration:none!important;
+}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__currentPage{border:1px solid #1076b7!important;background:#1076b7!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-weight:700!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__link:not(.btn){border:1px solid transparent!important}
+@media(max-width:767px){
+  /* phones: "Načíst další" across the width, then the pages and "Nahoru" in one row */
+  html body #content .listingControls:not(#okla-lc-a#okla-lc-b){grid-template-columns:auto auto!important;row-gap:14px!important;margin:40px 0 28px!important}
+  html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.loadMore{grid-column:1/-1!important;grid-row:1!important;justify-self:stretch!important}
+  html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.loadMore .loadMore__button{width:100%!important}
+  html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.goToTop{grid-column:1!important;grid-row:2!important}
+  html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.pagination{grid-column:2!important;grid-row:2!important}
 }

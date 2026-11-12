@@ -425,14 +425,17 @@ html body #filters p#clear-filters,html body #filters p#clear-filters a{color:#d
 html body #filters p#clear-filters a:hover{text-decoration:underline!important}
 
 /* ============================================================
-   Green buttons: one shared hover colour — the lighter lime green
-   of the reference "Vložit do košíku" (#8cc63f). okla_button_consistency.js
-   tags every green filled button with .okla-button--green; the ID-boost
-   beats the older per-button hover rules (incl. the brightness filter).
+   Green buttons: one shared hover everywhere - a very subtle darkening
+   (8% towards black) of the button's own resting green. okla_button_consistency.js
+   tags every green filled button with .okla-button--green and stores its resting
+   colours; the ID-boost beats the older per-button hover rules.
    ============================================================ */
 html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c#okla-gh-d#okla-gh-e):is(:hover,:focus-visible,:active){
-  background:#8cc63f!important;background-color:#8cc63f!important;background-image:none!important;
-  border-color:#8cc63f!important;
+  background:#519026!important;background-color:#519026!important;
+  background:color-mix(in srgb,var(--okla-button-rest-background,#5aa02a) 92%,#000)!important;
+  background-color:color-mix(in srgb,var(--okla-button-rest-background,#5aa02a) 92%,#000)!important;
+  background-image:none!important;
+  border-color:color-mix(in srgb,var(--okla-button-rest-border,var(--okla-button-rest-background,#5aa02a)) 92%,#000)!important;
   /* the text keeps its resting colour (dark text stays dark, never turns white) */
   color:var(--okla-button-rest-color,#fff)!important;-webkit-text-fill-color:var(--okla-button-rest-color,#fff)!important;
   filter:none!important;box-shadow:none!important;

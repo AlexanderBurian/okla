@@ -769,3 +769,39 @@ html body.ordering-process #content#content :is(.remove-item,.okla-cart-summary_
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-back:is(:hover,:focus,:active){background:#fff!important;background-color:#fff!important;box-shadow:none!important}
 /* Steps 2/3: the grey recap column has its outline at the bottom too, not only on the left. */
 html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{border-bottom:1px solid #e6eaf0!important}
+
+/* ===== One content width in the cart and the checkout =====================================================
+   Every block (steps, items, remove crosses, summary, shipping/payment options, recap, buttons) starts and
+   ends on the same line: 24px inside the white card on PC, 16px from the screen edge on phones. */
+@media(min-width:768px){
+  /* cart: steps and items are already 24px in; the summary, the button bar and the crosses follow */
+  html body.in-kosik #content#content#content .okla-cart-summary{padding-left:24px!important;padding-right:24px!important}
+  html body.in-kosik #content#content#content .cart-inner>.okla-step-nav,
+  html body.in-kosik #content#content#content .cart-inner>.okla-step-nav:is(.is-stuck,:not(.is-stuck)){padding-left:24px!important;padding-right:24px!important}
+  html body.in-kosik #content#content#content table.cart-table tr.removeable td.p-total{padding-right:0!important}
+  /* the 32px cross button has its 12px glyph centred: 10px of the button stick out so the glyph ends on the line */
+  html body.in-kosik #content#content#content table.cart-table tr.removeable .remove-item{margin-right:-10px!important}
+  /* checkout steps 2/3: the row spans the whole card, the form column and the recap both keep 24px */
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row{margin-left:-20px!important;margin-right:-20px!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8{padding-left:24px!important;padding-right:24px!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4{padding-left:24px!important;padding-right:24px!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .okla-step-nav{width:auto!important;max-width:none!important;margin-left:-20px!important;margin-right:-20px!important;padding-left:24px!important;padding-right:24px!important}
+}
+@media(max-width:767px){
+  html body.ordering-process #content-wrapper #content#content#content{padding-left:16px!important;padding-right:16px!important}
+  html body.ordering-process #content#content#content ol.cart-header{padding-left:0!important;padding-right:0!important}
+  /* cart */
+  html body.in-kosik #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
+  html body.in-kosik #content#content#content .okla-cart-summary{margin-left:0!important;margin-right:0!important}
+  html body.in-kosik #content#content#content .cart-inner>.okla-step-nav,
+  html body.in-kosik #content#content#content .cart-inner>.okla-step-nav:is(.is-stuck,:not(.is-stuck)){width:auto!important;max-width:none!important;margin-left:-16px!important;margin-right:-16px!important;padding-left:16px!important;padding-right:16px!important}
+  /* checkout steps 2/3: form column on the line, the grey recap runs edge to edge with its content on the line */
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8{padding-left:0!important;padding-right:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4{margin-left:-16px!important;margin-right:-16px!important;padding-left:16px!important;padding-right:16px!important;border-left:0!important;border-right:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .okla-step-nav{padding-left:0!important;padding-right:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4 :is(.cart-content,.order-summary,.order-summary-inner,.checkout-box,.cart-items){margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
+  /* thank-you page */
+  html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b#okla-ty-c){padding-left:0!important;padding-right:0!important}
+}
