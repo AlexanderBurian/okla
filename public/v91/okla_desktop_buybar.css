@@ -1,9 +1,11 @@
-/* OKLA – desktop product buy bar (okla_desktop_buybar.js). A full-width white strip at the top, content as wide as the
-   header's content: picture, name with stars and stock, price, green button. While it is shown the sticky header
-   is hidden. */
+/* OKLA – desktop product buy bar (okla_desktop_buybar.js). A full-width white strip at the BOTTOM of the window, content
+   as wide as the header's content: picture, name with stars and stock, price, green button. It slides up once the
+   page's own buy button has scrolled away (the sticky header shows at the top as on every other page); while it is
+   shown the AI chat button (bottom right, under the bar) is hidden. The product gallery stays in view while the
+   right-hand column is scrolled. */
 .okla-dbb{display:none}
 @media(min-width:992px){
-  .okla-dbb{display:block;position:fixed;top:0;left:0;right:0;z-index:850;background:#fff;box-shadow:0 1px 0 rgba(22,71,139,.06),0 6px 18px rgba(18,41,68,.10);transform:translateY(-105%);transition:transform .22s ease;font-family:"Exo 2",Arial,sans-serif}
+  .okla-dbb{display:block;position:fixed;top:auto;bottom:0;left:0;right:0;z-index:850;background:#fff;box-shadow:0 -1px 0 rgba(22,71,139,.06),0 -6px 18px rgba(18,41,68,.10);transform:translateY(105%);transition:transform .22s ease;font-family:"Exo 2",Arial,sans-serif}
   .okla-dbb[hidden]{display:none}
   .okla-dbb.is-on{transform:none}
   .okla-dbb__inner{display:flex;align-items:center;gap:18px;box-sizing:border-box;height:72px;padding:0 4px}
@@ -25,7 +27,12 @@
   .okla-dbb__btn.is-watch{background:#fff;border-color:#168bd2;color:#16478b}
   .okla-dbb__btn.is-watch:hover{background:#eef6fd}
   .okla-dbb__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-  /* the buy bar replaces the sticky header while shown */
-  html.okla-dbb-on body #header .header-top,
-  html.okla-dbb-ready.okla-desktop-sticky body.type-detail #header .header-top{visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:none!important}
+  /* the end of the page is never hidden under the bar */
+  html.okla-dbb-ready body.type-detail{padding-bottom:72px!important}
+  /* product gallery: stays in view (under the sticky header) while the right-hand column scrolls, down to the end of
+     the product's top section. The two page wrappers clip with overflow:clip instead of hidden (same clipping, but
+     not a scroll container, so the gallery can stick to the window). Only when the gallery fits the window. */
+  html.okla-pd-sticky body.type-detail #content-wrapper:not(#okla-pds-a#okla-pds-b#okla-pds-c),
+  html.okla-pd-sticky body.type-detail #content-wrapper .content-wrapper-in:not(#okla-pds-a#okla-pds-b#okla-pds-c){overflow:clip!important}
+  html.okla-pd-sticky body.type-detail #content .p-detail .product-top>.p-image-wrapper{position:sticky!important;top:84px!important;align-self:start!important}
 }

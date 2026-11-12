@@ -1,9 +1,10 @@
-/* OKLA newsroom – /newsroom. Article grid in the Alza-style layout with search and two filters.
+/* OKLA newsroom – /newsroom and the article list /nase-novinky/. Article grid in the Alza-style layout with search and two filters.
    Colours, type and buttons follow the OKLA storefront. Loaded by zapati_firsthalf.js on this path only. */
 (function(){
 'use strict';
 if(window.__oklaNewsroomV1)return;
-if(!/^\/newsroom(\/|\.html)?$/.test(location.pathname))return;
+/* also the Shoptet article list /nase-novinky/: it would otherwise print every article in full one after another */
+if(!/^\/(newsroom|nase-novinky)(\/|\.html)?$/.test(location.pathname))return;
 window.__oklaNewsroomV1=true;
 
 /* Current articles, newest first. A new article is one more object in this list. The href values are the page addresses
@@ -15,7 +16,7 @@ var ARTICLES=[
   href:'/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/',date:'2026-10-31',minutes:12,topic:'Elektronika',category:'Multitool a RF'},
  {title:'Wi-Fi endoskopická kamera: na co se zaměřit při výběru',
   excerpt:'Ne každý endoskop nabídne stejně dobrý obraz. Záleží na průměru sondy, délce kabelu, přísvícení i kompatibilitě s telefonem.',
-  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_27-2.png',
+  img:'/user/articles/images/download_(1).png',
   href:'/nase-novinky/wifi/',date:'2026-10-31',minutes:9,topic:'Měření a kontrola',category:'Endoskopy'},
  {title:'USB-C testery: jak snadno zkontrolovat nabíjení',
   excerpt:'Přehledné měření napětí, proudu a výkonu vám pomůže zjistit, co skutečně zvládne nabíječka nebo kabel.',
@@ -76,7 +77,8 @@ function syncShoptetCovers(){
    .catch(function(){ /* Last verified Shoptet cover remains visible. */ });
  });
 }
-syncShoptetCovers();
+/* the covers above are the current ones; the check for a newer cover runs once the page has loaded */
+if(document.readyState==='complete')setTimeout(syncShoptetCovers,1200);else addEventListener('load',function(){setTimeout(syncShoptetCovers,1200)},{once:true});
 
 var ICON={
  search:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
@@ -177,6 +179,12 @@ function mount(){
   +'<div class="nr-grid"></div>'
   +'<p class="nr-empty" hidden>Pro toto hledání nemáme žádný článek. Zkuste jiné slovo nebo zrušte filtr.</p>';
  content.insertBefore(root,content.firstChild);
+ /* /nase-novinky/: Shoptet prints every article in full, each with its own inline stylesheet that hides everything but
+    the article; the list is replaced by the cards above, so those copies go */
+ if(/^\/nase-novinky\/?$/.test(location.pathname)){
+  [].slice.call(content.querySelectorAll('.news-wrapper')).forEach(function(n){n.remove()});
+  [].slice.call(content.querySelectorAll('style')).forEach(function(st){if(/\.okla-clanek/.test(st.textContent||''))st.remove()});
+ }
 
  var grid=root.querySelector('.nr-grid');
  var empty=root.querySelector('.nr-empty');

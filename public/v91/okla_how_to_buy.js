@@ -78,7 +78,7 @@
    '<div class="ohb-cards">'+
     card('box','Stav objednávky','Kde je vaše objednávka a kdy dorazí, zjistíte na jednom místě.','/stav-objednavky/','Zjistit stav')+
     card('back','Vrácení do 14 dnů','Zboží koupené na dálku můžete zpravidla do 14 dnů vrátit bez udání důvodu.','/vraceni-zbozi-a-odstoupeni/','Jak vrátit zboží')+
-    card('shield','Reklamace','Na zboží platí zákonná odpovědnost za vady 24 měsíců. Reklamaci vyřídíme rychle.','/reklamacni-rad/','Podat reklamaci')+
+    card('shield','Reklamace','Na zboží platí zákonná odpovědnost za vady 24 měsíců. Reklamaci vyřídíme rychle.','/reklamace/','Podat reklamaci')+
    '</div>'+
   '</div></div>'+
   '<div class="ohb-sec ohb-sec--white"><div class="ohb-wrap"><div class="ohb-help">'+
