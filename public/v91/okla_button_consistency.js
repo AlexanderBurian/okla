@@ -29,11 +29,11 @@
   return !(numbers[0]>242&&numbers[1]>242&&numbers[2]>242);
  }
 
- function remember(button,force){
-  if(!button||button.nodeType!==1||!button.matches(selector))return;
-  /* A cross-sell row is a compound product picker that only exposes
-     role="button" for keyboard activation. It is not a visual button and must
-     never receive the global empty-button hover class. */
+ /* Which buttons need their resting colours read. A cross-sell row is a compound product picker that only exposes
+    role="button" for keyboard activation. It is not a visual button and must never receive the global empty-button
+    hover class: its marks are cleared here instead. */
+ function wants(button,force){
+  if(!button||button.nodeType!==1||!button.matches(selector))return false;
   if(button.classList.contains('okla-xsell__item')){
    button.classList.remove('okla-button--filled','okla-button--empty');
    button.removeAttribute('data-okla-button-rest');
@@ -41,11 +41,13 @@
    button.style.removeProperty('--okla-button-rest-image');
    button.style.removeProperty('--okla-button-rest-border');
    button.style.removeProperty('--okla-button-rest-color');
-   return;
+   return false;
   }
-  if(button.dataset.oklaButtonRest==='1'&&!force)return;
-  var style=getComputedStyle(button);
-  var bg=style.backgroundColor,img=style.backgroundImage,bd=style.borderColor,col=style.color;
+  return !(button.dataset.oklaButtonRest==='1'&&!force);
+ }
+
+ function apply(button,style){
+  var bg=style.bg,img=style.img,bd=style.bd,col=style.col;
   /* Only the navy filter button ("Otevřít filtr") becomes the OKLA blue; every
      other button keeps its own resting colour (green stays green). Use the deeper
      #005cbd (rgb 0,92,189) — the lighter #0074e8 read as "light blue". */
@@ -64,17 +66,39 @@
   button.dataset.oklaButtonRest='1';
  }
 
- function scan(root,force){
-  if(!root)return;
-  if(root.nodeType===1)remember(root,force);
-  if(root.querySelectorAll)root.querySelectorAll(selector).forEach(function(button){remember(button,force)});
+ /* Reads all resting colours of a round at once, then writes them, so the page's styles are recomputed once per round
+    instead of once per button. A button's marks can only affect buttons nested inside it, so a nested button is read
+    in a later round, after its outer button - the same values the one-by-one pass read. */
+ function process(list){
+  var waiting=new Set(list);
+  while(list.length){
+   var round=[],rest=[];
+   for(var i=0;i<list.length;i++){
+    var b=list[i],p=b.parentElement,blocked=false;
+    while(p){if(waiting.has(p)){blocked=true;break;}p=p.parentElement;}
+    (blocked?rest:round).push(b);
+   }
+   var styles=round.map(function(b){var cs=getComputedStyle(b);return {bg:cs.backgroundColor,img:cs.backgroundImage,bd:cs.borderColor,col:cs.color}});
+   for(var k=0;k<round.length;k++){waiting.delete(round[k]);apply(round[k],styles[k])}
+   list=rest;
+  }
  }
+
+ function collect(root,force,out,seen){
+  if(!root)return;
+  if(root.nodeType===1&&!seen.has(root)){seen.add(root);if(wants(root,force))out.push(root)}
+  if(root.querySelectorAll)root.querySelectorAll(selector).forEach(function(button){if(seen.has(button))return;seen.add(button);if(wants(button,force))out.push(button)});
+ }
+
+ function scan(root,force){var out=[];collect(root,force,out,new Set());process(out)}
 
  function start(){
   scan(document,false);
   if(window.MutationObserver&&document.body){
    new MutationObserver(function(records){
-    records.forEach(function(record){record.addedNodes.forEach(function(node){scan(node,false)})});
+    var out=[],seen=new Set();
+    records.forEach(function(record){record.addedNodes.forEach(function(node){collect(node,false,out,seen)})});
+    process(out);
    }).observe(document.body,{childList:true,subtree:true});
   }
   window.addEventListener('load',function(){scan(document,true)},{once:true});

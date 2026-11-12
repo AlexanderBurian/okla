@@ -1,37 +1,89 @@
-# OKLA storefront assets
+# OKLA storefront
 
-Latest frontend version: **V89**. Git-integrated static assets for Shoptet storefront.
+Everything OKLA adds to the Shoptet shop okla.cz: look, behaviour, translations and the AI adviser. Served from this
+repository through jsDelivr, pinned to a commit.
 
-## Installation
+## How it is put together
 
-Install one script in Shoptet **HTML code > footer**, not multiple historical loaders. For immediate reliable delivery use the immutable commit-specific jsDelivr URL after each approved release. GitHub CDN @main can be stale. For Cloudflare Pages set branch main, no build command, output directory public, then use the actual validated Pages hostname instead of a placeholder.
+```
+public/
+  zapati_firsthalf.js   the one loader (Shoptet: HTML kód > zápatí) - start-up, page detection, the bundle table,
+                        loading curtain, loading
+  dist/                 built bundles: one .css and/or .js per category (generated, do not edit)
+  v91/                  sources: one file per feature (okla_<feature>.css / .js), images in img/ and assets/,
+                        language packs okla_i18n_<lang>.js (loaded on demand)
+  legacy/v53, v55       the original storefront core and homepage news, still part of the core bundle
+  content-v91/          product page content (33 products) and its layout
+  newsroom/             the article hub (/newsroom and /nase-novinky/)
+  okla_footer.js        footer (+ its images in okla_footer/)
+  okla_v86_catalog.js   product catalogue data
+  ai/v1/                the AI chat widget
+tools/
+  build.js              builds public/dist from the bundle table
+  check_order.js        checks that a loader loads the same files in the same order as another one
+```
 
-The bootstrap in public/zapati_firsthalf.js sequentially loads working original mobile and storefront scripts, the 33-product catalog, then only latest V89 homepage, product-detail and breadcrumb modules. Older V79 and V88 desktop style/DOM scripts remain archived but are **not loaded**. V89 styles are injected once by their JS modules, not also fetched as duplicate CSS links.
+The bundle table in `public/zapati_firsthalf.js` lists, in their fixed order, which files make up each bundle and on
+which pages it loads:
 
-## Scope
+| Bundle | Pages | What |
+|---|---|---|
+| 01-core | all | translations, storefront core, base phone look, shared behaviour |
+| 02-home | homepage | news images, layout, banners, search |
+| 03-catalog | all | side banners, product catalogue |
+| 04-product | product page | content, layout, cross-sell |
+| 05-layout | all | navigation, phone shell, product cards, native pages, sidebar |
+| 06-product-phone | product page | product page on phones |
+| 07-checkout | cart and checkout | cart and checkout |
+| 08–18 | one page each | newsroom, article, order status, complaint form, orders, about, how to buy, contact, account, sign-in, 404 |
+| 19-shared | all | empty states, payment logos, header, desktop hover cart |
+| 20-legal | legal pages | full-width legal articles |
+| 21-polish | all | final header, sticky navbar, phone footer and menu, buttons and fields |
+| 22-product-extras | product page | tabs, product tools, buy bar |
+| 23-finish | all | typeface, text contrast, dead links, product prices |
+| 24-checkout-fix, 26-checkout-skin | cart and checkout | checkout corrections and skin |
+| 25-buttons | all | call-to-action colour and shape |
+| 27-thank-you | after an order | the thank-you page with QR payment |
+| 28-last | all | no zoom on phone fields, AI chat branding |
+| 29-home-magazine | homepage | editorial blocks |
+| 99-later | all | search, login popup, cart drawer, footer - loaded after the page is shown |
 
-- public/okla_home_v89.js: PC five-card grid, tablet three-card layout, full blue cart on PC, five decorative stars; original mobile card styling unchanged.
-- public/okla_detail_v89.js: native purchase form and inventory, real product description/parameters/discussion, related products and trust bar.
-- public/okla_navigation_v89.js: one home icon, 13px chevrons, schema.org breadcrumb preserved.
-- data/qa_v89_results.json and data/RELEASE_V89.md: local QA proof and caveats.
+The order matters: later styles override earlier ones, so a file is added at the place in the table where it belongs.
 
-Import of product data into the native Shoptet admin is a separate step. Inventory always comes from native Shoptet.
+## Making a change
 
-## OKLA AI poradce
+1. Edit the source file (`public/v91/...`) or the table in `public/zapati_firsthalf.js`.
+2. Build: `cd tools && npm install` (once), then `node tools/build.js` from the repository root.
+3. Commit the sources and `public/dist` together, push.
+4. Put the new commit into the footer tag in Shoptet (below).
 
-The isolated AI widget and its Node.js backend live in `ai/chatbot`. Static widget assets are published from `public/ai/v1`. The canonical `public/zapati_firsthalf.js` storefront loader starts the AI widget only when its Shoptet script tag contains `data-api-url`; without that attribute the existing storefront remains unchanged.
+To debug with the original files instead of the bundles, open the shop with `?okla-src=1` (remembered in the browser;
+`?okla-src=0` switches back).
 
-Deploy `ai/chatbot` to an HTTPS Node.js host, keep `GROQ_API_KEY` only in the host's secret environment, set `MOCK_MODE=false`, `PUBLIC_BASE_URL` to the backend URL and include the exact Shoptet origins in `ALLOWED_ORIGINS`. Then use one canonical footer tag:
+## Footer tag
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@COMMIT_SHA/public/zapati_firsthalf.js?v=ai-1"
-  data-api-url="https://YOUR-AI-BACKEND.example"
-  defer></script>
+  src="https://cdn.jsdelivr.net/gh/AlexanderBurian/okla@COMMIT_SHA/public/zapati_firsthalf.js?v=ai-SHORT_SHA"
+  data-api-url="https://okla-ai-chatbot-cz.onrender.com"
+  defer>
+</script>
 ```
 
-Replace both placeholders after the static release and backend deployment. Never put the Groq API key in GitHub, Shoptet or browser JavaScript.
+Always use the full commit hash; a branch name can be served stale by jsDelivr. Install the loader once only.
 
-## Product content V92
+## OKLA AI poradce
 
-The 33-product editorial content lives in public/content-v91. The detail loader loads its scoped layout and catalog override before constructing the product detail. Import data/content-v91/okla_shoptet_import_33_content_v92.csv to store the same descriptions, SEO fields and text parameters natively in Shoptet. Product stock and prices remain native. Photographs and generated usage illustrations are pinned to asset commit 32753e1217ef69f24ed8aa78062ea4a054285a45. Generic products retain only supported characteristics; unidentified specifications are listed in content-qa.json.
+The isolated AI widget and its Node.js backend live in `ai/chatbot`. Static widget assets are published from
+`public/ai/v1`. The loader starts the AI widget only when its Shoptet script tag contains `data-api-url`.
+
+Deploy `ai/chatbot` to an HTTPS Node.js host, keep `GROQ_API_KEY` only in the host's secret environment, set
+`MOCK_MODE=false`, `PUBLIC_BASE_URL` to the backend URL and include the exact Shoptet origins in `ALLOWED_ORIGINS`.
+Never put the Groq API key in GitHub, Shoptet or browser JavaScript.
+
+## Product content
+
+The 33-product editorial content lives in `public/content-v91`. Import
+`data/content-v91/okla_shoptet_import_33_content_v92.csv` to store the same descriptions, SEO fields and text parameters
+natively in Shoptet. Product stock and prices always come from Shoptet. Photographs and generated usage illustrations
+are pinned to asset commit 32753e1217ef69f24ed8aa78062ea4a054285a45.

@@ -1,0 +1,8 @@
+{
+  "name": "okla-storefront-tools",
+  "private": true,
+  "description": "Builds public/dist bundles from the storefront sources (node tools/build.js).",
+  "devDependencies": {
+    "esbuild": "0.24.0"
+  }
+}

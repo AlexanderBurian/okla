@@ -20,11 +20,34 @@ function mark(el){
  if(green&&!el.classList.contains('okla-green-cta'))
   el.classList.add('okla-green-cta');
 }
-function scan(node){
- if(!node||node.nodeType!==1)return;
- mark(node);
- if(node.querySelectorAll)node.querySelectorAll(selector).forEach(mark);
+/* Marks many controls at once: their colours are read for a whole round, then the markers are written, so the page's
+   styles are recomputed once per round instead of once per control. A marker can only affect controls nested inside
+   the marked one, so a nested control is read in a later round - the same values the one-by-one pass read. */
+function markAll(list){
+ /* a control that already carries the marker keeps it (it is never removed): nothing to read */
+ list=list.filter(function(b){return !b.classList.contains('okla-green-cta')});
+ var waiting=new Set(list);
+ while(list.length){
+  var round=[],rest=[];
+  for(var i=0;i<list.length;i++){
+   var b=list[i],p=b.parentElement,blocked=false;
+   while(p){if(waiting.has(p)){blocked=true;break;}p=p.parentElement;}
+   (blocked?rest:round).push(b);
+  }
+  var bgs=round.map(function(b){return getComputedStyle(b).backgroundColor});
+  for(var k=0;k<round.length;k++){
+   waiting.delete(round[k]);
+   if(isGreen(bgs[k])&&!round[k].classList.contains('okla-green-cta'))round[k].classList.add('okla-green-cta');
+  }
+  list=rest;
+ }
 }
+function collect(node,out,seen){
+ if(!node||node.nodeType!==1)return;
+ if(!seen.has(node)&&node.matches&&node.matches(selector)){seen.add(node);out.push(node)}
+ if(node.querySelectorAll)node.querySelectorAll(selector).forEach(function(b){if(!seen.has(b)){seen.add(b);out.push(b)}});
+}
+function scan(node){var out=[];collect(node,out,new Set());markAll(out)}
 function start(){
  scan(document.body);
  window.addEventListener('load',function(){scan(document.body)},{once:true});
@@ -34,11 +57,13 @@ function start(){
  },{passive:true});
  if(!window.MutationObserver)return;
  var observer=new MutationObserver(function(mutations){
+  var out=[],seen=new Set();
   for(var i=0;i<mutations.length;i++){
    var m=mutations[i];
-   if(m.type==='attributes'){mark(m.target);continue;}
-   for(var j=0;j<m.addedNodes.length;j++)scan(m.addedNodes[j]);
+   if(m.type==='attributes'){var t=m.target;if(t&&t.nodeType===1&&!seen.has(t)&&t.matches&&t.matches(selector)){seen.add(t);out.push(t)}continue;}
+   for(var j=0;j<m.addedNodes.length;j++)collect(m.addedNodes[j],out,seen);
   }
+  if(out.length)markAll(out);
  });
  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
 }

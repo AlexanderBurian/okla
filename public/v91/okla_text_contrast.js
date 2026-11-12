@@ -27,8 +27,13 @@
    +'okla-ai-chat,#okla-cart-drawer,#okla-cart-preview,.slider-wrapper h4,[class*="placeholder"]')!=null;
  }
 
+ /* Same pass as before, element by element in page order, but without forcing the browser to recompute the page's
+    styles after every single repaint: the colours are read for a whole round at once, then written. A repaint can only
+    change the colour of the element's own descendants (inherited colour), so an element whose ancestor is still
+    waiting in this pass is read in a later round, after that ancestor - exactly what the one-by-one pass saw. */
  function paint(root){
   var els=(root||document.body).querySelectorAll('*');
+  var todo=[];
   for(var i=0;i<els.length;i++){
    var e=els[i];
    if(e.__oktc)continue;
@@ -38,14 +43,29 @@
    var has=false,n;for(n=e.firstChild;n;n=n.nextSibling){if(n.nodeType===3&&n.textContent.trim().length>1){has=true;break;}}
    if(!has){continue;}
    if(skip(e)){e.__oktc=1;continue;}
-   var m=getComputedStyle(e).color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);
-   if(!m){e.__oktc=1;continue;}
-   var a=m[4]===undefined?1:+m[4];
-   if(a<0.4){e.__oktc=1;continue;}
-   var lum=grey(+m[1],+m[2],+m[3]);
-   if(lum<0){e.__oktc=1;continue;}
-   e.style.setProperty('color', lum<140?BLACK:SOFT, 'important');
-   e.__oktc=1;
+   todo.push(e);
+  }
+  var waiting=new Set(todo);
+  while(todo.length){
+   /* this round: elements with no ancestor still waiting */
+   var round=[],rest=[];
+   for(var r=0;r<todo.length;r++){
+    var x=todo[r],p=x.parentElement,blocked=false;
+    while(p){if(waiting.has(p)){blocked=true;break;}p=p.parentElement;}
+    (blocked?rest:round).push(x);
+   }
+   var colours=round.map(function(x){return getComputedStyle(x).color});
+   for(var k=0;k<round.length;k++){
+    var el=round[k];waiting.delete(el);el.__oktc=1;
+    var m=colours[k].match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);
+    if(!m)continue;
+    var a=m[4]===undefined?1:+m[4];
+    if(a<0.4)continue;
+    var lum=grey(+m[1],+m[2],+m[3]);
+    if(lum<0)continue;
+    el.style.setProperty('color', lum<140?BLACK:SOFT, 'important');
+   }
+   todo=rest;
   }
  }
 
