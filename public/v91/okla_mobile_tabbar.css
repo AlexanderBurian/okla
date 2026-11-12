@@ -18,16 +18,16 @@
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg>i{
     position:absolute;inset:0;display:block;background:#dce3eb;
-    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17.01A6 6 0 0 1 23.01 5.84A32 32 0 0 0 86.99 5.84A6 6 0 0 1 92.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17.01A6 6 0 0 1 23.01 5.84A32 32 0 0 0 86.99 5.84A6 6 0 0 1 92.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H19.01A6 6 0 0 1 25.01 5.83A30 30 0 0 0 84.99 5.83A6 6 0 0 1 90.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H19.01A6 6 0 0 1 25.01 5.83A30 30 0 0 0 84.99 5.83A6 6 0 0 1 90.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg::after{
     content:"";position:absolute;inset:0;display:block;background:#fff;
-    -webkit-mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H17.01A5 5 0 0 1 22.01 5.87A33 33 0 0 0 87.99 5.87A5 5 0 0 1 92.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H17.01A5 5 0 0 1 22.01 5.87A33 33 0 0 0 87.99 5.87A5 5 0 0 1 92.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+    -webkit-mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H19.01A5 5 0 0 1 24.01 5.86A31 31 0 0 0 85.99 5.86A5 5 0 0 1 90.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H19.01A5 5 0 0 1 24.01 5.86A31 31 0 0 0 85.99 5.86A5 5 0 0 1 90.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
   }
-  /* the items: a little higher, centred in the bar */
+  /* the items: icons a little higher, labels low enough to stay clear of the notch's line */
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action{
     position:relative!important;z-index:1!important;overflow:visible!important;
-    height:52px!important;max-height:52px!important;padding:0 1px!important;justify-content:center!important;
+    height:52px!important;max-height:52px!important;padding:0 1px 2px!important;justify-content:flex-end!important;gap:5px!important;
   }
   /* the cart: the round button lower in the notch (its centre 5px under the bar's edge), the label in line with the others */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart::before{
@@ -37,7 +37,7 @@
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action.okla-tb-cart svg{
     position:relative!important;z-index:1!important;width:26px!important;height:26px!important;flex:0 0 26px!important;margin:-1px 0!important;
-    transform:translateY(-13.5px)!important;color:#0b2540!important;stroke-width:1.95!important;
+    transform:translateY(-16px)!important;color:#0b2540!important;stroke-width:1.95!important;
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#184e96!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
@@ -49,8 +49,9 @@
   html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel) svg{stroke-width:1.9!important}
   /* one label colour for links and buttons (the link labels are darkened by the text-contrast pass) */
   html.okla-tb-on body #okla-v61-bottom button.okm61-bottom-action:not(.is-panel):not(.is-active) span{color:#1a1a1a!important}
-  /* the product page's buy bar and the cart's step bar sit right above the bottom bar: room for the raised cart */
-  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:calc(52px + env(safe-area-inset-bottom,0px))!important;padding-bottom:34px!important}
+  /* the product page's buy bar: its white reaches down behind the bottom bar (no gap, the notch is white too), its
+     content stays above the raised cart */
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:0!important;padding-bottom:calc(52px + 34px + env(safe-area-inset-bottom,0px))!important}
 
   /* ---- the page's top bar: fixed at the top on every page ----
      It keeps its look from the top of the page: the same gradient (painted the same way as on the page, so nothing
