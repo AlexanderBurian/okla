@@ -736,3 +736,24 @@ html body.ordering-process #content#content ol.cart-header>li.step{zoom:1.3}
 }
 /* finished step had an extra 9px gap between its circle and label - same spacing for all three */
 html body.ordering-process #content#content ol.cart-header>li.step{gap:0!important;column-gap:0!important}
+/* ===== cart bottom bar: no flicker, VAT label above the price, price per piece ===== */
+/* the bar keeps the same height stuck and unstuck - a height change moved the sentinel and made it flip back and forth */
+@media(min-width:768px){
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav,
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck,
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(.is-stuck){padding:14px 44px!important;transition:none!important}
+  html body.in-kosik #content#content .cart-inner{padding-bottom:18px!important}
+}
+html body.in-kosik #content#content .cart-inner>.okla-step-nav,
+html body.in-kosik #content#content .cart-inner>.okla-step-nav .next-step{transition:none!important}
+html body.in-kosik #content#content .cart-inner>.okla-step-nav .next-step{min-height:48px!important}
+/* "Cena k úhradě s DPH" on its own line above the price, both right-aligned (Alza) */
+html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-alza-total{
+  display:flex!important;flex-direction:column!important;align-items:flex-end!important;justify-content:center!important;gap:2px!important;grid-template-columns:none!important;
+}
+html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-alza-total :is(.okla-alza-total__label,.okla-alza-total__value){display:block!important;grid-column:auto!important;grid-row:auto!important;margin:0!important;text-align:right!important;white-space:nowrap!important}
+/* price per piece under the line total */
+html body.in-kosik #content#content table.cart-table td.p-total .price-final[data-unit]::after{
+  content:attr(data-unit)!important;display:block!important;margin-top:3px!important;
+  color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 12px/1.3 "Exo 2",Arial,sans-serif!important;white-space:nowrap!important;text-align:right!important;
+}

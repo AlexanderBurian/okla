@@ -159,7 +159,20 @@
  }
 
  var redrawTimer=0;
- function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();polishRecap();polishRecapAlza()}
+ /* Cart: price per piece under the line total when there is more than one piece
+    (Shoptet keeps it in the hidden "Cena za m. j." column) */
+ function cartUnitPrices(){
+  if(!document.body.classList.contains('in-kosik'))return;
+  document.querySelectorAll('table.cart-table tr.removeable').forEach(function(tr){
+   var unitEl=tr.querySelector('td.p-price .price-final'),totalEl=tr.querySelector('td.p-total .price-final');
+   if(!totalEl)return;
+   var u=unitEl?(unitEl.textContent||'').replace(/\s+/g,' ').trim():'',t=(totalEl.textContent||'').replace(/\s+/g,' ').trim();
+   var want=(u&&t&&amountOf(u)!==amountOf(t))?u+' / ks':'';
+   if((totalEl.getAttribute('data-unit')||'')!==want){if(want)totalEl.setAttribute('data-unit',want);else totalEl.removeAttribute('data-unit')}
+  });
+ }
+
+ function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();cartUnitPrices();polishRecap();polishRecapAlza()}
  function schedule(){
   clearTimeout(redrawTimer);
   redrawTimer=setTimeout(run,260);
