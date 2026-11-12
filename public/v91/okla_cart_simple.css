@@ -689,3 +689,8 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   /* steps 2 and 3: the grey recap reaches the right edge of the card */
   html body.ordering-process:not(.in-kosik) #content#content .cart-row{margin-right:-20px!important}
 }
+@media(min-width:768px){
+  /* no second line under the last product - the summary line closes the list */
+  html body.in-kosik #content#content table.cart-table tr.removeable:not(:has(~ tr.removeable)),
+  html body.in-kosik #content#content table.cart-table tr.removeable:not(:has(~ tr.removeable))>td{border-bottom-color:transparent!important}
+}
