@@ -231,6 +231,9 @@ function revealWhenTranslated(){
 }
 function loadAi(){
  if(window.__oklaAiWidgetLoader||document.querySelector('okla-ai-chat'))return;
+ /* No AI assistant in the cart and the whole order process (cart, shipping and payment, customer details, the
+    thank-you page), on PC or phones. */
+ if((document.body&&document.body.classList.contains('ordering-process'))||/^\/(kosik|objednavka)(\/|$)/i.test(location.pathname))return;
  if(!aiApiUrl){console.warn('[OKLA AI] Chybí data-api-url s adresou nasazeného AI backendu.');return}
  window.__oklaAiWidgetLoader=true;
  var aiBase=base+'ai/v1/';

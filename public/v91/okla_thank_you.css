@@ -85,3 +85,4 @@ html.okla-ty-page body #content a.okla-ty__btn--ghost:hover{background:var(--ty-
   html.okla-ty-page body #content .okla-ty__actions{flex-direction:column!important;margin-top:24px!important}
   html.okla-ty-page body #content a.okla-ty__btn{width:100%!important;min-width:0!important}
 }
+html.okla-ty-page okla-ai-chat{display:none!important}
