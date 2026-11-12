@@ -254,14 +254,16 @@ BUNDLES.forEach(function(b){
  if(files.some(isCss))list.push('dist/'+b[0]+'.css');
  if(files.some(function(f){return !isCss(f)}))list.push('dist/'+b[0]+'.js');
 });
-function preload(href,as){
+function preload(href,as,priority){
  var hint=document.createElement('link');
  hint.rel='preload';hint.as=as;hint.href=href;
+ if(priority)hint.fetchPriority=priority;
  head.appendChild(hint);
  return hint;
 }
-/* The "later" files start downloading now, so they are ready in the browser cache when they are added. */
-var hints=deferred.map(function(file){return preload(url(file,0),isCss(file)?'style':'script')});
+/* The "later" files start downloading now, so they are ready in the browser cache when they are added - at low
+   priority, so on a slow connection they do not hold up the files the page waits for. */
+var hints=deferred.map(function(file){return preload(url(file,0),isCss(file)?'style':'script','low')});
 /* The language packs are requested by okla_i18n.js only after it runs; for a visitor with another language they start
    downloading now with everything else. The address matches the one okla_i18n.js asks for. */
 (function(){
@@ -368,6 +370,7 @@ function finalize(){
 var toLoad=modules.filter(function(f){return cachedNow.indexOf(f)<0});
 var pending=toLoad.length;
 function settle(){if(--pending<=0)finalize()}
+/* The page waits for these files (under the curtain): they are fetched before images and other page content. */
 function loadOne(file,attempt){
  var src=url(file,attempt);
  function failed(){
@@ -375,11 +378,11 @@ function loadOne(file,attempt){
   console.error('[OKLA] module missing:',file);settle();
  }
  if(isCss(file)){
-  var link=document.createElement('link');link.rel='stylesheet';link.href=src;
+  var link=document.createElement('link');link.rel='stylesheet';link.href=src;link.fetchPriority='high';
   link.onload=function(){grabCss(file);settle()};link.onerror=failed;
   head.appendChild(link);
  }else{
-  var script=document.createElement('script');script.src=src;script.async=false;
+  var script=document.createElement('script');script.src=src;script.async=false;script.fetchPriority='high';
   script.onload=settle;script.onerror=failed;
   head.appendChild(script);
  }
