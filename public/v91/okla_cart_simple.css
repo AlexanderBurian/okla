@@ -637,3 +637,8 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
   color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.35 "Exo 2",Arial,sans-serif!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong>span{order:2!important;flex:none!important;color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;white-space:nowrap!important}
+/* steps 2/3 on desktop: the steps sit top left like on the cart page */
+@media(min-width:768px){
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8{padding-top:22px!important;padding-left:24px!important}
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8>.cart-content{padding-top:0!important;padding-left:0!important}
+}
