@@ -29,9 +29,16 @@
    holder=document.createElement('div');
    holder.className='okla-alza-total';
    var label=document.createElement('span');
-   label.className='okla-alza-total__label';
-   label.textContent='Cena k úhradě s DPH';
+   label.className='okla-alza-total__net-label';
+   label.textContent='Celkem bez DPH';
    holder.appendChild(label);
+   var net=document.createElement('span');
+   net.className='okla-alza-total__net-value';
+   holder.appendChild(net);
+   var grossLabel=document.createElement('span');
+   grossLabel.className='okla-alza-total__label';
+   grossLabel.textContent='K úhradě s DPH';
+   holder.appendChild(grossLabel);
    var value=document.createElement('strong');
    value.className='okla-alza-total__value';
    holder.appendChild(value);
@@ -41,11 +48,26 @@
   var valueNode=holder.querySelector('.okla-alza-total__value');
   var nextValue=(price.textContent||'').replace(/\s+/g,' ').trim();
   if(valueNode&&valueNode.textContent!==nextValue)valueNode.textContent=nextValue;
+  var amount=parseFloat(nextValue.replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.'));
+  var netNode=holder.querySelector('.okla-alza-total__net-value');
+  if(netNode&&isFinite(amount)){
+   var netValue=new Intl.NumberFormat('cs-CZ',{minimumFractionDigits:2,maximumFractionDigits:2}).format(amount/1.21)+' Kč';
+   if(netNode.textContent!==netValue)netNode.textContent=netValue;
+  }
   document.body.classList.add('okla-alza-ready');
  }
 
+ function polishRecap(){
+  if(document.body.classList.contains('in-kosik'))return;
+  var box=document.querySelector('.order-summary .checkout-box');
+  if(!box)return;
+  var heading=box.querySelector(':scope>h2');
+  if(heading)heading.textContent='Rekapitulace objednávky';
+  box.classList.add('okla-recap-ready');
+ }
+
  var redrawTimer=0;
- function run(){removeDecorations();simplifyCopy();syncCartTotal()}
+ function run(){removeDecorations();simplifyCopy();syncCartTotal();polishRecap()}
  function schedule(){
   clearTimeout(redrawTimer);
   redrawTimer=setTimeout(run,80);
