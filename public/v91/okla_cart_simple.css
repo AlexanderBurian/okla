@@ -668,3 +668,24 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(.is-stuck) .next-step .next-step-forward{order:-1!important;flex:1 1 100%!important}
   html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(.is-stuck) .next-step .next-step-back{flex:1 1 100%!important}
 }
+
+/* ===== desktop: Alza bottom bar, recap flush right, clean blue cap ===== */
+@media(min-width:768px){
+  /* one blue cap over the whole card (no second border under it, no notch at the corners) */
+  html body.ordering-process #content-wrapper#content-wrapper{position:relative!important;border-top:1px solid #e1e6ed!important;border-radius:6px!important}
+  html body.ordering-process #content-wrapper#content-wrapper::before{
+    display:block!important;content:""!important;position:absolute!important;left:-1px!important;right:-1px!important;top:-1px!important;
+    height:5px!important;background:#245b9e!important;border-radius:6px 6px 0 0 / 5px 5px 0 0!important;z-index:5!important;pointer-events:none!important;
+  }
+  /* cart: summary line and the button bar run across the whole card */
+  html body.in-kosik #content#content .okla-cart-summary{margin:4px -20px 0!important;padding:22px 44px 18px!important}
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav{
+    margin:0 -20px!important;padding:14px 44px 20px!important;max-width:none!important;
+    border-top:1px solid transparent!important;box-shadow:none!important;
+  }
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck{
+    padding-bottom:14px!important;border-top-color:#dfe4ea!important;box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;
+  }
+  /* steps 2 and 3: the grey recap reaches the right edge of the card */
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row{margin-right:-20px!important}
+}
