@@ -235,6 +235,12 @@ html body.ordering-process:not(.in-kosik) :is(.co-delivery-method,.co-payment-me
 html body.ordering-process:not(.in-kosik) .radio-wrapper{
   min-height:54px!important;margin:0!important;padding:11px 14px!important;border-radius:0!important
 }
+html body.ordering-process:not(.in-kosik) .radio-wrapper::before{
+  top:50%!important;margin-top:-12px!important;transform:none!important
+}
+html body.ordering-process:not(.in-kosik) .radio-wrapper>label{
+  padding-left:44px!important;box-sizing:border-box!important
+}
 html body.ordering-process:not(.in-kosik) .radio-wrapper+ .radio-wrapper{border-top:0!important}
 html body.ordering-process:not(.in-kosik) .radio-wrapper.active,
 html body.ordering-process:not(.in-kosik) .radio-wrapper.checked,
