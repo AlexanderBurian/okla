@@ -320,7 +320,7 @@
           width: 26px;
           height: 26px;
           border-radius: 0;
-          transform: translate(calc(-50% - 2px), -50%);
+          transform: translate(-50%, -50%);
         }
         .launcher.mobile-glyph-fallback::after { display: grid; }
         .panel.open + .launcher {
