@@ -20,17 +20,17 @@
   for(var i=0;i<faces.length;i++){
    var host=faces[i],shadow=host.shadowRoot;
    if(!shadow)continue;
-   if(!shadow.querySelector('#okla-v106-sticky-face')){
+   if(!shadow.querySelector('#okla-v113-sticky-face')){
     var st=document.createElement('style');
-    st.id='okla-v106-sticky-face';
+    st.id='okla-v113-sticky-face';
     st.textContent=[
-     ':host([data-okla-sticky-compact]) .face{height:46px!important;font-size:14px!important;line-height:19px!important;}',
-     ':host([data-okla-sticky-compact]) .face>svg.figure{width:36px!important;height:44px!important;}',
-     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:20px!important;height:29px!important;}',
-     ':host([data-okla-sticky-compact]) .face .label{margin-left:7px!important;}',
-     ':host([data-okla-sticky-compact]) .face .arrow{width:19px!important;height:12px!important;margin-left:9px!important;}',
-     ':host([data-okla-sticky-compact]) .face .price{font-size:15px!important;line-height:20px!important;margin-left:5px!important;}',
-     ':host([data-okla-sticky-compact]) .face .count text{font-size:11px!important;}'
+     ':host([data-okla-sticky-compact]) .face{height:41px!important;font-size:13px!important;line-height:17px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg.figure{width:32px!important;height:40px!important;}',
+     ':host([data-okla-sticky-compact]) .face>svg:not(.figure):not(.arrow){width:18px!important;height:26px!important;}',
+     ':host([data-okla-sticky-compact]) .face .label{margin-left:6px!important;}',
+     ':host([data-okla-sticky-compact]) .face .arrow{width:17px!important;height:11px!important;margin-left:8px!important;}',
+     ':host([data-okla-sticky-compact]) .face .price{font-size:13.5px!important;line-height:18px!important;margin-left:5px!important;}',
+     ':host([data-okla-sticky-compact]) .face .count text{font-size:10px!important;}'
     ].join('');
     shadow.appendChild(st);
    }
@@ -70,8 +70,8 @@
   root.style.setProperty('--okla-sticky-negative-left',(-x)+'px');
   root.style.setProperty('--okla-sticky-width',width+'px');
   root.style.setProperty('--okla-sticky-height',h.toFixed(2)+'px');
-  // Approximately 30% shorter than natural 80px (usually 56px) while pinned only.
-  root.style.setProperty('--okla-sticky-compact-height',Math.max(56,Math.round(h*0.70))+'px');
+  // Pinned bar: 30% shorter than the natural header, then another 10% lower (V113).
+  root.style.setProperty('--okla-sticky-compact-height',Math.max(50,Math.round(h*0.70*0.9))+'px');
   spacer.style.height=h.toFixed(2)+'px';
  }
  function geometry(){

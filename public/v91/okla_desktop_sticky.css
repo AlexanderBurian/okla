@@ -206,3 +206,21 @@
    left:-5px!important;
  }
 }
+
+/* V113: the pinned bar and everything in it 10% lower (bar 67 -> 60, logo 38 -> 34, search 44 -> 40,
+   login / cart 50 -> 45; the shadow-root artwork is scaled in okla_desktop_sticky.js). */
+@media(min-width:992px){
+ html.okla-desktop-sticky body #header .header-top{padding-bottom:4px!important}
+ html.okla-desktop-sticky body #header .header-top>.site-name-wrapper{height:40px!important;max-height:40px!important}
+ html.okla-desktop-sticky body #header .header-top>.site-name-wrapper img{max-height:34px!important}
+ html.okla-desktop-sticky body #header .header-top>.search,
+ html.okla-desktop-sticky body #header .header-top>.search form.search-form,
+ html.okla-desktop-sticky body #header .header-top>.search form.search-form fieldset{height:40px!important;max-height:40px!important}
+ html.okla-desktop-sticky body #header .header-top>.search form.search-form input.query-input{height:35px!important;max-height:35px!important;font-size:12.5px!important}
+ html.okla-desktop-sticky body #header .header-top>.search form.search-form button[type="submit"]{flex-basis:34px!important;width:34px!important;min-width:34px!important;max-width:34px!important;height:35px!important;min-height:35px!important;max-height:35px!important}
+ html.okla-desktop-sticky body #header .header-top>.search form.search-form button[type="submit"]>svg.okla-search-vector{width:19px!important;height:19px!important;min-width:19px!important;min-height:19px!important;flex-basis:19px!important}
+ html.okla-desktop-sticky body #header .header-top>.navigation-buttons.okla-header-ready,
+ html.okla-desktop-sticky body #header .header-top .navigation-buttons>.okla-exact-header{height:45px!important;min-height:45px!important;max-height:45px!important}
+ html.okla-desktop-sticky body #header#header .header-top .navigation-buttons>.okla-exact-header>:is(.okla-header-account,a.cart-count)[data-action-face]{height:45px!important;min-height:45px!important;max-height:45px!important}
+ html.okla-desktop-sticky body #header .header-top .navigation-buttons>.okla-exact-header> .okla-header-locale{max-height:31px!important}
+}
