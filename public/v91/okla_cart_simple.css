@@ -671,11 +671,12 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
 
 /* ===== desktop: Alza bottom bar, recap flush right, clean blue cap ===== */
 @media(min-width:768px){
-  /* one blue cap over the whole card (no second border under it, no notch at the corners) */
+  /* one blue cap over the whole card (no second border under it, no notch at the corners); the same 6px #19477e
+     cap, as long as the card, as on every other page */
   html body.ordering-process #content-wrapper#content-wrapper{position:relative!important;border-top:1px solid #e1e6ed!important;border-radius:6px!important}
   html body.ordering-process #content-wrapper#content-wrapper::before{
     display:block!important;content:""!important;position:absolute!important;left:-1px!important;right:-1px!important;top:-1px!important;
-    height:5px!important;background:#245b9e!important;border-radius:6px 6px 0 0 / 5px 5px 0 0!important;z-index:5!important;pointer-events:none!important;
+    height:6px!important;background:#19477e!important;border-radius:6px 6px 0 0!important;z-index:5!important;pointer-events:none!important;
   }
   /* cart: summary line and the button bar run across the whole card */
   html body.in-kosik #content#content .okla-cart-summary{margin:4px -20px 0!important;padding:22px 44px 18px!important}
