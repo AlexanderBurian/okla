@@ -45,5 +45,8 @@
  setTimeout(run,100);
  setTimeout(run,600);
  window.addEventListener('resize',simplifyCopy);
+ ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(eventName){
+  document.documentElement.addEventListener(eventName,function(){setTimeout(run,0);setTimeout(run,150)});
+ });
  new MutationObserver(removeDecorations).observe(document.documentElement,{childList:true,subtree:true});
 })();
