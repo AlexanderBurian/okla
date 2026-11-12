@@ -22,8 +22,8 @@
   margin:0!important;padding:28px 22px 24px!important;border:0!important;border-radius:0!important;
   background:transparent!important;box-shadow:none!important;font-family:"Exo 2",Arial,sans-serif!important;
 }
-#okla-v61-drawer .okla-mm-hero__icon{display:grid!important;place-items:center!important;width:38px!important;height:38px!important;margin:0 0 6px!important;color:#087bc1!important}
-#okla-v61-drawer .okla-mm-hero__icon svg{width:34px!important;height:34px!important;fill:currentColor!important;stroke:none!important}
+#okla-v61-drawer .okla-mm-hero__icon{display:grid!important;place-items:center!important;width:40px!important;height:40px!important;margin:0 0 8px!important;color:#0b2540!important}
+#okla-v61-drawer .okla-mm-hero__icon svg{width:40px!important;height:40px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.75!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 #okla-v61-drawer .okla-mm-hero__title{margin:0 0 8px!important;padding:0!important;font:800 22px/1.22 "Exo 2",Arial,sans-serif!important;color:#101820!important;text-transform:none!important;letter-spacing:-.25px!important}
 #okla-v61-drawer .okla-mm-hero__text{max-width:540px!important;margin:0 0 12px!important;font:400 15px/1.5 "Exo 2",Arial,sans-serif!important;color:#3f4b59!important}
 #okla-v61-drawer .okla-mm-hero__actions{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:5px!important}
@@ -46,17 +46,12 @@
   background:#fff!important;box-shadow:0 2px 7px rgba(14,35,58,.08)!important;color:#111!important;
 }
 #okla-v61-drawer .okla-mm-list .okla-mm-row:active{background:#f3f7fb!important}
-#okla-v61-drawer .okla-mm-icon{color:#19477e!important}
-#okla-v61-drawer .okla-mm-icon svg{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important;fill:currentColor!important;stroke:none!important}
+/* pictograms (okla_mobile_menu.js): navy line work on a 32px grid, one blue detail, solid dots */
+#okla-v61-drawer .okla-mm-icon{color:#0b2540!important}
+#okla-v61-drawer .okla-mm-icon svg{width:28px!important;height:28px!important;max-width:28px!important;max-height:28px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important;overflow:visible!important}
+#okla-v61-drawer .okla-mm-svg .a{stroke:#168bd2!important}
+#okla-v61-drawer .okla-mm-svg .f{fill:currentColor!important;stroke:none!important}
+#okla-v61-drawer .okla-mm-svg .f.a{fill:#168bd2!important}
 #okla-v61-drawer .okla-mm-svg .okla-mm-line{fill:none!important;stroke:currentColor!important;stroke-width:2.15!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-#okla-v61-drawer .okla-mm-svg .okla-mm-cut{fill:none!important;stroke:#fff!important;stroke-width:2.1!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-#okla-v61-drawer .okla-mm-svg .okla-mm-dot{fill:#fff!important;stroke:none!important}
-#okla-v61-drawer .okla-mm-row[data-mm-icon="orders"] .okla-mm-icon,
-#okla-v61-drawer .okla-mm-row[data-mm-icon="claim"] .okla-mm-icon{color:#f36b2b!important}
-#okla-v61-drawer .okla-mm-row[data-mm-icon="truck"] .okla-mm-icon,
-#okla-v61-drawer .okla-mm-row[data-mm-icon="chat"] .okla-mm-icon{color:#087bc1!important}
-#okla-v61-drawer .okla-mm-row[data-mm-icon="back"] .okla-mm-icon{color:#2367a7!important}
-#okla-v61-drawer .okla-mm-row[data-mm-icon="account"] .okla-mm-icon{color:#075a9d!important}
-#okla-v61-drawer .okla-mm-row[data-mm-icon="info"] .okla-mm-icon{color:#173f72!important}
 #okla-v61-drawer .okla-mm-row .okm61-cat-row-label{font-size:15px!important;font-weight:650!important}
 #okla-v61-drawer .okla-mm-row .okm61-cat-row-chevron{color:#7f8b98!important}

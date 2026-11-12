@@ -8,20 +8,22 @@
  'use strict';
  if(window.__oklaMobileMenuV1)return;window.__oklaMobileMenuV1=true;
  var NS='http://www.w3.org/2000/svg';
+ /* Pictograms on a 32px grid (the same set as Jak nakupovat): navy line work, one blue detail (class "a"), solid dots
+    (class "f"). */
  var ICONS={
-  user:'<circle cx="12" cy="7.25" r="4.25"/><path d="M3.5 21c.35-5.15 3.42-7.8 8.5-7.8s8.15 2.65 8.5 7.8z"/>',
-  orders:'<path d="M6 4h2.25A3.8 3.8 0 0 1 12 1a3.8 3.8 0 0 1 3.75 3H18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path class="okla-mm-cut" d="m8.2 13 2.35 2.35 5.2-5.2"/>',
-  truck:'<path d="M2 5.5A1.5 1.5 0 0 1 3.5 4H14v12H8.7a3.2 3.2 0 0 0-6.2 0H2zM15.5 8H19l3 4v4h-1.3a3.2 3.2 0 0 0-6.2 0h-1V10a2 2 0 0 1 2-2z"/><circle cx="5.6" cy="17.5" r="2.4"/><circle cx="17.6" cy="17.5" r="2.4"/>',
-  claim:'<path d="M14.5 2.25a6.1 6.1 0 0 0-6.2 7.9L2.9 15.5a2.05 2.05 0 0 0 0 2.9l2.7 2.7a2.05 2.05 0 0 0 2.9 0l5.35-5.4a6.1 6.1 0 0 0 7.9-6.2l-3.9 3.9-3.35-.9-.9-3.35z"/>',
-  back:'<path class="okla-mm-line" d="M9.25 4.25 4 9.5l5.25 5.25M4.4 9.5h9.4a6.2 6.2 0 1 1 0 12.4h-2.1"/>',
-  chat:'<path d="M3 3h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-6 4.25V18a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><circle class="okla-mm-dot" cx="7.5" cy="10.5" r="1.3"/><circle class="okla-mm-dot" cx="12" cy="10.5" r="1.3"/><circle class="okla-mm-dot" cx="16.5" cy="10.5" r="1.3"/>',
-  card:'<rect x="2" y="4" width="20" height="16" rx="2.5"/><rect class="okla-mm-dot" x="4.5" y="8" width="15" height="2" rx="1"/><rect class="okla-mm-dot" x="5" y="14" width="5" height="1.8" rx=".9"/>',
-  info:'<circle cx="12" cy="12" r="10"/><path class="okla-mm-cut" d="M12 10.5v6M12 7.2v.15"/>',
-  account:'<circle cx="12" cy="7.8" r="4.1"/><path d="M4.2 21c.5-4.8 3.35-7.25 7.8-7.25S19.3 16.2 19.8 21z"/>',
-  logout:'<path class="okla-mm-line" d="M13.5 3.5h4A2.5 2.5 0 0 1 20 6v12a2.5 2.5 0 0 1-2.5 2.5h-4M10 16l-4-4 4-4M6 12h10"/>',
+  user:'<circle cx="16" cy="16" r="12.5"/><circle class="a" cx="16" cy="13" r="4"/><path d="M8.6 25.4c1.5-3.7 4.3-5.4 7.4-5.4s5.9 1.7 7.4 5.4"/>',
+  account:'<circle cx="16" cy="16" r="12.5"/><circle class="a" cx="16" cy="13" r="4"/><path d="M8.6 25.4c1.5-3.7 4.3-5.4 7.4-5.4s5.9 1.7 7.4 5.4"/>',
+  orders:'<path d="M10 6.5H8.5a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h15a2 2 0 0 0 2-2v-18a2 2 0 0 0-2-2H22"/><path d="M12 4h8a1.5 1.5 0 0 1 1.5 1.5v2A1.5 1.5 0 0 1 20 9h-8a1.5 1.5 0 0 1-1.5-1.5v-2A1.5 1.5 0 0 1 12 4z"/><path class="a" d="M11 18.5l3.3 3.3L21 15"/>',
+  claim:'<path d="M16 3.5l10.5 4v7.7c0 6.3-4.4 11-10.5 13.3C9.9 26.2 5.5 21.5 5.5 15.2V7.5z"/><path class="a" d="M11.5 16l3.2 3.2 6-6.4"/>',
+  back:'<path d="M7 11h14a7 7 0 0 1 0 14h-7"/><path class="a" d="M12 6 7 11l5 5"/>',
+  chat:'<path d="M6.5 5h19A2.5 2.5 0 0 1 28 7.5v12a2.5 2.5 0 0 1-2.5 2.5H14l-6 5v-5H6.5A2.5 2.5 0 0 1 4 19.5v-12A2.5 2.5 0 0 1 6.5 5z"/><circle class="f a" cx="11" cy="13.5" r="1.6"/><circle class="f a" cx="16" cy="13.5" r="1.6"/><circle class="f a" cx="21" cy="13.5" r="1.6"/>',
+  truck:'<g transform="translate(0 2)"><path d="M10.5 22h-1A1.5 1.5 0 0 1 8 20.5v-12A1.5 1.5 0 0 1 9.5 7h9A1.5 1.5 0 0 1 20 8.5V22"/><path d="M15.5 22h5"/><path d="M20 12h4.6a1.5 1.5 0 0 1 1.2.6l3.9 5.2a1.5 1.5 0 0 1 .3.9v1.8a1.5 1.5 0 0 1-1.5 1.5h-3"/><path class="a" d="M2 11h3.5M3 15.5h2.5"/><circle cx="13" cy="22" r="2.5"/><circle cx="23" cy="22" r="2.5"/></g>',
+  card:'<path d="M6.5 7h19A2.5 2.5 0 0 1 28 9.5v13a2.5 2.5 0 0 1-2.5 2.5h-19A2.5 2.5 0 0 1 4 22.5v-13A2.5 2.5 0 0 1 6.5 7z"/><path class="a" d="M4 12.5h24M8.5 20h5"/>',
+  info:'<circle cx="16" cy="16" r="12.5"/><path class="a" d="M16 14.5v8"/><circle class="f a" cx="16" cy="10.2" r="1.6"/>',
+  logout:'<path d="M14 5.5H8.5a2 2 0 0 0-2 2v17a2 2 0 0 0 2 2H14"/><path class="a" d="M19 11l5 5-5 5M24 16H12.5"/>',
   chevron:'<path class="okla-mm-line" d="m9 6 6 6-6 6"/>'
  };
- function svg(name){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');s.classList.add('okla-mm-svg','okla-mm-svg--'+name);s.innerHTML=ICONS[name];return s}
+ function svg(name){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',name==='chevron'?'0 0 24 24':'0 0 32 32');s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');s.classList.add('okla-mm-svg','okla-mm-svg--'+name);s.innerHTML=ICONS[name];return s}
  function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
  function row(icon,label,href){
   var a=el('a','okm61-cat-row okla-mm-row');a.href=href;

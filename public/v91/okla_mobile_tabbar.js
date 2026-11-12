@@ -65,6 +65,18 @@
  }
  document.addEventListener('click',function(){setTimeout(watchPanel,0)},true);
 
- var tries=0;
- (function start(){if(!decorate()&&++tries<40)setTimeout(start,250)})();
+ /* the page's top bar is fixed (okla_mobile_tabbar.css): a spacer of its height keeps its place in the page */
+ function headSpace(){
+  var h=document.getElementById('okla-v61-header');
+  if(!h||!matchMedia('(max-width:767px)').matches)return false;
+  var sp=h.nextElementSibling;
+  if(!sp||!sp.classList.contains('okla-tb-head-space')){sp=document.createElement('div');sp.className='okla-tb-head-space';sp.setAttribute('aria-hidden','true');h.parentNode.insertBefore(sp,h.nextSibling)}
+  function size(){root.style.setProperty('--okla-tb-head-h',h.offsetHeight+'px')}
+  size();
+  if(window.ResizeObserver)new ResizeObserver(size).observe(h);
+  return true;
+ }
+
+ var tries=0,headDone=false;
+ (function start(){var a=decorate();if(!headDone)headDone=headSpace();if((!a||!headDone)&&++tries<40)setTimeout(start,250)})();
 })();

@@ -44,6 +44,22 @@
   /* the product page's buy bar and the cart's step bar sit right above the bottom bar: room for the raised cart */
   html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{padding-bottom:38px!important}
 
+  /* ---- the page's top bar: fixed at the top on every page ----
+     It keeps its look from the top of the page: the same gradient (painted the same way as on the page, so nothing
+     changes while the page is at the top) and the same logo and search; once the page moves under it, a soft shadow.
+     The space it leaves in the page is kept by .okla-tb-head-space (okla_mobile_tabbar.js). It sits under the panels
+     and the bottom bar. */
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f) #header #okla-v61-header{
+    position:fixed!important;top:0!important;left:0!important;right:0!important;z-index:398!important;transform:none!important;
+    background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;
+    background-position:left top!important;background-size:100% var(--okla-mg-h,820px)!important;
+    box-shadow:none!important;transition:box-shadow .2s ease!important;
+  }
+  html.okla-tb-on.okla-m-scrolled body:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d#okla-tb-e#okla-tb-f) #header #okla-v61-header{
+    box-shadow:0 1px 0 rgba(22,71,139,.06),0 4px 14px rgba(18,41,68,.07)!important;
+  }
+  html.okla-tb-on body .okla-tb-head-space{display:block;height:var(--okla-tb-head-h,60px)}
+
   /* ---- Katalog / Menu panels ---- */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b){
     z-index:399!important;top:0!important;bottom:calc(56px + env(safe-area-inset-bottom,0px))!important;
@@ -79,7 +95,9 @@
     margin:0!important;padding:18px 20px 14px!important;font:800 22px/1.25 "Exo 2",Arial,sans-serif!important;color:#0d356b!important;
     text-transform:none!important;letter-spacing:-.2px!important;border:0!important;background:transparent!important;
   }
-  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list{background:#fff!important;border-top:1px solid #e1e8ee!important}
+  /* the categories run over the same gradient, only the lines between them */
+  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list{background:transparent!important;border-top:1px solid rgba(160,184,210,.4)!important}
+  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list .okm61-cat-row{background:transparent!important;border-color:rgba(160,184,210,.4)!important}
   /* Menu: the sign-in card keeps the same side margins as the cards under it */
   html.okla-tb-on body #okla-v61-drawer .okla-mm-account-card{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin-left:16px!important;margin-right:16px!important}
   /* menu icons are drawn as outlines: their inner marks (the "i", the tick, the dots) take the icon's colour */
