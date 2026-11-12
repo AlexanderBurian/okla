@@ -1,40 +1,48 @@
 /* OKLA – phones (≤767px): the bottom bar and the Katalog / Menu panels (okla_mobile_tabbar.js).
 
-   Bottom bar: white and 56px tall as before; the cart is a round white button raised out of the middle of the bar and
-   sitting in a rounded notch cut into the bar's top edge. The bar's shape is drawn by .okla-tb-bg (a masked white
-   layer with its own soft shadow), so the shadow follows the notch.
+   Bottom bar: white, 52px; the cart is a round white button sitting in a rounded notch cut into the bar's top edge.
+   One 1px line (the same colour everywhere) runs along the bar's top edge, around the notch and around the button.
+   The bar's shape is drawn by .okla-tb-bg: its <i> is the line colour in the bar's shape, its ::after the white bar
+   1px inside it, so the line keeps its width along the curve.
 
    Panels: the top of a panel (logo + close) stands exactly where the page's own top bar is and does not move - it shows
    at once, the same as the page's top bar; only the content slides in under it. Both panels have the same top gradient as the pages. Both end above the bottom bar. */
 @media(max-width:767px){
   /* ---- bottom bar ---- */
   html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b){
-    border-top:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;
+    height:calc(52px + env(safe-area-inset-bottom,0px))!important;
+    border-top:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;align-items:start!important;
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg{
-    position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;display:block!important;
-    filter:drop-shadow(0 -1px 0 rgba(22,52,88,.09)) drop-shadow(0 -4px 12px rgba(18,41,68,.07));
+    position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;display:block!important;filter:none!important;
   }
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg>i{
-    position:absolute;inset:0;display:block;background:#fff;
-    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17C21 0 23.1 1.9 23.1 4.9A32 32 0 0 0 86.9 4.9C86.9 1.9 89 0 93 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
-    mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17C21 0 23.1 1.9 23.1 4.9A32 32 0 0 0 86.9 4.9C86.9 1.9 89 0 93 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+    position:absolute;inset:0;display:block;background:#dce3eb;
+    -webkit-mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17.01A6 6 0 0 1 23.01 5.84A32 32 0 0 0 86.99 5.84A6 6 0 0 1 92.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left top/calc(50% - 54px) 100% no-repeat,linear-gradient(#000,#000) right top/calc(50% - 54px) 100% no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 0H17.01A6 6 0 0 1 23.01 5.84A32 32 0 0 0 86.99 5.84A6 6 0 0 1 92.99 0H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
   }
-  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action{position:relative!important;z-index:1!important;overflow:visible!important}
-  /* the raised cart */
+  html.okla-tb-on #okla-v61-bottom .okla-tb-bg::after{
+    content:"";position:absolute;inset:0;display:block;background:#fff;
+    -webkit-mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H17.01A5 5 0 0 1 22.01 5.87A33 33 0 0 0 87.99 5.87A5 5 0 0 1 92.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H17.01A5 5 0 0 1 22.01 5.87A33 33 0 0 0 87.99 5.87A5 5 0 0 1 92.99 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
+  }
+  /* the items: a little higher, centred in the bar */
+  html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action{
+    position:relative!important;z-index:1!important;overflow:visible!important;
+    height:52px!important;max-height:52px!important;padding:0 1px!important;justify-content:center!important;
+  }
+  /* the cart: the round button lower in the notch (its centre 5px under the bar's edge), the label in line with the others */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart::before{
-    content:""!important;position:absolute!important;left:50%!important;top:-25px!important;z-index:-1!important;display:block!important;
-    width:54px!important;height:54px!important;margin-left:-27px!important;border-radius:50%!important;background:#fff!important;
-    box-shadow:0 0 0 1px rgba(22,52,88,.07),0 5px 14px rgba(18,41,68,.16)!important;transition:transform .15s ease!important;
+    content:""!important;position:absolute!important;left:50%!important;top:-22px!important;z-index:-1!important;display:block!important;
+    box-sizing:border-box!important;width:54px!important;height:54px!important;margin-left:-27px!important;border-radius:50%!important;
+    border:1px solid #dce3eb!important;background:#fff!important;box-shadow:none!important;transition:transform .15s ease!important;
   }
-  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart svg{
-    position:relative!important;z-index:1!important;width:26px!important;height:26px!important;flex-basis:26px!important;
-    transform:translateY(-24px)!important;color:#0b2540!important;stroke-width:1.95!important;
+  html.okla-tb-on body #okla-v61-bottom:not(#okla-tb-a#okla-tb-b) .okm61-bottom-action.okla-tb-cart svg{
+    position:relative!important;z-index:1!important;width:26px!important;height:26px!important;flex:0 0 26px!important;margin:-1px 0!important;
+    transform:translateY(-13.5px)!important;color:#0b2540!important;stroke-width:1.95!important;
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#184e96!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible{outline:0!important}
-  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{box-shadow:0 0 0 2px #1788cb,0 5px 14px rgba(18,41,68,.16)!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{border-color:#1788cb!important}
   /* the item whose panel is open is the highlighted one (the page's own item steps back meanwhile) */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.is-panel{color:#184e96!important;font-weight:800!important}
   html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel){color:#636b75!important;font-weight:inherit!important}
@@ -42,7 +50,7 @@
   /* one label colour for links and buttons (the link labels are darkened by the text-contrast pass) */
   html.okla-tb-on body #okla-v61-bottom button.okm61-bottom-action:not(.is-panel):not(.is-active) span{color:#1a1a1a!important}
   /* the product page's buy bar and the cart's step bar sit right above the bottom bar: room for the raised cart */
-  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{padding-bottom:38px!important}
+  html.okla-tb-on body:not(#okla-tb-a#okla-tb-b) .okla-m-buybar{bottom:calc(52px + env(safe-area-inset-bottom,0px))!important;padding-bottom:34px!important}
 
   /* ---- the page's top bar: fixed at the top on every page ----
      It keeps its look from the top of the page: the same gradient (painted the same way as on the page, so nothing
@@ -65,7 +73,7 @@
 
   /* ---- Katalog / Menu panels ---- */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b){
-    z-index:399!important;top:0!important;bottom:calc(56px + env(safe-area-inset-bottom,0px))!important;
+    z-index:399!important;top:0!important;bottom:calc(52px + env(safe-area-inset-bottom,0px))!important;
     background:transparent!important;opacity:1!important;transition:none!important;
   }
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-panel{
