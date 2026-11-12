@@ -6,7 +6,11 @@ html.okla-htb-page body main#content{padding:0!important}
 html.okla-htb-page body main#content > .content-inner{max-width:none!important;width:auto!important;margin:0!important;padding:0!important}
 .okla-htb{margin:0;font-family:"Exo 2",Arial,sans-serif;color:#1f2d3d}
 .okla-htb *{box-sizing:border-box}
-.okla-htb svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.okla-htb svg{display:block;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;overflow:visible}
+/* pictograms: navy line work, one blue detail, solid wheels/dots */
+.okla-htb svg .a{stroke:#168bd2}
+.okla-htb svg .f{fill:currentColor;stroke:none}
+.okla-htb svg .f.a{fill:#168bd2}
 .ohb-sec{padding:56px 0}
 .ohb-sec--white{background:#fff}
 .ohb-sec--grey{background:#f3f5f8}
@@ -22,16 +26,16 @@ html.okla-htb-page body main#content > .content-inner{max-width:none!important;w
 .ohb-facts{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 0;padding:0;list-style:none}
 .ohb-facts li{display:inline-flex;align-items:center;gap:9px;margin:0;padding:10px 16px;border-radius:999px;background:#f3f5f8;font:700 14px/1.2 "Exo 2",Arial,sans-serif;color:#0b2540}
 .ohb-facts li::before{content:none}
-.ohb-facts svg{width:20px;height:20px;color:#168bd2}
+.ohb-facts svg{width:22px;height:22px;color:#0b2540;stroke-width:2.6}
 /* steps */
 .ohb-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none;counter-reset:none}
 .ohb-step{position:relative;margin:0;padding:26px 24px 24px;border-radius:20px;background:#fff;box-shadow:0 1px 0 rgba(11,37,64,.04)}
 .ohb-step::before{content:none}
-.ohb-step__num{position:absolute;top:22px;right:22px;font:800 15px/1 "Exo 2",Arial,sans-serif;color:#b7c2ce}
-.ohb-step__ic{display:grid;place-items:center;width:52px;height:52px;margin:0 0 16px;border-radius:16px;background:#eef6fd;color:#168bd2}
-.ohb-step__ic svg{width:26px;height:26px}
+.ohb-step__num{position:absolute;top:26px;right:24px;display:grid;place-items:center;width:30px;height:30px;border:1.5px solid #dbe3ec;border-radius:50%;font:700 14px/1 "Exo 2",Arial,sans-serif;color:#0b2540}
+.ohb-step__ic,.ohb-card__ic{display:block;width:32px;height:32px;margin:0 0 20px;color:#0b2540}
+.ohb-step__ic svg,.ohb-card__ic svg{width:32px;height:32px}
 .ohb-link{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font:700 14.5px/1.2 "Exo 2",Arial,sans-serif;color:#168bd2;text-decoration:none}
-.ohb-link svg{width:17px;height:17px;transition:transform .15s ease}
+.ohb-link svg{width:17px;height:17px;stroke-width:3.4;transition:transform .15s ease}
 .ohb-link:hover{color:#0b74b5;text-decoration:none}
 .ohb-link:hover svg,.ohb-card:hover .ohb-link svg{transform:translateX(3px)}
 /* checklist */
@@ -40,24 +44,23 @@ html.okla-htb-page body main#content > .content-inner{max-width:none!important;w
 .ohb-checklist{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
 .ohb-checklist li{display:flex;align-items:flex-start;gap:14px;margin:0;padding:18px 20px;border:1px solid #e6ebf2;border-radius:16px;background:#fff;font:400 15px/1.55 "Exo 2",Arial,sans-serif;color:#56657a}
 .ohb-checklist li::before{content:none}
-.ohb-checklist svg{flex:0 0 24px;width:24px;height:24px;padding:3px;border-radius:50%;background:#e8f7ec;color:#1b7a3d;stroke-width:2.4}
+.ohb-checklist svg{flex:0 0 24px;width:24px;height:24px;margin-top:1px;padding:5px;border-radius:50%;background:#2e9e4f;color:#fff;stroke-width:4.2}
 .ohb-checklist strong{display:block;margin:0 0 2px;font-weight:700;color:#0b2540}
 /* after purchase */
 .ohb-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .ohb-card{display:flex;flex-direction:column;padding:26px 24px 24px;border-radius:20px;background:#fff;color:inherit;text-decoration:none;transition:box-shadow .15s ease,transform .15s ease}
 .ohb-card:hover{box-shadow:0 10px 26px rgba(11,37,64,.09);text-decoration:none}
-.ohb-card__ic{display:grid;place-items:center;width:52px;height:52px;margin:0 0 16px;border-radius:16px;background:#eef6fd;color:#168bd2}
-.ohb-card__ic svg{width:26px;height:26px}
 .ohb-card .ohb-link{margin-top:auto;padding-top:16px}
 /* help */
 .ohb-help{display:flex;align-items:center;gap:22px;padding:28px 30px;border-radius:22px;background:#f3f5f8}
-.ohb-help__ic{display:grid;place-items:center;flex:0 0 60px;width:60px;height:60px;border-radius:18px;background:#fff;color:#168bd2}
-.ohb-help__ic svg{width:30px;height:30px}
+.ohb-help__ic{display:block;flex:0 0 40px;width:40px;height:40px;color:#0b2540}
+.ohb-help__ic svg{width:40px;height:40px;stroke-width:1.6}
 .ohb-help__text{flex:1 1 auto}
 .ohb-help h2{margin:0 0 4px;font-size:22px}
 .ohb-btn{display:inline-flex;align-items:center;gap:9px;height:50px;padding:0 22px;border-radius:12px;background:#168bd2;color:#fff!important;font:700 15px/1 "Exo 2",Arial,sans-serif;text-decoration:none;white-space:nowrap}
 .ohb-btn:hover{background:#0b74b5;text-decoration:none}
-.ohb-btn svg{width:20px;height:20px}
+.ohb-btn svg{width:22px;height:22px;stroke-width:2.6}
+.ohb-btn svg .a{stroke:currentColor}
 /* Novinky slider */
 .ohb-news{padding:8px 0 48px}
 .ohb-news .ohb-wrap{max-width:none;padding:0 20px}

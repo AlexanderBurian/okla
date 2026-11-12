@@ -6,20 +6,34 @@
 (function(){
  'use strict';
  if(window.__oklaHowToBuyV1)return;window.__oklaHowToBuyV1=true;
- function ic(d){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+d.split('|').map(function(p){return '<path d="'+p+'"/>'}).join('')+'</svg>'}
+ /* Pictograms drawn for this page on a 32px grid (shown at 32px: 2px lines on whole pixels). Navy line work, one blue
+    detail per pictogram (class "a"), solid wheels/dots (class "f"). */
+ function ic(body,vb){return '<svg viewBox="0 0 '+(vb||32)+' '+(vb||32)+'" aria-hidden="true" focusable="false">'+body+'</svg>'}
+ function P(d,c){return '<path'+(c?' class="'+c+'"':'')+' d="'+d+'"/>'}
+ function C(x,y,r,c){return '<circle'+(c?' class="'+c+'"':'')+' cx="'+x+'" cy="'+y+'" r="'+r+'"/>'}
  var I={
-  search:'M10.5 17a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z|M15.5 15.5 20 20',
-  cart:'M2.5 3.8h2.8l2.1 10.7a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.1l1.9-7.3H6.1|M10 20.3h.01|M18 20.3h.01',
-  truck:'M3 6h11v10H3z|M14 9h4l3 3.5V16h-7|M7 17.5h.01|M17 17.5h.01',
-  user:'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z|M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7',
-  check:'M5 12.5l4.5 4.5L19 7',
-  mail:'M3 6h18v12H3z|M3 7l9 6 9-6',
-  box:'M12 3l8 4.5v9L12 21l-8-4.5v-9z|M4 7.5l8 4.5 8-4.5|M12 12v9',
-  back:'M9 14 4 9l5-5|M4 9h10.5a5.5 5.5 0 0 1 0 11H11',
-  shield:'M12 3 4 6.5v5.5c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6.5z|M8.8 12l2.3 2.3 4.3-4.6',
-  clock:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z|M12 7v5l3 2',
-  chat:'M4 5h16v11H9l-5 4z|M8.5 10.5h.01|M12 10.5h.01|M15.5 10.5h.01',
-  arrow:'M5 12h14|M13 6l6 6-6 6'
+  /* magnifier with a glint */
+  search:C(14,14,9)+P('M20.5 20.5 28 28')+P('M9.5 13A4.5 4.5 0 0 1 13 9.5','a'),
+  /* trolley with a "+" in the basket */
+  cart:P('M3 5h3.2a1 1 0 0 1 1 .8L10 21a2 2 0 0 0 2 1.6h12.2')+P('M7.9 9H28l-2.2 8.8a2 2 0 0 1-1.9 1.5H11.3')+C(12.5,26.5,2,'f')+C(23,26.5,2,'f')+P('M18 11v6M15 14h6','a'),
+  /* lorry moving right: cargo box, cab, two wheels, blue motion lines */
+  truck:'<g transform="translate(0 2)">'+P('M10.5 22h-1A1.5 1.5 0 0 1 8 20.5v-12A1.5 1.5 0 0 1 9.5 7h9A1.5 1.5 0 0 1 20 8.5V22')+P('M15.5 22h5')+P('M20 12h4.6a1.5 1.5 0 0 1 1.2.6l3.9 5.2a1.5 1.5 0 0 1 .3.9v1.8a1.5 1.5 0 0 1-1.5 1.5h-3')+P('M2 11h3.5M3 15.5h2.5','a')+C(13,22,2.5)+C(23,22,2.5)+'</g>',
+  /* contact card: portrait and blue text lines */
+  user:P('M5.5 7h21A2.5 2.5 0 0 1 29 9.5v13a2.5 2.5 0 0 1-2.5 2.5h-21A2.5 2.5 0 0 1 3 22.5v-13A2.5 2.5 0 0 1 5.5 7z')+C(11,14,2.5)+P('M7 21c.6-2.1 2.1-3.2 4-3.2s3.4 1.1 4 3.2')+P('M19 13h6M19 17h4.5','a'),
+  /* document with a blue tick */
+  check:P('M9 4h10l7 7v15a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z')+P('M19 4v5a2 2 0 0 0 2 2h5')+P('M11.5 19l3.2 3.2L21 16','a'),
+  /* envelope, blue flap */
+  mail:P('M5.5 7h21A2.5 2.5 0 0 1 29 9.5v13a2.5 2.5 0 0 1-2.5 2.5h-21A2.5 2.5 0 0 1 3 22.5v-13A2.5 2.5 0 0 1 5.5 7z')+P('M4 9l12 8.5L28 9','a'),
+  /* parcel with blue tape */
+  box:P('M16 3.5 27 9v14l-11 5.5L5 23V9z')+P('M5 9l11 5.5L27 9M16 14.5v14')+P('M10.5 6.2l11 5.5','a'),
+  /* parcel going back: return arrow */
+  back:P('M7 11h14a7 7 0 0 1 0 14h-7')+P('M12 6 7 11l5 5','a'),
+  /* shield with a blue tick */
+  shield:P('M16 3.5l10.5 4v7.7c0 6.3-4.4 11-10.5 13.3C9.9 26.2 5.5 21.5 5.5 15.2V7.5z')+P('M11.5 16l3.2 3.2 6-6.4','a'),
+  /* speech bubble with blue dots */
+  chat:P('M6.5 5h19A2.5 2.5 0 0 1 28 7.5v12a2.5 2.5 0 0 1-2.5 2.5H14l-6 5v-5H6.5A2.5 2.5 0 0 1 4 19.5v-12A2.5 2.5 0 0 1 6.5 5z')+C(11,13.5,1.6,'f a')+C(16,13.5,1.6,'f a')+C(21,13.5,1.6,'f a'),
+  tick:P('M9 16.5l4.5 4.5L23 11.5'),
+  arrow:P('M6 16h20M19 9l7 7-7 7')
  };
  function step(n,icon,title,text,link){
   return '<li class="ohb-step"><span class="ohb-step__num">'+n+'</span><span class="ohb-step__ic">'+ic(I[icon])+'</span>'+
@@ -53,10 +67,10 @@
   '<div class="ohb-sec ohb-sec--white"><div class="ohb-wrap ohb-split">'+
    '<div class="ohb-split__text"><h2>Než objednávku odešlete</h2><p>Krátká kontrola ušetří čas vám i nám. Rozhodující je cena zobrazená před odesláním, včetně dopravy a případného příplatku za platbu.</p></div>'+
    '<ul class="ohb-checklist">'+
-    '<li>'+ic(I.check)+'<span><strong>Kompatibilita</strong> U elektroniky si v popisu ověřte podporované verze a zařízení.</span></li>'+
-    '<li>'+ic(I.check)+'<span><strong>Obsah balení</strong> V parametrech najdete, co je v balení a co se dokupuje.</span></li>'+
-    '<li>'+ic(I.check)+'<span><strong>Adresa a kontakt</strong> Správný e-mail a telefon jsou důležité pro doručení.</span></li>'+
-    '<li>'+ic(I.check)+'<span><strong>Doprava a platba</strong> Vybraný způsob a jeho cenu vidíte v souhrnu košíku.</span></li>'+
+    '<li>'+ic(I.tick)+'<span><strong>Kompatibilita</strong> U elektroniky si v popisu ověřte podporované verze a zařízení.</span></li>'+
+    '<li>'+ic(I.tick)+'<span><strong>Obsah balení</strong> V parametrech najdete, co je v balení a co se dokupuje.</span></li>'+
+    '<li>'+ic(I.tick)+'<span><strong>Adresa a kontakt</strong> Správný e-mail a telefon jsou důležité pro doručení.</span></li>'+
+    '<li>'+ic(I.tick)+'<span><strong>Doprava a platba</strong> Vybraný způsob a jeho cenu vidíte v souhrnu košíku.</span></li>'+
    '</ul>'+
   '</div></div>'+
   '<div class="ohb-sec ohb-sec--grey"><div class="ohb-wrap">'+
