@@ -55,7 +55,10 @@ if(!scan()&&window.MutationObserver){
 (function(){
  if(window.__oklaAiAwayV1)return;window.__oklaAiAwayV1=true;
  var root=document.documentElement,isHome=!!(document.body&&document.body.classList.contains('type-index')),scrolledOnce=!isHome;
- var CSS=':host(.okla-ai-away) .panel:not(.open)+.launcher{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .16s ease,visibility 0s linear .16s!important}';
+ /* Phones: while away the tab waits just outside the right edge with the same motion as its reveal, so when it may
+    show (after a little scrolling, or when a panel closes) it glides in from the edge instead of popping up. */
+ var CSS=':host(.okla-ai-away) .panel:not(.open)+.launcher{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .16s ease,visibility 0s linear .16s!important}'+
+  '@media (max-width:466px){:host(.okla-ai-away) .panel:not(.open)+.launcher{transform:translateY(-50%) translateX(118%) scale(.94)!important;transition:opacity .34s ease,transform .56s cubic-bezier(.16,1,.3,1),visibility 0s linear .56s!important}}';
  function overlayOpen(){
   var b=document.body;
   if(root.classList.contains('okla-m-lock')||root.classList.contains('okla-search-open')||root.classList.contains('okla-cd-lock'))return true;
