@@ -333,7 +333,7 @@ html body #content#content .product:hover:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p
  border:0!important;border-radius:0!important;-webkit-border-radius:0!important;
  background:var(--okla-commerce-cart)!important;background-color:var(--okla-commerce-cart)!important;background-image:none!important;
  color:#fff!important;-webkit-text-fill-color:#fff!important;
- font:600 15px/1 "Exo 2","Segoe UI",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;
+ font:500 14px/1 "Exo 2","Segoe UI",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;
  box-shadow:none!important;text-shadow:none!important;transform:none!important;opacity:1!important;
  transition:background-color .15s ease!important;
 }
@@ -352,7 +352,7 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{text-align:center!important}
 @media(max-width:767px){
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button),
- html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled){height:40px!important;min-height:40px!important;max-height:40px!important;padding:0 16px!important;font-size:15px!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled){height:34px!important;min-height:34px!important;max-height:34px!important;padding:0 16px!important;font-size:14px!important}
 }
 /* the same colours as the reference: red price, amber stars, dark navy name */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .price-final,
