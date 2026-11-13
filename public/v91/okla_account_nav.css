@@ -108,7 +108,7 @@ html body #okla-acc-pop{display:none}
   html body .okla-acc-trigger{
     display:flex!important;align-items:center;gap:11px;width:100%;box-sizing:border-box;
     margin:0 0 18px;padding:13px 16px;border:1px solid #dbe3ec;border-radius:11px;
-    background:#fff;color:#173a5b;font:700 14.5px/1.2 "Exo 2",Arial,sans-serif;cursor:pointer;
+    background:#fff;color:#173a5b;font:700 14.5px/1.2 "Open Sans",Arial,sans-serif;cursor:pointer;
     -webkit-tap-highlight-color:transparent;
   }
   html body .okla-acc-trigger:active{background:#f3f6f9}
@@ -134,7 +134,7 @@ html body #okla-acc-pop{display:none}
   html body #okla-acc-pop .okla-acc-pop__head{
     display:flex!important;justify-content:space-between!important;align-items:center!important;
     position:sticky!important;top:0!important;z-index:2!important;padding:20px 16px!important;background:#fff!important;
-    border-bottom:1px solid #e1e8ee!important;font:800 20px/1.2 "Exo 2",Arial,sans-serif!important;color:#0d356b!important;
+    border-bottom:1px solid #e1e8ee!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important;color:#0d356b!important;
   }
   html body #okla-acc-pop .okla-acc-pop__close{
     display:grid!important;place-items:center!important;width:38px!important;height:38px!important;border:0!important;
@@ -151,7 +151,7 @@ html body #okla-acc-pop{display:none}
   html body #okla-acc-pop .okla-acc-nav__link{
     display:grid!important;grid-template-columns:34px minmax(0,1fr)!important;column-gap:16px!important;align-items:center!important;
     min-height:60px!important;padding:14px 12px!important;border:0!important;border-bottom:1px solid #edf1f6!important;border-radius:0!important;
-    font:600 15.5px/1.3 "Exo 2",Arial,sans-serif!important;
+    font:600 15.5px/1.3 "Open Sans",Arial,sans-serif!important;
   }
   html body #okla-acc-pop .okla-acc-nav__link.is-logout{
     margin-top:6px!important;border-top:1px solid #e6edf6!important;border-bottom:0!important;

@@ -88,8 +88,8 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okla-retail-rating .stars-wrapper::after{content:none!important;display:none!important}
  html body.type-index #content .okla-slider-shell .product .ratings-wrapper.okla-retail-rating :is(.rating-count,.votes-wrap){display:none!important}
  html body.type-index #content .okla-slider-shell .product .okla-retail-rating-meta{display:inline-flex!important;align-items:center!important;gap:3px!important;flex:0 0 auto!important;white-space:nowrap!important}
- html body.type-index #content .okla-slider-shell .product .okla-retail-rating-score{color:#111827!important;font:750 10px/1 "Exo 2",Arial,sans-serif!important}
- html body.type-index #content .okla-slider-shell .product .okla-retail-rating-count{color:#143f77!important;font:500 10px/1 "Exo 2",Arial,sans-serif!important;text-decoration:underline!important;text-underline-offset:2px!important}
+ html body.type-index #content .okla-slider-shell .product .okla-retail-rating-score{color:#111827!important;font:750 10px/1 "Open Sans",Arial,sans-serif!important}
+ html body.type-index #content .okla-slider-shell .product .okla-retail-rating-count{color:#143f77!important;font:500 10px/1 "Open Sans",Arial,sans-serif!important;text-decoration:underline!important;text-underline-offset:2px!important}
  html body.type-index #content .okla-slider-shell .product .okv73-rating-caption{color:#697586!important;font-size:9px!important}
  html body.type-index #content .okla-slider-shell .product a.name{
   flex-basis:38px!important;height:38px!important;min-height:38px!important;max-height:38px!important;

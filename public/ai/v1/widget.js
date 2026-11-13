@@ -11,7 +11,7 @@
         --okla-text: #102f55;
         --okla-line: #d2deec;
         --okla-soft: #f3f6fa;
-        font-family: "Exo 2", Arial, sans-serif;
+        font-family: "Open Sans", Arial, sans-serif;
         font-synthesis: none;
       }
       *, *::before, *::after { box-sizing: border-box; }

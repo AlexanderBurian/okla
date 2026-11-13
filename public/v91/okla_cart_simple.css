@@ -450,7 +450,7 @@ html body.ordering-process #content#content ol.cart-header>li.step{
   position:relative!important;display:flex!important;align-items:center!important;flex:0 0 auto!important;
   width:auto!important;height:auto!important;min-width:0!important;margin:0!important;padding:0!important;
   background:none!important;border:0!important;box-shadow:none!important;clip-path:none!important;
-  color:#7b8594!important;font:600 13px/1.2 "Exo 2",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  color:#7b8594!important;font:600 13px/1.2 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
 }
 html body.ordering-process #content#content ol.cart-header>li.step>:is(strong,a){
   display:flex!important;align-items:center!important;gap:0!important;margin:0!important;padding:0!important;
@@ -496,7 +496,7 @@ html body.in-kosik #content#content .okla-cart-summary{
 html body.in-kosik #content#content .okla-cart-summary__toggle{
   display:inline-flex!important;align-items:center!important;gap:7px!important;margin:6px 0 0!important;padding:0!important;
   border:0!important;background:none!important;box-shadow:none!important;cursor:pointer!important;
-  color:#1f6fb8!important;-webkit-text-fill-color:#1f6fb8!important;font:500 14px/1.3 "Exo 2",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  color:#1f6fb8!important;-webkit-text-fill-color:#1f6fb8!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
 }
 html body.in-kosik #content#content .okla-cart-summary__toggle::before{
   content:""!important;width:15px!important;height:15px!important;flex:none!important;border-radius:50%!important;
@@ -510,10 +510,10 @@ html body.in-kosik #content#content .okla-cart-summary__coupon-body .okla-coupon
 html body.in-kosik #content#content .okla-cart-summary__coupon-body .okla-coupon__title{display:none!important}
 html body.in-kosik #content#content .okla-cart-summary__totals{display:grid!important;grid-template-columns:auto auto!important;column-gap:40px!important;row-gap:8px!important;align-items:baseline!important;margin-left:auto!important}
 html body.in-kosik #content#content .okla-cart-summary__row{display:contents!important}
-html body.in-kosik #content#content .okla-cart-summary__row>span:first-child{color:#46556a!important;font:400 14px/1.3 "Exo 2",Arial,sans-serif!important;text-align:right!important}
-html body.in-kosik #content#content .okla-cart-summary__net{color:#46556a!important;font:500 14px/1.3 "Exo 2",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
+html body.in-kosik #content#content .okla-cart-summary__row>span:first-child{color:#46556a!important;font:400 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important}
+html body.in-kosik #content#content .okla-cart-summary__net{color:#46556a!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content#content .okla-cart-summary__row--gross>span:first-child{color:#0b2540!important;font-weight:700!important}
-html body.in-kosik #content#content .okla-cart-summary__gross{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 22px/1.15 "Exo 2",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
+html body.in-kosik #content#content .okla-cart-summary__gross{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 22px/1.15 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content#content .okla-cart-summary__sentinel{height:1px!important;margin-top:-1px!important}
 
 /* the button row sticks to the bottom of the screen until it reaches its place */
@@ -534,8 +534,8 @@ html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-al
   display:grid!important;grid-template-columns:auto!important;justify-items:end!important;row-gap:1px!important;margin:0 18px 0 auto!important;padding:0!important;
 }
 html body.in-kosik #content#content .okla-step-nav .okla-alza-total :is(.okla-alza-total__net-label,.okla-alza-total__net-value){display:none!important}
-html body.in-kosik #content#content .okla-step-nav .okla-alza-total__label{color:#46556a!important;font:400 13px/1.2 "Exo 2",Arial,sans-serif!important}
-html body.in-kosik #content#content .okla-step-nav .okla-alza-total__value{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 22px/1.1 "Exo 2",Arial,sans-serif!important}
+html body.in-kosik #content#content .okla-step-nav .okla-alza-total__label{color:#46556a!important;font:400 13px/1.2 "Open Sans",Arial,sans-serif!important}
+html body.in-kosik #content#content .okla-step-nav .okla-alza-total__value{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 22px/1.1 "Open Sans",Arial,sans-serif!important}
 html body.in-kosik #content#content .okla-step-nav .next-step{display:flex!important;align-items:center!important;justify-content:space-between!important}
 html body.in-kosik #content#content .okla-step-nav .next-step .next-step-forward{margin-left:0!important}
 
@@ -553,10 +553,10 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .okla-
   object-fit:contain!important;background:#fff!important;border:1px solid #dde2e9!important;border-radius:4px!important;margin:0!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name{grid-column:2!important;grid-row:1!important;margin:0!important;padding:0!important}
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{content:attr(data-qty) "x "!important;color:#46556a!important;font:400 13px/1.45 "Exo 2",Arial,sans-serif!important}
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name a{color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.45 "Exo 2",Arial,sans-serif!important;text-decoration:none!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{content:attr(data-qty) "x "!important;color:#46556a!important;font:400 13px/1.45 "Open Sans",Arial,sans-serif!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name a{color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.45 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-amount{display:none!important}
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price{grid-column:3!important;grid-row:1!important;margin:0!important;color:#0b2540!important;font:500 13px/1.3 "Exo 2",Arial,sans-serif!important;white-space:nowrap!important;text-align:right!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price{grid-column:3!important;grid-row:1!important;margin:0!important;color:#0b2540!important;font:500 13px/1.3 "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;text-align:right!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.helper{display:none!important}
 /* shipping and payment lines with an icon, price in green */
 html body.ordering-process:not(.in-kosik) #content#content .order-summary #shipping-billing-summary{margin:4px 0 0!important;padding:12px 0 2px!important;border-top:1px solid #dfe4ea!important;background:none!important}
@@ -569,18 +569,18 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single.last::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2346556a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='6' width='18' height='12' rx='2'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E")!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info{
   flex:1 1 auto!important;display:flex!important;justify-content:space-between!important;gap:10px!important;
-  color:#46556a!important;font:400 13px/1.35 "Exo 2",Arial,sans-serif!important;
+  color:#46556a!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info span:last-child{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;text-transform:lowercase!important;white-space:nowrap!important}
 /* the total box */
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price{
   margin:14px 0 0!important;padding:12px 14px!important;background:#fff!important;border:1px solid #dde2e9!important;border-radius:4px!important;
 }
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .okla-recap-net{display:flex!important;justify-content:space-between!important;margin:0 0 6px!important;color:#46556a!important;font:400 13px/1.3 "Exo 2",Arial,sans-serif!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .okla-recap-net{display:flex!important;justify-content:space-between!important;margin:0 0 6px!important;color:#46556a!important;font:400 13px/1.3 "Open Sans",Arial,sans-serif!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price .price-wrapper{display:flex!important;justify-content:space-between!important;align-items:baseline!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price .price-label{color:#0b2540!important;font:700 13px/1.3 "Exo 2",Arial,sans-serif!important;text-transform:none!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price .price-label{color:#0b2540!important;font:700 13px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price,
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price span{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 20px/1.2 "Exo 2",Arial,sans-serif!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price span{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important}
 
 /* --- Steps 1/2: option cards (Alza colours) --------------------------- */
 html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked){background:#eef5fd!important;border-color:#2a86d9!important}
@@ -634,7 +634,7 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary-inner>
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>span:first-child{display:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong{
   flex:1 1 auto!important;min-width:0!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:10px!important;
-  color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.35 "Exo 2",Arial,sans-serif!important;
+  color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong>span{order:2!important;flex:none!important;color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;white-space:nowrap!important}
 /* steps 2/3 on desktop: the steps sit top left like on the cart page */
@@ -708,7 +708,7 @@ html body.ordering-process #content#content ol.cart-header>li.step-3.active::bef
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price{text-align:right!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price[data-unit]::after{
   content:attr(data-unit)!important;display:block!important;margin-top:3px!important;
-  color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 11px/1.3 "Exo 2",Arial,sans-serif!important;white-space:nowrap!important;
+  color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 11px/1.3 "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;
 }
 /* desktop: the card is only as tall as its content (few items = card ends under the buttons, like Alza) */
 @media(min-width:768px){
@@ -756,7 +756,7 @@ html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-al
 /* price per piece under the line total */
 html body.in-kosik #content#content table.cart-table td.p-total .price-final[data-unit]::after{
   content:attr(data-unit)!important;display:block!important;margin-top:3px!important;
-  color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 12px/1.3 "Exo 2",Arial,sans-serif!important;white-space:nowrap!important;text-align:right!important;
+  color:#7a8696!important;-webkit-text-fill-color:#7a8696!important;font:400 12px/1.3 "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;text-align:right!important;
 }
 
 /* No AI assistant anywhere in the order process (the loader does not start it here; this hides it if it ever is). */

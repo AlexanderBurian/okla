@@ -13,7 +13,7 @@ html body #content .p-info-wrapper .link-icons .link-icon{
   display:inline-flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:7px!important;
   width:78px!important;min-width:78px!important;margin:0!important;padding:10px 4px 9px!important;box-sizing:border-box!important;border:0!important;border-radius:14px!important;
   background:transparent!important;color:#0b2540!important;text-decoration:none!important;cursor:pointer!important;
-  font:600 13px/1.2 "Exo 2",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;transition:background-color .15s ease,color .15s ease!important;
+  font:600 13px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;transition:background-color .15s ease,color .15s ease!important;
 }
 html body #content .p-info-wrapper .link-icons .link-icon:is(:hover,:focus-visible){background:#f3f5f8!important;color:#16478b!important}
 html body #content .p-info-wrapper .link-icons .link-icon span{display:block!important;color:inherit!important;font:inherit!important}
@@ -62,30 +62,30 @@ html body #colorbox:has(#watchdog-form,#formProductQuestion) #cboxClose{
   position:absolute!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;
   border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;z-index:3!important;
 }
-html body #colorbox .content-modal:has(#watchdog-form,#formProductQuestion){padding:30px 26px 26px!important;margin:0!important;border:0!important;background:none!important;font-family:"Exo 2",Arial,sans-serif!important}
+html body #colorbox .content-modal:has(#watchdog-form,#formProductQuestion){padding:30px 26px 26px!important;margin:0!important;border:0!important;background:none!important;font-family:"Open Sans",Arial,sans-serif!important}
 html body #colorbox .content-modal:has(#formProductQuestion) > h1,
 html body #colorbox #watchdog-form .watchdog-title{
   margin:0 36px 8px!important;padding:0!important;border:0!important;background:none!important;text-align:center!important;
-  font:800 23px/1.25 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:-.2px!important;
+  font:800 23px/1.25 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:-.2px!important;
 }
 html body #colorbox #watchdog-form .watchdog-title strong{font-weight:800!important}
 html body #colorbox :is(.content-modal:has(#formProductQuestion) > h1,#watchdog-form .watchdog-title)::before,
 html body #colorbox :is(.content-modal:has(#formProductQuestion) > h1,#watchdog-form .watchdog-title)::after{content:none!important;display:none!important}
-html body #colorbox .content-modal:has(#formProductQuestion) > h1::after{content:"Odpovíme co nejdřív na váš e-mail."!important;display:block!important;margin:6px 0 0!important;font:400 15px/1.5 "Exo 2",Arial,sans-serif!important;color:#56657a!important;letter-spacing:0!important}
-html body #colorbox .content-modal:has(#watchdog-form) #watchdog-form h2.watchdog-title::after{content:"Pošleme vám e-mail, jakmile nastane, co si vyberete."!important;display:block!important;margin:6px 0 0!important;font:400 15px/1.5 "Exo 2",Arial,sans-serif!important;color:#56657a!important;letter-spacing:0!important}
+html body #colorbox .content-modal:has(#formProductQuestion) > h1::after{content:"Odpovíme co nejdřív na váš e-mail."!important;display:block!important;margin:6px 0 0!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important;color:#56657a!important;letter-spacing:0!important}
+html body #colorbox .content-modal:has(#watchdog-form) #watchdog-form h2.watchdog-title::after{content:"Pošleme vám e-mail, jakmile nastane, co si vyberete."!important;display:block!important;margin:6px 0 0!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important;color:#56657a!important;letter-spacing:0!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion){margin:18px 0 0!important;padding:0!important;border:0!important;background:none!important}
 html body #colorbox #formProductQuestion fieldset{margin:0!important;padding:0!important;border:0!important;min-width:0!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .form-legend{display:none!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .form-group{margin:0 0 14px!important;padding:0!important;text-align:left!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .smart-label-wrapper > label{
   display:block!important;position:static!important;transform:none!important;margin:0 0 6px!important;padding:0!important;background:none!important;
-  font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important;
+  font:700 12px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important;
 }
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .form-control-wrapper{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input[type="text"],input[type="email"],textarea){
   display:block!important;width:100%!important;max-width:none!important;box-sizing:border-box!important;margin:0!important;padding:0 14px!important;
   border:1px solid #d9e0e8!important;border-radius:12px!important;background:#fff!important;box-shadow:none!important;outline:0!important;
-  font:400 15px/1.45 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;
+  font:400 15px/1.45 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;
 }
 html body #colorbox :is(#watchdog-form,#formProductQuestion) :is(input[type="text"],input[type="email"]){height:48px!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) textarea.form-control[name]{min-height:130px!important;padding:12px 14px!important;line-height:1.5!important;resize:vertical!important}
@@ -105,21 +105,21 @@ html body #colorbox #watchdog-form input.watchdog-checkbox{
 }
 html body #colorbox #watchdog-form input.watchdog-checkbox:checked{border-color:#168bd2!important;background:#fff url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23168bd2%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012.5l4.5%204.5L19%207%22%2F%3E%3C%2Fsvg%3E") center/15px 15px no-repeat!important}
 html body #colorbox #watchdog-form input.watchdog-checkbox::before,html body #colorbox #watchdog-form input.watchdog-checkbox::after{content:none!important;display:none!important}
-html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label{flex:1 1 auto!important;margin:0!important;padding:0!important;font:600 15px/1.3 "Exo 2",Arial,sans-serif!important;color:#0b2540!important;cursor:pointer!important;text-transform:none!important;letter-spacing:0!important}
+html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label{flex:1 1 auto!important;margin:0!important;padding:0!important;font:600 15px/1.3 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;cursor:pointer!important;text-transform:none!important;letter-spacing:0!important}
 html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label::before,html body #colorbox #watchdog-form .form-group:has(> .watchdog-checkbox) > label::after{content:none!important;display:none!important}
 html body #colorbox #watchdog-form #priceUnder{flex:1 1 100%!important;width:100%!important;height:44px!important;margin:0!important}
-html body #colorbox #watchdog-form .disclaimer{flex:1 1 100%!important;margin:0!important;font:400 13px/1.4 "Exo 2",Arial,sans-serif!important;color:#8a96a6!important}
+html body #colorbox #watchdog-form .disclaimer{flex:1 1 100%!important;margin:0!important;font:400 13px/1.4 "Open Sans",Arial,sans-serif!important;color:#8a96a6!important}
 html body #colorbox #watchdog-form .disclaimer.hidden{display:none!important}
 html body #colorbox #watchdog-form .watchdog-messages:empty{display:none!important}
 html body #colorbox #watchdog-form .form-group.smart-label-wrapper{margin-top:16px!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents,
-html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents .label{margin:0!important;font:400 12.5px/1.5 "Exo 2",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents .label{margin:0!important;font:400 12.5px/1.5 "Open Sans",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents a{color:#168bd2!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .submit-wrapper{margin:18px 0 0!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]{
   display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:52px!important;margin:0!important;padding:0 20px!important;box-sizing:border-box!important;
   border:1px solid #66d400!important;border-radius:12px!important;background:#66d400!important;background-image:none!important;box-shadow:none!important;
-  font:700 15px/1 "Exo 2",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
+  font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
 }
 html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
 @media(max-width:767px){
@@ -133,11 +133,11 @@ html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit
 }
 
 /* ---------- 3. share panel ---------- */
-.okla-share{position:absolute;z-index:9000;width:260px;box-sizing:border-box;padding:14px;border:1px solid #e6ebf2;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(11,37,64,.18);font-family:"Exo 2",Arial,sans-serif}
+.okla-share{position:absolute;z-index:9000;width:260px;box-sizing:border-box;padding:14px;border:1px solid #e6ebf2;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(11,37,64,.18);font-family:"Open Sans",Arial,sans-serif}
 .okla-share[hidden]{display:none}
-.okla-share__title{margin:2px 6px 10px;font:800 16px/1.2 "Exo 2",Arial,sans-serif;color:#0b2540}
+.okla-share__title{margin:2px 6px 10px;font:800 16px/1.2 "Open Sans",Arial,sans-serif;color:#0b2540}
 .okla-share__list{display:flex;flex-direction:column;gap:2px}
-.okla-share__item{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;margin:0;padding:0 10px;box-sizing:border-box;border:0;border-radius:12px;background:transparent;color:#0b2540;font:600 14.5px/1.2 "Exo 2",Arial,sans-serif;text-align:left;text-decoration:none;cursor:pointer}
+.okla-share__item{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;margin:0;padding:0 10px;box-sizing:border-box;border:0;border-radius:12px;background:transparent;color:#0b2540;font:600 14.5px/1.2 "Open Sans",Arial,sans-serif;text-align:left;text-decoration:none;cursor:pointer}
 .okla-share__item:hover,.okla-share__item:focus-visible{background:#f3f5f8;color:#16478b;text-decoration:none}
 .okla-share__item svg{flex:0 0 22px;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .okla-share__item--copy.is-done{color:#1b7a3d}

@@ -7,7 +7,7 @@
 html body.type-index #content #okla-v61-dots{display:none!important}
 
 /* ---------- Hero ---------- */
-.okla-hero{position:relative;width:100%;aspect-ratio:909/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:"Exo 2",Arial,sans-serif}
+.okla-hero{position:relative;width:100%;aspect-ratio:909/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:"Open Sans",Arial,sans-serif}
 .okla-hero__track{position:absolute;inset:0}
 .okla-hero__slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility 0s linear .6s}
 .okla-hero__slide.is-active{opacity:1;visibility:visible;transition:opacity .6s ease,visibility 0s}
@@ -30,7 +30,7 @@ html body.type-index #content #okla-v61-dots{display:none!important}
 }
 
 /* ---------- Lower tiles ---------- */
-.okla-tile{position:relative;width:100%;aspect-ratio:450/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:"Exo 2",Arial,sans-serif}
+.okla-tile{position:relative;width:100%;aspect-ratio:450/187;overflow:hidden;border-radius:6px;background:#0b2540;color:#fff;font-family:"Open Sans",Arial,sans-serif}
 .okla-tile__media{position:absolute;inset:0;background-repeat:no-repeat;background-size:cover;background-position:center}
 .okla-tile--1 .okla-tile__media{background-image:url('assets/tile-1-desktop.webp')}
 .okla-tile--2 .okla-tile__media{background-image:url('assets/tile-2-desktop.webp')}

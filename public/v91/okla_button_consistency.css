@@ -397,12 +397,12 @@ html body.type-index #content .homepage-group-title.okla-slider-heading .okla-se
    hollow round handles (white fill + a thin blue ring).
    ============================================================ */
 html body .slider-wrapper h4{margin:0 0 12px!important;text-align:center!important}
-html body .slider-wrapper h4 span{font:700 12px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#1a1a1a!important}
+html body .slider-wrapper h4 span{font:700 12px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#1a1a1a!important}
 /* The slider-content wrapper carries a grey (#dadada) background in the theme,
    which shows past the track ends as ugly grey stubs. Clear it. */
 html body .slider-wrapper .slider-content{background:transparent!important;background-color:transparent!important}
 html body .slider-wrapper .slider-header{display:flex!important;justify-content:space-between!important;align-items:center!important;margin:6px 2px 0!important}
-html body .slider-wrapper .slider-header :is(.from,.to){font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;color:#1a1a1a!important}
+html body .slider-wrapper .slider-header :is(.from,.to){font:600 13px/1.3 "Open Sans",Arial,sans-serif!important;color:#1a1a1a!important}
 html body .slider-wrapper #min,html body .slider-wrapper #max,html body .slider-wrapper .slider-header .from *,html body .slider-wrapper .slider-header .to *{color:#1a1a1a!important}
 /* A narrow 2px line (grey base + blue selected range). */
 html body #slider.ui-slider{height:2px!important;margin:20px 12px 8px!important;padding:0!important;border:0!important;border-radius:2px!important;background:#dfe5ee!important;box-shadow:none!important}
@@ -421,7 +421,7 @@ html body #slider .ui-slider-handle::before,html body #slider .ui-slider-handle:
    centred red text — no pill, no background, no border. */
 html body #filters .filter-section-count{text-align:center!important}
 html body #filters p#clear-filters{margin:6px 0 8px!important;padding:0!important;background:none!important;border:0!important;text-align:center!important}
-html body #filters p#clear-filters,html body #filters p#clear-filters a{color:#d92b20!important;background:none!important;font:600 13px/1.3 "Exo 2",Arial,sans-serif!important;letter-spacing:.01em!important;text-decoration:none!important}
+html body #filters p#clear-filters,html body #filters p#clear-filters a{color:#d92b20!important;background:none!important;font:600 13px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.01em!important;text-decoration:none!important}
 html body #filters p#clear-filters a:hover{text-decoration:underline!important}
 
 /* ============================================================

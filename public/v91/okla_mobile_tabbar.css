@@ -46,7 +46,7 @@
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart .okla-tb-count{
     position:absolute!important;left:calc(50% + 7px)!important;top:-24px!important;z-index:2!important;display:block!important;
     box-sizing:border-box!important;min-width:20px!important;height:20px!important;padding:0 5px!important;border:2px solid #fff!important;border-radius:10px!important;
-    background:#2093d9!important;color:#fff!important;font:700 11px/16px "Exo 2",Arial,sans-serif!important;text-align:center!important;
+    background:#2093d9!important;color:#fff!important;font:700 11px/16px "Open Sans",Arial,sans-serif!important;text-align:center!important;
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart .okla-tb-count[hidden]{display:none!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
@@ -110,7 +110,7 @@
   html.okla-tb-on body #okla-v61-drawer.is-open:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transform:none}
   /* Katalog: the title over the gradient, the categories in a white block */
   html.okla-tb-on body #okla-v61-drawer .okla-tb-cats-title{
-    margin:0!important;padding:24px 20px 14px!important;font:800 22px/1.25 "Exo 2",Arial,sans-serif!important;color:#0d356b!important;
+    margin:0!important;padding:24px 20px 14px!important;font:800 22px/1.25 "Open Sans",Arial,sans-serif!important;color:#0d356b!important;
     text-transform:none!important;letter-spacing:-.2px!important;border:0!important;background:transparent!important;
   }
   /* the same space under the top in both panels: 24px to the first thing (Katalog's title, Menu's sign-in block) */

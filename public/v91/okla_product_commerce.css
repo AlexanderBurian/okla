@@ -175,7 +175,7 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
  background-image:none!important;
  color:#fff!important;
  -webkit-text-fill-color:#fff!important;
- font:600 15px/1.2 "Exo 2","Segoe UI",Arial,sans-serif!important;
+ font:600 15px/1.2 "Open Sans","Segoe UI",Arial,sans-serif!important;
  opacity:1!important;
  box-shadow:none!important;
  text-shadow:none!important;
@@ -329,11 +329,11 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
 html body #content#content .product:hover:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:hover){
  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;
  box-sizing:border-box!important;width:auto!important;min-width:0!important;max-width:100%!important;flex:0 0 auto!important;align-self:center!important;justify-self:center!important;
- height:38px!important;min-height:38px!important;max-height:38px!important;margin:0 auto!important;padding:0 20px!important;
+ height:34px!important;min-height:34px!important;max-height:34px!important;margin:0 auto!important;padding:0 18px 0 16px!important;
  border:0!important;border-radius:0!important;-webkit-border-radius:0!important;
  background:var(--okla-commerce-cart)!important;background-color:var(--okla-commerce-cart)!important;background-image:none!important;
  color:#fff!important;-webkit-text-fill-color:#fff!important;
- font:400 15px/1 "Exo 2","Segoe UI",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;
+ font:400 15px/1 "Open Sans","Segoe UI",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;
  box-shadow:none!important;text-shadow:none!important;transform:none!important;opacity:1!important;
  transition:background-color .15s ease!important;
 }
@@ -343,7 +343,12 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):disabled{opacity:.55!important;cursor:not-allowed!important}
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) svg,
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) i{display:none!important}
-html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button)::before,
+/* the cart pictogram is drawn by CSS (a mask in the label colour), so it is there from the first paint and never
+   changes the button's width */
+html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button)::before{
+ content:""!important;display:block!important;position:static!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin:0 7px 0 0!important;padding:0!important;
+ border:0!important;background:currentColor!important;background-image:none!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;transform:none!important;opacity:1!important;
+}
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button)::after{content:none!important;display:none!important}
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) :is(span,strong,b){
  display:inline!important;position:static!important;margin:0!important;padding:0!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:inherit!important;
@@ -352,7 +357,7 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{text-align:center!important}
 @media(max-width:767px){
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button),
- html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled){height:34px!important;min-height:34px!important;max-height:34px!important;padding:0 16px!important;font-size:13px!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled){height:30px!important;min-height:30px!important;max-height:30px!important;padding:0 14px 0 12px!important;font-size:13px!important}
 }
 /* the same colours as the reference: red price, amber stars, dark navy name */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .price-final,
@@ -371,3 +376,11 @@ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#o
 html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):not(:disabled):is(:hover,:focus-visible,:active){background:var(--okla-commerce-cart-hover)!important}
 html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) :is(span,strong,b,small){color:#fff!important;-webkit-text-fill-color:#fff!important}
 html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) svg{display:none!important}
+html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d)::before{
+ content:""!important;display:block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin:0 7px 0 0!important;
+ background:currentColor!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;
+}
+/* phones: the drawer's two big buttons keep their labels on one line in Open Sans */
+@media(max-width:767px){
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d){font-size:14px!important;white-space:nowrap!important;padding-left:8px!important;padding-right:8px!important}
+}

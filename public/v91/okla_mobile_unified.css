@@ -4,7 +4,7 @@
 :root{--okm-blue:#174f96;--okm-ink:#082f62;--okm-pale:#eff8ff}
 html{scroll-padding-top:126px!important}
 html,body{max-width:100%!important;overflow-x:clip!important}
-body{min-width:0!important;margin:0!important;background:#fff!important;padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))!important;font-family:"Exo 2","Segoe UI",Arial,sans-serif!important}
+body{min-width:0!important;margin:0!important;background:#fff!important;padding-bottom:calc(74px + env(safe-area-inset-bottom,0px))!important;font-family:"Open Sans","Segoe UI",Arial,sans-serif!important}
 body.okla-v61-locked{overflow:hidden!important}
 body .overall-wrapper,body .overall-wrapper>.container{max-width:100%!important;min-width:0!important}
 body #header{position:sticky!important;top:0!important;z-index:240!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;background:linear-gradient(180deg,#e5f5ff 0%,#f0f9ff 65%,#f9fcff 100%)!important;box-shadow:0 2px 7px rgba(12,40,70,.06)!important}
@@ -18,7 +18,7 @@ body #header #okla-v61-header{display:block!important;width:100%!important;max-w
 #okla-v61-header .okm61-search .search,#okla-v61-header .okm61-search form,#okla-v61-header .okm61-search .search-form{border:0!important;background:transparent!important}
 #okla-v61-header .okm61-search fieldset{border:1px solid #d2deeb!important;border-radius:25px!important;background:#fff!important;overflow:hidden!important}
 #okla-v61-header .okm61-search fieldset::before,#okla-v61-header .okm61-search fieldset::after{content:none!important;display:none!important}
-#okla-v61-header .okm61-search input.query-input,#okla-v61-header .okm61-search input[type=search],#okla-v61-header .okm61-search input[type=text]{display:block!important;position:relative!important;flex:1 1 auto!important;order:2!important;width:0!important;min-width:0!important;max-width:none!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0 14px 0 0!important;border:0!important;border-radius:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;font:400 15px/1.3 "Exo 2","Segoe UI",Arial,sans-serif!important;color:#203d5c!important;appearance:none!important}
+#okla-v61-header .okm61-search input.query-input,#okla-v61-header .okm61-search input[type=search],#okla-v61-header .okm61-search input[type=text]{display:block!important;position:relative!important;flex:1 1 auto!important;order:2!important;width:0!important;min-width:0!important;max-width:none!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0 14px 0 0!important;border:0!important;border-radius:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;font:400 15px/1.3 "Open Sans","Segoe UI",Arial,sans-serif!important;color:#203d5c!important;appearance:none!important}
 #okla-v61-header .okm61-search input::placeholder{color:#9aa5b3!important;opacity:1!important}
 #okla-v61-header .okm61-search button[type=submit]{display:grid!important;position:relative!important;order:1!important;place-items:center!important;flex:0 0 52px!important;width:52px!important;min-width:52px!important;max-width:52px!important;height:46px!important;min-height:46px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;color:#1b528e!important;font-size:0!important;box-shadow:none!important;transform:none!important;cursor:pointer!important}
 #okla-v61-header .okm61-search button[type=submit]::before,#okla-v61-header .okm61-search button[type=submit]::after{content:none!important;display:none!important}
@@ -45,11 +45,11 @@ body.type-index #content-wrapper main#content{display:block!important;float:none
 #content #okla-v61-dots button[aria-current=true]{background:#008fd8!important}
 #content #okla-v61-categories{position:relative!important;display:block!important;clear:both!important;width:100%!important;max-width:100%!important;margin:0 0 22px!important;padding:0!important;float:none!important}
 #okla-v61-categories .okm61-category-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
-#okla-v61-categories .okm61-category{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:9px!important;min-width:0!important;min-height:61px!important;padding:9px!important;border:1px solid #e0e6ef!important;border-radius:8px!important;box-shadow:0 1px 4px rgba(9,37,72,.045)!important;background:#fff!important;color:#143252!important;text-decoration:none!important;font:600 12px/1.32 "Exo 2","Segoe UI",Arial,sans-serif!important}
+#okla-v61-categories .okm61-category{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:9px!important;min-width:0!important;min-height:61px!important;padding:9px!important;border:1px solid #e0e6ef!important;border-radius:8px!important;box-shadow:0 1px 4px rgba(9,37,72,.045)!important;background:#fff!important;color:#143252!important;text-decoration:none!important;font:600 12px/1.32 "Open Sans","Segoe UI",Arial,sans-serif!important}
 #okla-v61-categories .okm61-category-icon{display:grid!important;place-items:center!important;flex:0 0 28px!important;width:28px!important;height:28px!important;color:#144b86!important}
 #okla-v61-categories .okm61-category-icon svg{display:block!important;width:25px!important;height:25px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.85!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 #okla-v61-categories .okm61-category-label{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;min-width:0!important}
-#okla-v61-categories .okm61-category-more{display:flex!important;justify-content:center!important;align-items:center!important;gap:7px!important;width:100%!important;margin:8px 0 0!important;padding:9px!important;border:0!important;background:transparent!important;color:#1b6fa8!important;font:700 12px "Exo 2",Arial,sans-serif!important}
+#okla-v61-categories .okm61-category-more{display:flex!important;justify-content:center!important;align-items:center!important;gap:7px!important;width:100%!important;margin:8px 0 0!important;padding:9px!important;border:0!important;background:transparent!important;color:#1b6fa8!important;font:700 12px "Open Sans",Arial,sans-serif!important}
 #okla-v61-categories:not(.is-expanded) .okm61-category:nth-child(n+9){display:none!important}
 #content .homepage-group-title.okla-slider-heading{clear:both!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;width:100%!important;margin:24px 0 14px!important;font-size:20px!important;font-weight:800!important;line-height:1.3!important;color:#072e5e!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more{font-size:12px!important}
@@ -75,7 +75,7 @@ body.type-index #content-wrapper main#content{display:block!important;float:none
 #content .okla-slider-shell .okla-slider-track .price-final strong{display:block!important;width:100%!important;font-size:18px!important;line-height:28px!important;color:#0b3671!important;font-weight:800!important;white-space:nowrap!important;letter-spacing:-.2px!important}
 #content .okla-slider-shell .okla-slider-track .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:11px 0 0!important;min-height:43px!important}
 #content .okla-slider-shell .okla-slider-track .p-tools form{width:100%!important;margin:0!important}/* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed */
-#content .okm61-product-more{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;min-height:38px!important;margin:8px 0 25px!important;padding:4px!important;border:0!important;border-bottom:1px solid #e2e8f1!important;border-radius:0!important;background:#fff!important;color:#126da8!important;font:700 12px "Exo 2",Arial,sans-serif!important;cursor:pointer!important}
+#content .okm61-product-more{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;min-height:38px!important;margin:8px 0 25px!important;padding:4px!important;border:0!important;border-bottom:1px solid #e2e8f1!important;border-radius:0!important;background:#fff!important;color:#126da8!important;font:700 12px "Open Sans",Arial,sans-serif!important;cursor:pointer!important}
 #content .okm61-product-more svg{width:16px!important;height:16px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
 #content #okla-warranty-strip{position:relative!important;left:auto!important;right:auto!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;width:calc(100% + 28px)!important;min-width:0!important;max-width:none!important;min-height:0!important;margin:23px -14px 25px!important;padding:20px 10px!important}
 #content #okla-warranty-strip .okla-warranty-intro{padding:0 10px!important}
@@ -83,7 +83,7 @@ body.type-index #content-wrapper main#content{display:block!important;float:none
 #content #okla-news-v55 .okn-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
 #content #okla-news-v55 .okn-card,#content #okla-news-v55 .okn-card:nth-child(-n+2){grid-column:1/-1!important}
 #okla-v61-bottom{display:grid!important;position:fixed!important;bottom:0!important;left:0!important;right:0!important;z-index:400!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;height:calc(68px + env(safe-area-inset-bottom,0px))!important;padding:4px 0 env(safe-area-inset-bottom,0px)!important;border-top:1px solid #e4e8ed!important;background:#fff!important;box-shadow:0 -3px 10px rgba(4,23,43,.07)!important}
-#okla-v61-bottom .okm61-bottom-action{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:4px!important;min-width:0!important;height:59px!important;margin:0!important;padding:2px!important;border:0!important;border-radius:0!important;background:transparent!important;text-decoration:none!important;color:#636b75!important;cursor:pointer!important;font:500 10.5px/1.1 "Exo 2",Arial,sans-serif!important}
+#okla-v61-bottom .okm61-bottom-action{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:column!important;gap:4px!important;min-width:0!important;height:59px!important;margin:0!important;padding:2px!important;border:0!important;border-radius:0!important;background:transparent!important;text-decoration:none!important;color:#636b75!important;cursor:pointer!important;font:500 10.5px/1.1 "Open Sans",Arial,sans-serif!important}
 #okla-v61-bottom .okm61-bottom-action svg{display:block!important;width:25px!important;height:25px!important;stroke:currentColor!important;stroke-width:1.9!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 #okla-v61-bottom .okm61-bottom-action.is-active{color:#184e96!important;font-weight:800!important}
 #okla-v61-bottom .okm61-bottom-action.is-active svg{stroke-width:2.15!important}
@@ -105,7 +105,7 @@ body.type-index #content-wrapper main#content{display:block!important;float:none
 #okla-v61-drawer.is-open .okm61-drawer-panel{transform:translateX(0)!important}
 #okla-v61-drawer .okm61-drawer-body{padding:0 0 24px!important}
 #okla-v61-drawer .okm61-drawer-list{display:block!important}
-#okla-v61-drawer .okm61-cat-row{display:flex!important;align-items:center!important;gap:16px!important;position:relative!important;width:100%!important;min-height:66px!important;padding:14px 16px 14px 22px!important;border:0!important;border-bottom:1px solid #edf1f6!important;background:#fff!important;color:#1b2330!important;text-decoration:none!important;font:600 15.5px/1.3 "Exo 2","Segoe UI",Arial,sans-serif!important}
+#okla-v61-drawer .okm61-cat-row{display:flex!important;align-items:center!important;gap:16px!important;position:relative!important;width:100%!important;min-height:66px!important;padding:14px 16px 14px 22px!important;border:0!important;border-bottom:1px solid #edf1f6!important;background:#fff!important;color:#1b2330!important;text-decoration:none!important;font:600 15.5px/1.3 "Open Sans","Segoe UI",Arial,sans-serif!important}
 /* Use the visible drawer as the source of truth through its exit animation. */
 body:has(>#okla-v61-drawer:not([hidden])) :is(#header,#okla-v69-floating,.top-navigation-bar){
   opacity:0!important;visibility:hidden!important;pointer-events:none!important;
@@ -297,14 +297,14 @@ body.type-index #content .okla-slider-shell .product .p>a.image img{position:sta
 body.type-index #content .okla-slider-shell .product .p-in,
 body.type-index #content .okla-slider-shell .product .p-in-in{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:1 1 auto!important;float:none!important;min-width:0!important;width:100%!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
 body.type-index #content .okla-slider-shell .product .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 21px!important;width:100%!important;min-width:0!important;height:21px!important;min-height:21px!important;max-height:21px!important;margin:0 0 5px!important;padding:0!important;font-size:10px!important;line-height:21px!important;white-space:nowrap!important;overflow:hidden!important}
-body.type-index #content .okla-slider-shell .product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;flex:0 0 43px!important;width:100%!important;min-height:43px!important;height:43px!important;max-height:43px!important;margin:0 0 5px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font:500 13px/21.5px "Exo 2","Segoe UI",Arial,sans-serif!important;color:#102e5f!important}
+body.type-index #content .okla-slider-shell .product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;flex:0 0 43px!important;width:100%!important;min-height:43px!important;height:43px!important;max-height:43px!important;margin:0 0 5px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font:500 13px/21.5px "Open Sans","Segoe UI",Arial,sans-serif!important;color:#102e5f!important}
 body.type-index #content .okla-slider-shell .product .availability{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;width:100%!important;min-height:27px!important;height:27px!important;max-height:27px!important;margin:0 0 8px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font-size:10px!important;line-height:13px!important}
 body.type-index #content .okla-slider-shell .product .p-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-end!important;flex:0 0 auto!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:auto 0 0!important;padding:0!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important}
 body.type-index #content .okla-slider-shell .product .p-bottom>div{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
 body.type-index #content .okla-slider-shell .product .prices{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;flex:0 0 82px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:82px!important;min-height:82px!important;max-height:82px!important;margin:0!important;padding:0!important;border:0!important;border-radius:5px!important;box-shadow:none!important;background:#eef6fc!important;overflow:hidden!important;transform:none!important}
 body.type-index #content .okla-slider-shell .product .prices::before{content:"NOVINKA"!important;position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 30px!important;width:100%!important;min-height:30px!important;height:30px!important;max-height:30px!important;margin:0!important;padding:0!important;background:#0b336c!important;color:#fff!important;line-height:30px!important;font-size:11px!important;font-weight:750!important;letter-spacing:.2px!important}
 body.type-index #content .okla-slider-shell .product .price-final{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 52px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:52px!important;height:52px!important;max-height:52px!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;overflow:hidden!important}
-body.type-index #content .okla-slider-shell .product .price-final strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;white-space:nowrap!important;font:800 20px/27px "Exo 2","Segoe UI",Arial,sans-serif!important;color:#0a346c!important;letter-spacing:-.35px!important}
+body.type-index #content .okla-slider-shell .product .price-final strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;white-space:nowrap!important;font:800 20px/27px "Open Sans","Segoe UI",Arial,sans-serif!important;color:#0a346c!important;letter-spacing:-.35px!important}
 body.type-index #content .okla-slider-shell .product .p-tools{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex:0 0 53px!important;float:none!important;box-sizing:border-box!important;width:calc(100% + 22px)!important;max-width:none!important;min-width:0!important;min-height:53px!important;height:53px!important;max-height:53px!important;margin:10px -11px 0!important;padding:0 11px!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;border-top:1px solid #e9edf1!important;background:#fff!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
 body.type-index #content .okla-slider-shell .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}/* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed */
 }
@@ -337,7 +337,7 @@ max-height:22px!important;gap:3px!important;padding:0!important;margin:0 0 6px!i
 body.type-index #content .product .okv73-rating-placeholder{
 display:inline-flex!important;align-items:center!important;justify-content:center!important;
 gap:5px!important;width:100%!important;max-width:100%!important;min-width:0!important;
-color:#8a95a3!important;font:400 9px/15px "Exo 2",Arial,sans-serif!important;
+color:#8a95a3!important;font:400 9px/15px "Open Sans",Arial,sans-serif!important;
 white-space:nowrap!important;overflow:hidden!important
 }
 body.type-index #content .product .okv73-rating-stars{
@@ -390,7 +390,7 @@ body.type-index #content #okla-v74-more{
 display:flex!important;align-items:center!important;justify-content:center!important;
 gap:7px!important;width:100%!important;min-height:42px!important;margin:12px 0 25px!important;
 padding:9px 12px!important;border:0!important;border-radius:4px!important;
-background:transparent!important;color:#125e97!important;font:700 13px/1.35 "Exo 2",Arial,sans-serif!important;
+background:transparent!important;color:#125e97!important;font:700 13px/1.35 "Open Sans",Arial,sans-serif!important;
 text-align:center!important;cursor:pointer!important}
 body.type-index #content #okla-v74-more svg{display:block!important;width:16px!important;height:16px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
 body.type-index #content #okla-v74-more:hover{background:#f2f8ff!important}/* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed */
@@ -609,7 +609,7 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
     margin: 0 0 8px !important;
     padding: 0 !important;
     color: var(--okla-card-link) !important;
-    font-family: "Exo 2", "Segoe UI", Arial, sans-serif !important;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     line-height: 1.35 !important;
@@ -688,7 +688,7 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
     border-radius: 6px 6px 0 0 !important;
     background: var(--okla-card-navy) !important;
     color: #FFFFFF !important;
-    font-family: "Exo 2", "Segoe UI", Arial, sans-serif !important;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     line-height: 20px !important;
@@ -728,7 +728,7 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
     margin: 0 !important;
     padding: 0 !important;
     color: var(--okla-card-navy) !important;
-    font-family: "Exo 2", "Segoe UI", Arial, sans-serif !important;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
     font-size: 24px !important;
     font-weight: 800 !important;
     line-height: 1.2 !important;
@@ -798,7 +798,7 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
     background-image: none !important;
     box-shadow: none !important;
     color: var(--okla-card-cart) !important;
-    font-family: "Exo 2", "Segoe UI", Arial, sans-serif !important;
+    font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     line-height: 1.3 !important;

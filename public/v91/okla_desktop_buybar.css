@@ -4,15 +4,15 @@
    gallery stays in view while the right-hand column is scrolled. */
 .okla-dbb{display:none}
 @media(min-width:992px){
-  .okla-dbb{display:block;position:fixed;top:0;bottom:auto;left:0;right:0;z-index:850;background:#fff;box-shadow:0 1px 0 rgba(22,71,139,.06),0 6px 18px rgba(18,41,68,.10);transform:translateY(-105%);transition:transform .22s ease;font-family:"Exo 2",Arial,sans-serif}
+  .okla-dbb{display:block;position:fixed;top:0;bottom:auto;left:0;right:0;z-index:850;background:#fff;box-shadow:0 1px 0 rgba(22,71,139,.06),0 6px 18px rgba(18,41,68,.10);transform:translateY(-105%);transition:transform .22s ease;font-family:"Open Sans",Arial,sans-serif}
   .okla-dbb[hidden]{display:none}
   .okla-dbb.is-on{transform:none}
   .okla-dbb__inner{display:flex;align-items:center;gap:18px;box-sizing:border-box;height:72px;padding:0 4px}
   .okla-dbb__pic{flex:0 0 52px;width:52px;height:52px;display:grid;place-items:center;border-radius:10px;background:#fff;overflow:hidden}
   .okla-dbb__pic img{max-width:100%;max-height:100%;object-fit:contain}
   .okla-dbb__info{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:4px}
-  .okla-dbb__name{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:700 16px/1.25 "Exo 2",Arial,sans-serif;color:#0b2540}
-  .okla-dbb__meta{display:flex;align-items:center;gap:10px;min-width:0;font:500 13px/1.2 "Exo 2",Arial,sans-serif;color:#56657a;white-space:nowrap}
+  .okla-dbb__name{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font:700 16px/1.25 "Open Sans",Arial,sans-serif;color:#0b2540}
+  .okla-dbb__meta{display:flex;align-items:center;gap:10px;min-width:0;font:500 13px/1.2 "Open Sans",Arial,sans-serif;color:#56657a;white-space:nowrap}
   .okla-dbb__stars{display:inline-flex;gap:2px}
   .okla-dbb__star{width:15px;height:15px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23dfe5ec%22%2F%3E%3C%2Fsvg%3E") center/15px 15px no-repeat}
   .okla-dbb__star.is-on{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%2F%3E%3C%2Fsvg%3E")}
@@ -20,8 +20,8 @@
   .okla-dbb__stock{font-weight:700}
   .okla-dbb__stock.is-in{color:#1b7a3d}
   .okla-dbb__stock.is-out{color:#d00000}
-  .okla-dbb__price{flex:0 0 auto;font:800 24px/1 "Exo 2",Arial,sans-serif;color:#e30613;letter-spacing:-.3px;white-space:nowrap}
-  .okla-dbb__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:46px;padding:0 24px;border:1px solid #66d400;border-radius:12px;background:#66d400;color:#000;font:700 15px/1 "Exo 2",Arial,sans-serif;cursor:pointer;transition:background-color .15s ease}
+  .okla-dbb__price{flex:0 0 auto;font:800 24px/1 "Open Sans",Arial,sans-serif;color:#e30613;letter-spacing:-.3px;white-space:nowrap}
+  .okla-dbb__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;height:46px;padding:0 24px;border:1px solid #66d400;border-radius:12px;background:#66d400;color:#000;font:700 15px/1 "Open Sans",Arial,sans-serif;cursor:pointer;transition:background-color .15s ease}
   .okla-dbb__btn:hover,.okla-dbb__btn:focus-visible{background:#5bbd00;border-color:#5bbd00}
   .okla-dbb__btn.is-watch{background:#fff;border-color:#168bd2;color:#16478b}
   .okla-dbb__btn.is-watch:hover{background:#eef6fd}

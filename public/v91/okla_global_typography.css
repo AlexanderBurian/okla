@@ -1,7 +1,7 @@
 /* OKLA V91: one consistent typeface across the storefront.
-   Exo 2 is the OKLA typeface used by the footer and is applied sitewide.
+   Open Sans is the OKLA typeface used by the footer and is applied sitewide.
    Leave SVG and icon-font glyphs alone. */
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 html body,
 html body #header,
@@ -11,13 +11,19 @@ html body #okla-footer-shell,
 html body .okla-about,
 html body .oka-contact,
 html body .okla-rich{
-  font-family:'Exo 2',Arial,sans-serif!important;
+  font-family:'Open Sans',Arial,sans-serif!important;
 }
 html body *:not(svg):not(.fa):not(.fas):not(.far):not(.fab):not(.material-icons):not(.material-symbols-outlined):not([class^="icon-"]):not([class*=" icon-"]):not([class^="shp-icon"]):not([class*=" shp-icon"]){
-  font-family:'Exo 2',Arial,sans-serif!important;
+  font-family:'Open Sans',Arial,sans-serif!important;
 }
 html body :is(input,textarea,select,button)::placeholder{
-  font-family:'Exo 2',Arial,sans-serif!important;
+  font-family:'Open Sans',Arial,sans-serif!important;
+}
+/* Sections whose styles live in the shop's own HTML (the homepage "Novinky" block, the warranty box) name the old
+   typeface with ID selectors - they get Open Sans too. */
+html body #content#content#content :is([class^="okn-"],[class*=" okn-"],[class^="okla-warranty"],[class*=" okla-warranty"]),
+html body #content#content#content :is([class^="okn-"],[class*=" okn-"],[class^="okla-warranty"],[class*=" okla-warranty"]) *:not(svg){
+  font-family:'Open Sans',Arial,sans-serif!important;
 }
 /* Explicitly counter old, more-specific Roboto / Segoe declarations. */
 html body .okla-about :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
@@ -26,7 +32,7 @@ html body .okla-rich :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
 html body #okla-footer-shell :is(h1,h2,h3,h4,h5,h6,p,a,button,span,div),
 html body #content .products-block .product :is(a,button,span,strong),
 html body #content .okla-slider-shell .product :is(a,button,span,strong){
-  font-family:'Exo 2',Arial,sans-serif!important;
+  font-family:'Open Sans',Arial,sans-serif!important;
 }
 /* Restrict the black text override to CTAs confirmed to have green backgrounds.
    Do not recolor OKLA's blue add-to-cart buttons. */

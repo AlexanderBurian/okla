@@ -53,7 +53,7 @@
  }
 
  var CSS=''
-  +'.okla-hsearch{position:relative;width:100%;margin:0 0 16px;font-family:"Exo 2",Arial,sans-serif}'
+  +'.okla-hsearch{position:relative;width:100%;margin:0 0 16px;font-family:"Open Sans",Arial,sans-serif}'
   +'@media(min-width:768px){.okla-hsearch{display:none!important}}'
   +'.okla-hsearch__form{display:flex;align-items:center;gap:10px;width:100%;max-width:680px;margin:0 auto;box-sizing:border-box;height:52px;padding:0 8px 0 16px;background:#fff;border:1px solid #e1e8f1;border-radius:12px;box-shadow:0 4px 16px rgba(18,41,68,.08)}'
   +'.okla-hsearch__form:focus-within{border-color:#0074e8;box-shadow:0 4px 18px rgba(0,116,232,.16)}'
@@ -61,9 +61,9 @@
   +'html body .okla-hsearch .okla-hsearch__in:is(:focus,:focus-visible,:active){outline:none!important;box-shadow:none!important;border:0!important}'
   +'.okla-hsearch__ic{flex:0 0 22px;width:22px;height:22px;color:#64748b}'
   +'.okla-hsearch__ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}'
-  +'.okla-hsearch__in{flex:1 1 auto;min-width:0;height:100%;border:0!important;outline:none!important;box-shadow:none!important;background:transparent;color:#1a1a1a;font:400 16px/1.2 "Exo 2",Arial,sans-serif}'
+  +'.okla-hsearch__in{flex:1 1 auto;min-width:0;height:100%;border:0!important;outline:none!important;box-shadow:none!important;background:transparent;color:#1a1a1a;font:400 16px/1.2 "Open Sans",Arial,sans-serif}'
   +'.okla-hsearch__in::placeholder{color:#8a97a8}'
-  +'.okla-hsearch__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border:0;border-radius:9px;background:#0074e8;color:#fff;font:700 14px/1 "Exo 2",Arial,sans-serif;cursor:pointer}'
+  +'.okla-hsearch__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border:0;border-radius:9px;background:#0074e8;color:#fff;font:700 14px/1 "Open Sans",Arial,sans-serif;cursor:pointer}'
   +'.okla-hsearch__btn:hover{background:#0068d1}'
   +'.okla-hsearch__res{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;box-sizing:border-box;width:100%;max-width:680px;margin:0 auto;background:#fff;border:1px solid #e6ecf4;border-radius:12px;box-shadow:0 14px 34px rgba(18,41,68,.16);overflow:hidden;max-height:70vh;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}'
   +'.okla-hsearch__res.is-open{display:block}'
@@ -72,11 +72,11 @@
   +'.okla-hsearch__item:active{background:#f7faff}'
   +'.okla-hsearch__thumb{flex:0 0 46px;width:46px;height:46px;border-radius:8px;object-fit:contain;background:#fff;border:1px solid #eef1f5}'
   +'.okla-hsearch__meta{flex:1 1 auto;min-width:0}'
-  +'.okla-hsearch__name{display:block;color:#1a1a1a;font:600 14px/1.3 "Exo 2",Arial,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}'
-  +'.okla-hsearch__price{flex:0 0 auto;color:#d92b20;font:700 14px/1 "Exo 2",Arial,sans-serif;white-space:nowrap}'
-  +'.okla-hsearch__all{display:block;padding:13px 14px;text-align:center;text-decoration:none;color:#0074e8;background:#fff;border-top:1px solid #eef1f5;font:700 13px/1 "Exo 2",Arial,sans-serif;cursor:pointer}'
+  +'.okla-hsearch__name{display:block;color:#1a1a1a;font:600 14px/1.3 "Open Sans",Arial,sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}'
+  +'.okla-hsearch__price{flex:0 0 auto;color:#d92b20;font:700 14px/1 "Open Sans",Arial,sans-serif;white-space:nowrap}'
+  +'.okla-hsearch__all{display:block;padding:13px 14px;text-align:center;text-decoration:none;color:#0074e8;background:#fff;border-top:1px solid #eef1f5;font:700 13px/1 "Open Sans",Arial,sans-serif;cursor:pointer}'
   +'.okla-hsearch__all:active{background:#f4f7fb}'
-  +'.okla-hsearch__empty{padding:16px 14px;text-align:center;color:#555;font:500 13px/1.4 "Exo 2",Arial,sans-serif}'
+  +'.okla-hsearch__empty{padding:16px 14px;text-align:center;color:#555;font:500 13px/1.4 "Open Sans",Arial,sans-serif}'
   +'@media(max-width:767px){.okla-hsearch{margin:2px 0 14px}.okla-hsearch__form{height:48px;padding:0 6px 0 14px}.okla-hsearch__btn{height:38px;padding:0 14px;font-size:13px}}';
 
  var MAG='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>';
