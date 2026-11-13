@@ -3,7 +3,7 @@
    outline: filled actions darken very slightly, empty actions get a soft tint. */
 
 :root{
-  --okla-button-radius:10px;
+  --okla-button-radius:8px; /* the same 8px okla_cta_shape.js sets inline, so nothing changes when it runs */
   --okla-field-outline:#168bd2;
 }
 

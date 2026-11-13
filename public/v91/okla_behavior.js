@@ -298,9 +298,8 @@ function constrainCards(){
      b.style.setProperty('position','static','important');
      b.style.setProperty('float','none','important');
      b.style.setProperty('transform','none','important');
-     b.style.setProperty('width','100%','important');
+     /* its size comes from CSS (okla_product_commerce.css) - setting it here made it jump after load */
      b.style.setProperty('max-width','100%','important');
-     b.style.setProperty('display','inline-flex','important');
      b.style.setProperty('visibility','visible','important');
      b.style.setProperty('opacity','1','important');
      if(b.dataset.okm66Accessible!=='1'){

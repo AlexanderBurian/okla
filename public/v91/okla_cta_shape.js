@@ -8,6 +8,11 @@
  if(window.__oklaCtaShapeV1)return;window.__oklaCtaShapeV1=true;
 
  var RADIUS='8px';
+ /* The "Do košíku" in product previews (listing / carousel cards, the cart drawer's suggestions) is styled entirely
+    in CSS (okla_product_commerce.css: square corners, no icon, a fixed size), so this script leaves it alone - setting
+    its size or adding an icon after load is what made it jump in width. */
+ var CARD_SEL='.product .p-tools .btn-cart,.product .p-tools .add-to-cart-button,#okla-cart-drawer .okla-cd__card-btn';
+ function isCard(b){return b.matches(CARD_SEL)&&!b.closest('#product-detail-form')}
  /* every button gets the same corner */
  var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track,.btn:not(.okla-hsearch__btn),.okla-hero__cta,.okla-warranty-button,.okn-button,.okla-promo-btn,.oka-c-btn,.ohb-btn,.okla-social-btn,.okla-os-lookup__btn,.okla-rk__submit,#okla-cart-drawer .okla-cd__btn,.loadMore__button,.okla-lang-pill';
  /* only the real add-to-cart buttons get the cart icon */
@@ -67,11 +72,12 @@
   try{
    filterBlue();
    document.querySelectorAll(RADIUS_SEL).forEach(function(b){
-    if(b.closest('#okla-v61-bottom,#okla-v61-drawer .okm61-drawer-close'))return;
+    if(isCard(b)||b.closest('#okla-v61-bottom,#okla-v61-drawer .okm61-drawer-close'))return;
     b.style.setProperty('border-radius',RADIUS,'important');
     b.style.setProperty('-webkit-border-radius',RADIUS,'important');
    });
    document.querySelectorAll(ICON_SEL).forEach(function(b){
+    if(isCard(b))return;
     var drawerPrimary=!!b.matches('#okla-cart-drawer .okla-cd__btn--primary');
     /* phones: "Pokračovat do košíku" does not fit one line beside the icon - the label alone, centred
        (okla_cart_drawer.css hides the icon there) */
@@ -92,22 +98,6 @@
     for(var i=0;i<svgs.length;i++){if(!svgs[i].classList.contains('okla-cta-cart'))svgs[i].style.setProperty('display','none','important')}
     var cart=cartSvg();if(drawerPrimary)cart.style.setProperty('margin','0','important');if(phoneDrawer)cart.style.setProperty('display','none','important');b.insertBefore(cart,b.firstChild);
    });
-   /* Phones: the product "Do košíku" button a touch wider (so the cart icon +
-      label sit comfortably) and the whole thing a touch shorter. */
-   var mobile=!window.matchMedia||window.matchMedia('(max-width:767px)').matches;
-   if(mobile){
-    document.querySelectorAll('.product .btn-cart,.product .add-to-cart-button').forEach(function(b){
-     b.style.setProperty('width','140px','important');
-     b.style.setProperty('max-width','100%','important');
-     b.style.setProperty('min-width','0','important');
-     b.style.setProperty('height','36px','important');
-     b.style.setProperty('min-height','36px','important');
-     b.style.setProperty('padding-top','0','important');
-     b.style.setProperty('padding-bottom','0','important');
-     var ic=b.querySelector(':scope > svg.okla-cta-cart');
-     if(ic){ic.style.setProperty('width','16px','important');ic.style.setProperty('height','16px','important');ic.style.setProperty('min-width','16px','important');ic.style.setProperty('margin','0 6px 0 0','important');}
-    });
-   }
   }catch(e){}
   busy=false;
  }
