@@ -118,3 +118,27 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
   html body.type-index #content .okla-hero__dots:not(#okhb-a) button[aria-current="true"]{flex-basis:42px;width:42px;background:#aeb7c3}
   html body.type-index #content .okla-hero__dots:not(#okhb-a) button:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 }
+/* PC: a much taller hero (like on phones the banner fills the view), the product kept in sight on the right, bigger
+   text and button, and a much bigger slider control under it */
+@media (min-width:768px){
+  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:5/2!important;border-radius:8px!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-size:cover!important;background-position:74% center!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--endo .okla-hero__media{background-position:right 9% center,center!important;background-size:auto 90%,cover!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__text{width:46%!important;padding:0 4% 0 5%!important;gap:12px!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__title{font-size:44px!important;line-height:1.1!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__lead{font-size:18px!important;line-height:1.45!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__cta{height:48px!important;padding:0 28px!important;margin-top:10px!important;border-radius:24px!important;font-size:16px!important}
+  html body.type-index #content .okla-hero__dots:not(#okhb-a){gap:12px!important;margin-top:18px!important;margin-bottom:0!important;min-height:14px!important}
+  html body.type-index #content .okla-hero__dots:not(#okhb-a) button{flex:0 0 14px!important;width:14px!important;height:14px!important;background:#c7ced8!important}
+  html body.type-index #content .okla-hero__dots:not(#okhb-a) button[aria-current="true"]{flex-basis:64px!important;width:64px!important;background:#0858d6!important}
+}
+@media (min-width:768px){
+  /* the slot grows with the taller hero (no fixed height left from the old layout) */
+  html body.type-index #content#content .banners-row:not(#okhb-a#okhb-b),
+  html body.type-index #content#content .banners-row>.col-sm-8:not(#okhb-a#okhb-b),
+  html body.type-index #content#content .banners-row #carousel:not(#okhb-a#okhb-b),
+  html body.type-index #content#content .banners-row #carousel .carousel-inner:not(#okhb-a#okhb-b){height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important}
+  /* 3:1 keeps the whole product in the picture (the PC photos are 1818x374) */
+  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:3/1!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-position:90% center!important}
+}

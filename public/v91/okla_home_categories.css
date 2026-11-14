@@ -58,3 +58,18 @@ html body.type-index #content #okla-cat-circles:not(#okcc-a) .okcc-item:focus-vi
    the trial "Vítejte v našem obchodě" text and the latest-rating strip - they stay hidden */
 html body.type-index .overall-wrapper>.content-wrapper.homepage-box.welcome-wrapper:not(#okcc-a),
 html body.type-index .overall-wrapper>.content-wrapper.latest-contribution-box:not(#okcc-a){display:none!important}
+/* PC homepage: one vertical rhythm - 56px between the blocks, a section heading 18px above its products */
+@media(min-width:992px){
+  html body.type-index #content#content>*:not(#okgap-a#okgap-b#okgap-c){margin-top:56px!important;margin-bottom:0!important}
+  html body.type-index #content#content>.banners-row:not(#okgap-a#okgap-b#okgap-c){margin-top:20px!important}
+  html body.type-index #content#content>#okla-cat-circles:not(#okgap-a#okgap-b#okgap-c){margin-top:40px!important}
+  html body.type-index #content#content>.homepage-group-title:not(#okgap-a#okgap-b#okgap-c){margin-bottom:18px!important}
+  html body.type-index #content#content>.homepage-group-title+*:not(#okgap-a#okgap-b#okgap-c){margin-top:0!important}
+  html body.type-index #content#content>h1:not(#okgap-a#okgap-b#okgap-c),
+  html body.type-index #content#content>.okla-hsearch:not(#okgap-a#okgap-b#okgap-c){margin:0!important}
+  html body.type-index #content#content>:last-child:not(#okgap-a#okgap-b#okgap-c){margin-bottom:56px!important}
+}
+@media(min-width:992px){
+  /* a product slider ends with ~42px of its own room under the cards: the next block needs less on top */
+  html body.type-index #content#content>.okla-slider-shell+*:not(#okgap-a#okgap-b#okgap-c){margin-top:16px!important}
+}
