@@ -41,3 +41,5 @@ html body #footer:not(#okf-a#okf-b#okf-c){background-color:transparent!important
   html body.type-index #content #okla-news-v55 .okn-heading:not(#okal-a#okal-b#okal-c){padding-left:5px!important}
   html body.type-index #content #okla-warranty:not(#okal-a#okal-b){padding-left:25px!important}
 }
+/* PC: the footer card with the same rounding as the content card above it (6px) */
+@media(min-width:768px){html body #footer #okla-footer-shell:not(#okfr-a#okfr-b#okfr-c){border-radius:6px!important}}
