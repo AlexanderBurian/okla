@@ -266,12 +266,12 @@
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
       @keyframes typing-pulse { 0%, 60%, 100% { opacity: .32; transform: scale(.82); } 30% { opacity: 1; transform: scale(1); } }
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-      @media (min-width: 467px) and (max-width: 767px) { .launcher { bottom: calc(80px + env(safe-area-inset-bottom)); width: 48px; height: 48px; } .launcher .launcher-search-icon { width: 22px; height: 22px; } }
+      @media (min-width: 467px) and (max-width: 767px) { .launcher { bottom: calc(74px + env(safe-area-inset-bottom)); width: 48px; height: 48px; } .launcher .launcher-search-icon { width: 22px; height: 22px; } }
       @media (max-width: 466px) {
         .launcher {
           /* Phones: the same round button, 20% smaller, bottom right above the bottom bar; it slides in from the right edge. */
           right: max(16px, env(safe-area-inset-right));
-          bottom: calc(80px + env(safe-area-inset-bottom));
+          bottom: calc(74px + env(safe-area-inset-bottom));
           width: 45px;
           height: 45px;
           opacity: 0;
