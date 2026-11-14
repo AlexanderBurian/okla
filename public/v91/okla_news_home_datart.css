@@ -1,24 +1,29 @@
-/* Homepage magazine "Co je u nás nového": three big picture cards. The title and date sit on a frosted plate at the
+/* Homepage magazine "Co je u nás nového": a slider of big picture cards, two at a time (phones: one with a peek). The title and date sit on a frosted plate at the
    bottom left of each picture (the plate reaches a little below it), a round arrow at the bottom right; under the
    cards one outlined pill "Přejít do magazínu". The article links, pictures and titles stay the native ones. */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){margin:40px 0 52px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{margin:0 0 26px!important;padding:0!important;color:#16181d!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.3px!important;text-transform:none!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important;width:100%!important;min-width:0!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-slider{position:relative!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{
+  display:flex!important;gap:20px!important;width:100%!important;min-width:0!important;overflow-x:auto!important;overflow-y:hidden!important;
+  scroll-snap-type:x mandatory!important;scroll-behavior:smooth!important;overscroll-behavior-x:contain!important;-webkit-overflow-scrolling:touch!important;
+  scrollbar-width:none!important;padding:0 0 2px!important;
+}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid::-webkit-scrollbar{display:none!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){
-  position:relative!important;display:block!important;grid-column:auto!important;min-width:0!important;margin:0 0 34px!important;padding:0!important;
+  position:relative!important;display:block!important;flex:0 0 calc((100% - 20px) / 2)!important;scroll-snap-align:start!important;min-width:0!important;margin:0 0 34px!important;padding:0!important;
   border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important;
 }
-/* three stories */
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n+4){display:none!important}
 /* the picture */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-image{
   position:relative!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:46/38!important;
   border:0!important;border-radius:14px!important;background:#0b0d12!important;overflow:hidden!important;
 }
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transition:transform .35s ease!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-image img{transform:scale(1.03)!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transition:transform .6s cubic-bezier(.2,.8,.2,1)!important}
+/* gentle hovers (as on the rest of the site): a slow small zoom, the title in the brand blue, the arrow a touch lighter */
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-image img{transform:scale(1.015)!important}
 /* the round arrow, bottom right */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-go{
   position:absolute!important;right:16px!important;bottom:16px!important;z-index:2!important;display:grid!important;place-items:center!important;
@@ -26,7 +31,7 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-go{
   transition:background-color .2s ease,color .2s ease!important;pointer-events:none!important;
 }
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-go svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-go{background:#fff!important;color:#0b2540!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-go{background:rgba(10,14,22,.42)!important}
 /* the frosted plate with the title and the date: bottom left, a little below the picture */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-body,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-body{
@@ -40,7 +45,8 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-chi
   display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:3!important;overflow:hidden!important;margin:0!important;
   color:#16181d!important;font:700 17px/1.4 "Open Sans",Arial,sans-serif!important;letter-spacing:.1px!important;text-decoration:none!important;
 }
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-title{text-decoration:underline!important;text-underline-offset:3px!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-title{transition:color .15s ease!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-title{color:#0858d6!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-date{margin:0!important;color:#6b6f76!important;font:600 12.5px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:.2px!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-date:empty{display:none!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-desc{display:none!important}
@@ -53,15 +59,28 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{
   transition:background-color .2s ease,color .2s ease!important;
 }
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button svg{width:16px!important;height:16px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:is(:hover,:focus-visible){background:#16181d!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
-/* tablets: two, then the third under them; phones: one under another */
-@media(max-width:991px){
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:is(:hover,:focus-visible){background:#f2f4f7!important;color:#16181d!important;-webkit-text-fill-color:#16181d!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:active{background:#e8ebf0!important}
+/* the slider arrows: the same blue tabs as the product sliders, at the picture's middle */
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav{
+  position:absolute!important;top:calc((100% - 34px) / 2)!important;z-index:5!important;display:grid!important;place-items:center!important;
+  width:26px!important;height:48px!important;min-height:0!important;margin:-24px 0 0!important;padding:0!important;border:0!important;
+  background:#0858d6!important;color:#fff!important;box-shadow:0 2px 8px rgba(0,0,0,.14)!important;cursor:pointer!important;transition:background-color .15s ease,opacity .2s ease!important;
 }
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav--prev{left:-14px!important;border-radius:0 6px 6px 0!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav--next{right:-14px!important;border-radius:6px 0 0 6px!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav:hover{background:#0749b3!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav svg{width:16px!important;height:16px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav[disabled]{opacity:0!important;pointer-events:none!important}
+/* tablets: two, then the third under them; phones: one under another */
+
 @media(max-width:680px){
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){margin:30px 0 40px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{margin-bottom:18px!important;font-size:22px!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{gap:12px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){flex-basis:86%!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-nav{display:none!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-body,
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-body{max-width:86%!important;padding:15px 18px 12px 16px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-title,
