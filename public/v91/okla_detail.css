@@ -458,9 +458,23 @@ html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.ok
 html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.okla-slider-shell{margin-bottom:0!important}
 html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.okla-slider-shell+.okla-slider-shell,
 html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.ok86-related-row2-heading+.okla-slider-shell{margin-top:4px!important}
-html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-viewport{padding-bottom:4px!important}
-html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-track{padding-bottom:6px!important}
-/* phones show the products as a grid (not a slider) - the first group only, so the section stays as long as before */
+/* room under the cards for the hover frame (.p::after reaches 28px below the card; the viewport clips) */
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-viewport{padding:10px 14px 46px!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-track{padding-bottom:0!important}
+/* phones: the two rows are real sliders too (the site turns sliders into a 2-column grid on phones; not here) -
+   two cards in view per row, swipe or the arrows move them */
 @media (max-width:767px){
-  html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.okla-slider-shell~.okla-slider-shell{display:none!important}
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell{position:relative!important}
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell .okla-slider-viewport{overflow:hidden!important;padding:8px 6px 14px!important}
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell .products.products-block.okla-slider-track{
+    display:flex!important;flex-wrap:nowrap!important;grid-template-columns:none!important;gap:12px!important;width:100%!important;align-items:stretch!important;
+  }
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell .products.products-block.okla-slider-track>.product{
+    /* display: the phone grid hides cards 5+ ("Zobrazit další"); in a slider every card takes part */
+    display:block!important;flex:0 0 var(--okla-card-width,calc((100% - 12px)/2))!important;width:var(--okla-card-width,calc((100% - 12px)/2))!important;max-width:none!important;
+  }
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell>.okla-slider-controls{
+    display:flex!important;position:absolute!important;inset:0 -14px!important;align-items:center!important;justify-content:space-between!important;pointer-events:none!important;z-index:30!important;
+  }
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell>.okla-slider-controls>button{pointer-events:auto!important;width:30px!important;height:48px!important}
 }
