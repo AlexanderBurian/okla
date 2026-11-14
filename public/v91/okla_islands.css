@@ -11,10 +11,11 @@
   html body #header:not(#okis-a#okis-b)>.container.navigation-wrapper{background:transparent!important;box-shadow:none!important}
   html:not(.okla-desktop-sticky) body #header:not(#okis-a#okis-b) .header-top>.search :is(input.query-input,form.search-form,fieldset){background-color:#fff!important}
   /* breadcrumbs on the grey page */
-  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){background:transparent!important;box-shadow:none!important;margin:0 auto!important}
+  /* the breadcrumbs are the top of the page's white island (the white runs up to them) */
+  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){background:#fff!important;box-shadow:none!important;margin:16px auto 0!important;border-radius:8px 8px 0 0!important;padding:8px 16px 0!important;box-sizing:border-box!important}
   /* the content: an island (rounded white card) on every page but the homepage */
   html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:16px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important;clip-path:none!important;overflow:hidden!important}
-  html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:0!important}
+  html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}
 
   /* ---- homepage: every block its own island ---- */
   html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b){background:transparent!important;border-radius:0!important;overflow:visible!important;margin-top:16px!important}
