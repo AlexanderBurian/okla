@@ -371,22 +371,35 @@
   if(q('.ok86-related')||!window.fetch||!window.DOMParser)return;
   var cat=breadcrumbCategory(),catHref=(cat&&cat.href)||p.categoryHref||categoryHref(p.defaultCategory)||'';
   var here=location.pathname,seen={},records=[];
-  function add(list){list.forEach(c=>{if(records.length<6&&c.url!==here&&!seen[c.url]){seen[c.url]=1;records.push(c)}})}
+  /* two rows of up to 6 products each */
+  var MAX=12;
+  function add(list){list.forEach(c=>{if(records.length<MAX&&c.url!==here&&!seen[c.url]){seen[c.url]=1;records.push(c)}})}
   var first=catHref?liveCards(catHref):Promise.resolve([]);
-  first.then(function(list){add(list);return records.length<6?liveCards('/').then(add):null}).then(function(){
+  first.then(function(list){add(list);return records.length<MAX?liveCards('/').then(add):null}).then(function(){
    if(!records.length||q('.ok86-related'))return;
    var sec=el('section','ok86-related');
    /* Same markup as the homepage slider (.okla-slider-*); the native loader's sliderFor() builds the shell, arrows,
       autoplay and swipe; okla_native_pages.js gives the cards the homepage look. */
    var heading=el('div','homepage-group-title h4 okla-slider-heading','Mohlo by vás zajímat');
    if(catHref)heading.setAttribute('data-category-url',catHref);
-   var group=el('div','products products-block');
-   records.forEach(r=>{var t=document.createElement('template');t.innerHTML=r.html.trim();var card=t.content.firstElementChild;if(card){delete card.dataset.oklaCardsDone;qa('img[data-src]',card).forEach(i=>{i.src=i.getAttribute('data-src');i.removeAttribute('data-src')});group.append(card)}});
+   function cardFrom(r){var t=document.createElement('template');t.innerHTML=r.html.trim();var card=t.content.firstElementChild;if(card){delete card.dataset.oklaCardsDone;qa('img[data-src]',card).forEach(i=>{i.src=i.getAttribute('data-src');i.removeAttribute('data-src')})}return card}
+   /* Two rows when there are enough products (8+): each row is its own slider with its own arrows; one heading. */
+   var split=records.length>=8?Math.ceil(records.length/2):records.length;
+   var group=el('div','products products-block'),group2=null,heading2=null;
+   records.slice(0,split).forEach(r=>{var c=cardFrom(r);if(c)group.append(c)});
    sec.append(heading,group);
+   if(split<records.length){
+    group2=el('div','products products-block');
+    records.slice(split).forEach(r=>{var c=cardFrom(r);if(c)group2.append(c)});
+    heading2=el('div','homepage-group-title h4 okla-slider-heading ok86-related-row2-heading','Mohlo by vás zajímat');
+    heading2.setAttribute('aria-hidden','true');
+    sec.classList.add('ok86-related--two-rows');
+    sec.append(heading2,group2);
+   }
    var tabs=q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper');
    /* The review panel belongs inside #tab-content; recommendations remain outside the tab system. */
    if(tabs)tabs.after(sec);else detail.after(sec);
-   if(window.__oklaSliderFor)window.__oklaSliderFor(group,heading);
+   if(window.__oklaSliderFor){window.__oklaSliderFor(group,heading);if(group2)window.__oklaSliderFor(group2,heading2)}
   });
  }
  function init(){

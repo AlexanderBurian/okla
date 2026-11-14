@@ -450,3 +450,17 @@ html body.type-product #content .p-detail .availability-value{
 #ok86-parameters table.detail-parameters th{width:32%;color:#6b6b6b;font-weight:400}
 #ok86-parameters table.detail-parameters td{color:#1d1d1d;font-weight:400}
 #ok86-parameters table.detail-parameters .row-header-label-colon{display:none}
+
+/* "Mohlo by vás zajímat": two rows of products, tighter space above the heading and below the slider */
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c){margin-top:12px!important;padding-top:4px!important;padding-bottom:0!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.okla-slider-heading{margin-top:0!important;margin-bottom:10px!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.ok86-related-row2-heading{display:none!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.okla-slider-shell{margin-bottom:0!important}
+html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.okla-slider-shell+.okla-slider-shell,
+html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.ok86-related-row2-heading+.okla-slider-shell{margin-top:4px!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-viewport{padding-bottom:4px!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-track{padding-bottom:6px!important}
+/* phones show the products as a grid (not a slider) - the first group only, so the section stays as long as before */
+@media (max-width:767px){
+  html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.okla-slider-shell~.okla-slider-shell{display:none!important}
+}
