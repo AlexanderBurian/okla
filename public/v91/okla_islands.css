@@ -90,3 +90,6 @@
   html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d#okis-e){margin-top:-1px!important}
   html body.type-index #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e){margin-top:-1px!important}
 }
+/* slider arrows a quarter narrower (34 -> 26px), the arrow centred in them */
+html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#oksa-a#oksa-b#oksa-c){width:26px!important;min-width:26px!important;max-width:26px!important;flex:0 0 26px!important;padding:0!important;display:grid!important;place-items:center!important}
+html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#oksa-a#oksa-b#oksa-c)>*{margin:0!important}
