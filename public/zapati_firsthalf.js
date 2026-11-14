@@ -206,7 +206,7 @@ var BUNDLES=[
  /* Product page: content, layout, cross-sell */
  ['04-product','product',['content-v91/layout.css','content-v91/catalog.js','v91/okla_detail.css','v91/okla_detail.js','v91/okla_cross_sell.css','v91/okla_cross_sell.js']],
  /* Navigation, phone shell, product cards, native pages, sidebar */
- ['05-layout','all',['v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js','v91/okla_product_cards.css','v91/okla_native_pages.css','v91/okla_cards_everywhere.css','v91/okla_native_pages.js','v91/okla_sidebar.css','v91/okla_sidebar.js']],
+ ['05-layout','all',['v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js','v91/okla_product_cards.css','v91/okla_native_pages.css','v91/okla_cards_everywhere.css','v91/okla_native_pages.js','v91/okla_sidebar.css','v91/okla_sidebar.js','v91/okla_cat_photos.css','v91/okla_cat_photos.js']],
  /* Product page on phones */
  ['06-product-phone','product',['v91/okla_detail_mobile.css']],
  /* Cart and checkout */
