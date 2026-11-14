@@ -7,18 +7,19 @@
   /* the grey page (no light blue, no fade) */
   html:not(#okis-a),html body:not(#okis-a#okis-b){background:#eef0f3!important;background-image:none!important}
   /* the header row across the whole window */
-  html body #header:not(#okis-a#okis-b){background:#e6eaef!important;box-shadow:none!important}
+  html body #header:not(#okis-a#okis-b){background:#fff!important;box-shadow:none!important}
   html body #header:not(#okis-a#okis-b)>.container.navigation-wrapper{background:transparent!important;box-shadow:none!important}
-  html:not(.okla-desktop-sticky) body #header:not(#okis-a#okis-b) .header-top>.search :is(input.query-input,form.search-form,fieldset){background-color:#fff!important}
+  /* on the white header the search field keeps its light grey */
+  html:not(.okla-desktop-sticky) body #header:not(#okis-a#okis-b) .header-top>.search :is(input.query-input,form.search-form,fieldset){background-color:#f3f5f8!important}
   /* breadcrumbs on the grey page */
   /* the breadcrumbs are the top of the page's white island (the white runs up to them) */
-  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){background:#fff!important;box-shadow:none!important;margin:16px auto 0!important;border-radius:8px 8px 0 0!important;padding:8px 16px 0!important;box-sizing:border-box!important}
+  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){background:#fff!important;box-shadow:none!important;margin:0 auto!important;border-radius:0!important;padding:8px 16px 0!important;box-sizing:border-box!important}
   /* the content: an island (rounded white card) on every page but the homepage */
-  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:16px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important;clip-path:none!important;overflow:hidden!important}
+  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:0!important;border:0!important;border-radius:0 0 8px 8px!important;background:#fff!important;box-shadow:none!important;clip-path:none!important;overflow:hidden!important}
   html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}
 
   /* ---- homepage: every block its own island ---- */
-  html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b){background:transparent!important;border-radius:0!important;overflow:visible!important;margin-top:16px!important}
+  html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b){background:transparent!important;border-radius:0!important;overflow:visible!important;margin-top:0!important}
   html body.type-index #content-wrapper #content.content:not(#okis-a#okis-b){padding-left:0!important;padding-right:0!important;background:transparent!important}
   /* the islands */
   html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c),
@@ -26,7 +27,7 @@
   html body.type-index #content#content>#okla-deals:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>#okla-news-v55:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>#okla-signin-strip:not(#okis-a#okis-b#okis-c){background:#fff!important;border:0!important;border-radius:8px!important;box-shadow:none!important;box-sizing:border-box!important}
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){padding:16px 16px 14px!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){padding:16px 16px 14px!important;border-radius:0 0 8px 8px!important}
   html body.type-index #content#content>#okla-cat-circles:not(#okis-a#okis-b#okis-c){padding:24px 20px!important}
   html body.type-index #content#content>#okla-deals:not(#okis-a#okis-b#okis-c){padding:16px!important}
   html body.type-index #content#content>#okla-news-v55:not(#okis-a#okis-b#okis-c){padding:24px 24px 28px!important}
@@ -49,4 +50,11 @@
   html body.type-index #content #okla-news-v55 .okn-heading:not(#okis-a#okis-b#okis-c){padding-left:0!important}
   /* the footer is an island too */
   html body #footer #okla-footer-shell:not(#okis-a#okis-b#okis-c#okis-d){border-radius:8px!important;box-shadow:none!important}
+  /* product cards without a frame (the white island is the frame), also on hover */
+  html body #content .product>.p:not(#okis-a#okis-b#okis-c),
+  html body #content .product:hover>.p:not(#okis-a#okis-b#okis-c){border-color:transparent!important;box-shadow:none!important}
+  /* no blue line drawn over the top of the content (cart and checkout pages) */
+  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c)::before{content:none!important;display:none!important}
+  /* the contact page's top block white like the rest of the island */
+  html body #content .oka-c-top:not(#okis-a#okis-b#okis-c){background:#fff!important}
 }
