@@ -748,7 +748,7 @@ html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__link:
   html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__form{
     display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;
     padding:22px 18px calc(16px + env(safe-area-inset-bottom))!important;max-height:none!important;overflow:visible!important;
-    border-radius:18px 18px 0 0!important;border-top:0!important;box-shadow:0 -8px 30px rgba(6,29,58,.18)!important;
+    border-radius:0!important;border-top:0!important;box-shadow:0 -8px 30px rgba(6,29,58,.18)!important;
   }
   html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__content{display:contents!important}
   html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__content:before{order:0!important;margin:0 0 12px!important;text-align:center!important;font-size:19px!important}
