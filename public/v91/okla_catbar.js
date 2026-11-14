@@ -91,7 +91,12 @@
   var x=build(list);header.appendChild(x.bar);document.body.appendChild(x.dim);
   document.documentElement.classList.add('okla-catbar-on');
   /* exactly as wide as the header's own row (the content column) */
-  function sync(){var n=header.querySelector('.navigation-wrapper');if(n&&n.offsetWidth)x.bar.style.setProperty('width',n.offsetWidth+'px','important')}
+  function sync(){var n=header.querySelector('.navigation-wrapper');if(n&&n.offsetWidth)x.bar.style.setProperty('width',n.offsetWidth+'px','important');
+   /* the grey band and the panel's white run across the whole window: how far the window reaches past the bar (the
+      page is zoomed by --okla-dz, so window pixels are divided by it) */
+   var dz=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--okla-dz'))||1;
+   x.bar.style.setProperty('--okcb-out',(x.bar.getBoundingClientRect().left/dz)+'px');
+   x.bar.style.setProperty('--okcb-w',(document.documentElement.clientWidth/dz)+'px')}
   sync();window.addEventListener('resize',sync);setTimeout(sync,600);setTimeout(sync,2000);
   /* the current category stays marked */
   [].forEach.call(x.bar.querySelectorAll('.okcb-link'),function(a){if(location.pathname.indexOf(a.getAttribute('href'))===0)a.classList.add('is-current')});
