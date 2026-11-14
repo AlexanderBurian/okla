@@ -577,7 +577,9 @@ if(last.nextElementSibling!==button)last.after(button);
 }
 function apply(){
 if(!mq.matches)return;
-fixText();fixCart();showMore()
+fixText();fixCart();
+/* no "Zobrazit další produkty" button on the homepage (the rows scroll sideways) */
+const more=document.getElementById('okla-v74-more');if(more)more.remove()
 }
 let pending=false;
 function schedule(){if(pending||!mq.matches)return;pending=true;requestAnimationFrame(()=>{pending=false;apply()})}
