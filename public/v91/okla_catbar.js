@@ -78,6 +78,8 @@
   panel.addEventListener('mouseenter',function(){clearTimeout(tClose)});
   panel.addEventListener('mouseleave',function(){tClose=setTimeout(close,220)});
   dim.addEventListener('click',close);
+  /* the bar scrolled away under a still mouse: the panel closes */
+  window.addEventListener('scroll',function(){if(openIdx>=0&&bar.getBoundingClientRect().bottom<0)close()},{passive:true});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&openIdx>=0){var a=ul.children[openIdx].firstChild;close();a.focus()}});
   bar.addEventListener('focusout',function(e){if(!bar.contains(e.relatedTarget)&&!panel.contains(e.relatedTarget))close()});
   panel.addEventListener('focusout',function(e){if(!bar.contains(e.relatedTarget)&&!panel.contains(e.relatedTarget))close()});
