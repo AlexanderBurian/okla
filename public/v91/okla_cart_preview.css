@@ -382,8 +382,8 @@ html body #okla-cart-preview .okla-cp__go,
 html body #okla-cart-preview .okla-cp__go:hover,
 html body #okla-cart-preview .okla-cp__go:focus{
  background:#085adc!important;
- color:#111!important;
- -webkit-text-fill-color:#111!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
  text-shadow:none!important;
  box-shadow:none!important;
 }

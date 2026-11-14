@@ -394,12 +394,12 @@ html body.in-krok-2 #order-form :is(.co-contact-information>h2,.co-billing-addre
   font-size:18px!important;text-transform:none!important
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish){
-  border-color:#085adc!important;background:#085adc!important;color:#111!important;
-  -webkit-text-fill-color:#111!important
+  border-color:#085adc!important;background:#085adc!important;color:#fff!important;
+  -webkit-text-fill-color:#fff!important
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish):is(:hover,:focus,:active){
-  border-color:#0856d1!important;background:#0856d1!important;color:#111!important;
-  -webkit-text-fill-color:#111!important
+  border-color:#0856d1!important;background:#0856d1!important;color:#fff!important;
+  -webkit-text-fill-color:#fff!important
 }
 
 @media(max-width:767px){

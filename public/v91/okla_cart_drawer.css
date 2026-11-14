@@ -33,7 +33,7 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer .okla-cd__card-img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border-radius:6px}
 #okla-cart-drawer .okla-cd__card-name{min-height:34px;font-size:13px;font-weight:600;line-height:1.3;color:#0b2540;text-decoration:none}
 #okla-cart-drawer .okla-cd__card-price{font-size:14px;font-weight:700;color:#0b2540}
-#okla-cart-drawer .okla-cd__card-btn{margin-top:auto;height:34px;border:0;border-radius:8px;background:#085adc;color:#111!important;-webkit-text-fill-color:#111!important;font-size:13px;font-weight:600;cursor:pointer}
+#okla-cart-drawer .okla-cd__card-btn{margin-top:auto;height:34px;border:0;border-radius:8px;background:#085adc;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:13px;font-weight:600;cursor:pointer}
 #okla-cart-drawer .okla-cd__card-btn{transition:background-color .15s ease}
 #okla-cart-drawer .okla-cd__card-btn:hover{background:#0753cb}
 #okla-cart-drawer .okla-cd__card-btn:is(:hover,:focus,:active,:disabled),
@@ -43,8 +43,8 @@ html.okla-cd-lock body{overflow:hidden!important}
 #okla-cart-drawer .okla-cd__btn{transition:background-color .15s ease,border-color .15s ease;display:flex;align-items:center;justify-content:center;height:48px;border-radius:10px;font-size:15px;font-weight:600;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
 #okla-cart-drawer .okla-cd__btn--ghost{border:1px solid #cdd2da;background:#fff;color:#0b2540}
 #okla-cart-drawer .okla-cd__btn--ghost:hover{background:#f5f7fa;border-color:#0b2540}
-#okla-cart-drawer .okla-cd__btn--primary{border:1px solid #085adc;background:#085adc;color:#111}
-#okla-cart-drawer .okla-cd__btn--primary:hover{background:#0753cb;border-color:#0753cb;color:#111}
+#okla-cart-drawer .okla-cd__btn--primary{border:1px solid #085adc;background:#085adc;color:#fff}
+#okla-cart-drawer .okla-cd__btn--primary:hover{background:#0753cb;border-color:#0753cb;color:#fff}
 #okla-cart-drawer .okla-cd__foot .okla-cd__btn--primary{
  display:grid!important;grid-template-columns:18px minmax(0,auto) 18px!important;align-items:center!important;justify-content:center!important;
  column-gap:8px!important;padding:0 10px!important;box-sizing:border-box!important;

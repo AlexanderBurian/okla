@@ -22,7 +22,7 @@
 /* The "přidat" checkbox */
 .okla-xsell__check{flex:0 0 24px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #c2cedd;border-radius:7px;background:#fff;color:#fff;transition:border-color .15s ease,background-color .15s ease}
 .okla-xsell__check svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease}
-.okla-xsell__item.is-added .okla-xsell__check{background:#085ADC;border-color:#085ADC;color:#111}
+.okla-xsell__item.is-added .okla-xsell__check{background:#085ADC;border-color:#085ADC;color:#fff}
 .okla-xsell__item.is-added .okla-xsell__check svg{opacity:1;transform:none}
 
 .okla-xsell__thumb{flex:0 0 52px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #eef2f7;border-radius:10px;overflow:hidden}

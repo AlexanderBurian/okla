@@ -95,16 +95,16 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-
  border-color:#085adc!important;
  background:#085adc!important;
  background-color:#085adc!important;
- color:#111!important;
- -webkit-text-fill-color:#111!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){
  border-color:#0753cb!important;
  background:#0753cb!important;
  background-color:#0753cb!important;
- color:#111!important;
- -webkit-text-fill-color:#111!important;
+ color:#fff!important;
+ -webkit-text-fill-color:#fff!important;
  filter:none!important;
 }
 

@@ -21,10 +21,10 @@
 
   /* 3. Product page purchase button: green with black text, like the buy bar. Transitions are off, so the colour is not caught mid-change. */
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary {
-    transition: none !important; background: #085adc !important; background-color: #085adc !important; border-color: #085adc !important; color: #111 !important;
+    transition: none !important; background: #085adc !important; background-color: #085adc !important; border-color: #085adc !important; color: #fff !important;
   }
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):hover {
-    transition: none !important; background: #0753cb !important; background-color: #0753cb !important; border-color: #0753cb !important; color: #111 !important;
+    transition: none !important; background: #0753cb !important; background-color: #0753cb !important; border-color: #0753cb !important; color: #fff !important;
   }
 
   /* 4. "Zobrazit další produkty": the homepage button, not the grey browser box with a black chevron */
