@@ -15,7 +15,7 @@ html body .oka-contact *:before,
 html body .oka-contact *:after{box-sizing:border-box}
 html body .oka-contact h1,html body .oka-contact h2,html body .oka-contact h3,
 html body .oka-contact p,html body .oka-contact ul,html body .oka-contact label{margin:0;padding:0}
-html body .oka-c-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+html body .oka-c-wrap{max-width:1298px;margin:0 auto;padding:0 24px}
 
 /* ---------------- TOP BAND: contact cards ---------------- */
 html body .oka-c-top{background:var(--grey);padding:76px 0 88px}

@@ -103,7 +103,7 @@ var CSS=[
  '.okla-newsroom .nr-field input:focus,.okla-newsroom .nr-field select:focus{box-shadow:0 0 0 3px rgba(0,140,219,.28),0 2px 10px rgba(8,29,58,.07)}',
  '.okla-newsroom .nr-field svg{position:absolute;top:50%;right:14px;width:18px;height:18px;margin-top:-9px;pointer-events:none;fill:none;stroke:#566476;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}',
  '.okla-newsroom .nr-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}',
- '.okla-newsroom .nr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 32px;max-width:1200px;margin:56px auto 0}',
+ '.okla-newsroom .nr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 32px;max-width:1320px;margin:56px auto 0}',
  '.okla-newsroom .nr-card{display:flex;flex-direction:column;min-width:0;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 6px 24px rgba(8,29,58,.08)}',
  '.okla-newsroom .nr-card__media{display:block;aspect-ratio:16/9;background:#eef3fa;overflow:hidden}',
  '.okla-newsroom .nr-card__media img{display:block;width:100%;height:100%;object-fit:cover}',

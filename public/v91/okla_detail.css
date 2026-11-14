@@ -239,7 +239,7 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 html body.ok89-detail #content ul.p-detail-tabs>li.active{border-top:0!important;box-shadow:inset 0 3px 0 #2C5F9E!important}
 html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:0!important;box-shadow:none!important}
 /* 8i. Slider width as on homepage (its container is 1010 px on desktop, so the cards keep the homepage size). */
-html body.ok89-detail #content .ok86-related{max-width:1010px!important;margin-left:auto!important;margin-right:auto!important}
+html body.ok89-detail #content .ok86-related{max-width:1111px!important;margin-left:auto!important;margin-right:auto!important}
 /* 8j. Cart button hover exactly as homepage. */
 
 /* 8k. Desktop: five cards in a row, exactly as the homepage (the loader counts visible cards as items-1, which gives four for five records). */
@@ -459,13 +459,13 @@ html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.ok
 html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.okla-slider-shell+.okla-slider-shell,
 html body.ok89-detail #content#content .ok86-related.ok86-related--two-rows:not(#okr-a#okr-b#okr-c)>.ok86-related-row2-heading+.okla-slider-shell{margin-top:4px!important}
 /* room under the cards for the hover frame (.p::after reaches 28px below the card; the viewport clips) */
-html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-viewport{padding:10px 14px 46px!important}
+html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-viewport{padding:22px 14px 46px!important}
 html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-track{padding-bottom:0!important}
 /* phones: the two rows are real sliders too (the site turns sliders into a 2-column grid on phones; not here) -
    two cards in view per row, swipe or the arrows move them */
 @media (max-width:767px){
   html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell{position:relative!important}
-  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell .okla-slider-viewport{overflow:hidden!important;padding:8px 6px 14px!important}
+  html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell .okla-slider-viewport{overflow:hidden!important;padding:14px 6px 14px!important}
   html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c) .okla-slider-shell .products.products-block.okla-slider-track{
     display:flex!important;flex-wrap:nowrap!important;grid-template-columns:none!important;gap:12px!important;width:100%!important;align-items:stretch!important;
   }

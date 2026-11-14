@@ -14,7 +14,7 @@ html.okla-htb-page body main#content > .content-inner{max-width:none!important;w
 .ohb-sec{padding:56px 0}
 .ohb-sec--white{background:#fff}
 .ohb-sec--grey{background:#f3f5f8}
-.ohb-wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+.ohb-wrap{max-width:1276px;margin:0 auto;padding:0 32px}
 .okla-htb h1{margin:0 0 14px;font:800 38px/1.15 "Open Sans",Arial,sans-serif;color:#0b2540;letter-spacing:-.4px;text-transform:none}
 .okla-htb h2{margin:0 0 26px;font:800 28px/1.2 "Open Sans",Arial,sans-serif;color:#0b2540;letter-spacing:-.2px;text-transform:none}
 .okla-htb h2::before,.okla-htb h2::after,.okla-htb h1::before,.okla-htb h1::after,.okla-htb h3::before,.okla-htb h3::after{content:none;display:none}
