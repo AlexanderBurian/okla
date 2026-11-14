@@ -10,9 +10,9 @@
  var base=window.__oklaAssetBase||'';
  function norm(t){return (t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[,+]/g,' ').replace(/\s+/g,' ').trim().toLowerCase()}
  /* a photo of a typical product of the category (cut out of the shop's own product photo) */
- var PHOTO={'elektronicke multitooly':'multitooly','chytra elektronika':'chytra','merici technika a naradi':'merici','endoskopy a inspekcni kamery':'endoskopy','endoskopy':'endoskopy','prakticke vychytavky':'vychytavky','designove gadgety':'gadgety','projektory a obraz':'projektory','prislusenstvi':'prislusenstvi'};
+ var PHOTO={'elektronicke multitooly':'multitooly','chytra elektronika':'chytra','merici technika a naradi':'merici','merici technika':'merici','endoskopy a inspekcni kamery':'endoskopy','endoskopy':'endoskopy','prakticke vychytavky':'vychytavky','designove gadgety':'gadgety','projektory a obraz':'projektory','prislusenstvi':'prislusenstvi'};
  /* the pictograms of the categories (the same set as the category menus) */
- var ICON={'elektronicke multitooly':'multitooly.png','chytra elektronika':'chytra-elektronika.png','merici technika a naradi':'merici-technika.png','endoskopy a inspekcni kamery':'endoskopy.png','endoskopy':'endoskopy.png','prakticke vychytavky':'prakticke-vychytavky.png','designove gadgety':'designove-gadgety.png','projektory a obraz':'projektory.png','chytra domacnost':'chytra-domacnost.png','prislusenstvi':'prislusenstvi.svg'};
+ var ICON={'elektronicke multitooly':'multitooly.png','chytra elektronika':'chytra-elektronika.png','merici technika a naradi':'merici-technika.png','merici technika':'merici-technika.png','endoskopy a inspekcni kamery':'endoskopy.png','endoskopy':'endoskopy.png','prakticke vychytavky':'prakticke-vychytavky.png','designove gadgety':'designove-gadgety.png','projektory a obraz':'projektory.png','chytra domacnost':'chytra-domacnost.png','prislusenstvi':'prislusenstvi.svg'};
  function nice(label){
   var t=label.replace(/\s+/g,' ').trim();
   if(/endoskop/i.test(t))return 'Endoskopy';

@@ -8,3 +8,9 @@ html body a>.okla-cat-photo-wrap:not(#okcp-a){margin-right:12px!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg:has(>.okla-cat-photo-wrap):not(#okcp-a#okcp-b){width:52px!important;min-width:52px!important;max-width:none!important;height:52px!important;flex:0 0 52px!important;margin-right:12px!important;overflow:visible!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a:has(.okla-cat-photo-wrap):not(#okcp-a#okcp-b){white-space:normal!important;text-overflow:clip!important;line-height:1.3!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a:has(.okla-cat-photo-wrap):not(#okcp-a#okcp-b) *:not(.okla-cat-photo-wrap):not(img){white-space:normal!important;text-overflow:clip!important;overflow:visible!important}
+/* phones: no grey circles - just the small product photo next to the name (less room per row) */
+@media(max-width:767px){
+  html body .okla-cat-photo-wrap:not(#okcp-a#okcp-b#okcp-c){width:34px!important;height:34px!important;border-radius:0!important;background:none!important;overflow:visible!important}
+  html body .okla-cat-photo-wrap>img.okla-cat-photo:not(#okcp-a#okcp-b#okcp-c){transform:scale(1.15)!important}
+  html body :has(>.okla-cat-photo-wrap):not(#okcp-a#okcp-b#okcp-c):not(a){width:34px!important;min-width:34px!important;height:34px!important;flex:0 0 34px!important;margin:0 12px 0 0!important}
+}

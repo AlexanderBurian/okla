@@ -1,6 +1,6 @@
 /* OKLA – homepage deal cards (okla_home_deals.js) in the Best Buy "Doorbuster" manner: no panel around them, four
-   cards across the full content width, a bright deep blue with a faint line pattern, a tall condensed heading
-   (OKLA Condensed = Barlow Condensed 700, OFL, loaded by the script), a big product, the price line and a small white
+   cards across the full content width, a bright deep blue with a faint line pattern, a big heading in the site's
+   font (Open Sans 800), a big product, the price line and a small white
    button. Phones: the cards scroll sideways. */
 #okla-deals,#okla-signin-strip{display:none}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b){
@@ -19,9 +19,9 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card{
 }
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-title{
   margin:0!important;padding:0!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
-  font:700 clamp(30px,2.75vw,40px)/.95 "OKLA Condensed","Barlow Condensed","Arial Narrow",sans-serif!important;letter-spacing:.002em!important;text-transform:none!important;
+  font:800 clamp(28px,2.5vw,36px)/1 "Open Sans",Arial,sans-serif!important;letter-spacing:-.03em!important;text-transform:none!important;
 }
-html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{margin:3px 0 0!important;padding:0!important;color:#fff!important;font:700 clamp(19px,1.65vw,24px)/1 "OKLA Condensed","Barlow Condensed","Arial Narrow",sans-serif!important;letter-spacing:.005em!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{margin:3px 0 0!important;padding:0!important;color:#fff!important;font:700 clamp(17px,1.45vw,20px)/1.15 "Open Sans",Arial,sans-serif!important;letter-spacing:-.01em!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image{position:relative!important;display:block!important;flex:1 1 auto!important;min-height:150px!important;margin:14px 0 14px!important;text-decoration:none!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image img{
   position:absolute!important;inset:0!important;display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;margin:auto!important;object-fit:contain!important;
@@ -46,8 +46,8 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-vi
   html body.type-index #content #okla-deals:not(#okd-a#okd-b){margin:4px -14px 30px!important}
   html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-track{grid-auto-columns:minmax(250px,74vw)!important;gap:12px!important;padding:0 14px!important;scroll-padding-inline:14px!important}
   html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card{aspect-ratio:auto!important;height:400px!important}
-  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-title{font-size:34px!important}
-  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{font-size:21px!important}
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-title{font-size:31px!important}
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{font-size:18px!important}
 }
 
 /* the sign-in strip (guests only) */

@@ -3,8 +3,7 @@
    the price and a "Nakoupit" button. The price written here is only the first paint: once the row comes into view the
    real price is read from each product page, and a product that no longer exists drops out. No discounts are claimed.
    Placement: the cards lower on the page (after the first two product sliders, before the warranty strip); the
-   sign-in strip among the product rows (before the first extra row, after the shop's own rows). Both are kept in place when other scripts re-order the sections.
-   The card headings use Barlow Condensed 700 (OFL, served with our files from v91/fonts). */
+   sign-in strip among the product rows (before the first extra row, after the shop's own rows). Both are kept in place when other scripts re-order the sections. */
 (function(){
  'use strict';
  if(window.__oklaHomeDealsV1)return;window.__oklaHomeDealsV1=true;
@@ -16,13 +15,6 @@
   {url:'/benetech-gm610-vlhkomer-dreva/',img:'gm610',title:'Měř dřevo',claim:'Vlhkost dřeva',price:589,alt:'Benetech GM610 vlhkoměr dřeva',copy:'za hrotový vlhkoměr dřeva s rychlým odečtem na přehledném displeji.'},
   {url:'/benetech-gm605-vlhkomer-dreva-a-stavebnich-materialu/',img:'gm605',title:'Měř zdivo',claim:'Vlhkost materiálů',price:389,alt:'Benetech GM605 vlhkoměr dřeva a stavebních materiálů',copy:'za kompaktní vlhkoměr dřeva a vybraných stavebních materiálů.'}
  ];
- (function font(){
-  if(document.getElementById('okla-deals-font'))return;
-  var st=document.createElement('style');st.id='okla-deals-font';
-  st.textContent="@font-face{font-family:'OKLA Condensed';font-style:normal;font-weight:700;font-display:swap;src:url("+base+"v91/fonts/barlow-condensed-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}"+
-   "@font-face{font-family:'OKLA Condensed';font-style:normal;font-weight:700;font-display:swap;src:url("+base+"v91/fonts/barlow-condensed-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2212}";
-  document.head.appendChild(st);
- })();
  function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
  function buildDeals(){

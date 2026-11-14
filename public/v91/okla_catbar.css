@@ -6,10 +6,10 @@
 @media(min-width:992px){
   html.okla-catbar-on body #header{position:relative!important;z-index:800!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b){
-    display:block!important;position:relative!important;z-index:5!important;width:100%!important;margin:0!important;padding:0!important;
+    display:block!important;position:relative!important;z-index:5!important;margin:0 auto!important;padding:0!important;float:none!important;
     background:#f3f5f8!important;border-top:1px solid #e6eaf0!important;border-bottom:1px solid #e6eaf0!important;
   }
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-inner{position:relative!important;max-width:var(--okla-sticky-width,1384px)!important;margin:0 auto!important;padding:0 15px!important;box-sizing:border-box!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-inner{position:relative!important;max-width:none!important;margin:0!important;padding:0 10px!important;box-sizing:border-box!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-list{display:flex!important;align-items:stretch!important;justify-content:space-between!important;gap:0!important;margin:0!important;padding:0!important;list-style:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li{flex:1 1 0!important;display:flex!important;margin:0!important;padding:0!important;list-style:none!important;border-right:1px solid #e3e7ed!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li:last-child{border-right:0!important}
@@ -24,7 +24,7 @@
   /* the panel */
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-panel{position:absolute!important;left:0!important;right:0!important;top:100%!important;z-index:10!important;background:#fff!important;border-top:1px solid #e6eaf0!important;box-shadow:0 18px 30px rgba(8,29,58,.14)!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-panel[hidden]{display:none!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-panel-in{max-width:var(--okla-sticky-width,1384px)!important;margin:0 auto!important;padding:22px 15px 28px!important;box-sizing:border-box!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-panel-in{max-width:none!important;margin:0!important;padding:22px 20px 28px!important;box-sizing:border-box!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-head{display:flex!important;align-items:baseline!important;gap:18px!important;margin:0 0 16px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-title{color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-all{color:#0858d6!important;-webkit-text-fill-color:#0858d6!important;font:600 14px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
@@ -44,6 +44,10 @@
   /* the page behind, dimmed while the panel is open (under the header) */
   html.okla-catbar-on .okcb-dim:not([hidden]){display:block!important;position:fixed!important;inset:0!important;z-index:790!important;background:rgba(8,29,58,.38)!important}
 
-  /* no dark blue line on top of the content: the white header runs into the white page */
-  html body #content-wrapper.content-wrapper:not(#okcb-a#okcb-b){border-top:0!important}
+  /* one white column from the very top: the header, the category bar, the breadcrumbs and the content are all as
+     wide as the content (Shoptet's .container) and touch each other; outside it the page background shows */
+  html body #header:not(#okcb-a#okcb-b){background:transparent!important;box-shadow:none!important}
+  html body #header:not(#okcb-a#okcb-b)>.container.navigation-wrapper{background:#fff!important}
+  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okcb-a#okcb-b){background:#fff!important;margin-top:0!important;margin-bottom:0!important}
+  html body #content-wrapper.content-wrapper:not(#okcb-a#okcb-b){border-top:0!important;margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}
 }

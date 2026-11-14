@@ -1,7 +1,8 @@
 /* OKLA – PC category bar under the header (DATART style): the shop's top categories in one row; pointing at one (or
    focusing it) opens a white panel under the bar with the category's best sellers - photo, name, price - taken from
    the category page's own "Nejprodávanější" box (fetched once, on first open), and a "Zobrazit vše" link. The page
-   behind is dimmed while the panel is open. PC only (≥992px), not in the checkout. */
+   behind is dimmed while the panel is open. PC only (≥992px), not in the checkout. The bar is as wide as the
+   header and the content (Shoptet's .container), not the whole window. */
 (function(){
  'use strict';
  if(window.__oklaCatbarV1)return;window.__oklaCatbarV1=true;
@@ -36,7 +37,7 @@
   return cache[href];
  }
  function build(list){
-  var bar=el('nav','okla-catbar');bar.id='okla-catbar';bar.setAttribute('aria-label','Kategorie');
+  var bar=el('nav','okla-catbar container');bar.id='okla-catbar';bar.setAttribute('aria-label','Kategorie');
   var inner=el('div','okcb-inner'),ul=el('ul','okcb-list');
   var panel=el('div','okcb-panel');panel.id='okla-catbar-panel';panel.hidden=true;
   var dim=el('div','okcb-dim');dim.hidden=true;
@@ -89,6 +90,9 @@
   var list=cats();if(list.length<3)return false;
   var x=build(list);header.appendChild(x.bar);document.body.appendChild(x.dim);
   document.documentElement.classList.add('okla-catbar-on');
+  /* exactly as wide as the header's own row (the content column) */
+  function sync(){var n=header.querySelector('.navigation-wrapper');if(n&&n.offsetWidth)x.bar.style.setProperty('width',n.offsetWidth+'px','important')}
+  sync();window.addEventListener('resize',sync);setTimeout(sync,600);setTimeout(sync,2000);
   /* the current category stays marked */
   [].forEach.call(x.bar.querySelectorAll('.okcb-link'),function(a){if(location.pathname.indexOf(a.getAttribute('href'))===0)a.classList.add('is-current')});
   return true;
