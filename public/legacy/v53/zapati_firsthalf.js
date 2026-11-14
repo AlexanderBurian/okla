@@ -1113,6 +1113,8 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:
     /* Current Shoptet slots are useful fallbacks after an early translation
        changes the heading before this module runs. */
     [7,10].forEach(add);
+    /* extra rows (copies made by okla_home_merge.js) in slots 101+ */
+    [101,102,103,104,105,106].forEach(add);
     return ordered;
   }
   function arrangeHomepage(){if(location.pathname!=='/'&&location.pathname!=='')return;var root=document.querySelector('main#content');if(!root)return;var banners=root.querySelector('.banners-row');if(!banners)return;root.querySelectorAll('[data-okla-home-product-tail]').forEach(function(el){el.removeAttribute('data-okla-home-product-tail');});var last=banners;homepageProductSections(root).forEach(function(section){var wrapper=section.group.closest('.okla-slider-shell')||section.group;last.after(section.heading);section.heading.after(wrapper);last=wrapper;});if(last!==banners)last.setAttribute('data-okla-home-product-tail','1');var w=root.querySelector('.homepage-box.welcome-wrapper');if(w){last.after(w);last=w;}var benefit=root.querySelector('.benefitBanner.position--benefitHomepage');if(benefit)root.appendChild(benefit);document.body.classList.add('okla-home-sections');}

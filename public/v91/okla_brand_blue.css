@@ -30,3 +30,6 @@ html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-c
 html body :is(#footer .container,#okla-footer-shell,#okla-footer-content,#okla-footer-links,#footer .footer-bottom,#footer .footer-rows,#footer .custom-footer):not(#okf-a#okf-b#okf-c){background-color:#fcfcfc!important}
 /* the outer footer band stays clear: the footer sits in the site's width like the content above it */
 html body #footer:not(#okf-a#okf-b#okf-c){background-color:transparent!important}
+
+/* PC header: the search reaches a little further left (the yellow tag logo is narrower than the old one) */
+@media(min-width:992px){html:not(.okla-desktop-sticky) body #header#header .header-top>.search:not(#okhs-a#okhs-b){margin-left:-44px!important;width:calc(100% + 56px)!important;max-width:none!important}}

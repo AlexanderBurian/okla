@@ -60,13 +60,26 @@
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) :is(.okm61-bottom-action,.okm61-bottom-action svg,.okm61-bottom-action>span){transition:none!important}
   }
 
-  /* ---- everything that sits on the bar: on its top edge (62px + safe area) with 8px of air ---- */
+  /* ---- everything that sits on the bar: the cart's step bar right on its top edge (no gap) ---- */
   html body:not(#okpb-a){padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav,
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav,
-  html.okla-tb-on body.in-krok-2:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav{bottom:calc(70px + env(safe-area-inset-bottom,0px))!important;padding-bottom:12px!important}
+  html.okla-tb-on body.in-krok-2:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important;padding-bottom:12px!important}
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav.is-stuck::after{display:none!important}
-  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;border-radius:14px!important}
+  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.08)!important;border-radius:14px 14px 0 0!important}
   /* the Katalog / Menu panels end above the pill */
   html.okla-tb-on body #okla-v61-drawer:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-drawer-body{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}
+  /* the cart on phones: compact rows - the cells without their own padding, the stock right under the name,
+     a lower quantity control */
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable{row-gap:4px!important;padding:12px 0!important;align-items:start!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td{padding:0!important;min-height:0!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-name{align-self:start!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-name a{line-height:1.3!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-availability{font-size:13px!important;line-height:1.3!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-quantity,
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-total{align-self:center!important;margin-top:6px!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.cart-p-image{align-self:start!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.cart-p-image img{max-height:64px!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-quantity input.amount{height:34px!important;min-height:0!important}
+  html body.in-kosik:not(#okcm-a#okcm-b#okcm-c) table.cart-table tr.removeable>td.p-quantity .okla-qty{height:30px!important;min-height:0!important}
 }

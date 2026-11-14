@@ -71,7 +71,7 @@
   root.style.setProperty('--okla-sticky-width',width+'px');
   root.style.setProperty('--okla-sticky-height',h.toFixed(2)+'px');
   // Pinned bar: 30% shorter than the natural header, then another 10% lower (V113).
-  root.style.setProperty('--okla-sticky-compact-height',Math.max(50,Math.round(h*0.70*0.9))+'px');
+  root.style.setProperty('--okla-sticky-compact-height',Math.max(50,Math.round(h*0.70*0.99))+'px');
   spacer.style.height=h.toFixed(2)+'px';
  }
  function geometry(){
