@@ -74,9 +74,6 @@
   /* the hero and the category circles: one island */
   html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d){border-radius:0!important;padding-bottom:4px!important;clip-path:inset(0 -12px 0 -12px)!important}
   html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d){margin-top:0!important;border-top:0!important;border-radius:0 0 8px 8px!important;clip-path:inset(0 -12px -12px -12px)!important}
-  /* product rows that follow each other share one island (a thin line between them) */
-  html body.type-index #content#content>.okla-slider-shell:has(+.homepage-group-title):not(#okis-a#okis-b#okis-c#okis-d){border-bottom-left-radius:0!important;border-bottom-right-radius:0!important;clip-path:inset(0 -12px 0 -12px)!important}
-  html body.type-index #content#content>.okla-slider-shell+.homepage-group-title:not(#okis-a#okis-b#okis-c#okis-d){margin-top:0!important;border-radius:0!important;border-top:1px solid #eef0f3!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;clip-path:inset(0 -12px 0 -12px)!important}
   /* the side art's hand ends at the content's edge (no piece of it showing between the islands) */
   html body .okla-side-art--left:not(#okis-a){overflow:hidden!important}
 }
