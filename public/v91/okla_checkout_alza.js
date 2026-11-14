@@ -172,7 +172,26 @@
   });
  }
 
- function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();cartUnitPrices();polishRecap();polishRecapAlza()}
+ /* Step 3: the "Objednat" bar rides along at the bottom (CSS sticky); a marker right after it tells when it has reached
+    its own place, so its shadow shows only while it floats over the form. */
+ function stickyOrderBar(){
+  if(!document.body.classList.contains('in-krok-2'))return;
+  var nav=document.querySelector('.okla-step-nav');
+  if(!nav||nav.__oklaStickyBar)return;
+  nav.__oklaStickyBar=true;
+  var mark=document.createElement('div');
+  mark.className='okla-step-nav__sentinel';
+  mark.setAttribute('aria-hidden','true');
+  mark.style.cssText='height:1px;margin-top:-1px;pointer-events:none';
+  nav.parentNode.insertBefore(mark,nav.nextSibling);
+  if('IntersectionObserver' in window){
+   new IntersectionObserver(function(entries){
+    entries.forEach(function(e){nav.classList.toggle('is-stuck',!e.isIntersecting)});
+   }).observe(mark);
+  }
+ }
+
+ function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar()}
  function schedule(){
   clearTimeout(redrawTimer);
   redrawTimer=setTimeout(run,260);

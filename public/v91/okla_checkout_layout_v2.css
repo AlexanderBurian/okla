@@ -68,6 +68,35 @@
   html body.in-krok-1:not(#okc-a#okc-b) #content#content .co-payment-method .shipping-billing-table>.radio-wrapper{margin:0!important;min-width:0!important}
 }
 
-/* --- steps 2 and 3: the order summary with its products is always shown (nothing may hide it) --- */
-html body.ordering-process:not(.in-kosik):not(#okc-a#okc-b) #content#content #checkoutSidebar :is(.cart-content,.order-summary,#summary-box,.cart-items){display:block!important;visibility:inherit!important}
-html body.ordering-process:not(.in-kosik):not(#okc-a#okc-b) #content#content #checkoutSidebar #summary-box .cart-item{visibility:inherit!important}
+/* --- step 3: the order summary with its products is always shown (nothing may hide it) --- */
+html body.in-krok-2:not(#okc-a#okc-b) #content#content #checkoutSidebar :is(.cart-content,.order-summary,#summary-box,.cart-items){display:block!important;visibility:inherit!important}
+html body.in-krok-2:not(#okc-a#okc-b) #content#content #checkoutSidebar #summary-box .cart-item{visibility:inherit!important}
+
+/* --- step 2 ("Doprava a platba"): no order summary - only the total and the button --- */
+html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutSidebar #summary-box>:not(.order-summary-item.price),
+html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutSidebar .order-summary>.checkout-box{display:none!important}
+html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutSidebar #summary-box>.order-summary-item.price{margin-top:0!important}
+@media (min-width:992px){
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutSidebar{padding-top:28px!important}
+}
+
+/* --- step 3 ("Dodací údaje"): the "Objednat" button is always at hand - while its place is below the screen it
+   rides along at the bottom as a bar; scrolled down to its place it simply sits there (the cart's own behaviour).
+   .is-stuck (a shadow) is set by okla_checkout_alza.js. --- */
+html body.in-krok-2 #content-wrapper#content-wrapper,
+html body.in-krok-2 #content-wrapper#content-wrapper .content-wrapper-in,
+html body.in-krok-2 #content#content,
+html body.in-krok-2 #content#content .content-inner,
+html body.in-krok-2 #content#content .cart-inner,
+html body.in-krok-2 #content#content .cart-wrapper{overflow:visible!important}
+html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav{
+  position:sticky!important;bottom:0!important;z-index:30!important;background:#fff!important;transition:box-shadow .15s ease!important;
+}
+html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important}
+@media (max-width:767px){
+  /* phones: above the bottom navigation; while riding along, only the order button (and the terms note) */
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav{bottom:calc(58px + env(safe-area-inset-bottom))!important}
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step-back{display:none!important}
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step{display:flex!important;grid-template-columns:none!important}
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step :is(.next-step-forward,.next-step-finish,button[type=submit]){flex:1 1 100%!important;width:100%!important;max-width:none!important;margin:0!important}
+}
