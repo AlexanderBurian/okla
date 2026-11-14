@@ -15,7 +15,7 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-track::-webkit-
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card{
   position:relative!important;display:flex!important;flex-direction:column!important;min-width:0!important;min-height:0!important;aspect-ratio:272/346!important;margin:0!important;padding:16px 16px 18px!important;overflow:hidden!important;
   border:0!important;border-radius:6px!important;color:#081d3a!important;scroll-snap-align:start!important;box-shadow:none!important;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' fill='none' stroke='%23081d3a' stroke-opacity='.06' stroke-width='1.2'%3E%3Cpath d='M18 40 46 12l28 28-28 28z'/%3E%3Ccircle cx='118' cy='38' r='20'/%3E%3Cpath d='M96 118h44M118 96v44'/%3E%3Cpath d='M20 132q20-26 40 0t40 0'/%3E%3C/svg%3E") 0 0/160px 160px repeat,linear-gradient(160deg,#f4f7fb 0%,#e6ecf4 100%)!important;
+  background:#eef0f3!important;
 }
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-title{
   margin:0!important;padding:0!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;
