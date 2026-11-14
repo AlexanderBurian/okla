@@ -57,3 +57,11 @@
   /* the page around the bar (grey page, white islands, full-width header): okla_islands.css */
 }
 html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content:none!important;display:none!important}
+/* the visible text runs from the logo's edge to the cart's edge: cells as wide as their names (sharing the rest),
+   the first name starts at the left edge, the last one ends at the right edge */
+@media(min-width:992px){
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-li{flex:1 1 auto!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-link{padding:6px 12px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-li:first-child .okcb-link{padding-left:0!important;justify-content:flex-start!important;text-align:left!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-li:last-child .okcb-link{padding-right:0!important;justify-content:flex-end!important;text-align:right!important}
+}
