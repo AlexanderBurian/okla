@@ -197,10 +197,10 @@ return PAGE;
    After editing this table run: node tools/build.js */
 /*@bundles*/
 var BUNDLES=[
- /* Core: translations, the original storefront core, the base phone look, shared behaviour */
- ['01-core','all',['v91/okla_i18n.css','v91/okla_i18n.js','legacy/v53/zapati_firsthalf.js','legacy/v55/okla_news_v55.js','v91/okla_mobile_unified.css','v91/okla_behavior.js']],
- /* Homepage: news images, layout, banners, search */
- ['02-home','home',['v91/okla_news_native_images.js','v91/okla_home.css','v91/okla_home.js','v91/okla_home_banners.css','v91/okla_home_banners.js','v91/okla_home_search.js']],
+ /* Core: translations, the homepage gathered into one content (Shoptet's wide layout), the original storefront core, the base phone look, shared behaviour */
+ ['01-core','all',['v91/okla_i18n.css','v91/okla_i18n.js','v91/okla_home_merge.js','legacy/v53/zapati_firsthalf.js','legacy/v55/okla_news_v55.js','v91/okla_mobile_unified.css','v91/okla_behavior.js']],
+ /* Homepage: news images, layout, banners, search, the category circles (and no left sidebar on PC) */
+ ['02-home','home',['v91/okla_news_native_images.js','v91/okla_home.css','v91/okla_home.js','v91/okla_home_banners.css','v91/okla_home_banners.js','v91/okla_home_search.js','v91/okla_home_categories.css','v91/okla_home_categories.js']],
  /* Side banners and the product catalogue (prices, stock, names) */
  ['03-catalog','all',['v91/okla_home_side.css','v91/okla_home_side.js','okla_v86_catalog.js','v91/okla_live_catalog.js']],
  /* Product page: content, layout, cross-sell */
