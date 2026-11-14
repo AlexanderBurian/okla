@@ -1,0 +1,73 @@
+/* OKLA – homepage "Měřicí hit" cards and the guest sign-in strip (okla_home_deals.js), Best Buy style in OKLA's
+   colours: deep blue cards with white type and a white button; the strip as a white card with the blue button. */
+#okla-deals,#okla-signin-strip{display:none}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b){display:block!important;margin:6px 0 34px!important;padding:0!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-track{
+  display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 48px)/4)!important;gap:16px!important;
+  margin:0!important;padding:0!important;overflow-x:auto!important;overscroll-behavior-inline:contain!important;scroll-snap-type:x mandatory!important;scrollbar-width:none!important;
+}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-track::-webkit-scrollbar{display:none!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card{
+  position:relative!important;display:flex!important;flex-direction:column!important;min-width:0!important;min-height:444px!important;margin:0!important;padding:20px 18px 18px!important;overflow:hidden!important;
+  border:0!important;border-radius:10px!important;background:#073b78 linear-gradient(160deg,#0a4fb4 0%,#073b78 62%)!important;color:#fff!important;scroll-snap-align:start!important;box-shadow:none!important;
+}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-title{margin:0!important;padding:0!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:800 clamp(30px,2.6vw,40px)/1 "Open Sans",Arial,sans-serif!important;letter-spacing:-.03em!important;text-transform:none!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{margin:6px 0 0!important;color:#fff!important;font:700 19px/1.15 "Open Sans",Arial,sans-serif!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image{position:relative!important;display:block!important;height:225px!important;margin:12px 0 10px!important;text-decoration:none!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image img{
+  position:absolute!important;inset:0!important;display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;margin:auto!important;object-fit:contain!important;
+  filter:drop-shadow(0 12px 12px rgba(0,0,0,.22))!important;transition:transform .35s cubic-bezier(.2,.8,.2,1)!important;
+}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-copy{min-height:62px!important;margin:0 0 16px!important;color:#fff!important;font:400 15px/1.45 "Open Sans",Arial,sans-serif!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-copy strong{color:#fff!important;font-weight:800!important;white-space:nowrap!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;width:max-content!important;height:36px!important;min-height:0!important;margin-top:auto!important;padding:0 18px!important;
+  border:1px solid #d9dee5!important;border-radius:6px!important;background:#fff!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;
+  font:700 13px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;box-shadow:none!important;transition:background-color .15s ease!important;
+}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-visible{outline:2px solid #fff!important;outline-offset:3px!important}
+@media(hover:hover){
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card:hover .okd-image img{transform:scale(1.04)!important}
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:hover{background:#eef2f7!important}
+}
+@media(max-width:991px){
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-track{grid-auto-columns:calc((100% - 16px)/2)!important}
+}
+@media(max-width:767px){
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b){margin:0 -14px 26px!important}
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-track{grid-auto-columns:minmax(260px,80vw)!important;gap:12px!important;padding:0 14px!important;scroll-padding-inline:14px!important}
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card{min-height:420px!important;padding:18px 16px 16px!important}
+  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image{height:205px!important}
+}
+
+/* the sign-in strip (guests only) */
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){
+  display:flex!important;align-items:center!important;gap:16px 20px!important;margin:0 0 38px!important;padding:22px 28px!important;
+  border:1px solid #e3e8ef!important;border-radius:16px!important;background:#fff!important;box-shadow:none!important;
+}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-icon{flex:0 0 30px!important;width:30px!important;height:30px!important;fill:none!important;stroke:#081d3a!important;stroke-width:1.6!important;stroke-linecap:round!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-text{flex:1 1 auto!important;margin:0!important;color:#081d3a!important;font:400 17px/1.4 "Open Sans",Arial,sans-serif!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-actions{display:flex!important;flex:0 0 auto!important;gap:12px!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:170px!important;height:46px!important;min-height:0!important;padding:0 22px!important;box-sizing:border-box!important;
+  border-radius:6px!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;box-shadow:none!important;transition:background-color .15s ease,border-color .15s ease!important;
+}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--primary{border:1px solid #0858d6!important;background:#0858d6!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--ghost{border:1px solid #c5ccd6!important;background:#fff!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn:focus-visible{outline:2px solid #0858d6!important;outline-offset:3px!important}
+@media(hover:hover){
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--primary:hover{background:#0749b3!important;border-color:#0749b3!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--ghost:hover{border-color:#8f9aa8!important}
+}
+@media(max-width:991px){
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){flex-wrap:wrap!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-text{flex:1 1 calc(100% - 60px)!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-actions{flex:1 1 100%!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{flex:1 1 0!important;min-width:0!important}
+}
+@media(max-width:767px){
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){align-items:flex-start!important;margin:0 0 28px!important;padding:18px!important;gap:14px!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-icon{flex-basis:26px!important;width:26px!important;height:26px!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-text{font-size:15px!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{height:44px!important;padding:0 12px!important}
+}
