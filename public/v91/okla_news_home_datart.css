@@ -33,7 +33,7 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-chi
   position:relative!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:16/9!important;
   border:0!important;border-radius:0!important;background:#eef3fa!important;overflow:hidden!important;
 }
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transition:transform .6s cubic-bezier(.2,.8,.2,1)!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transform:none!important;transition:none!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-body,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-body{
   position:static!important;display:flex!important;flex:1 1 auto!important;flex-direction:column!important;gap:0!important;width:auto!important;max-width:none!important;min-width:0!important;
@@ -75,6 +75,5 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-read svg{dis
 @media(hover:hover){
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:hover{background:#0749b3!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover{box-shadow:0 10px 30px rgba(8,29,58,.12)!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-image img{transform:scale(1.02)!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-title{color:#0858d6!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-title{color:#0858d6!important;text-decoration:underline!important;text-decoration-thickness:1.5px!important;text-underline-offset:3px!important}
 }

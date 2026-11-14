@@ -1,9 +1,9 @@
-/* OKLA – homepage deal cards (Best Buy style, one heading per card) and, for guests, a sign-in strip at the bottom.
+/* OKLA – homepage deal cards (Best Buy style, one heading per card) and, for guests, a sign-in strip among the product rows.
    Cards: our measuring instruments - title, what it measures, a cut-out photo of the product (the shop's own photo),
    the price and a "Nakoupit" button. The price written here is only the first paint: once the row comes into view the
    real price is read from each product page, and a product that no longer exists drops out. No discounts are claimed.
    Placement: the cards lower on the page (after the first two product sliders, before the warranty strip); the
-   sign-in strip at the very bottom of the page content (after the magazine). Both are kept in place when other scripts re-order the sections.
+   sign-in strip among the product rows (before the first extra row, after the shop's own rows). Both are kept in place when other scripts re-order the sections.
    The card headings use Barlow Condensed 700 (OFL, served with our files from v91/fonts). */
 (function(){
  'use strict';
@@ -79,6 +79,11 @@
   var h=main.querySelectorAll(':scope>.homepage-group-title');if(h.length>2)return h[2];
   return main.querySelector(':scope>#okla-news-v55');
  }
+ /* where the sign-in strip goes: before the first extra product row (okla_home_merge.js), else before the magazine */
+ function stripRef(main){
+  return main.querySelector(':scope>.homepage-group-title[data-okla-row-copy]')||main.querySelector(':scope>#okla-news-v55');
+ }
+ function place(strip){var main=document.getElementById('okla-cat-circles').parentNode,r=stripRef(main);if(r)main.insertBefore(strip,r);else main.appendChild(strip)}
  function mount(){
   if(document.getElementById('okla-deals'))return true;
   var circles=document.getElementById('okla-cat-circles');if(!circles||!circles.parentNode)return false;
@@ -86,11 +91,11 @@
   if(main.querySelectorAll(':scope>.okla-slider-shell').length<2&&tries<60)return false;
   var ref=dealsRef(main);if(!ref)return false;
   var deals=buildDeals();main.insertBefore(deals,ref);livePrices(deals);
-  var strip=guest()?buildSignin():null;if(strip)main.appendChild(strip);
+  var strip=guest()?buildSignin():null;if(strip)place(strip);
   function fix(){
    if(deals.parentNode!==main)return;
    var r=dealsRef(main);if(r&&r!==deals&&deals.nextElementSibling!==r)main.insertBefore(deals,r);
-   if(strip&&strip.parentNode===main&&main.lastElementChild!==strip)main.appendChild(strip);
+   if(strip&&strip.parentNode===main){var sr=stripRef(main);if(sr?strip.nextElementSibling!==sr:main.lastElementChild!==strip)place(strip)}
   }
   if(window.MutationObserver)new MutationObserver(fix).observe(main,{childList:true});
   setTimeout(fix,300);setTimeout(fix,1500);

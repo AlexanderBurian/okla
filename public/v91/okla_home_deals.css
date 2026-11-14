@@ -52,7 +52,7 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-vi
 
 /* the sign-in strip (guests only) */
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){
-  display:flex!important;align-items:center!important;gap:16px 20px!important;margin:36px 0 8px!important;padding:22px 28px!important;
+  display:flex!important;align-items:center!important;gap:16px 20px!important;margin:16px 0 36px!important;padding:22px 28px!important;
   border:1px solid #edf0f4!important;border-radius:16px!important;background:#fff!important;box-shadow:none!important;
 }
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-icon{flex:0 0 30px!important;width:30px!important;height:30px!important;fill:none!important;stroke:#081d3a!important;stroke-width:1.6!important;stroke-linecap:round!important}
@@ -76,7 +76,7 @@ html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn:focu
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{flex:1 1 0!important;min-width:0!important}
 }
 @media(max-width:767px){
-  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){align-items:flex-start!important;margin:28px 0 8px!important;padding:18px!important;gap:14px!important}
+  html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){align-items:flex-start!important;margin:12px 0 28px!important;padding:18px!important;gap:14px!important}
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-icon{flex-basis:26px!important;width:26px!important;height:26px!important}
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-text{font-size:15px!important}
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{height:44px!important;padding:0 12px!important}

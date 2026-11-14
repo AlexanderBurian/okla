@@ -33,3 +33,11 @@ html body #footer:not(#okf-a#okf-b#okf-c){background-color:transparent!important
 
 /* PC header: the search reaches a little further left (the yellow tag logo is narrower than the old one) */
 @media(min-width:992px){html:not(.okla-desktop-sticky) body #header#header .header-top>.search:not(#okhs-a#okhs-b){margin-left:-44px!important;width:calc(100% + 56px)!important;max-width:none!important}}
+/* PC sticky (pop-up) header: the search starts right after the logo (24px of air), its right edge stays */
+@media(min-width:992px){html.okla-desktop-sticky body #header#header .header-top>.search:not(#okhs-a#okhs-b){margin-left:-83px!important;width:calc(100% + 54px)!important;max-width:none!important}}
+/* PC homepage: the section headings start on the same line as the header logo */
+@media(min-width:992px){
+  html body.type-index #content>.homepage-group-title:not(#okal-a#okal-b),
+  html body.type-index #content #okla-news-v55 .okn-heading:not(#okal-a#okal-b#okal-c){padding-left:5px!important}
+  html body.type-index #content #okla-warranty:not(#okal-a#okal-b){padding-left:25px!important}
+}
