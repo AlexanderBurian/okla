@@ -140,6 +140,7 @@ function reveal(){
  root.classList.add('okla-shown');
  setTimeout(function(){root.classList.remove('okla-curtain','okla-shown');bootStyle.remove()},600);
  window.__oklaRevealed=true;
+ setTimeout(warmNext,1200);
 }
 /* The page fades in only after the translation layer has shown it, so a translated page appears in one step. */
 function revealWhenTranslated(){whenFontsReady(revealAfterTranslation)}
@@ -266,9 +267,44 @@ function filesFor(PAGE){
 function preload(href,as,priority){
  var hint=document.createElement('link');
  hint.rel='preload';hint.as=as;hint.href=href;
+ /* stylesheets are requested in CORS mode everywhere (link, preload, the fetch() that stores them), so the browser
+    cache serves all three from ONE download - a no-CORS <link> and a CORS fetch() do not share the cached copy */
+ if(as==='style')hint.crossOrigin='anonymous';
  if(priority)hint.fetchPriority=priority;
  head.appendChild(hint);
  return hint;
+}
+
+/* After the page is shown, the NEXT page should open at once.
+   1. The bundles of the other main kinds of page (homepage, product) go to the browser cache at the lowest priority -
+      skipped on a data-saving or 2G connection.
+   2. Chrome / Edge (Speculation Rules): resting on a shop link (or touching it on a phone) prepares that page in the
+      background, so it appears at once on the click - its curtain has already lifted. Never for the cart, the order
+      process, the account or any /action/ address. Other browsers ignore it. */
+function warmNext(){
+ if(document.body&&document.body.classList.contains('ordering-process'))return;
+ try{
+  var c=navigator.connection;
+  if(!(c&&(c.saveData||/2g/.test(c.effectiveType||'')))){
+   var have={};
+   [].forEach.call(document.querySelectorAll('link[href],script[src]'),function(e){have[e.href||e.src]=1});
+   ['home','product'].forEach(function(kind){
+    var pg={all:true};pg[kind]=true;
+    filesFor(pg).modules.forEach(function(f){
+     var u=url(f,0);if(have[u])return;have[u]=1;
+     var l=document.createElement('link');l.rel='prefetch';l.href=u;if(isCss(f))l.crossOrigin='anonymous';head.appendChild(l);
+    });
+   });
+  }
+ }catch(e){}
+ try{
+  if(!window.HTMLScriptElement||!HTMLScriptElement.supports||!HTMLScriptElement.supports('speculationrules'))return;
+  var rules=document.createElement('script');rules.type='speculationrules';
+  rules.textContent=JSON.stringify({prerender:[{source:'document',where:{and:[{href_matches:'/*'},
+   {not:{href_matches:['/action/*','/kosik*','/objednavka*','/login*','/registrace*','/klient*','/odhlasit*','/zapomenute-heslo*']}},
+   {not:{selector_matches:'[rel~=nofollow],[target=_blank],[download]'}}]},eagerness:'moderate'}]});
+  head.appendChild(rules);
+ }catch(e){}
 }
 
 function main(){
@@ -360,7 +396,7 @@ function absolutizeCss(css,cssUrl){
 function grabCss(file){
  if(cssHave[file]!=null||cssFresh[file]!=null)return;
  var abs=url(file,0);
- try{fetch(abs,{cache:'force-cache'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t!=null)cssFresh[file]=absolutizeCss(t,abs)}).catch(function(){})}catch(e){}
+ try{fetch(abs,{cache:'force-cache',mode:'cors',credentials:'same-origin'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t!=null)cssFresh[file]=absolutizeCss(t,abs)}).catch(function(){})}catch(e){}
 }
 function saveCssCache(){
  setTimeout(function(){
@@ -384,7 +420,7 @@ function loadDeferred(){
  deferred.forEach(function(file){
   if(coveredDef.indexOf(file)>=0)return;
   var src=url(file,0);
-  if(isCss(file)){var link=document.createElement('link');link.rel='stylesheet';link.href=src;link.onload=function(){grabCss(file)};head.appendChild(link);}
+  if(isCss(file)){var link=document.createElement('link');link.rel='stylesheet';link.crossOrigin='anonymous';link.href=src;link.onload=function(){grabCss(file)};head.appendChild(link);}
   else{var s=document.createElement('script');s.src=src;s.async=false;head.appendChild(s);}
  });
 }
@@ -411,7 +447,7 @@ function loadOne(file,attempt){
   console.error('[OKLA] module missing:',file);settle();
  }
  if(isCss(file)){
-  var link=document.createElement('link');link.rel='stylesheet';link.href=src;link.fetchPriority='high';
+  var link=document.createElement('link');link.rel='stylesheet';link.crossOrigin='anonymous';link.href=src;link.fetchPriority='high';
   link.onload=function(){grabCss(file);settle()};link.onerror=failed;
   head.appendChild(link);
  }else{
