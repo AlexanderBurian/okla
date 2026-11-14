@@ -78,13 +78,6 @@
   if(on){place();bar.hidden=false;void bar.offsetWidth;bar.classList.add('is-on');root.classList.add('okla-dbb-on')}
   else{bar.classList.remove('is-on');root.classList.remove('okla-dbb-on');setTimeout(function(){if(!shown)bar.hidden=true},220)}
  }
- /* the gallery sticks only when it fits the window under the sticky header (84px of page space) */
- function galleryFit(){
-  var g=q('#content .p-detail .product-top>.p-image-wrapper');
-  if(!g){root.classList.remove('okla-pd-sticky');return}
-  var z=g.currentCSSZoom||1,h=g.offsetHeight;
-  root.classList.toggle('okla-pd-sticky',DESKTOP.matches&&(h+84+16)*z<=innerHeight);
- }
  function start(){
   if(!document.body||!document.body.classList.contains('type-detail'))return;
   var tries=0;
@@ -97,8 +90,7 @@
     var sync=function(){ticking=false;var r=native.getBoundingClientRect();show(r.width>0&&r.bottom<70*(window.__oklaDZ||1))};
     addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(sync)}},{passive:true});
     sync();
-    addEventListener('resize',function(){if(shown)place();galleryFit()});
-    galleryFit();addEventListener('load',galleryFit);setTimeout(galleryFit,1500);
+    addEventListener('resize',function(){if(shown)place()});
     if(DESKTOP.addEventListener)DESKTOP.addEventListener('change',function(){if(!DESKTOP.matches)show(false)});
    }else if(++tries<40)setTimeout(wait,250);
   })();

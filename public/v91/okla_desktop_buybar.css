@@ -28,10 +28,4 @@
   .okla-dbb__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
   /* the buy bar replaces the sticky header while shown */
   html.okla-dbb-on body #header .header-top{visibility:hidden!important;opacity:0!important;pointer-events:none!important;transition:none!important}
-  /* product gallery: stays in view (under the sticky header) while the right-hand column scrolls, down to the end of
-     the product's top section. The two page wrappers clip with overflow:clip instead of hidden (same clipping, but
-     not a scroll container, so the gallery can stick to the window). Only when the gallery fits the window. */
-  html.okla-pd-sticky body.type-detail #content-wrapper:not(#okla-pds-a#okla-pds-b#okla-pds-c),
-  html.okla-pd-sticky body.type-detail #content-wrapper .content-wrapper-in:not(#okla-pds-a#okla-pds-b#okla-pds-c){overflow:clip!important}
-  html.okla-pd-sticky body.type-detail #content .p-detail .product-top>.p-image-wrapper{position:sticky!important;top:84px!important;align-self:start!important}
 }
