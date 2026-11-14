@@ -1,18 +1,24 @@
 /* Homepage magazine "Co je u nás nového" - the newsroom's own card design (newsroom/okla_newsroom.js), so the
-   homepage and the magazine look the same: a heading row (title left, "Přejít do magazínu →" right) and three white
+   homepage and the magazine look the same: a heading, three white
    cards with a soft shadow - a 16:9 picture, the category, the title, a short perex, then the date and the reading
-   time. Gentle hovers like the rest of the site. Phones: the cards one under another. */
+   time, and a blue "Přejít do magazínu" button under them. Gentle hovers like the rest of the site. Phones: the cards one under another. */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){margin:44px 0 48px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#081d3a!important}
 /* heading row */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{display:flex!important;flex-wrap:wrap!important;align-items:baseline!important;justify-content:space-between!important;gap:6px 16px!important;margin:0 0 20px!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{margin:0!important;padding:0!important;color:#081d3a!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.3px!important;text-transform:none!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-more{
   display:inline-flex!important;align-items:center!important;gap:6px!important;flex:none!important;padding:0!important;border:0!important;background:none!important;
   color:#0858d6!important;-webkit-text-fill-color:#0858d6!important;font:600 15px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;
 }
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-more svg{width:17px!important;height:17px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important;transition:transform .2s ease!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-go{display:none!important}
+/* "Přejít do magazínu": a filled blue button with a chevron, centred under the cards */
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{display:flex!important;justify-content:center!important;margin:28px 0 0!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{
+  display:inline-flex!important;align-items:center!important;gap:14px!important;min-height:0!important;height:50px!important;padding:0 20px 0 24px!important;
+  border:0!important;border-radius:6px!important;background:#0858d6!important;box-shadow:none!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;font:700 16px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;
+  transition:background-color .15s ease!important;
+}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 /* the cards */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important;width:100%!important;min-width:0!important;overflow:visible!important;padding:0!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card,
@@ -58,7 +64,6 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-read svg{dis
 @media(max-width:680px){
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){margin:32px 0 38px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{font-size:20px!important;white-space:nowrap!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-more{font-size:13.5px!important;gap:4px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:minmax(0,1fr)!important;gap:16px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(3){display:flex!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-body,
@@ -68,8 +73,7 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-read svg{dis
 }
 /* hovers only where there is a mouse (a tap on a phone must not leave a card "hovered") */
 @media(hover:hover){
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-more:hover{color:#0646ab!important;-webkit-text-fill-color:#0646ab!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-more:hover svg{transform:translateX(3px)!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:hover{background:#0749b3!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover{box-shadow:0 10px 30px rgba(8,29,58,.12)!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-image img{transform:scale(1.02)!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:hover .okn-title{color:#0858d6!important}
