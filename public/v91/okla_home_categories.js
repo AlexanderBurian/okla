@@ -16,6 +16,7 @@
  function nice(label){
   var t=label.replace(/\s+/g,' ').trim();
   if(/endoskop/i.test(t))return 'Endoskopy';
+  if(/m[ěe][řr]ic[ií] technika/i.test(t))return 'Měřicí technika';
   if(t===t.toUpperCase())t=t.charAt(0)+t.slice(1).toLowerCase();
   return t;
  }

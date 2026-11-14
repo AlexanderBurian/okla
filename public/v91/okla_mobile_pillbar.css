@@ -18,7 +18,7 @@
     flex:0 0 48px!important;width:auto!important;min-width:48px!important;height:48px!important;max-height:none!important;margin:0!important;padding:0!important;gap:0!important;
     border:0!important;border-radius:24px!important;background:#f1f4f8!important;color:#55657a!important;-webkit-tap-highlight-color:transparent!important;
     overflow:hidden!important;text-decoration:none!important;box-shadow:none!important;
-    transition:flex-grow .38s cubic-bezier(.2,.8,.2,1),flex-basis .38s cubic-bezier(.2,.8,.2,1),background-color .25s ease!important;
+    transition:none!important;
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action::before,
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action::after{content:none!important;display:none!important}
@@ -26,12 +26,12 @@
     position:relative!important;z-index:1!important;flex:0 0 48px!important;width:48px!important;height:48px!important;margin:0!important;padding:13px!important;box-sizing:border-box!important;
     border-radius:50%!important;background:transparent!important;color:currentColor!important;transform:none!important;
     fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important;
-    transition:background-color .25s ease,color .25s ease!important;
+    transition:none!important;
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action>span{
     display:block!important;max-width:0!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important;white-space:nowrap!important;
     color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:600 14px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;
-    transition:max-width .38s cubic-bezier(.2,.8,.2,1),opacity .2s ease,margin .38s ease!important;
+    transition:none!important;
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action:active{background:#e6ebf2!important}
   /* ---- the current item: a pill, blue circle + name (the open panel wins over the page's item) ---- */
@@ -52,6 +52,10 @@
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count[hidden]{display:none!important}
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action:focus-visible{outline:2px solid #0858d6!important;outline-offset:2px!important}
+  /* the slide between items, only after the first paint (okla_mobile_pillbar.js) */
+  html.okla-pb-anim.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action{transition:flex-grow .32s cubic-bezier(.2,.8,.2,1),flex-basis .32s cubic-bezier(.2,.8,.2,1),background-color .2s ease!important}
+  html.okla-pb-anim.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action svg{transition:background-color .2s ease,color .2s ease!important}
+  html.okla-pb-anim.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action>span{transition:max-width .32s cubic-bezier(.2,.8,.2,1),opacity .18s ease,margin .32s ease!important}
   @media(prefers-reduced-motion:reduce){
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) :is(.okm61-bottom-action,.okm61-bottom-action svg,.okm61-bottom-action>span){transition:none!important}
   }
