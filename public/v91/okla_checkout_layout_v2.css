@@ -67,3 +67,7 @@
   }
   html body.in-krok-1:not(#okc-a#okc-b) #content#content .co-payment-method .shipping-billing-table>.radio-wrapper{margin:0!important;min-width:0!important}
 }
+
+/* --- steps 2 and 3: the order summary with its products is always shown (nothing may hide it) --- */
+html body.ordering-process:not(.in-kosik):not(#okc-a#okc-b) #content#content #checkoutSidebar :is(.cart-content,.order-summary,#summary-box,.cart-items){display:block!important;visibility:inherit!important}
+html body.ordering-process:not(.in-kosik):not(#okc-a#okc-b) #content#content #checkoutSidebar #summary-box .cart-item{visibility:inherit!important}

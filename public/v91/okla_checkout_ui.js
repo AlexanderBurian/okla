@@ -147,8 +147,11 @@
 
  /* Empty boxes left over in the right column are removed. */
  function hideEmptyShells(){
+  /* textContent, not innerText: while the page is still under the loading curtain (everything visibility:hidden)
+     innerText is empty for EVERY element, and the whole order summary was taken for an empty box and hidden */
   document.querySelectorAll('.col-md-4 > *, .col-md-4 > * > *, .order-summary > *').forEach(function(b){
-   if(b.innerText.trim()===''&&!b.querySelector('input,select,textarea,button,img,svg'))b.style.display='none';
+   if(b.closest('#summary-box,.cart-items'))return;
+   if((b.textContent||'').trim()===''&&!b.querySelector('input,select,textarea,button,img,svg,#summary-box,.cart-item'))b.style.display='none';
   });
  }
 
