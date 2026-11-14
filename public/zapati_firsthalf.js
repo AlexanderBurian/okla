@@ -1,10 +1,12 @@
-/* OKLA – the one storefront loader (Shoptet: HTML kód > zápatí). Everything OKLA adds to the Shoptet shop starts here.
+/* OKLA – the one storefront loader. Everything OKLA adds to the Shoptet shop starts here. Best placed in the page's head
+   (Shoptet: HTML kód > záhlaví, `async`, after the small inline curtain); it also works from the footer (`defer`).
 
    1. Start-up       asset address, AI wake-up, tablet viewport, desktop scaling, logo
    2. Page           which kind of page this is (home, product, checkout, ...)
    3. Bundles        what loads where: the code in categories, in its fixed order (the table below)
    4. Curtain        a white cover until the page is finished, so a half-styled page never shows
    5. Loading        bundles (and the stored look from the device), then the AI chat
+   6. Start          from the head: curtain + downloads at once, code runs once the HTML is complete
 
    The sources live in v91/, legacy/, content-v91/ and newsroom/. tools/build.js joins and minifies them per category
    into public/dist/<bundle>.css|.js; this loader loads only those. Opening the shop with ?okla-src=1 (once, it is
@@ -99,13 +101,67 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
  window.addEventListener('load',fixLogo);
 })();
 
+
+/* ---- 4. Curtain ----------------------------------------------------------------------------------------------- */
+/* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
+   half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
+   under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
+   and the curtain goes after 4 s whatever happens (counted from when the page's HTML is in place). Once it is gone, nothing of the loader stays on the page. */
+var root=document.documentElement;
+var head=document.head||root;
+var bootStyle=document.createElement('style');
+bootStyle.textContent='html.okla-curtain::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483646;background:#fff;pointer-events:auto}'+
+ 'html.okla-curtain.okla-shown::before{opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.25,.1,.25,1)}'+
+ 'html.okla-curtain:not(.okla-shown)::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #e9f1fb;border-top-color:#7aa7e0;border-radius:50%;opacity:0;animation:okla-boot-in .4s ease 1.2s forwards,okla-boot-spin .9s linear infinite}'+
+ '@keyframes okla-boot-in{to{opacity:1}}'+
+ '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
+ '@media (prefers-reduced-motion:reduce){html.okla-curtain:not(.okla-shown)::after{animation:okla-boot-in .4s ease 1.2s forwards}}';
+head.appendChild(bootStyle);
+root.classList.add('okla-curtain');
+/* The curtain goes 4 s after the page's own HTML is in place (set in main) - and in any case 10 s after this point. */
+var revealed=false,revealTimer=null;
+setTimeout(reveal,10000);
+/* The site font (Open Sans, okla_global_typography.css) starts downloading right now, together with the site files. */
+var FONT_BASE='https://cdn.jsdelivr.net/npm/@fontsource-variable/open-sans@5.2.7/files/open-sans-';
+['latin','latin-ext'].forEach(function(sub){
+ var f=document.createElement('link');f.rel='preload';f.as='font';f.type='font/woff2';f.crossOrigin='anonymous';
+ f.href=FONT_BASE+sub+'-wght-normal.woff2';f.fetchPriority='high';head.appendChild(f);
+});
+/* The page is shown only once the font is in place (at most 1.5 s of waiting): text - and every button sized by its text -
+   swapping from the fallback font after the page is visible is what made buttons change size on their own. */
+function whenFontsReady(done){
+ var fired=false;function go(){if(!fired){fired=true;done()}}
+ setTimeout(go,1500);
+ try{Promise.all([document.fonts.load('400 16px "Open Sans"','Aa\u010d\u0159'),document.fonts.load('700 16px "Open Sans"','Aa\u010d\u0159')]).then(go,go)}catch(e){go()}
+}
+function reveal(){
+ if(revealed)return;
+ revealed=true;clearTimeout(revealTimer);revealTimer=null;
+ root.classList.add('okla-shown');
+ setTimeout(function(){root.classList.remove('okla-curtain','okla-shown');bootStyle.remove()},600);
+ window.__oklaRevealed=true;
+}
+/* The page fades in only after the translation layer has shown it, so a translated page appears in one step. */
+function revealWhenTranslated(){whenFontsReady(revealAfterTranslation)}
+function revealAfterTranslation(){
+ if(!root.classList.contains('okla-i18n-pending')){reveal();return}
+ new MutationObserver(function(list,observer){
+  if(root.classList.contains('okla-i18n-pending'))return;
+  observer.disconnect();
+  reveal();
+ }).observe(root,{attributes:true,attributeFilter:['class']});
+}
+
 /* ---- 2. Page -------------------------------------------------------------------------------------------------- */
+/* Which kind of page this is. Asked twice: early (from the <body> classes and the address, while the page is still
+   arriving - to start downloading its bundles) and once the page's HTML is complete (what is actually loaded). */
+function detectPage(){
 var body=document.body,path=location.pathname;
 function bodyIs(re){return !!(body&&re.test(body.className))}
 var PAGE={
  all:true,
  home:!!(body&&body.classList.contains('type-index')),
- product:!!document.querySelector('#content .p-detail'),
+ product:!!document.querySelector('#content .p-detail')||bodyIs(/(^|\s)type-product(\s|$)/),
  checkout:!!(body&&body.classList.contains('ordering-process')),
  /* /newsroom and the Shoptet article list /nase-novinky/ */
  newsroom:/^\/(newsroom|nase-novinky)(\/|\.html)?$/.test(path),
@@ -124,7 +180,8 @@ var PAGE={
  /* "Objednávka odeslána" (/objednavka/dekujeme/, after an order is sent) */
  thankYou:/^\/objednavka\/dekujeme\/?$/.test(path)||bodyIs(/(^|\s)in-dekujeme(\s|$)/)||/objedn\S* (byla )?odesl/i.test((document.querySelector('#content h1')||{}).textContent||'')
 };
-if(PAGE.legal)document.documentElement.classList.add('okla-legal-wide');
+return PAGE;
+}
 
 /* ---- 3. Bundles ----------------------------------------------------------------------------------------------- */
 /* What loads where. [bundle, page, files]: each bundle is loaded on the pages named (see PAGE above) and contains
@@ -184,54 +241,37 @@ var BUNDLES=[
 ];
 /*@end*/
 
-/* ---- 4. Curtain ----------------------------------------------------------------------------------------------- */
-/* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
-   half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
-   under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
-   and the curtain goes after 4 s whatever happens. Once it is gone, nothing of the loader stays on the page. */
-var root=document.documentElement;
-var head=document.head||root;
-var bootStyle=document.createElement('style');
-bootStyle.textContent='html.okla-curtain::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483646;background:#fff;pointer-events:auto}'+
- 'html.okla-curtain.okla-shown::before{opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.25,.1,.25,1)}'+
- 'html.okla-curtain:not(.okla-shown)::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #e9f1fb;border-top-color:#7aa7e0;border-radius:50%;opacity:0;animation:okla-boot-in .4s ease 1.2s forwards,okla-boot-spin .9s linear infinite}'+
- '@keyframes okla-boot-in{to{opacity:1}}'+
- '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
- '@media (prefers-reduced-motion:reduce){html.okla-curtain:not(.okla-shown)::after{animation:okla-boot-in .4s ease 1.2s forwards}}';
-head.appendChild(bootStyle);
-root.classList.add('okla-curtain');
-var revealTimer=setTimeout(reveal,4000);
-/* The site font (Open Sans, okla_global_typography.css) starts downloading right now, together with the site files. */
-var FONT_BASE='https://cdn.jsdelivr.net/npm/@fontsource-variable/open-sans@5.2.7/files/open-sans-';
-['latin','latin-ext'].forEach(function(sub){
- var f=document.createElement('link');f.rel='preload';f.as='font';f.type='font/woff2';f.crossOrigin='anonymous';
- f.href=FONT_BASE+sub+'-wght-normal.woff2';f.fetchPriority='high';head.appendChild(f);
-});
-/* The page is shown only once the font is in place (at most 1.5 s of waiting): text - and every button sized by its text -
-   swapping from the fallback font after the page is visible is what made buttons change size on their own. */
-function whenFontsReady(done){
- var fired=false;function go(){if(!fired){fired=true;done()}}
- setTimeout(go,1500);
- try{Promise.all([document.fonts.load('400 16px "Open Sans"','Aa\u010d\u0159'),document.fonts.load('700 16px "Open Sans"','Aa\u010d\u0159')]).then(go,go)}catch(e){go()}
+function url(file,attempt){return base+file+(base.includes('?')?'&':'?')+'v=91'+(attempt?'&retry='+attempt:'')}
+function isCss(f){return f.endsWith('.css')}
+/* Files to load, in order: the bundles of this page (dist/<bundle>.css and .js), or - in source mode - the original
+   files one by one. The "later" bundle is kept apart. */
+var sourceMode=false;
+try{
+ var sm=/[?&]okla-src=([01])/.exec(location.search);
+ if(sm)localStorage.setItem('okla-src',sm[1]);
+ sourceMode=localStorage.getItem('okla-src')==='1';
+}catch(e){}
+/* This page's bundles in order, the "later" one kept apart. */
+function filesFor(PAGE){
+ var modules=[],deferred=[];
+ BUNDLES.forEach(function(b){
+  if(!PAGE[b[1]])return;
+  var list=b[0]==='99-later'?deferred:modules,files=b[2];
+  if(sourceMode){files.forEach(function(f){list.push(f)});return}
+  if(files.some(isCss))list.push('dist/'+b[0]+'.css');
+  if(files.some(function(f){return !isCss(f)}))list.push('dist/'+b[0]+'.js');
+ });
+ return {modules:modules,deferred:deferred};
 }
-function reveal(){
- if(!revealTimer)return;
- clearTimeout(revealTimer);revealTimer=null;
- root.classList.add('okla-shown');
- setTimeout(function(){root.classList.remove('okla-curtain','okla-shown');bootStyle.remove()},600);
- window.__oklaRevealed=true;
-}
-/* The page fades in only after the translation layer has shown it, so a translated page appears in one step. */
-function revealWhenTranslated(){whenFontsReady(revealAfterTranslation)}
-function revealAfterTranslation(){
- if(!root.classList.contains('okla-i18n-pending')){reveal();return}
- new MutationObserver(function(list,observer){
-  if(root.classList.contains('okla-i18n-pending'))return;
-  observer.disconnect();
-  reveal();
- }).observe(root,{attributes:true,attributeFilter:['class']});
+function preload(href,as,priority){
+ var hint=document.createElement('link');
+ hint.rel='preload';hint.as=as;hint.href=href;
+ if(priority)hint.fetchPriority=priority;
+ head.appendChild(hint);
+ return hint;
 }
 
+function main(){
 /* ---- 5. Loading ----------------------------------------------------------------------------------------------- */
 function loadAi(){
  if(window.__oklaAiWidgetLoader||document.querySelector('okla-ai-chat'))return;
@@ -250,31 +290,10 @@ function loadAi(){
  (document.head||document.documentElement).appendChild(script);
 }
 
-function url(file,attempt){return base+file+(base.includes('?')?'&':'?')+'v=91'+(attempt?'&retry='+attempt:'')}
-function isCss(f){return f.endsWith('.css')}
-/* Files to load, in order: the bundles of this page (dist/<bundle>.css and .js), or - in source mode - the original
-   files one by one. The "later" bundle is kept apart. */
-var sourceMode=false;
-try{
- var sm=/[?&]okla-src=([01])/.exec(location.search);
- if(sm)localStorage.setItem('okla-src',sm[1]);
- sourceMode=localStorage.getItem('okla-src')==='1';
-}catch(e){}
-var modules=[],deferred=[];
-BUNDLES.forEach(function(b){
- if(!PAGE[b[1]])return;
- var list=b[0]==='99-later'?deferred:modules,files=b[2];
- if(sourceMode){files.forEach(function(f){list.push(f)});return}
- if(files.some(isCss))list.push('dist/'+b[0]+'.css');
- if(files.some(function(f){return !isCss(f)}))list.push('dist/'+b[0]+'.js');
-});
-function preload(href,as,priority){
- var hint=document.createElement('link');
- hint.rel='preload';hint.as=as;hint.href=href;
- if(priority)hint.fetchPriority=priority;
- head.appendChild(hint);
- return hint;
-}
+var PAGE=detectPage();
+if(PAGE.legal)document.documentElement.classList.add('okla-legal-wide');
+var lists=filesFor(PAGE),modules=lists.modules,deferred=lists.deferred;
+revealTimer=setTimeout(reveal,4000);
 /* The "later" files start downloading now, so they are ready in the browser cache when they are added - at low
    priority, so on a slow connection they do not hold up the files the page waits for. */
 var hints=deferred.map(function(file){return preload(url(file,0),isCss(file)?'style':'script','low')});
@@ -372,7 +391,7 @@ function loadDeferred(){
 function finalize(){
  window.__oklaAssetLoaderStatus='v91-loaded';
  loadAi();
- hints.forEach(function(hint){hint.remove()});
+ hints.concat(earlyHints).forEach(function(hint){hint.remove()});
  /* One more turn so the last scripts can draw before the page is shown. */
  setTimeout(revealWhenTranslated,30);
  loadDeferred();
@@ -404,4 +423,24 @@ function loadOne(file,attempt){
 window.__oklaAssetLoaderStatus='v91-loading';
 if(pending===0)finalize();
 else toLoad.forEach(function(file){loadOne(file,0)});
+}
+
+/* ---- 6. Start ------------------------------------------------------------------------------------------------- */
+/* Placed in the page's <head> (Shoptet: HTML kód > záhlaví, with `async`), this loader runs while the page is still
+   arriving: the curtain is already up, and as soon as <body> exists (its classes tell the kind of page) every bundle of
+   the page starts downloading. The bundles RUN only once the page's HTML is complete, exactly as from the footer, so
+   no code ever meets a half-built page. Placed in the footer (`defer`), it simply runs everything at once. */
+var earlyHints=[];
+function preloadEarly(){
+ var l=filesFor(detectPage());
+ l.modules.forEach(function(f){earlyHints.push(preload(url(f,0),isCss(f)?'style':'script','high'))});
+}
+if(document.readyState==='loading'){
+ if(document.body)preloadEarly();
+ else{
+  var bodyWatch=new MutationObserver(function(){if(document.body){bodyWatch.disconnect();preloadEarly()}});
+  bodyWatch.observe(document.documentElement,{childList:true});
+ }
+ document.addEventListener('DOMContentLoaded',main,{once:true});
+}else main();
 })();
