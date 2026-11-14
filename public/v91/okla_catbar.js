@@ -50,6 +50,7 @@
    var head=el('div','okcb-head');var h=el('a','okcb-title',c.label);h.href=c.href;var all=el('a','okcb-all','Zobrazit vše');all.href=c.href;head.append(h,all);
    var grid=el('div','okcb-grid');grid.appendChild(el('p','okcb-loading','Načítám…'));
    wrap.append(head,grid);panel.appendChild(wrap);
+   var inn=bar.querySelector('.okcb-inner');if(inn){wrap.style.setProperty('padding-left',inn.style.paddingLeft,'important');wrap.style.setProperty('padding-right',inn.style.paddingRight,'important')}
    load(c.href).then(function(items){
     if(openIdx!==i)return;grid.innerHTML='';
     /* the products spread across the whole width of the bar (at least four columns, so one product stays small) */
@@ -98,6 +99,11 @@
   document.documentElement.classList.add('okla-catbar-on');
   /* exactly as wide as the header's own row (the content column) */
   function sync(){var n=header.querySelector('.navigation-wrapper');if(n&&n.offsetWidth)x.bar.style.setProperty('width',n.offsetWidth+'px','important');
+   /* the items themselves run exactly from the logo's left edge to the cart's right edge (the header row) */
+   var row=header.querySelector('.header-top'),inner=x.bar.querySelector('.okcb-inner');
+   if(row&&inner&&row.offsetWidth){var dz0=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--okla-dz'))||1,br=x.bar.getBoundingClientRect(),rr=row.getBoundingClientRect();
+    inner.style.setProperty('padding-left',Math.max(0,(rr.left-br.left)/dz0)+'px','important');inner.style.setProperty('padding-right',Math.max(0,(br.right-rr.right)/dz0)+'px','important');
+    var pin=x.bar.querySelector('.okcb-panel-in');if(pin){pin.style.setProperty('padding-left',Math.max(0,(rr.left-br.left)/dz0)+'px','important');pin.style.setProperty('padding-right',Math.max(0,(br.right-rr.right)/dz0)+'px','important')}}
    /* the grey band and the panel's white run across the whole window: how far the window reaches past the bar (the
       page is zoomed by --okla-dz, so window pixels are divided by it) */
    var dz=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--okla-dz'))||1;
