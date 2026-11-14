@@ -14,8 +14,8 @@
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-inner{position:relative!important;max-width:none!important;margin:0!important;padding:0 20px!important;box-sizing:border-box!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-list{display:flex!important;align-items:stretch!important;justify-content:space-between!important;gap:0!important;margin:0!important;padding:0!important;list-style:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li{position:relative!important;flex:1 1 0!important;display:flex!important;margin:0!important;padding:0!important;list-style:none!important;border-right:0!important}
-  /* short dividers between the items (they do not reach the bar's edges) */
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li:not(:last-child)::after{content:""!important;position:absolute!important;right:0!important;top:12px!important;bottom:12px!important;width:1px!important;background:#e3e7ed!important}
+  /* dividers between the items, the full height of the bar */
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li:not(:last-child)::after{content:""!important;position:absolute!important;right:0!important;top:0!important;bottom:0!important;width:1px!important;background:#e3e7ed!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li:last-child{border-right:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-link{
     display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:52px!important;padding:6px 10px!important;box-sizing:border-box!important;
@@ -41,7 +41,7 @@
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:20px!important;min-height:200px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-loading{grid-column:1/-1!important;margin:0!important;color:#6b7686!important;font:400 14px/1.4 "Open Sans",Arial,sans-serif!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item{display:flex!important;flex-direction:column!important;align-items:center!important;gap:8px!important;color:#081d3a!important;text-decoration:none!important;text-align:center!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-img{display:grid!important;place-items:center!important;width:100%!important;aspect-ratio:1!important;max-width:130px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-img{display:grid!important;place-items:center!important;width:100%!important;aspect-ratio:1!important;max-width:150px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-img img{display:block!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:600 13.5px/1.35 "Open Sans",Arial,sans-serif!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-price{color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:700 15px/1.2 "Open Sans",Arial,sans-serif!important}

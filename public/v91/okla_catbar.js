@@ -52,6 +52,8 @@
    wrap.append(head,grid);panel.appendChild(wrap);
    load(c.href).then(function(items){
     if(openIdx!==i)return;grid.innerHTML='';
+    /* the products spread across the whole width of the bar (at least four columns, so one product stays small) */
+    grid.style.setProperty('grid-template-columns','repeat('+Math.max(items.length,4)+',minmax(0,1fr))','important');
     if(!items.length){grid.appendChild(el('p','okcb-loading',''));return}
     items.forEach(function(it){
      var a=el('a','okcb-item');a.href=it.href;
