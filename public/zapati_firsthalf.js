@@ -231,7 +231,7 @@ var BUNDLES=[
  /* Call-to-action buttons: colour and shape */
  ['25-buttons','all',['v91/okla_green_buttons.js','v91/okla_all_cta_blue.css','v91/okla_cta_shape.js']],
  /* Checkout skin */
- ['26-checkout-skin','checkout',['v91/okla_cart_simple.css','v91/okla_checkout_alza.js']],
+ ['26-checkout-skin','checkout',['v91/okla_cart_simple.css','v91/okla_checkout_layout_v2.css','v91/okla_checkout_alza.js']],
  ['27-thank-you','thankYou',['v91/okla_thank_you.css','v91/okla_thank_you.js']],
  /* No zoom on phone fields, AI chat branding */
  ['28-last','all',['v91/okla_mobile_no_zoom.css','v91/okla_ai_brand.js']],

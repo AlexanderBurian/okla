@@ -1,0 +1,67 @@
+/* OKLA cart - own layout (steps 1 "Košík" and 2 "Doprava a platba"; step 3 follows once it has been checked).
+   Same look as before (colours, Open Sans, 8px corners, the green button, the step indicator on top) - only the
+   arrangement changes, away from the Alza pattern (items full width, a summary line under them, a button row at the
+   bottom with "Zpět" left and "Pokračovat" right):
+   - PC: left the steps and the items / the delivery and payment options; right ONE light panel with the summary and the
+     button inside it - "Pokračovat" across the panel, "Zpět" as a quiet link under it.
+   - Payment methods stand side by side as tiles (PC; on phones they stay one under another).
+   Placement only, done with CSS grid: no element is moved in the page, so every Shoptet form, link and button keeps
+   working exactly as before. */
+
+@media (min-width:992px){
+  /* the two columns; the right panel's light background runs the full height of the card */
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .cart-inner{
+    display:grid!important;grid-template-columns:minmax(0,1fr) 340px!important;grid-template-rows:auto auto 1fr!important;
+    align-items:start!important;column-gap:0!important;row-gap:0!important;
+    /* the card's inner padding: the right panel reaches its right edge */
+    margin-right:-20px!important;
+    background:linear-gradient(to right,transparent calc(100% - 340px),#e1e6ed calc(100% - 340px),#e1e6ed calc(100% - 339px),#f6f8fb calc(100% - 339px))!important;
+  }
+
+  /* --- step 1: items left, summary + buttons right --- */
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.row.cart-row{grid-column:1!important;grid-row:1/span 3!important;margin:0!important;min-width:0!important;padding-right:24px!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-cart-summary__sentinel{grid-column:1!important;grid-row:3!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-cart-summary{
+    grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:18px!important;
+    margin:0!important;padding:28px 24px 8px!important;border:0!important;background:transparent!important;
+  }
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__totals{width:100%!important;margin:0!important;grid-template-columns:1fr auto!important;column-gap:16px!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__row>span:first-child{text-align:left!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__coupon{order:2!important}
+
+  /* --- step 2: options left, the recap (already the right column) + buttons right --- */
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content .cart-inner>.row.cart-row{display:contents!important}
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutContent{grid-column:1!important;grid-row:1/span 3!important;width:auto!important;max-width:none!important;flex:none!important;min-width:0!important;padding-right:24px!important}
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutSidebar{grid-column:2!important;grid-row:1!important;width:auto!important;max-width:none!important;flex:none!important;background:transparent!important;border:0!important;margin:0!important}
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content #checkoutSidebar :is(.cart-content,.order-summary){background:transparent!important;border:0!important}
+
+  /* --- the buttons: inside the panel, "Pokračovat" across it, "Zpět" a link under it --- */
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .cart-inner>.okla-step-nav,
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .cart-inner>.okla-step-nav.is-stuck{
+    grid-column:2!important;grid-row:2!important;position:static!important;width:auto!important;max-width:none!important;
+    margin:0!important;padding:8px 24px 28px!important;border:0!important;background:transparent!important;box-shadow:none!important;
+  }
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step{
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;gap:6px!important;
+    grid-template-columns:none!important;margin:0!important;padding:0!important;
+  }
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .okla-alza-total{display:none!important}
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step .next-step-forward{
+    order:-1!important;width:100%!important;min-width:0!important;margin:0!important;justify-content:center!important;
+  }
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step .next-step-back{
+    order:0!important;align-self:center!important;width:auto!important;height:36px!important;min-height:36px!important;margin:0!important;padding:0 8px!important;
+    border:0!important;background:transparent!important;box-shadow:none!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;
+  }
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step .next-step-back:is(:hover,:focus-visible){
+    background:transparent!important;color:#0074e8!important;-webkit-text-fill-color:#0074e8!important;text-decoration:underline!important;
+  }
+}
+
+/* --- payment methods side by side, as tiles (step 2, PC; phones keep them one under another) --- */
+@media (min-width:992px){
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content .co-payment-method .shipping-billing-table{
+    display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;
+  }
+  html body.in-krok-1:not(#okc-a#okc-b) #content#content .co-payment-method .shipping-billing-table>.radio-wrapper{margin:0!important;min-width:0!important}
+}
