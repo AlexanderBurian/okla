@@ -1,11 +1,26 @@
 import { readFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
+import { crawlShop } from "./liveCatalog.js";
 import type { KnowledgeItem } from "./types.js";
 
 const STOP_WORDS = new Set([
   "a", "aby", "ale", "co", "do", "je", "jak", "jako", "jsem", "k", "ke", "který", "má", "mi",
-  "na", "nebo", "od", "po", "pro", "se", "si", "s", "to", "u", "v", "ve", "z", "za", "že"
+  "na", "nebo", "od", "po", "pro", "se", "si", "s", "to", "u", "v", "ve", "z", "za", "že",
+  "mate", "mas", "mam", "chci", "chtel", "chtela", "potrebuji", "hledam", "nejaky", "nejakou", "nejake", "neco",
+  "jaky", "jaka", "jake", "jakou", "ktery", "ktera", "ktere", "kterou", "muzu", "muzete", "byste", "bych", "prosim",
+  "dobry", "den", "ahoj", "me", "mne", "vas", "vam", "nam", "jsou", "bude", "byt", "tak", "taky", "take",
+  "uz", "jen", "ten", "ta", "tu", "tyto", "tento", "tenhle", "tahle", "toto", "tohle", "ma", "kc", "korun",
+  "the", "and", "for", "with", "you", "have", "is", "what", "which"
 ]);
+
+/* a few everyday words customers use for what the catalogue calls differently */
+const SYNONYMS: Record<string, string[]> = {
+  kamera: ["endoskop", "inspekcni"], endoskop: ["inspekcni", "kamera"], teplomer: ["teplota", "ir"],
+  meric: ["multimetr", "merici"], multimetr: ["merici", "napeti"], napeti: ["multimetr"], projektor: ["projektory", "obraz"],
+  bryle: ["chytre"], darek: ["gadget", "designove"], hracka: ["gadget"], konzole: ["herni", "retro"],
+  hry: ["herni", "retro"], vlhkost: ["vlhkomer"], hluk: ["hlukomer"], svetlo: ["luxmetr"], esp: ["esp32"], arduino: ["esp32", "vyvojova"],
+  naradi: ["merici", "sroubovak"], kutil: ["sroubovak", "merici", "multitool", "naradi"], kutila: ["sroubovak", "merici", "multitool"], dilna: ["sroubovak", "merici"], hacking: ["flipper", "rfid", "nfc"], nfc: ["rfid", "flipper"]
+};
 
 export function normalize(value: string): string {
   return value
@@ -142,19 +157,44 @@ function tokens(value: string): string[] {
     .filter((token) => token.length > 1 && !STOP_WORDS.has(token));
 }
 
+/* Czech words change their endings (multimetr, multimetru, multimetry): a longer word also matches by its stem */
+function stem(token: string): string {
+  return token.length >= 6 ? token.slice(0, token.length - 2) : token.length === 5 ? token.slice(0, 4) : token;
+}
+
+function hits(text: string, token: string): boolean {
+  if (text.includes(token)) return true;
+  const st = stem(token);
+  return st !== token && new RegExp(`(^|\\s)${st}`).test(text);
+}
+
+/* "do 1000 Kč", "pod 2000", "max 1500" -> 1000 / 2000 / 1500 */
+export function budgetOf(query: string): number | undefined {
+  const m = normalize(query).match(/(?:do|pod|max|maximalne|nejvys|levnejsi nez|up to|under)\s+(\d[\d ]{1,6})/);
+  return m?.[1] ? Number(m[1].replace(/\s/g, "")) : undefined;
+}
+
 export function searchKnowledge(items: KnowledgeItem[], query: string, limit = 5): KnowledgeItem[] {
-  const queryTokens = [...new Set(tokens(query))];
+  const base = [...new Set(tokens(query))];
+  const queryTokens = [...new Set([...base, ...base.flatMap((t) => SYNONYMS[t] ?? SYNONYMS[stem(t)] ?? [])])];
+  const budget = budgetOf(query);
   if (queryTokens.length === 0) return items.filter((item) => item.type === "faq").slice(0, limit);
 
   return items
     .map((item) => {
       const title = normalize(item.title);
+      const keywords = (item.keywords ?? []).map(normalize);
       const haystack = normalize(`${item.title} ${item.content} ${(item.keywords ?? []).join(" ")}`);
-      const score = queryTokens.reduce((total, token) => {
-        if (title.includes(token)) return total + 5;
-        if ((item.keywords ?? []).some((keyword) => normalize(keyword).includes(token))) return total + 3;
-        return haystack.includes(token) ? total + 1 : total;
+      let score = queryTokens.reduce((total, token) => {
+        const weight = base.includes(token) ? 1 : 0.5;
+        if (hits(title, token)) return total + 5 * weight;
+        if (keywords.some((keyword) => hits(keyword, token))) return total + 3 * weight;
+        return hits(haystack, token) ? total + 1 * weight : total;
       }, 0);
+      if (score > 0 && item.type === "product") {
+        if (budget !== undefined && item.price !== undefined) score += item.price <= budget ? 2 : -4;
+        if (item.inStock === false) score -= 0.5;
+      }
       return { item, score };
     })
     .filter((result) => result.score > 0)
@@ -204,13 +244,17 @@ export class KnowledgeStore {
   private localItems: KnowledgeItem[] = [];
   private csvItems: KnowledgeItem[] = [];
   private feedItems: KnowledgeItem[] = [];
+  private liveItems: KnowledgeItem[] = [];
   private refreshTimer?: NodeJS.Timeout;
+  private crawlTimer?: NodeJS.Timeout;
 
   constructor(
     private readonly filePath: string,
     private readonly feedUrl?: string,
     private readonly csvFilePath?: string,
-    private readonly shopBaseUrl?: string
+    private readonly shopBaseUrl?: string,
+    private readonly crawl = false,
+    private readonly crawlMinutes = 360
   ) {}
 
   async initialize(refreshMinutes = 60): Promise<void> {
@@ -221,6 +265,12 @@ export class KnowledgeStore {
       const csv = await readFile(this.csvFilePath, "utf8");
       this.csvItems = parseShoptetCsv(csv, this.shopBaseUrl).slice(0, 20_000);
     }
+    if (this.crawl && this.shopBaseUrl) {
+      /* first crawl in the background: the service answers from the CSV until the live catalogue is in */
+      void this.refreshLive();
+      this.crawlTimer = setInterval(() => void this.refreshLive(), this.crawlMinutes * 60_000);
+      this.crawlTimer.unref();
+    }
     if (this.feedUrl) {
       await this.refreshFeed().catch(() => undefined);
       this.refreshTimer = setInterval(() => void this.refreshFeed(), refreshMinutes * 60_000);
@@ -228,16 +278,56 @@ export class KnowledgeStore {
     }
   }
 
-  search(query: string, limit = 5): KnowledgeItem[] {
-    return searchKnowledge([...this.feedItems, ...this.csvItems, ...this.localItems], query, limit);
+  /* live products first; an older CSV/feed record of the same product (same URL or name) is left out */
+  all(): KnowledgeItem[] {
+    const seen = new Set<string>();
+    const out: KnowledgeItem[] = [];
+    const live = this.liveItems.some((item) => item.type === "product");
+    for (const item of [...this.liveItems, ...this.feedItems, ...(live ? [] : this.csvItems), ...this.localItems]) {
+      const keys = [item.url && normalizeUrl(item.url), item.type === "product" ? `n:${normalize(item.title)}` : undefined].filter(Boolean) as string[];
+      if (item.type === "product" && keys.some((key) => seen.has(key))) continue;
+      keys.forEach((key) => seen.add(key));
+      out.push(item);
+    }
+    return out;
   }
 
-  counts(): { local: number; csv: number; feed: number } {
-    return { local: this.localItems.length, csv: this.csvItems.length, feed: this.feedItems.length };
+  faqs(): KnowledgeItem[] {
+    return this.all().filter((item) => item.type === "faq");
+  }
+
+  products(): KnowledgeItem[] {
+    return this.all().filter((item) => item.type === "product");
+  }
+
+  search(query: string, limit = 5): KnowledgeItem[] {
+    return searchKnowledge(this.all(), query, limit);
+  }
+
+  byUrl(url?: string): KnowledgeItem | undefined {
+    if (!url) return undefined;
+    const key = normalizeUrl(url);
+    return key ? this.products().find((item) => item.url && normalizeUrl(item.url) === key) : undefined;
+  }
+
+  counts(): { local: number; csv: number; feed: number; live: number } {
+    return { local: this.localItems.length, csv: this.csvItems.length, feed: this.feedItems.length, live: this.liveItems.length };
   }
 
   close(): void {
     if (this.refreshTimer) clearInterval(this.refreshTimer);
+    if (this.crawlTimer) clearInterval(this.crawlTimer);
+  }
+
+  /* exposed for tests and for a manual refresh */
+  async refreshLive(): Promise<void> {
+    if (!this.shopBaseUrl) return;
+    try {
+      const { products, pages } = await crawlShop(this.shopBaseUrl);
+      if (products.length) this.liveItems = [...products, ...pages];
+    } catch {
+      /* keep the last good catalogue */
+    }
   }
 
   private async refreshFeed(): Promise<void> {
@@ -252,5 +342,15 @@ export class KnowledgeStore {
     } finally {
       clearTimeout(timer);
     }
+  }
+}
+
+/* the same page with or without "www.", query, hash or trailing slash */
+export function normalizeUrl(value: string): string | undefined {
+  try {
+    const url = new URL(value);
+    return `${url.hostname.replace(/^www\./, "")}${url.pathname.replace(/\/+$/, "")}`.toLowerCase();
+  } catch {
+    return undefined;
   }
 }

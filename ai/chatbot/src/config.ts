@@ -28,6 +28,8 @@ export interface AppConfig {
   shopBaseUrl?: string;
   shoptetFeedUrl?: string;
   shoptetFeedRefreshMinutes: number;
+  shopCrawl: boolean;
+  shopCrawlMinutes: number;
   shoptetApiBase: string;
   shoptetApiToken?: string;
 }
@@ -58,6 +60,9 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
     shoptetCsvFile: path.resolve(process.cwd(), env.SHOPTET_CSV_FILE || "./data/shoptet-products.csv"),
     shopBaseUrl: env.SHOP_BASE_URL || "https://www.okla.cz",
     shoptetFeedUrl: env.SHOPTET_FEED_URL || undefined,
+    /* the live catalogue read from the shop's own pages (sitemap + product microdata); off in tests */
+    shopCrawl: bool(env.SHOP_CRAWL, !env.VITEST),
+    shopCrawlMinutes: integer(env.SHOP_CRAWL_MINUTES, 360, 15, 7 * 24 * 60),
     shoptetFeedRefreshMinutes: integer(env.SHOPTET_FEED_REFRESH_MINUTES, 60, 5, 1440),
     shoptetApiBase: (env.SHOPTET_API_BASE || "https://api.myshoptet.com").replace(/\/$/, ""),
     shoptetApiToken: env.SHOPTET_API_TOKEN || undefined

@@ -16,8 +16,8 @@
   /* phones: the homepage search box (okla_home_search.js); PC: the header search field */
   var inp=phone.matches?document.querySelector('.okla-hsearch__in'):document.querySelector('#header .header-top .search input.query-input,#header input.query-input[name="string"]');
   if(!inp||!inp.getClientRects().length)return null;
-  /* while it types, the placeholder is dark enough to be noticed (the resting one stays light) */
-  if(!document.getElementById('okla-st-style')){var st=document.createElement('style');st.id='okla-st-style';st.textContent='input.okla-st-typing::placeholder{color:#3f4b59!important;-webkit-text-fill-color:#3f4b59!important;opacity:1!important}';document.head.appendChild(st)}
+  /* while it types, the placeholder is a soft grey (half opacity), noticeable but quiet */
+  if(!document.getElementById('okla-st-style')){var st=document.createElement('style');st.id='okla-st-style';st.textContent='input.okla-st-typing::placeholder{color:#3f4b59!important;-webkit-text-fill-color:#3f4b59!important;opacity:.5!important}';document.head.appendChild(st)}
   inp.classList.add('okla-st-typing');
   return {node:inp,rest:inp.getAttribute('placeholder')||'Napište, co hledáte',set:function(s){inp.setAttribute('placeholder',s)},watch:inp,input:inp};
  }

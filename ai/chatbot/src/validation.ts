@@ -4,6 +4,9 @@ import type { ChatMessage, ChatRole } from "./types.js";
 export interface ValidChatBody {
   message: string;
   history: ChatMessage[];
+  /* the page the chat was opened on (only its address is used, to know which product is on screen) */
+  page?: string;
+  lang?: string;
 }
 
 export class ValidationError extends Error {}
@@ -43,7 +46,18 @@ export function validateChatBody(body: unknown, config: AppConfig): ValidChatBod
     throw new ValidationError("Historie konverzace je příliš dlouhá.");
   }
 
-  return { message, history };
+  let page: string | undefined;
+  if (typeof candidate.page === "string" && candidate.page.length <= 500) {
+    try {
+      const url = new URL(candidate.page);
+      if (url.protocol === "https:" || url.protocol === "http:") page = `${url.origin}${url.pathname}`;
+    } catch {
+      page = undefined;
+    }
+  }
+  const lang = typeof candidate.lang === "string" && ["cs", "sk", "en", "hu"].includes(candidate.lang) ? candidate.lang : undefined;
+
+  return { message, history, page, lang };
 }
 
 export function isPersonalOrderRequest(message: string): boolean {

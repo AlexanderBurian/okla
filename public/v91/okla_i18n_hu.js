@@ -95,7 +95,7 @@
   'A safra! Něco se pokazilo.':'Hoppá! Valami elromlott.','Stránka nebyla nalezena.':'Az oldal nem található.','Můžete se ale podívat na naše produkty.':'De nyugodtan nézze meg termékeinket.',
   'Mohlo by vás zajímat':'Ez is érdekelheti','Odstoupení do 14 dnů':'14 napos elállás','Doprava a platba v košíku před objednávkou':'Szállítás és fizetés a kosárban, rendelés előtt',
   'Uvádějte pouze, pokud jste plátci DPH. Vždy začíná dvěma písmeny - kódem státu. Pro ČR má tvar CZ + 8-10 číslic. Pozor, slovenský ekvivalent je IČ DPH, ne slovenské DIČ! Anglicky - VAT number.':'Csak akkor adja meg, ha áfafizető. Mindig két betűvel, az ország kódjával kezdődik. Csehországban CZ + 8–10 számjegy.',
-  'Bez hodnocení':'Nincs értékelés','2 roky záruka.':'2 év garancia.','Nakupujte s jistotou.':'Vásároljon biztonsággal.','Více o záruce':'Bővebben a garanciáról','Všechny novinky':'Összes újdonság',
+  'Bez hodnocení':'Nincs értékelés','2 roky záruka.':'2 év garancia.','Nakupujte s jistotou.':'Vásároljon biztonsággal.','Více o záruce':'Bővebben a garanciáról','Co je u nás nového':'Újdonságok nálunk','Přejít do magazínu':'Tovább a magazinhoz','Všechny novinky':'Összes újdonság',
   'Flipper Zero: co všechno zvládne kapesní multitool?':'Flipper Zero: mire képes a zseb-multitool?',
   'Kompaktní zařízení pro nadšence do elektroniky nabízí práci s NFC, RFID a rádiovými signály. Podívali jsme se na jeho možnosti i omezení při každodenním používání.':'Kompakt eszköz elektronikarajongóknak NFC, RFID és rádiójelek kezeléséhez. Megnéztük, mit tud és mit nem a mindennapi használatban.',
   'Wi‑Fi endoskopická kamera: na co se zaměřit při výběru':'Wi‑Fi endoszkóp kamera: mire figyeljen választáskor',

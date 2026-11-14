@@ -55,10 +55,10 @@ if(!scan()&&window.MutationObserver){
 (function(){
  if(window.__oklaAiAwayV1)return;window.__oklaAiAwayV1=true;
  var root=document.documentElement,isHome=!!(document.body&&document.body.classList.contains('type-index')),scrolledOnce=!isHome;
- /* Phones: while away the round button waits small and transparent in its corner, with the same motion as its reveal,
-    so when it may show (after a little scrolling, or when a panel closes) it grows into place instead of popping up. */
+ /* Phones: while away the round button waits just outside the right edge, with the same motion as its reveal,
+    so when it may show (after a little scrolling, or when a panel closes) it slides in from the right. */
  var CSS=':host(.okla-ai-away) .panel:not(.open)+.launcher{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transition:opacity .16s ease,visibility 0s linear .16s!important}'+
-  '@media (max-width:466px){:host(.okla-ai-away) .panel:not(.open)+.launcher{transform:translateY(14px) scale(.7)!important;transition:opacity .28s ease,transform .42s cubic-bezier(.16,1,.3,1),visibility 0s linear .42s!important}}';
+  '@media (max-width:466px){:host(.okla-ai-away) .panel:not(.open)+.launcher{transform:translateX(calc(100% + 24px))!important;transition:opacity .2s ease,transform .5s cubic-bezier(.16,1,.3,1),visibility 0s linear .5s!important}}';
  function overlayOpen(){
   var b=document.body;
   if(root.classList.contains('okla-m-lock')||root.classList.contains('okla-search-open')||root.classList.contains('okla-cd-lock'))return true;

@@ -41,7 +41,7 @@
       "type": "faq",
       "title": "Vrácení zboží",
       "content": "Spotřebitel může při nákupu na dálku zpravidla odstoupit bez uvedení důvodu do 14 dnů od převzetí. Oznámení lze poslat na podpora@okla.cz. Zboží se následně odesílá bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení. Platí zákonné výjimky a podrobné podmínky na stránce Vrácení zboží.",
-      "url": "https://www.okla.cz/doprava-a-platba/",
+      "url": "https://www.okla.cz/vraceni-zbozi-a-odstoupeni/",
       "keywords": [
         "vrácení",
         "odstoupení",
@@ -90,14 +90,61 @@
       "id": "faq-support",
       "type": "faq",
       "title": "Zákaznická podpora",
-      "content": "Zákaznickou podporu OKLA lze kontaktovat na podpora@okla.cz. Podpora řeší konkrétní objednávky, aktuální dostupnost, reklamace a nejasnosti, které nelze bezpečně ověřit z produktových podkladů.",
-      "url": "mailto:podpora@okla.cz",
+      "content": "Zákaznická podpora OKLA: e-mail podpora@okla.cz, odpovídáme v pracovní dny Po–Pá 9:00–17:00. Podpora řeší konkrétní objednávky, dostupnost, reklamace, vrácení zboží i dotazy k výběru.",
+      "url": "https://www.okla.cz/kontakt/",
       "keywords": [
         "kontakt",
         "podpora",
         "pomoc",
         "email",
-        "e-mail"
+        "e-mail",
+        "telefon",
+        "otevírací doba",
+        "kdy",
+        "napsat"
+      ]
+    },
+    {
+      "id": "faq-warranty",
+      "type": "faq",
+      "title": "Záruka a odpovědnost za vady",
+      "content": "Na zboží platí zákonná odpovědnost za vady 24 měsíců (2 roky záruka). Spotřebitel může při nákupu na dálku odstoupit od smlouvy do 14 dnů od převzetí. Reklamaci i odstoupení stačí poslat na podpora@okla.cz.",
+      "url": "https://www.okla.cz/reklamacni-rad/",
+      "keywords": [
+        "záruka",
+        "záruční",
+        "garance",
+        "24 měsíců",
+        "2 roky",
+        "odpovědnost za vady"
+      ]
+    },
+    {
+      "id": "faq-how-to-buy",
+      "type": "faq",
+      "title": "Jak nakupovat",
+      "content": "Objednávka zabere pár minut: vyberete zboží, v košíku zvolíte dopravu a platbu, vyplníte údaje a odešlete. O každém kroku informujeme e-mailem. Rozhodující je cena zobrazená před odesláním, včetně dopravy a případného příplatku za platbu. Nakoupit lze i bez registrace.",
+      "url": "https://www.okla.cz/jak-nakupovat/",
+      "keywords": [
+        "objednat",
+        "objednávka",
+        "nákup",
+        "jak koupit",
+        "registrace",
+        "košík"
+      ]
+    },
+    {
+      "id": "faq-order-tracking",
+      "type": "faq",
+      "title": "Stav objednávky a sledování zásilky",
+      "content": "Stav objednávky zjistíte na stránce Stav objednávky na okla.cz (číslo objednávky a PSČ doručení). S konkrétní objednávkou pomůže podpora na podpora@okla.cz.",
+      "url": "https://www.okla.cz/stav-objednavky/",
+      "keywords": [
+        "stav objednávky",
+        "sledování",
+        "zásilka",
+        "kde je"
       ]
     }
   ]

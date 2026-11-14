@@ -4,7 +4,7 @@
    gallery stays in view while the right-hand column is scrolled. */
 .okla-dbb{display:none}
 @media(min-width:992px){
-  .okla-dbb{display:block;position:fixed;top:0;bottom:auto;left:0;right:0;z-index:850;background:#fff;box-shadow:0 1px 0 rgba(6,66,161,.06),0 6px 18px rgba(18,41,68,.10);transform:translateY(-105%);transition:transform .22s ease;font-family:"Open Sans",Arial,sans-serif}
+  .okla-dbb{display:block;position:fixed;top:0;bottom:auto;left:0;right:0;z-index:850;background:#fff;box-shadow:0 1px 0 rgba(6,66,161,.06),0 6px 18px rgba(18,41,68,.10);transform:translateY(-105%);transition:none;font-family:"Open Sans",Arial,sans-serif}
   .okla-dbb[hidden]{display:none}
   .okla-dbb.is-on{transform:none}
   .okla-dbb__inner{display:flex;align-items:center;gap:18px;box-sizing:border-box;height:72px;padding:0 4px}

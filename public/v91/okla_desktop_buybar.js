@@ -76,7 +76,7 @@
   on=on&&DESKTOP.matches;
   if(on===shown)return;shown=on;
   if(on){place();bar.hidden=false;void bar.offsetWidth;bar.classList.add('is-on');root.classList.add('okla-dbb-on')}
-  else{bar.classList.remove('is-on');root.classList.remove('okla-dbb-on');setTimeout(function(){if(!shown)bar.hidden=true},220)}
+  else{bar.classList.remove('is-on');root.classList.remove('okla-dbb-on');bar.hidden=true}
  }
  function start(){
   if(!document.body||!document.body.classList.contains('type-detail'))return;
@@ -87,7 +87,11 @@
        scrolled away under it, and goes again when it comes back */
     root.classList.add('okla-dbb-ready');
     var ticking=false;
-    var sync=function(){ticking=false;var r=native.getBoundingClientRect();show(r.width>0&&r.bottom<70*(window.__oklaDZ||1))};
+    /* On the product page the buy bar takes the sticky header's place: the moment the header would ride along
+       (html.okla-desktop-sticky, okla_desktop_sticky.js) the bar is there instead, in the same frame, so there is
+       no empty moment between them. */
+    var sync=function(){ticking=false;var r=native.getBoundingClientRect();show(root.classList.contains('okla-desktop-sticky')||(r.width>0&&r.bottom<70*(window.__oklaDZ||1)))};
+    new MutationObserver(function(){sync()}).observe(root,{attributes:true,attributeFilter:['class']});
     addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(sync)}},{passive:true});
     sync();
     addEventListener('resize',function(){if(shown)place()});

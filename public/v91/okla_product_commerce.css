@@ -3,8 +3,8 @@
    steppers, filters, forms and the rest of the button system remain untouched. */
 :root{
  --okla-commerce-price:#e73b49;
- --okla-commerce-cart:#074fc1;
- --okla-commerce-cart-hover:#0649b2; /* a subtle darkening of the cart green on hover */
+ --okla-commerce-cart:#54a40d;
+ --okla-commerce-cart-hover:#4a920b; /* a subtle darkening of the cart green on hover */
 }
 
 /* Product cards: the selling price is red in every listing and carousel. */
@@ -56,12 +56,12 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
 }
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled){
  border-radius:8px!important;
- border-color:#085adc!important;
- background:#085adc!important;
+ border-color:#66d400!important;
+ background:#66d400!important;
 }
 #okla-cart-drawer .okla-cd__card-btn:not(:disabled):is(:hover,:focus-visible){
- border-color:#0753cb!important;
- background:#0753cb!important;
+ border-color:#5bbd00!important;
+ background:#5bbd00!important;
 }
 
 /* Datart-like final card anatomy: no synthetic NOVINKA ribbon or coloured
@@ -214,9 +214,9 @@ html body:not(.okla-cards-none) #content#content .okla-cards.okla-cards:not(#okl
    so pin both rendered controls to the commerce palette in this final pass. */
 html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled){
- border-color:#074cba!important;
- background:#074cba!important;
- background-color:#074cba!important;
+ border-color:#49a700!important;
+ background:#49a700!important;
+ background-color:#49a700!important;
 }
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled) :is(span,svg,i){
@@ -226,9 +226,9 @@ html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disa
 }
 html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):is(:hover,:focus-visible,:active),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled):is(:hover,:focus-visible,:active){
- border-color:#0646a9!important;
- background:#0646a9!important;
- background-color:#0646a9!important;
+ border-color:#3f9200!important;
+ background:#3f9200!important;
+ background-color:#3f9200!important;
 }
 
 /* ===== Product previews (listing / carousel cards) - DATART-style "Do košíku" =====
@@ -305,3 +305,9 @@ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#o
 @media(max-width:767px){
  html body #okla-cart-drawer#okla-cart-drawer .okla-cd__btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d){font-size:14px!important;white-space:nowrap!important;padding-left:8px!important;padding-right:8px!important}
 }
+
+/* Product cards (as DATART): the stars sit between the name and the price - name, stars, stock, price, button */
+html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c){flex-direction:column!important}
+html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.name{order:1!important}
+html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.ratings-wrapper{order:2!important;margin:6px 0 2px!important}
+html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.availability{order:3!important}

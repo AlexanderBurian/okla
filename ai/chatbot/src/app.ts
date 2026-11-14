@@ -57,7 +57,9 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     config.knowledgeFile,
     config.shoptetFeedUrl,
     config.shoptetCsvFile,
-    config.shopBaseUrl
+    config.shopBaseUrl,
+    config.shopCrawl,
+    config.shopCrawlMinutes
   );
   if (!options.knowledge) await knowledge.initialize(config.shoptetFeedRefreshMinutes);
   const engine = options.engine ?? (config.mockMode
@@ -140,8 +142,23 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
       if (isPersonalOrderRequest(input.message)) {
         reply.raw.write(sse("token", { text: "Ke konkrétní objednávce nemám přístup. Kvůli ochraně soukromí sem neposílejte číslo objednávky ani osobní údaje. Napište prosím na [podpora@okla.cz](mailto:podpora@okla.cz)." }));
       } else {
-        const relevant = knowledge.search(input.message, 5);
-        for await (const token of engine.stream({ ...input, knowledge: relevant, signal: controller.signal })) {
+        /* the question alone, and together with the last exchange (so "a ten druhý?" still finds the products) */
+        const lastUser = [...input.history].reverse().find((entry) => entry.role === "user")?.content ?? "";
+        const pageItem = knowledge.byUrl(input.page);
+        const found = knowledge.search(input.message, 6);
+        const followUp = lastUser ? knowledge.search(`${lastUser} ${input.message}`, 4) : [];
+        const relevant = [...new Map([...(pageItem ? [pageItem] : []), ...found, ...followUp].map((item) => [item.id, item])).values()].slice(0, 8);
+        const stream = engine.stream({
+          message: input.message,
+          history: input.history,
+          lang: input.lang,
+          pageItem,
+          catalog: knowledge.products(),
+          faqs: knowledge.faqs(),
+          knowledge: relevant,
+          signal: controller.signal
+        });
+        for await (const token of stream) {
           reply.raw.write(sse("token", { text: token }));
         }
       }

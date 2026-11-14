@@ -84,7 +84,7 @@
   }
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-panel{
     left:0!important;right:0!important;top:0!important;bottom:0!important;width:100%!important;max-width:none!important;
-    display:flex!important;flex-direction:column!important;overflow:hidden!important;box-shadow:none!important;
+    display:flex!important;flex-direction:column!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;box-shadow:none!important;
     transform:none!important;transition:none!important;opacity:1!important;background:transparent!important;
   }
   /* the top: same height, logo and button place as the page's own top bar */
@@ -100,9 +100,9 @@
     display:grid!important;place-items:center!important;width:40px!important;height:40px!important;min-width:0!important;margin:-4px 0 0!important;padding:0!important;
     border:0!important;border-radius:50%!important;background:transparent!important;color:#053787!important;box-shadow:none!important;
   }
-  /* the content scrolls on its own and slides in from the right */
+  /* the whole panel scrolls (the logo and the close button go up with the content); the content slides in from the right */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{
-    flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+    flex:1 0 auto!important;min-height:calc(100% - 60px)!important;overflow:visible!important;
     padding-bottom:calc(50px + 28px + env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important;
     background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;background-position:left -60px!important;background-size:100% 820px!important;
     transform:translateX(100%);transition:transform .34s cubic-bezier(.22,1,.36,1)!important;

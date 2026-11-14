@@ -12,6 +12,10 @@ export interface KnowledgeItem {
   content: string;
   url?: string;
   keywords?: string[];
+  /* live catalogue only */
+  price?: number;
+  inStock?: boolean;
+  category?: string;
 }
 
 export interface ChatContext {
@@ -19,6 +23,14 @@ export interface ChatContext {
   history: ChatMessage[];
   knowledge: KnowledgeItem[];
   signal: AbortSignal;
+  /* the product the visitor is looking at (its page), when known */
+  pageItem?: KnowledgeItem;
+  /* cs | sk | en | hu */
+  lang?: string;
+  /* the whole catalogue, for listing and budget questions */
+  catalog?: KnowledgeItem[];
+  /* every shop page and note, for questions about buying */
+  faqs?: KnowledgeItem[];
 }
 
 export interface ChatEngine {

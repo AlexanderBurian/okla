@@ -1,5 +1,5 @@
 /* OKLA / Shoptet-native news covers.
-   This module changes only the five images in the custom homepage news grid.
+   This module sets the pictures (and the publication dates) of the custom homepage news grid.
    The current article thumbnail in Shoptet (og:image) is the source of truth. */
 (function () {
   'use strict';
@@ -15,6 +15,7 @@
     ['/nase-novinky/meridlo/', '/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_32-4.png']
   ];
   var covers = articles.map(function (item) { return new URL(item[1], location.origin).href; });
+  var dates = articles.map(function () { return ''; });
   var watchedSection = null;
   var imageObserver = null;
 
@@ -33,6 +34,8 @@
         img.removeAttribute('sizes');
         img.setAttribute('src', wanted);
       }
+      var date = cards[i].querySelector('.okn-date');
+      if (date && dates[i] && date.textContent !== dates[i]) date.textContent = dates[i];
       if (!img.alt) {
         var title = cards[i].querySelector('.okn-title');
         if (title) img.alt = title.textContent.trim();
@@ -88,6 +91,10 @@
       })
       .then(function (html) {
         var doc = new DOMParser().parseFromString(html, 'text/html');
+        /* the publication date shown under the title (Shoptet: "31.10.2026") */
+        var published = doc.querySelector('meta[property="article:published_time"]');
+        var when = published && (published.getAttribute('content') || '').trim();
+        if (when && /^\d{1,2}\.\d{1,2}\.\d{4}$/.test(when)) { dates[index] = when; paint(); }
         var meta = doc.querySelector('meta[property="og:image"]');
         if (!meta) return;
         var url = new URL(meta.getAttribute('content') || '', location.origin + article[0]);
