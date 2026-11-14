@@ -277,7 +277,7 @@ function preload(href,as,priority){
 
 /* After the page is shown, the NEXT page should open at once.
    1. The bundles of the other main kinds of page (homepage, product) go to the browser cache at the lowest priority -
-      skipped on a data-saving or 2G connection.
+      only on a fast (4G / broadband) connection without data saving.
    2. Chrome / Edge (Speculation Rules): resting on a shop link (or touching it on a phone) prepares that page in the
       background, so it appears at once on the click - its curtain has already lifted. Never for the cart, the order
       process, the account or any /action/ address. Other browsers ignore it. */
@@ -285,7 +285,8 @@ function warmNext(){
  if(document.body&&document.body.classList.contains('ordering-process'))return;
  try{
   var c=navigator.connection;
-  if(!(c&&(c.saveData||/2g/.test(c.effectiveType||'')))){
+  /* only on a fast connection: on 3G the extra downloads compete with the page the visitor opens next */
+  if(!(c&&(c.saveData||(c.effectiveType&&c.effectiveType!=='4g')))){
    var have={};
    [].forEach.call(document.querySelectorAll('link[href],script[src]'),function(e){have[e.href||e.src]=1});
    ['home','product'].forEach(function(kind){
