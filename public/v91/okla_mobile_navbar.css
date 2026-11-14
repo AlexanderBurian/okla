@@ -1,0 +1,119 @@
+/* OKLA – phones (≤767px): the top navbar (okla_mobile_navbar.js) replaces the bottom bar.
+   Row 1: logo | account, cart, menu. Row 2: the search field. While the header rides along on scroll
+   (html.okla-m-stuck) it is one compact row with the search icon. The menu unfolds under the bar. */
+.okla-mnb-actions,.okla-mnb-search,#okla-mnb-menu{display:none}
+
+@media (max-width:767px){
+  /* ---- no bottom bar any more: nothing at the bottom of the screen needs room ---- */
+  html body #okla-v61-bottom:not(#okla-mnb-a#okla-mnb-b){display:none!important}
+  html body:not(#okla-mnb-a){padding-bottom:env(safe-area-inset-bottom,0px)!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-step-nav,
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-step-nav,
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav{bottom:env(safe-area-inset-bottom,0px)!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-step-nav.is-stuck,
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important}
+  /* the home search box under the header is now the header's own search row */
+  html body .okla-hsearch{display:none!important}
+
+  /* ---- row 1 ---- */
+  html body #header #okla-v61-header .okm61-top{display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:0!important}
+  html body #header #okla-v61-header .okla-mnb-actions{display:flex!important;align-items:center!important;gap:2px!important;margin:0 -8px 0 auto!important;flex:none!important}
+  html body #header #okla-v61-header .okla-mnb-btn{
+    position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;
+    width:42px!important;height:42px!important;min-width:0!important;min-height:0!important;margin:0!important;padding:0!important;
+    border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;
+    color:#0b2540!important;text-decoration:none!important;-webkit-tap-highlight-color:transparent!important;cursor:pointer!important;
+  }
+  html body #header #okla-v61-header .okla-mnb-btn:active{background:rgba(22,84,152,.10)!important}
+  html body #header #okla-v61-header .okla-mnb-btn:focus-visible{outline:2px solid #1788cb!important;outline-offset:-2px!important}
+  html body #header #okla-v61-header .okla-mnb-btn svg{display:block!important;width:25px!important;height:25px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+  html body #header #okla-v61-header .okla-mnb-cart.is-active{color:#1167c4!important}
+  html body #header #okla-v61-header .okla-mnb-count{
+    position:absolute!important;top:3px!important;right:1px!important;display:grid!important;place-items:center!important;
+    min-width:18px!important;height:18px!important;padding:0 5px!important;box-sizing:border-box!important;border:2px solid #fff!important;border-radius:9px!important;
+    background:#1167c4!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:800 10px/1 "Open Sans",Arial,sans-serif!important;
+  }
+  html body #header #okla-v61-header .okla-mnb-count[hidden]{display:none!important}
+  /* the menu button: three lines, a cross while the menu is open */
+  html body #header #okla-v61-header .okla-mnb-burger svg:last-child{display:none!important}
+  html.okla-mnb-open body #header #okla-v61-header .okla-mnb-burger svg:first-child{display:none!important}
+  html.okla-mnb-open body #header #okla-v61-header .okla-mnb-burger svg:last-child{display:block!important}
+  /* the search icon only in the compact (riding) header; the full header has the search field */
+  html body #header #okla-v61-header .okm61-top .okla-m-search-open{display:none!important}
+  html.okla-m-stuck body #header #okla-v61-header .okm61-top .okla-m-search-open{display:inline-flex!important;order:1!important;margin:0 0 0 auto!important;color:#0b2540!important}
+  html.okla-m-stuck body #header #okla-v61-header .okla-mnb-actions{order:2!important;margin-left:0!important}
+  html.okla-m-stuck body #header #okla-v61-header .okla-mnb-btn{width:38px!important;height:38px!important}
+
+  /* ---- row 2: the search field ---- */
+  html body #header #okla-v61-header .okla-mnb-search{display:block!important;margin:8px 0 0!important;padding:0!important}
+  html.okla-m-stuck body #header #okla-v61-header .okla-mnb-search{display:none!important}
+  html body #header #okla-v61-header .okla-mnb-search__field{
+    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;
+    width:100%!important;height:46px!important;min-height:0!important;margin:0!important;padding:0 14px 0 18px!important;box-sizing:border-box!important;
+    border:1.5px solid #cfdceb!important;border-radius:23px!important;background:#fff!important;box-shadow:0 2px 8px rgba(18,52,92,.06)!important;
+    color:#6b7a8c!important;text-align:left!important;cursor:text!important;-webkit-tap-highlight-color:transparent!important;
+  }
+  html body #header #okla-v61-header .okla-mnb-search__field:active{border-color:#1167c4!important}
+  html body #header #okla-v61-header .okla-mnb-search__text{
+    flex:1 1 auto!important;min-width:0!important;overflow:hidden!important;white-space:nowrap!important;text-overflow:clip!important;
+    color:#6b7a8c!important;-webkit-text-fill-color:#6b7a8c!important;font:500 15px/1.2 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  }
+  html body #header #okla-v61-header .okla-mnb-search__field svg{flex:none!important;display:block!important;width:22px!important;height:22px!important;fill:none!important;stroke:#0b2540!important;stroke-width:2!important;stroke-linecap:round!important}
+
+  /* ---- the menu: unfolds under the bar, over a dimmed page ---- */
+  html body #okla-mnb-menu{
+    display:block!important;position:fixed!important;top:var(--okla-mnb-top,64px)!important;left:0!important;right:0!important;bottom:0!important;z-index:515!important;
+    background:rgba(8,26,48,0)!important;transition:background-color .24s ease!important;
+  }
+  html body #okla-mnb-menu[hidden]{display:none!important}
+  html body #okla-mnb-menu.is-open{background:rgba(8,26,48,.38)!important}
+  html body #okla-mnb-menu .okla-mnb-menu__panel{
+    max-height:100%!important;overflow-y:auto!important;overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch!important;
+    background:#fff!important;border-top:1px solid #e3e9f0!important;box-shadow:0 14px 28px rgba(8,26,48,.18)!important;
+    clip-path:inset(0 0 100% 0)!important;transition:clip-path .26s cubic-bezier(.2,.8,.2,1)!important;
+  }
+  html body #okla-mnb-menu.is-open .okla-mnb-menu__panel{clip-path:inset(0 0 0 0)!important}
+  html body #okla-mnb-menu .okla-mnb-menu__body{display:block!important;padding:4px 0 calc(22px + env(safe-area-inset-bottom,0px))!important;font-family:"Open Sans",Arial,sans-serif!important}
+  @media (prefers-reduced-motion:reduce){
+    html body #okla-mnb-menu,html body #okla-mnb-menu .okla-mnb-menu__panel{transition:none!important}
+  }
+
+  /* account strip */
+  html body #okla-mnb-menu .okla-mnb-acc{
+    display:grid!important;grid-template-columns:40px minmax(0,1fr)!important;column-gap:12px!important;row-gap:12px!important;align-items:center!important;
+    margin:12px 16px 6px!important;padding:14px 16px!important;border:1px solid #e1e8f0!important;border-radius:8px!important;background:#f5f9fd!important;
+  }
+  html body #okla-mnb-menu .okla-mnb-acc__ic{display:grid!important;place-items:center!important;width:40px!important;height:40px!important;border-radius:50%!important;background:#fff!important;color:#0b2540!important;box-shadow:0 1px 4px rgba(14,35,58,.10)!important}
+  html body #okla-mnb-menu .okla-mnb-acc__ic svg{width:22px!important;height:22px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important}
+  html body #okla-mnb-menu .okla-mnb-acc__txt{display:flex!important;flex-direction:column!important;gap:2px!important;min-width:0!important}
+  html body #okla-mnb-menu .okla-mnb-acc__txt strong{color:#0b2540!important;font:800 16px/1.25 "Open Sans",Arial,sans-serif!important}
+  html body #okla-mnb-menu .okla-mnb-acc__txt span{color:#4a596b!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important}
+  html body #okla-mnb-menu .okla-mnb-acc__btns{grid-column:1/-1!important;display:flex!important;gap:8px!important}
+  html body #okla-mnb-menu .okla-mnb-acc__btns a{
+    flex:1 1 0!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;height:40px!important;padding:0 12px!important;box-sizing:border-box!important;
+    border-radius:8px!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;
+  }
+  html body #okla-mnb-menu .okla-mnb-acc__primary{background:#1167c4!important;border:1px solid #1167c4!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+  html body #okla-mnb-menu .okla-mnb-acc__ghost{background:#fff!important;border:1px solid #c9d6e4!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
+
+  /* sections and rows */
+  html body #okla-mnb-menu .okla-mnb-sec{margin:14px 0 0!important;padding:0!important}
+  html body #okla-mnb-menu .okla-mnb-sec__title{margin:0 16px 4px!important;padding:0!important;color:#6b7a8c!important;font:800 12px/1.4 "Open Sans",Arial,sans-serif!important;letter-spacing:.06em!important;text-transform:uppercase!important}
+  html body #okla-mnb-menu .okla-mnb-list{display:block!important;margin:0!important;padding:0!important}
+  html body #okla-mnb-menu .okla-mnb-row{
+    display:grid!important;grid-template-columns:36px minmax(0,1fr) 18px!important;align-items:center!important;gap:12px!important;
+    min-height:52px!important;margin:0!important;padding:6px 16px!important;box-sizing:border-box!important;border-bottom:1px solid #edf1f5!important;
+    background:#fff!important;color:#0b2540!important;text-decoration:none!important;-webkit-tap-highlight-color:transparent!important;
+  }
+  html body #okla-mnb-menu .okla-mnb-list .okla-mnb-row:last-child{border-bottom:0!important}
+  html body #okla-mnb-menu .okla-mnb-row:active{background:#f0f6fc!important}
+  html body #okla-mnb-menu .okla-mnb-row__ic{display:grid!important;place-items:center!important;width:36px!important;height:36px!important;color:#0b2540!important}
+  html body #okla-mnb-menu .okla-mnb-row__ic img{display:block!important;width:32px!important;height:32px!important;object-fit:contain!important}
+  html body #okla-mnb-menu .okla-mnb-row__ic svg{width:24px!important;height:24px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+  html body #okla-mnb-menu .okla-mnb-row__label{min-width:0!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 15px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important}
+  html body #okla-mnb-menu .okla-mnb-row__chev{display:grid!important;place-items:center!important;color:#8a99ab!important}
+  html body #okla-mnb-menu .okla-mnb-row__chev svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+}
+@media (min-width:768px){
+  #okla-mnb-menu{display:none!important}
+}

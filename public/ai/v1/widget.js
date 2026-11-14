@@ -230,34 +230,35 @@
       .send:disabled { color: #fff; background: var(--okla-blue); opacity: .38; cursor: default; }
       .send svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
       .disclaimer { height: 14px; margin: 12px 0 0; color: #75869a; text-align: center; font-size: 10.5px; line-height: 14px; white-space: nowrap; }
+      /* The launcher: a light-blue round button with a white speech bubble (PC and phones alike). */
       .launcher {
         position: fixed;
         z-index: 2147483001;
         right: max(22px, env(safe-area-inset-right));
-        bottom: max(14px, env(safe-area-inset-bottom));
-        width: 58px;
-        height: 58px;
-        padding: 10px;
-        overflow: hidden;
+        bottom: max(18px, env(safe-area-inset-bottom));
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        overflow: visible;
         display: grid;
         place-items: center;
-        border: 1px solid #eceff4;
+        border: 0;
         border-radius: 50%;
-        background: linear-gradient(145deg, #3fa2ff 0%, #0074e8 52%, #0b4ea6 100%);
+        background: #3aa6f2;
         color: #fff;
-        box-shadow: 0 10px 28px rgba(0, 50, 120, .24), 0 2px 8px rgba(0, 50, 120, .14);
+        box-shadow: 0 8px 22px rgba(20, 110, 190, .32), 0 2px 6px rgba(20, 80, 140, .16);
         cursor: pointer;
-        transition: box-shadow .2s ease;
+        transition: background-color .18s ease, box-shadow .2s ease, transform .2s ease;
       }
-      .launcher:hover { box-shadow: 0 13px 32px rgba(0, 50, 120, .3), 0 3px 9px rgba(0, 50, 120, .18); }
-      .launcher:active { box-shadow: 0 6px 18px rgba(0, 50, 120, .24); }
+      .launcher:hover { background: #2b9aea; box-shadow: 0 10px 26px rgba(20, 110, 190, .38), 0 3px 8px rgba(20, 80, 140, .18); }
+      .launcher:active { transform: scale(.96); }
       .panel.open + .launcher { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .16s ease, visibility 0s linear .16s; }
       .launcher img { border-radius: 50%; }
-      /* The launcher shows a speech bubble with text lines (desktop and mobile). */
       .launcher .launcher-desktop-icon { display: none; }
       .launcher .launcher-search-icon {
-        display: block; width: 28px; height: 28px;
-        fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; overflow: visible;
+        display: block; width: 30px; height: 30px;
+        fill: #fff; stroke: none; overflow: visible;
+        filter: drop-shadow(0 1px 1px rgba(10, 70, 130, .18));
       }
       .robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--okla-purple); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
       .mobile-glyph-fallback::after { content: "OK"; position: absolute; inset: 0; display: none; place-items: center; color: #fff; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
@@ -268,66 +269,33 @@
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
       @media (max-width: 466px) {
         .launcher {
-          /* Mobile: a tab on the RIGHT screen edge, rounded on the screen side. */
-          left: auto;
-          right: 0;
-          top: clamp(180px, 82dvh, calc(100dvh - 86px));
-          bottom: auto;
-          width: 42px;
+          /* Phones: the same round button, bottom right. */
+          right: max(16px, env(safe-area-inset-right));
+          bottom: calc(16px + env(safe-area-inset-bottom));
+          width: 56px;
           height: 56px;
-          border: 2px solid #fff;
-          border-right: 0;
-          border-radius: 22px 0 0 22px;
-          padding: 0;
-          background: linear-gradient(160deg, #3fa2ff 4%, #0074e8 50%, #0b4ea6 100%);
-          color: #fff;
-          box-shadow: -3.5px 5px 12px rgba(0, 50, 120, .3);
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(118%) scale(.94);
-          transform-origin: center;
-          transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .56s, box-shadow .22s ease;
+          transform: translateY(14px) scale(.7);
+          transition: opacity .28s ease, transform .42s cubic-bezier(.16, 1, .3, 1), visibility 0s linear .42s, box-shadow .22s ease;
         }
         :host(.mobile-launcher-visible) .launcher {
           opacity: 1;
           visibility: visible;
           pointer-events: auto;
-          transform: translateY(-50%) translateX(0) scale(1);
-          transition: opacity .34s ease, transform .56s cubic-bezier(.16, 1, .3, 1), visibility 0s, box-shadow .22s ease;
+          transform: none;
+          transition: opacity .28s ease, transform .42s cubic-bezier(.16, 1, .3, 1), visibility 0s, box-shadow .22s ease;
         }
-        .launcher:hover {
-          border-color: #fff;
-          box-shadow: -3px 5.5px 12px rgba(0, 50, 120, .32);
-          transform: translateY(-50%);
-        }
-        .launcher:focus-visible {
-          border-color: #fff;
-          outline: none;
-          transform: translateY(-50%);
-        }
-        .launcher:active {
-          border-color: #fff;
-          transform: translateY(-50%);
-        }
-        .launcher .launcher-desktop-icon { display: none; }
-        .launcher .launcher-search-icon {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          right: auto;
-          display: block;
-          width: 26px;
-          height: 26px;
-          border-radius: 0;
-          transform: translate(calc(-50% + 2px), -50%);
-        }
+        .launcher:hover { transform: none; }
+        .launcher:active { transform: scale(.96); }
+        .launcher .launcher-search-icon { width: 28px; height: 28px; }
         .launcher.mobile-glyph-fallback::after { display: grid; }
         .panel.open + .launcher {
           opacity: 0;
           visibility: hidden;
           pointer-events: none;
-          transform: translateY(-50%) translateX(-8px);
+          transform: scale(.8);
           transition: opacity .14s ease, transform .18s ease, visibility 0s linear .18s;
         }
         .panel {
@@ -420,7 +388,7 @@
     </section>
     <button class="launcher" type="button" aria-label="${Tx.open}" aria-controls="okla-panel" aria-expanded="false">
       <img class="launcher-desktop-icon" data-robot-image src="${x}" alt="">
-      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 4h13A2.5 2.5 0 0 1 21 6.5v9a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V18h0A2.5 2.5 0 0 1 3 15.5v-9A2.5 2.5 0 0 1 5.5 4z"/><path d="M7.5 9h9M7.5 12.5h6"/></svg>
+      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4c5.05 0 8.85 3.55 8.85 8.2s-3.8 8.2-8.85 8.2c-1.2 0-2.37-.2-3.45-.58l-4.1 1.47c-.55.2-1.05-.32-.83-.85l1.35-3.2C3.85 15.2 3.15 13.45 3.15 11.6c0-4.65 3.8-8.2 8.85-8.2z"/></svg>
     </button>
     <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;let v=m.querySelector(".panel"),S=m.querySelector(".launcher"),pe=m.querySelector(".info-control"),H=m.querySelector(".expand"),ue=m.querySelector(".collapse"),h=m.querySelector(".messages"),me=m.querySelector("#welcome-template"),C=m.querySelector("form"),b=m.querySelector("textarea"),q=m.querySelector(".send"),Y=m.querySelector(".composer-area"),he=m.querySelector(".disclaimer"),z=m.querySelector("#okla-status"),W=new R,k=new j;m.querySelectorAll("[data-robot-image], [data-mobile-assistant-image]").forEach(V);let O=[],E=!1,I=null,L,w=0,T=window.matchMedia("(max-width: 466px)"),J=!T.matches;function y(){let e=Math.min(520,Math.max(320,window.innerHeight*.55));(!T.matches||window.scrollY>=e)&&(J=!0),B.classList.toggle("mobile-launcher-visible",J)}window.addEventListener("scroll",y,{passive:!0}),T.addEventListener("change",y),y();function P(e){v.classList.toggle("open",e),v.setAttribute("aria-hidden",String(!e)),v.setAttribute("aria-modal",String(e&&T.matches)),S.setAttribute("aria-expanded",String(e)),S.setAttribute("aria-label",e?Tx.closeL:Tx.open),L!==void 0&&clearTimeout(L),document.documentElement.classList.toggle("okla-ai-open",e&&T.matches),e?T.matches||(L=setTimeout(()=>b.focus(),180)):T.matches||S.focus(),vv(),y()}function vv(){let e=window.visualViewport;if(!e||!T.matches||!v.classList.contains("open")){v.style.removeProperty("top"),v.style.removeProperty("height");return}v.style.top=e.offsetTop+"px",v.style.height=e.height+"px"}window.visualViewport&&(visualViewport.addEventListener("resize",vv),visualViewport.addEventListener("scroll",vv));function A(){h.scrollTop=h.scrollHeight}function be(e){try{let s=new URL(e,window.location.href);return["http:","https:","mailto:"].includes(s.protocol)?s.toString():void 0}catch{return}}function M(e){return e.replace(/-{2,}/g,"\u2014")}function X(e,s){let r=/\*\*([^*\n]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g,i=0;for(let t of s.matchAll(r)){let n=t.index??0;if(e.append(document.createTextNode(M(s.slice(i,n)))),t[1]!==void 0){let c=document.createElement("strong");c.textContent=M(t[1]),e.append(c)}else{let c=be(t[3]??"");if(c){let g=document.createElement("a");g.textContent=M(t[2]??c),g.href=c,/^https?:/i.test(c)&&(g.target="_blank",g.rel="noopener noreferrer"),e.append(g)}else e.append(document.createTextNode(M(t[0])))}i=n+t[0].length}e.append(document.createTextNode(M(s.slice(i))))}let N=/^\s*[-•*]\s+/;function Z(e,s){e.replaceChildren();let r=s.split(`
 `),i=0;for(;i<r.length;)if(N.test(r[i])){let t=document.createElement("ul");for(t.className="md-list";i<r.length&&N.test(r[i]);){let n=document.createElement("li");X(n,r[i].replace(N,"")),t.append(n),i+=1}e.append(t)}else{let t=[];for(;i<r.length&&!N.test(r[i]);)t.push(r[i]),i+=1;for(;t.length&&t[t.length-1].trim()==="";)t.pop();for(;t.length&&t[0].trim()==="";)t.shift();if(t.length){let n=document.createElement("div");n.className="md-par",X(n,t.join(`
