@@ -740,3 +740,27 @@ html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__link:
   html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.goToTop{grid-column:1!important;grid-row:2!important}
   html body #content .listingControls:not(#okla-lc-a#okla-lc-b)>.pagination{grid-column:2!important;grid-row:2!important}
 }
+
+/* ---------- Cookie consent on phones: a symmetric bottom sheet ----------
+   Rounded top, the heading centred, the long text in its own scrolling window (so the sheet never fills the
+   screen), then "Odmítnout" and "Souhlasím" as two equal halves, and "Nastavení" centred under them. */
+@media(max-width:720px){
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__form{
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;
+    padding:22px 18px calc(16px + env(safe-area-inset-bottom))!important;max-height:none!important;overflow:visible!important;
+    border-radius:18px 18px 0 0!important;border-top:0!important;box-shadow:0 -8px 30px rgba(6,29,58,.18)!important;
+  }
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__content{display:contents!important}
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__content:before{order:0!important;margin:0 0 12px!important;text-align:center!important;font-size:19px!important}
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__text{
+    order:1!important;max-height:min(34vh,290px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;-webkit-overflow-scrolling:touch;
+    margin:0!important;padding:0 2px 18px!important;text-align:left!important;
+    -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - 26px),transparent)!important;mask-image:linear-gradient(to bottom,#000 calc(100% - 26px),transparent)!important;
+  }
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__buttonWrap{order:2!important;margin:14px 0 0!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;width:100%!important}
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__links{order:3!important;margin:12px 0 0!important;padding:0!important;text-align:center!important}
+  html body .siteCookies.js-siteCookies:not(#okck-a#okck-b) .siteCookies__links .siteCookies__link{
+    display:inline-block!important;width:auto!important;height:auto!important;min-height:0!important;padding:4px 8px!important;
+    color:#45546a!important;-webkit-text-fill-color:#45546a!important;font-size:13.5px!important;font-weight:600!important;text-decoration:underline!important;text-underline-offset:3px!important;background:none!important;border:0!important;
+  }
+}
