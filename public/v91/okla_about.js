@@ -11,8 +11,7 @@
 
  var BASE=window.__oklaAssetBase||'';
  function IMG(f){return BASE+'v91/img/about/'+f}
- /* load the page font (Open Sans — the site's own font) with the weights we use */
- (function(){var id='okla-about-font';if(!document.getElementById(id)){var l=document.createElement('link');l.id=id;l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap';(document.head||document.documentElement).appendChild(l);}})();
+ /* the page font (Open Sans) comes from okla_global_typography.css */
  var ARROW='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>';
  function ic(paths){var p='';for(var i=0;i<paths.length;i++)p+='<path d="'+paths[i]+'"/>';return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>'}
 

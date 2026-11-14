@@ -123,7 +123,6 @@ body:has(>#okla-v61-drawer:not([hidden])) okla-ai-chat{display:none!important}
 }
 @media(min-width:768px){#okla-v61-header,#okla-v61-dots,#okla-v61-categories,#okla-v61-bottom,#okla-v61-drawer,.okm61-product-more{display:none!important}}
 
-
 /* okla_mobile_v65.js */
 
 @media(max-width:767px){
@@ -184,7 +183,6 @@ body.type-index #content-wrapper main#content{width:100%!important;max-width:100
 #header #okla-v61-header,#header #okla-m-header{display:none!important}
 }
 
-
 /* okla_mobile_v66.js */
 
 @media(max-width:767px){
@@ -215,7 +213,6 @@ body.okla-v66-hide-header #header #okla-v61-header{box-shadow:none!important}
 #content .okla-slider-shell .okla-slider-track>.product .p-tools form{padding:0!important}/* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed */
 }
 @media(prefers-reduced-motion:reduce){body #header{transition:none!important}}
-
 
 /* okla_mobile_v69.js */
 @media(max-width:767px){
@@ -271,7 +268,6 @@ body #header #okla-v61-header .okm61-logo img{max-width:148px!important;max-heig
 #okla-v61-bottom .okm61-bottom-action svg{width:24px!important;height:24px!important;stroke-width:1.9!important}
 }
 
-
 /* okla_mobile_v72.js */
 
 @media(max-width:767px){
@@ -308,7 +304,6 @@ body.type-index #content .okla-slider-shell .product .price-final strong{display
 body.type-index #content .okla-slider-shell .product .p-tools{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex:0 0 53px!important;float:none!important;box-sizing:border-box!important;width:calc(100% + 22px)!important;max-width:none!important;min-width:0!important;min-height:53px!important;height:53px!important;max-height:53px!important;margin:10px -11px 0!important;padding:0 11px!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;border-top:1px solid #e9edf1!important;background:#fff!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
 body.type-index #content .okla-slider-shell .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}/* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed */
 }
-
 
 /* okla_mobile_v73.js */
 
@@ -353,7 +348,6 @@ body.type-index #content .product .okv73-rating-caption{font-size:9px!important;
 display:none!important
 }
 }
-
 
 /* okla_mobile_v74.js */
 
@@ -463,7 +457,6 @@ html body #okla-v61-bottom .okm61-bottom-action span {
 }
 html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important;}
 }
-
 
 /* okla_mobile_v77.js */
 /* OKLA V77 — exact requested Alza-style product tiles. Mobile only.
@@ -777,61 +770,9 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
   }
 
   /* D — green centred native Shoptet action + outline cart glyph */
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart {
-    position: static !important;
-    display: inline-flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    height: 50px !important;
-    min-height: 50px !important;
-    max-height: 50px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: #FFFFFF !important;
-    background-image: none !important;
-    box-shadow: none !important;
-    color: var(--okla-card-cart) !important;
-    font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;
-    font-size: 15px !important;
-    font-weight: 500 !important;
-    line-height: 1.3 !important;
-    text-align: center !important;
-    text-indent: 0 !important;
-    white-space: nowrap !important;
-    transform: none !important;
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart {
-    position: static !important;
-    display: block !important;
-    flex: 0 0 21px !important;
-    width: 21px !important;
-    min-width: 21px !important;
-    height: 21px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    color: var(--okla-card-cart) !important;
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 2 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.okv74-cart circle {
-    fill: none !important;
-    stroke: currentColor !important;
-    stroke-width: 2 !important;
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::before,
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart::after {
-    content: none !important;
-    display: none !important;
-  }
+  
+  
+  
+  
 }
 

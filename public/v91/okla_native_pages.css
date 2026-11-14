@@ -188,27 +188,9 @@ html body.type-category #products:not(.okla-cards) .product .p-tools,
 html body.type-search #products:not(.okla-cards) .product .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:54px!important;margin:0!important;padding:16px 0 0!important}
 html body.type-category #products:not(.okla-cards) .product .p-tools form,
 html body.type-search #products:not(.okla-cards) .product .p-tools form{width:100%!important;margin:0!important;display:flex!important;justify-content:center!important}
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart,
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart{
-  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;
-  width:min(144px,100%)!important;height:38px!important;min-height:38px!important;max-height:38px!important;box-sizing:border-box!important;padding:6px 12px!important;
-  border:1px solid #16478B!important;border-radius:7px!important;background:#fff!important;background-image:none!important;color:#16478B!important;
-  font:600 14px/20px "Open Sans",'Segoe UI',Arial,sans-serif!important;box-shadow:none!important;text-shadow:none!important;
-  transition:background-color .16s ease,color .16s ease,border-color .16s ease!important;
-}
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart:hover,
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart:hover{background:#EAF3FF!important;border-color:#EAF3FF!important;color:#16478B!important}
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart svg.ok89-cart,
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart svg.ok89-cart{width:18px!important;height:18px!important;flex:0 0 18px!important;fill:currentColor!important;stroke:currentColor!important;stroke-width:1.5!important}
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart svg.ok89-cart circle,
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart svg.ok89-cart circle{fill:currentColor!important;stroke:none!important}
+
 /* Hide Shoptet's own chevron glyph (icon font ::before) so only our cart shows, like the homepage. */
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart::before,
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart::after,
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart::before,
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart::after{display:none!important;content:none!important}
-html body.type-category #products:not(.okla-cards) .product .p-tools button.btn-cart svg:not(.ok89-cart),
-html body.type-search #products:not(.okla-cards) .product .p-tools button.btn-cart svg:not(.ok89-cart){display:none!important}
+
 @media(max-width:620px){
   html body.type-category #products:not(.okla-cards).products-block > .product,
   html body.type-search #products:not(.okla-cards).products-block > .product{padding:5px!important}

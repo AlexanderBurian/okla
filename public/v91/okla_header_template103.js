@@ -16,14 +16,7 @@
      neutral grey #7c7e8f, badge blue #2093d9, and the reference spacing. */
   var FONT = '"Open Sans",Arial,Helvetica,sans-serif';
   var style = '<style>.face{display:flex;align-items:center;height:44px;color:#7c7e8f;white-space:nowrap;font:400 16px/20px ' + FONT + ';letter-spacing:normal;text-transform:none;-webkit-font-smoothing:antialiased}.face svg{display:block;flex:none}.label{margin-left:9px;font:400 16px/20px ' + FONT + '}.arrow{margin-left:10px;width:19px;height:12px}.label+.arrow{margin-left:11px}.price{margin-left:4px;font:700 16px/20px ' + FONT + '}.count text{font:700 12px ' + FONT + '}.count[hidden]{display:none}</style>';
-  /* Roboto (with Czech glyphs) is not part of the shop's own font stack. */
-  (function loadRoboto(){
-    if (document.getElementById('okla-header-roboto')) return;
-    var link = document.createElement('link');
-    link.id = 'okla-header-roboto'; link.rel = 'stylesheet';
-    link.href = 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap';
-    (document.head || document.documentElement).appendChild(link);
-  })();
+  /* Open Sans comes from okla_global_typography.css (the document's @font-face also reaches this shadow root). */
 
   function face(link, isCart) {
     var host = link.querySelector(':scope > okla-action-face');

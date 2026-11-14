@@ -14,21 +14,10 @@
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .p-tools.p-tools {
     padding: 0 !important; margin: 0 !important; width: 100% !important; box-sizing: border-box !important; justify-content: center !important;
   }
-  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .p-tools .btn-cart.add-to-cart-button.add-to-cart-button:not(:disabled) {
-    display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important;
-    width: 100% !important; min-width: 0 !important; max-width: 100% !important;
-    height: 50px !important; min-height: 50px !important; max-height: 50px !important;
-    margin: 0 auto !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important;
-    background: #fff !important; background-color: #fff !important; box-shadow: none !important;
-    color: #5ba300 !important; font: 500 15px/1.3 "Open Sans", "Segoe UI", Arial, sans-serif !important;
-    text-align: center !important; white-space: nowrap !important; transform: none !important;
-  }
-  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .p-tools .btn-cart.add-to-cart-button.add-to-cart-button:not(:disabled) span { color: #5ba300 !important; }
-  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .p-tools .btn-cart.add-to-cart-button.add-to-cart-button:not(:disabled)::before { background-color: #5ba300 !important; }
-  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .p-tools .btn-cart.add-to-cart-button.add-to-cart-button:not(:disabled) svg.ok89-cart {
-    display: block !important; flex: 0 0 21px !important; width: 21px !important; height: 21px !important; margin: 0 !important;
-    color: #5ba300 !important; fill: none !important; stroke: currentColor !important; stroke-width: 2 !important;
-  }
+  
+  
+  
+  
 
   /* 3. Product page purchase button: green with black text, like the buy bar. Transitions are off, so the colour is not caught mid-change. */
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary {
@@ -68,7 +57,7 @@
     width: 14px !important; height: 14px !important; flex: 0 0 14px !important;
   }
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .product .okv73-rating-caption { color: #7d8998 !important; font-size: 10px !important; }
-  html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .product .p-tools .btn-cart.add-to-cart-button.add-to-cart-button::before { content: none !important; display: none !important; }
+  
 
   /* 8. Related cards: one pictogram, the same as on the homepage. The three older icon scripts and the detail icon are hidden,
         and the homepage icon (okv74) is styled the way the homepage styles it. */

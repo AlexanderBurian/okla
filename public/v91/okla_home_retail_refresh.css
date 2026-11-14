@@ -30,10 +30,7 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
   height:55px!important;min-height:55px!important;max-height:55px!important;margin-top:7px!important;background:transparent!important
  }
  html body.type-index #content .okla-slider-shell .product .p-tools{padding-top:10px!important;min-height:50px!important}
- html body.type-index #content#content .okla-slider-shell .product .p-tools button.btn-cart,
- html body.type-index #content#content .okla-slider-shell .product .p-tools button.btn-cart:not(:disabled){
-  height:34px!important;min-height:34px!important;max-height:34px!important;border-radius:0!important
- }
+ 
 }
 
 @media(max-width:767px){
@@ -108,13 +105,6 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
   width:calc(100% + 16px)!important;height:45px!important;min-height:45px!important;max-height:45px!important;
   margin:5px -8px 0!important;padding:0 8px!important;border-top:0!important
  }
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled){
-  width:calc(100% - 8px)!important;max-width:150px!important;height:40px!important;min-height:40px!important;max-height:40px!important;
-  padding:0 10px!important;border:1px solid #0074e8!important;border-radius:0!important;background:#0074e8!important;
-  background-image:none!important;color:#fff!important;box-shadow:none!important
- }
- html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled):is(:hover,:focus-visible){
-  border-color:#0068d1!important;background:#0068d1!important;color:#fff!important
- }
+ 
+ 
 }

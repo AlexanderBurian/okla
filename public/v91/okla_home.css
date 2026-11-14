@@ -32,33 +32,7 @@ html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hov
 html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p:focus-within::after{
  border-color:#E0E0E0!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important;
 }
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart,
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:not(:disabled),
-html body.type-index #content .okla-slider-shell .product:hover .p-tools button.btn-cart{
- display:inline-flex!important;align-items:center!important;justify-content:center!important;
- gap:8px!important;width:min(144px,100%)!important;height:38px!important;min-height:38px!important;max-height:38px!important;
- box-sizing:border-box!important;border:1px solid var(--ok89-ink)!important;
- background:#fff!important;background-image:none!important;color:var(--ok89-ink)!important;
- font:600 14px/1.25 "Open Sans",'Segoe UI',Arial,sans-serif!important;
- border-radius:6px!important;box-shadow:none!important;opacity:1!important;
- text-shadow:none!important;transform:none!important;
- transition:background-color .16s ease,color .16s ease,border-color .16s ease!important;
-}
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:hover,
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:focus-visible{
- background:var(--ok89-hover)!important;border-color:var(--ok89-hover)!important;
- color:var(--ok89-ink)!important;outline:0!important;
-}
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:focus-visible{
- outline:2px solid var(--ok89-ink)!important;outline-offset:2px!important;
-}
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart svg.ok89-cart{
- position:static!important;display:block!important;flex:0 0 19px!important;
- width:19px!important;height:19px!important;min-width:19px!important;max-height:19px!important;
- stroke:currentColor!important;fill:currentColor!important;color:inherit!important;
- stroke-width:1.5!important;transform:none!important;
-}
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart svg:not(.ok89-cart){display:none!important;}
+
 html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars{
  display:inline-flex!important;align-items:center!important;gap:1px!important;vertical-align:middle!important;
  flex:none!important;color:#F4B526!important;white-space:nowrap!important;
@@ -82,13 +56,12 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .star
 
 @media(min-width:992px){
 html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p > *{position:relative!important;z-index:1!important}
-html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart:disabled{pointer-events:none!important;opacity:.6!important;cursor:not-allowed!important}
+
 }
 
 /* Five decorative stars across screen sizes; numeric reviews remain native. */
 html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:1px!important;color:#F4B526!important}
 html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;fill:currentColor!important;stroke:currentColor!important}
-@media(max-width:991px){html body.type-index #content .okla-slider-shell .product .p-tools button.btn-cart svg.ok89-cart{display:none!important}}
 
 /* V91 canonical desktop product visuals. Only one active home stylesheet. */
 @media (min-width:992px){
@@ -147,38 +120,13 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89
   html body.type-index #content .okla-slider-shell .product .p-tools form{
     width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;display:flex!important;justify-content:center!important;align-items:center!important
   }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart,
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled),
-  html body.type-index #content .okla-slider-shell .product:hover .p-tools .btn-cart:not(:hover){
-    display:inline-flex!important;align-items:center!important;justify-content:center!important;
-    width:min(144px,100%)!important;height:38px!important;min-height:38px!important;max-height:38px!important;
-    padding:6px 12px!important;gap:7px!important;
-    box-sizing:border-box!important;border:1px solid #16478B!important;
-    border-radius:7px!important;background:#fff!important;background-image:none!important;
-    color:#16478B!important;font:600 14px/20px "Open Sans","Segoe UI",Arial,sans-serif!important;
-    text-shadow:none!important;box-shadow:none!important;transform:none!important;opacity:1!important
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:not(:disabled):is(:hover,:focus-visible){
-    border-color:#EAF3FF!important;background:#EAF3FF!important;
-    background-image:none!important;color:#16478B!important
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:disabled{
-    border-color:#16478B!important;background:#fff!important;
-    color:#16478B!important;opacity:.58!important;cursor:not-allowed!important;
-    pointer-events:none!important
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart :is(span,i,svg){
-    color:inherit!important;stroke:currentColor!important
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart:hover :is(span,i,svg){
-    color:inherit!important;stroke:currentColor!important
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.ok89-cart{
-    width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important
-  }
-  html body.type-index #content .okla-slider-shell .product .p-tools .btn-cart svg.ok89-cart circle{
-    fill:currentColor!important;stroke:none!important
-  }
+  
+  
+  
+  
+  
+  
+  
   html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p::after{
     inset:0 -5px -28px -5px!important;border-radius:9px!important;pointer-events:none!important
   }

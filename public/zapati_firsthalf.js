@@ -201,6 +201,19 @@ bootStyle.textContent='html.okla-curtain::before{content:"";position:fixed;top:0
 head.appendChild(bootStyle);
 root.classList.add('okla-curtain');
 var revealTimer=setTimeout(reveal,4000);
+/* The site font (Open Sans, okla_global_typography.css) starts downloading right now, together with the site files. */
+var FONT_BASE='https://cdn.jsdelivr.net/npm/@fontsource-variable/open-sans@5.2.7/files/open-sans-';
+['latin','latin-ext'].forEach(function(sub){
+ var f=document.createElement('link');f.rel='preload';f.as='font';f.type='font/woff2';f.crossOrigin='anonymous';
+ f.href=FONT_BASE+sub+'-wght-normal.woff2';f.fetchPriority='high';head.appendChild(f);
+});
+/* The page is shown only once the font is in place (at most 1.5 s of waiting): text - and every button sized by its text -
+   swapping from the fallback font after the page is visible is what made buttons change size on their own. */
+function whenFontsReady(done){
+ var fired=false;function go(){if(!fired){fired=true;done()}}
+ setTimeout(go,1500);
+ try{Promise.all([document.fonts.load('400 16px "Open Sans"','Aa\u010d\u0159'),document.fonts.load('700 16px "Open Sans"','Aa\u010d\u0159')]).then(go,go)}catch(e){go()}
+}
 function reveal(){
  if(!revealTimer)return;
  clearTimeout(revealTimer);revealTimer=null;
@@ -209,7 +222,8 @@ function reveal(){
  window.__oklaRevealed=true;
 }
 /* The page fades in only after the translation layer has shown it, so a translated page appears in one step. */
-function revealWhenTranslated(){
+function revealWhenTranslated(){whenFontsReady(revealAfterTranslation)}
+function revealAfterTranslation(){
  if(!root.classList.contains('okla-i18n-pending')){reveal();return}
  new MutationObserver(function(list,observer){
   if(root.classList.contains('okla-i18n-pending'))return;
