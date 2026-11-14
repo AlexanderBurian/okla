@@ -32,7 +32,7 @@
  /* more product rows on the homepage: copies of existing ones (heading + products) after the last row, chosen so that
     two equal rows never follow each other. Made before the slider script runs, so the copies get their own sliders;
     the copies carry no ids (no duplicate ids on the page). */
- var EXTRA=[1,2,4];
+ var EXTRA=[1];
  function moreRows(){
   var main=document.getElementById('content');if(!main||main.querySelector('[data-okla-row-copy]'))return;
   var blocks=[].slice.call(main.querySelectorAll(':scope>.products-block[id^="products-"]'));if(blocks.length<3)return;
