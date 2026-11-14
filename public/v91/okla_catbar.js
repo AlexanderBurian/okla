@@ -23,9 +23,11 @@
   if(cache[href])return cache[href];
   cache[href]=fetch(href,{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(html){
    var doc=new DOMParser().parseFromString(html,'text/html'),list=[];
-   var cards=doc.querySelectorAll('#productsTop .p, .products-top .p');
-   if(!cards.length)cards=doc.querySelectorAll('#products .p, .products-block .p');
-   [].some.call(cards,function(p){
+   /* the best sellers first, then the category's other products, until the row of six is full */
+   var cards=[].slice.call(doc.querySelectorAll('#productsTop .p, .products-top .p')).concat([].slice.call(doc.querySelectorAll('#products .p, .products-block .p')));
+   var seenHref={};
+   cards.some(function(p){
+    var a0=p.querySelector('a.name');if(!a0||seenHref[a0.getAttribute('href')])return false;seenHref[a0.getAttribute('href')]=1;
     var a=p.querySelector('a.name'),img=p.querySelector('a.image img'),price=p.querySelector('.price-final strong, .price-final');
     if(!a)return false;
     var src=img&&(img.getAttribute('data-src')||img.getAttribute('src'))||'';if(/^data:/.test(src))src='';
