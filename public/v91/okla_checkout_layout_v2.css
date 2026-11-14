@@ -53,8 +53,10 @@
     order:0!important;align-self:center!important;width:auto!important;height:36px!important;min-height:36px!important;margin:0!important;padding:0 8px!important;
     border:0!important;background:transparent!important;box-shadow:none!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;
   }
-  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step .next-step-back:is(:hover,:focus-visible){
-    background:transparent!important;color:#0074e8!important;-webkit-text-fill-color:#0074e8!important;text-decoration:underline!important;
+  /* no hover effect: the link looks the same under the pointer */
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step .next-step-back:is(:hover,:focus,:focus-visible,:active),
+  html body:is(.in-kosik,.in-krok-1):not(#okc-a#okc-b) #content#content .okla-step-nav .next-step .next-step-back:is(:hover,:focus,:focus-visible,:active) *{
+    background:transparent!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;text-decoration:none!important;box-shadow:none!important;
   }
 }
 
