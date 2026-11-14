@@ -1,0 +1,68 @@
+/* OKLA – phones (≤767px): the bottom bar as one flat floating pill (replaces the raised-cart bar drawn by
+   okla_mobile_tabbar.css; the same items, links and panels from okla_behavior.js / okla_mobile_tabbar.js).
+   Every item is a round grey button with its icon; the current one (the page's item, or the open Katalog / Menu panel)
+   grows into a pill: a blue circle with the white icon and its name next to it. Switching slides the pill over. */
+@media(max-width:767px){
+  /* ---- the bar ---- */
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d){
+    position:fixed!important;left:10px!important;right:10px!important;top:auto!important;bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;
+    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;
+    width:auto!important;height:60px!important;min-height:0!important;max-height:none!important;margin:0!important;padding:6px!important;box-sizing:border-box!important;
+    border:0!important;border-radius:30px!important;background:#fff!important;overflow:visible!important;
+    box-shadow:0 8px 26px rgba(8,29,58,.16),0 0 0 1px rgba(8,29,58,.06)!important;grid-template-columns:none!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okla-tb-bg{display:none!important}
+  /* ---- an item: a round button (48px) ---- */
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action{
+    position:relative!important;z-index:auto!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;
+    flex:0 0 48px!important;width:auto!important;min-width:48px!important;height:48px!important;max-height:none!important;margin:0!important;padding:0!important;gap:0!important;
+    border:0!important;border-radius:24px!important;background:#f1f4f8!important;color:#55657a!important;-webkit-tap-highlight-color:transparent!important;
+    overflow:hidden!important;text-decoration:none!important;box-shadow:none!important;
+    transition:flex-grow .38s cubic-bezier(.2,.8,.2,1),flex-basis .38s cubic-bezier(.2,.8,.2,1),background-color .25s ease!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action::before,
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action::after{content:none!important;display:none!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action svg{
+    position:relative!important;z-index:1!important;flex:0 0 48px!important;width:48px!important;height:48px!important;margin:0!important;padding:13px!important;box-sizing:border-box!important;
+    border-radius:50%!important;background:transparent!important;color:currentColor!important;transform:none!important;
+    fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+    transition:background-color .25s ease,color .25s ease!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action>span{
+    display:block!important;max-width:0!important;margin:0!important;padding:0!important;overflow:hidden!important;opacity:0!important;white-space:nowrap!important;
+    color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:600 14px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;
+    transition:max-width .38s cubic-bezier(.2,.8,.2,1),opacity .2s ease,margin .38s ease!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action:active{background:#e6ebf2!important}
+  /* ---- the current item: a pill, blue circle + name (the open panel wins over the page's item) ---- */
+  html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active,
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel{
+    flex:1 1 auto!important;background:#eaf1fd!important;padding-right:16px!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active svg,
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel svg{background:#0858d6!important;color:#fff!important;stroke-width:2!important}
+  html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active>span,
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel>span{max-width:130px!important;opacity:1!important;margin-left:10px!important}
+  /* the cart's number, top right on its round button */
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart{overflow:visible!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count{
+    position:absolute!important;left:30px!important;top:-3px!important;z-index:2!important;display:block!important;
+    box-sizing:border-box!important;min-width:20px!important;height:20px!important;padding:0 5px!important;border:2px solid #fff!important;border-radius:10px!important;
+    background:#0858d6!important;color:#fff!important;font:700 11px/16px "Open Sans",Arial,sans-serif!important;text-align:center!important;
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count[hidden]{display:none!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action:focus-visible{outline:2px solid #0858d6!important;outline-offset:2px!important}
+  @media(prefers-reduced-motion:reduce){
+    html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) :is(.okm61-bottom-action,.okm61-bottom-action svg,.okm61-bottom-action>span){transition:none!important}
+  }
+
+  /* ---- everything that sat on the old bar: on the pill's top (68px from the bottom) with 8px of air ---- */
+  html body:not(#okpb-a){padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}
+  html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav,
+  html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav,
+  html.okla-tb-on body.in-krok-2:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav{bottom:calc(76px + env(safe-area-inset-bottom,0px))!important;padding-bottom:12px!important}
+  html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav.is-stuck::after{display:none!important}
+  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;border-radius:14px!important}
+  /* the Katalog / Menu panels end above the pill */
+  html.okla-tb-on body #okla-v61-drawer:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-drawer-body{padding-bottom:calc(92px + env(safe-area-inset-bottom,0px))!important}
+}

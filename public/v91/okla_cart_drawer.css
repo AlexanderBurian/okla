@@ -57,7 +57,8 @@ html.okla-cd-lock body{overflow:hidden!important}
  line-height:1.25!important;text-align:center!important;
 }
 @media(max-width:767px){
- #okla-cart-drawer .okla-cd__panel{top:auto;left:0;right:40px;bottom:0;width:auto;max-height:92vh;border-radius:0;transform:translateY(100%)}
+ /* the whole height of the screen: no strip of the page above it */
+ #okla-cart-drawer .okla-cd__panel{top:0;left:0;right:40px;bottom:0;width:auto;max-height:none;padding-top:env(safe-area-inset-top,0px);border-radius:0;transform:translateY(100%)}
  #okla-cart-drawer.is-open .okla-cd__panel{transform:none}
  /* the product just added is always shown whole; the suggestions below scroll */
  #okla-cart-drawer .okla-cd__items{flex:0 0 auto;max-height:none;overflow:visible}
