@@ -7,7 +7,7 @@
   html.okla-catbar-on body #header{position:relative!important;z-index:800!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b){
     display:block!important;position:relative!important;z-index:5!important;margin:0 auto!important;padding:0!important;float:none!important;
-    background:#f3f5f8!important;border:0!important;border-top:1px solid #e6eaf0!important;border-bottom:1px solid #e6eaf0!important;
+    background:#f6f8fa!important;border:0!important;border-top:1px solid #e3e7ed!important;border-bottom:1px solid #e3e7ed!important;
   }
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-inner{position:relative!important;max-width:none!important;margin:0!important;padding:0 10px!important;box-sizing:border-box!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-list{display:flex!important;align-items:stretch!important;justify-content:space-between!important;gap:0!important;margin:0!important;padding:0!important;list-style:none!important}
@@ -50,7 +50,9 @@
   /* one white column from the very top: the header, the category bar, the breadcrumbs and the content are all as
      wide as the content (Shoptet's .container) and touch each other; outside it the page background shows */
   html body #header:not(#okcb-a#okcb-b){background:transparent!important;box-shadow:none!important}
-  html body #header:not(#okcb-a#okcb-b)>.container.navigation-wrapper{background:#fff!important}
+  /* the header row light grey, the category bar under it the same grey a touch lighter, the search field white on it */
+  html body #header:not(#okcb-a#okcb-b)>.container.navigation-wrapper{background:#eef1f5!important}
+  html:not(.okla-desktop-sticky) body #header:not(#okcb-a#okcb-b) .header-top>.search :is(input.query-input,form.search-form,fieldset){background-color:#fff!important}
   html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okcb-a#okcb-b){background:#fff!important;margin-top:0!important;margin-bottom:0!important}
   html body #content-wrapper.content-wrapper:not(#okcb-a#okcb-b){border-top:0!important;margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important;clip-path:inset(0 -24px -24px -24px)!important}
   /* the page background stays the same colour up to the top (no fade to white behind the header), so the white column
