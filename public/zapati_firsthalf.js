@@ -104,14 +104,20 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
 
 /* ---- 4. Curtain ----------------------------------------------------------------------------------------------- */
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
-   half-styled page never shows; the curtain covers it at once and then slowly fades away from the finished page. The page
+   half-styled page never shows; the curtain covers it at once and is removed in one step from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
    and the curtain goes after 4 s whatever happens (counted from when the page's HTML is in place). Once it is gone, nothing of the loader stays on the page. */
 var root=document.documentElement;
 var head=document.head||root;
 var bootStyle=document.createElement('style');
+/* While the curtain is up the page's own content is not drawn at all (hidden, transparent). A click from one shop page to
+   the next therefore never shows a white in-between screen: the browser keeps showing the page the visitor is on
+   ("paint holding") until the next one draws its first real content - which happens only when it is finished - and
+   then switches at once. On a first visit (nothing to hold) the white curtain is what shows. */
 bootStyle.textContent='html.okla-curtain::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483646;background:#fff;pointer-events:auto}'+
- 'html.okla-curtain.okla-shown::before{opacity:0;pointer-events:none;transition:opacity .45s cubic-bezier(.25,.1,.25,1)}'+
+ /* every element and its ::before/::after (a breadcrumb arrow drawn by ::before alone was enough to end it), strongly
+    enough to beat the site's own visibility:visible!important rules (up to 7 ids) */
+ 'html.okla-curtain body,html.okla-curtain body *:not(#okc0#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9),html.okla-curtain body *:not(#okc0#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9)::before,html.okla-curtain body *:not(#okc0#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9)::after{visibility:hidden!important}'+
  'html.okla-curtain:not(.okla-shown)::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #e9f1fb;border-top-color:#7aa7e0;border-radius:50%;opacity:0;animation:okla-boot-in .4s ease 1.2s forwards,okla-boot-spin .9s linear infinite}'+
  '@keyframes okla-boot-in{to{opacity:1}}'+
  '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
@@ -137,8 +143,8 @@ function whenFontsReady(done){
 function reveal(){
  if(revealed)return;
  revealed=true;clearTimeout(revealTimer);revealTimer=null;
- root.classList.add('okla-shown');
- setTimeout(function(){root.classList.remove('okla-curtain','okla-shown');bootStyle.remove()},600);
+ /* at once, no fade: the finished page replaces the previous one in one step */
+ root.classList.remove('okla-curtain','okla-shown');bootStyle.remove();
  window.__oklaRevealed=true;
  setTimeout(warmNext,1200);
 }
@@ -427,7 +433,9 @@ function loadDeferred(){
 }
 function finalize(){
  window.__oklaAssetLoaderStatus='v91-loaded';
- loadAi();
+ /* the AI chat only once the page is shown: its button drawing earlier would end the browser's "keep the previous
+    page on screen" phase too soon */
+ (function aiAfterReveal(){if(window.__oklaRevealed)loadAi();else setTimeout(aiAfterReveal,50)})();
  hints.concat(earlyHints).forEach(function(hint){hint.remove()});
  /* One more turn so the last scripts can draw before the page is shown. */
  setTimeout(revealWhenTranslated,30);
