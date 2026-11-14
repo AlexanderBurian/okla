@@ -94,8 +94,18 @@ html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav{
 }
 html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important}
 @media (max-width:767px){
-  /* phones: above the bottom navigation; while riding along, only the order button (and the terms note) */
-  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav{bottom:calc(58px + env(safe-area-inset-bottom))!important}
+  /* phones: across the whole width of the content, and clear of the bottom navigation with its raised cart button
+     (the cart's bar too); while riding along, only the order button (and the terms note) */
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav{
+    bottom:calc(88px + env(safe-area-inset-bottom))!important;
+    width:auto!important;max-width:none!important;margin-left:calc(50% - 50vw)!important;margin-right:calc(50% - 50vw)!important;
+    padding-left:16px!important;padding-right:16px!important;box-sizing:border-box!important;
+  }
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-step-nav{bottom:calc(88px + env(safe-area-inset-bottom))!important}
+  /* while riding along, a white strip under the bar reaches down to the bottom navigation (a shadow copy - no layout
+     change), so the page does not show through between them */
+  html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck,
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10),0 40px 0 0 #fff!important}
   html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step-back{display:none!important}
   html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step{display:flex!important;grid-template-columns:none!important}
   html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step :is(.next-step-forward,.next-step-finish,button[type=submit]){flex:1 1 100%!important;width:100%!important;max-width:none!important;margin:0!important}
