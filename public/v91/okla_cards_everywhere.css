@@ -10,12 +10,13 @@
    cards were zoomed 1.08x with a hover frame reaching 28px below the card, so
    the frame of one row ran into the cards of the next one. */
 html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b){
-  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
   column-gap:14px!important;row-gap:40px!important;align-items:stretch!important;
   float:none!important;width:auto!important;max-width:none!important;height:auto!important;
   margin-left:0!important;margin-right:0!important;padding:0!important;
 }
-@media(max-width:1199px){
+/* 5 products per row on every PC listing (category, search, …); tablets 3, phones 2 */
+@media(max-width:991px){
   html body #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b){grid-template-columns:repeat(3,minmax(0,1fr))!important;column-gap:12px!important}
 }
 @media(max-width:767px){

@@ -86,9 +86,11 @@
         background: transparent;
         cursor: pointer;
       }
-      .top-action:hover { background: rgba(13, 49, 95, .07); }
+      .top-action:hover, .top-action:active, .top-action:focus { background: transparent; color: #0858d6; }
       .top-action svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.85; stroke-linecap: round; stroke-linejoin: round; }
-      .mobile-close-icon { display: none; }
+      /* the close button is a cross on PC too (no chevron) */
+      .collapse .collapse-desktop-icon { display: none; }
+      .mobile-close-icon { display: block; width: 20px; height: 20px; stroke-width: 2; }
       .messages {
         min-height: 0;
         overflow: auto;
