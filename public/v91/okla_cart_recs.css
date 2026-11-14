@@ -1,0 +1,20 @@
+/* OKLA – cart page on PC: the cart its own island with grey above it (not touching the header), and the recommended
+   products as a second island under it (okla_cart_recs.js) */
+#okla-cart-recs{display:none}
+@media(min-width:992px){
+  html body.in-kosik #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d){margin-top:16px!important;border-radius:8px!important;clip-path:none!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a){display:block!important;margin:16px auto 24px!important;padding:22px 20px 26px!important;background:#fff!important;border-radius:8px!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;box-sizing:border-box!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-title{margin:0 0 18px!important;color:#081d3a!important;font:700 22px/1.2 "Open Sans",Arial,sans-serif!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:20px!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-card{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:8px!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-img{display:grid!important;place-items:center!important;width:100%!important;aspect-ratio:4/3!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-img img{max-width:100%!important;max-height:100%!important;object-fit:contain!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-height:2.7em!important;color:#081d3a!important;font:600 14px/1.35 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-price{color:#e2343f!important;font:700 20px/1.2 "Open Sans",Arial,sans-serif!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form{margin:4px 0 0!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-btn{display:inline-flex!important;align-items:center!important;height:36px!important;padding:0 18px!important;border:0!important;border-radius:0!important;background:#54a40d!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 14px/1 "Open Sans",Arial,sans-serif!important;cursor:pointer!important}
+  @media(hover:hover){
+    html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-btn:hover{background:#4a920b!important}
+    html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name:hover{text-decoration:underline!important}
+  }
+}

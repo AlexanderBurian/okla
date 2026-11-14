@@ -233,7 +233,7 @@ var BUNDLES=[
  ['22-product-extras','product',['v91/okla_detail_tabs.css','v91/okla_detail_tabs.js','v91/okla_product_tools.css','v91/okla_product_tools.js','v91/okla_desktop_buybar.css','v91/okla_desktop_buybar.js']],
  /* Typeface, text contrast, dead links, product prices and buttons */
  ['23-finish','all',['v91/okla_global_typography.css','v91/okla_text_contrast.js','v91/okla_deadlink_guard.js','v91/okla_product_commerce.css']],
- ['24-checkout-fix','checkout',['v91/okla_checkout_final.css']],
+ ['24-checkout-fix','checkout',['v91/okla_checkout_final.css','v91/okla_cart_recs.css','v91/okla_cart_recs.js']],
  /* Call-to-action buttons: colour and shape */
  ['25-buttons','all',['v91/okla_green_buttons.js','v91/okla_all_cta_blue.css','v91/okla_cta_shape.js']],
  /* Checkout skin */
