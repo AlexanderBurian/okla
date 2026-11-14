@@ -18,7 +18,7 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-chi
 /* the picture */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-image{
-  position:relative!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:46/38!important;
+  position:relative!important;display:block!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:16/9!important;
   border:0!important;border-radius:14px!important;background:#0b0d12!important;overflow:hidden!important;
 }
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;transition:transform .6s cubic-bezier(.2,.8,.2,1)!important}
