@@ -55,7 +55,7 @@
   }
   html.okla-header-reference body #header .header-top>.search form.search-form fieldset:focus-within{
     border-color:#a5b7cb!important;background:#f5f6f8!important;
-    box-shadow:0 0 0 2px rgba(126,159,194,.15)!important;
+    box-shadow:0 0 0 2px rgba(99,136,195,.15)!important;
   }
   html.okla-header-reference body #header .header-top>.search form.search-form fieldset::before,
   html.okla-header-reference body #header .header-top>.search form.search-form fieldset::after{
@@ -234,7 +234,7 @@
     display:flex!important;align-items:center!important;justify-content:center!important;
     position:absolute!important;left:25px!important;top:2px!important;z-index:3!important;
     min-width:18px!important;height:18px!important;padding:0 4px!important;
-    border:0!important;border-radius:10px!important;background:#1382d0!important;
+    border:0!important;border-radius:10px!important;background:#0857d4!important;
     color:#fff!important;box-sizing:border-box!important;
     font:700 11px/1 "Open Sans",Arial,sans-serif!important;
   }

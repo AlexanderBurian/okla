@@ -14,14 +14,14 @@ html body #content .okla-empty-search input{
   font:400 16px/1.2 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;-webkit-appearance:none;appearance:none;
 }
 html body #content .okla-empty-search input::placeholder{color:#8a96a6!important;opacity:1!important}
-html body #content .okla-empty-search input:focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+html body #content .okla-empty-search input:focus{border-color:#0859d8!important;box-shadow:0 0 0 3px rgba(8,89,216,.14)!important}
 html body #content .okla-empty-search input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}
 html body #content .okla-empty-search button{
   position:absolute!important;top:6px!important;right:6px!important;display:grid!important;place-items:center!important;
   width:40px!important;height:40px!important;min-width:0!important;margin:0!important;padding:0!important;
-  border:0!important;border-radius:10px!important;background:#168bd2!important;background-image:none!important;box-shadow:none!important;color:#fff!important;cursor:pointer!important;
+  border:0!important;border-radius:10px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;color:#fff!important;cursor:pointer!important;
 }
-html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#0b74b5!important}
+html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#074cb9!important}
 html body #content .okla-empty-search button svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important}
 html body #content .okla-empty-chips{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important;margin:0!important;padding:0!important}
 html body #content .okla-empty-chip{
@@ -30,7 +30,7 @@ html body #content .okla-empty-chip{
   font:600 14px/1.2 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;text-decoration:none!important;text-transform:none!important;
   transition:background-color .15s ease,color .15s ease!important;
 }
-html body #content .okla-empty-chip:is(:hover,:focus-visible){background:#e7f1fb!important;color:#16478b!important}
+html body #content .okla-empty-chip:is(:hover,:focus-visible){background:#e7f1fb!important;color:#0642a1!important}
 html body #content .okla-empty-chip::before,html body #content .okla-empty-chip::after{content:none!important;display:none!important}
 
 /* ---------- 404 (the card itself is okla_404.css) ---------- */
@@ -50,7 +50,7 @@ html body.in-vyhledavani #content .okla-empty-icon{
 }
 html body.in-vyhledavani #content .okla-empty-icon::before{
   content:""!important;width:34px!important;height:34px!important;
-  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23168bd2%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%226.5%22%2F%3E%3Cpath%20d%3D%22m16%2016%204.5%204.5M8.5%2011h5%22%2F%3E%3C%2Fsvg%3E") center/34px 34px no-repeat!important;
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%230859d8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%3E%3Ccircle%20cx%3D%2211%22%20cy%3D%2211%22%20r%3D%226.5%22%2F%3E%3Cpath%20d%3D%22m16%2016%204.5%204.5M8.5%2011h5%22%2F%3E%3C%2Fsvg%3E") center/34px 34px no-repeat!important;
 }
 html body.in-vyhledavani #content .okla-empty-title{
   margin:0 0 8px!important;padding:0!important;border:0!important;background:none!important;overflow-wrap:anywhere!important;
@@ -69,7 +69,7 @@ html body .cart-empty .empty-cart-boxes ul li a{
   border-radius:999px!important;background:#f3f5f8!important;
   font:600 14px/1.2 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;text-decoration:none!important;text-transform:none!important;
 }
-html body .cart-empty .empty-cart-boxes ul li a:is(:hover,:focus-visible){background:#e7f1fb!important;color:#16478b!important}
+html body .cart-empty .empty-cart-boxes ul li a:is(:hover,:focus-visible){background:#e7f1fb!important;color:#0642a1!important}
 html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){height:48px!important;border-radius:12px!important;border:1px solid #d9e0e8!important;box-shadow:none!important}
 html body .cart-empty .empty-cart-boxes .search-form button[type="submit"]{height:48px!important;border-radius:12px!important;padding:0 20px!important}
 

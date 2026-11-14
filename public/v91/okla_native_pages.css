@@ -1,7 +1,7 @@
 /* OKLA V91 – smart style for the pages Shoptet still renders natively:
    empty cart, search results, the cookie consent bar and the assistant widget's
    visibility. Chrome (header, nav, footer, product cards) is styled elsewhere;
-   this only covers the gaps. Brand blue: #008ddd. */
+   this only covers the gaps. Brand blue: #0855d0. */
 
 /* ---------- Empty cart ---------- */
 /* The cart row is a float grid (display:block), so the full-width override has
@@ -42,9 +42,9 @@ html body .cart-empty .empty-cart-boxes ul li a{
   font-size:14px!important;font-weight:600!important;color:#141923!important;text-decoration:none!important;
 }
 html body .cart-empty .empty-cart-boxes ul li a:before{
-  content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#008ddd;
+  content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#0855d0;
 }
-html body .cart-empty .empty-cart-boxes ul li a:hover{color:#065ba7!important}
+html body .cart-empty .empty-cart-boxes ul li a:hover{color:#0646aa!important}
 html body .cart-empty .empty-cart-boxes .search-form{display:flex!important;gap:8px!important;flex-wrap:nowrap!important;max-width:460px!important}
 html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){
   flex:1 1 auto!important;min-width:0!important;border:1px solid #cdd2da!important;border-radius:8px!important;height:42px!important;padding:0 14px!important;
@@ -52,11 +52,11 @@ html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){
 /* Empty-cart search button -> brand blue (Shoptet paints it purple). */
 html body .cart-empty .search .btn,
 html body .cart-empty form button[type="submit"]{
-  background:#008ddd!important;background-image:none!important;border:1px solid #008ddd!important;
+  background:#0855d0!important;background-image:none!important;border:1px solid #0855d0!important;
   color:#fff!important;border-radius:8px!important;font-weight:700!important;box-shadow:none!important;text-shadow:none!important;
 }
 html body .cart-empty .search .btn:hover,
-html body .cart-empty form button[type="submit"]:hover{background:#0b74b5!important;border-color:#0b74b5!important;color:#fff!important}
+html body .cart-empty form button[type="submit"]:hover{background:#074cb9!important;border-color:#074cb9!important;color:#fff!important}
 
 /* ---------- Category listing ----------
    The native "Nejprodávanější" featured block (small heading + a loose inline row
@@ -75,7 +75,7 @@ html body.type-category .category-filter-trigger{
   border-radius:10px!important;font-weight:700!important;box-shadow:none!important;text-shadow:none!important;
 }
 html body.type-category a.unveil-button:hover,
-html body.type-category .unveil-button.btn:hover{background:#103e76!important;border-color:#103e76!important;color:#fff!important}
+html body.type-category .unveil-button.btn:hover{background:#053a8c!important;border-color:#053a8c!important;color:#fff!important}
 
 /* ---------- Category & search cards: the OKLA product card ----------
    One definition that reproduces the homepage card 1:1 on the category and search
@@ -153,7 +153,7 @@ html body.type-category #products:not(.okla-cards) .product a.name,
 html body.type-search #products:not(.okla-cards) .product a.name{
   display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;
   width:100%!important;min-height:40px!important;height:40px!important;max-height:40px!important;margin:0 0 6px!important;text-align:left!important;
-  font-size:14px!important;font-weight:600!important;line-height:20px!important;color:#16438c!important;text-decoration:none!important;
+  font-size:14px!important;font-weight:600!important;line-height:20px!important;color:#0642a2!important;text-decoration:none!important;
 }
 html body.type-category #products:not(.okla-cards) .product .availability,
 html body.type-search #products:not(.okla-cards) .product .availability{display:block!important;width:100%!important;margin:0 0 2px!important;text-align:left!important;font-size:11px!important;line-height:1.4!important}
@@ -182,7 +182,7 @@ html body.type-search #products:not(.okla-cards) .product .prices:before{
 html body.type-category #products:not(.okla-cards) .product .price-final,
 html body.type-search #products:not(.okla-cards) .product .price-final{display:flex!important;align-items:center!important;justify-content:center!important;flex:1 1 auto!important;width:100%!important;margin:0!important;padding:0!important}
 html body.type-category #products:not(.okla-cards) .product .price-final strong,
-html body.type-search #products:not(.okla-cards) .product .price-final strong{font-size:18px!important;line-height:1.3!important;font-weight:800!important;color:#0b3671!important;white-space:nowrap!important}
+html body.type-search #products:not(.okla-cards) .product .price-final strong{font-size:18px!important;line-height:1.3!important;font-weight:800!important;color:#053685!important;white-space:nowrap!important}
 /* CTA: outlined button with cart glyph */
 html body.type-category #products:not(.okla-cards) .product .p-tools,
 html body.type-search #products:not(.okla-cards) .product .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:54px!important;margin:0!important;padding:16px 0 0!important}
@@ -211,17 +211,17 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okl
   top:0!important;bottom:0!important;width:3px!important;border-radius:0!important;background:transparent!important;pointer-events:none!important;z-index:1!important;
 }
 @media(hover:hover) and (pointer:fine){
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover{background:#eef4fb!important;color:#16478B!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover::before{background:#16478B!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover .okla-cat-svg{color:#16478B!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover{background:#eef4fb!important;color:#0642A1!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover::before{background:#0642A1!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover .okla-cat-svg{color:#0642A1!important}
 }
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon,
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon:hover{
-  background:#eef4fb!important;color:#16478B!important;font-weight:700!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important;
+  background:#eef4fb!important;color:#0642A1!important;font-weight:700!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important;
 }
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon::before{background:#16478B!important}
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon::before{background:#0642A1!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-label,
-html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-svg{color:#16478B!important}
+html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active > a.okla-category-with-icon .okla-cat-svg{color:#0642A1!important}
 
 /* ---------- Search results ---------- */
 /* Same borderless cards as the category grid: hide the product code and lay the
@@ -245,7 +245,7 @@ html body.in-vyhledavani #content > h2,html body.type-search #content > h2{
   font-size:26px!important;line-height:1.25!important;font-weight:800!important;color:#0b2540!important;margin:4px 0 22px!important;
 }
 html body.in-vyhledavani #content > h2 a,html body.type-search #content > h2 a,
-html body.in-vyhledavani #content > h2 strong,html body.type-search #content > h2 strong{color:#008ddd!important}
+html body.in-vyhledavani #content > h2 strong,html body.type-search #content > h2 strong{color:#0855d0!important}
 /* Section labels (Články / Produkty): small uppercase navy caps, evenly spaced. */
 html body.in-vyhledavani .search-products-heading,html body.type-search .search-products-heading,
 html body.in-vyhledavani .search-results-group h4,html body.type-search .search-results-group h4{
@@ -260,25 +260,25 @@ html body.in-vyhledavani .search-results-group-list li,html body.type-search .se
 html body.in-vyhledavani .search-results-group-list li a,html body.type-search .search-results-group-list li a{
   display:flex!important;align-items:center!important;gap:12px!important;padding:13px 16px!important;
   border:1px solid #e6ebf2!important;border-radius:12px!important;background:#fff!important;
-  color:#12438a!important;font-weight:600!important;font-size:14px!important;text-decoration:none!important;
+  color:#06419d!important;font-weight:600!important;font-size:14px!important;text-decoration:none!important;
   box-shadow:0 1px 3px rgba(6,29,58,.05)!important;transition:border-color .15s ease,box-shadow .15s ease,color .15s ease!important;
 }
 /* A proper article pictogram: a soft blue rounded badge with a document glyph. */
 html body.in-vyhledavani .search-results-group-list li a:before,html body.type-search .search-results-group-list li a:before{
   content:""!important;flex:0 0 40px!important;width:40px!important;height:40px!important;border-radius:10px!important;
-  background:#eaf4fd no-repeat center/22px 22px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230b74c4' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z'/%3E%3Cpath d='M14 3v4h4'/%3E%3Cpath d='M9 12h6M9 15.5h6M9 19h4'/%3E%3C/svg%3E")!important;
+  background:#eaf4fd no-repeat center/22px 22px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230751c5' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z'/%3E%3Cpath d='M14 3v4h4'/%3E%3Cpath d='M9 12h6M9 15.5h6M9 19h4'/%3E%3C/svg%3E")!important;
 }
 html body.in-vyhledavani .search-results-group-list li a:after,html body.type-search .search-results-group-list li a:after{
   content:"\203A"!important;margin-left:auto!important;color:#9aa7b8!important;font-size:20px!important;line-height:1!important;
 }
 html body.in-vyhledavani .search-results-group-list li a:hover,html body.type-search .search-results-group-list li a:hover{
-  border-color:#008ddd!important;box-shadow:0 3px 10px rgba(6,29,58,.1)!important;color:#065ba7!important;
+  border-color:#0855d0!important;box-shadow:0 3px 10px rgba(6,29,58,.1)!important;color:#0646aa!important;
 }
-html body.in-vyhledavani .search-results-group-list li a:hover:after,html body.type-search .search-results-group-list li a:hover:after{color:#008ddd!important}
+html body.in-vyhledavani .search-results-group-list li a:hover:after,html body.type-search .search-results-group-list li a:hover:after{color:#0855d0!important}
 /* "Zobrazit vše (N)" link: keep it clear of the list above (it was cramped). */
 html body.in-vyhledavani .search-results-group .display-results-group,html body.type-search .search-results-group .display-results-group{
   display:inline-block!important;margin:18px 0 4px!important;padding:0!important;
-  color:#0074e8!important;font-weight:700!important;font-size:13.5px!important;text-decoration:none!important;
+  color:#0859d8!important;font-weight:700!important;font-size:13.5px!important;text-decoration:none!important;
 }
 html body.in-vyhledavani .search-results-group .display-results-group:hover,html body.type-search .search-results-group .display-results-group:hover{text-decoration:underline!important}
 /* A touch more breathing room between product rows. */
@@ -319,7 +319,7 @@ html body .siteCookies.js-siteCookies .siteCookies__text p{
 }
 html body .siteCookies.js-siteCookies .siteCookies__text p:last-child{margin-bottom:0!important}
 html body .siteCookies.js-siteCookies .siteCookies__text a,
-html body .siteCookies.js-siteCookies .siteCookies__link{color:#008ddd!important;font-weight:600!important;text-decoration:underline!important}
+html body .siteCookies.js-siteCookies .siteCookies__link{color:#0855d0!important;font-weight:600!important;text-decoration:underline!important}
 html body .siteCookies.js-siteCookies .siteCookies__links{margin:14px 0 0!important;padding:0!important;column-span:all!important}
 html body .siteCookies.js-siteCookies .siteCookies__link{background:none!important;border:0!important;padding:0!important;font-size:13px!important;cursor:pointer!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{
@@ -332,9 +332,9 @@ html body .siteCookies.js-siteCookies .siteCookies__button{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child{background:#fff!important;color:#0b2540!important;border:1.5px solid #cdd2da!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{border-color:#008ddd!important;color:#008ddd!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#008ddd!important;color:#fff!important;border:1.5px solid #008ddd!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0b74b5!important;border-color:#0b74b5!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{border-color:#0855d0!important;color:#0855d0!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#0855d0!important;color:#fff!important;border:1.5px solid #0855d0!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#074cb9!important;border-color:#074cb9!important}
 @media(max-width:720px){
   html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:16px!important;padding:20px 18px calc(18px + env(safe-area-inset-bottom))!important;max-height:86vh!important}
   html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
@@ -398,7 +398,7 @@ html body #filters .filter-section-boolean fieldset>div{
    solid black. Stroke it like everywhere else so no icon renders as a black block. */
 #okla-v61-drawer .okm61-category-icon svg{
   fill:none!important;stroke:currentColor!important;stroke-width:1.85!important;
-  stroke-linecap:round!important;stroke-linejoin:round!important;color:#144b86!important;
+  stroke-linecap:round!important;stroke-linejoin:round!important;color:#06409c!important;
 }
 /* Bigger, legible pictogram slot in the desktop sidebar category list. */
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{
@@ -469,7 +469,7 @@ html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box,
 html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(.box-categories){background:#fff!important}
 .top-products-wrapper ol.top-products li::before{
   box-sizing:border-box!important;width:27px!important;height:27px!important;min-width:27px!important;flex:0 0 27px!important;
-  border-radius:8px!important;background:#2f7ed4!important;color:#fff!important;
+  border-radius:8px!important;background:#0961ed!important;color:#fff!important;
   font-size:13px!important;font-weight:800!important;line-height:27px!important;text-align:center!important;
   box-shadow:none!important;margin-right:11px!important;
 }
@@ -576,12 +576,12 @@ html body #content .empty-content-category p:last-child{margin:0!important}
 html body #content .empty-content-category .btn{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
   min-width:240px!important;height:52px!important;margin:0!important;padding:0 32px!important;box-sizing:border-box!important;
-  border:1px solid #66d400!important;border-radius:10px!important;background:#66d400!important;background-image:none!important;box-shadow:none!important;
+  border:1px solid #085adc!important;border-radius:10px!important;background:#085adc!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;text-decoration:none!important;
   transition:background-color .15s ease,border-color .15s ease!important;
 }
 /* hover: the shared subtle darkening of the green (8% towards black), never Shoptet's purple default */
-html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec-c#okla-ec-d#okla-ec-e#okla-ec-f):is(:hover,:focus,:focus-visible,:active){background:#5ec300!important;background-color:#5ec300!important;background-image:none!important;border-color:#5ec300!important;color:#000!important;-webkit-text-fill-color:#000!important;filter:none!important;box-shadow:none!important}
+html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec-c#okla-ec-d#okla-ec-e#okla-ec-f):is(:hover,:focus,:focus-visible,:active){background:#0855cf!important;background-color:#0855cf!important;background-image:none!important;border-color:#0855cf!important;color:#000!important;-webkit-text-fill-color:#000!important;filter:none!important;box-shadow:none!important}
 @media(max-width:767px){
   html body #content .empty-content-category{margin:16px 0 32px!important;padding:32px 20px 28px!important}
   html body #content .empty-content-category::before{width:64px!important;height:64px!important;background-size:64px 64px!important}
@@ -649,9 +649,9 @@ html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox{
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox::before{content:none!important;display:none!important}
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox::after{
   content:""!important;position:absolute!important;inset:3px auto auto 3px!important;width:10px!important;height:10px!important;border-radius:50%!important;
-  background:#168bd2!important;transform:scale(0)!important;transition:transform .12s ease!important;
+  background:#0859d8!important;transform:scale(0)!important;transition:transform .12s ease!important;
 }
-html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox:checked{border-color:#168bd2!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox:checked{border-color:#0859d8!important}
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__checkbox:checked::after{transform:scale(1)!important}
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__item__state{
   margin:0!important;padding:0!important;font:600 14.5px/1.2 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;background:none!important;cursor:pointer!important;
@@ -665,9 +665,9 @@ html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom button{
   box-sizing:border-box!important;border-radius:12px!important;font:700 15px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
   box-shadow:none!important;cursor:pointer!important;
 }
-html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__uncheckLink{background:#fff!important;border:1.5px solid #16478B!important;color:#16478B!important;text-decoration:none!important}
-html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cookiesSetting__button--green){background:#16478B!important;border:1px solid #16478B!important;color:#fff!important}
-html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#66d400!important;border:1px solid #66d400!important;color:#000!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__uncheckLink{background:#fff!important;border:1.5px solid #0642A1!important;color:#0642A1!important;text-decoration:none!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cookiesSetting__button--green){background:#0642A1!important;border:1px solid #0642A1!important;color:#fff!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#085adc!important;border:1px solid #085adc!important;color:#000!important}
 html body #colorbox #cboxContent.cookiesDialog #cboxClose{
   position:fixed!important;top:calc(14px + env(safe-area-inset-top,0px))!important;right:14px!important;left:auto!important;bottom:auto!important;
   width:44px!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;
@@ -730,7 +730,7 @@ html body #content .listingControls:not(#okla-lc-a#okla-lc-b) :is(.pagination__c
   min-width:38px!important;width:auto!important;height:38px!important;min-height:38px!important;margin:0!important;padding:0 8px!important;
   border-radius:10px!important;line-height:1!important;box-sizing:border-box!important;text-decoration:none!important;
 }
-html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__currentPage{border:1px solid #1076b7!important;background:#1076b7!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-weight:700!important}
+html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__currentPage{border:1px solid #074ebf!important;background:#074ebf!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-weight:700!important}
 html body #content .listingControls:not(#okla-lc-a#okla-lc-b) .pagination__link:not(.btn){border:1px solid transparent!important}
 @media(max-width:767px){
   /* phones: "Načíst další" across the width, then the pages and "Nahoru" in one row */

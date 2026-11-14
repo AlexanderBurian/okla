@@ -125,7 +125,7 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
     all:initial!important;display:block!important;pointer-events:none!important;
   }
   html.okla-header-template103 body #header#header .header-top .navigation-buttons>.okla-exact-header>[data-action-face]:focus-visible{
-    outline:2px solid #205b9c!important;outline-offset:3px!important;
+    outline:2px solid #074bb6!important;outline-offset:3px!important;
   }
 }
 @media(max-width:991px){okla-action-face{display:none!important}}

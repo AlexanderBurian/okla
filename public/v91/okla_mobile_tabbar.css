@@ -41,19 +41,19 @@
     position:relative!important;z-index:1!important;width:26px!important;height:26px!important;flex:0 0 26px!important;margin:-1px 0!important;
     transform:translateY(-17px)!important;color:#0b2540!important;stroke-width:1.95!important;
   }
-  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#184e96!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#0646ab!important}
   /* the number of items, top right on the round button (the PC badge's blue) */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart .okla-tb-count{
     position:absolute!important;left:calc(50% + 7px)!important;top:-24px!important;z-index:2!important;display:block!important;
     box-sizing:border-box!important;min-width:20px!important;height:20px!important;padding:0 5px!important;border:2px solid #fff!important;border-radius:10px!important;
-    background:#2093d9!important;color:#fff!important;font:700 11px/16px "Open Sans",Arial,sans-serif!important;text-align:center!important;
+    background:#085ee5!important;color:#fff!important;font:700 11px/16px "Open Sans",Arial,sans-serif!important;text-align:center!important;
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart .okla-tb-count[hidden]{display:none!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible{outline:0!important}
-  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{border-color:#1788cb!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{border-color:#0857d3!important}
   /* the item whose panel is open is the highlighted one (the page's own item steps back meanwhile) */
-  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.is-panel{color:#184e96!important;font-weight:800!important}
+  html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.is-panel{color:#0646ab!important;font-weight:800!important}
   html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel){color:#636b75!important;font-weight:inherit!important}
   html.okla-tb-on body #okla-v61-bottom:has(.is-panel) .okm61-bottom-action.is-active:not(.is-panel) svg{stroke-width:1.9!important}
   /* one label colour for links and buttons (the link labels are darkened by the text-contrast pass) */
@@ -98,7 +98,7 @@
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okla-mm-logo{display:block!important;width:auto!important;height:32px!important;max-width:none!important;object-fit:contain!important}
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-close{
     display:grid!important;place-items:center!important;width:40px!important;height:40px!important;min-width:0!important;margin:-4px 0 0!important;padding:0!important;
-    border:0!important;border-radius:50%!important;background:transparent!important;color:#123b6d!important;box-shadow:none!important;
+    border:0!important;border-radius:50%!important;background:transparent!important;color:#053787!important;box-shadow:none!important;
   }
   /* the content scrolls on its own and slides in from the right */
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{
@@ -116,8 +116,8 @@
   /* the same space under the top in both panels: 24px to the first thing (Katalog's title, Menu's sign-in block) */
   html.okla-tb-on body #okla-v61-drawer.okla-mm-open .okla-mm-hero{padding-top:24px!important}
   /* the categories run over the same gradient, only the lines between them */
-  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list{background:transparent!important;border-top:1px solid rgba(160,184,210,.4)!important}
-  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list .okm61-cat-row{background:transparent!important;border-color:rgba(160,184,210,.4)!important}
+  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list{background:transparent!important;border-top:1px solid rgba(128,158,206,.4)!important}
+  html.okla-tb-on body #okla-v61-drawer:not(.okla-mm-open) .okm61-drawer-body>.okm61-drawer-list .okm61-cat-row{background:transparent!important;border-color:rgba(128,158,206,.4)!important}
   /* Menu: the sign-in card keeps the same side margins as the cards under it */
   html.okla-tb-on body #okla-v61-drawer .okla-mm-account-card{box-sizing:border-box!important;width:auto!important;max-width:none!important;margin-left:16px!important;margin-right:16px!important}
   /* menu icons are drawn as outlines: their inner marks (the "i", the tick, the dots) take the icon's colour */

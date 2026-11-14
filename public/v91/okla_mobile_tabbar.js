@@ -21,7 +21,7 @@
    if(/^\/(kosik|objednavka)(\/|$)/.test(location.pathname)){
     cart.classList.add('is-active');
     /* the label is blue like the other active items (and is left alone by the text-contrast pass) */
-    var lab=cart.querySelector('span');if(lab){lab.__oktc=1;lab.style.setProperty('color','#184e96','important')}
+    var lab=cart.querySelector('span');if(lab){lab.__oktc=1;lab.style.setProperty('color','#0646ab','important')}
    }
   }
   /* "Objednávky" is the current item on the order-status page (/stav-objednavky/, served by
@@ -29,7 +29,7 @@
   var orders=bar.querySelector('.okm61-bottom-action[aria-label="Objednávky"]');
   if(orders&&!orders.classList.contains('is-active')&&(/^\/(stav-objednavky|objednavky)(\/|$)/.test(location.pathname)||/[?&]zobrazit=stav-objednavky(&|$)/.test(location.search))){
    orders.classList.add('is-active');
-   var ol=orders.querySelector('span');if(ol){ol.__oktc=1;ol.style.setProperty('color','#184e96','important')}
+   var ol=orders.querySelector('span');if(ol){ol.__oktc=1;ol.style.setProperty('color','#0646ab','important')}
   }
   root.classList.add('okla-tb-on');
   return true;

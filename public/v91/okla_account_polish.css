@@ -48,7 +48,7 @@ html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  padding:24px 26px!important;
  background:#fff!important;
  border:1px solid #dfe7f0!important;
- border-top:6px solid #19477e!important;
+ border-top:6px solid #063f99!important;
  border-radius:6px!important;
  box-sizing:border-box!important;
  box-shadow:0 0 10px rgba(0,25,65,.11)!important;
@@ -200,7 +200,7 @@ html.okla-acc-polished body .okla-acc-menu-icon{
  border:0!important;
  border-radius:0!important;
  background:transparent!important;
- color:#184f88!important;
+ color:#0642a0!important;
  filter:none!important;
  box-shadow:none!important;
  pointer-events:none!important;
@@ -224,7 +224,7 @@ html.okla-acc-polished body .okla-acc-menu-icon--tax,
 html.okla-acc-polished body .okla-acc-menu-icon--discussion,
 html.okla-acc-polished body .okla-acc-menu-icon--personal{color:#263746!important}
 html.okla-acc-polished body .okla-acc-menu-icon--logout{color:#d93c4c!important}
-html.okla-acc-polished body .okla-acc-menu-icon--review svg{fill:#2b70b8!important;stroke:#2b70b8!important}
+html.okla-acc-polished body .okla-acc-menu-icon--review svg{fill:#0857d4!important;stroke:#0857d4!important}
 html.okla-acc-polished body .okla-acc-head-icon{
  color:#263746!important;
 }
@@ -265,7 +265,7 @@ html.okla-acc-polished body .okla-acc-nav__link.is-active{
  box-shadow:none!important;
 }
 html.okla-acc-polished body .okla-acc-nav__link:focus-visible{
- outline:2px solid #2c5f9e!important;
+ outline:2px solid #1d54aa!important;
  outline-offset:1px!important;
 }
 html.okla-acc-polished body .okla-acc-nav__link.is-logout{
@@ -371,13 +371,13 @@ html.okla-acc-polished body #content form :is(input.form-control,select.form-con
 }
 html.okla-acc-polished body #content form :is(input.form-control,select.form-control):focus{
  outline:0!important;
- border-color:#2c5f9e!important;
- box-shadow:0 0 0 2px rgba(44,95,158,.13)!important;
+ border-color:#1d54aa!important;
+ box-shadow:0 0 0 2px rgba(29,84,170,.13)!important;
 }
 html.okla-acc-polished body #content form .form-group{margin-bottom:19px!important}
 html.okla-acc-polished body #content form .form-group>label{
  margin-bottom:7px!important;
- color:#2c4054!important;
+ color:#2b4062!important;
 }
 html.okla-acc-polished body #content .submit-wrapper{margin-top:26px!important}
 html.okla-acc-polished body #content .btn.btn-primary,
@@ -388,9 +388,9 @@ html.okla-acc-polished body #content .btn.btn-conversion{
  height:44px!important;
  min-height:44px!important;
  padding:0 19px!important;
- border:1px solid #2c5f9e!important;
+ border:1px solid #1d54aa!important;
  border-radius:7px!important;
- background:#2c5f9e!important;
+ background:#1d54aa!important;
  color:#fff!important;
  font:700 13px/1.3 "Open Sans",Arial,sans-serif!important;
  letter-spacing:0!important;
@@ -399,8 +399,8 @@ html.okla-acc-polished body #content .btn.btn-conversion{
 }
 html.okla-acc-polished body #content .btn.btn-primary:hover,
 html.okla-acc-polished body #content .btn.btn-conversion:hover{
- border-color:#234e84!important;
- background:#234e84!important;
+ border-color:#184894!important;
+ background:#184894!important;
  color:#fff!important;
 }
 html.okla-acc-polished body #content .okla-ord-card{

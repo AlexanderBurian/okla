@@ -18,7 +18,7 @@ html body.type-index #content #okla-v61-dots{display:none!important}
 .okla-hero__slide--4 .okla-hero__media{background-image:url('assets/hero-4-desktop.webp')}
 /* Endoscope hero slide (mobile only): the endoscope cut-out on a navy light,
    reusing the lower endoscope tile's treatment. */
-.okla-hero__slide--endo .okla-hero__media{background:url('assets/side-endoscope.png') right 7% center/auto 94% no-repeat,radial-gradient(90% 140% at 82% 50%,#2a6bb8 0%,#123a6e 45%,#0b2540 80%)!important}
+.okla-hero__slide--endo .okla-hero__media{background:url('assets/side-endoscope.png') right 7% center/auto 94% no-repeat,radial-gradient(90% 140% at 82% 50%,#0857d3 0%,#053888 45%,#0b2540 80%)!important}
 .okla-hero__text{position:absolute;left:0;top:0;bottom:0;width:52%;padding:0 4% 0 3%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;z-index:2}
 .okla-hero__title{margin:0;font-size:30px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.25)}
 .okla-hero__lead{margin:0;font-size:15px;line-height:1.4;color:#fff}
@@ -35,7 +35,7 @@ html body.type-index #content #okla-v61-dots{display:none!important}
 .okla-tile--1 .okla-tile__media{background-image:url('assets/tile-1-desktop.webp')}
 .okla-tile--2 .okla-tile__media{background-image:url('assets/tile-2-desktop.webp')}
 /* Endoscope tile: the product cut-out on a navy light, the same darkening and text as the other tiles. */
-.okla-tile--3 .okla-tile__media{background:url('assets/side-endoscope.png') right 7% center/auto 94% no-repeat,radial-gradient(90% 140% at 82% 50%,#2a6bb8 0%,#123a6e 45%,#0b2540 80%)}
+.okla-tile--3 .okla-tile__media{background:url('assets/side-endoscope.png') right 7% center/auto 94% no-repeat,radial-gradient(90% 140% at 82% 50%,#0857d3 0%,#053888 45%,#0b2540 80%)}
 .okla-tile__text{position:absolute;left:0;top:0;bottom:0;width:60%;padding:0 4%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:6px;z-index:2}
 .okla-tile__title{margin:0;font-size:22px;font-weight:700;line-height:1.15;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.25)}
 .okla-tile__lead{margin:0;font-size:14px;line-height:1.4;color:#fff}
@@ -47,9 +47,9 @@ html body.type-index #content #okla-v61-dots{display:none!important}
 /* Left scrim for the text */
 .okla-hero__slide::after,.okla-tile::after{background:linear-gradient(90deg,rgba(4,18,40,.8) 0%,rgba(4,18,40,.38) 45%,rgba(4,18,40,0) 75%)}
 
-html body .okla-hero .okla-hero__cta,html body .okla-tile .okla-tile__cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;margin-top:6px;border-radius:19px;background:#0a7ad9;color:#fff!important;font-size:14px;font-weight:700;text-decoration:none!important}
+html body .okla-hero .okla-hero__cta,html body .okla-tile .okla-tile__cta{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 20px;margin-top:6px;border-radius:19px;background:#0857d4;color:#fff!important;font-size:14px;font-weight:700;text-decoration:none!important}
 html body .okla-tile .okla-tile__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
-html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:hover{background:#0866b8!important;color:#fff!important}
+html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:hover{background:#074cb9!important;color:#fff!important}
 .okla-hero__cta:focus-visible,.okla-tile__cta:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 
 @media (max-width:767px){

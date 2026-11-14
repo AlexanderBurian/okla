@@ -1,7 +1,7 @@
 /* OKLA clean checkout. Loaded last on ordering pages. */
 html body.ordering-process #content-wrapper{
   border:1px solid #e1e6ed!important;
-  border-top:4px solid #245b9e!important;
+  border-top:4px solid #074dbb!important;
   border-radius:6px!important;
   box-shadow:none!important;
   background:#fff!important;
@@ -14,7 +14,7 @@ html body.ordering-process #content-wrapper{min-height:calc(100vh - 94px)!import
 /* Calm, brand-blue progress instead of pulses, gradients and moving parcels. */
 html body.ordering-process .okla-parcel{display:none!important;animation:none!important;filter:none!important}
 html body.ordering-process .cart-header::before{height:3px!important;background:#e1e6ed!important}
-html body.ordering-process .cart-header::after{height:3px!important;background:#245b9e!important;transition:none!important}
+html body.ordering-process .cart-header::after{height:3px!important;background:#074dbb!important;transition:none!important}
 html body.ordering-process .cart-header .step::before{
   border:2px solid #aeb8c5!important;background:#fff!important;color:#657184!important;
   box-shadow:none!important;animation:none!important
@@ -22,12 +22,12 @@ html body.ordering-process .cart-header .step::before{
 html body.in-kosik .cart-header .step-1::before,
 html body.in-krok-1 .cart-header .step-2::before,
 html body.in-krok-2 .cart-header .step-3::before{
-  border-color:#245b9e!important;color:#245b9e!important;box-shadow:none!important
+  border-color:#074dbb!important;color:#074dbb!important;box-shadow:none!important
 }
 html body.in-krok-1 .cart-header .step-1::before,
 html body.in-krok-2 .cart-header .step-1::before,
 html body.in-krok-2 .cart-header .step-2::before{
-  border-color:#245b9e!important;background-color:#245b9e!important
+  border-color:#074dbb!important;background-color:#074dbb!important
 }
 html body.ordering-process .cart-header .step{color:#657184!important}
 html body.ordering-process .cart-header .step.active,
@@ -97,11 +97,11 @@ html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper{
 html body.ordering-process:not(.in-kosik) .radio-wrapper.active,
 html body.ordering-process:not(.in-kosik) .radio-wrapper.checked,
 html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked){
-  border-color:#245b9e!important;background:#f3f7fc!important;box-shadow:none!important
+  border-color:#074dbb!important;background:#f3f7fc!important;box-shadow:none!important
 }
 html body.ordering-process:not(.in-kosik) .radio-wrapper :is(.payment-shipping-price,.payment-shipping-price *),
 html body.ordering-process:not(.in-kosik) .shipping-billing-summary :is(.price,strong){
-  color:#245b9e!important;-webkit-text-fill-color:#245b9e!important
+  color:#074dbb!important;-webkit-text-fill-color:#074dbb!important
 }
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
   position:static!important;border:0!important;border-left:1px solid #e1e6ed!important;
@@ -182,8 +182,8 @@ html body.ordering-process .cart-header .step>span{
   display:block!important;grid-column:2!important;grid-row:1!important;width:auto!important;
   margin:0!important;padding:0!important;color:inherit!important;text-align:left!important
 }
-html body.ordering-process .cart-header .step.active{color:#1388d8!important;background:transparent!important}
-html body.ordering-process .cart-header .step.active::before{background:#1388d8!important;color:#fff!important}
+html body.ordering-process .cart-header .step.active{color:#0859d9!important;background:transparent!important}
+html body.ordering-process .cart-header .step.active::before{background:#085ada!important;color:#fff!important}
 html body.ordering-process .cart-header .step.completed{color:#5f6874!important;background:transparent!important}
 html body.ordering-process .cart-header .step.completed::before{
   content:"✓"!important;background:#c8cdd3!important;color:#fff!important
@@ -309,10 +309,10 @@ html body.ordering-process .cart-header .step>strong{
 html body.ordering-process .cart-header .step::before,
 html body.ordering-process .cart-header .step::after{display:none!important;content:none!important}
 html body.ordering-process .cart-header .step.active{
-  background:#1388d8!important;color:#fff!important
+  background:#085ada!important;color:#fff!important
 }
 html body.ordering-process .cart-header .step.completed{
-  background:#e5f2fb!important;color:#174f82!important
+  background:#e5f2fb!important;color:#06409b!important
 }
 
 /* Cart: one full-width product list and one restrained bottom action bar. */
@@ -382,7 +382,7 @@ html body.ordering-process:not(.in-kosik) .radio-wrapper+ .radio-wrapper{border-
 html body.ordering-process:not(.in-kosik) .radio-wrapper.active,
 html body.ordering-process:not(.in-kosik) .radio-wrapper.checked,
 html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked){
-  border-color:#1388d8!important;background:#eaf5fd!important
+  border-color:#085ada!important;background:#eaf5fd!important
 }
 html body.in-krok-2 #order-form :is(.co-contact-information,.co-billing-address,.co-shipping-address){
   max-width:640px!important
@@ -394,11 +394,11 @@ html body.in-krok-2 #order-form :is(.co-contact-information>h2,.co-billing-addre
   font-size:18px!important;text-transform:none!important
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish){
-  border-color:#66d400!important;background:#66d400!important;color:#111!important;
+  border-color:#085adc!important;background:#085adc!important;color:#111!important;
   -webkit-text-fill-color:#111!important
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish):is(:hover,:focus,:active){
-  border-color:#5fc600!important;background:#5fc600!important;color:#111!important;
+  border-color:#0856d1!important;background:#0856d1!important;color:#111!important;
   -webkit-text-fill-color:#111!important
 }
 
@@ -473,20 +473,20 @@ html body.ordering-process #content#content ol.cart-header>li.step-2::before{bac
 html body.ordering-process #content#content ol.cart-header>li.step-3::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a95a5' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}
 /* current step: blue ring, blue icon, dark label */
 html body.ordering-process #content#content ol.cart-header>li.step.active{color:#0b2540!important}
-html body.ordering-process #content#content ol.cart-header>li.step.active::before{border-color:#0074e8!important}
-html body.ordering-process #content#content ol.cart-header>li.step-1.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230074e8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2.4 10.2a1.5 1.5 0 0 0 1.5 1.1h7.7a1.5 1.5 0 0 0 1.5-1.1L20 8H6.2'/%3E%3Ccircle cx='9.5' cy='19' r='1.3'/%3E%3Ccircle cx='17' cy='19' r='1.3'/%3E%3C/svg%3E")!important}
-html body.ordering-process #content#content ol.cart-header>li.step-2.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230074e8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5h11v9.5h-11z'/%3E%3Cpath d='M13.5 9.5h4l3 3.4V16h-7'/%3E%3Ccircle cx='6.5' cy='17.5' r='1.6'/%3E%3Ccircle cx='17' cy='17.5' r='1.6'/%3E%3C/svg%3E")!important}
-html body.ordering-process #content#content ol.cart-header>li.step-3.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230074e8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}
+html body.ordering-process #content#content ol.cart-header>li.step.active::before{border-color:#0859d8!important}
+html body.ordering-process #content#content ol.cart-header>li.step-1.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230859d8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2.4 10.2a1.5 1.5 0 0 0 1.5 1.1h7.7a1.5 1.5 0 0 0 1.5-1.1L20 8H6.2'/%3E%3Ccircle cx='9.5' cy='19' r='1.3'/%3E%3Ccircle cx='17' cy='19' r='1.3'/%3E%3C/svg%3E")!important}
+html body.ordering-process #content#content ol.cart-header>li.step-2.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230859d8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5h11v9.5h-11z'/%3E%3Cpath d='M13.5 9.5h4l3 3.4V16h-7'/%3E%3Ccircle cx='6.5' cy='17.5' r='1.6'/%3E%3Ccircle cx='17' cy='17.5' r='1.6'/%3E%3C/svg%3E")!important}
+html body.ordering-process #content#content ol.cart-header>li.step-3.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230859d8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}
 /* finished steps: filled blue with a white check */
 html body.ordering-process #content#content ol.cart-header>li.step.completed{color:#46556a!important}
-html body.ordering-process #content#content ol.cart-header>li.step.completed::before{border-color:#0074e8!important;background:#0074e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/15px 15px no-repeat!important}
+html body.ordering-process #content#content ol.cart-header>li.step.completed::before{border-color:#0859d8!important;background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/15px 15px no-repeat!important}
 /* connector between steps */
 html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{
   content:""!important;display:block!important;position:static!important;flex:none!important;
   width:40px!important;height:2px!important;margin:0 12px!important;padding:0!important;border:0!important;
   background:#d6dce4!important;clip-path:none!important;transform:none!important;
 }
-html body.ordering-process #content#content ol.cart-header>li.step.completed:not(:last-child)::after{background:#0074e8!important}
+html body.ordering-process #content#content ol.cart-header>li.step.completed:not(:last-child)::after{background:#0859d8!important}
 
 /* --- Cart: Alza summary under the items ------------------------------- */
 html body.in-kosik #content#content .okla-cart-summary{
@@ -496,11 +496,11 @@ html body.in-kosik #content#content .okla-cart-summary{
 html body.in-kosik #content#content .okla-cart-summary__toggle{
   display:inline-flex!important;align-items:center!important;gap:7px!important;margin:6px 0 0!important;padding:0!important;
   border:0!important;background:none!important;box-shadow:none!important;cursor:pointer!important;
-  color:#1f6fb8!important;-webkit-text-fill-color:#1f6fb8!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  color:#0753cb!important;-webkit-text-fill-color:#0753cb!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
 }
 html body.in-kosik #content#content .okla-cart-summary__toggle::before{
   content:""!important;width:15px!important;height:15px!important;flex:none!important;border-radius:50%!important;
-  background:#1f6fb8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/11px 11px no-repeat!important;transition:transform .15s ease!important;
+  background:#0753cb url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/11px 11px no-repeat!important;transition:transform .15s ease!important;
 }
 html body.in-kosik #content#content .okla-cart-summary.is-coupon-open .okla-cart-summary__toggle::before{transform:rotate(90deg)!important}
 html body.in-kosik #content#content .okla-cart-summary__toggle:hover{text-decoration:underline!important;background:none!important}
@@ -583,12 +583,12 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .order
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price span{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important}
 
 /* --- Steps 1/2: option cards (Alza colours) --------------------------- */
-html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked){background:#eef5fd!important;border-color:#2a86d9!important}
+html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked){background:#eef5fd!important;border-color:#0961ed!important}
 html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper::before{
   content:""!important;border-radius:4px!important;width:18px!important;height:18px!important;box-sizing:border-box!important;
   border:1.5px solid #9aa6b5!important;background:#fff!important;
 }
-html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked)::before{border-color:#0074e8!important;background:#0074e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/15px 15px no-repeat!important}
+html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked)::before{border-color:#0859d8!important;background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/15px 15px no-repeat!important}
 html body.ordering-process:not(.in-kosik) #content#content .payment-shipping-price{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;text-transform:lowercase!important}
 
 /* --- Phones ------------------------------------------------------------ */
@@ -647,7 +647,7 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   margin:0 0 10px!important;border:1px solid #dde2e9!important;border-radius:8px!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:last-child{margin-bottom:0!important}
-html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:has(input:checked){border-color:#2a86d9!important}
+html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:has(input:checked){border-color:#0961ed!important}
 /* phones: the cart button row never overflows - "Zpět" as wide as its text,
    "Pokračovat" takes the rest (arrow clear of the text); stacked under 340px */
 @media(max-width:767px){
@@ -671,12 +671,12 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
 
 /* ===== desktop: Alza bottom bar, recap flush right, clean blue cap ===== */
 @media(min-width:768px){
-  /* one blue cap over the whole card (no second border under it, no notch at the corners); the same 6px #19477e
+  /* one blue cap over the whole card (no second border under it, no notch at the corners); the same 6px #063f99
      cap, as long as the card, as on every other page */
   html body.ordering-process #content-wrapper#content-wrapper{position:relative!important;border-top:1px solid #e1e6ed!important;border-radius:6px!important}
   html body.ordering-process #content-wrapper#content-wrapper::before{
     display:block!important;content:""!important;position:absolute!important;left:-1px!important;right:-1px!important;top:-1px!important;
-    height:6px!important;background:#19477e!important;border-radius:6px 6px 0 0!important;z-index:5!important;pointer-events:none!important;
+    height:6px!important;background:#063f99!important;border-radius:6px 6px 0 0!important;z-index:5!important;pointer-events:none!important;
   }
   /* cart: summary line and the button bar run across the whole card */
   html body.in-kosik #content#content .okla-cart-summary{margin:4px -20px 0!important;padding:22px 44px 18px!important}
@@ -697,7 +697,7 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
 }
 
 /* the current step is drawn complete: filled blue circle, white icon */
-html body.ordering-process #content#content ol.cart-header>li.step.active::before{background-color:#0074e8!important;border-color:#0074e8!important}
+html body.ordering-process #content#content ol.cart-header>li.step.active::before{background-color:#0859d8!important;border-color:#0859d8!important}
 html body.ordering-process #content#content ol.cart-header>li.step-1.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2.4 10.2a1.5 1.5 0 0 0 1.5 1.1h7.7a1.5 1.5 0 0 0 1.5-1.1L20 8H6.2'/%3E%3Ccircle cx='9.5' cy='19' r='1.3'/%3E%3Ccircle cx='17' cy='19' r='1.3'/%3E%3C/svg%3E")!important}
 html body.ordering-process #content#content ol.cart-header>li.step-2.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5h11v9.5h-11z'/%3E%3Cpath d='M13.5 9.5h4l3 3.4V16h-7'/%3E%3Ccircle cx='6.5' cy='17.5' r='1.6'/%3E%3Ccircle cx='17' cy='17.5' r='1.6'/%3E%3C/svg%3E")!important}
 html body.ordering-process #content#content ol.cart-header>li.step-3.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}

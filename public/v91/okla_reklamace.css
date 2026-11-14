@@ -1,7 +1,7 @@
 /* OKLA V123 – "Reklamace a vrácení zboží". A dedicated, high-quality complaint /
    return form. Takes over /reklamace/ (a CMS page the shop has not created, so
    Shoptet renders a 404 behind us). Submits to Shoptet's native MailForm action,
-   so the shop receives it by e-mail with no extra backend. Brand blue #008ddd,
+   so the shop receives it by e-mail with no extra backend. Brand blue #0855d0,
    with stable radio cards and button styling, same language as account pages. */
 
 html.okla-rk-takeover #content .content-inner > *:not(.okla-rk){display:none!important}
@@ -25,12 +25,12 @@ html body .okla-rk__title{
 html body .okla-rk__lead{
   text-align:center;font-size:15px;line-height:1.6;color:#56657a;max-width:600px;margin:0 auto 26px;
 }
-html body .okla-rk__lead a{color:#008ddd;font-weight:600;text-decoration:underline}
+html body .okla-rk__lead a{color:#0855d0;font-weight:600;text-decoration:underline}
 
 /* The reference chip under the lead */
 html body .okla-rk__ref{
   display:inline-flex;align-items:center;gap:8px;margin:0 auto 24px;padding:7px 14px;
-  border:1px dashed #bfe3fa;border-radius:999px;background:#f2f9ff;color:#065ba7;
+  border:1px dashed #bfe3fa;border-radius:999px;background:#f2f9ff;color:#0646aa;
   font-size:13px;font-weight:600;
 }
 html body .okla-rk__ref b{font-weight:800;letter-spacing:.02em}
@@ -49,7 +49,7 @@ html body .okla-rk__legend{
 }
 html body .okla-rk__num{
   flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;
-  background:#008ddd;color:#fff;font-size:14px;font-weight:800;font-family:"Open Sans",Arial,sans-serif;
+  background:#0855d0;color:#fff;font-size:14px;font-weight:800;font-family:"Open Sans",Arial,sans-serif;
 }
 
 /* Grid of fields */
@@ -75,7 +75,7 @@ html body .okla-rk textarea{height:auto;min-height:120px;padding:12px 14px;line-
 html body .okla-rk select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%236b7686' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
 html body .okla-rk input:focus,
 html body .okla-rk textarea:focus,
-html body .okla-rk select:focus{outline:none;border-color:#008ddd;box-shadow:0 0 0 3px rgba(0,141,221,.14)}
+html body .okla-rk select:focus{outline:none;border-color:#0855d0;box-shadow:0 0 0 3px rgba(8,85,208,.14)}
 
 /* Invalid state */
 html body .okla-rk .okla-rk__field.is-invalid input,
@@ -102,14 +102,14 @@ html body .okla-rk__choice label:before{
 }
 html body .okla-rk__choice label:after{
  content:"";position:absolute;left:20px;top:50%;width:7px;height:7px;border-radius:50%;
- background:#008ddd;transform:translateY(-50%) scale(0);transition:transform .12s ease;
+ background:#0855d0;transform:translateY(-50%) scale(0);transition:transform .12s ease;
 }
 html body .okla-rk__choice label b{font-size:14px;font-weight:700;color:#0b2540}
 html body .okla-rk__choice label span{font-size:12px;line-height:1.4;color:#66758a}
-html body .okla-rk__choice input:checked+label{border-color:#008ddd;background:#f3faff;box-shadow:none}
-html body .okla-rk__choice input:checked+label:before{border-color:#008ddd}
+html body .okla-rk__choice input:checked+label{border-color:#0855d0;background:#f3faff;box-shadow:none}
+html body .okla-rk__choice input:checked+label:before{border-color:#0855d0}
 html body .okla-rk__choice input:checked+label:after{transform:translateY(-50%) scale(1)}
-html body .okla-rk__choice input:focus-visible+label{border-color:#006fae;box-shadow:0 0 0 2px rgba(0,111,174,.16)}
+html body .okla-rk__choice input:focus-visible+label{border-color:#0646ab;box-shadow:0 0 0 2px rgba(6,70,171,.16)}
 html body .okla-rk__choice input[name=resolution]+label{min-height:54px;padding-top:11px;padding-bottom:11px}
 
 /* Conditional block (bank account for refund) */
@@ -118,20 +118,20 @@ html body .okla-rk__cond.is-on{display:block}
 
 /* Consent row */
 html body .okla-rk__consent{display:flex;align-items:flex-start;gap:11px;margin:4px 0 0}
-html body .okla-rk__consent input[type=checkbox]{flex:none!important;width:20px!important;height:20px!important;margin:1px 0 0!important;padding:0!important;accent-color:#008ddd;cursor:pointer;appearance:auto!important;-webkit-appearance:checkbox!important}
+html body .okla-rk__consent input[type=checkbox]{flex:none!important;width:20px!important;height:20px!important;margin:1px 0 0!important;padding:0!important;accent-color:#0855d0;cursor:pointer;appearance:auto!important;-webkit-appearance:checkbox!important}
 html body .okla-rk__consent label{font-size:13px;line-height:1.5;color:#56657a;cursor:pointer}
-html body .okla-rk__consent a{color:#008ddd;font-weight:600;text-decoration:underline}
+html body .okla-rk__consent a{color:#0855d0;font-weight:600;text-decoration:underline}
 html body .okla-rk__consent.is-invalid label{color:#c0344a}
 
 /* Submit */
 html body .okla-rk__actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:26px 0 0}
 html body .okla-rk__submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;height:54px;
-  border:1px solid #176aa5;border-radius:12px;background:#176aa5;color:#fff;cursor:pointer;
+  border:1px solid #074bb6;border-radius:12px;background:#074bb6;color:#fff;cursor:pointer;
   font-family:"Open Sans",Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;
   transition:background-color .15s ease,border-color .15s ease,opacity .15s ease;
 }
-html body .okla-rk__submit:hover{background:#125986;border-color:#125986}
+html body .okla-rk__submit:hover{background:#063F9A;border-color:#063F9A}
 html body .okla-rk__submit svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 html body .okla-rk__submit[disabled]{opacity:.6;cursor:default}
 html body .okla-rk__submit.is-loading{color:transparent;position:relative}
@@ -166,8 +166,8 @@ html body .okla-rk__done-links a{
   display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:10px;
   font-size:14px;font-weight:700;text-decoration:none;
 }
-html body .okla-rk__done-links .is-primary{background:#008ddd;color:#fff;border:1px solid #008ddd}
-html body .okla-rk__done-links .is-primary:hover{background:#0b74b5;border-color:#0b74b5}
+html body .okla-rk__done-links .is-primary{background:#0855d0;color:#fff;border:1px solid #0855d0}
+html body .okla-rk__done-links .is-primary:hover{background:#074cb9;border-color:#074cb9}
 html body .okla-rk__done-links .is-ghost{background:#fff;color:#0b2540;border:1px solid #d7deea}
 html body .okla-rk__done-links .is-ghost:hover{background:#f4f7fb}
 
@@ -225,10 +225,10 @@ html body .okla-rk .okla-rk__choice label::before{
 }
 html body .okla-rk .okla-rk__choice label::after{
   left:21px!important;top:calc(50% - 5px)!important;width:10px!important;height:10px!important;
-  border-radius:50%!important;background:#168bd2!important;background-image:none!important;
+  border-radius:50%!important;background:#0859d8!important;background-image:none!important;
   transform:scale(0)!important;transform-origin:50% 50%!important;
 }
-html body .okla-rk .okla-rk__choice input:checked+label::before{border-color:#168bd2!important}
+html body .okla-rk .okla-rk__choice input:checked+label::before{border-color:#0859d8!important}
 html body .okla-rk .okla-rk__choice input:checked+label::after{transform:scale(1)!important}
 
 /* consent: one round checkbox only, aligned with the first text line */
@@ -248,7 +248,7 @@ html body .okla-rk .okla-rk__consent input[type="checkbox"]::after{
   inset:3px auto auto 3px!important;width:10px!important;height:10px!important;
   transform:scale(0)!important;transform-origin:50% 50%!important;
 }
-html body .okla-rk .okla-rk__consent input[type="checkbox"]:checked{border-color:#168bd2!important}
+html body .okla-rk .okla-rk__consent input[type="checkbox"]:checked{border-color:#0859d8!important}
 html body .okla-rk .okla-rk__consent input[type="checkbox"]:checked::after{transform:scale(1)!important}
 html body .okla-rk .okla-rk__consent.is-invalid{border-color:#f5c6ce;background:#fff7f8}
 

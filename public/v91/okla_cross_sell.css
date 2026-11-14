@@ -17,12 +17,12 @@
 .okla-xsell .okla-xsell__item:focus,
 .okla-xsell .okla-xsell__item:focus-within,
 .okla-xsell .okla-xsell__item.is-added{background:#fff!important;box-shadow:none!important}
-.okla-xsell__item:focus-visible{outline:2px solid #16478b;outline-offset:2px}
+.okla-xsell__item:focus-visible{outline:2px solid #0642a1;outline-offset:2px}
 
 /* The "přidat" checkbox */
 .okla-xsell__check{flex:0 0 24px;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #c2cedd;border-radius:7px;background:#fff;color:#fff;transition:border-color .15s ease,background-color .15s ease}
 .okla-xsell__check svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:0;transform:scale(.6);transition:opacity .12s ease,transform .12s ease}
-.okla-xsell__item.is-added .okla-xsell__check{background:#66D400;border-color:#66D400;color:#111}
+.okla-xsell__item.is-added .okla-xsell__check{background:#085ADC;border-color:#085ADC;color:#111}
 .okla-xsell__item.is-added .okla-xsell__check svg{opacity:1;transform:none}
 
 .okla-xsell__thumb{flex:0 0 52px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #eef2f7;border-radius:10px;overflow:hidden}
@@ -34,7 +34,7 @@
 .okla-xsell__state{display:none}
 
 .okla-xsell__detail{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#9aa6b4;text-decoration:none;transition:color .15s ease,background-color .15s ease}
-.okla-xsell__detail:hover{color:#16478b;background:#eaf1fb}
+.okla-xsell__detail:hover{color:#0642a1;background:#eaf1fb}
 .okla-xsell__detail svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 .okla-xsell__price{flex:0 0 auto;font:800 15px/1 "Open Sans",Arial,sans-serif;color:#0b2540;white-space:nowrap;text-align:right}

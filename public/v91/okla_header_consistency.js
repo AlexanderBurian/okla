@@ -79,7 +79,7 @@
   var circle=document.createElementNS(svgNS,'circle');circle.setAttribute('cx','16');
   circle.setAttribute('cy','16');circle.setAttribute('r','15');circle.setAttribute('fill','#fff');flag.appendChild(circle);
   var red=document.createElementNS(svgNS,'path');red.setAttribute('d','M1 16h30a15 15 0 0 1-30 0Z');red.setAttribute('fill','#db2439');flag.appendChild(red);
-  var blue=document.createElementNS(svgNS,'path');blue.setAttribute('d','M3 8a15 15 0 0 0 0 16L18 16Z');blue.setAttribute('fill','#124c94');flag.appendChild(blue);
+  var blue=document.createElementNS(svgNS,'path');blue.setAttribute('d','M3 8a15 15 0 0 0 0 16L18 16Z');blue.setAttribute('fill','#0644a5');flag.appendChild(blue);
   a.appendChild(flag);cart.parentNode.insertBefore(a,cart);
  }
  function enhance(){

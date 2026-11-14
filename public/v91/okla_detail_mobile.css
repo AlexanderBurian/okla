@@ -21,17 +21,17 @@
 
   /* 3. Product page purchase button: green with black text, like the buy bar. Transitions are off, so the colour is not caught mid-change. */
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary {
-    transition: none !important; background: #66d400 !important; background-color: #66d400 !important; border-color: #66d400 !important; color: #111 !important;
+    transition: none !important; background: #085adc !important; background-color: #085adc !important; border-color: #085adc !important; color: #111 !important;
   }
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):hover {
-    transition: none !important; background: #5bbd00 !important; background-color: #5bbd00 !important; border-color: #5bbd00 !important; color: #111 !important;
+    transition: none !important; background: #0753cb !important; background-color: #0753cb !important; border-color: #0753cb !important; color: #111 !important;
   }
 
   /* 4. "Zobrazit další produkty": the homepage button, not the grey browser box with a black chevron */
   html body.ok89-detail #content #okla-v74-more {
     display: flex !important; align-items: center !important; justify-content: center !important; gap: 7px !important;
     width: 100% !important; min-height: 42px !important; margin: 12px 0 25px !important; padding: 9px 12px !important;
-    border: 0 !important; border-radius: 4px !important; background: transparent !important; color: #125e97 !important;
+    border: 0 !important; border-radius: 4px !important; background: transparent !important; color: #0645a7 !important;
     font: 700 13px/1.35 "Open Sans", Arial, sans-serif !important; text-align: center !important; cursor: pointer !important;
   }
   html body.ok89-detail #content #okla-v74-more svg {

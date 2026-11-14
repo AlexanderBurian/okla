@@ -118,7 +118,7 @@ bootStyle.textContent='html.okla-curtain::before{content:"";position:fixed;top:0
  /* every element and its ::before/::after (a breadcrumb arrow drawn by ::before alone was enough to end it), strongly
     enough to beat the site's own visibility:visible!important rules (up to 7 ids) */
  'html.okla-curtain body,html.okla-curtain body *:not(#okc0#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9),html.okla-curtain body *:not(#okc0#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9)::before,html.okla-curtain body *:not(#okc0#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9)::after{visibility:hidden!important}'+
- 'html.okla-curtain:not(.okla-shown)::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #e9f1fb;border-top-color:#7aa7e0;border-radius:50%;opacity:0;animation:okla-boot-in .4s ease 1.2s forwards,okla-boot-spin .9s linear infinite}'+
+ 'html.okla-curtain:not(.okla-shown)::after{content:"";position:fixed;left:50%;top:50%;z-index:2147483647;width:26px;height:26px;margin:-13px 0 0 -13px;border:2px solid #e9f1fb;border-top-color:#4389f8;border-radius:50%;opacity:0;animation:okla-boot-in .4s ease 1.2s forwards,okla-boot-spin .9s linear infinite}'+
  '@keyframes okla-boot-in{to{opacity:1}}'+
  '@keyframes okla-boot-spin{to{transform:rotate(360deg)}}'+
  '@media (prefers-reduced-motion:reduce){html.okla-curtain:not(.okla-shown)::after{animation:okla-boot-in .4s ease 1.2s forwards}}';
@@ -227,8 +227,8 @@ var BUNDLES=[
  /* Empty states, payment logos, the shared header, the desktop hover cart */
  ['19-shared','all',['v91/okla_empty_states.css','v91/okla_empty_states.js','v91/okla_payment_logos.css','v91/okla_payment_logos.js','v91/okla_header_consistency.css','v91/okla_header_consistency.js','v91/okla_header_reference.css','v91/okla_header_reference.js','v91/okla_cart_preview.css','v91/okla_cart_preview.js']],
  ['20-legal','legal',['v91/okla_legal_fullwidth.css']],
- /* Final header, sticky navbar, phone footer and menu, buttons and fields, phone content rail, phone panels, phone top navbar */
- ['21-polish','all',['v91/okla_language_polish.css','v91/okla_header_final.css','v91/okla_header_final.js','v91/okla_header_template103.css','v91/okla_header_template103.js','v91/okla_desktop_sticky.css','v91/okla_desktop_sticky.js','v91/okla_mobile_policies.css','v91/okla_mobile_policies.js','v91/okla_footer_mobile_promo.css','v91/okla_footer_mobile_promo.js','v91/okla_footer_i18n_safe.css','v91/okla_button_consistency.css','v91/okla_button_consistency.js','v91/okla_field_consistency.css','v91/okla_password_toggle.js','v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css','v91/okla_mobile_gradient.js','v91/okla_mobile_content_width.css','v91/okla_mobile_tabbar.css','v91/okla_mobile_tabbar.js','v91/okla_mobile_navbar.css','v91/okla_mobile_navbar.js']],
+ /* Final header, sticky navbar, phone footer and menu, buttons and fields, phone content rail, phone bottom bar and panels */
+ ['21-polish','all',['v91/okla_language_polish.css','v91/okla_header_final.css','v91/okla_header_final.js','v91/okla_header_template103.css','v91/okla_header_template103.js','v91/okla_desktop_sticky.css','v91/okla_desktop_sticky.js','v91/okla_mobile_policies.css','v91/okla_mobile_policies.js','v91/okla_footer_mobile_promo.css','v91/okla_footer_mobile_promo.js','v91/okla_footer_i18n_safe.css','v91/okla_button_consistency.css','v91/okla_button_consistency.js','v91/okla_field_consistency.css','v91/okla_password_toggle.js','v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css','v91/okla_mobile_gradient.js','v91/okla_mobile_content_width.css','v91/okla_mobile_tabbar.css','v91/okla_mobile_tabbar.js']],
  /* Product page: tabs, tools (print, ask, watch, share), buy bar */
  ['22-product-extras','product',['v91/okla_detail_tabs.css','v91/okla_detail_tabs.js','v91/okla_product_tools.css','v91/okla_product_tools.js','v91/okla_desktop_buybar.css','v91/okla_desktop_buybar.js']],
  /* Typeface, text contrast, dead links, product prices and buttons */
@@ -239,8 +239,8 @@ var BUNDLES=[
  /* Checkout skin */
  ['26-checkout-skin','checkout',['v91/okla_cart_simple.css','v91/okla_checkout_layout_v2.css','v91/okla_checkout_alza.js']],
  ['27-thank-you','thankYou',['v91/okla_thank_you.css','v91/okla_thank_you.js']],
- /* No zoom on phone fields, AI chat branding */
- ['28-last','all',['v91/okla_mobile_no_zoom.css','v91/okla_ai_brand.js']],
+ /* No zoom on phone fields, AI chat branding, the logo blue for Shoptet's own template colours */
+ ['28-last','all',['v91/okla_mobile_no_zoom.css','v91/okla_ai_brand.js','v91/okla_brand_blue.css']],
  /* Homepage editorial blocks, the search field typing example searches */
  ['29-home-magazine','home',['v91/okla_news_home_datart.css','v91/okla_home_retail_refresh.css','v91/okla_home_retail_refresh.js','v91/okla_search_typing.js']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */

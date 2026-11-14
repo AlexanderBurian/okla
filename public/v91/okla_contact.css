@@ -8,7 +8,7 @@ html body .oka-contact{
   overflow-x:hidden;
   font-family:'Open Sans',Arial,sans-serif;
   color:#1a2330;background:#fff;
-  --b:#16478B;--bd:#0e2f66;--mut:#5a6676;--line:#e3e7ee;--grey:#f2f4f7;
+  --b:#0642A1;--bd:#0e2f66;--mut:#5a6676;--line:#e3e7ee;--grey:#f2f4f7;
 }
 html body .oka-contact *,
 html body .oka-contact *:before,
@@ -21,7 +21,7 @@ html body .oka-c-wrap{max-width:1298px;margin:0 auto;padding:0 24px}
 html body .oka-c-top{background:var(--grey);padding:76px 0 88px}
 html body .oka-c-top__head{text-align:center;max-width:720px;margin:0 auto 54px}
 html body .oka-c-top h1{font-size:40px;line-height:1.12;font-weight:800;letter-spacing:-.5px;color:#141c28}
-html body .oka-c-top__head p{margin-top:12px;font-size:20px;font-weight:600;color:#2c3a52}
+html body .oka-c-top__head p{margin-top:12px;font-size:20px;font-weight:600;color:#2b4060}
 html body .oka-c-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 html body .oka-c-card{text-align:center;padding:16px 28px;display:flex;flex-direction:column;align-items:center}
 html body .oka-c-card + .oka-c-card{border-left:1px solid #d7dde6}
@@ -78,13 +78,13 @@ html body .oka-c-form__head p{margin-top:10px;font-size:15.5px;line-height:1.6;c
 html body .oka-c-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 html body .oka-c-field{display:flex;flex-direction:column;gap:7px}
 html body .oka-c-field--full{grid-column:1/-1}
-html body .oka-c-field label{font-size:13.5px;font-weight:600;color:#2c3a52}
+html body .oka-c-field label{font-size:13.5px;font-weight:600;color:#2b4060}
 html body .oka-c-field input,html body .oka-c-field select,html body .oka-c-field textarea{
   width:100%;border:1px solid #cdd4de;border-radius:10px;padding:0 14px;height:48px;
   font-family:inherit;font-size:15px;color:#1a2330;background:#fff;
 }
 html body .oka-c-field textarea{height:auto;min-height:140px;padding:12px 14px;resize:vertical;line-height:1.55}
-html body .oka-c-field input:focus,html body .oka-c-field select:focus,html body .oka-c-field textarea:focus{outline:none;border-color:var(--b);box-shadow:0 0 0 3px rgba(22,71,139,.14)}
+html body .oka-c-field input:focus,html body .oka-c-field select:focus,html body .oka-c-field textarea:focus{outline:none;border-color:var(--b);box-shadow:0 0 0 3px rgba(6,66,161,.14)}
 html body .oka-c-form .oka-c-btn{width:100%;height:52px;font-size:16px;margin-top:6px}
 html body .oka-contact .oka-c-form__note{margin-top:24px;text-align:center;font-size:13px;line-height:1.5;color:var(--mut)}
 html body .oka-c-form__note a{color:var(--b);text-decoration:none}

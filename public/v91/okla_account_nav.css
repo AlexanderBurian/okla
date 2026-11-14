@@ -112,7 +112,7 @@ html body #okla-acc-pop{display:none}
     -webkit-tap-highlight-color:transparent;
   }
   html body .okla-acc-trigger:active{background:#f3f6f9}
-  html body .okla-acc-trigger__ic{display:grid;place-items:center;width:24px;height:24px;flex:none;color:#19477e}
+  html body .okla-acc-trigger__ic{display:grid;place-items:center;width:24px;height:24px;flex:none;color:#063f99}
   html body .okla-acc-trigger__ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   html body .okla-acc-trigger__label{flex:1 1 auto;text-align:left}
   html body .okla-acc-trigger__chev{flex:none;color:#6f8192}

@@ -3,11 +3,11 @@
       :host {
         all: initial;
         --okla-navy: #0d315f;
-        --okla-blue: #255b9b;
-        --okla-purple: #6456d9;
-        --okla-purple-strong: #5748c7;
+        --okla-blue: #074cb9;
+        --okla-purple: #2275f7;
+        --okla-purple-strong: #2b6dd4;
         --okla-purple-soft: #ece9fb;
-        --okla-logo: linear-gradient(145deg, #2742ad 0%, #5137b4 55%, #7e2fa0 100%);
+        --okla-logo: linear-gradient(145deg, #0752c9 0%, #5137b4 55%, #7e2fa0 100%);
         --okla-text: #102f55;
         --okla-line: #d2deec;
         --okla-soft: #f3f6fa;
@@ -112,7 +112,7 @@
       .welcome-title { margin: 18px 0 0; text-align: center; color: #15181d; font-size: 25px; line-height: 1.05; font-weight: 820; letter-spacing: -.025em; }
       .welcome-input { margin-top: 24px; }
       .welcome-input .composer { border-color: #e4e9f1; box-shadow: 0 1px 3px rgba(16, 40, 80, .05); }
-      .welcome-input .composer:focus-within { border-color: #1f6fd8; box-shadow: inset 0 0 0 1px #1f6fd8; }
+      .welcome-input .composer:focus-within { border-color: #085de4; box-shadow: inset 0 0 0 1px #085de4; }
       .suggestions { margin-top: 12px; }
       .suggestions-list { display: flex; flex-direction: column; }
       .suggested {
@@ -159,7 +159,7 @@
       }
       .user .bubble { max-width: 100%; min-height: 0; color: #fff; border-color: var(--okla-purple-strong); border-radius: 13px 4px 13px 13px; background: linear-gradient(135deg, var(--okla-blue), var(--okla-purple)); }
       .assistant-stack .bubble { max-width: 100%; }
-      .bubble a { color: #15599f; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+      .bubble a { color: #0648b0; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
       .bubble strong { font-weight: 720; color: #0f2d52; }
       .bubble .md-par { white-space: pre-wrap; }
       .bubble .md-par + .md-list, .bubble .md-list + .md-par { margin-top: 7px; }
@@ -186,13 +186,13 @@
         width: 100%;
         height: 95px;
         padding: 10px 11px 12px 20px;
-        border: 1px solid #6f91bd;
+        border: 1px solid #557fc1;
         border-radius: 8px;
         background: #fff;
         box-shadow: none;
         transition: border-color .16s ease;
       }
-      .composer:focus-within { border-color: #1f6fd8; box-shadow: inset 0 0 0 1px #1f6fd8; }
+      .composer:focus-within { border-color: #085de4; box-shadow: inset 0 0 0 1px #085de4; }
       textarea {
         appearance: none;
         -webkit-appearance: none;
@@ -226,11 +226,11 @@
         cursor: pointer;
         transition: background-color .16s ease, opacity .16s ease;
       }
-      .composer:focus-within .send:not(:disabled), .send:hover:not(:disabled) { background: #174b88; }
+      .composer:focus-within .send:not(:disabled), .send:hover:not(:disabled) { background: #0642a0; }
       .send:disabled { color: #fff; background: var(--okla-blue); opacity: .38; cursor: default; }
       .send svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
       .disclaimer { height: 14px; margin: 12px 0 0; color: #75869a; text-align: center; font-size: 10.5px; line-height: 14px; white-space: nowrap; }
-      /* The launcher: a light-blue round button with a white speech bubble (PC and phones alike). */
+      /* The launcher: a round button in the logo blue with a white speech bubble (PC and phones alike). */
       .launcher {
         position: fixed;
         z-index: 2147483001;
@@ -244,34 +244,35 @@
         place-items: center;
         border: 0;
         border-radius: 50%;
-        background: #3aa6f2;
+        background: #0858d6;
         color: #fff;
-        box-shadow: 0 8px 22px rgba(20, 110, 190, .32), 0 2px 6px rgba(20, 80, 140, .16);
+        box-shadow: 0 8px 22px rgba(6,72,174,.32), 0 2px 6px rgba(5,56,136,.16);
         cursor: pointer;
         transition: background-color .18s ease, box-shadow .2s ease, transform .2s ease;
       }
-      .launcher:hover { background: #2b9aea; box-shadow: 0 10px 26px rgba(20, 110, 190, .38), 0 3px 8px rgba(20, 80, 140, .18); }
+      .launcher:hover { background: #0749b3; box-shadow: 0 10px 26px rgba(6,65,159,.38), 0 3px 8px rgba(5,56,136,.18); }
       .launcher:active { transform: scale(.96); }
       .panel.open + .launcher { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .16s ease, visibility 0s linear .16s; }
       .launcher img { border-radius: 50%; }
       .launcher .launcher-desktop-icon { display: none; }
       .launcher .launcher-search-icon {
-        display: block; width: 30px; height: 30px;
+        display: block; width: 28px; height: 28px;
         fill: #fff; stroke: none; overflow: visible;
-        filter: drop-shadow(0 1px 1px rgba(10, 70, 130, .18));
+        filter: drop-shadow(0 1px 1px rgba(5,60,145,.18));
       }
       .robot-fallback::after { content: "OK"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--okla-purple); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
       .mobile-glyph-fallback::after { content: "OK"; position: absolute; inset: 0; display: none; place-items: center; color: #fff; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
       .brand-avatar.robot-fallback::after { font-size: 12px; }
-      .launcher:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #8bb4e2; outline-offset: 3px; }
+      .launcher:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #6296e9; outline-offset: 3px; }
       .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
       @keyframes typing-pulse { 0%, 60%, 100% { opacity: .32; transform: scale(.82); } 30% { opacity: 1; transform: scale(1); } }
       @keyframes message-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+      @media (min-width: 467px) and (max-width: 767px) { .launcher { bottom: calc(66px + env(safe-area-inset-bottom)); } }
       @media (max-width: 466px) {
         .launcher {
-          /* Phones: the same round button, bottom right. */
+          /* Phones: the same round button, bottom right, above the bottom bar. */
           right: max(16px, env(safe-area-inset-right));
-          bottom: calc(16px + env(safe-area-inset-bottom));
+          bottom: calc(66px + env(safe-area-inset-bottom));
           width: 56px;
           height: 56px;
           opacity: 0;
@@ -289,7 +290,7 @@
         }
         .launcher:hover { transform: none; }
         .launcher:active { transform: scale(.96); }
-        .launcher .launcher-search-icon { width: 28px; height: 28px; }
+        .launcher .launcher-search-icon { width: 26px; height: 26px; }
         .launcher.mobile-glyph-fallback::after { display: grid; }
         .panel.open + .launcher {
           opacity: 0;
@@ -388,7 +389,7 @@
     </section>
     <button class="launcher" type="button" aria-label="${Tx.open}" aria-controls="okla-panel" aria-expanded="false">
       <img class="launcher-desktop-icon" data-robot-image src="${x}" alt="">
-      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.4c5.05 0 8.85 3.55 8.85 8.2s-3.8 8.2-8.85 8.2c-1.2 0-2.37-.2-3.45-.58l-4.1 1.47c-.55.2-1.05-.32-.83-.85l1.35-3.2C3.85 15.2 3.15 13.45 3.15 11.6c0-4.65 3.8-8.2 8.85-8.2z"/></svg>
+      <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.1a8.9 8.9 0 1 1 0 17.8H4.7c-.88 0-1.6-.72-1.6-1.6V12A8.9 8.9 0 0 1 12 3.1z"/></svg>
     </button>
     <div class="sr-only" id="okla-status" role="status" aria-live="assertive"></div>`;let v=m.querySelector(".panel"),S=m.querySelector(".launcher"),pe=m.querySelector(".info-control"),H=m.querySelector(".expand"),ue=m.querySelector(".collapse"),h=m.querySelector(".messages"),me=m.querySelector("#welcome-template"),C=m.querySelector("form"),b=m.querySelector("textarea"),q=m.querySelector(".send"),Y=m.querySelector(".composer-area"),he=m.querySelector(".disclaimer"),z=m.querySelector("#okla-status"),W=new R,k=new j;m.querySelectorAll("[data-robot-image], [data-mobile-assistant-image]").forEach(V);let O=[],E=!1,I=null,L,w=0,T=window.matchMedia("(max-width: 466px)"),J=!T.matches;function y(){let e=Math.min(520,Math.max(320,window.innerHeight*.55));(!T.matches||window.scrollY>=e)&&(J=!0),B.classList.toggle("mobile-launcher-visible",J)}window.addEventListener("scroll",y,{passive:!0}),T.addEventListener("change",y),y();function P(e){v.classList.toggle("open",e),v.setAttribute("aria-hidden",String(!e)),v.setAttribute("aria-modal",String(e&&T.matches)),S.setAttribute("aria-expanded",String(e)),S.setAttribute("aria-label",e?Tx.closeL:Tx.open),L!==void 0&&clearTimeout(L),document.documentElement.classList.toggle("okla-ai-open",e&&T.matches),e?T.matches||(L=setTimeout(()=>b.focus(),180)):T.matches||S.focus(),vv(),y()}function vv(){let e=window.visualViewport;if(!e||!T.matches||!v.classList.contains("open")){v.style.removeProperty("top"),v.style.removeProperty("height");return}v.style.top=e.offsetTop+"px",v.style.height=e.height+"px"}window.visualViewport&&(visualViewport.addEventListener("resize",vv),visualViewport.addEventListener("scroll",vv));function A(){h.scrollTop=h.scrollHeight}function be(e){try{let s=new URL(e,window.location.href);return["http:","https:","mailto:"].includes(s.protocol)?s.toString():void 0}catch{return}}function M(e){return e.replace(/-{2,}/g,"\u2014")}function X(e,s){let r=/\*\*([^*\n]+)\*\*|\[([^\]]+)\]\(([^)]+)\)/g,i=0;for(let t of s.matchAll(r)){let n=t.index??0;if(e.append(document.createTextNode(M(s.slice(i,n)))),t[1]!==void 0){let c=document.createElement("strong");c.textContent=M(t[1]),e.append(c)}else{let c=be(t[3]??"");if(c){let g=document.createElement("a");g.textContent=M(t[2]??c),g.href=c,/^https?:/i.test(c)&&(g.target="_blank",g.rel="noopener noreferrer"),e.append(g)}else e.append(document.createTextNode(M(t[0])))}i=n+t[0].length}e.append(document.createTextNode(M(s.slice(i))))}let N=/^\s*[-•*]\s+/;function Z(e,s){e.replaceChildren();let r=s.split(`
 `),i=0;for(;i<r.length;)if(N.test(r[i])){let t=document.createElement("ul");for(t.className="md-list";i<r.length&&N.test(r[i]);){let n=document.createElement("li");X(n,r[i].replace(N,"")),t.append(n),i+=1}e.append(t)}else{let t=[];for(;i<r.length&&!N.test(r[i]);)t.push(r[i]),i+=1;for(;t.length&&t[t.length-1].trim()==="";)t.pop();for(;t.length&&t[0].trim()==="";)t.shift();if(t.length){let n=document.createElement("div");n.className="md-par",X(n,t.join(`

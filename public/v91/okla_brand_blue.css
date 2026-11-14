@@ -1,0 +1,16 @@
+/* OKLA logo blue (#0858d6): the parts that still came in Shoptet's own template blue (#1076b7) - links, the sort tabs,
+   the active photo thumbnail, "Načíst další", pagination, "Nahoru". Our own files carry the logo blue at the source. */
+html body a{color:#0858d6}
+html body a:hover{color:#0646ab}
+html body .listSorting__control--current:not(#okb-a){color:#0858d6!important;border-color:#0858d6!important}
+html body .p-thumbnail.highlighted::before{background-color:#0858d6!important}
+html body .loadMore__button:not(#okb-a){color:#0858d6!important;border-color:#0858d6!important}
+html body .loadMore__button:not(#okb-a):hover{background:#0858d6!important;color:#fff!important}
+html body :is(.pagination__link,.pagination a):not(#okb-a){color:#0858d6!important}
+html body :is(.pagination__link--current,.pagination .current,.pagination strong):not(#okb-a){background:#0858d6!important;border-color:#0858d6!important;color:#fff!important}
+html body .goToTop__button:not(#okb-a){color:#0858d6!important;border-color:#0858d6!important}
+html body .goToTop__button:not(#okb-a):hover{background:#0858d6!important;color:#fff!important}
+html{accent-color:#0858d6}
+/* the cart's forward / order buttons were dark text on lime; on the logo blue the text is white */
+html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=submit],#orderFormButton):not(#okb-a#okb-b#okb-c#okb-d#okb-e),
+html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=submit],#orderFormButton):not(#okb-a#okb-b#okb-c#okb-d#okb-e) *{color:#fff!important;-webkit-text-fill-color:#fff!important}

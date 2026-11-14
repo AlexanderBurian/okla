@@ -45,7 +45,7 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
   }
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li > a:hover{color:#0b2540!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a{
-    z-index:3!important;background:#fff!important;border-color:#e1e7ee!important;color:#168bd2!important;
+    z-index:3!important;background:#fff!important;border-color:#e1e7ee!important;color:#0859d8!important;
   }
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs .ok99-tab-house{display:none!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content{
@@ -83,12 +83,12 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
   }
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:is(:hover,:focus){background:#f3f5f8!important;box-shadow:none!important;outline:0!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:active{background:#eceff4!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:focus-visible{outline:2px solid #168bd2!important;outline-offset:2px!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:focus-visible{outline:2px solid #0859d8!important;outline-offset:2px!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-house{display:none!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-title{flex:1 1 auto!important;min-width:0!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev{display:grid!important;place-items:center!important;flex:0 0 32px!important;width:32px!important;height:32px!important;border-radius:50%!important;background:#fff!important;color:#0b2540!important;transition:transform .2s ease,color .2s ease!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head.is-open .okla-ptab-chev{transform:rotate(180deg)!important;color:#168bd2!important}
+  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head.is-open .okla-ptab-chev{transform:rotate(180deg)!important;color:#0859d8!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) #tab-content > .tab-pane.okla-ptab-open{
     margin:0 0 8px!important;padding:8px 2px 4px!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
   }
@@ -155,17 +155,17 @@ html body #colorbox #dialogFormRating .rating-stars-wrapper:hover label.rating-s
 }
 html body #colorbox #dialogFormRating .rating-stars-wrapper:hover label.rating-star:hover ~ label.rating-star{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22none%22%20stroke%3D%22%23c3ccd6%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E")!important}
 html body #colorbox #dialogFormRating label.rating-star:hover{transform:scale(1.08)!important}
-html body #colorbox #dialogFormRating label.rating-star:has(input:focus-visible){outline:2px solid #168bd2!important;outline-offset:2px!important;border-radius:10px!important}
-html body #colorbox #dialogFormRating p.rating-star-description{min-height:22px!important;margin:8px 0 0!important;padding:0!important;font:600 14px/1.5 "Open Sans",Arial,sans-serif!important;color:#168bd2!important;text-align:center!important}
+html body #colorbox #dialogFormRating label.rating-star:has(input:focus-visible){outline:2px solid #0859d8!important;outline-offset:2px!important;border-radius:10px!important}
+html body #colorbox #dialogFormRating p.rating-star-description{min-height:22px!important;margin:8px 0 0!important;padding:0!important;font:600 14px/1.5 "Open Sans",Arial,sans-serif!important;color:#0859d8!important;text-align:center!important}
 html body #colorbox #dialogFormRating .form-legend{display:none!important}
 html body #colorbox #dialogFormRating .js-validator-msg{justify-content:center!important;margin:8px 0 0!important;font-size:13px!important}
 html body #colorbox #dialogFormRating .dialog__actionButtons{display:block!important;margin:20px 0 0!important;padding:0!important;text-align:center!important}
 html body #colorbox #dialogFormRating .dialog__actionButtons .btn{
   display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:52px!important;margin:0!important;padding:0 20px!important;box-sizing:border-box!important;
-  border:1px solid #66d400!important;border-radius:12px!important;background:#66d400!important;background-image:none!important;box-shadow:none!important;
+  border:1px solid #085adc!important;border-radius:12px!important;background:#085adc!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
 }
-html body #colorbox #dialogFormRating .dialog__actionButtons .btn:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+html body #colorbox #dialogFormRating .dialog__actionButtons .btn:is(:hover,:focus-visible){background:#0753cb!important;border-color:#0753cb!important;color:#000!important}
 html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxClose{
   position:absolute!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;
   border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;z-index:3!important;
@@ -193,8 +193,8 @@ html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla
 html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a,
 html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a :is(span,strong,b),
 html body.ok89-detail #content#content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) ul.p-detail-tabs > li.active > a .okla-tab-label::after{
-  color:#168bd2!important;
-  -webkit-text-fill-color:#168bd2!important;
+  color:#0859d8!important;
+  -webkit-text-fill-color:#0859d8!important;
 }
 
 /* Rating summary in the same dialog (#ratingWrapper): the big average with gold stars, then one row per score
@@ -215,7 +215,7 @@ html body #colorbox #ratingWrapper .rate-star{display:flex!important;align-items
 html body #colorbox #ratingWrapper .rate-value{font:700 14px/1 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;min-width:9px!important}
 html body #colorbox #ratingWrapper .rate-star .star{display:block!important;width:16px!important;height:16px!important;margin:0!important;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%2F%3E%3C%2Fsvg%3E") center/16px 16px no-repeat!important}
 html body #colorbox #ratingWrapper .rate-block{position:relative!important;display:block!important;height:10px!important;margin:0 44px 0 0!important;padding:0!important;border-radius:6px!important;background:#e2e9f1!important;overflow:visible!important}
-html body #colorbox #ratingWrapper .rate-bar{position:static!important;display:block!important;width:var(--rate-bar-width,0%)!important;min-width:0!important;height:100%!important;margin:0!important;padding:0!important;border-radius:6px!important;background:linear-gradient(90deg,#168bd2,#3ba9f0)!important}
+html body #colorbox #ratingWrapper .rate-bar{position:static!important;display:block!important;width:var(--rate-bar-width,0%)!important;min-width:0!important;height:100%!important;margin:0!important;padding:0!important;border-radius:6px!important;background:linear-gradient(90deg,#0859d8,#1f73f7)!important}
 html body #colorbox #ratingWrapper .rate-bar::before,html body #colorbox #ratingWrapper .rate-bar::after{content:none!important;display:none!important}
 html body #colorbox #ratingWrapper .rate-count{position:absolute!important;left:auto!important;right:-44px!important;width:34px!important;text-align:left!important;top:50%!important;transform:translateY(-50%)!important;margin:0!important;padding:0!important;font:600 13px/1 "Open Sans",Arial,sans-serif!important;color:#56657a!important;white-space:nowrap!important;background:none!important}
 html body #colorbox #ratingWrapper .rate-count.active{color:#0b2540!important}
@@ -235,7 +235,7 @@ html body #content .votes-wrap .vote-header{display:flex!important;align-items:c
 html body #content .votes-wrap .vote-pic{position:relative!important;display:block!important;flex:0 0 44px!important;width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;max-height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:50%!important;overflow:hidden!important;background:#eef6fd!important;transform:none!important}
 html body #content .votes-wrap .vote-initials{
   position:absolute!important;inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;min-width:0!important;display:grid!important;place-items:center!important;margin:0!important;padding:0!important;border-radius:50%!important;transform:none!important;
-  background:var(--avatar-bg,#168bd2)!important;color:#fff!important;font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.02em!important;
+  background:var(--avatar-bg,#0859d8)!important;color:#fff!important;font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.02em!important;
 }
 html body #content .votes-wrap .vote-pic img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
 html body #content .votes-wrap .vote-summary{display:flex!important;flex-direction:column!important;gap:3px!important;min-width:0!important}
@@ -280,9 +280,9 @@ html body #colorbox #dialogFormRating textarea{
 }
 html body #colorbox #dialogFormRating input.form-control,html body #colorbox #dialogFormRating input[type="text"],html body #colorbox #dialogFormRating input[type="email"]{height:46px!important;padding-top:0!important;padding-bottom:0!important}
 html body #colorbox #dialogFormRating textarea.form-control[name]{min-height:120px!important;padding:12px 14px!important;line-height:1.5!important;resize:vertical!important}
-html body #colorbox #dialogFormRating :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+html body #colorbox #dialogFormRating :is(input,textarea):focus{border-color:#0859d8!important;box-shadow:0 0 0 3px rgba(8,89,216,.14)!important}
 html body #colorbox #dialogFormRating .consents,html body #colorbox #dialogFormRating .consents .label{font:400 13px/1.45 "Open Sans",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
-html body #colorbox #dialogFormRating .consents a{color:#168bd2!important}
+html body #colorbox #dialogFormRating .consents a{color:#0859d8!important}
 
 /* ================= "Napsat recenzi" form (Shoptet #rate-form, moved under the summary by okla_detail.js) =================
    A light-grey rounded card: stars first, then name + e-mail side by side, the review, the consent line and the
@@ -309,7 +309,7 @@ html body #content .ok97-review-form #formRating :is(input[type="text"],input[ty
 }
 html body #content .ok97-review-form #formRating :is(input[type="text"],input[type="email"]){height:48px!important}
 html body #content .ok97-review-form #formRating textarea.form-control[name]{min-height:130px!important;padding:12px 14px!important;line-height:1.5!important;resize:vertical!important}
-html body #content .ok97-review-form #formRating :is(input,textarea):focus{border-color:#168bd2!important;box-shadow:0 0 0 3px rgba(22,139,210,.14)!important}
+html body #content .ok97-review-form #formRating :is(input,textarea):focus{border-color:#0859d8!important;box-shadow:0 0 0 3px rgba(8,89,216,.14)!important}
 html body #content .ok97-review-form #formRating .rating-stars-description{margin:0 0 8px!important;font:700 12px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important}
 html body #content .ok97-review-form #formRating .rating-stars-description .required-asterisk{font-size:0!important}
 html body #content .ok97-review-form #formRating .rating-stars-description .required-asterisk{color:#0b2540!important}
@@ -330,16 +330,16 @@ html body #content .ok97-review-form #formRating .rating-stars-wrapper:hover lab
 }
 html body #content .ok97-review-form #formRating .rating-stars-wrapper:hover label.rating-star:hover ~ label.rating-star{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23fff%22%20stroke%3D%22%23c3ccd6%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E")!important}
 html body #content .ok97-review-form #formRating label.rating-star:hover{transform:scale(1.08)!important}
-html body #content .ok97-review-form #formRating label.rating-star:has(input:focus-visible){outline:2px solid #168bd2!important;outline-offset:2px!important;border-radius:10px!important}
-html body #content .ok97-review-form #formRating p.rating-star-description{min-height:20px!important;margin:6px 0 0!important;font:600 14px/1.4 "Open Sans",Arial,sans-serif!important;color:#168bd2!important}
+html body #content .ok97-review-form #formRating label.rating-star:has(input:focus-visible){outline:2px solid #0859d8!important;outline-offset:2px!important;border-radius:10px!important}
+html body #content .ok97-review-form #formRating p.rating-star-description{min-height:20px!important;margin:6px 0 0!important;font:600 14px/1.4 "Open Sans",Arial,sans-serif!important;color:#0859d8!important}
 html body #content .ok97-review-form #formRating .consents,html body #content .ok97-review-form #formRating .consents .label{margin:0!important;font:400 13px/1.45 "Open Sans",Arial,sans-serif!important;color:#6b7280!important;text-transform:none!important;letter-spacing:0!important}
-html body #content .ok97-review-form #formRating .consents a{color:#168bd2!important}
+html body #content .ok97-review-form #formRating .consents a{color:#0859d8!important}
 html body #content .ok97-review-form #formRating button[type="submit"]{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:240px!important;height:52px!important;margin:4px 0 0!important;padding:0 28px!important;box-sizing:border-box!important;
-  border:1px solid #66d400!important;border-radius:12px!important;background:#66d400!important;background-image:none!important;box-shadow:none!important;
+  border:1px solid #085adc!important;border-radius:12px!important;background:#085adc!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#000!important;
 }
-html body #content .ok97-review-form #formRating button[type="submit"]:is(:hover,:focus-visible){background:#5bbd00!important;border-color:#5bbd00!important;color:#000!important}
+html body #content .ok97-review-form #formRating button[type="submit"]:is(:hover,:focus-visible){background:#0753cb!important;border-color:#0753cb!important;color:#000!important}
 html body #content .ok97-review-form #formRating .js-validator-msg{margin:6px 0 0!important;font-size:13px!important}
 @media(max-width:767px){
   html body #content .ok97-review-form{padding:22px 18px 20px!important;border-radius:18px!important}
@@ -361,7 +361,7 @@ html body #content .ok97-review-bars .rate-value{font:700 14px/1 "Open Sans",Ari
 html body #content .ok97-review-bars .rate-star .star{display:block!important;width:15px!important;height:15px!important;margin:0!important;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202.6l2.9%205.9%206.5.95-4.7%204.6%201.1%206.5L12%2017.5l-5.8%203.05%201.1-6.5-4.7-4.6%206.5-.95z%22%20fill%3D%22%23f5b301%22%2F%3E%3C%2Fsvg%3E") center/15px 15px no-repeat!important}
 html body #content .ok97-review-bars .star::before,html body #content .ok97-review-bars .star::after{content:none!important;display:none!important}
 html body #content .ok97-review-bars .rate-block{position:relative!important;display:block!important;grid-column:2 / 4!important;height:9px!important;margin:0 44px 0 0!important;padding:0!important;border-radius:6px!important;background:#e8eef5!important}
-html body #content .ok97-review-bars .rate-bar{position:static!important;display:block!important;width:var(--rate-bar-width,0%)!important;height:100%!important;margin:0!important;padding:0!important;border-radius:6px!important;background:linear-gradient(90deg,#168bd2,#3ba9f0)!important}
+html body #content .ok97-review-bars .rate-bar{position:static!important;display:block!important;width:var(--rate-bar-width,0%)!important;height:100%!important;margin:0!important;padding:0!important;border-radius:6px!important;background:linear-gradient(90deg,#0859d8,#1f73f7)!important}
 html body #content .ok97-review-bars .rate-bar::before,html body #content .ok97-review-bars .rate-bar::after{content:none!important;display:none!important}
 html body #content .ok97-review-bars .rate-count{position:absolute!important;right:-44px!important;top:50%!important;transform:translateY(-50%)!important;width:34px!important;margin:0!important;font:600 13px/1 "Open Sans",Arial,sans-serif!important;color:#8a96a6!important;background:none!important}
 html body #content .ok97-review-bars .rate-count.active{color:#0b2540!important}
@@ -381,7 +381,7 @@ html body #content .votes-wrap .ok97-vote-text{margin:0 0 12px!important}
 html body #content .votes-wrap .ok97-vote-pc{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))!important;gap:6px 32px!important}
 html body #content .votes-wrap .ok97-vote-pc ul{margin:0!important;padding:0!important;list-style:none!important}
 html body #content .votes-wrap .ok97-vote-pc li{position:relative!important;margin:0 0 9px!important;padding:0 0 0 30px!important;line-height:1.45!important}
-html body #content .votes-wrap .ok97-vote-pc li::before{content:""!important;position:absolute!important;left:0!important;top:1px!important;width:20px!important;height:20px!important;border-radius:50%!important;background:#5aa400 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M12%206v12M6%2012h12%22%2F%3E%3C%2Fsvg%3E") center/13px 13px no-repeat!important}
+html body #content .votes-wrap .ok97-vote-pc li::before{content:""!important;position:absolute!important;left:0!important;top:1px!important;width:20px!important;height:20px!important;border-radius:50%!important;background:#074bb7 url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M12%206v12M6%2012h12%22%2F%3E%3C%2Fsvg%3E") center/13px 13px no-repeat!important}
 html body #content .votes-wrap .ok97-vote-cons li::before{background:#d6243a url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M6%2012h12%22%2F%3E%3C%2Fsvg%3E") center/13px 13px no-repeat!important}
 @media(max-width:767px){
   html body #content .ok97-review-bars{padding:6px 20px 22px!important}

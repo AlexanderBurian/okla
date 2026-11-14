@@ -25,9 +25,9 @@
    clip-path:none!important;
    overflow:hidden!important;
    isolation:isolate!important;
-   background:linear-gradient(145deg,#214791 0%,#343f99 48%,#7846a9 100%)!important;
+   background:linear-gradient(145deg,#0648AE 0%,#2757a3 48%,#7846a9 100%)!important;
    color:#fff!important;
-   box-shadow:0 5px 16px rgba(33,49,107,.09)!important;
+   box-shadow:0 5px 16px rgba(25,64,125,.09)!important;
  }
  /* The top content remains full-width; no invisible overlay or old flex order. */
  html body #okla-footer-shell #okla-footer-promo .okla-promo-text{
@@ -84,7 +84,7 @@
    border-radius:9px!important;
    box-sizing:border-box!important;
    background:#eef4ff!important;
-   color:#224895!important;
+   color:#0649B2!important;
    font:700 12.5px/1.2 "Open Sans",Arial,sans-serif!important;
    text-decoration:none!important;
    white-space:nowrap!important;
@@ -221,7 +221,7 @@
    border:1px solid rgba(255,255,255,.45)!important;
    border-radius:9px!important;
    background:#fff!important;
-   color:#244391!important;
+   color:#0649B1!important;
    font:700 11px/1.25 "Open Sans",Arial,sans-serif!important;
    text-align:center!important;
    text-decoration:none!important;

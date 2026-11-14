@@ -12,18 +12,18 @@ html body.ordering-process:not(.in-kosik) .okla-h-icon svg{width:36px;height:36p
 html body.ordering-process:not(.in-kosik) .radio-wrapper{position:relative!important;display:flex!important;align-items:center;gap:14px;min-height:66px;box-sizing:border-box;padding:14px 22px 14px 60px!important;margin:0 0 12px!important;border:1px solid #cdd2da!important;border-radius:16px!important;background:#fff!important;box-shadow:none!important;transition:background-color .2s ease,border-color .2s ease}
 html body.ordering-process:not(.in-kosik) .radio-wrapper input[type=radio]{position:absolute!important;left:0;top:0;width:100%!important;height:100%!important;margin:0!important;opacity:0;cursor:pointer;z-index:1}
 html body.ordering-process:not(.in-kosik) .radio-wrapper::before{content:"";position:absolute;left:20px;top:50%;width:24px;height:24px;margin-top:-12px;border-radius:50%;border:2px solid #cdd2da;background:#fff;box-sizing:border-box}
-html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked){background:#e8f7e0!important;border-color:#5ba300!important}
-html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked)::before{background:#5ba300 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.3 4.3L19 7.2' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat;border-color:#5ba300}
+html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked){background:#e8f7e0!important;border-color:#074bb6!important}
+html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:checked)::before{background:#074bb6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.3 4.3L19 7.2' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat;border-color:#074bb6}
 html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:disabled){background:#f5f7fa!important;border-color:#e6ebf2!important;color:#6b7280}
 html body.ordering-process:not(.in-kosik) .radio-wrapper:has(input:disabled)::before{border-color:#cdd2da}
 html body.ordering-process:not(.in-kosik) .radio-wrapper .payment-shipping-price,html body.ordering-process:not(.in-kosik) .radio-wrapper .for-free,html body.ordering-process:not(.in-kosik) .radio-wrapper .price{margin-left:auto;font-weight:700;color:#5ba300;white-space:nowrap}
 
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{background:#e8f7e0!important;border:0!important;border-radius:20px!important;padding:22px!important;box-shadow:none!important;position:sticky;top:20px}
-html body.ordering-process:not(.in-kosik) .order-summary .checkout-box>h2{color:#1f6fd8!important;font-size:21px!important;font-weight:600!important;margin:0 0 16px!important;padding:0!important;border:0!important;background:none!important}
+html body.ordering-process:not(.in-kosik) .order-summary .checkout-box>h2{color:#0859d9!important;font-size:21px!important;font-weight:600!important;margin:0 0 16px!important;padding:0!important;border:0!important;background:none!important}
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item-name{font-size:14px;line-height:1.35;font-weight:500;color:#0b2540;text-transform:none}
 html body.ordering-process:not(.in-kosik) .order-summary .price-primary{color:#5ba300!important;font-size:24px!important;font-weight:700!important}
 
-html body.in-krok-2 .co-contact-information .btn,html body.in-krok-2 .co-contact-information a.btn{background:#1f6fd8!important;border:0!important;color:#fff!important;border-radius:999px!important;height:44px!important;padding:0 22px!important;font-size:14px!important;font-weight:500!important;box-shadow:none!important}
+html body.in-krok-2 .co-contact-information .btn,html body.in-krok-2 .co-contact-information a.btn{background:#085de4!important;border:0!important;color:#fff!important;border-radius:999px!important;height:44px!important;padding:0 22px!important;font-size:14px!important;font-weight:500!important;box-shadow:none!important}
 html body.in-krok-2 #order-form label{text-transform:uppercase;font-size:12px;letter-spacing:.04em;font-weight:700;color:#0b2540;margin:0 0 8px}
 html body.in-krok-2 #order-form .required-asterisk{color:#e0112b}
 html body.in-krok-2 .form-control,html body.in-krok-2 input.form-control,html body.in-krok-2 select.form-control{height:46px!important;border:1px solid #cdd2da!important;border-radius:6px!important;background:#fff}
@@ -151,7 +151,7 @@ html body.in-kosik tr.removeable .remove-item{opacity:1!important;visibility:vis
 /* The long grey line under the header is removed on the cart and the checkout. */
 html body.ordering-process #header{border-bottom:0!important}
 /* On PC the white page card has the blue cap at its top, as on the product page. */
-html body.desktop.ordering-process #content-wrapper::before{display:block!important;content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:4px!important;background:#2C5F9E!important;border-radius:6px 6px 0 0!important;z-index:5!important;pointer-events:none!important}
+html body.desktop.ordering-process #content-wrapper::before{display:block!important;content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:4px!important;background:#1D54AA!important;border-radius:6px 6px 0 0!important;z-index:5!important;pointer-events:none!important}
 html body.in-kosik tr.removeable .remove-item::before{content:""!important;position:absolute!important;left:50%!important;top:50%!important;width:12px!important;height:12px!important;margin:-6px 0 0 -6px!important;transform:none!important;border:0!important;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 2l8 8M10 2l-8 8' stroke='%230b2540' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/12px 12px no-repeat!important}
 /* Progress track: each step's circle is centred on the step, the same as its label. */
 html body.ordering-process .cart-header .step{position:relative!important}
@@ -177,10 +177,10 @@ html body.ordering-process:not(.in-kosik) .okla-pay-icon svg{width:30px!importan
 /* The visible box of each form checkbox is the label's round box; the input stays clickable but invisible. */
 html body.in-krok-2 #order-form input[type=checkbox]{opacity:0!important}
 html body.in-krok-2 #order-form input[type=checkbox]+label::before{content:""!important;width:18px!important;height:18px!important;top:0!important;left:0!important;border:1.5px solid #9aa6b5!important;border-radius:5px!important;background:#fff!important;box-sizing:border-box!important}
-html body.in-krok-2 #order-form input[type=checkbox]:checked+label::before{background:#0074e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#0074e8!important}
+html body.in-krok-2 #order-form input[type=checkbox]:checked+label::before{background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#0859d8!important}
 /* The form checkboxes are round; a ticked one is blue with a white check. */
 html body.in-krok-2 #order-form input[type=checkbox]{-webkit-appearance:none!important;appearance:none!important;width:18px!important;height:18px!important;margin:0 12px 0 0!important;border:1.5px solid #9aa6b5!important;border-radius:5px!important;background:#fff!important;flex:none!important;vertical-align:middle!important}
-html body.in-krok-2 #order-form input[type=checkbox]:checked{background:#0074e8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#0074e8!important}
+html body.in-krok-2 #order-form input[type=checkbox]:checked{background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#0859d8!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#0b2540!important}
 html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 /* Step buttons, as on Alza: one row under the whole page content; the way back is a white button at the bottom left,
@@ -191,8 +191,8 @@ html body.ordering-process #content .okla-step-nav .next-step .btn{position:rela
 html body.ordering-process #content .okla-step-nav .next-step .btn::before,html body.ordering-process #content .okla-step-nav .next-step .btn::after{content:none!important;display:none!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back{background:#fff!important;border:1px solid #cdd2da!important;color:#0b2540!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back:hover{background:#f5f7fa!important;border-color:#0b2540!important}
-html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{min-width:240px!important;background:#66d400!important;border:1px solid #66d400!important;color:#fff!important}
-html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward:hover,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish:hover{background:#5bbd00!important;border-color:#5bbd00!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{min-width:240px!important;background:#085adc!important;border:1px solid #085adc!important;color:#fff!important}
+html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward:hover,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish:hover{background:#0753cb!important;border-color:#0753cb!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back::before,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{content:""!important;display:block!important;position:static!important;flex:none!important;width:8px!important;height:8px!important;margin:0!important;padding:0!important;background:none!important;border:solid currentColor!important;border-width:0 2px 2px 0!important;border-radius:0!important;opacity:1!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back::before{transform:rotate(135deg)!important;margin-left:2px!important}
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{transform:rotate(-45deg)!important;margin-right:2px!important}
@@ -245,7 +245,7 @@ html body.in-kosik .extras-wrapper>.extras-col{width:100%!important;max-width:no
 /* Cart: the remove button sits a little further right; plus and minus have no circle behind them, only the sign. */
 html body.in-kosik tr.removeable .remove-item{margin-right:-22px!important}
 html body.in-kosik .quantity-form .okla-qty,html body.in-kosik .quantity-form .okla-qty:hover,html body.in-kosik .quantity-form .okla-qty:focus{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
-html body.in-kosik .quantity-form .okla-qty:hover{color:#1f6fd8!important}
+html body.in-kosik .quantity-form .okla-qty:hover{color:#0859d9!important}
 /* Cart on phones: each product is a small card that fits the screen: the picture on the left, the name and availability beside it,
    then the amount, with the total and the remove button on the right. Nothing runs past the edge. */
 @media(max-width:767px){
@@ -305,7 +305,7 @@ html body.ordering-process .cart-header .step{justify-content:center!important}
 html body.ordering-process .cart-header .step>a,html body.ordering-process .cart-header .step>strong{display:block!important;flex:1 1 auto!important;width:100%!important;padding:10px 0!important;margin:0!important;text-align:center!important}
 /* Focus: a thin blue outline, the same on every field (the coupon field included), no glow. */
 html body.ordering-process input:focus,html body.ordering-process select:focus,html body.ordering-process textarea:focus,html body.ordering-process input:focus-visible,html body.ordering-process textarea:focus-visible{outline:0!important}
-html body.ordering-process .form-control:focus,html body.ordering-process textarea:focus,html body.in-kosik .okla-coupon .okla-coupon__input:focus{border-color:#1f6fd8!important;box-shadow:inset 0 0 0 1px #1f6fd8!important}
+html body.ordering-process .form-control:focus,html body.ordering-process textarea:focus,html body.in-kosik .okla-coupon .okla-coupon__input:focus{border-color:#085de4!important;box-shadow:inset 0 0 0 1px #085de4!important}
 html body.in-kosik .okla-coupon .okla-coupon__input{border:1px solid transparent!important;box-sizing:border-box!important}
 /* The note field has no resize grip. */
 html body.ordering-process textarea{resize:none!important}

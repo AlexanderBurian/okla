@@ -44,11 +44,11 @@
     font:700 13px/17px "Open Sans",Arial,sans-serif!important;color:#102a54!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header .okla-header-copy small{
-    font:400 11px/15px "Open Sans",Arial,sans-serif!important;color:#2c5f9e!important;
+    font:400 11px/15px "Open Sans",Arial,sans-serif!important;color:#1d54aa!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header .okla-header-icon{
     width:34px!important;height:34px!important;flex:0 0 34px!important;
-    background:#eaf4ff!important;color:#13558c!important;
+    background:#eaf4ff!important;color:#0642a0!important;
     border-radius:11px!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders,
@@ -68,10 +68,10 @@
   }
   html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg,
   html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg path{
-    stroke:#154c88!important;
+    stroke:#06419e!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header>*:focus-visible{
-    outline:2px solid #008ddd!important;outline-offset:2px!important;
+    outline:2px solid #0855d0!important;outline-offset:2px!important;
   }
 }
 /* The search form must be the same on every desktop and tablet page (including
@@ -86,7 +86,7 @@
     box-shadow:0 0 0 3px #e9f4ff!important;box-sizing:border-box!important;
   }
   html body #header .header-top .search form.search-form fieldset:focus-within{
-    border-color:#078ed4!important;box-shadow:0 0 0 3px rgba(0,141,221,.18)!important;
+    border-color:#0755ce!important;box-shadow:0 0 0 3px rgba(8,85,208,.18)!important;
   }
   html body #header .header-top .search form.search-form .query-input{
     flex:1 1 auto!important;min-width:0!important;width:0!important;
@@ -100,12 +100,12 @@
     flex:0 0 90px!important;width:90px!important;min-width:90px!important;
     max-width:90px!important;height:42px!important;min-height:42px!important;
     padding:0 12px!important;border:0!important;border-radius:9px!important;
-    background:#008ddd!important;color:#fff!important;
+    background:#0855d0!important;color:#fff!important;
     font:700 13px/1 "Open Sans",Arial,sans-serif!important;
     box-shadow:none!important;text-transform:none!important;
   }
   html body #header .header-top .search form.search-form button[type="submit"]:hover{
-    background:#076fb1!important;color:#fff!important;
+    background:#0649b3!important;color:#fff!important;
   }
 }
 /* Tablets: keep native search actions and a compact account/cart set. */
@@ -163,7 +163,7 @@
   }
   html body #header .header-top>.navigation-buttons.okla-header-ready>a.cart-count .okla-cart-symbol svg{
     display:block!important;width:26px!important;height:26px!important;
-    stroke:#144b88!important;
+    stroke:#06419d!important;
   }
   html body #header .header-top .search form.search-form button[type="submit"]{
     flex-basis:75px!important;width:75px!important;min-width:75px!important;
@@ -224,7 +224,7 @@
     position:absolute!important;left:18px!important;top:50%!important;
     width:18px!important;height:18px!important;z-index:1!important;
     transform:translateY(-50%)!important;
-    background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23154783' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.7' cy='10.7' r='6.6'/%3E%3Cpath d='m15.7 15.7 5 5'/%3E%3C/svg%3E") center/contain no-repeat!important;
+    background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23063f9a' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.7' cy='10.7' r='6.6'/%3E%3Cpath d='m15.7 15.7 5 5'/%3E%3C/svg%3E") center/contain no-repeat!important;
     pointer-events:none!important;
   }
   html.okla-header-v92 body #header .header-top>.search form.search-form .query-input{
@@ -241,7 +241,7 @@
     width:90px!important;min-width:90px!important;max-width:90px!important;
     height:42px!important;min-height:42px!important;max-height:42px!important;
     margin:0!important;padding:0 10px!important;
-    color:#fff!important;background:#008ddd!important;background-image:none!important;
+    color:#fff!important;background:#0855d0!important;background-image:none!important;
     border:0!important;border-radius:9px!important;box-shadow:none!important;
     font:700 13px/1.2 "Open Sans",Arial,sans-serif!important;
     text-indent:0!important;visibility:visible!important;opacity:1!important;
@@ -252,7 +252,7 @@
     content:none!important;display:none!important;
   }
   html.okla-header-v92 body #header .header-top>.search form.search-form button[type="submit"]:hover{
-    color:#fff!important;background:#067bc5!important;
+    color:#fff!important;background:#074fc2!important;
   }
   html.okla-header-v92 body #header .header-top .navigation-buttons>.okla-exact-header{
     display:flex!important;align-items:center!important;
@@ -338,7 +338,7 @@
   }
   /* Keep keyboard navigation accessible without the oversized rounded focus box. */
   html body #header .header-top .navigation-buttons .okla-exact-header>:is(a,button):focus-visible{
-    outline:2px solid #95bdda!important;outline-offset:1px!important;
+    outline:2px solid #709adc!important;outline-offset:1px!important;
     border-radius:4px!important;box-shadow:none!important;
   }
 }

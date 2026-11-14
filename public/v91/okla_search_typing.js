@@ -2,7 +2,7 @@
    so the visitor starts thinking of what to look for. Only the placeholder is animated - the field stays empty and
    works as usual. The moment the visitor touches the search (focus, click, tap), the animation stops for good and the
    ordinary placeholder is back, so they type their own words.
-   PC: the header search field. Phones: the search field of the top navbar (okla_mobile_navbar.js). */
+   PC: the header search field. Phones: the search box at the top of the homepage. */
 (function(){
  'use strict';
  if(window.__oklaSearchTypingV1)return;window.__oklaSearchTypingV1=true;
@@ -12,18 +12,12 @@
  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
  var stopped=false,timer=null,target=null;
 
- /* one target: either the PC input (its placeholder) or the phone navbar field (its text) */
  function findTarget(){
-  if(phone.matches){
-   var t=document.querySelector('#okla-v61-header .okla-mnb-search__text');
-   if(!t)return null;
-   var f=t.closest('.okla-mnb-search__field');
-   return {node:f,rest:t.textContent,set:function(s){t.textContent=s},watch:f};
-  }
-  var inp=document.querySelector('#header .header-top .search input.query-input,#header input.query-input[name="string"]');
-  if(!inp)return null;
+  /* phones: the homepage search box (okla_home_search.js); PC: the header search field */
+  var inp=phone.matches?document.querySelector('.okla-hsearch__in'):document.querySelector('#header .header-top .search input.query-input,#header input.query-input[name="string"]');
+  if(!inp||!inp.getClientRects().length)return null;
   /* while it types, the placeholder is dark enough to be noticed (the resting one stays light) */
-  if(!document.getElementById('okla-st-style')){var st=document.createElement('style');st.id='okla-st-style';st.textContent='#header input.query-input.okla-st-typing::placeholder{color:#4f6075!important;-webkit-text-fill-color:#4f6075!important;opacity:1!important}';document.head.appendChild(st)}
+  if(!document.getElementById('okla-st-style')){var st=document.createElement('style');st.id='okla-st-style';st.textContent='input.okla-st-typing::placeholder{color:#3f4b59!important;-webkit-text-fill-color:#3f4b59!important;opacity:1!important}';document.head.appendChild(st)}
   inp.classList.add('okla-st-typing');
   return {node:inp,rest:inp.getAttribute('placeholder')||'Napište, co hledáte',set:function(s){inp.setAttribute('placeholder',s)},watch:inp,input:inp};
  }

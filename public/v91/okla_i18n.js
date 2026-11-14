@@ -200,7 +200,7 @@
   hu:'<rect width="32" height="11" fill="#ce2939"/><rect y="10.6" width="32" height="10.8" fill="#fff"/><rect y="21.3" width="32" height="10.7" fill="#477050"/>',
   cs:'<rect width="32" height="32" fill="#fff"/><rect y="16" width="32" height="16" fill="#e0112b"/><path d="M0 0 17 16 0 32Z" fill="#0b2540"/>',
   en:'<rect width="32" height="32" fill="#012169"/><path d="M-4 0 36 32M36 0-4 32" stroke="#fff" stroke-width="6"/><path d="M-4 0 36 32M36 0-4 32" stroke="#c8102e" stroke-width="2.4"/><path d="M16 0v32M0 16h32" stroke="#fff" stroke-width="9"/><path d="M16 0v32M0 16h32" stroke="#c8102e" stroke-width="5"/>',
-  sk:'<rect width="32" height="11" fill="#fff"/><rect y="10.6" width="32" height="10.8" fill="#0b4ea2"/><rect y="21.3" width="32" height="10.7" fill="#ee1c25"/><path d="M6.5 8.5h11v9.2c0 4-3 6.3-5.5 7.3-2.5-1-5.5-3.3-5.5-7.3Z" fill="#ee1c25" stroke="#fff" stroke-width="1"/><path d="M11.3 10.6h1.4v2.4h2.4v1.3h-2.4v1.4h3.1v1.3h-3.1v2.6h-1.4V17H8.2v-1.3h3.1v-1.4H8.9V13h2.4Z" fill="#fff"/><path d="M7.6 21.2c1-1.6 2.5-1.7 3.2-.6.7-1.3 1.7-1.3 2.4 0 .7-1.1 2.2-1 3.2.6-1.4 1.5-3 2.6-4.4 3.2-1.4-.6-3-1.7-4.4-3.2Z" fill="#0b4ea2"/>'
+  sk:'<rect width="32" height="11" fill="#fff"/><rect y="10.6" width="32" height="10.8" fill="#0646aa"/><rect y="21.3" width="32" height="10.7" fill="#ee1c25"/><path d="M6.5 8.5h11v9.2c0 4-3 6.3-5.5 7.3-2.5-1-5.5-3.3-5.5-7.3Z" fill="#ee1c25" stroke="#fff" stroke-width="1"/><path d="M11.3 10.6h1.4v2.4h2.4v1.3h-2.4v1.4h3.1v1.3h-3.1v2.6h-1.4V17H8.2v-1.3h3.1v-1.4H8.9V13h2.4Z" fill="#fff"/><path d="M7.6 21.2c1-1.6 2.5-1.7 3.2-.6.7-1.3 1.7-1.3 2.4 0 .7-1.1 2.2-1 3.2.6-1.4 1.5-3 2.6-4.4 3.2-1.4-.6-3-1.7-4.4-3.2Z" fill="#0646aa"/>'
  };
  var flagSeq=0;
  function flag(code){

@@ -173,7 +173,7 @@
 }
 #okla-cart-preview .okla-cp__name{
   display:block;
-  color:#103f78;
+  color:#053a8e;
   text-decoration:none;
   font:600 13px/1.35 "Open Sans",Arial,sans-serif;
   overflow-wrap:anywhere;
@@ -221,12 +221,12 @@
   padding:10px 14px;
   border:0;
   border-radius:9px;
-  background:#15548f;
+  background:#0643a4;
   color:#fff!important;
   text-decoration:none!important;
   font:700 14px/1.4 "Open Sans",Arial,sans-serif!important;
 }
-#okla-cart-preview .okla-cp__go:hover{background:#0d3d71}
+#okla-cart-preview .okla-cp__go:hover{background:#053786}
 @media(max-width:991px){
   #okla-cart-preview{display:none!important}
 }
@@ -381,7 +381,7 @@
 html body #okla-cart-preview .okla-cp__go,
 html body #okla-cart-preview .okla-cp__go:hover,
 html body #okla-cart-preview .okla-cp__go:focus{
- background:#66d400!important;
+ background:#085adc!important;
  color:#111!important;
  -webkit-text-fill-color:#111!important;
  text-shadow:none!important;
@@ -389,7 +389,7 @@ html body #okla-cart-preview .okla-cp__go:focus{
 }
 /* the shared green hover: 8% towards black (102,212,0 -> 94,195,0) */
 html body #okla-cart-preview .okla-cp__go:hover{
- background:#5ec300!important;
+ background:#0855cf!important;
 }
 @media(max-width:991px){
  #okla-cart-preview{display:none!important}
@@ -492,7 +492,7 @@ html body #okla-cart-preview .okla-cp__go:hover{
     padding:0 3px!important;
     border:2px solid #fff!important;
     border-radius:999px!important;
-    background:#1689d3!important;
+    background:#0859d9!important;
     color:#fff!important;
     -webkit-text-fill-color:#fff!important;
     font:700 11px/16px "Open Sans",Arial,sans-serif!important;

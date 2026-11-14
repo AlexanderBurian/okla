@@ -1,8 +1,8 @@
 /* OKLA V128 – every real form field uses the exact login-blue interaction.
    No translucent blue halos and no blue gradients: one solid border and one
-   solid inset ring, both #1f6fd8. */
+   solid inset ring, both #085de4. */
 
-:root{--okla-field-blue:#1f6fd8}
+:root{--okla-field-blue:#085de4}
 
 html body #content :is(
   input:not([type="hidden"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
@@ -75,16 +75,16 @@ html body #filters .filter-section input[type="checkbox"]::before{content:none!i
 html body #filters .filter-section input[type="checkbox"]::after{
   content:""!important;display:block!important;position:absolute!important;inset:2px auto auto 2px!important;
   width:10px!important;height:10px!important;margin:0!important;border:0!important;border-radius:50%!important;
-  background:#168bd2!important;background-image:none!important;box-shadow:none!important;
+  background:#0859d8!important;background-image:none!important;box-shadow:none!important;
   transform:scale(0)!important;transform-origin:50% 50%!important;transition:transform .12s ease!important;
 }
-html body #filters .filter-section input[type="checkbox"]:checked{border-color:#168bd2!important}
+html body #filters .filter-section input[type="checkbox"]:checked{border-color:#0859d8!important}
 html body #filters .filter-section input[type="checkbox"]:checked::after{transform:scale(1)!important}
 html body #filters .filter-section input[type="checkbox"]:disabled{opacity:.55!important;cursor:default!important}
 html body #filters .filter-section input[type="checkbox"] + label::before,
 html body #filters .filter-section input[type="checkbox"] + label::after{content:none!important;display:none!important}
 html body #filters .filter-section input[type="checkbox"] + label{margin-left:0!important;padding-left:0!important;background-image:none!important}
-html body #filters .filter-section input[type="checkbox"]:focus-visible{outline:2px solid #1f6fd8!important;outline-offset:2px!important}
+html body #filters .filter-section input[type="checkbox"]:focus-visible{outline:2px solid #085de4!important;outline-offset:2px!important}
 
 /* iOS Safari and mobile Chrome zoom focused controls whose text is below
    16px. Keep every editable form control at the no-zoom threshold. */
@@ -112,10 +112,10 @@ html body .okla-password-toggle{
   color:#52677f!important;box-shadow:none!important;outline:0!important;cursor:pointer!important;
 }
 html body .okla-password-toggle:is(:hover,:focus,:active){
-  border:0!important;background:transparent!important;background-image:none!important;color:#174f89!important;
+  border:0!important;background:transparent!important;background-image:none!important;color:#0642a0!important;
   box-shadow:none!important;outline:0!important;filter:none!important;transform:translateY(-50%)!important;
 }
-html body .okla-password-toggle:focus-visible{outline:2px solid #1f6fd8!important;outline-offset:0!important}
+html body .okla-password-toggle:focus-visible{outline:2px solid #085de4!important;outline-offset:0!important}
 html body .okla-password-toggle svg{display:block!important;width:21px!important;height:21px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important;pointer-events:none!important}
 
 /* Close buttons (the X in drawers, dialogs, popups, cookie settings, gallery):
