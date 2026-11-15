@@ -29,3 +29,12 @@ html body :is(.okla-warranty-button,.okn-button,.okd-button,.okla-hero__cta,.okl
   border-color:#0859d8!important;border-radius:8px!important;background:#0859d8!important;background-color:#0859d8!important;background-image:none!important;
   color:#fff!important;-webkit-text-fill-color:#fff!important;text-transform:none!important;letter-spacing:0!important}
 html body :is(.okla-warranty-button,.okn-button,.okd-button,.okla-hero__cta,.okla-promo-btn,.oks-btn--primary,.okla-magazine-btn):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j):is(:hover,:focus-visible){border-color:#0751c6!important;background:#0751c6!important;background-color:#0751c6!important;color:#fff!important}
+
+/* One hover on PC: a product card itself never reacts to the pointer (no shadow, frame or lift around the whole
+   product) - only its links (the name underlines) and its button do. */
+@media(min-width:992px){
+  html body #content :is(.product:hover>.p,.product>.p:hover):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j){border-color:transparent!important;box-shadow:none!important;transform:none!important;outline:0!important}
+  html body #content .product:hover>.p:not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j)::after{border-color:transparent!important;box-shadow:none!important}
+  html body #content .product:hover :is(a.image img,.image img):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j){transform:none!important}
+  html body #content .product a.name:not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j):hover{text-decoration:underline!important;text-underline-offset:3px!important}
+}

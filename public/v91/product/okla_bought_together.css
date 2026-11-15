@@ -1,0 +1,54 @@
+/* OKLA product page - "Nejčastěji zakoupeno společně" (okla_bought_together.js), in the site's look. */
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e){--bt-navy:#0b2540;--bt-ink:#164194;--bt-red:#d0102b;--bt-line:#e3e8ef;
+  position:relative;margin:34px 0 30px;padding:28px 0 0;border-top:1px solid var(--bt-line);font-family:"Open Sans",Arial,sans-serif;color:var(--bt-navy)}
+#okla-bought-together *{box-sizing:border-box}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__title{margin:0 0 16px;padding:0;color:var(--bt-navy);font:700 21px/1.25 "Open Sans",Arial,sans-serif;letter-spacing:-.01em;text-transform:none}
+
+/* chips */
+#okla-bought-together .okla-bt__chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__chip{height:36px;min-height:0;margin:0;padding:0 15px;border:1px solid #d5dbe3;border-radius:18px;background:#fff;color:var(--bt-navy);-webkit-text-fill-color:var(--bt-navy);font:500 14px/1 "Open Sans",Arial,sans-serif;text-transform:none;letter-spacing:0;box-shadow:none;cursor:pointer;transition:border-color .15s ease}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__chip:hover{border-color:#9aa8bb;background:#fff}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__chip.is-active{border:2px solid var(--bt-ink);padding:0 14px;font-weight:600;color:var(--bt-ink);-webkit-text-fill-color:var(--bt-ink)}
+
+/* the row: cards side by side, scrolled sideways; arrows as the homepage sliders' blue tabs */
+#okla-bought-together .okla-bt__shell{position:relative}
+#okla-bought-together .okla-bt__view{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-inline:contain}
+#okla-bought-together .okla-bt__view::-webkit-scrollbar{display:none}
+#okla-bought-together .okla-bt__track{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 5 * 14px) / 6);column-gap:14px;padding:2px 0 6px}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__arrow{position:absolute;top:calc(50% - 60px);z-index:3;display:grid;place-items:center;width:26px;height:64px;min-height:0;margin:0;padding:0;border:0;background:#0645a8;color:#fff;cursor:pointer;box-shadow:none}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__arrow:hover{background:#053a8e}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__arrow[hidden]{display:none}
+#okla-bought-together .okla-bt__arrow--prev{left:0;border-radius:0 6px 6px 0}
+#okla-bought-together .okla-bt__arrow--next{right:0;border-radius:6px 0 0 6px}
+#okla-bought-together .okla-bt__arrow svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* a card: picture, stars, name, price, button, category link - no hover on the card itself */
+#okla-bought-together .okla-bt__card{display:flex;flex-direction:column;align-items:center;min-width:0;padding:6px 6px 4px;text-align:center;scroll-snap-align:start}
+#okla-bought-together .okla-bt__pic{display:flex;align-items:center;justify-content:center;width:100%;height:132px;margin-bottom:12px}
+#okla-bought-together .okla-bt__pic img{max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-drag:none}
+#okla-bought-together .okla-bt__stars{display:inline-flex;gap:1px;margin-bottom:8px}
+#okla-bought-together .okla-bt__stars svg{width:14px;height:14px;fill:#ffb612}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:2.9em;margin:0 0 12px;color:var(--bt-ink);-webkit-text-fill-color:var(--bt-ink);font:500 14px/1.45 "Open Sans",Arial,sans-serif;text-decoration:none}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__name:hover{text-decoration:underline;text-underline-offset:3px}
+#okla-bought-together .okla-bt__price{margin:auto 0 14px;color:var(--bt-red);font:700 19px/1.1 "Open Sans",Arial,sans-serif}
+/* the site's card "Do košíku": white, light blue edge, navy; hover a grey-blue fill with the edge in the same colour */
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:35px;min-height:0;margin:0 0 12px;padding:0 14px;border:1px solid #d9e4f9;border-radius:6px;background:#fff;color:var(--bt-ink);-webkit-text-fill-color:var(--bt-ink);font:700 14px/1 "Open Sans",Arial,sans-serif;text-transform:none;letter-spacing:0;white-space:nowrap;cursor:pointer;box-shadow:none;transition:background-color .15s ease,border-color .15s ease}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__btn:not(:disabled):is(:hover,:focus-visible,:active){background:#c8d2e5;border-color:#c8d2e5}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__btn:disabled{opacity:.6;cursor:default}
+#okla-bought-together .okla-bt__cart{display:block;flex:0 0 19px;width:19px;height:19px;background:currentColor;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat;mask:var(--okla-card-btn-cart) center/contain no-repeat}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__cat{color:#5d6877;-webkit-text-fill-color:#5d6877;font:500 12.5px/1.35 "Open Sans",Arial,sans-serif;text-decoration:underline;text-decoration-color:#b5bfcc;text-underline-offset:3px}
+html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__cat:hover{color:var(--bt-navy);-webkit-text-fill-color:var(--bt-navy);text-decoration-color:currentColor}
+
+@media(max-width:1199px){#okla-bought-together .okla-bt__track{grid-auto-columns:calc((100% - 4 * 14px) / 5)}}
+@media(max-width:991px){#okla-bought-together .okla-bt__track{grid-auto-columns:calc((100% - 3 * 12px) / 4);column-gap:12px}}
+/* phones: two and a bit cards in view, swipe; no arrows */
+@media(max-width:767px){
+  html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e){margin:26px 0 22px;padding-top:22px}
+  html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__title{font-size:19px}
+  #okla-bought-together .okla-bt__chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:-14px;margin-right:-14px;padding:0 14px}
+  #okla-bought-together .okla-bt__chips::-webkit-scrollbar{display:none}
+  html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__chip{flex:none}
+  #okla-bought-together .okla-bt__track{grid-auto-columns:42%;column-gap:10px}
+  html body #okla-bought-together:not(#obt-a#obt-b#obt-c#obt-d#obt-e) .okla-bt__arrow{display:none}
+  #okla-bought-together .okla-bt__pic{height:112px}
+}
