@@ -2,7 +2,8 @@
    The article text carries hand-made product cards (.okla-clanek__aside .okla-clanek__card); some point to products the
    shop no longer sells and one article lists the same product twice. Here the column is rebuilt from the homepage's own
    product cards (cloned 1:1: picture, rating, name, stock, price, "Do košíku" that really adds to the cart):
-   first the article's products that are still on sale, then other products, always 3 different ones.
+   first the article's products that are still on sale, then products of the same category, then the others - always
+   the same 3 for an article.
    If the homepage cannot be read, the original cards stay as they are. */
 (function(){
  'use strict';
@@ -11,7 +12,6 @@
 
  function path(href){try{return new URL(href,location.href).pathname.replace(/\/?$/,'/')}catch(e){return ''}}
  function cardHref(card){var a=card.querySelector('a.name[href],a.image[href],a[href]');return a?path(a.getAttribute('href')):''}
- function shuffle(list){for(var i=list.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=list[i];list[i]=list[j];list[j]=t}return list}
 
  function build(aside,doc){
   /* every product card on the homepage, once each */
@@ -20,13 +20,19 @@
    var h=cardHref(p);if(!h||seen[h])return;seen[h]=1;cards.push({href:h,el:p});
   });
   if(cards.length<COUNT)return false;
-  /* the article's own products that are still on sale, in the article's order, then the rest at random */
+  /* the article's own products that are still on sale, in the article's order */
   var wanted=[];
   [].slice.call(aside.querySelectorAll('.okla-clanek__card a[href]')).forEach(function(a){var h=path(a.getAttribute('href'));if(h&&wanted.indexOf(h)<0)wanted.push(h)});
   var byHref={};cards.forEach(function(c){byHref[c.href]=c});
   var pick=[];
   wanted.forEach(function(h){if(byHref[h]&&pick.length<COUNT)pick.push(byHref[h])});
-  shuffle(cards.filter(function(c){return pick.indexOf(c)<0})).forEach(function(c){if(pick.length<COUNT)pick.push(c)});
+  /* the rest: always the same ones - first products of the same category as the article's products, then the others,
+     in the homepage's order (never at random, so the column does not change from one visit to the next) */
+  var cat=window.OKLA_V86_CATALOG||{},catOf={};
+  Object.keys(cat).forEach(function(k){var p=cat[k];if(p&&p.url)catOf[path(p.url)]=p.defaultCategory||''});
+  var cats={};wanted.forEach(function(h){if(catOf[h])cats[catOf[h]]=1});
+  var rest=cards.filter(function(c){return pick.indexOf(c)<0});
+  rest.filter(function(c){return cats[catOf[c.href]]}).concat(rest.filter(function(c){return !cats[catOf[c.href]]})).forEach(function(c){if(pick.length<COUNT)pick.push(c)});
 
   var box=document.createElement('div');
   box.className='products products-block okla-art-products';

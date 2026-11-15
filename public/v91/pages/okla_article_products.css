@@ -21,3 +21,13 @@ html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#ok
   html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#okla-ap-a#okla-ap-b#okla-ap-c)::-webkit-scrollbar{display:none}
   html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#okla-ap-a#okla-ap-b#okla-ap-c)>.product{scroll-snap-align:start!important}
 }
+/* every picture in the same fixed frame (same height for all three, the whole product visible) - its size never
+   changes: not with the photo's own proportions, not on hover, not while loading */
+html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#okla-ap-a#okla-ap-b#okla-ap-c)>.product a.image{
+  display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:170px!important;min-height:0!important;max-height:none!important;margin:0 0 12px!important;padding:0!important;overflow:hidden!important}
+html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#okla-ap-a#okla-ap-b#okla-ap-c)>.product a.image img,
+html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#okla-ap-a#okla-ap-b#okla-ap-c)>.product:hover a.image img{
+  display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;margin:0 auto!important;transform:none!important;transition:none!important}
+@media(max-width:991px){
+  html body #content .okla-clanek__aside.okla-art-aside .okla-art-products:not(#okla-ap-a#okla-ap-b#okla-ap-c)>.product a.image{height:140px!important}
+}
