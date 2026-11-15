@@ -1,4 +1,4 @@
-/* OKLA - homepage promo island: a two-card feature block (Flipper Zero + LILYGO T-Embed) built from the supplied
+/* OKLA - homepage promo island: a two-card feature block (Flipper ONE + LILYGO T-Embed) built from the supplied
    campaign and brought to the OKLA island style (okla_home_promo.css). Placed among the product sliders (before the
    fourth product heading, else the third, else before the magazine) and kept in place when other scripts re-order the
    homepage sections. Links go to the real product pages; nothing about price or stock is claimed here. */
@@ -12,21 +12,24 @@
 
  function build(){
   var sec=el('section');sec.id='okla-promo-deals';sec.className='okla-campaign';
-  sec.setAttribute('aria-label','Flipper Zero a LILYGO T-Embed');
+  sec.setAttribute('aria-label','Flipper ONE a LILYGO T-Embed');
   var grid=el('div','okla-campaign__grid');
 
-  /* Flipper Zero */
+  /* Flipper ONE - teaser, not a sales link yet */
   var cf=el('article','okla-campaign__card okla-campaign__card--flipper');
   var cfCopy=el('div','okla-campaign__flipper-copy');
-  var cfBrand=el('h2','okla-campaign__brand');cfBrand.textContent='Flipper Zero';
+  var cfBrand=el('h2','okla-campaign__brand');cfBrand.textContent='Flipper ONE';
   var cfKick=el('p','okla-campaign__kicker');
-  cfKick.innerHTML='<span class="okla-campaign__kicker-hot">Sub‑GHz</span> · <span class="okla-campaign__kicker-cool">NFC · RFID · IR</span>';
-  var cfText=el('p','okla-campaign__text');cfText.innerHTML='Multitool pro elektroniku,<br>experimenty a svět signálů.';
-  var cfCta=el('a','okla-campaign__cta');cfCta.href='/flipper-zero-kapesni-multitool-pro-elektroniku/';cfCta.textContent='Prozkoumat';
+  cfKick.innerHTML='<span class="okla-campaign__kicker-hot">OPEN LINUX</span> <span class="okla-campaign__kicker-cool">· WI‑FI 6E · M.2</span>';
+  var cfText=el('p','okla-campaign__text');cfText.innerHTML='Otevřený síťový multitool<br>pro vývojáře a nadšence.';
+  var cfCta=el('span','okla-campaign__cta okla-campaign__cta--soon');cfCta.textContent='PŘIPRAVUJEME';cfCta.setAttribute('aria-label','Flipper ONE připravujeme');
   cfCopy.append(cfBrand,cfKick,cfText,cfCta);
-  var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-zero.png';cfImg.alt='Flipper Zero';cfImg.loading='lazy';cfImg.decoding='async';
-  var cfFine=el('p','okla-campaign__fineprint');cfFine.innerHTML='Určeno pro vývoj, testování a vlastní zařízení.<br>Používejte v souladu s platnými předpisy.';
-  cf.append(cfCopy,cfImg,cfFine);
+  var cfStage=el('div','okla-campaign__flipper-stage');
+  var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-one-official-og.png';cfImg.alt='Flipper ONE';cfImg.loading='lazy';cfImg.decoding='async';
+  var cfScreen=el('img','okla-campaign__flipper-screen');cfScreen.src=base+'v91/img/promo/flipper-one-screen.png';cfScreen.alt='';cfScreen.setAttribute('aria-hidden','true');cfScreen.loading='lazy';cfScreen.decoding='async';
+  cfStage.append(cfImg,cfScreen);
+  var cfFine=el('p','okla-campaign__fineprint');cfFine.innerHTML='Nová otevřená platforma je ve vývoji.<br>Dostupnost pro náš obchod připravujeme.';
+  cf.append(cfCopy,cfStage,cfFine);
 
   /* LILYGO T-Embed */
   var cl=el('article','okla-campaign__card okla-campaign__card--lilygo');
