@@ -110,3 +110,7 @@ html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck{b
   html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step{display:flex!important;grid-template-columns:none!important}
   html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck .next-step :is(.next-step-forward,.next-step-finish,button[type=submit]){flex:1 1 100%!important;width:100%!important;max-width:none!important;margin:0!important}
 }
+/* step 3 at rest: the bar's own top line would double the summary column's bottom line - only one line shows; while the
+   bar rides along it is set off by its shadow (and a line) */
+html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav:not(.is-stuck){border-top-color:transparent!important}
+html body.in-krok-2:not(#okc-a#okc-b) #content#content .okla-step-nav.is-stuck{border-top-color:#e3e7ed!important}

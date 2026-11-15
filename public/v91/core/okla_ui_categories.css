@@ -1,6 +1,6 @@
 /* OKLA – one look per kind of button, everywhere (loaded last on every page).
    1. Buying and moving forward in the purchase - add to cart, continue to the cart, continue in the checkout, finish
-      the order: Alza green #5ed312 with dark text, 8px corners, normal letters (no capitals).
+      the order: the shop blue #0859d8 with white text, 8px corners, normal letters (no capitals).
    2. Going back - "Zpět do obchodu" / "Pokračovat v nákupu": quiet, navy, normal letters.
    3. Information and navigation - "Více o záruce", "Všechny novinky", "Nakoupit", hero and promo buttons: one blue
       #0859d8 (hover #0751c6) with white text.
@@ -10,13 +10,13 @@
 /* 1. checkout: forward / finish */
 html body.ordering-process #content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j),
 html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j){
-  border:1px solid #5ed312!important;border-radius:8px!important;background:#5ed312!important;background-color:#5ed312!important;background-image:none!important;
-  color:#121212!important;-webkit-text-fill-color:#121212!important;box-shadow:none!important;text-shadow:none!important;
+  border:1px solid #0859d8!important;border-radius:8px!important;background:#0859d8!important;background-color:#0859d8!important;background-image:none!important;
+  color:#fff!important;-webkit-text-fill-color:#fff!important;box-shadow:none!important;text-shadow:none!important;
   font-weight:700!important;text-transform:none!important;letter-spacing:0!important}
-html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j):is(:hover,:focus-visible){border-color:#52bd0f!important;background:#52bd0f!important;background-color:#52bd0f!important}
-html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j):active{border-color:#49a80d!important;background:#49a80d!important;background-color:#49a80d!important}
-html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j) *{color:#121212!important;-webkit-text-fill-color:#121212!important}
-html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j)::after{border-color:#121212!important}
+html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j):is(:hover,:focus-visible){border-color:#0751c6!important;background:#0751c6!important;background-color:#0751c6!important}
+html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j):active{border-color:#0646ad!important;background:#0646ad!important;background-color:#0646ad!important}
+html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body.ordering-process :is(.next-step-forward,.next-step-finish):not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j)::after{border-color:#fff!important}
 
 /* 2. checkout: back */
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-back:not(#ouc-a#ouc-b#ouc-c#ouc-d#ouc-e#ouc-f#ouc-g#ouc-h#ouc-i#ouc-j){

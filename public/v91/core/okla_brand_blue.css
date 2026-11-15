@@ -15,14 +15,14 @@ html{accent-color:#0859d8}
 html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=submit],#orderFormButton):not(#okb-a#okb-b#okb-c#okb-d#okb-e),
 html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=submit],#orderFormButton):not(#okb-a#okb-b#okb-c#okb-d#okb-e) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 
-/* The one exception to the blue: every "Do košíku" button stays the DATART-like green (#5ed312, white text) -
+/* The one exception to the blue: every "Do košíku" button stays the DATART-like green (#0859d8, white text) -
    product cards, the product page, the desktop and phone buy bars, the cards in the added-to-cart panel.
    ("Pokračovat do košíku" and the checkout buttons are navigation and stay blue.) */
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h){
-  background:#5ed312!important;background-color:#5ed312!important;background-image:none!important;border-color:#5ed312!important;color:#121212!important;-webkit-text-fill-color:#121212!important;
+  background:#0859d8!important;background-color:#0859d8!important;background-image:none!important;border-color:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
 }
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h):is(:hover,:focus-visible,:active){
-  background:#52bd0f!important;background-color:#52bd0f!important;border-color:#52bd0f!important;
+  background:#0751c6!important;background-color:#0751c6!important;border-color:#0751c6!important;
 }
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 

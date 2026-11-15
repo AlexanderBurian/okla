@@ -133,10 +133,10 @@ html body :is(.okla-alza-total__net-label,.okla-alza-total__net-value,.okla-reca
 html:is(.okla-cm-lock,.okla-m-lock,.okla-search-open,.okcb-open) body okla-ai-chat:not(#okai-a#okai-b),
 html body:is(.okla-acc-pop-open,.okla-v61-locked) okla-ai-chat:not(#okai-a#okai-b){display:none!important}
 
-/* Alza green (#5ed312) carries dark text: every green-filled cart action and its label / icon */
+/* Alza green (#0859d8) carries dark text: every green-filled cart action and its label / icon */
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add,.p-info-wrapper .quantity :is(button.increase,button.decrease)):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i),
-html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add,.p-info-wrapper .quantity :is(button.increase,button.decrease)):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i) *{color:#121212!important;-webkit-text-fill-color:#121212!important}
-html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i) svg :is(path,circle){stroke:#121212!important}
+html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add,.p-info-wrapper .quantity :is(button.increase,button.decrease)):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i) svg :is(path,circle){stroke:#fff!important}
 
 /* Homepage warranty island: the OKLA manul sits on its bottom edge, left of the button, peeking a little over the top */
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d){position:relative!important;overflow:visible!important}

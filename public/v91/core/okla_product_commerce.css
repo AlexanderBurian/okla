@@ -3,8 +3,8 @@
    steppers, filters, forms and the rest of the button system remain untouched. */
 :root{
  --okla-commerce-price:#e73b49;
- --okla-commerce-cart:#5ed312;
- --okla-commerce-cart-hover:#52bd0f; /* a subtle darkening of the cart green on hover */
+ --okla-commerce-cart:#0859d8;
+ --okla-commerce-cart-hover:#0751c6; /* a subtle darkening of the cart green on hover */
 }
 
 /* Product cards: the selling price is red in every listing and carousel. */
@@ -210,9 +210,9 @@ html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disa
 }
 html body.ok89-detail.ok89-detail #content#content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):is(:hover,:focus-visible,:active),
 html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disabled):is(:hover,:focus-visible,:active){
- border-color:#52bd0f!important;
- background:#52bd0f!important;
- background-color:#52bd0f!important;
+ border-color:#0751c6!important;
+ background:#0751c6!important;
+ background-color:#0751c6!important;
 }
 
 /* ===== Product previews (listing / carousel cards) - "Do košíku" =====
@@ -263,7 +263,7 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
 }
 @media(max-width:767px){
  :root{--okla-card-btn-h:44px;--okla-card-btn-pad:0 10px;--okla-card-btn-fs:15px;--okla-card-btn-fw:400;--okla-card-btn-radius:0;--okla-card-btn-icon:21px;--okla-card-btn-gap:8px;
-  --okla-card-btn-bg:#fff;--okla-card-btn-edge:transparent;--okla-card-btn-ink:#5c8f00;--okla-card-btn-bg-hover:#f2fbea}
+  --okla-card-btn-bg:#fff;--okla-card-btn-edge:transparent;--okla-card-btn-ink:#5c8f00;--okla-card-btn-bg-hover:#eef4fd}
  /* the strip runs edge to edge along the card's bottom: it is placed on the card itself, the card keeps room for it */
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p{position:relative!important;padding-bottom:calc(var(--okla-card-btn-h) + 14px)!important}
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p>.p-in{position:static!important}
