@@ -171,5 +171,6 @@ html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-h
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__title{font-size:20px!important;line-height:1.1!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline{flex-direction:column!important;align-items:flex-start;gap:2px;font-size:12px!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline strong{font-size:13px!important}
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-2%!important;bottom:-14%!important;width:34%!important;max-width:34%!important}
+  /* beat okla_mobile_unified's #carousel .carousel-inner img rule (it forces width/height 100% + cover) */
+  html body.type-index #content#content .banners-row #carousel .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-2%!important;bottom:-12%!important;width:34%!important;max-width:34%!important;height:auto!important;object-fit:contain!important}
 }
