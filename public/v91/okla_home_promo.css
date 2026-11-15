@@ -1,0 +1,64 @@
+/* OKLA homepage promo: a two-card feature island (Flipper Zero + LILYGO T-Embed) placed among the product sliders.
+   Styled like the site's other white islands - rounded 8px card, the same soft shadow, Open Sans, our blue CTA, full
+   content width (the page zoom keeps the share of the screen). The two cards' inner composition is kept from the
+   supplied campaign; only the frame, font, width and buttons are brought to the OKLA style. */
+
+/* The island itself (a direct child of #content, so okla_islands.css gives it the standard 16px grey gap above). */
+html body.type-index #content #okla-promo-deals{
+  background:#fff!important;border-radius:8px!important;padding:16px!important;box-sizing:border-box!important;
+  box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;
+  overflow:hidden!important;font-family:"Open Sans",Arial,sans-serif!important;color:#07101c!important
+}
+#okla-promo-deals *{box-sizing:border-box}
+#okla-promo-deals .okla-campaign__grid{display:grid!important;grid-template-columns:minmax(0,1.48fr) minmax(360px,1fr);gap:16px!important}
+#okla-promo-deals .okla-campaign__card{position:relative!important;min-width:0!important;min-height:480px!important;overflow:hidden!important;border-radius:8px!important;margin:0!important}
+
+/* CTA in the OKLA style: a filled blue pill, like "Kup teď" in the hero. */
+#okla-promo-deals .okla-campaign__cta{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:42px!important;min-height:42px!important;padding:0 24px!important;border:0!important;border-radius:21px!important;background:#0857d4!important;color:#fff!important;font-size:14px!important;font-weight:700!important;line-height:1!important;text-decoration:none!important;transition:background-color .15s ease!important}
+#okla-promo-deals .okla-campaign__cta:hover,#okla-promo-deals .okla-campaign__cta:focus-visible{background:#074cb9!important;color:#fff!important;text-decoration:none!important}
+#okla-promo-deals .okla-campaign__cta:focus-visible{outline:2px solid #0857d4!important;outline-offset:3px!important}
+
+/* ---- Flipper card (dark premium background, product cut-out on the right) ---- */
+#okla-promo-deals .okla-campaign__card--flipper{background:#000 url('img/promo/flipper-bg.png') center/cover no-repeat!important;color:#fff!important}
+#okla-promo-deals .okla-campaign__flipper-copy{position:absolute!important;z-index:3!important;left:8%!important;top:165px!important;width:34%!important;display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important}
+#okla-promo-deals .okla-campaign__brand{margin:0 0 4px!important;font-size:30px!important;font-weight:800!important;line-height:1!important;letter-spacing:-.045em!important;color:#fff!important}
+#okla-promo-deals .okla-campaign__kicker{margin:0!important;font-size:14px!important;font-weight:800!important;line-height:1.2!important}
+#okla-promo-deals .okla-campaign__kicker-hot{background:linear-gradient(90deg,#eaff00,#ffdf00);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+#okla-promo-deals .okla-campaign__kicker-cool{background:linear-gradient(90deg,#fff 0%,#d8e9ff 44%,#3a9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+#okla-promo-deals .okla-campaign__text{margin:18px 0 25px!important;font-size:16px!important;font-weight:600!important;line-height:1.35!important;color:#fff!important}
+#okla-promo-deals .okla-campaign__flipper{position:absolute!important;z-index:2!important;right:2%!important;top:63px!important;width:57%!important;height:354px!important;max-width:none!important;object-fit:contain!important;filter:drop-shadow(0 30px 25px rgba(0,0,0,.55))!important;margin:0!important}
+#okla-promo-deals .okla-campaign__fineprint{position:absolute!important;z-index:3!important;left:16%!important;bottom:46px!important;margin:0!important;color:rgba(255,255,255,.67)!important;font-size:10px!important;line-height:1.25!important}
+
+/* ---- LILYGO card (light panel, hand cut-out) ---- */
+#okla-promo-deals .okla-campaign__card--lilygo{background:#f3f5f8!important;color:#1d1d1f!important}
+#okla-promo-deals .okla-campaign__lilygo-copy{position:relative!important;z-index:5!important;width:82%!important;margin:0 auto!important;padding-top:29px!important;text-align:center!important}
+#okla-promo-deals .okla-campaign__lilygo-brand{margin:0 0 5px!important;font-size:15px!important;font-weight:700!important;letter-spacing:-.01em!important;color:#1d1d1f!important}
+#okla-promo-deals .okla-campaign__lilygo-brand em{background:linear-gradient(95deg,#0071e3,#684dff 66%,#8d43e7);-webkit-background-clip:text;background-clip:text;color:transparent!important;font-style:italic!important;font-weight:700!important}
+#okla-promo-deals .okla-campaign__lilygo-title{margin:0!important;overflow-wrap:anywhere!important;font-size:27px!important;font-weight:800!important;line-height:1.05!important;letter-spacing:-.03em!important;color:#07101c!important}
+#okla-promo-deals .okla-campaign__lilygo-text{margin:9px auto 13px!important;max-width:440px!important;font-size:13px!important;font-weight:600!important;line-height:1.35!important;color:#3a4652!important}
+#okla-promo-deals .okla-campaign__lilygo-hand{position:absolute!important;z-index:2!important;left:50%!important;bottom:-75px!important;width:235px!important;height:auto!important;max-width:none!important;transform:translateX(-50%)!important;filter:drop-shadow(0 14px 14px rgba(30,42,55,.08))!important;pointer-events:none!important;margin:0!important}
+#okla-promo-deals .okla-campaign__terms{position:absolute!important;z-index:5!important;right:6%!important;bottom:80px!important;width:125px!important;margin:0!important;color:#555d66!important;font-size:9px!important;line-height:1.18!important}
+
+/* Narrower desktop windows: keep the copy clear of the product. */
+@media(max-width:1200px){
+  #okla-promo-deals .okla-campaign__flipper-copy{left:7%!important;width:38%!important}
+  #okla-promo-deals .okla-campaign__flipper{right:4%!important;width:56%!important}
+}
+
+/* Phones: stack the two cards (the site keeps its own mobile layout otherwise). */
+@media(max-width:767px){
+  html body.type-index #content #okla-promo-deals{padding:12px!important}
+  #okla-promo-deals .okla-campaign__grid{grid-template-columns:1fr!important;gap:12px!important}
+  #okla-promo-deals .okla-campaign__card{min-height:470px!important;border-radius:12px!important}
+  #okla-promo-deals .okla-campaign__flipper-copy{left:24px!important;top:31px!important;width:calc(100% - 48px)!important;align-items:flex-start!important;text-align:left!important}
+  #okla-promo-deals .okla-campaign__brand{font-size:27px!important}
+  #okla-promo-deals .okla-campaign__text{margin:14px 0 18px!important;font-size:15px!important}
+  #okla-promo-deals .okla-campaign__flipper{left:50%!important;right:auto!important;top:auto!important;bottom:20px!important;width:320px!important;height:auto!important;max-height:210px!important;transform:translateX(-50%)!important}
+  #okla-promo-deals .okla-campaign__fineprint{left:24px!important;bottom:16px!important}
+  #okla-promo-deals .okla-campaign__card--lilygo{min-height:520px!important}
+  #okla-promo-deals .okla-campaign__lilygo-copy{width:90%!important;padding-top:27px!important}
+  #okla-promo-deals .okla-campaign__lilygo-title{max-width:300px!important;margin-inline:auto!important;font-size:23px!important}
+  #okla-promo-deals .okla-campaign__lilygo-text{max-width:300px!important}
+  #okla-promo-deals .okla-campaign__lilygo-hand{bottom:-62px!important;width:232px!important}
+  #okla-promo-deals .okla-campaign__terms{display:none!important}
+}
