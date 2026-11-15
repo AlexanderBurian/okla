@@ -18,7 +18,7 @@ html body #content #okla-brands-v1 .okla-brands__item{display:flex!important;fle
  html body #content #okla-brands-v1 .okla-brands__item{flex-basis:calc((100% - 3 * var(--okla-brands-gap)) / 4)!important}
 }
 @media(max-width:680px){
- html body.type-index #content #okla-brands-v1{margin-top:12px!important;padding:19px 14px 16px!important}
+ html body.type-index #content #okla-brands-v1{margin-top:12px!important;padding:19px 9px 16px!important}
  #okla-brands-v1 .okla-brands__title{margin-bottom:8px!important;font-size:20px!important}
  html body #content #okla-brands-v1 .okla-brands__track{--okla-brands-gap:12px}
  html body #content #okla-brands-v1 .okla-brands__item{flex-basis:calc((100% - 2 * var(--okla-brands-gap)) / 3)!important;height:64px!important;padding:6px 4px!important}
@@ -33,4 +33,7 @@ html body #content #okla-brands-v1 .okla-brands__item{display:flex!important;fle
   html body #content #okla-brands-v1 .okla-brands__viewport::-webkit-scrollbar{display:none!important}
   html body #content #okla-brands-v1 .okla-brands__track:not(#okb-a#okb-b#okb-c#okb-d#okb-e){width:max-content!important;transform:none!important;transition:none!important}
   html body #content #okla-brands-v1 .okla-brands__item:not(#okb-a#okb-b#okb-c#okb-d#okb-e){flex:0 0 calc((100vw - 64px) / 3.3)!important;scroll-snap-align:start!important}
+  html body.type-index #content #okla-brands-v1 .okla-brands__shell>.okla-slider-controls:not(#okb-a#okb-b#okb-c#okb-d#okb-e){display:flex!important;visibility:visible!important;position:absolute!important;z-index:30!important;inset:0 -9px!important;align-items:center!important;justify-content:space-between!important;width:auto!important;height:auto!important;pointer-events:none!important}
+  html body.type-index #content #okla-brands-v1 .okla-brands__shell>.okla-slider-controls>button{display:grid!important;visibility:visible!important;pointer-events:auto!important;width:26px!important;min-width:26px!important;height:50px!important;min-height:50px!important;padding:0!important;border:0!important;background:#0646aa!important;color:#fff!important;box-shadow:0 2px 7px rgba(6,45,100,.18)!important}
+  html body.type-index #content #okla-brands-v1 .okla-brands__shell>.okla-slider-controls>button svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 }
