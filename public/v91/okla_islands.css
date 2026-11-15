@@ -30,7 +30,7 @@
   html body.type-index #content#content>#okla-deals:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>#okla-news-v55:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>#okla-signin-strip:not(#okis-a#okis-b#okis-c){background:#fff!important;border:0!important;border-radius:8px!important;box-shadow:none!important;box-sizing:border-box!important}
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){padding:16px 16px 14px!important;border-radius:0 0 8px 8px!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){padding:0 0 4px!important;border-radius:0 0 8px 8px!important}
   html body.type-index #content#content>#okla-cat-circles:not(#okis-a#okis-b#okis-c){padding:24px 20px!important}
   html body.type-index #content#content>#okla-deals:not(#okis-a#okis-b#okis-c){padding:16px!important}
   html body.type-index #content#content>#okla-news-v55:not(#okis-a#okis-b#okis-c){padding:24px 24px 28px!important}
@@ -43,8 +43,8 @@
   /* 16px of grey between the islands */
   html body.type-index #content#content>*:not(#okis-a#okis-b#okis-c){margin-top:16px!important;margin-bottom:0!important}
   html body.type-index #content#content>.homepage-group-title+*:not(#okis-a#okis-b#okis-c){margin-top:0!important}
-  /* the hero island keeps the standard 16px grey gap above it, so it does not touch the category menu (Best Buy style) */
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){margin-top:16px!important}
+  /* the store-wide hero touches the menu (no gap) and fills the whole content width - it expands up and sideways */
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){margin-top:0!important}
   html body.type-index #content#content>h1:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>.okla-hsearch:not(#okis-a#okis-b#okis-c){margin:0!important}
   html body.type-index #content#content>:last-child:not(#okis-a#okis-b#okis-c){margin-bottom:24px!important}
@@ -77,7 +77,7 @@
   html body:not(.type-index) #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){clip-path:inset(-12px -12px -12px -12px)!important}
   html body.type-index #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c){clip-path:inset(-12px -12px 0 -12px)!important}
   /* the hero and the category circles: one island */
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d){border-radius:8px 8px 0 0!important;padding-bottom:4px!important;clip-path:inset(-12px -12px 0 -12px)!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d){border-radius:0!important;padding-bottom:4px!important;clip-path:inset(0 -12px 0 -12px)!important}
   html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d){margin-top:0!important;border-top:0!important;border-radius:0 0 8px 8px!important;clip-path:inset(0 -12px -12px -12px)!important}
   /* the side art's hand ends at the content's edge (no piece of it showing between the islands) */
   html body .okla-side-art--left:not(#okis-a){overflow:hidden!important}

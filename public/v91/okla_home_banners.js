@@ -10,7 +10,9 @@
 
  // On desktop the top slot stays on the projector: only the projector is shown there. The other slides are mobile only.
  // Desktop shows the first slide only (Flipper Zero); the glasses slide is mobile only. Only products the shop sells.
+ var BASE=window.__oklaAssetBase||'';
  var SLIDES=[
+  {n:'storewide',storewide:true,title:'Velké dny plné objevů',strong:'Spousta inspirace na jednom místě',when:'Právě teď',alt:'Velké dny plné objevů',href:'/'},
   {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'},
   {n:3,title:'Chytré brýle s AI',lead:'Kamera a AI překlad v lehkých brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'},
   {n:'endo',title:'Endoskopy',lead:'Nahlédněte do motoru, stěny i potrubí.',alt:'Endoskop',mobileOnly:true,href:'/endoskopy-a-inspekcni-kamery/'}
@@ -24,14 +26,26 @@
  var INTERVAL=6000;
 
  function slideHtml(s,i){
-  return '<article id="okla-hero-slide-'+(i+1)+'" class="okla-hero__slide okla-hero__slide--'+s.n+(s.mobileOnly?' okla-hero__slide--mobile-only':'')+(i===0?' is-active':'')+'" aria-hidden="'+(i===0?'false':'true')+'">'+
-   '<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
-   '<div class="okla-hero__text">'+
-    '<h2 class="okla-hero__title">'+s.title+'</h2>'+
-    '<p class="okla-hero__lead">'+s.lead+'</p>'+
-    '<a class="okla-hero__cta" href="'+s.href+'">'+CTA_TEXT+'</a>'+
-   '</div>'+
-  '</article>';
+  var active=(i===0);
+  var inner;
+  if(s.storewide){
+   inner='<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
+    '<img class="okla-hero__gift" src="'+BASE+'v91/img/promo/storewide-gift.png" alt="" loading="eager" decoding="async">'+
+    '<div class="okla-hero__text okla-hero__text--wide">'+
+     '<h2 class="okla-hero__title">'+s.title+'</h2>'+
+     '<p class="okla-hero__lead okla-hero__wideline"><strong>'+s.strong+'</strong><span>'+s.when+'</span></p>'+
+     '<a class="okla-hero__cta" href="'+s.href+'">Prozkoumat</a>'+
+    '</div>'+
+    '<p class="okla-hero__fineprint">Objevujte novinky a inspiraci napříč celým e-shopem.</p>';
+  }else{
+   inner='<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
+    '<div class="okla-hero__text">'+
+     '<h2 class="okla-hero__title">'+s.title+'</h2>'+
+     '<p class="okla-hero__lead">'+s.lead+'</p>'+
+     '<a class="okla-hero__cta" href="'+s.href+'">'+CTA_TEXT+'</a>'+
+    '</div>';
+  }
+  return '<article id="okla-hero-slide-'+(i+1)+'" class="okla-hero__slide okla-hero__slide--'+s.n+(s.mobileOnly?' okla-hero__slide--mobile-only':'')+(active?' is-active':'')+'" aria-hidden="'+(active?'false':'true')+'">'+inner+'</article>';
  }
 
  function tileHtml(t){
@@ -74,9 +88,9 @@
    p=(p<0)?0:(p+d+list.length)%list.length;
    set(list[p]);
   }
+  /* Autoplay is off: the banner only changes when the visitor uses the dots or swipes. */
   function restart(){
    clearInterval(timer);
-   timer=setInterval(function(){ if(!paused) step(1); },INTERVAL);
   }
 
   dots.forEach(function(d,k){
