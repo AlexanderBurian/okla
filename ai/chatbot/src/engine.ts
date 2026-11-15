@@ -177,6 +177,9 @@ function noteProviderError(model: string, error: unknown): void {
   providerErrors.length = Math.min(providerErrors.length, 8);
 }
 
+/* models the account cannot use (404 / 400): skipped for an hour instead of being tried on every question */
+const unavailableUntil = new Map<string, number>();
+
 export class GroqEngine implements ChatEngine {
   private readonly client: Groq;
 
@@ -209,6 +212,7 @@ export class GroqEngine implements ChatEngine {
     let lastError: unknown;
     for (const [model, budget, lean] of attempts) {
       if (context.signal.aborted) break;
+      if ((unavailableUntil.get(model) ?? 0) > Date.now()) continue;
       try {
         completion = await this.create(context, budget, lean, model);
         break;
@@ -217,6 +221,7 @@ export class GroqEngine implements ChatEngine {
         noteProviderError(model, error);
         /* over the limit (429), too big (413), or a model that is not available (400/404): try the next one */
         const status = (error as { status?: number }).status;
+        if ((status === 404 || status === 400) && model !== this.model) unavailableUntil.set(model, Date.now() + 3_600_000);
         if (status !== 413 && status !== 429 && status !== 404 && status !== 400) throw error;
       }
     }
