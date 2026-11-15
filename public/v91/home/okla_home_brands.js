@@ -50,9 +50,11 @@
    fallback=setTimeout(finish,duration+110)}
   track.addEventListener('transitionend',function(e){if(e.target===track&&e.propertyName==='transform')finish()});
   left.addEventListener('click',function(){move('prev')});right.addEventListener('click',function(){move('next')});
+  /* phones: the row scrolls freely under the finger (CSS); the one-logo swipe is for the other touch screens */
+  var phone=window.matchMedia('(max-width:767px)');
   var x=0,y=0,swipedAt=0;
   viewport.addEventListener('touchstart',function(e){if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY}},{passive:true});
-  viewport.addEventListener('touchend',function(e){if(!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){swipedAt=Date.now();move(dx<0?'next':'prev')}},{passive:true});
+  viewport.addEventListener('touchend',function(e){if(phone.matches||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){swipedAt=Date.now();move(dx<0?'next':'prev')}},{passive:true});
   viewport.addEventListener('click',function(e){if(Date.now()-swipedAt<450){e.preventDefault();e.stopPropagation()}},true);
   size();addEventListener('resize',size,{passive:true});
   if(window.ResizeObserver){var ro=new ResizeObserver(function(){requestAnimationFrame(positionControls)});ro.observe(viewport);ro.observe(host)}

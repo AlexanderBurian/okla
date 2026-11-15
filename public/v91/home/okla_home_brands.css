@@ -26,3 +26,11 @@ html body #content #okla-brands-v1 .okla-brands__item{display:flex!important;fle
  #okla-brands-v1 .okla-brands__item[data-brand="Flipper Devices"] .okla-brands__logo{max-height:24px!important}
  #okla-brands-v1 .okla-brands__item[data-brand="Benetech"] .okla-brands__logo{max-width:64px!important;max-height:40px!important}
 }
+
+/* phones: the logos glide freely under the finger (native scrolling with a soft snap); the next logo peeks in at the edge */
+@media(max-width:767px){
+  html body #content #okla-brands-v1 .okla-brands__viewport:not(#okb-a#okb-b#okb-c#okb-d#okb-e){overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;scroll-snap-type:x proximity!important;scrollbar-width:none!important;overscroll-behavior-inline:contain!important;touch-action:pan-x pan-y!important}
+  html body #content #okla-brands-v1 .okla-brands__viewport::-webkit-scrollbar{display:none!important}
+  html body #content #okla-brands-v1 .okla-brands__track:not(#okb-a#okb-b#okb-c#okb-d#okb-e){width:max-content!important;transform:none!important;transition:none!important}
+  html body #content #okla-brands-v1 .okla-brands__item:not(#okb-a#okb-b#okb-c#okb-d#okb-e){flex:0 0 calc((100vw - 64px) / 3.3)!important;scroll-snap-align:start!important}
+}
