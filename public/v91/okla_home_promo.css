@@ -87,3 +87,23 @@ html body.type-index #content #okla-promo-deals{
   #okla-promo-deals .okla-campaign__flipper-stage{left:50%!important;right:auto!important;top:auto!important;bottom:60px!important;width:calc(100% - 20px)!important;max-width:440px!important;transform:translateX(-50%)!important}
   #okla-promo-deals .okla-campaign__fineprint{left:22px!important;right:22px!important;bottom:16px!important}
 }
+
+/* Flipper ONE, new scene: a spotlight background (the light falls from the top onto a floor glow), the cell tower as
+   its own faint layer on the right, and the device lit by the same light. Overrides the earlier tower veil. */
+#okla-promo-deals .okla-campaign__card--flipper{background:#000 url('img/promo/flipper-one-spot.jpg') no-repeat!important;background-size:auto 100%!important;background-position:-140% 100%!important}
+#okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(90deg,rgba(0,0,0,.25) 0%,transparent 38%)!important}
+#okla-promo-deals .okla-campaign__card--flipper::after{content:""!important;position:absolute!important;z-index:2!important;right:0!important;bottom:0!important;width:30%!important;height:96%!important;pointer-events:none!important;
+  background:url('img/promo/flipper-one-tower.png') right bottom/contain no-repeat!important;opacity:.28!important;filter:brightness(1.35)!important}
+/* the device: brighter where the light falls, a soft sheen from above clipped to its shape, a contact shadow below */
+#okla-promo-deals .okla-campaign__flipper-stage{filter:brightness(.97) contrast(1.02) saturate(.85) drop-shadow(0 22px 22px rgba(0,0,0,.55))!important;opacity:1!important}
+#okla-promo-deals .okla-campaign__flipper-stage::before{content:""!important;position:absolute!important;z-index:5!important;inset:0!important;pointer-events:none!important;
+  background:radial-gradient(ellipse 70% 85% at 50% -12%,rgba(220,232,255,.55) 0%,rgba(200,215,240,.22) 38%,transparent 70%)!important;mix-blend-mode:screen!important;
+  -webkit-mask:url('img/promo/flipper-one-official-og.png') center/100% 100% no-repeat!important;mask:url('img/promo/flipper-one-official-og.png') center/100% 100% no-repeat!important}
+#okla-promo-deals .okla-campaign__flipper-stage::after{content:""!important;position:absolute!important;z-index:1!important;left:12%!important;right:12%!important;bottom:-5%!important;height:12%!important;pointer-events:none!important;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.75) 0%,rgba(0,0,0,.35) 45%,transparent 72%)!important;filter:blur(6px)!important}
+@media(max-width:1200px){#okla-promo-deals .okla-campaign__card--flipper{background-position:-120% 100%!important}}
+@media(max-width:767px){
+  #okla-promo-deals .okla-campaign__card--flipper{background-size:cover!important;background-position:50% 100%!important}
+  #okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 45%)!important}
+  #okla-promo-deals .okla-campaign__card--flipper::after{right:0!important;top:14px!important;bottom:auto!important;width:46%!important;height:62%!important;background-position:right top!important;opacity:.24!important}
+}
