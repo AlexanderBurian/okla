@@ -59,3 +59,13 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
 
 /* Proportional desktop scaling: the side art scales with the page (see zapati_firsthalf.js). */
 @media(min-width:992px){html.okla-dz-on .okla-side-art{zoom:var(--okla-dz)}}
+
+/* Smaller side art, kept in place: the left hand/phone shrinks toward the card edge so the hand still tucks under it
+   (the hand keeps holding the phone), and the right product shrinks toward the outer margin so it never reaches - and
+   never touches - the island. */
+@media(min-width:992px){
+  html body .okla-side-art--left:not(#oksa-x){transform:scale(.86)!important;transform-origin:bottom right!important}
+  html body .okla-side-art--right:not(#oksa-x){transform:scale(.82)!important;transform-origin:center right!important}
+  /* the glasses no longer overhang to the left (toward the island); only the outer (right) overhang stays */
+  html body .okla-side-art--right .okla-side-art__stage--glasses .okla-side-art__product:not(#oksa-x){inset:0 -8% 0 0!important}
+}
