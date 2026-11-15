@@ -25,8 +25,8 @@
   var cfCta=el('span','okla-campaign__cta okla-campaign__cta--soon');cfCta.textContent='PŘIPRAVUJEME';cfCta.setAttribute('aria-label','Flipper ONE připravujeme');
   cfCopy.append(cfBrand,cfKick,cfText,cfCta);
   var cfStage=el('div','okla-campaign__flipper-stage');
-  var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-one-official-og.png';cfImg.alt='Flipper ONE';cfImg.loading='lazy';cfImg.decoding='async';
-  var cfScreen=el('img','okla-campaign__flipper-screen');cfScreen.src=base+'v91/img/promo/flipper-one-screen.png';cfScreen.alt='';cfScreen.setAttribute('aria-hidden','true');cfScreen.loading='lazy';cfScreen.decoding='async';
+  var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-one-official-og.png';cfImg.alt='Flipper ONE';cfImg.loading='lazy';cfImg.draggable=false;cfImg.decoding='async';
+  var cfScreen=el('img','okla-campaign__flipper-screen');cfScreen.src=base+'v91/img/promo/flipper-one-screen.png';cfScreen.alt='';cfScreen.setAttribute('aria-hidden','true');cfScreen.loading='lazy';cfScreen.draggable=false;cfScreen.decoding='async';
   cfStage.append(cfImg,cfScreen);
   var cfFine=el('p','okla-campaign__fineprint');cfFine.innerHTML='Nová otevřená platforma je ve vývoji.<br>Dostupnost pro náš obchod připravujeme.';
   cf.append(cfCopy,cfStage,cfFine);
