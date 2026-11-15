@@ -15,7 +15,7 @@ html body #okla-bought-together .okla-bt__chip.is-active:not(#obt-a#obt-b#obt-c#
 }
 
 /* a little more air between the heading and the chips */
-html body #okla-bought-together .okla-bt__chips:not(#obt-a#obt-b#obt-c#obt-d#obt-e){margin-top:8px!important}
+html body #okla-bought-together .okla-bt__chips:not(#obt-a#obt-b#obt-c#obt-d#obt-e){margin-top:14px!important}
 /* both product sliders on the product page ("Nejčastěji zakoupeno společně", "Mohlo by vás zajímat"): tighter vertical
    gaps - less space above the cards and between the two rows */
 @media(min-width:768px){

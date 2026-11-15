@@ -148,3 +148,9 @@ html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#o
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{left:auto!important;transform:none!important;right:8px!important;top:-30px!important;bottom:auto!important;width:122px!important;height:117px!important}
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) :is(.okla-warranty-title,.okla-warranty-subtitle){max-width:calc(100% - 110px)!important}
 }
+
+/* PC: the footer island ends 16px above the page's end (the grey shows under it), so its rounded bottom corners and
+   soft shadow are seen like every other island's */
+@media(min-width:992px){
+  html body #footer #okla-footer-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f){margin-bottom:16px!important}
+}
