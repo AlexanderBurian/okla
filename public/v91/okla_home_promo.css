@@ -121,3 +121,17 @@ html body.type-index #content #okla-promo-deals{
     -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%),linear-gradient(180deg,#000 50%,transparent 100%)!important;-webkit-mask-composite:source-in!important;
     mask-image:linear-gradient(90deg,transparent 0%,#000 45%),linear-gradient(180deg,#000 50%,transparent 100%)!important;mask-composite:intersect!important}
 }
+
+/* PC: a real spotlight on the device - it sits darker overall, the light from above falls on its top (bright top edge,
+   falling off down the body into shade), a faint beam of light in the air above it, and a darker contact shadow. */
+@media(min-width:768px){
+  #okla-promo-deals .okla-campaign__card--flipper::before{background:
+    radial-gradient(ellipse 22% 58% at 64% 0%,rgba(190,210,240,.20) 0%,rgba(160,185,225,.08) 45%,transparent 75%),
+    linear-gradient(90deg,rgba(0,0,0,.25) 0%,transparent 38%)!important}
+  #okla-promo-deals .okla-campaign__flipper-stage{filter:brightness(.82) contrast(1.1) saturate(.8) drop-shadow(0 26px 24px rgba(0,0,0,.7))!important}
+  #okla-promo-deals .okla-campaign__flipper-stage::before{
+    background:linear-gradient(180deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.55) 16%,rgba(128,128,128,.5) 46%,rgba(0,0,0,.55) 82%,rgba(0,0,0,.75) 100%),
+      radial-gradient(ellipse 60% 70% at 50% 0%,rgba(255,255,255,.7) 0%,transparent 70%)!important;
+    mix-blend-mode:soft-light!important;opacity:1!important}
+  #okla-promo-deals .okla-campaign__flipper-stage::after{left:8%!important;right:8%!important;bottom:-6%!important;height:14%!important;background:radial-gradient(ellipse at center,rgba(0,0,0,.9) 0%,rgba(0,0,0,.45) 45%,transparent 72%)!important}
+}
