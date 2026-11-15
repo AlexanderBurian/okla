@@ -64,7 +64,7 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
   if (!options.knowledge) await knowledge.initialize(config.shoptetFeedRefreshMinutes);
   const engine = options.engine ?? (config.mockMode
     ? new MockEngine()
-    : new GroqEngine(config.groqApiKey as string, config.groqModel));
+    : new GroqEngine(config.groqApiKey as string, config.groqModel, config.groqFallbackModels));
 
   app.addHook("onClose", async () => knowledge.close());
 

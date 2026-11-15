@@ -18,6 +18,8 @@ export interface AppConfig {
   mockMode: boolean;
   groqApiKey?: string;
   groqModel: string;
+  /* tried in order when the main model is over its per-minute limit (each Groq model has its own limit) */
+  groqFallbackModels: string[];
   maxMessageLength: number;
   maxHistoryMessages: number;
   chatTimeoutMs: number;
@@ -51,6 +53,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): AppConfig {
     mockMode,
     groqApiKey: env.GROQ_API_KEY || undefined,
     groqModel: env.GROQ_MODEL || "openai/gpt-oss-120b",
+    groqFallbackModels: (env.GROQ_FALLBACK_MODELS ?? "meta-llama/llama-4-scout-17b-16e-instruct,llama-3.3-70b-versatile").split(",").map((m) => m.trim()).filter(Boolean),
     maxMessageLength: integer(env.MAX_MESSAGE_LENGTH, 1200, 100, 4000),
     maxHistoryMessages: integer(env.MAX_HISTORY_MESSAGES, 12, 0, 30),
     chatTimeoutMs: integer(env.CHAT_TIMEOUT_MS, 30_000, 5_000, 120_000),

@@ -172,34 +172,46 @@ export class MockEngine implements ChatEngine {
 export class GroqEngine implements ChatEngine {
   private readonly client: Groq;
 
-  constructor(apiKey: string, private readonly model: string) {
+  constructor(apiKey: string, private readonly model: string, private readonly fallbackModels: string[] = []) {
     this.client = new Groq({ apiKey });
   }
 
-  private create(context: ChatContext, budget: ContextBudget, lean: boolean) {
+  private create(context: ChatContext, budget: ContextBudget, lean: boolean, model = this.model) {
     return this.client.chat.completions.create({
-      model: this.model,
+      model,
       messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget),
       /* a little more variety in wording, still factual */
       temperature: 0.55,
       top_p: 0.9,
       max_completion_tokens: lean ? 650 : 900,
       /* gpt-oss "thinks" before it answers: a short think keeps the first words quick */
-      ...(/gpt-oss/i.test(this.model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
+      ...(/gpt-oss/i.test(model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
       stream: true
     }, { signal: context.signal, maxRetries: 0 });
   }
 
   async *stream(context: ChatContext): AsyncIterable<string> {
+    /* the main model, then the fallbacks (each has its own per-minute limit), then the main model with lean sources */
+    const attempts: Array<[string, ContextBudget, boolean]> = [
+      [this.model, NORMAL_BUDGET, false],
+      ...this.fallbackModels.map((m): [string, ContextBudget, boolean] => [m, NORMAL_BUDGET, false]),
+      [this.model, LEAN_BUDGET, true]
+    ];
     let completion;
-    try {
-      completion = await this.create(context, NORMAL_BUDGET, false);
-    } catch (error) {
-      /* too big for the account's per-minute token limit (413) or over it right now (429): once more, lean */
-      const status = (error as { status?: number }).status;
-      if (context.signal.aborted || (status !== 413 && status !== 429)) throw error;
-      completion = await this.create(context, LEAN_BUDGET, true);
+    let lastError: unknown;
+    for (const [model, budget, lean] of attempts) {
+      if (context.signal.aborted) break;
+      try {
+        completion = await this.create(context, budget, lean, model);
+        break;
+      } catch (error) {
+        lastError = error;
+        /* over the limit (429), too big (413), or a model that is not available (400/404): try the next one */
+        const status = (error as { status?: number }).status;
+        if (status !== 413 && status !== 429 && status !== 404 && status !== 400) throw error;
+      }
     }
+    if (!completion) throw lastError;
 
     for await (const chunk of completion) {
       if (context.signal.aborted) return;
