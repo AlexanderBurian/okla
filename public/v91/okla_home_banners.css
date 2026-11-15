@@ -121,7 +121,8 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 /* PC: a much taller hero (like on phones the banner fills the view), the product kept in sight on the right, bigger
    text and button, and a much bigger slider control under it */
 @media (min-width:768px){
-  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:5/2!important;border-radius:8px!important}
+  /* rounded top only; the bottom stays flat because the hero joins the category circles below */
+  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:5/2!important;border-radius:8px 8px 0 0!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-size:cover!important;background-position:74% center!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--endo .okla-hero__media{background-position:right 9% 62%,center!important;background-size:auto 90%,cover!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__text{width:46%!important;padding:0 4% 0 5%!important;gap:12px!important}
@@ -165,12 +166,15 @@ html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-h
 }
 
 @media (max-width:767px){
-  /* A stronger left scrim so the white text stays readable next to the gift (like the other mobile slides). */
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide::after{background:linear-gradient(90deg,rgba(1,23,55,.82) 0%,rgba(1,23,55,.5) 46%,rgba(1,23,55,0) 78%)!important}
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__text{width:58%!important;padding:0 5%!important}
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__title{font-size:20px!important;line-height:1.1!important}
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline{flex-direction:column!important;align-items:flex-start;gap:2px;font-size:12px!important}
+  /* Mobile layout inspired by Best Buy: big title top-left, yellow sub-line, a compact CTA, and the gift large in the
+     bottom-right corner. The box keeps its own (wider, shorter) proportions. */
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide::after{background:linear-gradient(100deg,rgba(1,23,55,.9) 0%,rgba(1,23,55,.6) 40%,rgba(1,23,55,.12) 70%,rgba(1,23,55,0) 86%)!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__text{width:66%!important;padding:16px 0 0 5%!important;justify-content:flex-start!important;gap:7px!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__title{font-size:24px!important;font-weight:800!important;line-height:1.08!important;letter-spacing:-.02em!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline{flex-direction:column!important;align-items:flex-start;gap:1px;font-size:12px!important;line-height:1.25!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline strong{font-size:13px!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__cta{height:36px!important;padding:0 18px!important;font-size:13px!important;margin-top:2px!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__fineprint{display:none!important}
   /* beat okla_mobile_unified's #carousel .carousel-inner img rule (it forces width/height 100% + cover) */
-  html body.type-index #content#content .banners-row #carousel .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-2%!important;bottom:-12%!important;width:34%!important;max-width:34%!important;height:auto!important;object-fit:contain!important}
+  html body.type-index #content#content .banners-row #carousel .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-4%!important;bottom:-8%!important;width:44%!important;max-width:44%!important;height:auto!important;object-fit:contain!important}
 }

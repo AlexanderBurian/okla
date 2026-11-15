@@ -76,7 +76,7 @@
   list.forEach(function(c,i){
    var li=el('li','okcb-li'),a=el('a','okcb-link',c.label);a.href=c.href;a.setAttribute('aria-expanded','false');a.setAttribute('aria-controls','okla-catbar-panel');
    li.appendChild(a);ul.appendChild(li);
-   li.addEventListener('mouseenter',function(){clearTimeout(tClose);clearTimeout(tOpen);tOpen=setTimeout(function(){open(i)},openIdx>=0?0:140)});
+   li.addEventListener('mouseenter',function(){clearTimeout(tClose);clearTimeout(tOpen);open(i)});
    a.addEventListener('focus',function(){open(i)});
   });
   bar.addEventListener('mouseleave',function(){clearTimeout(tOpen);tClose=setTimeout(close,220)});
