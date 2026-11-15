@@ -144,9 +144,12 @@ html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#o
   background:url('../img/okla-manul-warranty.webp') center bottom/contain no-repeat!important;pointer-events:none!important}
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) .okla-warranty-inner{position:relative!important;z-index:3!important}
 @media(max-width:767px){
-  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d){margin-top:40px!important}
-  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{left:auto!important;transform:none!important;right:8px!important;top:-30px!important;bottom:auto!important;width:122px!important;height:117px!important}
-  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) :is(.okla-warranty-title,.okla-warranty-subtitle){max-width:calc(100% - 110px)!important}
+  /* phones: the manul stands on the top edge of the full-width "Více o záruce" button, at its right end */
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{content:none!important;display:none!important}
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) .okla-warranty-button{position:relative!important;overflow:visible!important}
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) .okla-warranty-button::before{content:""!important;position:absolute!important;right:10px!important;bottom:100%!important;width:116px!important;height:112px!important;margin:0!important;background:url('../img/okla-manul-warranty.webp') center bottom/contain no-repeat!important;pointer-events:none!important;transform:none!important}
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) :is(.okla-warranty-title,.okla-warranty-subtitle){max-width:calc(100% - 120px)!important}
+}
 }
 
 /* PC: the footer island ends 16px above the page's end (the grey shows under it), so its rounded bottom corners and

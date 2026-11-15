@@ -159,3 +159,12 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 /* the confirmation tick stays green (success), white check */
 #okla-cart-modal .okla-cm__ok{background:#5ed312}
 #okla-cart-modal .okla-cm__ok svg{stroke:#fff}
+/* phones: the two buttons hold their labels on one line - no chevrons there */
+@media(max-width:767px){
+  #okla-cart-modal .okla-cm__btn svg{display:none}
+  #okla-cart-modal#okla-cart-modal .okla-cm__btn:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j){padding:0 8px;font-size:14.5px}
+}
+/* touch screens: no hover states (a tap would leave them showing) */
+@media(hover:none){
+  #okla-cart-modal#okla-cart-modal .okla-cm__card-btn:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):not(:disabled):is(:hover,:focus-visible){background:#fff!important;border-color:#d9e4f9!important}
+}
