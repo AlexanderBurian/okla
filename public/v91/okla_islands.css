@@ -111,3 +111,16 @@ html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#ok
   html body #content-wrapper.content-wrapper.container.container{width:1273px!important;max-width:1273px!important}
   html body #footer .container.container{max-width:1273px!important}
 }
+
+/* Every white island carries the same soft shadow (the footer's and the homepage islands'): the sign-in strip and the
+   LILYGO promo card on every screen, the contact cards where they stand on the grey page. Product cards on phones are
+   left as they are. */
+html body.type-index #content #okla-signin-strip:not(#okis-a#okis-b#okis-c#okis-d),
+html body.type-index #content #okla-promo-deals .okla-campaign__card--lilygo:not(#okis-a#okis-b#okis-c#okis-d){box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+@media(max-width:860px){
+  html body .oka-c-card:not(#okis-a#okis-b#okis-c){box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+}
+/* the empty cart's white box and the "Jak nakupovat" step cards stand on grey too */
+html body .cart-empty .empty-cart-boxes:not(#okis-a#okis-b#okis-c),
+html body .ohb-step:not(#okis-a#okis-b#okis-c),
+html body .ohb-card:not(:hover):not(#okis-a#okis-b#okis-c){box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
