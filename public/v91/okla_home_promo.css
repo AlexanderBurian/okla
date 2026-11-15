@@ -67,3 +67,23 @@ html body.type-index #content #okla-promo-deals{
   #okla-promo-deals .okla-campaign__lilygo-hand{bottom:-62px!important;width:232px!important}
   #okla-promo-deals .okla-campaign__terms{display:none!important}
 }
+
+/* Flipper ONE: the cell tower in the background is toned down (a darker veil over the right half, under the device),
+   and the device sits a little further left. */
+#okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(90deg,transparent 40%,rgba(0,0,0,.38) 58%,rgba(0,0,0,.72) 80%,rgba(0,0,0,.82) 100%)!important}
+#okla-promo-deals .okla-campaign__flipper-stage{right:7.5%!important}
+@media(max-width:1200px){#okla-promo-deals .okla-campaign__flipper-stage{right:6%!important}}
+
+/* Phones: copy on top, the whole device below it (nothing cut at the sides), the small print at the bottom; the tower
+   kept faint behind it all. */
+@media(max-width:767px){
+  #okla-promo-deals .okla-campaign__card--flipper{min-height:470px!important;background-position:72% center!important}
+  #okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.30) 42%,rgba(0,0,0,.55) 100%),linear-gradient(90deg,rgba(0,0,0,.15) 30%,rgba(0,0,0,.6) 100%)!important}
+  #okla-promo-deals .okla-campaign__flipper-copy{left:22px!important;right:22px!important;top:28px!important;width:auto!important}
+  #okla-promo-deals .okla-campaign__brand{margin-bottom:8px!important;font-size:28px!important}
+  #okla-promo-deals .okla-campaign__kicker{font-size:12.5px!important}
+  #okla-promo-deals .okla-campaign__text{margin:12px 0 18px!important;font-size:15.5px!important;line-height:1.35!important;max-width:290px!important}
+  #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta{height:40px!important;min-height:40px!important}
+  #okla-promo-deals .okla-campaign__flipper-stage{left:50%!important;right:auto!important;top:auto!important;bottom:60px!important;width:calc(100% - 20px)!important;max-width:440px!important;transform:translateX(-50%)!important}
+  #okla-promo-deals .okla-campaign__fineprint{left:22px!important;right:22px!important;bottom:16px!important}
+}
