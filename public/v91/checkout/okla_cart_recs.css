@@ -48,3 +48,12 @@ html body.in-kosik #okla-cart-recs#okla-cart-recs .ocr-form .btn-cart svg:not(#o
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::after{content:none!important;display:none!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::before{content:""!important;display:block!important;flex:0 0 19px!important;width:19px!important;height:19px!important;margin:0!important;background:currentColor!important;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat!important;mask:var(--okla-card-btn-cart) center/contain no-repeat!important}
 }
+
+/* the arrows exactly as on the homepage sliders: flat against the island's edge, rounded only on the inner side,
+   centred on the cards (the site-wide button rounding must not reach them) */
+@media(min-width:992px){
+  html body.in-kosik #okla-cart-recs .ocr-arrow:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j#ocr-k){top:50%!important;transform:translateY(-50%)!important;width:26px!important;height:64px!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;background:#0645a8!important;box-shadow:none!important}
+  html body.in-kosik #okla-cart-recs .ocr-prev:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j#ocr-k){left:-20px!important;border-radius:0 6px 6px 0!important}
+  html body.in-kosik #okla-cart-recs .ocr-next:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j#ocr-k){right:-20px!important;border-radius:6px 0 0 6px!important}
+  html body.in-kosik #okla-cart-recs .ocr-arrow:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j#ocr-k):hover{background:#092c67!important}
+}
