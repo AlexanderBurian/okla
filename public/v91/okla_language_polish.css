@@ -1,6 +1,6 @@
 /* OKLA V101 — language flags: blue edge touches only the selected top flag.
    The menu's arrow is positioned by the flag's actual center, not guessed offsets. */
-:root{--okla-flag-blue:#074bb6}
+:root{--okla-flag-blue:#0751c6}
 
 /* All SVG flags stay sharp at their actual rendered dimensions. */
 html body svg.okla-lang-flag{

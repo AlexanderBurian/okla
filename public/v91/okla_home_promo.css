@@ -14,9 +14,9 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__card{position:relative!important;min-width:0!important;min-height:480px!important;overflow:hidden!important;border-radius:8px!important;margin:0!important}
 
 /* Shared CTA; the dark teaser overrides it with the restrained Best Buy-style outline below. */
-#okla-promo-deals .okla-campaign__cta{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:42px!important;min-height:42px!important;padding:0 24px!important;border:0!important;border-radius:21px!important;background:#0857d4!important;color:#fff!important;font-size:14px!important;font-weight:600!important;line-height:1!important;text-decoration:none!important;transition:background-color .15s ease!important}
-#okla-promo-deals .okla-campaign__cta:hover,#okla-promo-deals .okla-campaign__cta:focus-visible{background:#074cb9!important;color:#fff!important;text-decoration:none!important}
-#okla-promo-deals .okla-campaign__cta:focus-visible{outline:2px solid #0857d4!important;outline-offset:3px!important}
+#okla-promo-deals .okla-campaign__cta{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:42px!important;min-height:42px!important;padding:0 24px!important;border:0!important;border-radius:21px!important;background:#0859d8!important;color:#fff!important;font-size:14px!important;font-weight:600!important;line-height:1!important;text-decoration:none!important;transition:background-color .15s ease!important}
+#okla-promo-deals .okla-campaign__cta:hover,#okla-promo-deals .okla-campaign__cta:focus-visible{background:#0751c6!important;color:#fff!important;text-decoration:none!important}
+#okla-promo-deals .okla-campaign__cta:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important}
 
 /* ---- Flipper ONE teaser: dark premium background, official product render on the right. ---- */
 #okla-promo-deals .okla-campaign__card--flipper{background:#000 url('img/promo/flipper-one-bg.png') center/cover no-repeat!important;color:#fff!important;font-family:Arial,"Helvetica Neue",sans-serif!important}

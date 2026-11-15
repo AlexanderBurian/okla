@@ -11,12 +11,12 @@
  /* The "Do košíku" in product previews (listing / carousel cards, the cart drawer's suggestions) is styled entirely
     in CSS (okla_product_commerce.css: square corners, no icon, a fixed size), so this script leaves it alone - setting
     its size or adding an icon after load is what made it jump in width. */
- var CARD_SEL='.product .p-tools .btn-cart,.product .p-tools .add-to-cart-button,#okla-cart-drawer .okla-cd__card-btn';
+ var CARD_SEL='.product .p-tools .btn-cart,.product .p-tools .add-to-cart-button,#okla-cart-recs .ocr-btn';
  function isCard(b){return b.matches(CARD_SEL)&&!b.closest('#product-detail-form')}
  /* every button gets the same corner */
- var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track,.btn:not(.okla-hsearch__btn),.okla-hero__cta,.okla-warranty-button,.okn-button,.okla-promo-btn,.oka-c-btn,.ohb-btn,.okla-social-btn,.okla-os-lookup__btn,.okla-rk__submit,#okla-cart-drawer .okla-cd__btn,.loadMore__button,.okla-lang-pill';
+ var RADIUS_SEL='.btn-primary,.btn-conversion,.btn-cart,.add-to-cart-button,.okla-green-cta,.okla-m-buybar__btn,.okla-dbb__btn,#okla-cart-preview .okla-cp__go,.next-step-forward,.next-step-finish,.okla-ord-btn--track,.btn:not(.okla-hsearch__btn),.okla-hero__cta,.okla-warranty-button,.okn-button,.okla-promo-btn,.oka-c-btn,.ohb-btn,.okla-social-btn,.okla-os-lookup__btn,.okla-rk__submit,#okla-cart-drawer .okla-cd__btn,.loadMore__button,.okla-lang-pill';
  /* only the real add-to-cart buttons get the cart icon */
- var ICON_SEL='.btn-cart,.add-to-cart-button,.okla-m-buybar__btn,#okla-cart-drawer .okla-cd__card-btn,#okla-cart-drawer .okla-cd__btn--primary';
+ var ICON_SEL='.btn-cart,.add-to-cart-button,.okla-m-buybar__btn';
 
  /* Only the navy "Otevřít filtr" is recoloured — the OKLA blue, via its own
     button variables (colour only, size/shape untouched). Every other button
@@ -80,25 +80,13 @@
    });
    document.querySelectorAll(ICON_SEL).forEach(function(b){
     if(isCard(b))return;
-    var drawerPrimary=!!b.matches('#okla-cart-drawer .okla-cd__btn--primary');
-    /* phones: "Pokračovat do košíku" does not fit one line beside the icon - the label alone, centred
-       (okla_cart_drawer.css hides the icon there) */
-    var phoneDrawer=drawerPrimary&&!!window.matchMedia&&window.matchMedia('(max-width:767px)').matches;
-    b.style.setProperty('display',phoneDrawer?'flex':drawerPrimary?'grid':'inline-flex','important');
+    b.style.setProperty('display','inline-flex','important');
     b.style.setProperty('align-items','center','important');
     b.style.setProperty('justify-content','center','important');
-    if(phoneDrawer){b.style.setProperty('padding-left','12px','important');b.style.setProperty('padding-right','12px','important')}
-    else if(drawerPrimary){
-     b.style.setProperty('grid-template-columns','18px minmax(0,auto) 18px','important');
-     b.style.setProperty('column-gap','8px','important');
-     b.style.setProperty('padding-left','10px','important');
-     b.style.setProperty('padding-right','10px','important');
-    }
-    var existing=b.querySelector(':scope > svg.okla-cta-cart');
-    if(existing){if(drawerPrimary)existing.style.setProperty('margin','0','important');if(phoneDrawer)existing.style.setProperty('display','none','important');return;} /* already has our icon */
+    if(b.querySelector(':scope > svg.okla-cta-cart'))return; /* already has our icon */
     var svgs=b.querySelectorAll('svg');                            /* hide the shop's own cart glyph */
     for(var i=0;i<svgs.length;i++){if(!svgs[i].classList.contains('okla-cta-cart'))svgs[i].style.setProperty('display','none','important')}
-    var cart=cartSvg();if(drawerPrimary)cart.style.setProperty('margin','0','important');if(phoneDrawer)cart.style.setProperty('display','none','important');b.insertBefore(cart,b.firstChild);
+    b.insertBefore(cartSvg(),b.firstChild);
    });
   }catch(e){}
   busy=false;

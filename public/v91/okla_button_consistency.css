@@ -258,14 +258,14 @@ html body .okla-rk__choice label::after{
 }
 html body .okla-rk__submit,
 html body .okla-rk__submit:is(:hover,:active,:focus){
-  border-color:#074bb6!important;
-  background:#074bb6!important;
+  border-color:#0751c6!important;
+  background:#0751c6!important;
   color:#fff!important;
 }
 html body .okla-rk__done-links .is-primary,
 html body .okla-rk__done-links .is-primary:is(:hover,:active,:focus){
-  border-color:#0855d0!important;
-  background:#0855d0!important;
+  border-color:#0859d8!important;
+  background:#0859d8!important;
   color:#fff!important;
 }
 html body .okla-rk__done-links .is-ghost,
@@ -277,8 +277,8 @@ html body .okla-rk__done-links .is-ghost:is(:hover,:active,:focus){
 
 /* Native information-page actions and cookie choices keep their base fill. */
 html body .cart-empty :is(.search .btn,form button[type="submit"]):is(:hover,:active,:focus){
-  border-color:#0855d0!important;
-  background:#0855d0!important;
+  border-color:#0859d8!important;
+  background:#0859d8!important;
   color:#fff!important;
 }
 /* Filter toggle: a flat, deeper blue in EVERY state (rest included), so even
@@ -296,8 +296,8 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
   color:#0b2540!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:is(:hover,:active,:focus){
-  border-color:#0855d0!important;
-  background:#0855d0!important;
+  border-color:#0859d8!important;
+  background:#0859d8!important;
   color:#fff!important;
 }
 

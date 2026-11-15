@@ -373,6 +373,10 @@
  function addCoupon(){
   var col=document.querySelector('.extras-wrapper>.extras-col');
   if(!col||col.children.length)return;
+  col.appendChild(buildCoupon());
+ }
+ /* the coupon card itself: also used by the cart summary (okla_checkout_alza.js) when the page has no extras column */
+ function buildCoupon(){
   var card=el('div','okla-coupon');
   var title=el('p','okla-coupon__title');
   title.innerHTML='Mám <strong>slevový kupón:</strong>';
@@ -391,13 +395,14 @@
   card.appendChild(title);
   card.appendChild(row);
   card.appendChild(note);
-  col.appendChild(card);
   var done='';
   try{done=sessionStorage.getItem('okla-coupon-msg')||'';sessionStorage.removeItem('okla-coupon-msg')}catch(e){}
   if(done)couponNote(note,done,true);
   btn.addEventListener('click',function(){applyCoupon(input,btn,note)});
   input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();applyCoupon(input,btn,note)}});
+  return card;
  }
+ window.__oklaBuildCoupon=buildCoupon;
 
  function couponNote(note,text,ok){
   note.textContent=text;

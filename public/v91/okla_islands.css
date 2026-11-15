@@ -130,8 +130,8 @@ html body .ohb-card:not(:hover):not(#okis-a#okis-b#okis-c){box-shadow:0 1px 3px 
 html body :is(.okla-alza-total__net-label,.okla-alza-total__net-value,.okla-recap-net,.okla-cart-summary__row[hidden],.price-additional,.price-wrapper .price-additional):not(#okis-a#okis-b){display:none!important}
 
 /* The AI chat button stays out of the way while a dialog, panel or menu is open over the page. */
-html:is(.okla-cm-lock,.okla-cd-lock,.okla-m-lock,.okla-search-open,.okcb-open) okla-ai-chat,
-body:is(.okla-acc-pop-open,.okla-v61-locked) okla-ai-chat{display:none!important}
+html:is(.okla-cm-lock,.okla-m-lock,.okla-search-open,.okcb-open) body okla-ai-chat:not(#okai-a#okai-b),
+html body:is(.okla-acc-pop-open,.okla-v61-locked) okla-ai-chat:not(#okai-a#okai-b){display:none!important}
 
 /* Alza green (#5ed312) carries dark text: every green-filled cart action and its label / icon */
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add,.p-info-wrapper .quantity :is(button.increase,button.decrease)):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i),

@@ -92,17 +92,17 @@ html body.in-kosik .cart-row>.col-md-4 .extra.delivery span{
 /* Checkout actions with dark text use the brighter OKLA green. */
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish{
- border-color:#085adc!important;
- background:#085adc!important;
- background-color:#085adc!important;
+ border-color:#0859d8!important;
+ background:#0859d8!important;
+ background-color:#0859d8!important;
  color:#fff!important;
  -webkit-text-fill-color:#fff!important;
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){
- border-color:#0753cb!important;
- background:#0753cb!important;
- background-color:#0753cb!important;
+ border-color:#0751c6!important;
+ background:#0751c6!important;
+ background-color:#0751c6!important;
  color:#fff!important;
  -webkit-text-fill-color:#fff!important;
  filter:none!important;

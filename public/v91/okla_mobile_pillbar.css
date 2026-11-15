@@ -40,7 +40,7 @@
     flex:1 1 auto!important;background:#eaf1fd!important;padding-right:16px!important;
   }
   html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active svg,
-  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel svg{background:#0858d6!important;color:#fff!important;stroke-width:2!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel svg{background:#0859d8!important;color:#fff!important;stroke-width:2!important}
   html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active>span,
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel>span{max-width:130px!important;opacity:1!important;margin-left:10px!important}
   /* the cart's number, top right on its round button */
@@ -48,10 +48,10 @@
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count{
     position:absolute!important;left:30px!important;top:-3px!important;z-index:2!important;display:block!important;
     box-sizing:border-box!important;min-width:20px!important;height:20px!important;padding:0 5px!important;border:2px solid #fff!important;border-radius:10px!important;
-    background:#0858d6!important;color:#fff!important;font:700 11px/16px "Open Sans",Arial,sans-serif!important;text-align:center!important;
+    background:#0859d8!important;color:#fff!important;font:700 11px/16px "Open Sans",Arial,sans-serif!important;text-align:center!important;
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count[hidden]{display:none!important}
-  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action:focus-visible{outline:2px solid #0858d6!important;outline-offset:2px!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action:focus-visible{outline:2px solid #0859d8!important;outline-offset:2px!important}
   /* the slide between items, only after the first paint (okla_mobile_pillbar.js) */
   html.okla-pb-anim.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action{transition:flex-grow .32s cubic-bezier(.2,.8,.2,1),flex-basis .32s cubic-bezier(.2,.8,.2,1),background-color .2s ease!important}
   html.okla-pb-anim.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action svg{transition:background-color .2s ease,color .2s ease!important}

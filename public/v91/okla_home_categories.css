@@ -21,7 +21,7 @@ html body.type-index #content #okla-cat-circles:not(#okcc-a) .okcc-name{
   /* hover: only the product grows - no change of the circle or the name */
   html body.type-index #content #okla-cat-circles:not(#okcc-a) .okcc-item:hover .okcc-photo{transform:scale(1.08)!important}
 }
-html body.type-index #content #okla-cat-circles:not(#okcc-a) .okcc-item:focus-visible{outline:2px solid #0858d6!important;outline-offset:4px!important;border-radius:12px!important}
+html body.type-index #content #okla-cat-circles:not(#okcc-a) .okcc-item:focus-visible{outline:2px solid #0859d8!important;outline-offset:4px!important;border-radius:12px!important}
 
 /* PC homepage: no left sidebar - the content across the full width */
 @media(min-width:768px){

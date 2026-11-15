@@ -381,7 +381,7 @@
 html body #okla-cart-preview .okla-cp__go,
 html body #okla-cart-preview .okla-cp__go:hover,
 html body #okla-cart-preview .okla-cp__go:focus{
- background:#085adc!important;
+ background:#0859d8!important;
  color:#fff!important;
  -webkit-text-fill-color:#fff!important;
  text-shadow:none!important;
@@ -389,7 +389,7 @@ html body #okla-cart-preview .okla-cp__go:focus{
 }
 /* the shared green hover: 8% towards black (102,212,0 -> 94,195,0) */
 html body #okla-cart-preview .okla-cp__go:hover{
- background:#0855cf!important;
+ background:#0859d8!important;
 }
 @media(max-width:991px){
  #okla-cart-preview{display:none!important}

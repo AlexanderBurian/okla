@@ -24,7 +24,7 @@
     deliberate light "CENA" slider label exactly as they are. */
  function skip(e){
   return e.closest('input,textarea,select,option,button,.btn,.unveil-button,[contenteditable],svg,'
-   +'okla-ai-chat,#okla-cart-drawer,#okla-cart-preview,.slider-wrapper h4,[class*="placeholder"]')!=null;
+   +'okla-ai-chat,#okla-cart-modal,#okla-cart-preview,.slider-wrapper h4,[class*="placeholder"]')!=null;
  }
 
  /* Same pass as before, element by element in page order, but without forcing the browser to recompute the page's

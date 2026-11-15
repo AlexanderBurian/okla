@@ -48,22 +48,6 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
  filter:brightness(0) invert(1)!important;
 }
 
-/* Suggested-product button inside the native cart drawer. */
-#okla-cart-drawer .okla-cd__card-btn:not(:disabled),
-#okla-cart-drawer .okla-cd__card-btn:not(:disabled) :is(span,strong,b,small){
- color:#111!important;
- -webkit-text-fill-color:#111!important;
-}
-#okla-cart-drawer .okla-cd__card-btn:not(:disabled){
- border-radius:8px!important;
- border-color:#66d400!important;
- background:#66d400!important;
-}
-#okla-cart-drawer .okla-cd__card-btn:not(:disabled):is(:hover,:focus-visible){
- border-color:#5bbd00!important;
- background:#5bbd00!important;
-}
-
 /* Datart-like final card anatomy: no synthetic NOVINKA ribbon or coloured
    price tile. The price stands on white and the CTA is a wide, calm rectangle. */
 html body #content#content .products .product .prices::before,
@@ -313,27 +297,6 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .ratings
 }
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) a.name,
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) a.name *{color:#001744!important;-webkit-text-fill-color:#001744!important}
-
- /* the cart drawer's suggested products: the same outlined button as the PC cards (white, light blue edge, navy;
-    on hover a grey-blue fill with the edge in exactly the fill's colour) */
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d),
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):is(:hover,:focus,:focus-visible,:active){
-  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;
-  border:1px solid #d9e4f9!important;border-radius:6px!important;background:#fff!important;background-color:#fff!important;background-image:none!important;
-  color:#164194!important;-webkit-text-fill-color:#164194!important;font-weight:700!important;box-shadow:none!important;transform:none!important;outline:0!important;
-  transition:background-color .15s ease,border-color .15s ease!important;
- }
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):not(:disabled):is(:hover,:focus-visible,:active){background:#c8d2e5!important;background-color:#c8d2e5!important;border-color:#c8d2e5!important}
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) :is(span,strong,b,small){color:inherit!important;-webkit-text-fill-color:currentColor!important}
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) svg{display:none!important}
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d)::before{
-  content:""!important;display:block!important;flex:0 0 17px!important;width:17px!important;height:17px!important;margin:0 7px 0 0!important;
-  background:currentColor!important;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat!important;mask:var(--okla-card-btn-cart) center/contain no-repeat!important;
- }
-/* phones: the drawer's two big buttons keep their labels on one line in Open Sans */
-@media(max-width:767px){
- html body #okla-cart-drawer#okla-cart-drawer .okla-cd__btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d){font-size:14px!important;white-space:nowrap!important;padding-left:8px!important;padding-right:8px!important}
-}
 
 /* Product cards (as DATART): the stars sit between the name and the price - name, stars, stock, price, button */
 html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c){flex-direction:column!important}

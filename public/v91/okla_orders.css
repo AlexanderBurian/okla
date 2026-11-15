@@ -26,7 +26,7 @@ html.okla-ord-ready body .okla-ord-head__thumbs{display:flex;align-items:center;
 html.okla-ord-ready body .okla-ord-head__thumbs[hidden]{display:none!important}
 html.okla-ord-ready body .okla-ord-head__thumb{display:block;width:38px;height:38px;object-fit:contain;border:1px solid #e0e7ee;border-radius:8px;background:#fff;padding:2px}
 html.okla-ord-ready body .okla-ord-head__status{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;font:600 13px/1 "Open Sans",Arial,sans-serif;color:#45546a}
-html.okla-ord-ready body .okla-ord-head__dot{width:8px;height:8px;border-radius:50%;background:#0855d0;flex:none}
+html.okla-ord-ready body .okla-ord-head__dot{width:8px;height:8px;border-radius:50%;background:#0859d8;flex:none}
 html.okla-ord-ready body .okla-ord-head__status.is-delivered .okla-ord-head__dot{background:#27a052}
 html.okla-ord-ready body .okla-ord-head__status.is-cancelled .okla-ord-head__dot{background:#c0344a}
 html.okla-ord-ready body .okla-ord-head__total{flex:0 0 auto;margin-left:auto;font:800 15px/1.2 "Open Sans",Arial,sans-serif;color:#0b2540}
@@ -48,10 +48,10 @@ html.okla-ord-ready body .okla-ord-step{position:relative;flex:1 1 0;min-width:0
 html.okla-ord-ready body .okla-ord-step:before{content:"";position:absolute;top:6px;left:-50%;right:50%;height:2.5px;border-radius:3px;background:#dde5ef}
 html.okla-ord-ready body .okla-ord-step:first-child:before{display:none}
 html.okla-ord-ready body .okla-ord-step.is-done:before,
-html.okla-ord-ready body .okla-ord-step.is-active:before{background:#0855d0}
+html.okla-ord-ready body .okla-ord-step.is-active:before{background:#0859d8}
 html.okla-ord-ready body .okla-ord-step__dot{position:relative;z-index:1;width:15px;height:15px;border-radius:50%;background:#fff;border:2.5px solid #dde5ef;flex:none}
-html.okla-ord-ready body .okla-ord-step.is-done .okla-ord-step__dot{background:#0855d0;border-color:#0855d0}
-html.okla-ord-ready body .okla-ord-step.is-active .okla-ord-step__dot{border-color:#0855d0;box-shadow:0 0 0 4px rgba(8,85,208,.15)}
+html.okla-ord-ready body .okla-ord-step.is-done .okla-ord-step__dot{background:#0859d8;border-color:#0859d8}
+html.okla-ord-ready body .okla-ord-step.is-active .okla-ord-step__dot{border-color:#0859d8;box-shadow:0 0 0 4px rgba(8,85,208,.15)}
 html.okla-ord-ready body .okla-ord-step__t{font:600 11.5px/1.25 "Open Sans",Arial,sans-serif;color:#45546a}
 html.okla-ord-ready body .okla-ord-step.is-upcoming .okla-ord-step__t{color:#9aa6b5;font-weight:500}
 
@@ -66,7 +66,7 @@ html.okla-ord-ready body .okla-ord-item__info{display:flex;flex-direction:column
 html.okla-ord-ready body .okla-ord-item__name{font:700 15px/1.32 "Open Sans",Arial,sans-serif;color:#0b2540;overflow:hidden;text-overflow:ellipsis}
 html.okla-ord-ready body a.okla-ord-item__name{text-decoration:none}
 html.okla-ord-ready body a.okla-ord-item__name:hover{text-decoration:underline;text-underline-offset:2px}
-html.okla-ord-ready body :is(.okla-ord-item__thumb-link,a.okla-ord-item__name):focus-visible{outline:2px solid #085de4;outline-offset:2px}
+html.okla-ord-ready body :is(.okla-ord-item__thumb-link,a.okla-ord-item__name):focus-visible{outline:2px solid #0859d8;outline-offset:2px}
 html.okla-ord-ready body .okla-ord-item__meta{font:400 12.5px/1.35 "Open Sans",Arial,sans-serif;color:#7a8698}
 html.okla-ord-ready body .okla-ord-item__price{min-width:118px;text-align:right;white-space:nowrap;color:#0b2540;font:800 19px/1.2 "Open Sans",Arial,sans-serif}
 
@@ -95,8 +95,8 @@ html.okla-ord-ready body .okla-ord-btn{
 }
 html.okla-ord-ready body .okla-ord-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 /* Green with black text – "Sledovat zásilku" */
-html.okla-ord-ready body .okla-ord-btn--track{background:#085adc;border-color:#085adc;color:#fff}
-html.okla-ord-ready body .okla-ord-btn--track:hover{background:#0753cb;border-color:#0753cb}
+html.okla-ord-ready body .okla-ord-btn--track{background:#0859d8;border-color:#0859d8;color:#fff}
+html.okla-ord-ready body .okla-ord-btn--track:hover{background:#0751c6;border-color:#0751c6}
 html.okla-ord-ready body .okla-ord-btn--rk{background:#fff;border-color:#d63b4a;color:#c52f3e!important}
 html.okla-ord-ready body .okla-ord-btn--rk:hover{background:#fff1f3;border-color:#bd2f3e;color:#a92532!important}
 html.okla-ord-ready body .okla-ord-btn--invoice{background:#fff;border-color:#cbd4dd;color:#173a5b!important}
@@ -106,9 +106,9 @@ html.okla-ord-ready body .okla-ord-btn--invoice:disabled{background:#e5e7ea;bord
 
 html.okla-ord-ready body .okla-ord-loading{display:flex;align-items:center;gap:10px;color:#56657a;font:400 13.5px/1 "Open Sans",Arial,sans-serif}
 html.okla-ord-ready body .okla-ord-note{margin:0;color:#56657a;font-size:13.5px}
-html.okla-ord-ready body .okla-ord-note a{color:#0855d0;font-weight:600;text-decoration:underline}
+html.okla-ord-ready body .okla-ord-note a{color:#0859d8;font-weight:600;text-decoration:underline}
 html body .okla-email-verify-link{position:relative!important;z-index:2!important;pointer-events:auto!important;cursor:pointer!important}
-html.okla-ord-ready body .okla-ord-spin{width:16px;height:16px;border-radius:50%;border:2.3px solid #cfe0ef;border-top-color:#0855d0;animation:okla-ord-spin .7s linear infinite;flex:none}
+html.okla-ord-ready body .okla-ord-spin{width:16px;height:16px;border-radius:50%;border:2.3px solid #cfe0ef;border-top-color:#0859d8;animation:okla-ord-spin .7s linear infinite;flex:none}
 @keyframes okla-ord-spin{to{transform:rotate(360deg)}}
 
 /* ---- Confirmation popup before starting a complaint ---- */

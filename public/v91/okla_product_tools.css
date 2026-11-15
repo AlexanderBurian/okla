@@ -118,10 +118,10 @@ html body #colorbox :is(#watchdog-form,#formProductQuestion) .consents a{color:#
 html body #colorbox :is(#watchdog-form,#formProductQuestion) .submit-wrapper{margin:18px 0 0!important}
 html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]{
   display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:52px!important;margin:0!important;padding:0 20px!important;box-sizing:border-box!important;
-  border:1px solid #085adc!important;border-radius:12px!important;background:#085adc!important;background-image:none!important;box-shadow:none!important;
+  border:1px solid #0859d8!important;border-radius:12px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#fff!important;
 }
-html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]:is(:hover,:focus-visible){background:#0753cb!important;border-color:#0753cb!important;color:#fff!important}
+html body #colorbox :is(#watchdog-form,#formProductQuestion) button[type="submit"]:is(:hover,:focus-visible){background:#0751c6!important;border-color:#0751c6!important;color:#fff!important}
 @media(max-width:767px){
   html body #colorbox:has(#watchdog-form,#formProductQuestion){
     top:auto!important;bottom:0!important;left:0!important;transform:none!important;width:100%!important;max-height:90vh!important;

@@ -97,12 +97,13 @@
    }
   }
   /* move the coupon card in; keep a placeholder so it is not created twice */
-  var card=document.querySelector('.okla-coupon');
   var body2=box.querySelector('.okla-cart-summary__coupon-body');
+  /* the coupon card: moved in from the extras column, or built here when the page has none */
+  var card=document.querySelector('.okla-coupon')||(!body2.children.length&&typeof window.__oklaBuildCoupon==='function'?window.__oklaBuildCoupon():null);
   if(card&&!body2.contains(card)){
    var col=card.parentNode;
    body2.innerHTML='';body2.appendChild(card);
-   if(col&&!col.children.length){var ph=document.createElement('span');ph.className='okla-coupon-moved';ph.hidden=true;col.appendChild(ph)}
+   if(col&&col!==body2&&!col.children.length){var ph=document.createElement('span');ph.className='okla-coupon-moved';ph.hidden=true;col.appendChild(ph)}
   }
   var gross=amountOf(price.textContent);
   var g=box.querySelector('.okla-cart-summary__gross'),n=box.querySelector('.okla-cart-summary__net');

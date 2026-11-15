@@ -71,7 +71,7 @@
     stroke:#06419e!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header>*:focus-visible{
-    outline:2px solid #0855d0!important;outline-offset:2px!important;
+    outline:2px solid #0859d8!important;outline-offset:2px!important;
   }
 }
 /* The search form must be the same on every desktop and tablet page (including
@@ -100,7 +100,7 @@
     flex:0 0 90px!important;width:90px!important;min-width:90px!important;
     max-width:90px!important;height:42px!important;min-height:42px!important;
     padding:0 12px!important;border:0!important;border-radius:9px!important;
-    background:#0855d0!important;color:#fff!important;
+    background:#0859d8!important;color:#fff!important;
     font:700 13px/1 "Open Sans",Arial,sans-serif!important;
     box-shadow:none!important;text-transform:none!important;
   }
@@ -241,7 +241,7 @@
     width:90px!important;min-width:90px!important;max-width:90px!important;
     height:42px!important;min-height:42px!important;max-height:42px!important;
     margin:0!important;padding:0 10px!important;
-    color:#fff!important;background:#0855d0!important;background-image:none!important;
+    color:#fff!important;background:#0859d8!important;background-image:none!important;
     border:0!important;border-radius:9px!important;box-shadow:none!important;
     font:700 13px/1.2 "Open Sans",Arial,sans-serif!important;
     text-indent:0!important;visibility:visible!important;opacity:1!important;

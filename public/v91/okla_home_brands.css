@@ -12,7 +12,7 @@ html body #content #okla-brands-v1 .okla-brands__item{display:flex!important;fle
 #okla-brands-v1 .okla-brands__item[data-brand="LILYGO"] .okla-brands__logo{max-width:86%!important}
 #okla-brands-v1 .okla-brands__item[data-brand="TASI"] .okla-brands__logo{max-height:50px!important}
 #okla-brands-v1 .okla-brands__item[data-brand="Benetech"] .okla-brands__logo{max-width:90px!important;max-height:52px!important}
-#okla-brands-v1 .okla-brands__item:focus-visible{outline:2px solid #0877d1!important;outline-offset:-2px!important}
+#okla-brands-v1 .okla-brands__item:focus-visible{outline:2px solid #0859d8!important;outline-offset:-2px!important}
 @media(max-width:991px){
  html body #content #okla-brands-v1 .okla-brands__track{--okla-brands-gap:18px}
  html body #content #okla-brands-v1 .okla-brands__item{flex-basis:calc((100% - 3 * var(--okla-brands-gap)) / 4)!important}

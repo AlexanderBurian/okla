@@ -51,7 +51,9 @@ return updated;
 await fs.writeFile(path.join(dir,'catalog-content.json'),JSON.stringify(results,null,2));
 await fs.mkdir(path.join(dir,'html'),{recursive:true});
 for(const p of results)await fs.writeFile(path.join(dir,'html',p.code+'.html'),p.descHtml);
-await fs.writeFile(path.join(publicDir,'catalog.js'),'/* OKLA content V92. Native CSV import is authoritative for indexable product data. */\n(function(){var patch='+JSON.stringify(Object.fromEntries(results.map(p=>[p.code,p])))+';var base=window.OKLA_V86_CATALOG||{};for(var code in patch){if(base[code]&&base[code].image)patch[code].image=base[code].image;}window.OKLA_V86_CATALOG=Object.assign(base,patch);window.OKLA_CONTENT_V92=patch;})();\n');
+/* the storefront reads only these fields (descriptions come from the native Shoptet import) */
+const STORE_FIELDS=['code','name','brand','parameters','related','defaultCategory','image','imageDesc','seoTitle','metaDescription','price','url'];
+await fs.writeFile(path.join(publicDir,'catalog.js'),'/* OKLA content V92. Native CSV import is authoritative for indexable product data. */\n(function(){var patch='+JSON.stringify(Object.fromEntries(results.map(p=>[p.code,Object.fromEntries(Object.entries(p).filter(([k])=>STORE_FIELDS.includes(k)))])))+';var base=window.OKLA_V86_CATALOG||{};for(var code in patch){if(base[code]&&base[code].image)patch[code].image=base[code].image;}window.OKLA_V86_CATALOG=Object.assign(base,patch);window.OKLA_CONTENT_V92=patch;})();\n');
 const fields=['code','name','shortDescription','description','seoTitle','metaDescription',...Array.from({length:20},(_,i)=>'textProperty'+(i?i+1:''))];
 const quote=v=>'"'+String(v??'').replaceAll('"','""')+'"';
 const csvRows=results.map(p=>{const values=Object.entries(p.parameters).map(([k,v])=>k+';'+v.replaceAll(';',','));return [p.code,p.name,p.shortDescription,'<style>'+css+'</style>'+p.descHtml,p.seoTitle,p.metaDescription,...Array.from({length:20},(_,i)=>values[i]||'')].map(quote).join(';');});

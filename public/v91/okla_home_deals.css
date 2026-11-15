@@ -21,7 +21,7 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-title{
   margin:0!important;padding:0!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;
   font:700 clamp(26px,2.2vw,32px)/1.1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;
 }
-html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{margin:4px 0 0!important;padding:0!important;color:#0858d6!important;font:600 clamp(15px,1.25vw,17px)/1.25 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{margin:4px 0 0!important;padding:0!important;color:#0859d8!important;font:600 clamp(15px,1.25vw,17px)/1.25 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image{position:relative!important;display:block!important;flex:1 1 auto!important;min-height:150px!important;margin:14px 0 14px!important;text-decoration:none!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image img{
   position:absolute!important;inset:0!important;display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;margin:auto!important;object-fit:contain!important;
@@ -31,10 +31,10 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-copy{min-height
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-copy strong{color:#081d3a!important;font-weight:700!important;white-space:nowrap!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;width:max-content!important;height:32px!important;min-height:0!important;margin:0!important;padding:0 14px!important;
-  border:0!important;border-radius:5px!important;background:#0858d6!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  border:0!important;border-radius:5px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
   font:700 12.5px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;box-shadow:none!important;transition:background-color .15s ease!important;
 }
-html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-visible{outline:2px solid #0858d6!important;outline-offset:3px!important}
+html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important}
 @media(hover:hover){
   html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:hover{background:#0749b3!important}
 }
@@ -56,7 +56,7 @@ html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){
   border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important;box-sizing:border-box!important;
 }
 /* account pictogram (PC only) */
-html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-avatar{flex:0 0 auto!important;width:40px!important;height:40px!important;margin-right:4px!important;fill:none!important;stroke:#0858d6!important;stroke-width:1.5!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-avatar{flex:0 0 auto!important;width:40px!important;height:40px!important;margin-right:4px!important;fill:none!important;stroke:#0859d8!important;stroke-width:1.5!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-main{flex:1 1 auto!important;min-width:0!important;display:flex!important;flex-direction:column!important;gap:3px!important}
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-title{margin:0!important;padding:0!important;color:#081d3a!important;font:700 19px/1.25 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
 /* PC: benefits on one plain line */
@@ -71,9 +71,9 @@ html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:160px!important;height:46px!important;min-height:0!important;padding:0 22px!important;box-sizing:border-box!important;
   border-radius:8px!important;font:700 15px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;box-shadow:none!important;transition:background-color .15s ease,border-color .15s ease!important;
 }
-html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--primary{border:1px solid #0858d6!important;background:#0858d6!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--primary{border:1px solid #0859d8!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--ghost{border:1px solid #c5ccd6!important;background:#fff!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;box-shadow:0 1px 2px rgba(16,24,40,.08)!important}
-html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn:focus-visible{outline:2px solid #0858d6!important;outline-offset:3px!important}
+html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important}
 @media(hover:hover){
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--primary:hover{background:#0749b3!important;border-color:#0749b3!important}
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn--ghost:hover{border-color:#8f9aa8!important}

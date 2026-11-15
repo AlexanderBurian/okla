@@ -22,12 +22,7 @@
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-height:3em!important;color:#001744!important;font:600 14px/1.5 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-price{color:#e73b49!important;font:700 20px/1.2 "Open Sans",Arial,sans-serif!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form{margin:4px 0 0!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;height:34px!important;min-height:0!important;width:auto!important;padding:0 18px 0 16px!important;border:0!important;border-radius:0!important;background:#5ed312!important;color:#121212!important;-webkit-text-fill-color:#121212!important;font:400 15px/15px "Open Sans","Segoe UI",Arial,sans-serif!important;text-transform:none!important;box-shadow:none!important;cursor:pointer!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart svg{display:none!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart span::before,html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::after{content:none!important;display:none!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::before{content:""!important;display:block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin-right:7px!important;background:#fff!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important}
   @media(hover:hover){
-    html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:hover{background:#52bd0f!important}
     html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name:hover{text-decoration:underline!important}
   }
   html body.in-kosik #okla-cart-recs:not(#ocr-a){overflow:visible!important}
@@ -43,3 +38,13 @@
   html body.ordering-process #content-wrapper ol.cart-header:not(#ocr-a#ocr-b){margin-top:20px!important;padding-top:0!important}
 }
 html body.in-kosik #okla-cart-recs#okla-cart-recs .ocr-form .btn-cart svg:not(#ocr-a#ocr-b#ocr-c#ocr-d){display:none!important}
+
+/* the cards' "Do košíku": the same white outlined button as every product card on PC */
+@media(min-width:992px){
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j){display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:35px!important;min-height:0!important;width:auto!important;padding:0 14px!important;border:1px solid #d9e4f9!important;border-radius:6px!important;background:#fff!important;background-color:#fff!important;background-image:none!important;color:#164194!important;-webkit-text-fill-color:#164194!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;box-shadow:none!important;cursor:pointer!important;transition:background-color .15s ease,border-color .15s ease!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j):not(:disabled):is(:hover,:focus-visible){background:#c8d2e5!important;background-color:#c8d2e5!important;border-color:#c8d2e5!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j) *{color:#164194!important;-webkit-text-fill-color:#164194!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart svg{display:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::after{content:none!important;display:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::before{content:""!important;display:block!important;flex:0 0 19px!important;width:19px!important;height:19px!important;margin:0!important;background:currentColor!important;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat!important;mask:var(--okla-card-btn-cart) center/contain no-repeat!important}
+}

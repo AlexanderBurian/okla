@@ -61,7 +61,7 @@ if(!scan()&&window.MutationObserver){
   '@media (max-width:466px){:host(.okla-ai-away) .panel:not(.open)+.launcher{transform:translateX(calc(100% + 24px))!important;transition:opacity .2s ease,transform .5s cubic-bezier(.16,1,.3,1),visibility 0s linear .5s!important}}';
  function overlayOpen(){
   var b=document.body;
-  if(root.classList.contains('okla-m-lock')||root.classList.contains('okla-search-open')||root.classList.contains('okla-cd-lock'))return true;
+  if(root.classList.contains('okla-m-lock')||root.classList.contains('okla-search-open')||root.classList.contains('okla-cm-lock'))return true;
   if(b&&(b.classList.contains('okla-v61-locked')||b.classList.contains('login-window-visible')))return true;
   var cp=document.getElementById('okla-cart-preview');if(cp&&cp.classList.contains('is-open'))return true;
   return false;

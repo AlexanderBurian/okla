@@ -1,7 +1,7 @@
 /* OKLA V91 – smart style for the pages Shoptet still renders natively:
    empty cart, search results, the cookie consent bar and the assistant widget's
    visibility. Chrome (header, nav, footer, product cards) is styled elsewhere;
-   this only covers the gaps. Brand blue: #0855d0. */
+   this only covers the gaps. Brand blue: #0859d8. */
 
 /* ---------- Empty cart ---------- */
 /* The cart row is a float grid (display:block), so the full-width override has
@@ -42,7 +42,7 @@ html body .cart-empty .empty-cart-boxes ul li a{
   font-size:14px!important;font-weight:600!important;color:#141923!important;text-decoration:none!important;
 }
 html body .cart-empty .empty-cart-boxes ul li a:before{
-  content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#0855d0;
+  content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#0859d8;
 }
 html body .cart-empty .empty-cart-boxes ul li a:hover{color:#0646aa!important}
 html body .cart-empty .empty-cart-boxes .search-form{display:flex!important;gap:8px!important;flex-wrap:nowrap!important;max-width:460px!important}
@@ -52,11 +52,11 @@ html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){
 /* Empty-cart search button -> brand blue (Shoptet paints it purple). */
 html body .cart-empty .search .btn,
 html body .cart-empty form button[type="submit"]{
-  background:#0855d0!important;background-image:none!important;border:1px solid #0855d0!important;
+  background:#0859d8!important;background-image:none!important;border:1px solid #0859d8!important;
   color:#fff!important;border-radius:8px!important;font-weight:700!important;box-shadow:none!important;text-shadow:none!important;
 }
 html body .cart-empty .search .btn:hover,
-html body .cart-empty form button[type="submit"]:hover{background:#074cb9!important;border-color:#074cb9!important;color:#fff!important}
+html body .cart-empty form button[type="submit"]:hover{background:#0751c6!important;border-color:#0751c6!important;color:#fff!important}
 
 /* ---------- Category listing ----------
    The native "Nejprodávanější" featured block (small heading + a loose inline row
@@ -245,7 +245,7 @@ html body.in-vyhledavani #content > h2,html body.type-search #content > h2{
   font-size:26px!important;line-height:1.25!important;font-weight:800!important;color:#0b2540!important;margin:4px 0 22px!important;
 }
 html body.in-vyhledavani #content > h2 a,html body.type-search #content > h2 a,
-html body.in-vyhledavani #content > h2 strong,html body.type-search #content > h2 strong{color:#0855d0!important}
+html body.in-vyhledavani #content > h2 strong,html body.type-search #content > h2 strong{color:#0859d8!important}
 /* Section labels (Články / Produkty): small uppercase navy caps, evenly spaced. */
 html body.in-vyhledavani .search-products-heading,html body.type-search .search-products-heading,
 html body.in-vyhledavani .search-results-group h4,html body.type-search .search-results-group h4{
@@ -272,9 +272,9 @@ html body.in-vyhledavani .search-results-group-list li a:after,html body.type-se
   content:"\203A"!important;margin-left:auto!important;color:#9aa7b8!important;font-size:20px!important;line-height:1!important;
 }
 html body.in-vyhledavani .search-results-group-list li a:hover,html body.type-search .search-results-group-list li a:hover{
-  border-color:#0855d0!important;box-shadow:0 3px 10px rgba(6,29,58,.1)!important;color:#0646aa!important;
+  border-color:#0859d8!important;box-shadow:0 3px 10px rgba(6,29,58,.1)!important;color:#0646aa!important;
 }
-html body.in-vyhledavani .search-results-group-list li a:hover:after,html body.type-search .search-results-group-list li a:hover:after{color:#0855d0!important}
+html body.in-vyhledavani .search-results-group-list li a:hover:after,html body.type-search .search-results-group-list li a:hover:after{color:#0859d8!important}
 /* "Zobrazit vše (N)" link: keep it clear of the list above (it was cramped). */
 html body.in-vyhledavani .search-results-group .display-results-group,html body.type-search .search-results-group .display-results-group{
   display:inline-block!important;margin:18px 0 4px!important;padding:0!important;
@@ -319,7 +319,7 @@ html body .siteCookies.js-siteCookies .siteCookies__text p{
 }
 html body .siteCookies.js-siteCookies .siteCookies__text p:last-child{margin-bottom:0!important}
 html body .siteCookies.js-siteCookies .siteCookies__text a,
-html body .siteCookies.js-siteCookies .siteCookies__link{color:#0855d0!important;font-weight:600!important;text-decoration:underline!important}
+html body .siteCookies.js-siteCookies .siteCookies__link{color:#0859d8!important;font-weight:600!important;text-decoration:underline!important}
 html body .siteCookies.js-siteCookies .siteCookies__links{margin:14px 0 0!important;padding:0!important;column-span:all!important}
 html body .siteCookies.js-siteCookies .siteCookies__link{background:none!important;border:0!important;padding:0!important;font-size:13px!important;cursor:pointer!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{
@@ -332,9 +332,9 @@ html body .siteCookies.js-siteCookies .siteCookies__button{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
 }
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child{background:#fff!important;color:#0b2540!important;border:1.5px solid #cdd2da!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{border-color:#0855d0!important;color:#0855d0!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#0855d0!important;color:#fff!important;border:1.5px solid #0855d0!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#074cb9!important;border-color:#074cb9!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{border-color:#0859d8!important;color:#0859d8!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#0859d8!important;color:#fff!important;border:1.5px solid #0859d8!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0751c6!important;border-color:#0751c6!important}
 @media(max-width:720px){
   html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:16px!important;padding:20px 18px calc(18px + env(safe-area-inset-bottom))!important;max-height:86vh!important}
   html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
@@ -345,18 +345,18 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
 /* ---------- AI assistant visibility ----------
    Desktop: the assistant is always available on every page. Phones: it only
    shows in the calm state on the homepage and the newsroom/articles. On both,
-   it steps aside while a popup owns the screen (cookie bar or open cart drawer)
+   it steps aside while a popup owns the screen (cookie bar or open cart panel)
    so it never overlaps them. The mobile right-edge position lives in
    ai/v1/widget.js. */
 html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
-html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
+html body:has(#okla-cart-modal.is-open) okla-ai-chat{display:none!important}
 @media(max-width:767px){
   html body okla-ai-chat{display:none!important}
   html body.type-index okla-ai-chat,
   html body.in-newsroom okla-ai-chat,
   html body.okla-newsroom-page okla-ai-chat{display:block!important}
   html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
-  html body:has(#okla-cart-drawer.is-open) okla-ai-chat{display:none!important}
+  html body:has(#okla-cart-modal.is-open) okla-ai-chat{display:none!important}
 }
 
 /* ---------- Empty-cart search: OKLA autocomplete panel ----------
@@ -576,12 +576,12 @@ html body #content .empty-content-category p:last-child{margin:0!important}
 html body #content .empty-content-category .btn{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
   min-width:240px!important;height:52px!important;margin:0!important;padding:0 32px!important;box-sizing:border-box!important;
-  border:1px solid #085adc!important;border-radius:10px!important;background:#085adc!important;background-image:none!important;box-shadow:none!important;
+  border:1px solid #0859d8!important;border-radius:10px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#fff!important;text-decoration:none!important;
   transition:background-color .15s ease,border-color .15s ease!important;
 }
 /* hover: the shared subtle darkening of the green (8% towards black), never Shoptet's purple default */
-html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec-c#okla-ec-d#okla-ec-e#okla-ec-f):is(:hover,:focus,:focus-visible,:active){background:#0855cf!important;background-color:#0855cf!important;background-image:none!important;border-color:#0855cf!important;color:#fff!important;-webkit-text-fill-color:#fff!important;filter:none!important;box-shadow:none!important}
+html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec-c#okla-ec-d#okla-ec-e#okla-ec-f):is(:hover,:focus,:focus-visible,:active){background:#0859d8!important;background-color:#0859d8!important;background-image:none!important;border-color:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;filter:none!important;box-shadow:none!important}
 @media(max-width:767px){
   html body #content .empty-content-category{margin:16px 0 32px!important;padding:32px 20px 28px!important}
   html body #content .empty-content-category::before{width:64px!important;height:64px!important;background-size:64px 64px!important}
@@ -667,7 +667,7 @@ html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom button{
 }
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__uncheckLink{background:#fff!important;border:1.5px solid #0642A1!important;color:#0642A1!important;text-decoration:none!important}
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cookiesSetting__button--green){background:#0642A1!important;border:1px solid #0642A1!important;color:#fff!important}
-html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#085adc!important;border:1px solid #085adc!important;color:#fff!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#0859d8!important;border:1px solid #0859d8!important;color:#fff!important}
 html body #colorbox #cboxContent.cookiesDialog #cboxClose{
   position:fixed!important;top:calc(14px + env(safe-area-inset-top,0px))!important;right:14px!important;left:auto!important;bottom:auto!important;
   width:44px!important;height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;

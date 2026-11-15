@@ -21,7 +21,7 @@ html body #content .okla-empty-search button{
   width:40px!important;height:40px!important;min-width:0!important;margin:0!important;padding:0!important;
   border:0!important;border-radius:10px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;color:#fff!important;cursor:pointer!important;
 }
-html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#074cb9!important}
+html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#0751c6!important}
 html body #content .okla-empty-search button svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important}
 html body #content .okla-empty-chips{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important;margin:0!important;padding:0!important}
 html body #content .okla-empty-chip{

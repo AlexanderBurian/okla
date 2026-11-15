@@ -469,7 +469,7 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
     --okla-card-link: #1D54AA;
     --okla-card-navy: #102A54;
     --okla-card-price-bg: #EAF1F8;
-    --okla-card-cart: #074BB6;
+    --okla-card-cart: #0751c6;
     --okla-card-gap: 14px;
     --okla-card-padding: 16px;
   }

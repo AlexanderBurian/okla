@@ -20,14 +20,20 @@
    var price=el('div','ocr-price',it.price);
    card.append(img,name,price);
    /* the shop's own add-to-cart form with its button as on the homepage (same classes, same look) */
-   if(it.form){var f=it.form;f.classList.add('ocr-form');var btn=f.querySelector('button');if(btn)btn.classList.add('okla-button--filled','okla-button--green','okla-green-cta');card.appendChild(f)}
+   var f;if(it.form){f=it.form;f.classList.add('ocr-form');var fb=f.querySelector('button');if(fb)fb.classList.add('ocr-btn');card.appendChild(f)}
+   else if(it.code){var cf=el('div','ocr-form');var cb=el('button','btn btn-cart ocr-btn');cb.type='button';cb.appendChild(el('span','','Do košíku'));
+    cb.addEventListener('click',function(){var cart=window.shoptet&&window.shoptet.cartShared;if(!cart||typeof cart.addToCart!=='function'){location.href=it.href;return}cb.disabled=true;var r=cart.addToCart({productCode:it.code,amount:1});(r&&r.then?r:Promise.resolve()).then(function(){setTimeout(function(){location.reload()},600)})});
+    cf.appendChild(cb);card.appendChild(f=cf)}
    grid.appendChild(card);
   });
   /* a slider: the row scrolls sideways, the arrows move it by one view */
-  function arrow(cls,label,d,path){var a=el('button','ocr-arrow '+cls);a.type='button';a.setAttribute('aria-label',label);a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+path+'"/></svg>';a.addEventListener('click',function(){var card=grid.firstElementChild,step=card?card.getBoundingClientRect().width+parseFloat(getComputedStyle(grid).columnGap||0)*(card.getBoundingClientRect().width/card.offsetWidth||1):grid.clientWidth;var z=(card&&card.offsetWidth)?card.getBoundingClientRect().width/card.offsetWidth:1;grid.scrollTo({left:grid.scrollLeft+d*Math.round(grid.clientWidth/(z||1)*z),behavior:'smooth'})});return a}
+  /* arrows as on the homepage sliders: always there; past the end the row starts again */
+  function arrow(cls,label,d,path){var a=el('button','ocr-arrow '+cls);a.type='button';a.setAttribute('aria-label',label);a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+path+'"/></svg>';
+   a.addEventListener('click',function(){var max=grid.scrollWidth-grid.clientWidth;var card=grid.firstElementChild;var step=card?card.getBoundingClientRect().width+20:grid.clientWidth;var z=(card&&card.offsetWidth)?card.getBoundingClientRect().width/card.offsetWidth:1;step=step/(z||1);
+    var to=grid.scrollLeft+d*step;if(d>0&&grid.scrollLeft>=max-4)to=0;else if(d<0&&grid.scrollLeft<=4)to=max;grid.scrollTo({left:to,behavior:'smooth'})});return a}
   var prev=arrow('ocr-prev','Předchozí produkty',-1,'m15 18-6-6 6-6'),next=arrow('ocr-next','Další produkty',1,'m9 18 6-6-6-6');
-  function state(){prev.hidden=grid.scrollLeft<4;next.hidden=grid.scrollLeft+grid.clientWidth>=grid.scrollWidth-4}
-  grid.addEventListener('scroll',state,{passive:true});setTimeout(state,50);window.addEventListener('resize',state);
+  function state(){var scroll=grid.scrollWidth>grid.clientWidth+4;prev.hidden=next.hidden=!scroll}
+  setTimeout(state,50);window.addEventListener('resize',state);
   wrap.append(grid,prev,next);sec.appendChild(wrap);return sec;
  }
  function run(){
@@ -37,7 +43,7 @@
   fetch('/',{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(html){
    if(!html)return;
    var doc=new DOMParser().parseFromString(html,'text/html'),out=[],seen={};
-   ['#products-4','#products-1','#products-2'].forEach(function(sel){
+   ['#products-4','#products-1','#products-2','.products'].forEach(function(sel){
     doc.querySelectorAll(sel+' .product .p').forEach(function(p){
      if(out.length>=10)return;
      var a=p.querySelector('a.name'),im=p.querySelector('a.image img'),pr=p.querySelector('.price-final strong, .price-final'),f=p.querySelector('form.pr-action');
@@ -45,6 +51,14 @@
      var src=im&&(im.getAttribute('data-src')||im.getAttribute('src'))||'';if(/^data:/.test(src))src='';
      out.push({href:href,name:(a.textContent||'').replace(/\s+/g,' ').trim(),img:src,price:pr?(pr.textContent||'').replace(/\s+/g,' ').trim():'',form:f?document.importNode(f,true):null});
     });
+   });
+   /* fill the row (up to ten) from the product catalogue */
+   var cat=window.OKLA_V86_CATALOG||{};
+   Object.keys(cat).forEach(function(k){
+    if(out.length>=10)return;var p=cat[k];if(!p||!p.url||!p.price)return;
+    var href;try{href=new URL(p.url).pathname}catch(e){return}
+    if(seen[href]||have[href]||have[p.url])return;seen[href]=1;
+    out.push({href:href,name:p.name,img:p.image||'',price:String(Math.round(+p.price)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč',form:null,code:p.code});
    });
    if(out.length<3)return;
    var sec=build(out);cw.after(sec);
