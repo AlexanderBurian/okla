@@ -107,3 +107,17 @@ html body.type-index #content #okla-promo-deals{
   #okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 45%)!important}
   #okla-promo-deals .okla-campaign__card--flipper::after{right:0!important;top:14px!important;bottom:auto!important;width:46%!important;height:62%!important;background-position:right top!important;opacity:.24!important}
 }
+
+/* PC: no tower, a larger device. Phones: the tower fades into the scene (soft left and bottom edges). */
+@media(min-width:768px){
+  #okla-promo-deals .okla-campaign__card--flipper::after{content:none!important;display:none!important}
+  #okla-promo-deals .okla-campaign__flipper-stage{right:5.5%!important;top:157px!important;width:60%!important}
+}
+@media(min-width:768px) and (max-width:1200px){
+  #okla-promo-deals .okla-campaign__flipper-stage{right:3%!important;width:59%!important}
+}
+@media(max-width:767px){
+  #okla-promo-deals .okla-campaign__card--flipper::after{opacity:.3!important;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 45%),linear-gradient(180deg,#000 50%,transparent 100%)!important;-webkit-mask-composite:source-in!important;
+    mask-image:linear-gradient(90deg,transparent 0%,#000 45%),linear-gradient(180deg,#000 50%,transparent 100%)!important;mask-composite:intersect!important}
+}
