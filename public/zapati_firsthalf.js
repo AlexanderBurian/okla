@@ -245,7 +245,7 @@ var BUNDLES=[
  /* Homepage editorial blocks, the search field typing example searches */
  ['29-home-magazine','home',['v91/okla_news_home_datart.css','v91/okla_news_home_alza.css','v91/okla_home_brands.css','v91/okla_home_brands.js','v91/okla_home_retail_refresh.css','v91/okla_home_retail_refresh.js','v91/okla_search_typing.js']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */
- ['99-later','all',['v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js','v91/okla_cart_drawer.css','v91/okla_cart_drawer.js','okla_footer.js']]
+ ['99-later','all',['v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js','v91/okla_cart_modal.css','v91/okla_cart_modal.js','okla_footer.js']]
 ];
 /*@end*/
 
