@@ -45,15 +45,16 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
   window.addEventListener('orientationchange',function(){setTimeout(fit,60)});
  }catch(e){}
 })();
-/* Desktop (>=992 px): the whole page scales with the window, proportionally to
-   the 1920 px design - a 1366 px laptop shows the same page at 71 %, a 2560 px
-   monitor at 133 % - so the content takes the same share of the window on every
-   PC screen (from 992 px up to 3840 px).
+/* Desktop (>=992 px): the whole page scales DOWN with narrower windows,
+   proportionally to the 1920 px design - a 1366 px laptop shows the same page at
+   71 % - so the content keeps the same share of the window on smaller / lower
+   resolution screens. It never scales UP: windows of 1920 px and wider show the
+   page at its natural 100 % size, so wide and 4K monitors are not over-zoomed.
    The page itself (.overall-wrapper: header, content, footer) gets CSS zoom;
    overlays outside it (cart drawer, search, cookies, chat) keep their size.
    Scripts that measure the page divide by element.currentCSSZoom. */
 (function(){
- var REF=1920,MIN=992/1920,MAX=2,root=document.documentElement;
+ var REF=1920,MIN=992/1920,MAX=1,root=document.documentElement;
  var st=document.createElement('style');st.id='okla-desktop-scale';
  st.textContent='@media(min-width:992px){html.okla-dz-on .overall-wrapper,html.okla-dz-on body>#footer{zoom:var(--okla-dz)}}';
  (document.head||root).appendChild(st);

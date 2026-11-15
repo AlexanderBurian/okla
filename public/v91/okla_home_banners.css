@@ -107,7 +107,8 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 /* PC (≥768px): one hero slider like on phones - all the banners take turns in the top slot (Flipper Zero, the AI
    glasses, the endoscopes) with the same dots under it; the two smaller tiles under the hero are gone */
 @media (min-width:768px){
-  html body.type-index #content .banners-row:not(#okhb-a){display:block!important;padding-bottom:0!important;margin-top:14px!important}
+  /* A clear grey gap between the category menu and the hero island, so the island does not touch the menu (as on Best Buy). */
+  html body.type-index #content .banners-row:not(#okhb-a){display:block!important;padding-bottom:0!important;margin-top:26px!important}
   html body.type-index #content .banners-row:not(#okhb-a)>.col-sm-4{display:none!important}
   html body.type-index #content .banners-row:not(#okhb-a)>.col-sm-8{width:100%!important;max-width:100%!important;flex:none!important;float:none!important;padding:0!important}
   html body.type-index #content .banners-row:not(#okhb-a) #carousel{height:auto!important;min-height:0!important;overflow:visible!important;background:transparent!important;box-shadow:none!important}
@@ -123,7 +124,7 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 @media (min-width:768px){
   html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:5/2!important;border-radius:8px!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-size:cover!important;background-position:74% center!important}
-  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--endo .okla-hero__media{background-position:right 9% center,center!important;background-size:auto 90%,cover!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--endo .okla-hero__media{background-position:right 9% 62%,center!important;background-size:auto 90%,cover!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__text{width:46%!important;padding:0 4% 0 5%!important;gap:12px!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__title{font-size:44px!important;line-height:1.1!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__lead{font-size:18px!important;line-height:1.45!important}
@@ -140,5 +141,6 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
   html body.type-index #content#content .banners-row #carousel .carousel-inner:not(#okhb-a#okhb-b){height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important}
   /* 3:1 keeps the whole product in the picture (the PC photos are 1818x374) */
   html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:3/1!important}
-  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-position:90% center!important}
+  /* The product (the Flipper, the hand, the glasses) sits a little lower in the frame so it is not jammed against the top edge / the menu above. */
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-position:90% 62%!important}
 }
