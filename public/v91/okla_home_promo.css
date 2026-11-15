@@ -3,11 +3,11 @@
    content width (the page zoom keeps the share of the screen). The two cards' inner composition is kept from the
    supplied campaign; only the frame, font, width and buttons are brought to the OKLA style. */
 
-/* The island itself (a direct child of #content, so okla_islands.css gives it the standard 16px grey gap above). */
+/* No white wrapper (Best Buy style): the two cards sit directly on the grey page, each its own card, with a gap between
+   them. A direct child of #content, so okla_islands.css still gives it the standard grey gap above. */
 html body.type-index #content #okla-promo-deals{
-  background:#fff!important;border-radius:8px!important;padding:16px!important;box-sizing:border-box!important;
-  box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;
-  overflow:hidden!important;font-family:"Open Sans",Arial,sans-serif!important;color:#07101c!important
+  background:transparent!important;border:0!important;border-radius:0!important;padding:0!important;box-sizing:border-box!important;
+  box-shadow:none!important;overflow:visible!important;font-family:"Open Sans",Arial,sans-serif!important;color:#07101c!important
 }
 #okla-promo-deals *{box-sizing:border-box}
 #okla-promo-deals .okla-campaign__grid{display:grid!important;grid-template-columns:minmax(0,1.48fr) minmax(360px,1fr);gap:16px!important}
@@ -47,15 +47,15 @@ html body.type-index #content #okla-promo-deals{
 
 /* Phones: stack the two cards (the site keeps its own mobile layout otherwise). */
 @media(max-width:767px){
-  html body.type-index #content #okla-promo-deals{padding:12px!important}
-  #okla-promo-deals .okla-campaign__grid{grid-template-columns:1fr!important;gap:12px!important}
-  #okla-promo-deals .okla-campaign__card{min-height:470px!important;border-radius:12px!important}
+  html body.type-index #content #okla-promo-deals{padding:0!important}
+  #okla-promo-deals .okla-campaign__grid{grid-template-columns:1fr!important;gap:14px!important}
+  #okla-promo-deals .okla-campaign__card{min-height:420px!important;border-radius:12px!important}
   #okla-promo-deals .okla-campaign__flipper-copy{left:24px!important;top:31px!important;width:calc(100% - 48px)!important;align-items:flex-start!important;text-align:left!important}
   #okla-promo-deals .okla-campaign__brand{font-size:27px!important}
   #okla-promo-deals .okla-campaign__text{margin:14px 0 18px!important;font-size:15px!important}
   #okla-promo-deals .okla-campaign__flipper{left:50%!important;right:auto!important;top:auto!important;bottom:20px!important;width:320px!important;height:auto!important;max-height:210px!important;transform:translateX(-50%)!important}
   #okla-promo-deals .okla-campaign__fineprint{left:24px!important;bottom:16px!important}
-  #okla-promo-deals .okla-campaign__card--lilygo{min-height:520px!important}
+  #okla-promo-deals .okla-campaign__card--lilygo{min-height:460px!important}
   #okla-promo-deals .okla-campaign__lilygo-copy{width:90%!important;padding-top:27px!important}
   #okla-promo-deals .okla-campaign__lilygo-title{max-width:300px!important;margin-inline:auto!important;font-size:23px!important}
   #okla-promo-deals .okla-campaign__lilygo-text{max-width:300px!important}
