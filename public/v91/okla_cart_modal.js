@@ -1,6 +1,6 @@
 /* OKLA "added to cart" dialog (Alza style). After a product is added to the cart, a dialog opens over the dimmed page
    (centred on PC, full screen on phones): a green confirmation, the added product with a quantity stepper (it changes
-   the amount in the real Shoptet cart) and its price with and without VAT, up to eight products "bought together" as
+   the amount in the real Shoptet cart) and its price, up to eight products "bought together" as
    product cards, and two ways on. Replaces okla_cart_drawer.js (same triggers). */
 (function(){
  'use strict';
@@ -87,7 +87,7 @@
   priceBox.append(withVat,noVat);
   function paint(n){
    withVat.textContent=unit?money(unit*n):(p.priceText||'');
-   noVat.textContent=unit?'bez DPH '+money(unit*n/VAT):'';
+   
   }
   if(withStepper){
    var minus=el('button','okla-cm__step okla-cm__step--minus');minus.type='button';minus.setAttribute('aria-label','Ubrat kus');minus.appendChild(icon(MINUS));

@@ -124,3 +124,7 @@ html body.type-index #content #okla-promo-deals .okla-campaign__card--lilygo:not
 html body .cart-empty .empty-cart-boxes:not(#okis-a#okis-b#okis-c),
 html body .ohb-step:not(#okis-a#okis-b#okis-c),
 html body .ohb-card:not(:hover):not(#okis-a#okis-b#okis-c){box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+
+/* No VAT wording anywhere: the "without VAT" lines of the cart and recap stay hidden, and Shoptet's own
+   ex-VAT price lines are hidden too. */
+html body :is(.okla-alza-total__net-label,.okla-alza-total__net-value,.okla-recap-net,.okla-cart-summary__row[hidden],.price-additional,.price-wrapper .price-additional):not(#okis-a#okis-b){display:none!important}

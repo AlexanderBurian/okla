@@ -30,14 +30,14 @@
    holder.className='okla-alza-total';
    var label=document.createElement('span');
    label.className='okla-alza-total__net-label';
-   label.textContent='Celkem bez DPH';
+   label.textContent='';
    holder.appendChild(label);
    var net=document.createElement('span');
    net.className='okla-alza-total__net-value';
    holder.appendChild(net);
    var grossLabel=document.createElement('span');
    grossLabel.className='okla-alza-total__label';
-   grossLabel.textContent='Cena k úhradě s DPH';
+   grossLabel.textContent='Cena k úhradě';
    holder.appendChild(grossLabel);
    var value=document.createElement('strong');
    value.className='okla-alza-total__value';
@@ -76,8 +76,8 @@
    box=document.createElement('div');
    box.className='okla-cart-summary';
    box.innerHTML='<div class="okla-cart-summary__coupon"><button type="button" class="okla-cart-summary__toggle" aria-expanded="false">Využít slevový / dárkový poukaz</button><div class="okla-cart-summary__coupon-body" hidden></div></div>'+
-    '<div class="okla-cart-summary__totals"><div class="okla-cart-summary__row"><span>Celkem bez DPH</span><span class="okla-cart-summary__net"></span></div>'+
-    '<div class="okla-cart-summary__row okla-cart-summary__row--gross"><span>K úhradě s DPH</span><strong class="okla-cart-summary__gross"></strong></div></div>';
+    '<div class="okla-cart-summary__totals"><div class="okla-cart-summary__row" hidden><span></span><span class="okla-cart-summary__net"></span></div>'+
+    '<div class="okla-cart-summary__row okla-cart-summary__row--gross"><span>K úhradě</span><strong class="okla-cart-summary__gross"></strong></div></div>';
    inner.insertBefore(box,nav);
    var toggle=box.querySelector('.okla-cart-summary__toggle'),body=box.querySelector('.okla-cart-summary__coupon-body');
    toggle.addEventListener('click',function(){
@@ -112,7 +112,7 @@
  }
 
  /* Steps 2 and 3 (Alza recap): "2x name" lines, and the total split into
-    "K úhradě bez DPH" and "K úhradě s DPH". */
+    one "K úhradě" total (no VAT wording anywhere on the site). */
  function polishRecapAlza(){
   if(document.body.classList.contains('in-kosik'))return;
   document.querySelectorAll('.order-summary .cart-item').forEach(function(item){
@@ -140,11 +140,11 @@
   if(!net){
    net=document.createElement('div');
    net.className='okla-recap-net';
-   net.innerHTML='<span>K úhradě bez DPH</span><span class="okla-recap-net__value"></span>';
+   net.innerHTML='<span></span><span class="okla-recap-net__value"></span>';net.hidden=true;
    wrap.insertBefore(net,wrap.firstChild);
   }
   var label=wrap.querySelector('.price-wrapper .price-label');
-  if(label&&label.textContent!=='K úhradě s DPH')label.textContent='K úhradě s DPH';
+  if(label&&label.textContent!=='K úhradě')label.textContent='K úhradě';
   var v=amountOf(total.textContent);
   if(isFinite(v)){var t=money(v/1.21),node=net.querySelector('.okla-recap-net__value');if(node.textContent!==t)node.textContent=t}
  }

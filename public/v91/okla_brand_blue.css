@@ -15,14 +15,14 @@ html{accent-color:#0858d6}
 html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=submit],#orderFormButton):not(#okb-a#okb-b#okb-c#okb-d#okb-e),
 html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=submit],#orderFormButton):not(#okb-a#okb-b#okb-c#okb-d#okb-e) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 
-/* The one exception to the blue: every "Do košíku" button stays the DATART-like green (#54a40d, white text) -
+/* The one exception to the blue: every "Do košíku" button stays the DATART-like green (#2b9c3c, white text) -
    product cards, the product page, the desktop and phone buy bars, the cards in the added-to-cart panel.
    ("Pokračovat do košíku" and the checkout buttons are navigation and stay blue.) */
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h){
-  background:#54a40d!important;background-color:#54a40d!important;background-image:none!important;border-color:#54a40d!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+  background:#2b9c3c!important;background-color:#2b9c3c!important;background-image:none!important;border-color:#2b9c3c!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
 }
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h):is(:hover,:focus-visible,:active){
-  background:#4a920b!important;background-color:#4a920b!important;border-color:#4a920b!important;
+  background:#23852f!important;background-color:#23852f!important;border-color:#23852f!important;
 }
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 

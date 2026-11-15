@@ -1,7 +1,6 @@
 /* OKLA product page, Alza-like order of the buying column (PC and phones), in OKLA's own look:
    brand link, title with a share button beside it, short description and "show full description",
-   "Doporučujeme přidat k nákupu" box, a grey stock box (stock, delivery, returns), the price with the price
-   without VAT, then the buying row and the benefits. Only moves the existing native elements (the purchase form
+   "Doporučujeme přidat k nákupu" box, a stock card (stock, delivery, returns), the price, then the buying row and the benefits. Only moves the existing native elements (the purchase form
    and its listeners stay the same) and adds two small pieces of text. */
 (function(){
  'use strict';
@@ -11,6 +10,7 @@
  function el(tag,cls,html){var n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n}
  var TRUCK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>';
  var RETURN='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7 5 11l4 4"/><path d="M5 11h9.5a4.5 4.5 0 0 1 0 9H11"/></svg>';
+ var TRUCK_BADGE='<span class="okla-dalza__badge">'+TRUCK+'</span>',RETURN_BADGE='<span class="okla-dalza__badge">'+RETURN+'</span>',CHEV='<svg class="okla-dalza__chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
  var SHARE='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/></svg>';
 
  function money(n){n=Math.round(n);return n>0?String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+',-':''}
@@ -34,20 +34,15 @@
   var after=link||q('.p-short-description',w)||h;
   if(xsell){after.after(xsell);after=xsell}
 
-  /* the grey stock box: stock, delivery and returns */
+  /* the stock card (OKLA's own take): three rows - stock with a live dot, delivery & payment, returns */
   var box=el('div','okla-dalza__stock');
-  after.after(box);box.appendChild(avail);
-  box.appendChild(el('a','okla-dalza__line',TRUCK+'<span>Doprava a platba – vyberete si v košíku</span>'));box.lastChild.href='/doprava-a-platba/';
-  var strip=el('div','okla-dalza__strip',RETURN+'<span>Odstoupení od smlouvy do 14 dnů bez udání důvodu</span><a href="/vraceni-zbozi-a-odstoupeni/">Info</a>');
-  box.appendChild(strip);
+  after.after(box);
+  var r1=el('div','okla-dalza__row okla-dalza__row--stock');r1.appendChild(el('span','okla-dalza__dot'));r1.appendChild(avail);box.appendChild(r1);
+  box.appendChild(el('a','okla-dalza__row',TRUCK_BADGE+'<span class="okla-dalza__txt"><strong>Doprava a platba</strong><small>Způsob si vyberete v košíku</small></span>'+CHEV));box.lastChild.href='/doprava-a-platba/';
+  box.appendChild(el('a','okla-dalza__row',RETURN_BADGE+'<span class="okla-dalza__txt"><strong>14 dní na vrácení</strong><small>Bez udání důvodu</small></span>'+CHEV));box.lastChild.href='/vraceni-zbozi-a-odstoupeni/';
 
-  /* price block: price and the price without VAT */
+  /* price block */
   var pb=el('div','okla-dalza__price');box.after(pb);pb.appendChild(price);
-  var holder=q('.price-final-holder',price)||q('.price-final',price);
-  var nv=el('div','okla-dalza__novat');pb.appendChild(nv);
-  function paintNoVat(){var v=num(holder&&holder.textContent);nv.textContent=v?'bez DPH '+money(v/VAT):''}
-  paintNoVat();
-  if(holder&&window.MutationObserver)new MutationObserver(paintNoVat).observe(holder,{childList:true,characterData:true,subtree:true});
 
   pb.after(cart);
   var benefits=q('.ok86-benefits',w);if(benefits)cart.after(benefits);

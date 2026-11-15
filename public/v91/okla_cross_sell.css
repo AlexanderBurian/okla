@@ -51,4 +51,4 @@
  .okla-xsell__price{font-size:14px}
 }
 /* "(+N)" next to the product price: how many companion products are added to the purchase */
-html body .okla-xsell-plus{display:inline-block!important;margin-left:10px!important;color:#0858d6!important;-webkit-text-fill-color:#0858d6!important;font:700 18px/1 "Open Sans",Arial,sans-serif!important;vertical-align:middle!important}
+html body .okla-xsell-plus{display:inline-block!important;margin-left:8px!important;color:#111!important;-webkit-text-fill-color:#111!important;font:600 13px/1 "Open Sans",Arial,sans-serif!important;vertical-align:middle!important}
