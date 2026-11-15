@@ -1,0 +1,35 @@
+/* EXPERIMENT (Best Buy style): on PC the header row, the sticky (pinned) header and the category bar are the logo's
+   blue (#0047ff) with white text and icons; the logo gets a white outline. The search field and the dropdown panels
+   stay white. To undo: remove this file from bundle 28-last in public/zapati_firsthalf.js and rebuild. */
+@media(min-width:992px){
+  /* the blue */
+  html body #header:not(#okhb-a#okhb-b#okhb-c),
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .header-top,
+  html body #header:not(#okhb-a#okhb-b#okhb-c)>.container.navigation-wrapper,
+  html.okla-desktop-sticky body #header:not(#okhb-a#okhb-b#okhb-c) .header-top{background:#0047ff!important;background-color:#0047ff!important;background-image:none!important;border-color:#0047ff!important;box-shadow:none!important}
+
+  /* logo: a white outline that follows its shape */
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .site-name img,
+  html body #header:not(#okhb-a#okhb-b#okhb-c) a[data-testid="linkWebsiteLogo"] img,
+  html body #header:not(#okhb-a#okhb-b#okhb-c) img[src*="okla-logo"]{
+    filter:drop-shadow(1.5px 0 0 #fff) drop-shadow(-1.5px 0 0 #fff) drop-shadow(0 1.5px 0 #fff) drop-shadow(0 -1.5px 0 #fff)!important;
+  }
+
+  /* header row: login and cart in white (the search field keeps its own look) */
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .navigation-buttons :is(a,span,strong,b,small,button):not(.okla-reference-cart-badge):not(:is(.popup-widget,[class*="widget"],[class*="dropdown"],[class*="okla-cp"],[class*="popup"]) *){color:#fff!important;-webkit-text-fill-color:#fff!important}
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .navigation-buttons :is(svg,svg *):not(:is(.popup-widget,[class*="widget"],[class*="dropdown"],[class*="okla-cp"],[class*="popup"]) *){color:#fff!important;stroke:#fff!important}
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .navigation-buttons svg [fill]:not([fill="none"]):not(:is(.popup-widget,[class*="widget"],[class*="dropdown"],[class*="okla-cp"],[class*="popup"]) *){fill:#fff!important}
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .navigation-buttons img:not(:is(.popup-widget,[class*="widget"],[class*="dropdown"],[class*="okla-cp"],[class*="popup"]) *){filter:brightness(0) invert(1)!important}
+  html body #header:not(#okhb-a#okhb-b#okhb-c) .navigation-buttons .okla-reference-cart-badge{background:#fff!important;color:#0047ff!important;-webkit-text-fill-color:#0047ff!important}
+
+  /* category bar: the band in blue, white labels, faint dividers */
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d)::before{background:#0047ff!important;border-top:1px solid rgba(255,255,255,.22)!important;border-bottom:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-link,
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-li.is-open .okcb-link,
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-link:is(:hover,:focus-visible){background:transparent!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-li.is-open .okcb-link,
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-link:is(:hover,:focus-visible){text-decoration:underline!important;text-underline-offset:4px!important;text-decoration-thickness:2px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-li:not(:last-child)::after{background:rgba(255,255,255,.25)!important}
+  /* the panel under the bar stays white (its own text colours) */
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c#okcb-d) .okcb-panel :is(a,span,strong,b){-webkit-text-fill-color:currentColor!important}
+}
