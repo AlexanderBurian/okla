@@ -1,7 +1,7 @@
 import Groq from "groq-sdk";
 import { budgetOf, normalize } from "./knowledge.js";
 import { formatPrice } from "./liveCatalog.js";
-import { toGroqMessages } from "./prompt.js";
+import { LEAN_BUDGET, NORMAL_BUDGET, toGroqMessages, type ContextBudget } from "./prompt.js";
 import type { ChatContext, ChatEngine, KnowledgeItem } from "./types.js";
 
 const wait = (milliseconds: number) => new Promise((resolve) => setTimeout(resolve, milliseconds));
@@ -176,18 +176,30 @@ export class GroqEngine implements ChatEngine {
     this.client = new Groq({ apiKey });
   }
 
-  async *stream(context: ChatContext): AsyncIterable<string> {
-    const completion = await this.client.chat.completions.create({
+  private create(context: ChatContext, budget: ContextBudget, lean: boolean) {
+    return this.client.chat.completions.create({
       model: this.model,
-      messages: toGroqMessages(context.message, context.history, context.knowledge, context.pageItem, context.catalog, context.lang),
+      messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget),
       /* a little more variety in wording, still factual */
       temperature: 0.55,
       top_p: 0.9,
-      max_completion_tokens: 1200,
+      max_completion_tokens: lean ? 650 : 900,
       /* gpt-oss "thinks" before it answers: a short think keeps the first words quick */
       ...(/gpt-oss/i.test(this.model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
       stream: true
-    }, { signal: context.signal });
+    }, { signal: context.signal, maxRetries: 0 });
+  }
+
+  async *stream(context: ChatContext): AsyncIterable<string> {
+    let completion;
+    try {
+      completion = await this.create(context, NORMAL_BUDGET, false);
+    } catch (error) {
+      /* too big for the account's per-minute token limit (413) or over it right now (429): once more, lean */
+      const status = (error as { status?: number }).status;
+      if (context.signal.aborted || (status !== 413 && status !== 429)) throw error;
+      completion = await this.create(context, LEAN_BUDGET, true);
+    }
 
     for await (const chunk of completion) {
       if (context.signal.aborted) return;
