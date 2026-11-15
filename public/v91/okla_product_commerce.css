@@ -231,45 +231,72 @@ html body.ok89-detail .okla-dbb.okla-dbb .okla-dbb__btn:not(.is-watch):not(:disa
  background-color:#3f9200!important;
 }
 
-/* ===== Product previews (listing / carousel cards) - DATART-style "Do košíku" =====
-   A plain green rectangle (square corners, no icon), white label, centred under the price, one fixed size in every
-   state (rest, card hover, button hover, focus, press), so it never changes width. Every other button keeps the
-   site's 8px corners (okla_cta_shape.js leaves these to this CSS). */
+/* ===== Product previews (listing / carousel cards) - "Do košíku" =====
+   PC: a white outlined button (light blue 1px edge), navy cart pictogram and bold navy label; on hover it fills with a
+   grey-blue and the edge takes exactly the same colour, so the outline disappears into the fill.
+   Phones (Alza style): a full-width strip along the bottom edge of the card, divided from the card by a thin line,
+   green pictogram and green label, no fill.
+   One fixed size in every state (rest, card hover, button hover, focus, press), so it never changes width.
+   okla_cta_shape.js leaves these buttons to this CSS. */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button),
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled),
 html body #content#content .product:hover:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:hover){
  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;
  box-sizing:border-box!important;width:auto!important;min-width:0!important;max-width:100%!important;flex:0 0 auto!important;align-self:center!important;justify-self:center!important;
  height:var(--okla-card-btn-h)!important;min-height:var(--okla-card-btn-h)!important;max-height:var(--okla-card-btn-h)!important;margin:0 auto!important;padding:var(--okla-card-btn-pad)!important;
- border:0!important;border-radius:0!important;-webkit-border-radius:0!important;
- background:var(--okla-commerce-cart)!important;background-color:var(--okla-commerce-cart)!important;background-image:none!important;
- color:#fff!important;-webkit-text-fill-color:#fff!important;
- font:400 var(--okla-card-btn-fs)/1 "Open Sans","Segoe UI",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;
- box-shadow:none!important;text-shadow:none!important;transform:none!important;opacity:1!important;
- transition:background-color .15s ease!important;
+ border:1px solid var(--okla-card-btn-edge)!important;border-radius:var(--okla-card-btn-radius)!important;-webkit-border-radius:var(--okla-card-btn-radius)!important;
+ background:var(--okla-card-btn-bg)!important;background-color:var(--okla-card-btn-bg)!important;background-image:none!important;
+ color:var(--okla-card-btn-ink)!important;-webkit-text-fill-color:var(--okla-card-btn-ink)!important;
+ font:var(--okla-card-btn-fw) var(--okla-card-btn-fs)/1 "Open Sans","Segoe UI",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;white-space:nowrap!important;
+ box-shadow:none!important;text-shadow:none!important;transform:none!important;opacity:1!important;outline:0!important;
+ transition:background-color .15s ease,border-color .15s ease!important;
 }
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:disabled):is(:hover,:focus-visible,:active){
- background:var(--okla-commerce-cart-hover)!important;background-color:var(--okla-commerce-cart-hover)!important;
+ background:var(--okla-card-btn-bg-hover)!important;background-color:var(--okla-card-btn-bg-hover)!important;border-color:var(--okla-card-btn-bg-hover)!important;
 }
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):disabled{opacity:.55!important;cursor:not-allowed!important}
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) svg,
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) i{display:none!important}
-/* the cart pictogram is drawn by CSS (a mask in the label colour), so it is there from the first paint and never
-   changes the button's width */
+/* the cart pictogram is drawn by CSS (a filled cart, as a mask in the label colour), so it is there from the first
+   paint and never changes the button's width */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button)::before{
- content:""!important;display:block!important;position:static!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin:0 7px 0 0!important;padding:0!important;
- border:0!important;background:currentColor!important;background-image:none!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;transform:none!important;opacity:1!important;
+ content:""!important;display:block!important;position:static!important;flex:0 0 var(--okla-card-btn-icon)!important;width:var(--okla-card-btn-icon)!important;height:var(--okla-card-btn-icon)!important;margin:0 var(--okla-card-btn-gap) 0 0!important;padding:0!important;
+ border:0!important;background:currentColor!important;background-image:none!important;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat!important;mask:var(--okla-card-btn-cart) center/contain no-repeat!important;transform:none!important;opacity:1!important;
 }
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button)::after{content:none!important;display:none!important}
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) :is(span,strong,b){
- display:inline!important;position:static!important;margin:0!important;padding:0!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:inherit!important;
+ display:inline!important;position:static!important;margin:0!important;padding:0!important;color:inherit!important;-webkit-text-fill-color:currentColor!important;font:inherit!important;
 }
 /* the button sits centred in its row */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{text-align:center!important}
 /* One size per device, set once as variables. (The phone size used to be a second rule, and the "card is hovered"
    variant of the main rule outranked it: on a phone a tap leaves the card hovered, so its button grew from 30 to 34 px.) */
-:root{--okla-card-btn-h:34px;--okla-card-btn-pad:0 18px 0 16px;--okla-card-btn-fs:15px}
-@media(max-width:767px){:root{--okla-card-btn-h:30px;--okla-card-btn-pad:0 14px 0 12px;--okla-card-btn-fs:13px}}
+:root{
+ --okla-card-btn-h:35px;--okla-card-btn-pad:0 14px;--okla-card-btn-fs:14px;--okla-card-btn-fw:700;--okla-card-btn-radius:6px;
+ --okla-card-btn-icon:19px;--okla-card-btn-gap:8px;
+ --okla-card-btn-bg:#fff;--okla-card-btn-edge:#d9e4f9;--okla-card-btn-ink:#164194;--okla-card-btn-bg-hover:#c8d2e5;
+ --okla-card-btn-cart:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z'/%3E%3C/svg%3E");
+}
+@media(max-width:767px){
+ :root{--okla-card-btn-h:44px;--okla-card-btn-pad:0 10px;--okla-card-btn-fs:15px;--okla-card-btn-fw:400;--okla-card-btn-radius:0;--okla-card-btn-icon:21px;--okla-card-btn-gap:8px;
+  --okla-card-btn-bg:#fff;--okla-card-btn-edge:transparent;--okla-card-btn-ink:var(--okla-commerce-cart);--okla-card-btn-bg-hover:#f3f8ee}
+ /* the strip runs edge to edge along the card's bottom: it is placed on the card itself, the card keeps room for it */
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p{position:relative!important;padding-bottom:calc(var(--okla-card-btn-h) + 14px)!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p>.p-in{position:static!important}
+ /* nothing between the card and the strip may become its containing block (the tools row was nudged with a transform) */
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools,
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools form{position:static!important;transform:none!important;overflow:visible!important;contain:none!important;filter:none!important}
+ /* the tools row is empty once the strip leaves it, so it takes no room */
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{height:0!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button),
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled),
+ html body #content#content .product:hover:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:hover),
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:disabled):is(:hover,:focus-visible,:active){
+  position:absolute!important;left:0!important;right:0!important;bottom:0!important;top:auto!important;z-index:2!important;
+  width:100%!important;max-width:none!important;margin:0!important;
+  border:0!important;border-top:1px solid #e6e9ee!important;
+ }
+}
 /* the same colours as the reference: red price, amber stars, dark navy name */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .price-final,
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .price-final *{color:var(--okla-commerce-price)!important;-webkit-text-fill-color:var(--okla-commerce-price)!important;font-weight:700!important}
@@ -287,20 +314,22 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .ratings
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) a.name,
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) a.name *{color:#001744!important;-webkit-text-fill-color:#001744!important}
 
-/* the cart drawer's suggested products: the same button */
-html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d),
-html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):is(:hover,:focus,:focus-visible,:active){
- display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;
- border:0!important;border-radius:0!important;background:var(--okla-commerce-cart)!important;background-image:none!important;
- color:#fff!important;-webkit-text-fill-color:#fff!important;box-shadow:none!important;transform:none!important;
-}
-html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):not(:disabled):is(:hover,:focus-visible,:active){background:var(--okla-commerce-cart-hover)!important}
-html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) :is(span,strong,b,small){color:#fff!important;-webkit-text-fill-color:#fff!important}
-html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) svg{display:none!important}
-html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d)::before{
- content:""!important;display:block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin:0 7px 0 0!important;
- background:currentColor!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;
-}
+ /* the cart drawer's suggested products: the same outlined button as the PC cards (white, light blue edge, navy;
+    on hover a grey-blue fill with the edge in exactly the fill's colour) */
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d),
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):is(:hover,:focus,:focus-visible,:active){
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;
+  border:1px solid #d9e4f9!important;border-radius:6px!important;background:#fff!important;background-color:#fff!important;background-image:none!important;
+  color:#164194!important;-webkit-text-fill-color:#164194!important;font-weight:700!important;box-shadow:none!important;transform:none!important;outline:0!important;
+  transition:background-color .15s ease,border-color .15s ease!important;
+ }
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d):not(:disabled):is(:hover,:focus-visible,:active){background:#c8d2e5!important;background-color:#c8d2e5!important;border-color:#c8d2e5!important}
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) :is(span,strong,b,small){color:inherit!important;-webkit-text-fill-color:currentColor!important}
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d) svg{display:none!important}
+ html body #okla-cart-drawer#okla-cart-drawer .okla-cd__card-btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d)::before{
+  content:""!important;display:block!important;flex:0 0 17px!important;width:17px!important;height:17px!important;margin:0 7px 0 0!important;
+  background:currentColor!important;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat!important;mask:var(--okla-card-btn-cart) center/contain no-repeat!important;
+ }
 /* phones: the drawer's two big buttons keep their labels on one line in Open Sans */
 @media(max-width:767px){
  html body #okla-cart-drawer#okla-cart-drawer .okla-cd__btn:not(#okla-pc-a#okla-pc-b#okla-pc-c#okla-pc-d){font-size:14px!important;white-space:nowrap!important;padding-left:8px!important;padding-right:8px!important}

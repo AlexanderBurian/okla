@@ -295,7 +295,7 @@ function constrainCards(){
  document.querySelectorAll('main#content .okla-slider-shell .product').forEach(function(product){
    const b=product.querySelector('.p-tools .btn-cart');
    if(b){
-     b.style.setProperty('position','static','important');
+     /* no inline position: the phone card's cart strip is placed by okla_product_commerce.css */
      b.style.setProperty('float','none','important');
      b.style.setProperty('transform','none','important');
      /* its size comes from CSS (okla_product_commerce.css) - setting it here made it jump after load */

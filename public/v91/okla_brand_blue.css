@@ -18,13 +18,13 @@ html body .okla-step-nav :is(.next-step-forward,.next-step-finish,button[type=su
 /* The one exception to the blue: every "Do košíku" button stays the DATART-like green (#54a40d, white text) -
    product cards, the product page, the desktop and phone buy bars, the cards in the added-to-cart panel.
    ("Pokračovat do košíku" and the checkout buttons are navigation and stay blue.) */
-html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,#okla-cart-drawer .okla-cd__card-btn,.product .p-tools .btn-cart,.product .p-tools .add-to-cart-button,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h){
+html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h){
   background:#54a40d!important;background-color:#54a40d!important;background-image:none!important;border-color:#54a40d!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
 }
-html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,#okla-cart-drawer .okla-cd__card-btn,.product .p-tools .btn-cart,.product .p-tools .add-to-cart-button,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h):is(:hover,:focus-visible,:active){
+html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h):is(:hover,:focus-visible,:active){
   background:#4a920b!important;background-color:#4a920b!important;border-color:#4a920b!important;
 }
-html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,#okla-cart-drawer .okla-cd__card-btn,.product .p-tools .btn-cart,.product .p-tools .add-to-cart-button,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 
 /* The footer content on a plain white background (an island on the grey page) */
 html body :is(#footer .container,#okla-footer-shell,#okla-footer-content,#okla-footer-links,#footer .footer-bottom,#footer .footer-rows,#footer .custom-footer):not(#okf-a#okf-b#okf-c){background-color:#fff!important}
