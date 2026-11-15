@@ -45,8 +45,6 @@
   var amt=q('.availability-amount',avail);
   function tidy(){if(!amt)return;var t=amt.textContent,n=t.replace(/^\s*\((.*)\)\s*$/,'$1').replace(/>\s*(\d)/,'> $1');if(n!==t)amt.textContent=n}
   tidy();if(amt&&window.MutationObserver)new MutationObserver(tidy).observe(amt,{childList:true,characterData:true,subtree:true});
-  box.appendChild(el('a','okla-dalza__row',TRUCK_BADGE+'<span class="okla-dalza__txt"><strong>Doprava a platba</strong><small>Způsob si vyberete v košíku</small></span>'+CHEV));box.lastChild.href='/doprava-a-platba/';
-  box.appendChild(el('a','okla-dalza__row',RETURN_BADGE+'<span class="okla-dalza__txt"><strong>14 dní na vrácení</strong><small>Bez udání důvodu</small></span>'+CHEV));box.lastChild.href='/vraceni-zbozi-a-odstoupeni/';
 
   /* price block */
   var pb=el('div','okla-dalza__price');box.after(pb);pb.appendChild(price);
