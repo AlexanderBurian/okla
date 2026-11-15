@@ -15,8 +15,11 @@
   /* the breadcrumbs are the top of the page's white island (the white runs up to them) */
   html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){background:#fff!important;box-shadow:none!important;margin:0 auto!important;border-radius:0!important;padding:8px 20px 0!important;box-sizing:border-box!important}
   /* the content: an island (rounded white card) on every page but the homepage */
-  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:0!important;border:0!important;border-radius:0 0 8px 8px!important;background:#fff!important;box-shadow:none!important;clip-path:none!important;overflow:hidden!important}
-  html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}
+  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:16px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important;clip-path:none!important;overflow:hidden!important}
+  html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:16px!important;border-top-left-radius:8px!important;border-top-right-radius:8px!important}
+  /* Homepage keeps its per-block islands, so its content-wrapper stays flush (no extra gap above the search). */
+  html body.type-index .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}
+  html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important;border-radius:0!important}
 
   /* ---- homepage: every block its own island ---- */
   html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b){background:transparent!important;border-radius:0!important;overflow:visible!important;margin-top:0!important}
@@ -69,8 +72,9 @@
   html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){box-shadow:none!important}
   html body.type-index #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c){box-shadow:0 -1px 2px rgba(16,24,40,.05)!important}
   /* the lower part of a joined island shows its shadow only at the sides and bottom (no line at the join) */
-  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c){clip-path:inset(0 -12px -12px -12px)!important}
+  /* the detached content island shows its soft shadow on all four sides */
+  html body:not(.type-index) #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){clip-path:inset(-12px -12px -12px -12px)!important}
   html body.type-index #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c){clip-path:inset(-12px -12px 0 -12px)!important}
   /* the hero and the category circles: one island */
   html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d){border-radius:8px 8px 0 0!important;padding-bottom:4px!important;clip-path:inset(-12px -12px 0 -12px)!important}
@@ -106,8 +110,4 @@ html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#ok
   html body #header #okla-catbar.container{max-width:1273px!important}
   html body #content-wrapper.content-wrapper.container.container{width:1273px!important;max-width:1273px!important}
   html body #footer .container.container{max-width:1273px!important}
-  /* Island separation on every page: the content island is detached from the menu by the standard 16px grey gap with
-     rounded top corners (on the homepage the individual blocks are the islands, so it is left as it is there). */
-  html body:not(.type-index) #content-wrapper.content-wrapper.content-wrapper{margin-top:16px!important;border-radius:8px!important;clip-path:inset(-12px -12px -12px -12px)!important;overflow:hidden!important}
-  html body:not(.type-index) .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper.content-wrapper{margin-top:16px!important;border-top-left-radius:8px!important;border-top-right-radius:8px!important}
 }
