@@ -4,7 +4,7 @@ import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
 import Fastify, { type FastifyError, type FastifyInstance } from "fastify";
 import type { AppConfig } from "./config.js";
-import { GroqEngine, MockEngine } from "./engine.js";
+import { GroqEngine, MockEngine, providerErrors } from "./engine.js";
 import { KnowledgeStore } from "./knowledge.js";
 import { lookupOrder } from "./orderStatus.js";
 import type { ChatEngine } from "./types.js";
@@ -72,7 +72,8 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     version: (process.env.RENDER_GIT_COMMIT || "").slice(0, 7) || undefined,
     ok: true,
     mode: config.mockMode ? "mock" : "groq",
-    knowledge: knowledge.counts()
+    knowledge: knowledge.counts(),
+    providerErrors
   }));
 
   app.get("/widget.js", async (_request, reply) => {

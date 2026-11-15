@@ -169,6 +169,14 @@ export class MockEngine implements ChatEngine {
   }
 }
 
+/* the last provider failures (model, HTTP status, time) for /health - no message contents, no keys */
+export const providerErrors: Array<{ model: string; status?: number; at: string; message?: string }> = [];
+function noteProviderError(model: string, error: unknown): void {
+  const e = error as { status?: number; error?: { error?: { message?: string } }; message?: string };
+  providerErrors.unshift({ model, status: e.status, at: new Date().toISOString(), message: String(e.error?.error?.message ?? e.message ?? "").slice(0, 160) });
+  providerErrors.length = Math.min(providerErrors.length, 8);
+}
+
 export class GroqEngine implements ChatEngine {
   private readonly client: Groq;
 
@@ -206,6 +214,7 @@ export class GroqEngine implements ChatEngine {
         break;
       } catch (error) {
         lastError = error;
+        noteProviderError(model, error);
         /* over the limit (429), too big (413), or a model that is not available (400/404): try the next one */
         const status = (error as { status?: number }).status;
         if (status !== 413 && status !== 429 && status !== 404 && status !== 400) throw error;
