@@ -5,16 +5,41 @@
   html body.in-kosik #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d){margin-top:16px!important;border-radius:8px!important;clip-path:none!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a){display:block!important;margin:16px auto 24px!important;padding:22px 20px 26px!important;background:#fff!important;border-radius:8px!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;box-sizing:border-box!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-title{margin:0 0 18px!important;color:#081d3a!important;font:700 22px/1.2 "Open Sans",Arial,sans-serif!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-grid{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:20px!important}
+  /* the slider: five cards in view, the row scrolls sideways */
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-wrap{position:relative!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-grid{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 80px)/5)!important;gap:20px!important;overflow-x:auto!important;scroll-snap-type:x proximity!important;scrollbar-width:none!important;padding:2px 0!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-grid::-webkit-scrollbar{display:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-card{scroll-snap-align:start!important}
+  /* the arrows as on the homepage sliders: blue tabs on the island's edges, 26px wide */
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-arrow{position:absolute!important;top:calc(50% - 60px)!important;display:grid!important;place-items:center!important;width:26px!important;height:64px!important;padding:0!important;border:0!important;background:#0645a8!important;color:#fff!important;cursor:pointer!important;z-index:2!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-arrow[hidden]{display:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-prev{left:-20px!important;border-radius:0 6px 6px 0!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-next{right:-20px!important;border-radius:6px 0 0 6px!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-arrow svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-card{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:8px!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-img{display:grid!important;place-items:center!important;width:100%!important;aspect-ratio:4/3!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-img img{max-width:100%!important;max-height:100%!important;object-fit:contain!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-height:2.7em!important;color:#081d3a!important;font:600 14px/1.35 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-price{color:#e2343f!important;font:700 20px/1.2 "Open Sans",Arial,sans-serif!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;min-height:3em!important;color:#001744!important;font:600 14px/1.5 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-price{color:#e73b49!important;font:700 20px/1.2 "Open Sans",Arial,sans-serif!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form{margin:4px 0 0!important}
-  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-btn{display:inline-flex!important;align-items:center!important;height:36px!important;padding:0 18px!important;border:0!important;border-radius:0!important;background:#54a40d!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 14px/1 "Open Sans",Arial,sans-serif!important;cursor:pointer!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:0!important;height:34px!important;min-height:0!important;width:auto!important;padding:0 18px 0 16px!important;border:0!important;border-radius:0!important;background:#54a40d!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:400 15px/15px "Open Sans","Segoe UI",Arial,sans-serif!important;text-transform:none!important;box-shadow:none!important;cursor:pointer!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart svg{display:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart span::before,html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::after{content:none!important;display:none!important}
+  html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::before{content:""!important;display:block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;margin-right:7px!important;background:#fff!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M2.5 3h2.3l2 11a1.8 1.8 0 0 0 1.8 1.5h8.1a1.8 1.8 0 0 0 1.8-1.4L21.5 7H6' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='20' r='1.6'/%3E%3Ccircle cx='18' cy='20' r='1.6'/%3E%3C/svg%3E") center/contain no-repeat!important}
   @media(hover:hover){
-    html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-btn:hover{background:#4a920b!important}
+    html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:hover{background:#4a920b!important}
     html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-name:hover{text-decoration:underline!important}
   }
+  html body.in-kosik #okla-cart-recs:not(#ocr-a){overflow:visible!important}
 }
+/* PC cart and checkout steps: the same island on every step (16px of grey under the header, rounded, soft shadow),
+   the step bar at the same place on every step, and the summary column white (a thin line divides it) */
+@media(min-width:992px){
+  html body.ordering-process #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d#ocr-e){margin-top:16px!important;border-radius:8px!important;clip-path:none!important;overflow:hidden!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+  html body.ordering-process #content-wrapper#content-wrapper .cart-inner.cart-inner:not(#ocr-a#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f){background-image:linear-gradient(to right,transparent calc(100% - 340px),#e6ebf2 calc(100% - 340px),#e6ebf2 calc(100% - 339px),transparent calc(100% - 339px))!important}
+  /* the step bar: 20px from the island's top on every step */
+  html body.ordering-process #content-wrapper .cart-row>.col-md-8:not(#ocr-a#ocr-b){padding-top:0!important}
+  html body.ordering-process #content-wrapper .cart-content:not(#ocr-a#ocr-b){padding-top:0!important}
+  html body.ordering-process #content-wrapper ol.cart-header:not(#ocr-a#ocr-b){margin-top:20px!important;padding-top:0!important}
+}
+html body.in-kosik #okla-cart-recs#okla-cart-recs .ocr-form .btn-cart svg:not(#ocr-a#ocr-b#ocr-c#ocr-d){display:none!important}

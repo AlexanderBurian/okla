@@ -104,7 +104,13 @@
    if(row&&row.classList.contains('is-added')){extra+=it.price;selected++;}
   });
   var total=view.base+extra,formatted=mainFmt(view,total);
-  if((view.target.textContent||'').trim()!==formatted)view.target.textContent=formatted;
+  /* the product's own price stays its price; only the buy bars (sticky / phone) show the total of the purchase, and
+     the product price gets a small "(+N)" telling how many companion products are added */
+  var baseText=mainFmt(view,view.base);
+  if((view.target.textContent||'').trim()!==baseText)view.target.textContent=baseText;
+  var plus=view.root.querySelector('.okla-xsell-plus');
+  if(selected>0){if(!plus){plus=document.createElement('span');plus.className='okla-xsell-plus';view.target.after(plus)}plus.textContent='(+'+selected+')';plus.setAttribute('aria-label','a '+selected+' doporučené produkty navíc')}
+  else if(plus)plus.remove();
   document.querySelectorAll('.okla-m-buybar__price,.okla-dbb__price').forEach(function(el){el.textContent=formatted});
   try{window.dispatchEvent(new CustomEvent('okla:xsell-total',{detail:{base:view.base,extra:extra,total:total,selected:selected,formatted:formatted}}))}catch(e){}
  }

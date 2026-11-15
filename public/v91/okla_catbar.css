@@ -65,3 +65,9 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-li:first-child .okcb-link{padding-left:0!important;justify-content:flex-start!important;text-align:left!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-li:last-child .okcb-link{padding-right:0!important;justify-content:flex-end!important;text-align:right!important}
 }
+/* the open panel: the same white as the page, no shadows or lines */
+@media(min-width:992px){
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-panel::before{background:#fff!important;box-shadow:none!important;border:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-panel{box-shadow:none!important;border:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c)::before{background:#fff!important}
+}

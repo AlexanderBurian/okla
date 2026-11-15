@@ -56,14 +56,21 @@
   return !!document.querySelector('a[href^="/login/"]');
  }
  function buildSignin(){
+  /* Best Buy style: a heading, four true benefits of an OKLA account with ticks, two buttons */
   var box=el('section');box.id='okla-signin-strip';box.setAttribute('aria-label','Zákaznický účet');
-  var ic=document.createElementNS('http://www.w3.org/2000/svg','svg');ic.setAttribute('viewBox','0 0 24 24');ic.setAttribute('aria-hidden','true');ic.setAttribute('class','oks-icon');
-  ic.innerHTML='<circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3.2"/><path d="M6.2 18.4a6.6 6.6 0 0 1 11.6 0"/>';
-  var txt=el('p','oks-text','Přihlaste se pro rychlejší nákup, přehled objednávek a snadnou reklamaci.');
+  var main=el('div','oks-main');
+  main.appendChild(el('h2','oks-title','Přihlaste se pro více výhod'));
+  var ul=el('ul','oks-list');
+  ['Rychlejší nákup','Přehled objednávek','Sledování zásilky','Snadná reklamace'].forEach(function(t){
+   var li=el('li','oks-item');
+   var ic=document.createElementNS('http://www.w3.org/2000/svg','svg');ic.setAttribute('viewBox','0 0 24 24');ic.setAttribute('aria-hidden','true');ic.setAttribute('class','oks-tick');ic.innerHTML='<path d="m5 12.5 4.2 4.2L19 7"/>';
+   li.append(ic,document.createTextNode(t));ul.appendChild(li);
+  });
+  main.appendChild(ul);
   var act=el('div','oks-actions');
   var a1=el('a','oks-btn oks-btn--primary','Přihlásit se');a1.href='/login/?backTo=%2F';
   var a2=el('a','oks-btn oks-btn--ghost','Vytvořit účet');a2.href='/registrace/';
-  act.append(a1,a2);box.append(ic,txt,act);return box;
+  act.append(a1,a2);box.append(main,act);return box;
  }
  /* where the cards go: before the warranty strip, else before the third product heading, else before the magazine */
  function dealsRef(main){

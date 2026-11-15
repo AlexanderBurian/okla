@@ -107,3 +107,10 @@
       linear-gradient(180deg,rgba(204,228,250,.180) 0%,rgba(204,228,250,.177) 7.1%,rgba(204,228,250,.170) 14.3%,rgba(204,228,250,.159) 21.4%,rgba(204,228,250,.144) 28.6%,rgba(204,228,250,.128) 35.7%,rgba(204,228,250,.109) 42.9%,rgba(204,228,250,.090) 50%,rgba(204,228,250,.071) 57.1%,rgba(204,228,250,.052) 64.3%,rgba(204,228,250,.036) 71.4%,rgba(204,228,250,.021) 78.6%,rgba(204,228,250,.010) 85.7%,rgba(204,228,250,.003) 92.9%,rgba(204,228,250,.000) 100%);
   }
 }
+/* iPhone status bar area on every page: the same tint as the top of the page gradient (and of the Katalog / Menu
+   panels): rgba(204,228,250,.42) over white = #eaf4fd. Only the canvas behind the page gets it (it shows under the
+   status bar and in the overscroll); the page itself keeps its gradient. */
+@media(max-width:767px){
+  html:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e#okla-mg-f){background:#eaf4fd!important;background-image:none!important}
+  html body:not(#okla-mg-a){background-color:#fff!important}
+}

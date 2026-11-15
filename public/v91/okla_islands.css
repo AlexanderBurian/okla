@@ -93,3 +93,8 @@
 /* slider arrows a quarter narrower (34 -> 26px), the arrow centred in them */
 html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#oksa-a#oksa-b#oksa-c){width:26px!important;min-width:26px!important;max-width:26px!important;flex:0 0 26px!important;padding:0!important;display:grid!important;place-items:center!important}
 html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#oksa-a#oksa-b#oksa-c)>*{margin:0!important}
+/* the footer: white content with the same soft shadow as the islands above it */
+@media(min-width:992px){
+  html body #footer #okla-footer-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e){background:#fff!important;border-radius:8px!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;overflow:hidden!important}
+  html body #footer :is(#okla-footer-content,#okla-footer-links,.footer-bottom,.container):not(#okis-a#okis-b#okis-c){background:#fff!important}
+}
