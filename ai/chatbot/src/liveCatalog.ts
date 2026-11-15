@@ -5,6 +5,19 @@ import type { KnowledgeItem } from "./types.js";
    carries schema.org microdata (name, price, availability, SKU, brand) and its full description. Refreshed on a
    timer, so prices, stock and new products are known without any export or API key. */
 
+/* words a visitor uses for each information page, so the search finds it */
+const INFO_KEYWORDS: Record<string, string[]> = {
+  "doprava-a-platba": ["doprava", "doručení", "dopravce", "zásilkovna", "výdejní místo", "platba", "dobírka", "převod", "kartou", "poštovné", "cena dopravy"],
+  "vraceni-zbozi-a-odstoupeni": ["vrácení", "vrátit", "odstoupení", "14 dnů", "peníze zpět", "výměna"],
+  "reklamacni-rad": ["reklamace", "reklamovat", "vada", "nefunguje", "záruka", "oprava", "rozbité"],
+  "obchodni-podminky": ["obchodní podmínky", "smlouva", "prodávající", "cena", "objednávka", "kupní smlouva"],
+  "jak-nakupovat": ["jak nakupovat", "objednat", "objednávka", "registrace", "košík", "postup"],
+  "kontakt": ["kontakt", "telefon", "e-mail", "email", "adresa", "podpora", "napsat"],
+  "o-nas": ["o nás", "kdo jste", "firma", "obchod", "ostrava", "historie"],
+  "podminky-ochrany-osobnich-udaju": ["osobní údaje", "gdpr", "soukromí", "cookies", "ochrana údajů"],
+  "podminky-reklamnich-akci": ["akce", "sleva", "slevový kód", "kupón", "soutěž", "dárek"]
+};
+
 const INFO_PAGES: Record<string, string> = {
   "doprava-a-platba": "Doprava a platba",
   "vraceni-zbozi-a-odstoupeni": "Vrácení zboží a odstoupení od smlouvy",
@@ -76,6 +89,7 @@ export interface LiveProduct {
   category?: string;
   short?: string;
   description?: string;
+  parameters?: string[];
 }
 
 export function parseProductPage(html: string, url: string): LiveProduct | undefined {
@@ -93,6 +107,12 @@ export function parseProductPage(html: string, url: string): LiveProduct | undef
   const shortBlock = blockAfter(html, /<div[^>]*class="[^"]*p-short-description[^"]*"[^>]*>/i);
   const descBlock = blockAfter(html, /<div[^>]*id="description"[^>]*>/i);
   const description = descBlock ? htmlToText(descBlock).replace(/^Detailní popis produktu\.?\s*/i, "") : undefined;
+  /* the parameters table (name: value), so technical questions are answered from the shop's own data */
+  const paramTable = html.match(/<table[^>]*class="[^"]*detail-parameters[^"]*"[^>]*>([\s\S]*?)<\/table>/i)?.[1] ?? "";
+  const parameters = [...paramTable.matchAll(/<tr[^>]*>\s*<th[^>]*>([\s\S]*?)<\/th>\s*<td[^>]*>([\s\S]*?)<\/td>/gi)]
+    .map((row) => `${htmlToText(row[1] ?? "").replace(/[:.]+$/, "")}: ${htmlToText(row[2] ?? "").replace(/\.$/, "")}`)
+    .filter((line) => line.length > 3 && line.length < 200)
+    .slice(0, 30);
   return {
     url,
     name: decodeEntities(name),
@@ -102,7 +122,8 @@ export function parseProductPage(html: string, url: string): LiveProduct | undef
     brand: brandBlock?.[1] ? decodeEntities(brandBlock[1]) : undefined,
     category: category ? decodeEntities(category).split(">").map((part) => part.trim()).filter((part) => part && !/úvodní stránka/i.test(part)).slice(0, -1).join(" > ") || undefined : undefined,
     short: shortBlock ? htmlToText(shortBlock) : meta(html, "description"),
-    description
+    description,
+    parameters: parameters.length ? parameters : undefined
   };
 }
 
@@ -129,6 +150,7 @@ export function productToItem(p: LiveProduct): KnowledgeItem {
     stock && `Dostupnost: ${stock}.`,
     p.category && `Kategorie: ${p.category}.`,
     p.brand && `Značka: ${p.brand}.`,
+    p.parameters?.length ? `Parametry: ${p.parameters.join("; ")}.` : undefined,
     p.description && p.description !== p.short ? `Popis: ${p.description}` : undefined
   ].filter(Boolean);
   return {
@@ -158,7 +180,28 @@ export function parseInfoPage(html: string, url: string, title: string): Knowled
     type: "faq",
     title,
     content: text.slice(0, 6000),
-    url
+    url,
+    keywords: INFO_KEYWORDS[new URL(url).pathname.replace(/^\/|\/$/g, "")] ?? []
+  };
+}
+
+/* a magazine article (/nase-novinky/<article>/): its heading and text, for "how do I choose / what is" questions */
+export function parseArticlePage(html: string, url: string): KnowledgeItem | undefined {
+  const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const heading = h1 ? htmlToText(h1[1] ?? "").replace(/\s*\|\s*OKLA\.cz\s*$/i, "").replace(/\.$/, "") : "";
+  const body = blockAfter(html, /<div[^>]*class="[^"]*okla-clanek__body[^"]*"[^>]*>/i)
+    || blockAfter(html, /<div[^>]*class="[^"]*news-item-detail[^"]*"[^>]*>/i)
+    || blockAfter(html, /<div[^>]*class="[^"]*content-inner[^"]*"[^>]*>/i);
+  if (!body) return undefined;
+  const text = htmlToText(body).replace(/\s+/g, " ").trim();
+  if (!heading || text.length < 200) return undefined;
+  return {
+    id: `article-${url}`,
+    type: "faq",
+    title: `Článek: ${heading}`,
+    content: text.slice(0, 5000),
+    url,
+    keywords: ["článek", "návod", "rada", "jak vybrat", "magazín"]
   };
 }
 
@@ -207,6 +250,7 @@ export async function crawlShop(base: string, maxPages = 400, concurrency = 4): 
         if (product) { products.push(productToItem(product)); continue; }
         const title = INFO_PAGES[slug];
         if (title) { const page = parseInfoPage(html, url, title); if (page) pages.push(page); }
+        else if (/^nase-novinky\/[^/]+$/.test(slug)) { const article = parseArticlePage(html, url); if (article) pages.push(article); }
       } catch {
         /* one failing page never stops the crawl */
       }

@@ -122,16 +122,19 @@
     {
       "id": "faq-how-to-buy",
       "type": "faq",
-      "title": "Jak nakupovat",
-      "content": "Objednávka zabere pár minut: vyberete zboží, v košíku zvolíte dopravu a platbu, vyplníte údaje a odešlete. O každém kroku informujeme e-mailem. Rozhodující je cena zobrazená před odesláním, včetně dopravy a případného příplatku za platbu. Nakoupit lze i bez registrace.",
+      "title": "Jak nakupovat – objednávka v šesti krocích",
+      "content": "Objednávka zabere pár minut a registrace není nutná. 1) Vyberte produkt – procházejte kategorie nebo použijte vyhledávání; u každého produktu je cena, dostupnost, popis, parametry a hodnocení. 2) Tlačítkem Do košíku produkt přidáte; v košíku můžete měnit počet kusů nebo položku odebrat. 3) V košíku vyberete způsob doručení a platby; jejich ceny vidíte ještě před odesláním. 4) Zadejte kontaktní a doručovací údaje; účet zakládat nemusíte, s registrací ale uvidíte historii objednávek. 5) Před odesláním zkontrolujte položky, cenu i adresu a potvrďte tlačítkem Objednat s povinností platby. 6) Přijde vám potvrzení e-mailem a po přijetí objednávky e-mail se shrnutím a dalším postupem. Tip: rozhodující je cena zobrazená před odesláním včetně dopravy a případného příplatku za platbu; u elektroniky si v popisu ověřte kompatibilitu a v parametrech obsah balení. Vrácení do 14 dnů, záruka (zákonná odpovědnost za vady) 24 měsíců.",
       "url": "https://www.okla.cz/jak-nakupovat/",
       "keywords": [
-        "objednat",
+        "jak nakupovat",
+        "jak objednat",
         "objednávka",
-        "nákup",
-        "jak koupit",
         "registrace",
-        "košík"
+        "bez registrace",
+        "košík",
+        "postup",
+        "nákup",
+        "jak koupit"
       ]
     },
     {
@@ -145,6 +148,87 @@
         "sledování",
         "zásilka",
         "kde je"
+      ]
+    },
+    {
+      "id": "faq-about",
+      "type": "faq",
+      "title": "O nás – kdo je OKLA",
+      "content": "OKLA je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Začali jsme v roce 2019 v Ostravě, protože zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je OKLA kurátorský obchod: raději méně produktů, ale takových, za kterými si stojíme a které sami používáme. Do nabídky se dostane jen to, co bychom si koupili i my; sledujeme novinky, crowdfunding i tipy zákazníků. Než se produkt objeví v nabídce, projde rukama technika – zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis, ne jen opsaný datasheet.",
+      "url": "https://www.okla.cz/o-nas/",
+      "keywords": [
+        "o nás",
+        "kdo jste",
+        "firma",
+        "obchod",
+        "ostrava",
+        "historie",
+        "odkud",
+        "testujete",
+        "proč okla"
+      ]
+    },
+    {
+      "id": "faq-dispatch-countries",
+      "type": "faq",
+      "title": "Expedice a doručení do zemí",
+      "content": "Sklad a zázemí máme v Ostravě. Objednávky balíme a odesíláme zpravidla do 24 hodin v pracovní dny a doručujeme přes zavedené dopravce a výdejní místa. Doručujeme do Česka, na Slovensko (od roku 2022) a do Maďarska (od roku 2024), s podporou v místním jazyce. Na Slovensku jsou k dispozici výdejní místa po celé SR. Konkrétní dopravce, cenu dopravy a platby uvidíte v košíku před odesláním objednávky; mezi možnostmi je například Zásilkovna (výdejní místa a boxy) a platba převodem.",
+      "url": "https://www.okla.cz/doprava-a-platba/",
+      "keywords": [
+        "expedice",
+        "odeslání",
+        "kdy dorazí",
+        "doručení",
+        "jak rychle",
+        "za jak dlouho",
+        "slovensko",
+        "maďarsko",
+        "zahraničí",
+        "zásilkovna",
+        "box",
+        "výdejní místo",
+        "ostrava",
+        "sklad",
+        "doprava"
+      ]
+    },
+    {
+      "id": "faq-wholesale",
+      "type": "faq",
+      "title": "Velkoobchod a spolupráce",
+      "content": "Provozujete e-shop nebo prodejnu? Nabízíme velkoobchodní odběr: zvýhodněné ceny při pravidelném odběru, skladovou dostupnost a expedici z Ostravy do 24 hodin a osobní kontakt a poradenství (žádné call centrum). Ozvěte se přes kontaktní formulář s tématem Velkoobchod / spolupráce nebo na podpora@okla.cz.",
+      "url": "https://www.okla.cz/kontakt/",
+      "keywords": [
+        "velkoobchod",
+        "b2b",
+        "firma",
+        "prodejna",
+        "e-shop",
+        "odběr",
+        "spolupráce",
+        "dealer",
+        "množstevní sleva",
+        "faktura na firmu"
+      ]
+    },
+    {
+      "id": "faq-company",
+      "type": "faq",
+      "title": "Provozovatel a kontaktní údaje",
+      "content": "Provozovatelem Okla.cz je společnost Kratas Pro s.r.o., IČO 23695340, DIČ CZ23695340. Kontakt: e-mail podpora@okla.cz nebo kontaktní formulář na stránce Kontakt (témata: dotaz k objednávce, poradenství s výběrem, reklamace nebo vrácení, velkoobchod / spolupráce). Pomůžeme s objednávkou i reklamací a poradíme s výběrem vhodného přístroje. Sklad a zázemí: Ostrava, Moravskoslezský kraj.",
+      "url": "https://www.okla.cz/kontakt/",
+      "keywords": [
+        "kontakt",
+        "provozovatel",
+        "firma",
+        "ičo",
+        "dič",
+        "adresa",
+        "e-mail",
+        "email",
+        "telefon",
+        "kdo provozuje",
+        "sídlo"
       ]
     }
   ]

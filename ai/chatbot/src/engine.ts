@@ -180,8 +180,12 @@ export class GroqEngine implements ChatEngine {
     const completion = await this.client.chat.completions.create({
       model: this.model,
       messages: toGroqMessages(context.message, context.history, context.knowledge, context.pageItem, context.catalog, context.lang),
-      temperature: 0.3,
-      max_completion_tokens: 900,
+      /* a little more variety in wording, still factual */
+      temperature: 0.55,
+      top_p: 0.9,
+      max_completion_tokens: 1200,
+      /* gpt-oss "thinks" before it answers: a short think keeps the first words quick */
+      ...(/gpt-oss/i.test(this.model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
       stream: true
     }, { signal: context.signal });
 

@@ -69,6 +69,7 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
   app.addHook("onClose", async () => knowledge.close());
 
   app.get("/health", async () => ({
+    version: (process.env.RENDER_GIT_COMMIT || "").slice(0, 7) || undefined,
     ok: true,
     mode: config.mockMode ? "mock" : "groq",
     knowledge: knowledge.counts()
@@ -147,7 +148,7 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
         const pageItem = knowledge.byUrl(input.page);
         const found = knowledge.search(input.message, 6);
         const followUp = lastUser ? knowledge.search(`${lastUser} ${input.message}`, 4) : [];
-        const relevant = [...new Map([...(pageItem ? [pageItem] : []), ...found, ...followUp].map((item) => [item.id, item])).values()].slice(0, 8);
+        const relevant = [...new Map([...(pageItem ? [pageItem] : []), ...found, ...followUp].map((item) => [item.id, item])).values()].slice(0, 6);
         const stream = engine.stream({
           message: input.message,
           history: input.history,
