@@ -30,7 +30,7 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__fineprint{position:absolute!important;z-index:3!important;left:16%!important;bottom:46px!important;margin:0!important;color:rgba(255,255,255,.67)!important;font-size:10px!important;line-height:1.25!important}
 
 /* ---- LILYGO card (light panel, hand cut-out) ---- */
-#okla-promo-deals .okla-campaign__card--lilygo{background:#f3f5f8!important;color:#1d1d1f!important}
+#okla-promo-deals .okla-campaign__card--lilygo{background:#fff!important;color:#1d1d1f!important}
 #okla-promo-deals .okla-campaign__lilygo-copy{position:relative!important;z-index:5!important;width:82%!important;margin:0 auto!important;padding-top:29px!important;text-align:center!important}
 #okla-promo-deals .okla-campaign__lilygo-brand{margin:0 0 5px!important;font-size:15px!important;font-weight:700!important;letter-spacing:-.01em!important;color:#1d1d1f!important}
 #okla-promo-deals .okla-campaign__lilygo-brand em{background:linear-gradient(95deg,#0071e3,#684dff 66%,#8d43e7);-webkit-background-clip:text;background-clip:text;color:transparent!important;font-style:italic!important;font-weight:700!important}

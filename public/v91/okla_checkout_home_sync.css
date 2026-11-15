@@ -1,0 +1,299 @@
+/* OKLA checkout – final visual sync with the current homepage.
+   This file is deliberately loaded after the older checkout experiments. It changes presentation only;
+   Shoptet forms, links, quantities and the checkout flow keep their native behaviour. */
+
+html body.ordering-process{
+  --okla-page:#eef0f3;
+  --okla-surface:#fff;
+  --okla-line:#e1e6ed;
+  --okla-ink:#081d3a;
+  --okla-muted:#5e6b7c;
+  --okla-blue:#0859d8;
+  --okla-blue-hover:#074cba;
+  --okla-radius:8px;
+  --okla-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06);
+  background:var(--okla-page)!important;
+  color:var(--okla-ink)!important;
+  font-family:"Open Sans",Arial,sans-serif!important;
+}
+
+html body.ordering-process :is(button,input,select,textarea,.btn){font-family:inherit!important}
+html body.ordering-process .overall-wrapper{background:var(--okla-page)!important}
+
+/* The checkout uses the same centred content rail and white island as the homepage. */
+@media(min-width:992px){
+  html body.ordering-process #header#header .navigation-wrapper.container.container[class],
+  html body.ordering-process #header #okla-catbar.container,
+  html body.ordering-process #content-wrapper.content-wrapper.container.container{
+    width:min(1273px,calc(100% - 40px))!important;
+    max-width:1273px!important;
+  }
+  html body.ordering-process #content-wrapper.content-wrapper{
+    margin:16px auto 32px!important;
+    border:0!important;
+    border-radius:var(--okla-radius)!important;
+    background:var(--okla-surface)!important;
+    box-shadow:var(--okla-shadow)!important;
+    clip-path:none!important;
+    overflow:hidden!important;
+  }
+  html body.ordering-process #content-wrapper.content-wrapper::before{
+    height:4px!important;
+    background:#0645a8!important;
+    border-radius:var(--okla-radius) var(--okla-radius) 0 0!important;
+  }
+}
+
+/* Progress bar: calm homepage typography, no enlarged/zoomed controls. */
+html body.ordering-process #content#content ol.cart-header{
+  min-height:64px!important;
+  margin:0!important;
+  padding:18px 24px 10px!important;
+  gap:18px!important;
+  background:var(--okla-surface)!important;
+  border:0!important;
+  overflow:visible!important;
+}
+html body.ordering-process #content#content ol.cart-header>li.step{
+  min-height:34px!important;
+  zoom:1!important;
+  color:var(--okla-muted)!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:1.25!important;
+}
+html body.ordering-process #content#content ol.cart-header>li.step::before{
+  width:34px!important;
+  height:34px!important;
+  margin-right:8px!important;
+  background-size:17px 17px!important;
+}
+html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{
+  width:34px!important;
+  height:2px!important;
+  margin:0 10px!important;
+  background:#d7dde5!important;
+}
+html body.ordering-process #content#content ol.cart-header>li.step.active{color:var(--okla-blue)!important}
+
+/* Cart rows follow the restrained white product-card language used on the homepage. */
+html body.in-kosik #content#content table.cart-table tr.removeable,
+html body.in-kosik #content#content table.cart-table tr.removeable>td{
+  background:var(--okla-surface)!important;
+  border-color:var(--okla-line)!important;
+  box-shadow:none!important;
+}
+html body.in-kosik #content#content table.cart-table tr.removeable>td{
+  padding-top:15px!important;
+  padding-bottom:15px!important;
+}
+html body.in-kosik #content#content table.cart-table .p-name a{
+  color:var(--okla-ink)!important;
+  -webkit-text-fill-color:var(--okla-ink)!important;
+  font-size:14px!important;
+  font-weight:600!important;
+  line-height:1.35!important;
+  text-decoration:none!important;
+}
+html body.in-kosik #content#content table.cart-table .p-total .price-final{
+  color:var(--okla-ink)!important;
+  -webkit-text-fill-color:var(--okla-ink)!important;
+  font-weight:700!important;
+}
+html body.in-kosik #content#content .quantity-form{
+  height:38px!important;
+  border:1px solid #d6dde6!important;
+  border-radius:5px!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html body.in-kosik #content#content .quantity-form :is(.quantity,input.amount,.okla-qty){height:36px!important}
+
+/* One clean summary column. It is white like the island, separated only by a neutral line. */
+@media(min-width:992px){
+  html body:is(.in-kosik,.in-krok-1,.in-krok-2) #content#content .cart-inner{
+    background-image:linear-gradient(to right,transparent calc(100% - 340px),var(--okla-line) calc(100% - 340px),var(--okla-line) calc(100% - 339px),#fff calc(100% - 339px))!important;
+  }
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4,
+  html body.ordering-process #content#content #checkoutSidebar{
+    background:#fff!important;
+    border-color:var(--okla-line)!important;
+  }
+}
+html body.in-kosik #content#content .okla-cart-summary{
+  color:var(--okla-ink)!important;
+  font-family:inherit!important;
+}
+html body.in-kosik #content#content .okla-cart-summary__row>span:first-child,
+html body.in-kosik #content#content .okla-cart-summary__toggle{color:var(--okla-muted)!important}
+html body.in-kosik #content#content .okla-cart-summary__gross,
+html body.in-kosik #content#content .okla-alza-total__value{
+  color:var(--okla-blue)!important;
+  -webkit-text-fill-color:var(--okla-blue)!important;
+}
+
+/* Buttons use the same blue, compact shape and sentence case as homepage CTAs. */
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish,
+html body.ordering-process #content#content .okla-step-nav .next-step button[type="submit"]{
+  min-height:44px!important;
+  height:44px!important;
+  padding:0 22px!important;
+  border:1px solid var(--okla-blue)!important;
+  border-radius:5px!important;
+  background:var(--okla-blue)!important;
+  color:#fff!important;
+  -webkit-text-fill-color:#fff!important;
+  font-size:14px!important;
+  font-weight:700!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  box-shadow:none!important;
+}
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:hover,
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:hover,
+html body.ordering-process #content#content .okla-step-nav .next-step button[type="submit"]:hover{
+  background:var(--okla-blue-hover)!important;
+  border-color:var(--okla-blue-hover)!important;
+}
+html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-back{
+  min-height:38px!important;
+  height:38px!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:var(--okla-muted)!important;
+  -webkit-text-fill-color:var(--okla-muted)!important;
+  font-size:13px!important;
+  font-weight:600!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+  box-shadow:none!important;
+}
+
+/* Delivery/payment choices use the same 8px card geometry as homepage islands. */
+html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper{
+  border:1px solid var(--okla-line)!important;
+  border-radius:var(--okla-radius)!important;
+  background:#fff!important;
+  box-shadow:none!important;
+}
+html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:has(input:checked){
+  border-color:var(--okla-blue)!important;
+  background:#f2f7ff!important;
+}
+
+/* Recommended products are a second homepage-style island, with the same neutral hover and CTA treatment. */
+@media(min-width:992px){
+  html body.in-kosik #okla-cart-recs{
+    width:min(1273px,calc(100% - 40px))!important;
+    max-width:1273px!important;
+    border-radius:var(--okla-radius)!important;
+    background:#fff!important;
+    box-shadow:var(--okla-shadow)!important;
+  }
+  html body.in-kosik #okla-cart-recs .ocr-title{
+    color:var(--okla-ink)!important;
+    font-family:inherit!important;
+    font-size:22px!important;
+  }
+  html body.in-kosik #okla-cart-recs .ocr-card{
+    padding:12px 10px 14px!important;
+    border:1px solid transparent!important;
+    border-radius:10px!important;
+    background:#fff!important;
+    transition:border-color .15s ease,box-shadow .15s ease!important;
+  }
+  html body.in-kosik #okla-cart-recs .ocr-card:hover{
+    border-color:#e0e0e0!important;
+    box-shadow:0 4px 12px rgba(0,0,0,.08)!important;
+  }
+  html body.in-kosik #okla-cart-recs .ocr-form .btn-cart{
+    height:34px!important;
+    border-radius:0!important;
+    background:#54a40d!important;
+    font-size:15px!important;
+    font-weight:600!important;
+  }
+}
+
+/* Mobile: the same single content rail as the homepage, no accidental horizontal overflow. */
+@media(max-width:991px){
+  html body.ordering-process #content-wrapper.content-wrapper{
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:#fff!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+  }
+  html body.ordering-process #content-wrapper #content#content{
+    width:100%!important;
+    max-width:100%!important;
+    padding-left:16px!important;
+    padding-right:16px!important;
+    box-sizing:border-box!important;
+  }
+  html body.ordering-process #content#content ol.cart-header{
+    width:100%!important;
+    min-height:58px!important;
+    padding:12px 0!important;
+    gap:0!important;
+    box-sizing:border-box!important;
+  }
+  html body.ordering-process #content#content ol.cart-header>li.step{
+    flex:1 1 0!important;
+    justify-content:center!important;
+    min-width:0!important;
+    font-size:12px!important;
+  }
+  html body.ordering-process #content#content ol.cart-header>li.step::before{
+    width:28px!important;
+    height:28px!important;
+    margin-right:5px!important;
+    background-size:15px 15px!important;
+  }
+  html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{
+    flex:0 0 10px!important;
+    width:10px!important;
+    margin:0 5px!important;
+  }
+  html body.in-kosik #content#content table.cart-table tr.removeable{
+    grid-template-columns:68px minmax(0,1fr) auto!important;
+    column-gap:12px!important;
+    padding:15px 0!important;
+  }
+  html body.in-kosik #content#content table.cart-table tr.removeable>td:nth-child(1) img{
+    width:68px!important;
+    max-width:68px!important;
+  }
+  html body.in-kosik #content#content .okla-cart-summary{
+    margin:6px 0 0!important;
+    padding:18px 0!important;
+  }
+  html body.ordering-process #content#content .cart-inner>.okla-step-nav,
+  html body.ordering-process #content#content .cart-inner>.okla-step-nav:is(.is-stuck,:not(.is-stuck)){
+    width:auto!important;
+    max-width:none!important;
+    margin-left:-16px!important;
+    margin-right:-16px!important;
+    padding-left:16px!important;
+    padding-right:16px!important;
+    background:#fff!important;
+    box-sizing:border-box!important;
+  }
+  html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
+  html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish,
+  html body.ordering-process #content#content .okla-step-nav .next-step button[type="submit"]{
+    min-width:0!important;
+    height:44px!important;
+  }
+}
+
+@media(max-width:420px){
+  html body.ordering-process #content#content ol.cart-header>li.step{font-size:0!important}
+  html body.ordering-process #content#content ol.cart-header>li.step.active{font-size:12px!important}
+}
