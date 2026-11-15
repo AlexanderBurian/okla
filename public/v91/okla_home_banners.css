@@ -164,9 +164,11 @@ html body.type-index #content .okla-hero .okla-hero__slide--storewide::after{bac
 }
 
 @media (max-width:767px){
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__text{width:64%!important}
-  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__title{font-size:21px!important}
+  /* A stronger left scrim so the white text stays readable next to the gift (like the other mobile slides). */
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide::after{background:linear-gradient(90deg,rgba(1,23,55,.82) 0%,rgba(1,23,55,.5) 46%,rgba(1,23,55,0) 78%)!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__text{width:58%!important;padding:0 5%!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__title{font-size:20px!important;line-height:1.1!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline{flex-direction:column!important;align-items:flex-start;gap:2px;font-size:12px!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline strong{font-size:13px!important}
-  .okla-hero__slide--storewide .okla-hero__gift{right:-8%;bottom:-8%;width:50%}
+  .okla-hero__slide--storewide .okla-hero__gift{right:-3%!important;bottom:-10%!important;width:37%!important}
 }
