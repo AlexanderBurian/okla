@@ -145,6 +145,6 @@ html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#o
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) .okla-warranty-inner{position:relative!important;z-index:3!important}
 @media(max-width:767px){
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d){margin-top:40px!important}
-  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{right:8px!important;top:-30px!important;bottom:auto!important;width:122px!important;height:117px!important}
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{left:auto!important;transform:none!important;right:8px!important;top:-30px!important;bottom:auto!important;width:122px!important;height:117px!important}
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) :is(.okla-warranty-title,.okla-warranty-subtitle){max-width:calc(100% - 110px)!important}
 }
