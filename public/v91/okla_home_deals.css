@@ -36,7 +36,6 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button{
 }
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-visible{outline:2px solid #0858d6!important;outline-offset:3px!important}
 @media(hover:hover){
-  html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-card:hover .okd-image img{transform:scale(1.04)!important}
   html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:hover{background:#0749b3!important}
 }
 @media(max-width:991px){
@@ -91,3 +90,6 @@ html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn:focu
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-actions{gap:10px!important}
   html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-btn{flex:1 1 0!important;min-width:0!important;height:46px!important;padding:0 10px!important;font-size:15px!important}
 }
+
+/* no zoom on the product pictures, in any state */
+html body.type-index #content #okla-deals:not(#okd-a#okd-b#okd-c) .okd-image img{transform:none!important;transition:none!important}

@@ -10,10 +10,10 @@
  if(location.pathname!=='/'&&location.pathname!=='')return;
  var base=window.__oklaAssetBase||'';
  var DEALS=[
-  {url:'/wintact-wt87a-digitalni-anemometr/',img:'wt87a',title:'Měř vítr',claim:'Rychlost vzduchu',price:589,alt:'Wintact WT87A digitální anemometr',copy:'za kompaktní digitální anemometr pro rychlé měření proudění vzduchu.'},
-  {url:'/benetech-gm8902-anemometr-s-oddelenou-sondou/',img:'gm8902',title:'Měř průtok',claim:'Průtok vzduchu',price:1189,alt:'Benetech GM8902 anemometr s oddělenou sondou',copy:'za anemometr s oddělenou sondou pro pohodlné měření průtoku.'},
-  {url:'/benetech-gm610-vlhkomer-dreva/',img:'gm610',title:'Měř dřevo',claim:'Vlhkost dřeva',price:589,alt:'Benetech GM610 vlhkoměr dřeva',copy:'za hrotový vlhkoměr dřeva s rychlým odečtem na přehledném displeji.'},
-  {url:'/benetech-gm605-vlhkomer-dreva-a-stavebnich-materialu/',img:'gm605',title:'Měř zdivo',claim:'Vlhkost materiálů',price:389,alt:'Benetech GM605 vlhkoměr dřeva a stavebních materiálů',copy:'za kompaktní vlhkoměr dřeva a vybraných stavebních materiálů.'}
+  {url:'/wintact-wt87a-digitalni-anemometr/',img:'wt87a',title:'Jak fouká?',claim:'Rychlost větru i vzduchu',price:589,alt:'Wintact WT87A digitální anemometr',copy:'za kompaktní digitální anemometr pro rychlé měření proudění vzduchu.'},
+  {url:'/benetech-gm8902-anemometr-s-oddelenou-sondou/',img:'gm8902',title:'Větrání OK?',claim:'Průtok vzduchu z výdechů',price:1189,alt:'Benetech GM8902 anemometr s oddělenou sondou',copy:'za anemometr s oddělenou sondou pro pohodlné měření průtoku.'},
+  {url:'/benetech-gm610-vlhkomer-dreva/',img:'gm610',title:'Suché dříví?',claim:'Vlhkost dřeva na topení',price:589,alt:'Benetech GM610 vlhkoměr dřeva',copy:'za hrotový vlhkoměr dřeva s rychlým odečtem na přehledném displeji.'},
+  {url:'/benetech-gm605-vlhkomer-dreva-a-stavebnich-materialu/',img:'gm605',title:'Suchá zeď?',claim:'Vlhkost dřeva i zdiva',price:389,alt:'Benetech GM605 vlhkoměr dřeva a stavebních materiálů',copy:'za kompaktní vlhkoměr dřeva a vybraných stavebních materiálů.'}
  ];
  function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
