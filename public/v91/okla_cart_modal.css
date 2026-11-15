@@ -152,3 +152,7 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 /* "+N" companions added along: small, dark, beside the name */
 #okla-cart-modal .okla-cm__namewrap{grid-area:name;display:flex;align-items:baseline;gap:8px;min-width:0}
 #okla-cart-modal .okla-cm__plus{flex:none;padding:1px 6px;border-radius:5px;background:#eef1f5;color:#121212;font:600 12px/1.5 "Open Sans",Arial,sans-serif}
+/* one clean edge above the buttons: the scrolling area is grey to the end (no white strip under the cards),
+   the footer has a single hairline instead of a shadow */
+#okla-cart-modal .okla-cm__scroll{background:#f4f5f7}
+#okla-cart-modal .okla-cm__foot{box-shadow:none;border-top:1px solid #e3e7ed}
