@@ -99,3 +99,15 @@ html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#ok
   html body #footer #okla-footer-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e){background:#fff!important;border-radius:8px!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;overflow:hidden!important}
   html body #footer :is(#okla-footer-content,#okla-footer-links,.footer-bottom,.container):not(#okis-a#okis-b#okis-c){background:#fff!important}
 }
+/* PC: the whole content column 8% narrower (1384 -> 1273 px), centred - the header row, the category menu and the
+   content island all keep the same width, so everything stays aligned. */
+@media(min-width:992px){
+  html body #header#header .navigation-wrapper.container.container[class]{width:1273px!important;max-width:1273px!important}
+  html body #header #okla-catbar.container{max-width:1273px!important}
+  html body #content-wrapper.content-wrapper.container.container{width:1273px!important;max-width:1273px!important}
+  html body #footer .container.container{max-width:1273px!important}
+  /* Island separation on every page: the content island is detached from the menu by the standard 16px grey gap with
+     rounded top corners (on the homepage the individual blocks are the islands, so it is left as it is there). */
+  html body:not(.type-index) #content-wrapper.content-wrapper.content-wrapper{margin-top:16px!important;border-radius:8px!important;clip-path:inset(-12px -12px -12px -12px)!important;overflow:hidden!important}
+  html body:not(.type-index) .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper.content-wrapper{margin-top:16px!important;border-top-left-radius:8px!important;border-top-right-radius:8px!important}
+}

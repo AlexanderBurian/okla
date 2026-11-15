@@ -37,5 +37,9 @@
     width:100%!important;max-width:100%!important;
   }
 
-  /* Combined order-status page: its layout (open, on the 14px rail) lives in okla_order_status.css. */
+  /* Products span the full navbar width: the content rail is the 14px navbar gutter and the product sliders add no
+     gutter of their own, so the cards line up exactly with the navbar edges (they used to be inset by an extra 8px). */
+  html body #content-wrapper main#content#content{padding-left:14px!important;padding-right:14px!important}
+  html body #content#content .okla-slider-shell{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
+  html body #content#content .okla-slider-shell .products.okla-slider-track{padding-left:0!important;padding-right:0!important}
 }
