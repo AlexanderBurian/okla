@@ -146,6 +146,8 @@ function reveal(){
  revealed=true;clearTimeout(revealTimer);revealTimer=null;
  /* at once, no fade: the finished page replaces the previous one in one step */
  root.classList.remove('okla-curtain','okla-shown');bootStyle.remove();
+ /* the footer tag's own curtain (html:not(.okla-ready) body{opacity:0}) lifts at the same moment, not after its 2.5 s timer */
+ root.classList.add('okla-ready');
  window.__oklaRevealed=true;
  setTimeout(warmNext,1200);
 }
@@ -199,53 +201,53 @@ return PAGE;
 /*@bundles*/
 var BUNDLES=[
  /* Core: translations, the homepage gathered into one content (Shoptet's wide layout), the original storefront core, the base phone look, shared behaviour */
- ['01-core','all',['v91/okla_i18n.css','v91/okla_i18n.js','v91/okla_home_merge.js','legacy/v53/zapati_firsthalf.js','legacy/v55/okla_news_v55.js','v91/okla_mobile_unified.css','v91/okla_behavior.js']],
+ ['01-core','all',['v91/core/okla_i18n.css','v91/core/okla_i18n.js','v91/core/okla_home_merge.js','legacy/v53/zapati_firsthalf.js','legacy/v55/okla_news_v55.js','v91/core/okla_mobile_unified.css','v91/core/okla_behavior.js']],
  /* Homepage: news images, layout, banners, search, the category circles (and no left sidebar on PC) */
- ['02-home','home',['v91/okla_news_native_images.js','v91/okla_home.css','v91/okla_home.js','v91/okla_home_banners.css','v91/okla_home_banners.js','v91/okla_home_search.js','v91/okla_home_categories.css','v91/okla_home_categories.js','v91/okla_home_deals.css','v91/okla_home_deals.js','v91/okla_home_promo.css','v91/okla_home_promo.js']],
+ ['02-home','home',['v91/home/okla_news_native_images.js','v91/home/okla_home.css','v91/home/okla_home.js','v91/home/okla_home_banners.css','v91/home/okla_home_banners.js','v91/home/okla_home_search.js','v91/home/okla_home_categories.css','v91/home/okla_home_categories.js','v91/home/okla_home_deals.css','v91/home/okla_home_deals.js','v91/home/okla_home_promo.css','v91/home/okla_home_promo.js']],
  /* Side banners and the product catalogue (prices, stock, names) */
- ['03-catalog','all',['v91/okla_home_side.css','v91/okla_home_side.js','okla_v86_catalog.js','v91/okla_live_catalog.js']],
+ ['03-catalog','all',['v91/core/okla_home_side.css','v91/core/okla_home_side.js','okla_v86_catalog.js','v91/core/okla_live_catalog.js']],
  /* Product page: content, layout, cross-sell */
- ['04-product','product',['content-v91/layout.css','content-v91/catalog.js','v91/okla_detail.css','v91/okla_detail.js','v91/okla_cross_sell.css','v91/okla_cross_sell.js']],
+ ['04-product','product',['content-v91/layout.css','content-v91/catalog.js','v91/product/okla_detail.css','v91/product/okla_detail.js','v91/product/okla_cross_sell.css','v91/product/okla_cross_sell.js']],
  /* Navigation, phone shell, product cards, native pages, sidebar */
- ['05-layout','all',['v91/okla_navigation.css','v91/okla_navigation.js','v91/okla_mobile_shell.css','v91/okla_mobile_shell.js','v91/okla_product_cards.css','v91/okla_native_pages.css','v91/okla_cards_everywhere.css','v91/okla_native_pages.js','v91/okla_sidebar.css','v91/okla_sidebar.js','v91/okla_cat_photos.css','v91/okla_cat_photos.js']],
+ ['05-layout','all',['v91/core/okla_navigation.css','v91/core/okla_navigation.js','v91/core/okla_mobile_shell.css','v91/core/okla_mobile_shell.js','v91/core/okla_product_cards.css','v91/core/okla_native_pages.css','v91/core/okla_cards_everywhere.css','v91/core/okla_native_pages.js','v91/core/okla_sidebar.css','v91/core/okla_sidebar.js','v91/core/okla_cat_photos.css','v91/core/okla_cat_photos.js']],
  /* Product page on phones */
- ['06-product-phone','product',['v91/okla_detail_mobile.css']],
+ ['06-product-phone','product',['v91/product/okla_detail_mobile.css']],
  /* Cart and checkout */
- ['07-checkout','checkout',['v91/okla_checkout.css','v91/okla_cart.css','v91/okla_checkout_ui.css','v91/okla_parcel.css','v91/okla_cart_refine.css','v91/okla_checkout_layout.css','v91/okla_checkout_ui.js']],
+ ['07-checkout','checkout',['v91/checkout/okla_checkout.css','v91/checkout/okla_cart.css','v91/checkout/okla_checkout_ui.css','v91/checkout/okla_parcel.css','v91/checkout/okla_cart_refine.css','v91/checkout/okla_checkout_layout.css','v91/checkout/okla_checkout_ui.js']],
  /* Pages of their own */
  ['08-newsroom','newsroom',['newsroom/okla_newsroom.js']],
- ['09-article','article',['v91/okla_article_hero.js','v91/okla_article_products.css','v91/okla_article_products.js']],
- ['10-order-status','orderStatus',['v91/okla_order_status.css','v91/okla_order_status.js']],
- ['11-complaint','complaint',['v91/okla_reklamace.css','v91/okla_reklamace.js']],
- ['12-orders','orders',['v91/okla_orders.css','v91/okla_orders.js']],
- ['13-about','about',['v91/okla_about.css','v91/okla_about.js']],
- ['14-how-to-buy','howToBuy',['v91/okla_how_to_buy.css','v91/okla_how_to_buy.js']],
- ['15-contact','contact',['v91/okla_contact.css','v91/okla_contact.js']],
- ['16-account','account',['v91/okla_account.css','v91/okla_account.js','v91/okla_account_polish.css','v91/okla_account_polish.js','v91/okla_account_nav.css','v91/okla_account_nav.js']],
+ ['09-article','article',['v91/pages/okla_article_hero.js','v91/pages/okla_article_products.css','v91/pages/okla_article_products.js']],
+ ['10-order-status','orderStatus',['v91/pages/okla_order_status.css','v91/pages/okla_order_status.js']],
+ ['11-complaint','complaint',['v91/pages/okla_reklamace.css','v91/pages/okla_reklamace.js']],
+ ['12-orders','orders',['v91/pages/okla_orders.css','v91/pages/okla_orders.js']],
+ ['13-about','about',['v91/pages/okla_about.css','v91/pages/okla_about.js']],
+ ['14-how-to-buy','howToBuy',['v91/pages/okla_how_to_buy.css','v91/pages/okla_how_to_buy.js']],
+ ['15-contact','contact',['v91/pages/okla_contact.css','v91/pages/okla_contact.js']],
+ ['16-account','account',['v91/pages/okla_account.css','v91/pages/okla_account.js','v91/pages/okla_account_polish.css','v91/pages/okla_account_polish.js','v91/pages/okla_account_nav.css','v91/pages/okla_account_nav.js']],
  /* Login and registration: social sign-in row, isolated page (logo + card) */
- ['17-sign-in','signIn',['v91/okla_login_social.css','v91/okla_login_social.js','v91/okla_auth_pages.css','v91/okla_auth_pages.js']],
- ['18-not-found','notFound',['v91/okla_404.css']],
+ ['17-sign-in','signIn',['v91/pages/okla_login_social.css','v91/pages/okla_login_social.js','v91/pages/okla_auth_pages.css','v91/pages/okla_auth_pages.js']],
+ ['18-not-found','notFound',['v91/pages/okla_404.css']],
  /* Empty states, payment logos, the shared header, the desktop hover cart */
- ['19-shared','all',['v91/okla_empty_states.css','v91/okla_empty_states.js','v91/okla_payment_logos.css','v91/okla_payment_logos.js','v91/okla_header_consistency.css','v91/okla_header_consistency.js','v91/okla_header_reference.css','v91/okla_header_reference.js','v91/okla_cart_preview.css','v91/okla_cart_preview.js']],
- ['20-legal','legal',['v91/okla_legal_fullwidth.css']],
+ ['19-shared','all',['v91/core/okla_empty_states.css','v91/core/okla_empty_states.js','v91/core/okla_payment_logos.css','v91/core/okla_payment_logos.js','v91/core/okla_header_consistency.css','v91/core/okla_header_consistency.js','v91/core/okla_header_reference.css','v91/core/okla_header_reference.js','v91/core/okla_cart_preview.css','v91/core/okla_cart_preview.js']],
+ ['20-legal','legal',['v91/pages/okla_legal_fullwidth.css']],
  /* Final header, sticky navbar, phone footer and menu, buttons and fields, phone content rail, phone bottom bar and panels */
- ['21-polish','all',['v91/okla_language_polish.css','v91/okla_header_final.css','v91/okla_header_final.js','v91/okla_header_template103.css','v91/okla_header_template103.js','v91/okla_desktop_sticky.css','v91/okla_desktop_sticky.js','v91/okla_mobile_policies.css','v91/okla_mobile_policies.js','v91/okla_footer_mobile_promo.css','v91/okla_footer_mobile_promo.js','v91/okla_footer_i18n_safe.css','v91/okla_button_consistency.css','v91/okla_button_consistency.js','v91/okla_field_consistency.css','v91/okla_password_toggle.js','v91/okla_mobile_menu.css','v91/okla_mobile_menu.js','v91/okla_mobile_gradient.css','v91/okla_mobile_gradient.js','v91/okla_mobile_content_width.css','v91/okla_mobile_tabbar.css','v91/okla_mobile_tabbar.js','v91/okla_mobile_pillbar.css','v91/okla_mobile_pillbar.js']],
+ ['21-polish','all',['v91/core/okla_language_polish.css','v91/core/okla_header_final.css','v91/core/okla_header_final.js','v91/core/okla_header_template103.css','v91/core/okla_header_template103.js','v91/core/okla_desktop_sticky.css','v91/core/okla_desktop_sticky.js','v91/core/okla_mobile_policies.css','v91/core/okla_mobile_policies.js','v91/core/okla_footer_mobile_promo.css','v91/core/okla_footer_mobile_promo.js','v91/core/okla_footer_i18n_safe.css','v91/core/okla_button_consistency.css','v91/core/okla_button_consistency.js','v91/core/okla_field_consistency.css','v91/core/okla_password_toggle.js','v91/core/okla_mobile_menu.css','v91/core/okla_mobile_menu.js','v91/core/okla_mobile_gradient.css','v91/core/okla_mobile_gradient.js','v91/core/okla_mobile_content_width.css','v91/core/okla_mobile_tabbar.css','v91/core/okla_mobile_tabbar.js','v91/core/okla_mobile_pillbar.css','v91/core/okla_mobile_pillbar.js']],
  /* Product page: tabs, tools (print, ask, watch, share), buy bar */
- ['22-product-extras','product',['v91/okla_detail_tabs.css','v91/okla_detail_tabs.js','v91/okla_product_tools.css','v91/okla_product_tools.js','v91/okla_desktop_buybar.css','v91/okla_desktop_buybar.js','v91/okla_detail_alza.css','v91/okla_detail_alza.js']],
+ ['22-product-extras','product',['v91/product/okla_detail_tabs.css','v91/product/okla_detail_tabs.js','v91/product/okla_product_tools.css','v91/product/okla_product_tools.js','v91/product/okla_desktop_buybar.css','v91/product/okla_desktop_buybar.js','v91/product/okla_detail_alza.css','v91/product/okla_detail_alza.js']],
  /* Typeface, text contrast, dead links, product prices and buttons */
- ['23-finish','all',['v91/okla_global_typography.css','v91/okla_text_contrast.js','v91/okla_deadlink_guard.js','v91/okla_product_commerce.css']],
- ['24-checkout-fix','checkout',['v91/okla_checkout_final.css','v91/okla_cart_recs.css','v91/okla_cart_recs.js']],
+ ['23-finish','all',['v91/core/okla_global_typography.css','v91/core/okla_text_contrast.js','v91/core/okla_deadlink_guard.js','v91/core/okla_product_commerce.css']],
+ ['24-checkout-fix','checkout',['v91/checkout/okla_checkout_final.css','v91/checkout/okla_cart_recs.css','v91/checkout/okla_cart_recs.js']],
  /* Call-to-action buttons: colour and shape */
- ['25-buttons','all',['v91/okla_green_buttons.js','v91/okla_all_cta_blue.css','v91/okla_cta_shape.js']],
+ ['25-buttons','all',['v91/core/okla_green_buttons.js','v91/core/okla_all_cta_blue.css','v91/core/okla_cta_shape.js']],
  /* Checkout skin */
- ['26-checkout-skin','checkout',['v91/okla_cart_simple.css','v91/okla_checkout_layout_v2.css','v91/okla_checkout_home_sync.css','v91/okla_checkout_alza.js']],
- ['27-thank-you','thankYou',['v91/okla_thank_you.css','v91/okla_thank_you.js']],
+ ['26-checkout-skin','checkout',['v91/checkout/okla_cart_simple.css','v91/checkout/okla_checkout_layout_v2.css','v91/checkout/okla_checkout_home_sync.css','v91/checkout/okla_checkout_alza.js']],
+ ['27-thank-you','thankYou',['v91/checkout/okla_thank_you.css','v91/checkout/okla_thank_you.js']],
  /* No zoom on phone fields, AI chat branding, the logo blue for Shoptet's own template colours */
- ['28-last','all',['v91/okla_mobile_no_zoom.css','v91/okla_ai_brand.js','v91/okla_brand_blue.css','v91/okla_catbar.css','v91/okla_catbar.js','v91/okla_islands.css','v91/okla_ui_categories.css']],
+ ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css']],
  /* Homepage editorial blocks, the search field typing example searches */
- ['29-home-magazine','home',['v91/okla_news_home_datart.css','v91/okla_news_home_alza.css','v91/okla_home_brands.css','v91/okla_home_brands.js','v91/okla_home_retail_refresh.css','v91/okla_home_retail_refresh.js','v91/okla_search_typing.js']],
+ ['29-home-magazine','home',['v91/home/okla_news_home_datart.css','v91/home/okla_news_home_alza.css','v91/home/okla_home_brands.css','v91/home/okla_home_brands.js','v91/home/okla_home_retail_refresh.css','v91/home/okla_home_retail_refresh.js','v91/home/okla_search_typing.js']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */
- ['99-later','all',['v91/okla_search.css','v91/okla_search.js','v91/okla_login_popup.css','v91/okla_login_popup.js','v91/okla_cart_modal.css','v91/okla_cart_modal.js','okla_footer.js']]
+ ['99-later','all',['v91/core/okla_search.css','v91/core/okla_search.js','v91/core/okla_login_popup.css','v91/core/okla_login_popup.js','v91/core/okla_cart_modal.css','v91/core/okla_cart_modal.js','okla_footer.js']]
 ];
 /*@end*/
 

@@ -12,9 +12,9 @@
  var LABEL={cs:'Čeština',en:'English',sk:'Slovenčina',hu:'Magyar'};
  var HTML_LANG={cs:'cs',en:'en',sk:'sk',hu:'hu'};
  var root=document.documentElement;
- /* the language packs live next to this file in v91/ (the loader's asset base + v91/; the file's own address when it
+ /* the language packs live in v91/ (this file is in v91/core/) (the loader's asset base + v91/; the file's own address when it
     is loaded on its own) */
- var base=window.__oklaAssetBase?window.__oklaAssetBase+'v91/':(document.currentScript&&document.currentScript.src||'').split(/[?#]/)[0].replace(/[^/]*$/,'');
+ var base=window.__oklaAssetBase?window.__oklaAssetBase+'v91/':(document.currentScript&&document.currentScript.src||'').split(/[?#]/)[0].replace(/[^/]*$/,'').replace(/core\/$/,'');
 
  function valid(l){return LANGS.indexOf(l)!==-1}
  function stored(){

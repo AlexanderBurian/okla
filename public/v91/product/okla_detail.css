@@ -430,7 +430,7 @@ html body.type-product #content .p-detail .p-detail-inner-header h1{
 /* 8bh. Stock with the "zboží skladem" pictogram and black text, not a large green word.
    Out of stock keeps its red label and has no pictogram. */
 html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{gap:4px 6px!important;min-height:64px!important;padding:12px 18px!important;border-radius:8px!important;background:#F5F5F5!important;font:400 16px/1.4 var(--okd-font)!important;color:#111!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value.ok86-in::before{content:""!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin-right:8px!important;background:url(img/okla_skladem.png) center/contain no-repeat!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value.ok86-in::before{content:""!important;flex:0 0 40px!important;width:40px!important;height:40px!important;margin-right:8px!important;background:url(../img/okla_skladem.png) center/contain no-repeat!important}
 html body.ok89-detail #content .p-detail .availability-value .availability-label,
 html body.ok89-detail #content .p-detail .availability-value .availability-amount{font:inherit!important;color:#111!important}
 html body.ok89-detail #content .p-detail .availability-value.ok86-in .availability-label{font-weight:700!important;color:#111!important}

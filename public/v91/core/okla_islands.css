@@ -141,7 +141,7 @@ html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-c
 /* Homepage warranty island: the OKLA manul sits on its bottom edge, left of the button, peeking a little over the top */
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d){position:relative!important;overflow:visible!important}
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{content:""!important;position:absolute!important;z-index:2!important;right:auto!important;left:50%!important;transform:translateX(-50%)!important;bottom:0!important;width:166px!important;height:160px!important;
-  background:url('img/okla-manul-warranty.webp') center bottom/contain no-repeat!important;pointer-events:none!important}
+  background:url('../img/okla-manul-warranty.webp') center bottom/contain no-repeat!important;pointer-events:none!important}
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) .okla-warranty-inner{position:relative!important;z-index:3!important}
 @media(max-width:767px){
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d){margin-top:40px!important}

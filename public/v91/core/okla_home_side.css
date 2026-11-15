@@ -16,14 +16,14 @@
 
 /* Hand: 1.515 x the margin width, moved 10% to the right, so its right part runs under the card.
    The lowest visible point of the hand is at 76.8% of its height. */
-.okla-side-art--left .okla-side-art__img--phone{width:151.5%;margin-left:10%;aspect-ratio:608/760;background-image:url('assets/warranty-hand.webp')}
+.okla-side-art--left .okla-side-art__img--phone{width:151.5%;margin-left:10%;aspect-ratio:608/760;background-image:url('../assets/warranty-hand.webp')}
 /* Both captions start 16 px under the hand's lowest visible point: 145.5cqw from the top of the art. */
 .okla-side-art--left .okla-side-art__text{margin-top:calc(-43.83cqw + 16px)}
 .okla-side-art--right .okla-side-art__text{margin-top:calc(13.52cqw + 16px)}
 
 /* Flipper group: the Wi-Fi board sits directly on the device, both whole. The group sits 24 px from the card. */
-.okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('assets/warranty-flipper.webp')}
-.okla-side-art__img--wifi{width:100%;aspect-ratio:520/298;background-image:url('assets/warranty-wifi.webp')}
+.okla-side-art__img--flipper{aspect-ratio:760/568;background-image:url('../assets/warranty-flipper.webp')}
+.okla-side-art__img--wifi{width:100%;aspect-ratio:520/298;background-image:url('../assets/warranty-wifi.webp')}
 
 /* The caption sits above the picture and takes clicks itself, so clicking the text does not follow the picture's link.
    Both captions start 16 px under the group's bottom, which is also the hand's bottom. */
@@ -37,10 +37,10 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
 .okla-side-art__stage{position:relative;width:100%;height:132cqw}
 .okla-side-art__product{position:absolute;inset:0;width:100%;height:100%;background-size:contain;background-position:center;background-repeat:no-repeat}
 /* glasses are wider than tall, so they get a bit more width (running slightly past the art box) */
-.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('assets/side-glasses.png');background-position:center 34%;transform:scaleX(-1)}
+.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('../assets/side-glasses.png');background-position:center 34%;transform:scaleX(-1)}
 /* the glasses look to the right (mirrored); the price tag is not part of the picture, so it stays readable */
-.okla-side-art__stage--meter .okla-side-art__product{background-image:url('assets/side-meter.png');background-position:30% 20%;background-size:auto 92%}
-.okla-side-art__stage--endoscope .okla-side-art__product{background-image:url('assets/side-endoscope.png')}
+.okla-side-art__stage--meter .okla-side-art__product{background-image:url('../assets/side-meter.png');background-position:30% 20%;background-size:auto 92%}
+.okla-side-art__stage--endoscope .okla-side-art__product{background-image:url('../assets/side-endoscope.png')}
 
 /* Price tag, as on the big electronics shops: a yellow tag with a punched hole, slightly tilted. It stays still
    (no hover effect) and sits beside each product, covering at most a small corner of it. Sizes in cqw. */

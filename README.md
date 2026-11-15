@@ -10,8 +10,14 @@ public/
   zapati_firsthalf.js   the one loader (Shoptet: HTML kód > zápatí) - start-up, page detection, the bundle table,
                         loading curtain, loading
   dist/                 built bundles: one .css and/or .js per category (generated, do not edit)
-  v91/                  sources: one file per feature (okla_<feature>.css / .js), images in img/ and assets/,
-                        language packs okla_i18n_<lang>.js (loaded on demand)
+  v91/                  sources: one file per feature (okla_<feature>.css / .js), sorted by where they load:
+    core/               every page (header, menus, layout, product cards, buttons, footer, cart panel)
+    home/               homepage
+    product/            product page
+    checkout/           cart, order steps, thank-you page
+    pages/              the other pages (account, orders, contact, about, legal, 404, …)
+    img/, assets/, data/  pictures and data used by the files above
+    okla_i18n_<lang>.js language packs (loaded on demand, stay in v91/)
   legacy/v53, v55       the original storefront core and homepage news, still part of the core bundle
   content-v91/          product page content (33 products) and its layout
   newsroom/             the article hub (/newsroom and /nase-novinky/)
@@ -44,7 +50,7 @@ which pages it loads:
 | 24-checkout-fix, 26-checkout-skin | cart and checkout | checkout corrections and skin |
 | 25-buttons | all | call-to-action colour and shape |
 | 27-thank-you | after an order | the thank-you page with QR payment |
-| 28-last | all | no zoom on phone fields, AI chat branding |
+| 28-last | all | no zoom on phone fields, AI chat branding, islands, one look per button kind (`okla_ui_categories.css`) |
 | 29-home-magazine | homepage | editorial blocks |
 | 99-later | all | search, login popup, cart drawer, footer - loaded after the page is shown |
 
