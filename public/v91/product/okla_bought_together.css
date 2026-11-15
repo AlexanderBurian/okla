@@ -13,3 +13,13 @@ html body #okla-bought-together .okla-bt__chip.is-active:not(#obt-a#obt-b#obt-c#
 @media(max-width:767px){
   html body #okla-bought-together .okla-bt__chips:not(#obt-a#obt-b#obt-c#obt-d#obt-e){margin-left:-14px!important;margin-right:-14px!important;padding:2px 14px!important}
 }
+
+/* a little more air between the heading and the chips */
+html body #okla-bought-together .okla-bt__chips:not(#obt-a#obt-b#obt-c#obt-d#obt-e){margin-top:8px!important}
+/* both product sliders on the product page ("Nejčastěji zakoupeno společně", "Mohlo by vás zajímat"): tighter vertical
+   gaps - less space above the cards and between the two rows */
+@media(min-width:768px){
+  html body.ok89-detail #content .ok86-related .okla-slider-shell .okla-slider-viewport:not(#obt-a#obt-b#obt-c#obt-d#obt-e#obt-f#obt-g#obt-h#obt-i#obt-j){padding-top:8px!important;padding-bottom:12px!important}
+  html body.ok89-detail #content .ok86-related .okla-slider-shell+.homepage-group-title+.okla-slider-shell:not(#obt-a#obt-b#obt-c#obt-d#obt-e#obt-f#obt-g#obt-h#obt-i#obt-j),
+  html body.ok89-detail #content .ok86-related .okla-slider-shell+.okla-slider-shell:not(#obt-a#obt-b#obt-c#obt-d#obt-e#obt-f#obt-g#obt-h#obt-i#obt-j){margin-top:0!important}
+}
