@@ -73,6 +73,8 @@
    filterBlue();
    document.querySelectorAll(RADIUS_SEL).forEach(function(b){
     if(isCard(b)||b.closest('#okla-v61-bottom,#okla-v61-drawer .okm61-drawer-close'))return;
+    /* the quantity stepper's +/- are one rounded unit drawn by CSS: no corners of their own */
+    if(b.closest('.quantity')){b.style.removeProperty('border-radius');b.style.removeProperty('-webkit-border-radius');return}
     b.style.setProperty('border-radius',RADIUS,'important');
     b.style.setProperty('-webkit-border-radius',RADIUS,'important');
    });

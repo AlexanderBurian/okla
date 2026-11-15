@@ -109,14 +109,12 @@
   var baseText=mainFmt(view,view.base);
   if((view.target.textContent||'').trim()!==baseText)view.target.textContent=baseText;
   var plus=view.root.querySelector('.okla-xsell-plus');
-  if(selected>0){if(!plus){plus=document.createElement('span');plus.className='okla-xsell-plus';view.target.after(plus)}plus.textContent='(+'+selected+')';plus.setAttribute('aria-label','a '+selected+' doporučené produkty navíc')}
-  else if(plus)plus.remove();
-  /* the buy bars keep the product's own price too, with the same small "(+N)" beside it */
+  /* the count of companions is shown only in the added-to-cart panel, never at the product's price */
+  if(plus)plus.remove();
+  /* the buy bars keep the product's own price */
   document.querySelectorAll('.okla-m-buybar__price,.okla-dbb__price').forEach(function(el){
-   if(el.firstChild&&el.firstChild.nodeType===3){if(el.firstChild.nodeValue!==baseText)el.firstChild.nodeValue=baseText}else el.textContent=baseText;
-   var bp=el.querySelector('.okla-xsell-plus');
-   if(selected>0){if(!bp){bp=document.createElement('span');bp.className='okla-xsell-plus';el.appendChild(bp)}bp.textContent='(+'+selected+')'}
-   else if(bp)bp.remove();
+   var bp=el.querySelector('.okla-xsell-plus');if(bp)bp.remove();
+   if(el.textContent!==baseText)el.textContent=baseText;
   });
   try{window.dispatchEvent(new CustomEvent('okla:xsell-total',{detail:{base:view.base,extra:extra,total:total,selected:selected,formatted:formatted}}))}catch(e){}
  }

@@ -190,7 +190,9 @@
   state={product:main,amount:amount||1};
   refs.items.textContent='';
   var row=itemRow(main,state.amount,!!main.url);refs.items.appendChild(row);
-  selectedCrossSell().forEach(function(x){if(x.name&&x.name===main.name)return;refs.items.appendChild(itemRow({name:x.name,image:x.image,price:x.price,priceText:x.priceText,url:x.href},x.amount||1,false))});
+  /* companions added together with it: just a small "+N" beside the product's name */
+  var extra=selectedCrossSell().filter(function(x){return !(x.name&&x.name===main.name)}).length;
+  if(extra>0){var nm=row.querySelector('.okla-cm__name');if(nm){var tag=el('span','okla-cm__plus','+'+extra);tag.title=extra===1?'a 1 doporučený produkt':'a '+extra+' doporučené produkty';nm.after(tag);var wrap=el('div','okla-cm__namewrap');nm.before(wrap);wrap.append(nm,tag)}}
   renderCards(cat||main);
   quietNativePopups();
   refs.scroll.scrollTop=0;
