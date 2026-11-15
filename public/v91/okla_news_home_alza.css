@@ -49,3 +49,21 @@ html body.type-index #content #okla-news-v55 .okn-button:hover{background:#0668b
   html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-desc{font-size:12px!important;line-height:1.45!important;-webkit-line-clamp:2!important}
   html body.type-index #content #okla-news-v55 .okn-bottom{margin-top:18px!important}
 }
+
+/* Match the two legacy ID guards so the intended 2+3 layout cannot be overridden by the older three-card rules. */
+@media(min-width:992px){
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:repeat(6,minmax(0,1fr))!important;column-gap:22px!important;row-gap:38px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){display:flex!important;grid-column:span 2!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(-n+2){grid-column:span 3!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-image{aspect-ratio:2/1!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:static!important;display:flex!important;justify-content:center!important;margin:28px 0 0!important}
+}
+@media(min-width:681px) and (max-width:991px){
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){display:flex!important;grid-column:span 1!important}
+}
+@media(max-width:680px){
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){display:flex!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:static!important;display:flex!important;justify-content:center!important;margin:18px 0 0!important}
+}
