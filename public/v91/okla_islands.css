@@ -40,7 +40,8 @@
   /* 16px of grey between the islands */
   html body.type-index #content#content>*:not(#okis-a#okis-b#okis-c){margin-top:16px!important;margin-bottom:0!important}
   html body.type-index #content#content>.homepage-group-title+*:not(#okis-a#okis-b#okis-c){margin-top:0!important}
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){margin-top:0!important}
+  /* the hero island keeps the standard 16px grey gap above it, so it does not touch the category menu (Best Buy style) */
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c){margin-top:16px!important}
   html body.type-index #content#content>h1:not(#okis-a#okis-b#okis-c),
   html body.type-index #content#content>.okla-hsearch:not(#okis-a#okis-b#okis-c){margin:0!important}
   html body.type-index #content#content>:last-child:not(#okis-a#okis-b#okis-c){margin-bottom:24px!important}
@@ -72,7 +73,7 @@
   html body.type-index #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c){clip-path:inset(0 -12px -12px -12px)!important}
   html body.type-index #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c){clip-path:inset(-12px -12px 0 -12px)!important}
   /* the hero and the category circles: one island */
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d){border-radius:0!important;padding-bottom:4px!important;clip-path:inset(0 -12px 0 -12px)!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d){border-radius:8px 8px 0 0!important;padding-bottom:4px!important;clip-path:inset(-12px -12px 0 -12px)!important}
   html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d){margin-top:0!important;border-top:0!important;border-radius:0 0 8px 8px!important;clip-path:inset(0 -12px -12px -12px)!important}
   /* the side art's hand ends at the content's edge (no piece of it showing between the islands) */
   html body .okla-side-art--left:not(#okis-a){overflow:hidden!important}

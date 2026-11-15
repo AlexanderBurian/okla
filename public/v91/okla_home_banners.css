@@ -107,8 +107,7 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 /* PC (≥768px): one hero slider like on phones - all the banners take turns in the top slot (Flipper Zero, the AI
    glasses, the endoscopes) with the same dots under it; the two smaller tiles under the hero are gone */
 @media (min-width:768px){
-  /* A clear grey gap between the category menu and the hero island, so the island does not touch the menu (as on Best Buy). */
-  html body.type-index #content .banners-row:not(#okhb-a){display:block!important;padding-bottom:0!important;margin-top:26px!important}
+  html body.type-index #content .banners-row:not(#okhb-a){display:block!important;padding-bottom:0!important;margin-top:14px!important}
   html body.type-index #content .banners-row:not(#okhb-a)>.col-sm-4{display:none!important}
   html body.type-index #content .banners-row:not(#okhb-a)>.col-sm-8{width:100%!important;max-width:100%!important;flex:none!important;float:none!important;padding:0!important}
   html body.type-index #content .banners-row:not(#okhb-a) #carousel{height:auto!important;min-height:0!important;overflow:visible!important;background:transparent!important;box-shadow:none!important}
