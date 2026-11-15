@@ -76,7 +76,7 @@
    ['M3 5h18v14H3z M3 6l9 7 9-7','Kontakt: podpora@okla.cz','mailto:podpora@okla.cz']
   ];
   facts.forEach(([path,title,href])=>{var box=el('div');box.append(svgIcon(path));var a=el('a',null,title);a.href=href;box.append(a);strip.append(box)});
-  var related=q('.ok86-related');var detailEnd=related||q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper')||detail;
+  var related=q('.ok86-related:not(.okla-bt)');var detailEnd=related||q('.p-detail-tabs-wrapper,.p-details-tabs-wrapper')||detail;
   detailEnd.after(strip);
  }
  /* Right column under the buy row: the same four facts as the trust strip (all linked pages exist on the shop), next to the buyer's decision. */
@@ -368,7 +368,7 @@
   }).catch(()=>[]);
  }
  function relatedCarousel(p,detail){
-  if(q('.ok86-related')||!window.fetch||!window.DOMParser)return;
+  if(q('.ok86-related:not(.okla-bt)')||!window.fetch||!window.DOMParser)return;
   var cat=breadcrumbCategory(),catHref=(cat&&cat.href)||p.categoryHref||categoryHref(p.defaultCategory)||'';
   var here=location.pathname,seen={},records=[];
   /* two rows of up to 6 products each */
@@ -376,7 +376,7 @@
   function add(list){list.forEach(c=>{if(records.length<MAX&&c.url!==here&&!seen[c.url]){seen[c.url]=1;records.push(c)}})}
   var first=catHref?liveCards(catHref):Promise.resolve([]);
   first.then(function(list){add(list);return records.length<MAX?liveCards('/').then(add):null}).then(function(){
-   if(!records.length||q('.ok86-related'))return;
+   if(!records.length||q('.ok86-related:not(.okla-bt)'))return;
    var sec=el('section','ok86-related');
    /* Same markup as the homepage slider (.okla-slider-*); the native loader's sliderFor() builds the shell, arrows,
       autoplay and swipe; okla_native_pages.js gives the cards the homepage look. */
