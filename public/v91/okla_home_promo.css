@@ -29,7 +29,7 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__text{margin:18px 0 24px!important;font-size:17px!important;font-weight:400!important;line-height:1.32!important;letter-spacing:-.01em!important;color:#fff!important}
 #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta{height:41px!important;min-height:41px!important;padding:0 20px!important;border:1px solid rgba(255,255,255,.62)!important;border-radius:7px!important;background:rgba(0,0,0,.12)!important;color:#fff!important;font-size:12px!important;font-weight:600!important;letter-spacing:.025em!important;box-shadow:none!important;cursor:default!important;backdrop-filter:blur(2px)!important}
 #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta:is(:hover,:focus-visible){border-color:rgba(255,255,255,.82)!important;background:rgba(255,255,255,.06)!important;color:#fff!important;outline:0!important}
-#okla-promo-deals .okla-campaign__flipper-stage{position:absolute!important;z-index:3!important;right:1.5%!important;top:126px!important;width:59%!important;max-width:none!important;margin:0!important;opacity:.96!important;filter:brightness(.95) contrast(.98) saturate(.9) drop-shadow(0 24px 25px rgba(0,0,0,.56))!important}
+#okla-promo-deals .okla-campaign__flipper-stage{position:absolute!important;z-index:3!important;right:3.2%!important;top:174px!important;width:49.5%!important;max-width:none!important;margin:0!important;opacity:.91!important;filter:brightness(.86) contrast(.95) saturate(.78) drop-shadow(0 20px 24px rgba(0,0,0,.48))!important}
 #okla-promo-deals .okla-campaign__flipper{display:block!important;position:relative!important;z-index:2!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;margin:0!important}
 #okla-promo-deals .okla-campaign__flipper-screen{position:absolute!important;z-index:3!important;left:33.05%!important;top:20.2%!important;width:35.25%!important;height:49.2%!important;max-width:none!important;object-fit:cover!important;border-radius:1.8%!important;margin:0!important;filter:saturate(.94) contrast(1.04)!important;pointer-events:none!important}
 #okla-promo-deals .okla-campaign__fineprint{position:absolute!important;z-index:4!important;left:7.2%!important;bottom:40px!important;margin:0!important;color:rgba(255,255,255,.62)!important;font-size:9px!important;font-weight:400!important;line-height:1.28!important}
@@ -47,7 +47,7 @@ html body.type-index #content #okla-promo-deals{
 /* Narrower desktop windows: keep the copy clear of the product. */
 @media(max-width:1200px){
   #okla-promo-deals .okla-campaign__flipper-copy{left:6.5%!important;width:38%!important}
-  #okla-promo-deals .okla-campaign__flipper-stage{right:1%!important;width:58%!important}
+  #okla-promo-deals .okla-campaign__flipper-stage{right:2.5%!important;width:51%!important}
 }
 
 /* Phones: stack the two cards (the site keeps its own mobile layout otherwise). */
