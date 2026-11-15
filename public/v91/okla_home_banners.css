@@ -138,8 +138,8 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
   html body.type-index #content#content .banners-row>.col-sm-8:not(#okhb-a#okhb-b),
   html body.type-index #content#content .banners-row #carousel:not(#okhb-a#okhb-b),
   html body.type-index #content#content .banners-row #carousel .carousel-inner:not(#okhb-a#okhb-b){height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important}
-  /* 3:1 keeps the whole product in the picture (the PC photos are 1818x374) */
-  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:3/1!important}
+  /* a touch shorter than 3:1 */
+  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:3.3/1!important}
   /* The product (the Flipper, the hand, the glasses) sits a little lower in the frame so it is not jammed against the top edge / the menu above. */
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-position:90% 62%!important}
 }
@@ -150,7 +150,8 @@ html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--storewi
 /* the picture carries its own gradient; keep the shared scrims light so the right stays clear for the gift */
 html body.type-index #content .okla-hero .okla-hero__slide--storewide::before{background:linear-gradient(270deg,rgba(1,23,55,.16) 0%,rgba(1,23,55,0) 46%)!important}
 html body.type-index #content .okla-hero .okla-hero__slide--storewide::after{background:linear-gradient(90deg,rgba(1,23,55,.36) 0%,rgba(1,23,55,.12) 46%,rgba(1,23,55,0) 74%)!important}
-.okla-hero__gift{position:absolute;z-index:2;right:2%;bottom:-10%;width:40%;height:auto;object-fit:contain;filter:drop-shadow(0 30px 28px rgba(0,24,55,.36));pointer-events:none}
+/* the gift is a foreground cut-out; the Bootstrap carousel forces its images to width:100%, so override with the hero scope */
+html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{position:absolute;z-index:2;right:1%;bottom:-24%;width:38%;max-width:38%;height:auto;object-fit:contain;filter:drop-shadow(0 30px 28px rgba(0,24,55,.36));pointer-events:none}
 .okla-hero__wideline{display:flex!important;align-items:center;gap:22px;flex-wrap:wrap;margin:0}
 .okla-hero__wideline strong{color:#ffd800;font-weight:800}
 .okla-hero__wideline span{opacity:.92}
@@ -170,5 +171,5 @@ html body.type-index #content .okla-hero .okla-hero__slide--storewide::after{bac
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__title{font-size:20px!important;line-height:1.1!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline{flex-direction:column!important;align-items:flex-start;gap:2px;font-size:12px!important}
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__wideline strong{font-size:13px!important}
-  .okla-hero__slide--storewide .okla-hero__gift{right:-3%!important;bottom:-10%!important;width:37%!important}
+  html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-2%!important;bottom:-14%!important;width:34%!important;max-width:34%!important}
 }
