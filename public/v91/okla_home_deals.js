@@ -58,8 +58,14 @@
  function buildSignin(){
   /* Best Buy style: a heading, four true benefits of an OKLA account with ticks, two buttons */
   var box=el('section');box.id='okla-signin-strip';box.setAttribute('aria-label','Zákaznický účet');
+  /* account pictogram (PC): shown next to the sign-in text, Best Buy style */
+  var av=document.createElementNS('http://www.w3.org/2000/svg','svg');av.setAttribute('viewBox','0 0 24 24');av.setAttribute('aria-hidden','true');av.setAttribute('class','oks-avatar');av.innerHTML='<circle cx="12" cy="8" r="3.4"/><path d="M5 19.5c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/>';
+  box.appendChild(av);
   var main=el('div','oks-main');
   main.appendChild(el('h2','oks-title','Přihlaste se pro více výhod'));
+  /* PC: the benefits as one plain line (no ticks) */
+  main.appendChild(el('p','oks-sub','Rychlejší nákup, přehled objednávek, sledování zásilky a snadná reklamace.'));
+  /* Mobile: the same benefits as a ticked list */
   var ul=el('ul','oks-list');
   ['Rychlejší nákup','Přehled objednávek','Sledování zásilky','Snadná reklamace'].forEach(function(t){
    var li=el('li','oks-item');

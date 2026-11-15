@@ -5,17 +5,20 @@
    category, title and date on the right, thin lines between. */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){position:relative!important;margin:44px 0 48px!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#081d3a!important}
 /* heading row */
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:6px 16px!important;margin:0 0 20px!important;padding-right:190px!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px 16px!important;margin:0 0 20px!important;padding-right:220px!important;min-height:40px!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{margin:0!important;padding:0!important;color:#081d3a!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.3px!important;text-transform:none!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-go{display:none!important}
 /* "Přejít do magazínu": a text link on the heading's line, right */
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:absolute!important;top:7px!important;right:0!important;display:block!important;margin:0!important;padding:0!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:absolute!important;top:-4px!important;right:0!important;display:block!important;margin:0!important;padding:0!important}
+/* "Přejít do magazínu": a real button (ghost style) instead of a plain text link */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{
-  display:inline-flex!important;align-items:center!important;gap:2px!important;height:auto!important;min-height:0!important;padding:0!important;
-  border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;
-  color:#0858d6!important;-webkit-text-fill-color:#0858d6!important;font:600 15px/1.3 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;height:40px!important;min-height:0!important;padding:0 20px!important;box-sizing:border-box!important;
+  border:1px solid #c5ccd6!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 2px rgba(16,24,40,.08)!important;
+  color:#0858d6!important;-webkit-text-fill-color:#0858d6!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;text-transform:none!important;transition:border-color .15s ease,background-color .15s ease!important;
 }
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+@media(hover:hover){html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:hover{border-color:#0858d6!important;background:#f5f8ff!important}}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:focus-visible{outline:2px solid #0858d6!important;outline-offset:3px!important}
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button svg{width:16px!important;height:16px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 /* the articles */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:28px!important;width:100%!important;min-width:0!important;overflow:visible!important;padding:0!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card,
@@ -35,7 +38,8 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-chi
   position:static!important;display:flex!important;flex:1 1 auto!important;flex-direction:column!important;gap:0!important;width:auto!important;max-width:none!important;min-width:0!important;
   margin:0!important;padding:14px 0 0!important;border:0!important;border-radius:0!important;background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
 }
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-cat{margin:0!important;color:#0858d6!important;font:600 13px/1.3 "Open Sans",Arial,sans-serif!important}
+/* no blue eyebrow category label above the article title */
+html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-cat{display:none!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-title,
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-title{
   display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;margin:6px 0 8px!important;
@@ -61,10 +65,11 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-read svg{dis
 /* phones: a list */
 @media(max-width:680px){
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){margin:32px 0 36px!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{margin:0 0 4px!important;padding-right:150px!important}
+  /* phones: the button drops under the heading (in flow), so nothing overlaps */
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{flex-direction:column!important;align-items:flex-start!important;margin:0 0 10px!important;padding-right:0!important;min-height:0!important;gap:10px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{font-size:20px!important;white-space:nowrap!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{top:4px!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{font-size:13.5px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:static!important;top:auto!important;right:auto!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{height:38px!important;padding:0 16px!important;font-size:13.5px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button svg{width:16px!important;height:16px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:minmax(0,1fr)!important;gap:0!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(3){display:flex!important}
