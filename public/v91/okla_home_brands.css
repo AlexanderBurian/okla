@@ -1,27 +1,29 @@
-/* Standalone homepage brand island, populated from the actual catalogue. */
-html body.type-index #content #okla-brands-v1{box-sizing:border-box!important;width:100%!important;margin:21px 0 0!important;padding:23px 24px 26px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;color:#081d3a!important}
+/* Homepage brand island: borderless logos in a touch-friendly carousel. */
+html body.type-index #content #okla-brands-v1{box-sizing:border-box!important;width:100%!important;margin:21px 0 0!important;padding:23px 24px 26px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;color:#081d3a!important;overflow:hidden!important}
 #okla-brands-v1 *{box-sizing:border-box}
-#okla-brands-v1 .okla-brands__title{margin:0 0 19px!important;color:#081d3a!important;font:700 25px/1.25 "Open Sans",Arial,sans-serif!important;letter-spacing:-.25px!important}
-#okla-brands-v1 .okla-brands__grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px!important}
-#okla-brands-v1 .okla-brands__item{display:flex!important;align-items:center!important;justify-content:center!important;min-width:0!important;height:92px!important;padding:12px 18px!important;border:1px solid #e1e6ed!important;border-radius:7px!important;background:#fff!important;color:#102f5e!important;text-decoration:none!important;transition:border-color .15s ease,box-shadow .15s ease!important}
-#okla-brands-v1 .okla-brands__logo{display:block!important;width:auto!important;height:auto!important;max-width:180px!important;max-height:48px!important;object-fit:contain!important;margin:0!important}
-#okla-brands-v1 .okla-brands__item[data-brand="Flipper Devices"] .okla-brands__logo{max-width:190px!important;max-height:38px!important}
-#okla-brands-v1 .okla-brands__item[data-brand="LILYGO"] .okla-brands__logo{max-width:155px!important;max-height:48px!important}
-#okla-brands-v1 .okla-brands__item[data-brand="M5Stack"] .okla-brands__logo{max-width:175px!important;max-height:47px!important}
-#okla-brands-v1 .okla-brands__item[data-brand="WANBO"] .okla-brands__logo{max-width:158px!important;max-height:45px!important}
-#okla-brands-v1 .okla-brands__name{display:block!important;max-width:100%!important;text-align:center!important;font:700 24px/1.1 "Open Sans",Arial,sans-serif!important;letter-spacing:-.6px!important;white-space:nowrap!important}
-#okla-brands-v1 .okla-brands__item[data-brand="Flipper Devices"] .okla-brands__name{font-size:21px!important;text-transform:uppercase!important;letter-spacing:.2px!important}
-#okla-brands-v1 .okla-brands__item[data-brand="LILYGO"] .okla-brands__name{font-style:italic!important;letter-spacing:.5px!important}
-#okla-brands-v1 .okla-brands__item[data-brand="M5Stack"] .okla-brands__name{color:#111827!important;font-weight:800!important}
-#okla-brands-v1 .okla-brands__item[data-brand="WANBO"] .okla-brands__name{letter-spacing:2px!important}
-@media(hover:hover){#okla-brands-v1 .okla-brands__item:hover{border-color:#8db4e7!important;box-shadow:0 3px 10px rgba(18,61,112,.10)!important}}
-#okla-brands-v1 .okla-brands__item:focus-visible{outline:2px solid #0877d1!important;outline-offset:2px!important}
+#okla-brands-v1 .okla-brands__title{margin:0 0 15px!important;color:#081d3a!important;font:700 25px/1.25 "Open Sans",Arial,sans-serif!important;letter-spacing:-.25px!important}
+#okla-brands-v1 .okla-brands__slider{position:relative!important;margin:0 -24px!important;padding:0 38px!important}
+#okla-brands-v1 .okla-brands__viewport{width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-behavior:smooth!important;scroll-snap-type:x mandatory!important;scrollbar-width:none!important;overscroll-behavior-inline:contain!important}
+#okla-brands-v1 .okla-brands__viewport::-webkit-scrollbar{display:none!important}
+#okla-brands-v1 .okla-brands__track{display:flex!important;align-items:center!important;gap:18px!important;width:max-content!important;min-width:100%!important;padding:3px 10px!important}
+#okla-brands-v1 .okla-brands__item{display:flex!important;flex:0 0 188px!important;align-items:center!important;justify-content:center!important;height:84px!important;padding:10px 14px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#102f5e!important;text-decoration:none!important;scroll-snap-align:start!important}
+#okla-brands-v1 .okla-brands__logo{display:block!important;width:auto!important;height:auto!important;max-width:164px!important;max-height:47px!important;object-fit:contain!important;margin:0!important;filter:none!important}
+#okla-brands-v1 .okla-brands__item[data-brand="Flipper Devices"] .okla-brands__logo{max-width:174px!important;max-height:35px!important}
+#okla-brands-v1 .okla-brands__item[data-brand="LILYGO"] .okla-brands__logo{max-width:150px!important}
+#okla-brands-v1 .okla-brands__item[data-brand="TASI"] .okla-brands__logo{max-width:150px!important;max-height:50px!important}
+#okla-brands-v1 .okla-brands__item[data-brand="Benetech"] .okla-brands__logo{max-width:90px!important;max-height:52px!important}
+#okla-brands-v1 .okla-brands__arrow{position:absolute!important;top:50%!important;z-index:3!important;display:flex!important;align-items:center!important;justify-content:center!important;width:36px!important;height:58px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0 6px 6px 0!important;background:#1852a3!important;box-shadow:0 2px 7px rgba(10,47,99,.18)!important;color:#fff!important;transform:translateY(-50%)!important;cursor:pointer!important}
+#okla-brands-v1 .okla-brands__arrow--prev{left:0!important}
+#okla-brands-v1 .okla-brands__arrow--next{right:0!important;border-radius:6px 0 0 6px!important}
+#okla-brands-v1 .okla-brands__arrow svg{display:block!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.4!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+#okla-brands-v1 .okla-brands__arrow:disabled{opacity:.28!important;cursor:default!important}
+#okla-brands-v1 .okla-brands__item:focus-visible,#okla-brands-v1 .okla-brands__viewport:focus-visible{outline:2px solid #0877d1!important;outline-offset:1px!important}
 @media(max-width:680px){
-  html body.type-index #content #okla-brands-v1{padding:19px 14px 20px!important}
-  #okla-brands-v1 .okla-brands__title{margin-bottom:14px!important;font-size:20px!important}
-  #okla-brands-v1 .okla-brands__grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
-  #okla-brands-v1 .okla-brands__item{height:72px!important;padding:10px!important}
-  #okla-brands-v1 .okla-brands__logo{max-width:130px!important;max-height:38px!important}
-  #okla-brands-v1 .okla-brands__name{font-size:19px!important}
-  #okla-brands-v1 .okla-brands__item[data-brand="Flipper Devices"] .okla-brands__name{font-size:15px!important}
+ html body.type-index #content #okla-brands-v1{margin-top:12px!important;padding:19px 14px 19px!important}
+ #okla-brands-v1 .okla-brands__title{margin-bottom:10px!important;font-size:20px!important}
+ #okla-brands-v1 .okla-brands__slider{margin:0 -14px!important;padding:0 31px!important}
+ #okla-brands-v1 .okla-brands__track{gap:4px!important;padding:0 6px!important}
+ #okla-brands-v1 .okla-brands__item{flex-basis:142px!important;height:70px!important;padding:8px!important}
+ #okla-brands-v1 .okla-brands__logo{max-width:126px!important;max-height:37px!important}
+ #okla-brands-v1 .okla-brands__arrow{width:30px!important;height:50px!important}
 }

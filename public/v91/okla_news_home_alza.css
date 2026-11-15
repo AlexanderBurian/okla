@@ -30,24 +30,23 @@ html body.type-index #content #okla-news-v55 .okn-button:hover{background:#0668b
   html body.type-index #content #okla-news-v55 .okn-card:last-child{grid-column:1/-1!important;max-width:calc(50% - 9px)!important}
 }
 @media(max-width:680px){
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){padding:19px 14px 22px!important}
-  html body.type-index #content #okla-news-v55 .okn-head{margin-bottom:8px!important}
-  html body.type-index #content #okla-news-v55 .okn-heading{font-size:20px!important}
-  html body.type-index #content #okla-news-v55 .okn-grid{grid-template-columns:1fr!important;gap:0!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){padding:19px 14px 24px!important}
+  html body.type-index #content #okla-news-v55 .okn-head{margin-bottom:18px!important}
+  html body.type-index #content #okla-news-v55 .okn-heading{font-size:22px!important}
+  html body.type-index #content #okla-news-v55 .okn-grid{grid-template-columns:1fr!important;gap:36px!important}
   html body.type-index #content #okla-news-v55 .okn-card,
   html body.type-index #content #okla-news-v55 .okn-card:nth-child(n),
-  html body.type-index #content #okla-news-v55 .okn-card:last-child{display:flex!important;grid-column:span 1!important;max-width:none!important;flex-direction:row!important;gap:13px!important;padding:13px 0!important;border-bottom:1px solid #e5eaf0!important}
-  html body.type-index #content #okla-news-v55 .okn-card:last-child{border-bottom:0!important}
+  html body.type-index #content #okla-news-v55 .okn-card:last-child{display:flex!important;grid-column:span 1!important;max-width:none!important;flex-direction:column!important;gap:0!important;padding:0!important;border:0!important}
   html body.type-index #content #okla-news-v55 .okn-image,
-  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-image{flex:0 0 116px!important;width:116px!important;aspect-ratio:4/3!important;border-radius:6px!important}
+  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-image{flex:none!important;width:100%!important;aspect-ratio:2/1!important;border-radius:8px!important}
   html body.type-index #content #okla-news-v55 .okn-body,
-  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-body{padding:0!important}
+  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-body{padding:15px 10px 0!important}
   html body.type-index #content #okla-news-v55 .okn-title,
   html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-title,
-  html body.type-index #content #okla-news-v55 .okn-card:nth-child(-n+2) .okn-title{margin:1px 0 5px!important;font-size:14px!important;line-height:1.38!important;-webkit-line-clamp:3!important}
+  html body.type-index #content #okla-news-v55 .okn-card:nth-child(-n+2) .okn-title{margin:0!important;font-size:18px!important;font-weight:500!important;line-height:1.5!important;-webkit-line-clamp:3!important}
   html body.type-index #content #okla-news-v55 .okn-desc,
-  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-desc{font-size:12px!important;line-height:1.45!important;-webkit-line-clamp:2!important}
-  html body.type-index #content #okla-news-v55 .okn-bottom{margin-top:18px!important}
+  html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-desc{display:none!important}
+  html body.type-index #content #okla-news-v55 .okn-bottom{margin-top:28px!important}
 }
 
 /* Match the two legacy ID guards so the intended 2+3 layout cannot be overridden by the older three-card rules. */
@@ -63,7 +62,24 @@ html body.type-index #content #okla-news-v55 .okn-button:hover{background:#0668b
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){display:flex!important;grid-column:span 1!important}
 }
+/* Phones: Alza-style stacked stories - a full-width 2:1 picture, the title under it, nothing else; the button at the end. */
 @media(max-width:680px){
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){display:flex!important}
-  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:static!important;display:flex!important;justify-content:center!important;margin:18px 0 0!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){margin:12px 0 0!important;padding:19px 14px 26px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{display:block!important;margin:0 0 16px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{font-size:22px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:34px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;grid-column:auto!important;max-width:none!important;padding:0!important;border:0!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-image,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-image{flex:none!important;width:100%!important;height:auto!important;aspect-ratio:2/1!important;border-radius:8px!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-body,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-body{padding:14px 10px 0!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-cat,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-meta,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-desc,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-desc{display:none!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-title,
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n) .okn-title{-webkit-line-clamp:3!important;margin:0!important;color:#06346b!important;font-size:17px!important;font-weight:600!important;line-height:1.7!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:static!important;display:flex!important;justify-content:center!important;margin:30px 0 0!important}
+  html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{height:43px!important;padding:0 20px!important;border:0!important;background:#0877d1!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font-size:13.5px!important}
 }
