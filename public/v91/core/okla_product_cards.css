@@ -1,7 +1,7 @@
 /* OKLA product cards (homepage sliders, categories, search, related products). The picture is 18 % larger everywhere (6 %, then 5 % and 6 % more);
    on desktop the content under it (stars, name, availability, badge, price, button) is 18 % larger too. The stars stand
    alone and centred: the "no reviews" text next to them is not shown. */
-html body .products .product .p .image img{transform:scale(1.18)!important;transform-origin:center center!important}
+html body .products .product .p .image img{transform:scale(1.18)!important;transform-origin:center center!important;transition:none!important}
 html body .products .product .ratings-wrapper .stars-placeholder{display:none!important}
 html body .products .product .ratings-wrapper{display:flex!important;justify-content:center!important;align-items:center!important;text-align:center!important}
 /* The homepage sliders have their own stronger rules (picture not scaled, stars to the left); these win over them. */
@@ -25,3 +25,7 @@ html body .products .product .okv73-rating-placeholder{display:flex!important;ju
    page uses different markup, so its description is untouched. */
 html body .products .product .p-code{display:none!important}
 html body .products .product .p-desc{display:none!important}
+/* listings: the photo's size is set at once - after Shoptet redraws a listing (sorting, filter, more products) the photos
+   must not grow visibly (Shoptet's own transition on the picture) */
+html body #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image,
+html body #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{transition:none!important}

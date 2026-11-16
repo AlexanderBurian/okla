@@ -35,10 +35,10 @@ html body.type-category #content .okla-cat-about p:not(#ocat-a#ocat-b#ocat-c){ma
 }
 
 /* --- the title: larger and stronger --- */
-html body.type-category #content .category-top h1:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){margin:0 0 4px!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 32px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.01em!important}
+html body.type-category #content .category-top h1:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){margin:0 0 4px!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 36px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.01em!important}
 html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c#ocat-d){font-size:21px!important;font-weight:600!important}
 @media(max-width:767px){
-  html body.type-category #content .category-top h1:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){font-size:26px!important}
+  html body.type-category #content .category-top h1:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){font-size:28px!important}
   html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c#ocat-d){font-size:18px!important}
 }
 
@@ -48,5 +48,5 @@ html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c#oc
 }
 /* the title starts as low as the menu's "KATEGORIE" heading beside it */
 @media(min-width:992px){
-  html body.type-category #content .category-top:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){padding-top:32px!important}
+  html body.type-category #content .category-top:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){padding-top:48px!important}
 }

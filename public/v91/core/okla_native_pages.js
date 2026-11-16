@@ -164,10 +164,9 @@
   function start(){
     decorate();
     if(isHome()||!window.MutationObserver||!document.body)return;
-    var queued=false;
+    /* at once (before the page is painted): a listing Shoptet redraws (sorting, filter) never shows in its own layout */
     new MutationObserver(function(recs){
-      if(queued)return;
-      for(var i=0;i<recs.length;i++){var added=recs[i].addedNodes;for(var j=0;j<added.length;j++){if(hasCard(added[j])){queued=true;requestAnimationFrame(function(){queued=false;decorate()});return}}}
+      for(var i=0;i<recs.length;i++){var added=recs[i].addedNodes;for(var j=0;j<added.length;j++){if(hasCard(added[j])){decorate();return}}}
     }).observe(document.body,{childList:true,subtree:true});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();

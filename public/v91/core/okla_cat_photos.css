@@ -26,3 +26,10 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>:is(.okla-cat-svg,.okla-cat-label)::before{content:none!important;display:none!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>.okla-cat-label:not(#okcp-a#okcp-b#okcp-c){text-align:left!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>.cat-trigger:not(#okcp-a#okcp-b#okcp-c){display:none!important}
+/* the menu's "KATEGORIE" heading: larger, with more room above it (the category title beside it starts at the same
+   height, okla_category.css) */
+@media(min-width:992px){
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner:not(#okcp-a#okcp-b#okcp-c){padding-top:34px!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-categories h3.pageElement__heading:not(#okcp-a#okcp-b#okcp-c){margin:0 0 14px!important;font-size:17px!important;line-height:1.3!important;font-weight:600!important;letter-spacing:.02em!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-categories h3.pageElement__heading:not(#okcp-a#okcp-b#okcp-c) span{font-size:inherit!important}
+}
