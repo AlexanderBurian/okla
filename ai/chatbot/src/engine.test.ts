@@ -93,3 +93,21 @@ describe("Groq engine", () => {
     expect(await collect(engine, "Jak vrátím zboží?")).toBe("Z Qwenu.");
   });
 });
+
+import { quickAnswer } from "./engine.js";
+
+describe("rychlá odpověď", () => {
+  const P = (title: string, slug: string, content: string) => ({ id: slug, type: "product" as const, title, url: `https://www.okla.cz/${slug}/`, price: 1000, inStock: true, content });
+  const cat = [
+    P("Flipper Zero – kapesní multitool pro digitální protokoly", "flipper", "Kapesní otevřená platforma pro práci s NFC, RFID a Sub-GHz signály."),
+    P("Flipper Zero Wi-Fi Devboard", "devboard", "Originální vývojová deska pro Flipper Zero s ESP32-S2 a Wi-Fi.")
+  ];
+  it("vybere jmenovaný produkt, ne jeho příslušenství", () => {
+    expect(quickAnswer({ message: "Co je Flipper Zero a k čemu se hodí?", knowledge: cat, catalog: cat })).toContain("(https://www.okla.cz/flipper/)");
+    expect(quickAnswer({ message: "Co je Flipper Zero a k čemu se hodí?", knowledge: cat, catalog: cat })).not.toContain("devboard");
+    expect(quickAnswer({ message: "Co umí Flipper Zero Wi-Fi Devboard?", knowledge: cat, catalog: cat })).toContain("(https://www.okla.cz/devboard/)");
+  });
+  it("bez shody nic nevymýšlí", () => {
+    expect(quickAnswer({ message: "Napiš mi básničku o pivu", knowledge: [], catalog: cat })).toBeUndefined();
+  });
+});

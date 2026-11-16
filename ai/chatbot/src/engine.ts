@@ -193,7 +193,12 @@ export function quickAnswer(context: Pick<ChatContext, "message" | "knowledge" |
   /* a product named in the question: a word of its name that only a few products share ("flipper", "aneng") */
   const titleWords = (item: KnowledgeItem) => new Set(normalize(item.title).split(" "));
   const distinctive = asked.filter((w) => { const n = catalog.filter((p) => titleWords(p).has(w)).length; return n > 0 && n <= 2; });
-  const named = distinctive.length ? catalog.filter((p) => distinctive.some((w) => titleWords(p).has(w))) : [];
+  /* per named word the product whose name before " – " the question covers best ("Flipper Zero", not "Flipper Zero
+     Wi-Fi Devboard") */
+  const qWords = new Set(q.split(" "));
+  const head = (p: KnowledgeItem) => normalize(p.title.split(/\s[–-]\s/)[0] ?? p.title).split(" ").filter((w) => w.length > 1);
+  const extra = (p: KnowledgeItem) => head(p).filter((w) => !qWords.has(w)).length;
+  const named = [...new Set(distinctive.map((w) => catalog.filter((p) => titleWords(p).has(w)).sort((a, b) => extra(a) - extra(b) || head(b).length - head(a).length)[0]).filter((p): p is KnowledgeItem => Boolean(p)))];
   const compare = /rozdil|porovn|srovn|\bvs\b|nebo/.test(q);
 
   if (compare && named.length >= 2) {
@@ -270,7 +275,8 @@ export function retryAfterMs(error: unknown): number | undefined {
 /* a question written in Czech or Slovak (the answer without the language model is in Czech only) */
 function czechQuestion(context: ChatContext): boolean {
   if (context.lang && !/^(cs|sk)/i.test(context.lang)) return false;
-  return !/\b(the|you|what|how|do|does|is|are|can|ship|price|which|szia|mennyi|hogyan|milyen)\b/i.test(context.message);
+  /* ("do", "is" are Czech words too, so only words that are surely English or Hungarian) */
+  return !/\b(the|you|your|what|how|does|which|ship|shipping|price|please|hello|szia|mennyi|hogyan|milyen)\b/i.test(context.message);
 }
 
 export class GroqEngine implements ChatEngine {
@@ -335,10 +341,17 @@ export class GroqEngine implements ChatEngine {
           try {
             completion = await this.create(context, budget, lean, model);
           } catch (error) {
-            /* a fallback model that does not take the thinking settings (400): once more without them */
-            if ((error as { status?: number }).status !== 400 || model === this.model) throw error;
-            noteProviderError(model, error);
-            completion = await this.create(context, budget, lean, model, true);
+            const status = (error as { status?: number }).status;
+            if (status === 413 && !lean) {
+              /* too big for this model's per-minute input limit: once more with lean sources */
+              noteProviderError(model, error);
+              completion = await this.create(context, LEAN_BUDGET, true, model);
+            } else {
+              /* a fallback model that does not take the thinking settings (400): once more without them */
+              if (status !== 400 || model === this.model) throw error;
+              noteProviderError(model, error);
+              completion = await this.create(context, budget, lean, model, true);
+            }
           }
           break;
         } catch (error) {
