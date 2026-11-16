@@ -1,5 +1,5 @@
 /* OKLA product page - the picture viewer. A click on the product's main picture opens the shop's pictures over the whole
-   screen: a navy bar on top (logo, "2 / 6", close), the picture in the middle on white with arrows at the sides, the
+   screen: a grey bar on top (logo, "2 / 6", close), the picture in the middle on white with arrows at the sides, the
    thumbnails in a row underneath (the current one framed). Arrow keys, Escape, swiping on phones and the phone's Back
    button work. It replaces Shoptet's own lightbox (colorbox) for the product pictures only - colorbox stays for the
    shop's other dialogs. The pictures are the ones Shoptet lists for its lightbox (a.cbox-gal) with the thumbnails of
