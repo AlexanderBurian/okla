@@ -154,6 +154,76 @@ export function mockAnswer(context: Pick<ChatContext, "message" | "knowledge" | 
   return `${greeting}Tohle v nabídce nemám, nebo jsem dotazu úplně neporozuměl.${cats.length ? ` Prodáváme: ${cats.join(", ")}.` : ""} Napište mi, co hledáte a k čemu to chcete používat, a doporučím konkrétní produkt.`;
 }
 
+/* ---------- the quick answer when every model is over its limit: only when it is surely right, else nothing ---------- */
+
+const STOP = /^(jaky|jaka|jake|ktery|ktera|ktere|doporuc\w*|poradt\w*|muzete|mate|neco|hledam|chci|chtel\w*|potrebuj\w*|prosim|tenhle|tento|rozdil|mezi|jsou|bude|hodi|k cemu|cemu|dobry|pro|pomozte|vybrat|vyber|projekt\w*|elektronik\w*|technik\w*|zacatecnik\w*)$/;
+
+function words(text: string): string[] {
+  return normalize(text).split(" ").filter((w) => w.length > 3 && !/^\d+$/.test(w) && !STOP.test(w));
+}
+
+/* the shop's page as a short answer: its first sentence, the rest as a numbered list, and the link */
+function pageAnswer(page: KnowledgeItem, question: string): string {
+  const all = sentences(page.content);
+  let chosen = all.slice(0, 5);
+  if (all.length > 5) {
+    const stems = words(question).map((w) => (w.length >= 6 ? w.slice(0, -2) : w));
+    chosen = all.map((sentence, index) => ({ sentence, index, score: stems.filter((st) => normalize(sentence).includes(st)).length - index / 100 }))
+      .sort((a, b) => b.score - a.score).slice(0, 4).sort((a, b) => a.index - b.index).map((r) => r.sentence);
+  }
+  const [lead, ...rest] = chosen;
+  const list = rest.length ? `\n\n${rest.map((line, i) => `${i + 1}. ${line}`).join("\n")}` : "";
+  const more = page.url && !page.url.startsWith("mailto:") ? `\n\nVíce najdete na stránce [${page.title}](${page.url}).` : "";
+  return `${lead ?? page.title}${list}${more}`;
+}
+
+function productAnswer(item: KnowledgeItem): string {
+  const lines = sentences(item.content).slice(0, 4);
+  const facts = [priceOf(item), item.inStock === undefined ? undefined : item.inStock ? "skladem" : "momentálně není skladem"].filter(Boolean).join(", ");
+  const [lead, ...rest] = lines;
+  return `${lead ?? item.title}${rest.length ? `\n\n${rest.map((l, i) => `${i + 1}. ${l}`).join("\n")}` : ""}\n\nNajdete ho na ${link(item)}${facts ? ` (${facts})` : ""}.`;
+}
+
+export function quickAnswer(context: Pick<ChatContext, "message" | "knowledge" | "pageItem" | "catalog" | "faqs">): string | undefined {
+  const q = normalize(context.message);
+  const items = context.knowledge;
+  const catalog = context.catalog?.length ? context.catalog : items.filter((i) => i.type === "product");
+  const asked = words(context.message);
+
+  /* a product named in the question: a word of its name that only a few products share ("flipper", "aneng") */
+  const titleWords = (item: KnowledgeItem) => new Set(normalize(item.title).split(" "));
+  const distinctive = asked.filter((w) => { const n = catalog.filter((p) => titleWords(p).has(w)).length; return n > 0 && n <= 2; });
+  const named = distinctive.length ? catalog.filter((p) => distinctive.some((w) => titleWords(p).has(w))) : [];
+  const compare = /rozdil|porovn|srovn|\bvs\b|nebo/.test(q);
+
+  if (compare && named.length >= 2) {
+    const pair = named.slice(0, 2);
+    return `Tady je stručné srovnání podle popisů v e-shopu:\n\n${pair.map((p, i) => `${i + 1}. **${link(p)}**${priceOf(p) ? ` – ${priceOf(p)}` : ""} – ${summary(p)}`).join("\n")}\n\nNapište mi, k čemu zařízení chcete používat, a doporučím jedno z nich.`;
+  }
+  const one = named.length === 1 ? named[0] : context.pageItem && /\b(tento|tenhle|tahle|toto|tohle)\b/.test(q) ? context.pageItem : undefined;
+  if (one && !compare) return productAnswer(one);
+
+  /* a question about buying, the shop or an article: the shop's page that the search put first */
+  const page = items.slice(0, 3).find((i) => i.type === "faq");
+  if (page && (SHOP_INFO.test(q) || items[0]?.type === "faq") && !named.length) return pageAnswer(page, context.message);
+
+  /* a choice: only products whose name or category matches what is asked (multimetr = multimetr) */
+  const budget = budgetOf(context.message);
+  const stems = asked.map((w) => (w.length >= 6 ? w.slice(0, -2) : w));
+  const scored = catalog
+    .filter((p) => (budget === undefined || (p.price !== undefined && p.price <= budget)) && p.inStock !== false)
+    .map((p) => ({ p, score: stems.filter((st) => normalize(`${p.title} ${p.category ?? ""}`).includes(st)).length }));
+  /* only the products that match the most of the asked words ("měřicí technika" beats "projekt" -> projector) */
+  const top = Math.max(0, ...scored.map((r) => r.score));
+  const matching = top ? scored.filter((r) => r.score === top).map((r) => r.p) : [];
+  if (matching.length && matching.length <= 8) {
+    const pick = matching.slice(0, 3);
+    const intro = budget !== undefined ? `Do ${formatPrice(budget)} z nabídky odpovídá:` : pick.length > 1 ? "Z nabídky odpovídá:" : "Z nabídky odpovídá tento produkt:";
+    return `${intro}\n\n${pick.map((p, i) => `${i + 1}. **${link(p)}**${priceOf(p) ? ` – ${priceOf(p)}` : ""} – ${summary(p)}`).join("\n")}\n\nNapište mi, k čemu to budete používat, a pomohu vybrat.`;
+  }
+  return undefined;
+}
+
 export class MockEngine implements ChatEngine {
   constructor(private readonly initialDelayMs = 80, private readonly chunkDelayMs = 6) {}
 
@@ -227,7 +297,7 @@ export class GroqEngine implements ChatEngine {
     return known.size ? this.fallbackModels.filter((m) => known.has(m)) : this.fallbackModels;
   }
 
-  private create(context: ChatContext, budget: ContextBudget, lean: boolean, model = this.model) {
+  private create(context: ChatContext, budget: ContextBudget, lean: boolean, model = this.model, plain = false) {
     return this.client.chat.completions.create({
       model,
       messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget),
@@ -236,8 +306,9 @@ export class GroqEngine implements ChatEngine {
       top_p: 0.9,
       max_completion_tokens: lean ? 600 : 800,
       /* gpt-oss "thinks" before it answers: a short think keeps the first words quick; Qwen 3 does not think at all */
-      ...(/gpt-oss/i.test(model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
-      ...(/qwen3/i.test(model) ? { reasoning_effort: "none" as const } : {}),
+      ...(!plain && /gpt-oss/i.test(model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
+      ...(!plain && /qwen3/i.test(model) ? { reasoning_effort: "none" as const } : {}),
+      ...(plain && /qwen/i.test(model) ? { reasoning_format: "hidden" as const } : {}),
       stream: true
     }, { signal: context.signal, maxRetries: 0 });
   }
@@ -261,7 +332,14 @@ export class GroqEngine implements ChatEngine {
         if (context.signal.aborted) break;
         if ((unavailableUntil.get(model) ?? 0) > Date.now()) continue;
         try {
-          completion = await this.create(context, budget, lean, model);
+          try {
+            completion = await this.create(context, budget, lean, model);
+          } catch (error) {
+            /* a fallback model that does not take the thinking settings (400): once more without them */
+            if ((error as { status?: number }).status !== 400 || model === this.model) throw error;
+            noteProviderError(model, error);
+            completion = await this.create(context, budget, lean, model, true);
+          }
           break;
         } catch (error) {
           lastError = error;
@@ -280,8 +358,9 @@ export class GroqEngine implements ChatEngine {
     }
     if (!completion) {
       /* still nothing: rather than an error, a short answer straight from the shop's pages (Czech questions) */
-      if ((lastError as { status?: number })?.status === 429 && !context.signal.aborted && czechQuestion(context)) {
-        yield `${mockAnswer(context)}\n\n(Rychlá odpověď složená přímo z podkladů webu – AI poradce je teď vytížený, za chvíli odpoví podrobněji.)`;
+      const quick = (lastError as { status?: number })?.status === 429 && !context.signal.aborted && czechQuestion(context) ? quickAnswer(context) : undefined;
+      if (quick) {
+        yield `${quick}\n\n(Rychlá odpověď složená přímo z podkladů webu – AI poradce je teď vytížený, za chvíli odpoví podrobněji.)`;
         return;
       }
       throw lastError;

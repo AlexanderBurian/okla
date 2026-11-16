@@ -71,4 +71,25 @@ describe("Groq engine", () => {
     });
     expect(await collect(engine, "Jak vrátím zboží?")).toBe("Hotovo.");
   });
+
+  it("bez jisté rychlé odpovědi (nic neodpovídá) vrátí při přetížení chybu, nic nevymýšlí", async () => {
+    const engine = new GroqEngine("test", "openai/gpt-oss-120b", [], 0);
+    fakeGroq(engine, () => { throw limited("40s"); });
+    let out = "";
+    const run = async () => { for await (const t of engine.stream({ message: "Napiš mi básničku o pivu", history: [], lang: "cs", knowledge: [], catalog: [], signal: new AbortController().signal })) out += t; };
+    await expect(run()).rejects.toMatchObject({ status: 429 });
+    expect(out).toBe("");
+  });
+
+  it("záložní model, který nebere nastavení přemýšlení (400), zkusí znovu bez nich", async () => {
+    const engine = new GroqEngine("test", "openai/gpt-oss-120b", ["qwen/qwen3.8-27b"], 0);
+    const e = engine as unknown as { client: { models: { list: () => Promise<unknown> } }; create: (c: unknown, b: unknown, l: boolean, m: string, plain?: boolean) => unknown };
+    e.client.models.list = async () => ({ data: [{ id: "openai/gpt-oss-120b" }, { id: "qwen/qwen3.8-27b" }] });
+    e.create = async (_c, _b, _l, model, plain) => {
+      if (model === "openai/gpt-oss-120b") throw limited("40s");
+      if (!plain) throw Object.assign(new Error("reasoning_effort not supported"), { status: 400 });
+      return (async function* () { yield { choices: [{ delta: { content: "Z Qwenu." } }] }; })();
+    };
+    expect(await collect(engine, "Jak vrátím zboží?")).toBe("Z Qwenu.");
+  });
 });
