@@ -58,11 +58,15 @@
    if(subs.length){
     grid.innerHTML='';grid.classList.add('okcb-grid--subs');
     grid.style.setProperty('grid-template-columns','repeat('+Math.max(subs.length,5)+',minmax(0,1fr))','important');
+    var imgs={};
     subs.forEach(function(sc){
      var a=el('a','okcb-item okcb-item--sub');a.href=sc.href;
-     var f=el('span','okcb-img');var im=el('img');im.alt='';f.appendChild(im);
+     var f=el('span','okcb-img');var im=el('img');im.alt='';f.appendChild(im);imgs[sc.href]={f:f,im:im};
      a.append(f,el('span','okcb-name',sc.label));grid.appendChild(a);
-     window.oklaSubcats.image(sc.href,sc.label).then(function(src){if(src){im.src=src;im.classList.add('is-photo')}else f.classList.add('is-empty')});
+    });
+    /* one photo per subcategory, never the same product twice (okla_subcats.js) */
+    window.oklaSubcats.images(c.href,subs).then(function(map){
+     Object.keys(imgs).forEach(function(h){var x=imgs[h];if(map[h]){x.im.src=map[h];x.im.classList.add('is-photo')}else x.f.classList.add('is-empty')});
     });
     return;
    }
