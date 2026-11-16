@@ -100,9 +100,12 @@
   var body2=box.querySelector('.okla-cart-summary__coupon-body');
   /* the coupon card: moved in from the extras column, or built here when the page has none */
   var card=document.querySelector('.okla-coupon')||(!body2.children.length&&typeof window.__oklaBuildCoupon==='function'?window.__oklaBuildCoupon():null);
-  if(card&&!body2.contains(card)){
+  /* PC: the coupon has its own open box in the right column (buildCartAside); phones: behind the toggle */
+  var slot=(DESK.matches&&inner.querySelector('.okla-cart-aside__coupon-slot'))||body2;
+  if(card&&!slot.contains(card)){
    var col=card.parentNode;
-   body2.innerHTML='';body2.appendChild(card);
+   if(slot===body2)body2.innerHTML='';
+   slot.appendChild(card);
    if(col&&col!==body2&&!col.children.length){var ph=document.createElement('span');ph.className='okla-coupon-moved';ph.hidden=true;col.appendChild(ph)}
   }
   var gross=amountOf(price.textContent);
@@ -111,6 +114,80 @@
   if(g.textContent!==gText)g.textContent=gText;
   if(isFinite(gross)){var nText=money(gross/1.21);if(n.textContent!==nText)n.textContent=nText}
  }
+
+ /* Cart, right column (after B&H's cart, in OKLA's look): the summary box gets a title and its lines (the goods with the
+    number of pieces, delivery chosen in the next step, the total), and under it boxes of their own - the discount code
+    (open, PC), delivery facts and help. Only facts the shop states elsewhere: dispatch within 24 h on working days from
+    Ostrava, Zásilkovna pick-up points and boxes, delivery to CZ/SK/HU, 14 days to return, 24 months warranty. */
+ var DESK=window.matchMedia('(min-width:992px)');
+ function ico(d){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>'}
+ var ICON={
+  truck:'M3 7h11v8H3zM14 10h4l3 3v2h-7M7.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z',
+  pin:'M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
+  globe:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z',
+  ret:'M4 9h11a5 5 0 0 1 0 10H8M4 9l4-4M4 9l4 4',
+  shield:'M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6zM9 12l2 2 4-4',
+  chat:'M4 5h16v11H9l-5 4zM8 10h8M8 13h5',
+  mail:'M4 6h16v12H4zM4 7l8 6 8-6'
+ };
+ function pieces(){
+  /* one quantity per item row (a row can hold more than one amount field) */
+  var n=0,rows=new Set();
+  document.querySelectorAll('#content .cart-row input[name="amount"]').forEach(function(i){
+   var row=i.closest('tr,.cart-item,li')||i.parentNode;if(rows.has(row))return;rows.add(row);
+   var v=parseFloat(String(i.value).replace(',','.'));if(isFinite(v)&&v>0)n+=v;
+  });
+  return n;
+ }
+ function line(cls,label,value){
+  var r=document.createElement('div');r.className='okla-cart-summary__row okla-cart-summary__row--'+cls;
+  var a=document.createElement('span');a.textContent=label;var b=document.createElement('span');b.className='okla-cart-summary__val';b.textContent=value;
+  r.append(a,b);return r;
+ }
+ function buildCartAside(){
+  if(!document.body.classList.contains('in-kosik'))return;
+  var inner=document.querySelector('.cart-inner');
+  var box=inner&&inner.querySelector(':scope>.okla-cart-summary');
+  var price=document.querySelector('.okla-goods-total-price');
+  var nav=inner&&inner.querySelector(':scope>.okla-step-nav');
+  if(!box||!price||!nav)return;
+  if(!box.querySelector('.okla-cart-summary__title')){
+   var h=document.createElement('h2');h.className='okla-cart-summary__title';h.textContent='Souhrn objednávky';box.insertBefore(h,box.firstChild);
+  }
+  var totals=box.querySelector('.okla-cart-summary__totals'),gross=totals&&totals.querySelector('.okla-cart-summary__row--gross');
+  if(totals&&gross&&!totals.querySelector('.okla-cart-summary__row--goods')){
+   totals.insertBefore(line('goods','Zboží',''),gross);
+   totals.insertBefore(line('ship','Doprava','v dalším kroku'),gross);
+   var hr=document.createElement('div');hr.className='okla-cart-summary__divider';hr.setAttribute('aria-hidden','true');
+   totals.insertBefore(hr,gross);
+  }
+  var goods=totals&&totals.querySelector('.okla-cart-summary__row--goods');
+  if(goods){
+   var n=pieces(),label=n?'Zboží ('+n+' ks)':'Zboží',value=(price.textContent||'').replace(/\s+/g,' ').trim();
+   var spans=goods.children;
+   if(spans[0].textContent!==label)spans[0].textContent=label;
+   if(spans[1].textContent!==value)spans[1].textContent=value;
+  }
+  if(inner.querySelector(':scope>.okla-cart-aside'))return;
+  var aside=document.createElement('div');aside.className='okla-cart-aside';
+  aside.innerHTML=
+   '<section class="okla-cart-aside__card okla-cart-aside__card--coupon"><h2 class="okla-cart-aside__title">Slevový nebo dárkový kód</h2><div class="okla-cart-aside__coupon-slot"></div></section>'+
+   '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Doprava a dodání</h2><ul class="okla-cart-aside__list">'+
+    '<li>'+ico(ICON.truck)+'<span><strong>Expedujeme do 24 hodin</strong>v pracovní dny ze skladu v Ostravě</span></li>'+
+    '<li>'+ico(ICON.pin)+'<span><strong>Zásilkovna</strong>výdejní místa a boxy, cenu dopravy uvidíte v dalším kroku</span></li>'+
+    '<li>'+ico(ICON.globe)+'<span><strong>Česko, Slovensko, Maďarsko</strong>tam všude doručujeme</span></li>'+
+   '</ul><a class="okla-cart-aside__more" href="/doprava-a-platba/">Doprava a platba</a></section>'+
+   '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Nakupujte bez obav</h2><ul class="okla-cart-aside__list">'+
+    '<li>'+ico(ICON.ret)+'<span><strong>Vrácení do 14 dnů</strong>bez udání důvodu</span></li>'+
+    '<li>'+ico(ICON.shield)+'<span><strong>Záruka 24 měsíců</strong>reklamace vyřídíme rychle</span></li>'+
+   '</ul></section>'+
+   '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Potřebujete poradit?</h2><p class="okla-cart-aside__text">Pomůžeme s výběrem i s objednávkou.</p>'+
+    '<div class="okla-cart-aside__help"><a class="okla-cart-aside__chat" href="/kontakt/">'+ico(ICON.chat)+'<span>Napsat podpoře</span></a>'+
+    '<a class="okla-cart-aside__mail" href="mailto:podpora@okla.cz">'+ico(ICON.mail)+'<span>podpora@okla.cz</span></a></div></section>';
+  /* (no AI adviser in the order process: help is the contact form and the support e-mail) */
+  inner.insertBefore(aside,nav.nextSibling);
+ }
+ if(DESK.addEventListener)DESK.addEventListener('change',function(){run()});
 
  /* Steps 2 and 3 (Alza recap): "2x name" lines, and the total split into
     one "K úhradě" total (no VAT wording anywhere on the site). */
@@ -192,7 +269,7 @@
   }
  }
 
- function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar()}
+ function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();buildCartAside();buildCartSummary();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar()}
  function schedule(){
   clearTimeout(redrawTimer);
   redrawTimer=setTimeout(run,260);

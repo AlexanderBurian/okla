@@ -297,7 +297,7 @@ var BUNDLES=[
  /* Call-to-action buttons: colour and shape */
  ['25-buttons','all',['v91/core/okla_green_buttons.js','v91/core/okla_all_cta_blue.css','v91/core/okla_cta_shape.js']],
  /* Checkout skin */
- ['26-checkout-skin','checkout',['v91/checkout/okla_cart_simple.css','v91/checkout/okla_checkout_layout_v2.css','v91/checkout/okla_checkout_home_sync.css','v91/checkout/okla_checkout_alza.js']],
+ ['26-checkout-skin','checkout',['v91/checkout/okla_cart_simple.css','v91/checkout/okla_checkout_layout_v2.css','v91/checkout/okla_checkout_home_sync.css','v91/checkout/okla_cart_aside.css','v91/checkout/okla_checkout_alza.js']],
  ['27-thank-you','thankYou',['v91/checkout/okla_thank_you.css','v91/checkout/okla_thank_you.js']],
  /* No zoom on phone fields, AI chat branding, the logo blue for Shoptet's own template colours */
  ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css']],

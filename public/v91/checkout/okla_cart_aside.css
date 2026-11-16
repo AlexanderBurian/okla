@@ -1,0 +1,59 @@
+/* OKLA cart - the right column as separate islands (okla_checkout_alza.js, buildCartAside): on PC the items are one
+   island on the left; on the right the summary with "Pokračovat", then the discount code, delivery, buying without
+   worries and help - each its own white island with the soft island shadow on the page grey. Phones: the summary stays as
+   it was (lines added), the other islands follow under it; the code stays behind its toggle. */
+
+/* shared: the islands' inside */
+html body.in-kosik .okla-cart-aside__card:not(#oca-a#oca-b#oca-c#oca-d#oca-e){box-sizing:border-box;margin:0;padding:20px 22px;border:0;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06);font-family:"Open Sans",Arial,sans-serif}
+html body.in-kosik .okla-cart-aside__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e),
+html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0 0 12px;padding:0;border:0;color:#0b2540;font:600 16px/1.3 "Open Sans",Arial,sans-serif;letter-spacing:0;text-transform:none}
+html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0;font-size:18px}
+html body.in-kosik .okla-cart-aside__list:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
+html body.in-kosik .okla-cart-aside__list li:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:12px;align-items:start;margin:0;padding:0;color:#46556a;font:400 13px/1.45 "Open Sans",Arial,sans-serif}
+html body.in-kosik .okla-cart-aside__list li::before{content:none!important}
+html body.in-kosik .okla-cart-aside__list svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){width:22px;height:22px;margin-top:1px;fill:none;stroke:#164194;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html body.in-kosik .okla-cart-aside__list strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;color:#0b2540;font:600 14px/1.35 "Open Sans",Arial,sans-serif}
+html body.in-kosik .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:inline-block;margin-top:14px;color:#0859d8;font:600 14px/1.3 "Open Sans",Arial,sans-serif;text-decoration:none}
+html body.in-kosik .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e)::after{content:" ›"}
+html body.in-kosik .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e):hover{text-decoration:underline}
+html body.in-kosik .okla-cart-aside__text:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0 0 14px;color:#46556a;font:400 13px/1.45 "Open Sans",Arial,sans-serif}
+html body.in-kosik .okla-cart-aside__help:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;align-items:stretch;gap:12px}
+html body.in-kosik .okla-cart-aside__chat:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:42px;min-height:0;margin:0;padding:0 16px;border:0;border-radius:8px;background:#0859d8;color:#fff;-webkit-text-fill-color:#fff;font:600 15px/1 "Open Sans",Arial,sans-serif;text-transform:none;letter-spacing:0;text-decoration:none;box-shadow:none;cursor:pointer}
+html body.in-kosik .okla-cart-aside__chat:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#0751c6;color:#fff;-webkit-text-fill-color:#fff}
+html body.in-kosik .okla-cart-aside__chat svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html body.in-kosik .okla-cart-aside__mail:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:inline-flex;align-items:center;justify-content:center;gap:8px;color:#0859d8;-webkit-text-fill-color:#0859d8;font:600 14px/1.3 "Open Sans",Arial,sans-serif;text-decoration:none}
+html body.in-kosik .okla-cart-aside__mail:not(#oca-a#oca-b#oca-c#oca-d#oca-e):hover{text-decoration:underline}
+html body.in-kosik .okla-cart-aside__mail svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* the summary's own lines: goods (pieces), delivery, then the total under a thin line */
+html body.in-kosik #content .okla-cart-summary__totals:not(#oca-a#oca-b#oca-c#oca-d#oca-e){column-gap:0!important;row-gap:10px!important}
+html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>span:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#46556a!important;font:400 14px/1.35 "Open Sans",Arial,sans-serif!important;text-align:left!important}
+html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>.okla-cart-summary__val:not(#oca-a#oca-b#oca-c#oca-d#oca-e){padding-left:16px!important;color:#0b2540!important;font-weight:600!important;text-align:right!important;white-space:nowrap!important}
+html body.in-kosik #content .okla-cart-summary__divider:not(#oca-a#oca-b#oca-c#oca-d#oca-e){grid-column:1/-1!important;height:1px!important;margin:4px 0!important;background:#e3e7ed!important}
+html body.in-kosik #content .okla-cart-summary__row--gross>strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){padding-left:16px!important}
+
+@media(min-width:992px){
+  /* the page's white card goes: the items and the right column's boxes are islands of their own */
+  html body.in-kosik #content-wrapper.content-wrapper:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){background:transparent!important;box-shadow:none!important;overflow:visible!important}
+  html body.in-kosik #content-wrapper#content-wrapper .cart-inner.cart-inner:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){background:none!important;background-image:none!important;margin-left:-19px!important;margin-right:-19px!important;column-gap:20px!important;padding-bottom:0!important}
+  html body.in-kosik #content#content .cart-inner>.row.cart-row:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){align-self:start!important;padding:0 24px 24px!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+  /* summary + "Pokračovat" read as one island (two grid cells: the shadow is cut where they meet) */
+  html body.in-kosik #content#content .cart-inner>.okla-cart-summary:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){gap:14px!important;padding:22px 24px 8px!important;border-radius:8px 8px 0 0!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;clip-path:inset(-8px -8px 0 -8px)!important}
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){padding:10px 24px 22px!important;border-radius:0 0 8px 8px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;clip-path:inset(0 -8px -8px -8px)!important}
+  html body.in-kosik #content#content .cart-inner>.okla-cart-summary .okla-cart-summary__coupon:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:none!important}
+  html body.in-kosik #content#content .cart-inner>.okla-cart-aside:not(#oca-a#oca-b#oca-c#oca-d#oca-e){grid-column:2!important;grid-row:3!important;align-self:start!important;display:flex!important;flex-direction:column!important;gap:16px!important;margin:16px 0 0!important}
+  /* the code: always open, the field and a blue "Aplikovat" side by side */
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:none!important}
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon__row:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex!important;gap:8px!important;margin:0!important}
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon__input:not(#oca-a#oca-b#oca-c#oca-d#oca-e){flex:1 1 auto!important;min-width:0!important;height:42px!important;margin:0!important;padding:0 12px!important;border:1px solid #d5dbe3!important;border-radius:8px!important;background:#fff!important;font:400 14px/1 "Open Sans",Arial,sans-serif!important}
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon__btn:not(#oca-a#oca-b#oca-c#oca-d#oca-e){flex:none!important;height:42px!important;min-height:0!important;margin:0!important;padding:0 16px!important;border:0!important;border-radius:8px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;box-shadow:none!important}
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon__btn:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#0751c6!important}
+  html body.in-kosik .okla-cart-aside__coupon-slot .okla-coupon__note:not(#oca-a#oca-b#oca-c#oca-d#oca-e):empty{display:none!important}
+}
+
+@media(max-width:991px){
+  html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:none}
+  html body.in-kosik .okla-cart-aside:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;gap:12px;margin:20px 0 0}
+  html body.in-kosik .okla-cart-aside__card--coupon:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f){display:none}
+}
