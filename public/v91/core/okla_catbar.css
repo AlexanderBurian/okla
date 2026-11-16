@@ -72,3 +72,11 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-panel{box-shadow:none!important;border:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c)::before{background:#fff!important}
 }
+/* subcategories in the panel: the product photo in a light grey circle, the name under it (no price) */
+@media(min-width:992px){
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid--subs{min-height:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-img{max-width:132px!important;border-radius:50%!important;background:#f1f3f6!important;overflow:hidden!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-img img{width:76%!important;height:76%!important;object-fit:contain!important;opacity:0!important;mix-blend-mode:multiply}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-img img.is-photo{opacity:1!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-name{font-size:14px!important;font-weight:600!important}
+}

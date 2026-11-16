@@ -1,5 +1,6 @@
 /* OKLA – PC category bar under the header (DATART style): the shop's top categories in one row; pointing at one (or
-   focusing it) opens a white panel under the bar with the category's best sellers - photo, name, price - taken from
+   focusing it) opens a white panel under the bar with the category's subcategories (each with the photo of one of its
+   products) or, for a category without them, its best sellers - photo, name, price - taken from
    the category page's own "Nejprodávanější" box (fetched once, on first open), and a "Zobrazit vše" link. The page
    behind is dimmed while the panel is open. PC only (≥992px), not in the checkout. The bar is as wide as the
    header and the content (Shoptet's .container), not the whole window. */
@@ -51,6 +52,20 @@
    var grid=el('div','okcb-grid');grid.appendChild(el('p','okcb-loading','Načítám…'));
    wrap.append(head,grid);panel.appendChild(wrap);
    var inn=bar.querySelector('.okcb-inner');if(inn){wrap.style.setProperty('padding-left',inn.style.paddingLeft,'important');wrap.style.setProperty('padding-right',inn.style.paddingRight,'important')}
+   /* a category with subcategories shows them (the photo of a product of each, okla_subcats.js); the others their
+      best-selling products */
+   var subs=window.oklaSubcats?window.oklaSubcats.list(c.href):[];
+   if(subs.length){
+    grid.innerHTML='';grid.classList.add('okcb-grid--subs');
+    grid.style.setProperty('grid-template-columns','repeat('+Math.max(subs.length,5)+',minmax(0,1fr))','important');
+    subs.forEach(function(sc){
+     var a=el('a','okcb-item okcb-item--sub');a.href=sc.href;
+     var f=el('span','okcb-img');var im=el('img');im.alt='';f.appendChild(im);
+     a.append(f,el('span','okcb-name',sc.label));grid.appendChild(a);
+     window.oklaSubcats.image(sc.href,sc.label).then(function(src){if(src){im.src=src;im.classList.add('is-photo')}else f.classList.add('is-empty')});
+    });
+    return;
+   }
    load(c.href).then(function(items){
     if(openIdx!==i)return;grid.innerHTML='';
     /* the products spread across the whole width of the bar (at least four columns, so one product stays small) */
