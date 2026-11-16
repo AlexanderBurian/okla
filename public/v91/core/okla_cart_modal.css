@@ -156,8 +156,8 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
    the footer has a single hairline instead of a shadow */
 #okla-cart-modal .okla-cm__scroll{background:#f4f5f7}
 #okla-cart-modal .okla-cm__foot{box-shadow:none;border-top:1px solid #e3e7ed}
-/* the confirmation tick stays green (success), white check */
-#okla-cart-modal .okla-cm__ok{background:#5ed312}
+/* the confirmation tick: the same green as the title beside it, white check */
+#okla-cart-modal .okla-cm__ok{background:var(--cm-text-green)}
 #okla-cart-modal .okla-cm__ok svg{stroke:#fff}
 /* phones: the two buttons hold their labels on one line - no chevrons there */
 @media(max-width:767px){
