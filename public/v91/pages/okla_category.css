@@ -48,5 +48,5 @@ html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c#oc
 }
 /* the title starts as low as the menu's "KATEGORIE" heading beside it */
 @media(min-width:992px){
-  html body.type-category #content .category-top:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){padding-top:48px!important}
+  html body.type-category #content .category-top:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){padding-top:17px!important}
 }

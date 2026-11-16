@@ -1,0 +1,39 @@
+/* OKLA – PC pages with the left sidebar (categories, search, ...): a clean look. The page's one white card goes; every
+   sidebar box (categories, filters, payments, top 10) and the page's content are white islands of their own on the page
+   grey, with rounded corners and the islands' soft shadow. The boxes' headings are centred over a hairline; the
+   categories are dark text (no blue), the open one on a light neutral grey, no side bar or overhang. */
+@media(min-width:992px){
+  html body #content-wrapper.content-wrapper:has(aside.sidebar-left):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f#osb-g#osb-h#osb-i#osb-j){background:transparent!important;box-shadow:none!important;border:0!important;overflow:visible!important}
+  html body #content-wrapper .content-wrapper-in:has(>aside.sidebar-left):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:flex-start!important;gap:16px!important}
+  html body #content-wrapper aside.sidebar.sidebar-left:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:transparent!important;border:0!important;box-shadow:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){padding:0!important;background:transparent!important;border:0!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0 0 16px!important;padding:18px 14px 14px!important;border:0!important;border-radius:12px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box::before,
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box::after{content:none!important;display:none!important}
+  /* the boxes' headings: centred, over a hairline */
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box :is(h3.pageElement__heading,h4):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:block!important;box-sizing:border-box!important;width:auto!important;max-width:none!important;margin:0 -14px 12px!important;padding:0 14px 14px!important;border:0!important;border-bottom:1px solid #eceef1!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 16px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;text-align:center!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box :is(h3.pageElement__heading,h4) span{font:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important}
+  /* the page's content: an island too */
+  html body #content-wrapper .content-wrapper-in>main#content:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:1 1 auto!important;min-width:0!important;padding-bottom:24px!important;border-radius:12px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+
+  /* categories: plain dark rows, the open one on light grey */
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .categories:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:center!important;gap:12px!important;width:auto!important;margin:0 0 2px!important;padding:6px 10px 6px 6px!important;border:0!important;border-radius:10px!important;background:transparent!important;box-shadow:none!important;transform:none!important;color:#26313f!important;text-decoration:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before,
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:none!important;display:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#26313f!important;-webkit-text-fill-color:#26313f!important;font:500 14.5px/1.3 "Open Sans",Arial,sans-serif!important}
+  /* a category named in capitals in Shoptet (PŘÍSLUŠENSTVÍ) reads like the others */
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a[href*="/prislusenstvi/"] .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:inline-block!important;text-transform:lowercase!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a[href*="/prislusenstvi/"] .okla-cat-label::first-letter{text-transform:uppercase!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg:has(>.okla-cat-photo-wrap):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;margin:0!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){width:44px!important;height:44px!important;margin:0!important;background:#f4f5f7!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active,.topic.active)>.topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f),
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#f2f3f5!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#fff!important}
+}
+@media(min-width:992px) and (hover:hover){
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#f6f7f8!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover .okla-cat-label{color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
+}

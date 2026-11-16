@@ -301,7 +301,7 @@ var BUNDLES=[
  ['26-checkout-skin','checkout',['v91/checkout/okla_cart_simple.css','v91/checkout/okla_checkout_layout_v2.css','v91/checkout/okla_checkout_home_sync.css','v91/checkout/okla_cart_aside.css','v91/checkout/okla_checkout_alza.js']],
  ['27-thank-you','thankYou',['v91/checkout/okla_thank_you.css','v91/checkout/okla_thank_you.js']],
  /* No zoom on phone fields, AI chat branding, the logo blue for Shoptet's own template colours */
- ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css']],
+ ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css','v91/core/okla_sidebar_clean.css']],
  /* Homepage editorial blocks, the search field typing example searches */
  ['29-home-magazine','home',['v91/home/okla_news_home_datart.css','v91/home/okla_news_home_alza.css','v91/home/okla_home_brands.css','v91/home/okla_home_brands.js','v91/home/okla_home_retail_refresh.css','v91/home/okla_home_retail_refresh.js','v91/home/okla_search_typing.js']],
  /* Category pages: sorting as round chips, the category's definition and its about text */
