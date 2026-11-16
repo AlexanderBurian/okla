@@ -5,7 +5,6 @@
 (function(){
  'use strict';
  if(window.__oklaDetailAlzaV1)return;window.__oklaDetailAlzaV1=true;
- var VAT=1.21;
  function q(s,r){return (r||document).querySelector(s)}
  function el(tag,cls,html){var n=document.createElement(tag);if(cls)n.className=cls;if(html!=null)n.innerHTML=html;return n}
  var TRUCK='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h11v9H3zM14 9.5h3.6l3.4 3.4v2.6h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>';

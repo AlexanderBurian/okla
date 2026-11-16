@@ -28,13 +28,6 @@
   if(!holder){
    holder=document.createElement('div');
    holder.className='okla-alza-total';
-   var label=document.createElement('span');
-   label.className='okla-alza-total__net-label';
-   label.textContent='';
-   holder.appendChild(label);
-   var net=document.createElement('span');
-   net.className='okla-alza-total__net-value';
-   holder.appendChild(net);
    var grossLabel=document.createElement('span');
    grossLabel.className='okla-alza-total__label';
    grossLabel.textContent='Cena k úhradě';
@@ -48,12 +41,6 @@
   var valueNode=holder.querySelector('.okla-alza-total__value');
   var nextValue=(price.textContent||'').replace(/\s+/g,' ').trim();
   if(valueNode&&valueNode.textContent!==nextValue)valueNode.textContent=nextValue;
-  var amount=parseFloat(nextValue.replace(/[^\d,.-]/g,'').replace(/\./g,'').replace(',','.'));
-  var netNode=holder.querySelector('.okla-alza-total__net-value');
-  if(netNode&&isFinite(amount)){
-   var netValue=new Intl.NumberFormat('cs-CZ',{minimumFractionDigits:2,maximumFractionDigits:2}).format(amount/1.21)+' Kč';
-   if(netNode.textContent!==netValue)netNode.textContent=netValue;
-  }
   document.body.classList.add('okla-alza-ready');
  }
 
@@ -76,7 +63,7 @@
    box=document.createElement('div');
    box.className='okla-cart-summary';
    box.innerHTML='<div class="okla-cart-summary__coupon"><button type="button" class="okla-cart-summary__toggle" aria-expanded="false">Využít slevový / dárkový poukaz</button><div class="okla-cart-summary__coupon-body" hidden></div></div>'+
-    '<div class="okla-cart-summary__totals"><div class="okla-cart-summary__row" hidden><span></span><span class="okla-cart-summary__net"></span></div>'+
+    '<div class="okla-cart-summary__totals">'+
     '<div class="okla-cart-summary__row okla-cart-summary__row--gross"><span>K úhradě</span><strong class="okla-cart-summary__gross"></strong></div></div>';
    inner.insertBefore(box,nav);
    var toggle=box.querySelector('.okla-cart-summary__toggle'),body=box.querySelector('.okla-cart-summary__coupon-body');
@@ -108,11 +95,9 @@
    slot.appendChild(card);
    if(col&&col!==body2&&!col.children.length){var ph=document.createElement('span');ph.className='okla-coupon-moved';ph.hidden=true;col.appendChild(ph)}
   }
-  var gross=amountOf(price.textContent);
-  var g=box.querySelector('.okla-cart-summary__gross'),n=box.querySelector('.okla-cart-summary__net');
+  var g=box.querySelector('.okla-cart-summary__gross');
   var gText=(price.textContent||'').replace(/\s+/g,' ').trim();
   if(g.textContent!==gText)g.textContent=gText;
-  if(isFinite(gross)){var nText=money(gross/1.21);if(n.textContent!==nText)n.textContent=nText}
  }
 
  /* Cart, right column (after B&H's cart, in OKLA's look): the summary box gets a title and its lines (the goods with the
@@ -124,6 +109,31 @@
   chat:'M4 5h16v11H9l-5 4zM8 10h8M8 13h5',
   mail:'M4 6h16v12H4zM4 7l8 6 8-6'
  };
+ function HELP_HTML(){
+  return '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Potřebujete poradit?</h2><p class="okla-cart-aside__text">Pomůžeme s výběrem i s objednávkou.</p>'+
+   '<div class="okla-cart-aside__help"><a class="okla-cart-aside__chat" href="/kontakt/">'+ico(ICON.chat)+'<span>Napsat podpoře</span></a>'+
+   '<a class="okla-cart-aside__mail" href="mailto:podpora@okla.cz">'+ico(ICON.mail)+'<span>podpora@okla.cz</span></a></div></section>';
+ }
+ /* Steps 2 and 3 (PC): the right column as three islands too - the recap (title, items, delivery, payment), the total
+    with the button, and help. The recap's pieces are gathered into one box (.okla-recap-card; display:contents on
+    phones, where nothing changes); Shoptet redraws the recap after a change, so this runs again then. */
+ function stepIslands(){
+  var b=document.body;if(!b.classList.contains('ordering-process')||b.classList.contains('in-kosik'))return;
+  if(!b.classList.contains('in-krok-1')&&!b.classList.contains('in-krok-2'))return;
+  var sb=document.querySelector('#checkoutSidebar #summary-box');
+  if(sb&&!sb.querySelector(':scope>.okla-recap-card')){
+   var parts=[].filter.call(sb.children,function(c){return c.matches('h2,.cart-items,.order-recapitulation')});
+   if(parts.length){var card=document.createElement('div');card.className='okla-recap-card';sb.insertBefore(card,parts[0]);parts.forEach(function(p){card.appendChild(p)})}
+  }
+  if(document.querySelector('.okla-step-help'))return;
+  var help=document.createElement('div');help.className='okla-cart-aside okla-step-help';help.innerHTML=HELP_HTML();
+  if(b.classList.contains('in-krok-1')){
+   var inner=document.querySelector('.cart-inner'),nav=inner&&inner.querySelector(':scope>.okla-step-nav');
+   if(nav)inner.insertBefore(help,nav.nextSibling);
+  }else{
+   var side=document.querySelector('#checkoutSidebar');if(side)side.appendChild(help);
+  }
+ }
  function pieces(){
   /* one quantity per item row (a row can hold more than one amount field) */
   var n=0,rows=new Set();
@@ -165,10 +175,7 @@
   if(inner.querySelector(':scope>.okla-cart-aside'))return;
   var aside=document.createElement('div');aside.className='okla-cart-aside';
   aside.innerHTML=
-   '<section class="okla-cart-aside__card okla-cart-aside__card--coupon"><h2 class="okla-cart-aside__title">Slevový nebo dárkový kód</h2><div class="okla-cart-aside__coupon-slot"></div></section>'+
-   '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Potřebujete poradit?</h2><p class="okla-cart-aside__text">Pomůžeme s výběrem i s objednávkou.</p>'+
-    '<div class="okla-cart-aside__help"><a class="okla-cart-aside__chat" href="/kontakt/">'+ico(ICON.chat)+'<span>Napsat podpoře</span></a>'+
-    '<a class="okla-cart-aside__mail" href="mailto:podpora@okla.cz">'+ico(ICON.mail)+'<span>podpora@okla.cz</span></a></div></section>';
+   '<section class="okla-cart-aside__card okla-cart-aside__card--coupon"><h2 class="okla-cart-aside__title">Slevový nebo dárkový kód</h2><div class="okla-cart-aside__coupon-slot"></div></section>'+HELP_HTML();
   /* (no AI adviser in the order process: help is the contact form and the support e-mail) */
   inner.insertBefore(aside,nav.nextSibling);
  }
@@ -199,17 +206,10 @@
   var wrap=document.querySelector('.order-summary .order-summary-item.price');
   var total=wrap&&wrap.querySelector('.price-wrapper strong.price');
   if(!wrap||!total)return;
-  var net=wrap.querySelector('.okla-recap-net');
-  if(!net){
-   net=document.createElement('div');
-   net.className='okla-recap-net';
-   net.innerHTML='<span></span><span class="okla-recap-net__value"></span>';net.hidden=true;
-   wrap.insertBefore(net,wrap.firstChild);
-  }
+  /* only the total: no amount without VAT anywhere (an earlier version added one; it is removed if still there) */
+  wrap.querySelectorAll('.okla-recap-net').forEach(function(n){n.remove()});
   var label=wrap.querySelector('.price-wrapper .price-label');
   if(label&&label.textContent!=='K úhradě')label.textContent='K úhradě';
-  var v=amountOf(total.textContent);
-  if(isFinite(v)){var t=money(v/1.21),node=net.querySelector('.okla-recap-net__value');if(node.textContent!==t)node.textContent=t}
  }
 
  function polishRecap(){
@@ -254,7 +254,7 @@
   }
  }
 
- function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();buildCartAside();buildCartSummary();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar()}
+ function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();buildCartAside();buildCartSummary();stepIslands();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar()}
  function schedule(){
   clearTimeout(redrawTimer);
   redrawTimer=setTimeout(run,260);

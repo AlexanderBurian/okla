@@ -7,7 +7,6 @@
  if(window.__oklaCartModalV1)return;
  window.__oklaCartModalV1=true;
 
- var VAT=1.21;
  var root=null,refs={},state=null;
  var hooked={request:false};
  var pendingCartUntil=0,lastAdd=null,silentUntil=0;

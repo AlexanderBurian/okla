@@ -12,7 +12,7 @@
  if(window.__oklaLiveCatalogV1)return;window.__oklaLiveCatalogV1=true;
  /* kept 3 hours: the shop's own pages show the current price and stock anyway; this index only feeds search, the cart
     drawer and suggestions, so reading every category again every 30 minutes cost phones more than it gave */
- var KEY='okla-live-catalog-v1',TTL=3*60*60*1000;
+ var KEY='okla-live-catalog-v2',TTL=3*60*60*1000;
  var FALLBACK_CATS=['/elektronicke-multitooly/','/chytra-elektronika/','/merici-technika-a-naradi/','/endoskopy-a-inspekcni-kamery/','/prakticke-vychytavky/','/designove-gadgety/','/projektory-a-obraz/','/prislusenstvi/'];
  var NOT_CATEGORY=/(podminky|kontakt|o-nas|doprava|reklama|vraceni|jak-nakupovat|newsroom|novinky|blog|stav-objednavky|klient|login|registrace)/i;
  function catalog(){if(!window.OKLA_V86_CATALOG)window.OKLA_V86_CATALOG={};return window.OKLA_V86_CATALOG}
@@ -36,7 +36,9 @@
    var src=img?(img.getAttribute('data-src')||img.getAttribute('src')||''):'';
    if(/^data:/.test(src))src='';
    var url=path(a.getAttribute('href'));if(!url)return null;
-   return {
+   /* the card's own add-to-cart ids (missing on products with variants: those are chosen on their page) */
+   var pidIn=c.querySelector('input[name="productId"]'),prcIn=c.querySelector('input[name="priceId"]');
+   return {pid:pidIn?pidIn.value:'',prc:prcIn?prcIn.value:'',
     code:sku||('URL:'+url),name:text(c.querySelector('[data-micro="name"]'))||text(a),url:location.origin+url,
     image:src,price:offer?Number(offer.getAttribute('data-micro-price')):null,
     available:offer?!/OutOfStock|SoldOut|Discontinued/i.test(offer.getAttribute('data-micro-availability')||''):null,
@@ -70,6 +72,8 @@
    if(existing){
     if(it.price!=null)existing.price=it.price;
     if(it.available!=null)existing.available=it.available;
+    /* confirmed on the shop now, with its cart ids */
+    existing.live=true;if(it.pid)existing.pid=it.pid;if(it.prc)existing.prc=it.prc;
     if(!existing.image&&it.image)existing.image=it.image;
    }else{
     it.related=(byCat[it.defaultCategory]||[]).filter(function(c){return c!==it.code}).slice(0,6);

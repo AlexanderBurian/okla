@@ -67,7 +67,34 @@
   '/a18-prekladova-bluetooth-sluchatka/':[DIKTAFON,BRYLE],
   '/q61a-ai-diktafon-s-prepisem-8-gb/':[SLUCHATKA,BRYLE]
  };
- function items(){var p=location.pathname;if(p.charAt(p.length-1)!=='/')p+='/';return MAP[p]||null}
+ function here(){var p=location.pathname;if(p.charAt(p.length-1)!=='/')p+='/';return p}
+ function items(){return MAP[here()]||null}
+ function pathOf(u){try{return new URL(u,location.origin).pathname}catch(e){return ''}}
+ /* The companions are checked against the shop's current products (okla_live_catalog.js): a product the shop no longer
+    has is left out, the others take the current price, picture and cart ids, and the panel is filled up to three with
+    products in stock from the same category. Only products that can be added straight away (no variants) are offered. */
+ function current(list){
+  var live=window.oklaLiveCatalog;
+  if(!live||!live.ready)return Promise.resolve(null);
+  return live.ready.then(function(){
+   var cat=window.OKLA_V86_CATALOG||{},byPath={},me=null;
+   Object.keys(cat).forEach(function(k){var p=cat[k];if(!p||!p.url)return;var u=pathOf(p.url);byPath[u]=p;if(u===here())me=p});
+   var usable=function(p){return p&&p.live&&p.pid&&p.prc&&p.price&&p.available!==false};
+   var out=[],seen={};seen[here()]=1;
+   (list||[]).forEach(function(it){
+    var p=byPath[it.href];if(!usable(p)||seen[it.href])return;seen[it.href]=1;
+    out.push({pid:p.pid,prc:p.prc,name:it.name,note:it.note,price:p.price,href:it.href,img:p.image||it.img});
+   });
+   if(out.length<3&&me&&me.defaultCategory){
+    Object.keys(byPath).forEach(function(u){
+     var p=byPath[u];if(out.length>=3||seen[u]||!usable(p)||p.defaultCategory!==me.defaultCategory)return;seen[u]=1;
+     var note=String(p.shortDescription||'').replace(/\s+/g,' ').trim();if(note.length>60)note=note.slice(0,57).replace(/\s+\S*$/,'')+'…';
+     out.push({pid:p.pid,prc:p.prc,name:p.name,note:note||p.defaultCategory,price:p.price,href:u,img:p.image});
+    });
+   }
+   return out.length?out:null;
+  },function(){return null});
+ }
 
  function csrf(){try{return (window.shoptet&&shoptet.csrf&&shoptet.csrf.token)||''}catch(e){return ''}}
  function fmt(n){try{return n.toLocaleString('cs-CZ')+' Kč'}catch(e){return n+' Kč'}}
@@ -204,12 +231,17 @@
   updateTotal(sec,list);
  }
 
+ var checked=null;
  function mount(){
-  var list=items();
-  if(!list){window.__oklaXsellSelected=null;return true;}
+  var base=items();
+  if(!base){window.__oklaXsellSelected=null;return true;}
   if(document.querySelector('.okla-xsell'))return true;
   var host=document.querySelector('#content .p-detail .p-info-wrapper');
   if(!host)return false;
+  if(!checked){checked=current(base).then(function(list){checked.list=list;mount()});return true}
+  if(checked.list===undefined)return true;
+  var list=checked.list;
+  if(!list){window.__oklaXsellSelected=null;return true;}
   var sec=build(list);
   var anchor=host.querySelector('.social-buttons-wrapper');
   if(anchor)host.insertBefore(sec,anchor);else host.appendChild(sec);

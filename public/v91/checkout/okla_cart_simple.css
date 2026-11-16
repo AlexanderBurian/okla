@@ -205,7 +205,7 @@ html body.in-kosik .okla-alza-total__value{
   grid-column:2!important;margin:0!important;text-align:right!important;line-height:1.15!important
 }
 html body.in-kosik .okla-alza-total__net-value{font-size:13px!important;font-weight:500!important;color:#303841!important}
-html body.in-kosik .okla-alza-total__value{font-size:21px!important;font-weight:800!important;color:#65a300!important}
+html body.in-kosik .okla-alza-total__value{font-size:21px!important;font-weight:800!important;color:#0859d8!important}
 
 /* Delivery/payment recap: products first, then transport/payment and totals. */
 html body.ordering-process:not(.in-kosik) .cart-row{
@@ -255,7 +255,7 @@ html body.ordering-process:not(.in-kosik) .order-summary .price-wrapper{
   margin-top:12px!important;padding:12px!important;border:1px solid #d4d9df!important;border-radius:3px!important;background:#fff!important
 }
 html body.ordering-process:not(.in-kosik) .order-summary .price-primary{
-  color:#65a300!important;font-size:20px!important;font-weight:800!important
+  color:#0859d8!important;font-size:20px!important;font-weight:800!important
 }
 
 @media(max-width:767px){
@@ -331,7 +331,7 @@ html body.in-kosik .okla-alza-total{
 }
 html body.in-kosik .okla-alza-total__label{font-size:12px!important;font-weight:400!important;color:#657184!important}
 html body.in-kosik .okla-alza-total__value{
-  margin:0!important;font-size:22px!important;font-weight:700!important;line-height:1.1!important;color:#65a300!important
+  margin:0!important;font-size:22px!important;font-weight:700!important;line-height:1.1!important;color:#0859d8!important
 }
 html body.in-kosik #content#content .okla-step-nav{
   position:sticky!important;bottom:0!important;z-index:40!important;width:calc(100% + 48px)!important;
@@ -513,7 +513,7 @@ html body.in-kosik #content#content .okla-cart-summary__row{display:contents!imp
 html body.in-kosik #content#content .okla-cart-summary__row>span:first-child{color:#46556a!important;font:400 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important}
 html body.in-kosik #content#content .okla-cart-summary__net{color:#46556a!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content#content .okla-cart-summary__row--gross>span:first-child{color:#0b2540!important;font-weight:700!important}
-html body.in-kosik #content#content .okla-cart-summary__gross{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 22px/1.15 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
+html body.in-kosik #content#content .okla-cart-summary__gross{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:800 22px/1.15 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content#content .okla-cart-summary__sentinel{height:1px!important;margin-top:-1px!important}
 
 /* the button row sticks to the bottom of the screen until it reaches its place */
@@ -535,7 +535,7 @@ html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-al
 }
 html body.in-kosik #content#content .okla-step-nav .okla-alza-total :is(.okla-alza-total__net-label,.okla-alza-total__net-value){display:none!important}
 html body.in-kosik #content#content .okla-step-nav .okla-alza-total__label{color:#46556a!important;font:400 13px/1.2 "Open Sans",Arial,sans-serif!important}
-html body.in-kosik #content#content .okla-step-nav .okla-alza-total__value{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 22px/1.1 "Open Sans",Arial,sans-serif!important}
+html body.in-kosik #content#content .okla-step-nav .okla-alza-total__value{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:800 22px/1.1 "Open Sans",Arial,sans-serif!important}
 html body.in-kosik #content#content .okla-step-nav .next-step{display:flex!important;align-items:center!important;justify-content:space-between!important}
 html body.in-kosik #content#content .okla-step-nav .next-step .next-step-forward{margin-left:0!important}
 
@@ -571,16 +571,15 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
   flex:1 1 auto!important;display:flex!important;justify-content:space-between!important;gap:10px!important;
   color:#46556a!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important;
 }
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info span:last-child{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;text-transform:lowercase!important;white-space:nowrap!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info span:last-child{color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important;text-transform:lowercase!important;white-space:nowrap!important}
 /* the total box */
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price{
   margin:14px 0 0!important;padding:12px 14px!important;background:#fff!important;border:1px solid #dde2e9!important;border-radius:4px!important;
 }
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .okla-recap-net{display:flex!important;justify-content:space-between!important;margin:0 0 6px!important;color:#46556a!important;font:400 13px/1.3 "Open Sans",Arial,sans-serif!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price .price-wrapper{display:flex!important;justify-content:space-between!important;align-items:baseline!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price .price-label{color:#0b2540!important;font:700 13px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price,
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price span{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.price strong.price span{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important}
 
 /* --- Steps 1/2: option cards (Alza colours) --------------------------- */
 html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked){background:#eef5fd!important;border-color:#0961ed!important}
@@ -589,7 +588,7 @@ html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper::befor
   border:1.5px solid #9aa6b5!important;background:#fff!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .radio-wrapper:has(input:checked)::before{border-color:#0859d8!important;background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/15px 15px no-repeat!important}
-html body.ordering-process:not(.in-kosik) #content#content .payment-shipping-price{color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;text-transform:lowercase!important}
+html body.ordering-process:not(.in-kosik) #content#content .payment-shipping-price{color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important;text-transform:lowercase!important}
 
 /* --- Phones ------------------------------------------------------------ */
 @media(max-width:767px){
@@ -636,7 +635,7 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
   flex:1 1 auto!important;min-width:0!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:10px!important;
   color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important;
 }
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong>span{order:2!important;flex:none!important;color:#5aa000!important;-webkit-text-fill-color:#5aa000!important;font-weight:600!important;white-space:nowrap!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong>span{order:2!important;flex:none!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important;white-space:nowrap!important}
 /* steps 2/3 on desktop: the steps sit top left like on the cart page */
 @media(min-width:768px){
   html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8{padding-top:22px!important;padding-left:24px!important}

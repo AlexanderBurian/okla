@@ -155,3 +155,7 @@ html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#o
 @media(min-width:992px){
   html body #footer #okla-footer-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f){margin-bottom:0!important;border-bottom-left-radius:0!important;border-bottom-right-radius:0!important}
 }
+
+/* Shoptet's green / blue notes at the top of every page ("Množství bylo úspěšně změněno.", "Zboží bylo přidáno do košíku"...) are
+   not shown; error notes stay */
+html body .messages .msg:is(.msg-success,.msg-info):not(#okis-a#okis-b#okis-c){display:none!important}
