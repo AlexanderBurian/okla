@@ -111,12 +111,15 @@
   /* Everything is computed in the units of the proportionally zoomed page
      (window.__oklaDZ); the art itself is zoomed the same way in CSS. */
   var z=window.__oklaDZ||1;
-  var viewport=document.documentElement.clientWidth/z;
+  /* phones and pages without the art first: nothing is measured there (measuring lays the whole page out), and the
+     art is switched off only when it is on */
   if(!card||!window.matchMedia('(min-width:768px)').matches||offPage()){
-   left.classList.remove('is-on');right.classList.remove('is-on');
-   if(card)card.style.minHeight='';
+   if(left.classList.contains('is-on'))left.classList.remove('is-on');
+   if(right.classList.contains('is-on'))right.classList.remove('is-on');
+   if(card&&card.style.minHeight)card.style.minHeight='';
    return;
   }
+  var viewport=document.documentElement.clientWidth/z;
   var c0=card.getBoundingClientRect();
   var c={left:c0.left/z,right:c0.right/z,top:c0.top/z};
   var sx=window.pageXOffset/z,sy=window.pageYOffset/z;

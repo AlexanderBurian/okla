@@ -25,7 +25,7 @@
   var cfCta=el('span','okla-campaign__cta okla-campaign__cta--soon');cfCta.textContent='PŘIPRAVUJEME';cfCta.setAttribute('aria-label','Flipper ONE připravujeme');
   cfCopy.append(cfBrand,cfKick,cfText,cfCta);
   var cfStage=el('div','okla-campaign__flipper-stage');
-  var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-one-official-og.png';cfImg.alt='Flipper ONE';cfImg.loading='lazy';cfImg.draggable=false;cfImg.decoding='async';
+  var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-one-official-og.webp';cfImg.alt='Flipper ONE';cfImg.loading='lazy';cfImg.draggable=false;cfImg.decoding='async';
   var cfScreen=el('img','okla-campaign__flipper-screen');cfScreen.src=base+'v91/img/promo/flipper-one-screen.png';cfScreen.alt='';cfScreen.setAttribute('aria-hidden','true');cfScreen.loading='lazy';cfScreen.draggable=false;cfScreen.decoding='async';
   cfStage.append(cfImg,cfScreen);
   var cfFine=el('p','okla-campaign__fineprint');cfFine.innerHTML='Nová otevřená platforma je ve vývoji.<br>Dostupnost pro náš obchod připravujeme.';
@@ -39,7 +39,7 @@
   var clText=el('p','okla-campaign__lilygo-text');clText.textContent='ESP32‑S3, CC1101, barevný displej a otočný enkodér v jedné otevřené platformě.';
   var clCta=el('a','okla-campaign__cta');clCta.href='/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/';clCta.textContent='Zjistit více';
   clCopy.append(clBrand,clTitle,clText,clCta);
-  var clImg=el('img','okla-campaign__lilygo-hand');clImg.src=base+'v91/img/promo/lilygo-hand.png';clImg.alt='Ruka držící LILYGO T-Embed CC1101';clImg.loading='lazy';clImg.decoding='async';
+  var clImg=el('img','okla-campaign__lilygo-hand');clImg.src=base+'v91/img/promo/lilygo-hand.webp';clImg.alt='Ruka držící LILYGO T-Embed CC1101';clImg.loading='lazy';clImg.decoding='async';
   var clTerms=el('p','okla-campaign__terms');clTerms.textContent='Vývojová platforma pro vlastní projekty. Funkce závisí na použitém firmwaru.';
   cl.append(clCopy,clImg,clTerms);
 
@@ -55,6 +55,9 @@
   return main.querySelector(':scope>#okla-news-v55');
  }
 
+ /* in place = right before r, other OKLA homepage sections between them allowed (deals, sign-in strip, promo can want
+    the same spot; requiring "directly before" made them move each other for ever) */
+ function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals)$/.test(n.id))n=n.nextElementSibling;return n===r}
  var tries=0;
  function mount(){
   if(document.getElementById('okla-promo-deals'))return true;
@@ -66,7 +69,7 @@
   var promo=build();main.insertBefore(promo,r);
   function fix(){
    if(promo.parentNode!==main)return;
-   var rr=ref(main);if(rr&&rr!==promo&&promo.nextElementSibling!==rr)main.insertBefore(promo,rr);
+   var rr=ref(main);if(rr&&rr!==promo&&!before(promo,rr))main.insertBefore(promo,rr);
   }
   if(window.MutationObserver)new MutationObserver(fix).observe(main,{childList:true});
   setTimeout(fix,300);setTimeout(fix,1500);

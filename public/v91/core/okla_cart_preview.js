@@ -144,7 +144,7 @@ function start(){
  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
  document.addEventListener('pointerdown',function(e){if(anchor&&pop&&!pop.contains(e.target)&&!target(e.target))close()},true);
  addEventListener('scroll',move,{passive:true});addEventListener('resize',function(){if(!mq.matches)close();else move()},{passive:true});
- ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(x){document.documentElement.addEventListener(x,updated)});
+ ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(x){document.addEventListener(x,updated)});/* Shoptet fires these on document, which <html> never sees */
  badge();setTimeout(badge,1200);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();

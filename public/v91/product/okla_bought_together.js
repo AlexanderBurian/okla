@@ -73,6 +73,7 @@
    sources[i].load().then(function(list){
     if(my!==token)return;
     /* a fresh slider for this list: the old shell goes, the loader's sliderFor builds the new one */
+    sec.querySelectorAll('.okla-slider-track').forEach(function(t){if(t.__oklaSlider&&t.__oklaSlider.destroy)t.__oklaSlider.destroy()});
     sec.querySelectorAll('.okla-slider-shell, .products.products-block').forEach(function(n){n.remove()});
     if(!list.length){sec.classList.add('okla-bt--empty');return}
     sec.classList.remove('okla-bt--empty');

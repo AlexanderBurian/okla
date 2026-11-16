@@ -49,7 +49,7 @@
   panel.style.left=(left+window.pageXOffset)+'px';panel.style.top=(r.bottom+window.pageYOffset+10)+'px';
  }
  document.addEventListener('click',function(e){
-  var trigger=e.target.closest&&e.target.closest('#content .js-share-buttons-trigger, #content a.link-icon.share');
+  var trigger=e.target.closest&&e.target.closest('#content .js-share-buttons-trigger, #content a.link-icon.share, #content .okla-dalza__share');/* the share button beside the title (okla_detail_alza.js) toggles too: clicking it again closes the panel */
   if(trigger){
    e.preventDefault();e.stopImmediatePropagation();
    var url=location.origin+location.pathname,title=((document.querySelector('#content h1')||{}).textContent||document.title).replace(/\s+/g,' ').trim();

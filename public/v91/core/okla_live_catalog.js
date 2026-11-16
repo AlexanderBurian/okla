@@ -10,7 +10,9 @@
 (function(){
  'use strict';
  if(window.__oklaLiveCatalogV1)return;window.__oklaLiveCatalogV1=true;
- var KEY='okla-live-catalog-v1',TTL=30*60*1000;
+ /* kept 3 hours: the shop's own pages show the current price and stock anyway; this index only feeds search, the cart
+    drawer and suggestions, so reading every category again every 30 minutes cost phones more than it gave */
+ var KEY='okla-live-catalog-v1',TTL=3*60*60*1000;
  var FALLBACK_CATS=['/elektronicke-multitooly/','/chytra-elektronika/','/merici-technika-a-naradi/','/endoskopy-a-inspekcni-kamery/','/prakticke-vychytavky/','/designove-gadgety/','/projektory-a-obraz/','/prislusenstvi/'];
  var NOT_CATEGORY=/(podminky|kontakt|o-nas|doprava|reklama|vraceni|jak-nakupovat|newsroom|novinky|blog|stav-objednavky|klient|login|registrace)/i;
  function catalog(){if(!window.OKLA_V86_CATALOG)window.OKLA_V86_CATALOG={};return window.OKLA_V86_CATALOG}
@@ -120,7 +122,12 @@
  function refresh(){
   if(!window.fetch||!window.DOMParser)return Promise.resolve(null);
   var cats=categories(),ok=true;
-  return Promise.all(cats.map(function(h){return readCategory(h).catch(function(){ok=false;return []})})).then(function(lists){
+  /* one category after another, each when the browser is idle: reading them all at once stacked a dozen page parses
+     into one long freeze on phones */
+  var idle=window.requestIdleCallback?function(){return new Promise(function(r){requestIdleCallback(r,{timeout:2000})})}:function(){return new Promise(function(r){setTimeout(r,200)})};
+  var lists=[],chain=Promise.resolve();
+  cats.forEach(function(h){chain=chain.then(idle).then(function(){return readCategory(h)}).then(function(l){lists.push(l)},function(){ok=false})});
+  return chain.then(function(){return lists}).then(function(lists){
    var items=[];lists.forEach(function(l){items=items.concat(l)});
    if(!items.length)return null;
    merge(items,ok);
@@ -128,6 +135,16 @@
    return items;
   });
  }
+ /* The original catalogue's pictures are 1000 px photos (data/product-images/OKL-xxx.jpg, ~110 kB each) shown as small
+    thumbnails (search, cart drawer, magazine): the same pictures at 480 px (v91/img/products/OKL-xxx.webp, ~11 kB). */
+ (function(){
+  var base=window.__oklaAssetBase;if(!base)return;
+  var cat=catalog();
+  Object.keys(cat).forEach(function(k){
+   var p=cat[k],m=p&&typeof p.image==='string'&&p.image.match(/\/data\/product-images\/(OKL-\d+)\.jpg$/);
+   if(m)p.image=base+'v91/img/products/'+m[1]+'.webp';
+  });
+ })();
  var cached=load();
  if(cached)merge(cached.items,true);
  var fresh=cached&&cached.t>Date.now()-TTL;

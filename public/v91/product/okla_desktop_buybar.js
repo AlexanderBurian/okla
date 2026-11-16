@@ -91,7 +91,10 @@
        (html.okla-desktop-sticky, okla_desktop_sticky.js) the bar is there instead, in the same frame, so there is
        no empty moment between them. */
     var sync=function(){ticking=false;var r=native.getBoundingClientRect();show(root.classList.contains('okla-desktop-sticky')||(r.width>0&&r.bottom<70*(window.__oklaDZ||1)))};
-    new MutationObserver(function(){sync()}).observe(root,{attributes:true,attributeFilter:['class']});
+    /* only the sticky header's own class matters here: other class changes on <html> (several per scroll on phones)
+       no longer measure the page */
+    var lastSticky=root.classList.contains('okla-desktop-sticky');
+    new MutationObserver(function(){var st=root.classList.contains('okla-desktop-sticky');if(st!==lastSticky){lastSticky=st;sync()}}).observe(root,{attributes:true,attributeFilter:['class']});
     addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(sync)}},{passive:true});
     sync();
     addEventListener('resize',function(){if(shown)place()});

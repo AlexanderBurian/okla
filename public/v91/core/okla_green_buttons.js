@@ -48,22 +48,28 @@ function collect(node,out,seen){
  if(node.querySelectorAll)node.querySelectorAll(selector).forEach(function(b){if(!seen.has(b)){seen.add(b);out.push(b)}});
 }
 function scan(node){var out=[];collect(node,out,new Set());markAll(out)}
+/* while the page is still hidden under the loader's curtain, the work waits and runs once just before it is shown */
+function oklaUntilShown(fn){var q=window.__oklaBeforeReveal;if(!q)return false;if(q.indexOf(fn)<0)q.push(fn);return true}
+function scanBody(){scan(document.body)}
 function start(){
- scan(document.body);
+ if(!oklaUntilShown(scanBody))scanBody();
  window.addEventListener('load',function(){scan(document.body)},{once:true});
  document.addEventListener('pointerover',function(e){
   var el=e.target&&e.target.closest&&e.target.closest(selector);
   if(el)mark(el);
  },{passive:true});
  if(!window.MutationObserver)return;
+ /* changes are gathered and read once per frame (before it is painted, so nothing flashes): reading after every single
+    change forced the page's styles to be recomputed many times while the page was being built */
+ var pending=[],pendingSeen=new Set(),queued=false;
+ function flush(){queued=false;var list=pending.filter(function(b){return b.isConnected});pending=[];pendingSeen=new Set();if(list.length)markAll(list)}
  var observer=new MutationObserver(function(mutations){
-  var out=[],seen=new Set();
   for(var i=0;i<mutations.length;i++){
    var m=mutations[i];
-   if(m.type==='attributes'){var t=m.target;if(t&&t.nodeType===1&&!seen.has(t)&&t.matches&&t.matches(selector)){seen.add(t);out.push(t)}continue;}
-   for(var j=0;j<m.addedNodes.length;j++)collect(m.addedNodes[j],out,seen);
+   if(m.type==='attributes'){var t=m.target;if(t&&t.nodeType===1&&!pendingSeen.has(t)&&t.matches&&t.matches(selector)){pendingSeen.add(t);pending.push(t)}continue;}
+   for(var j=0;j<m.addedNodes.length;j++)collect(m.addedNodes[j],pending,pendingSeen);
   }
-  if(out.length)markAll(out);
+  if(pending.length&&!queued){queued=true;if(!oklaUntilShown(flush))requestAnimationFrame(flush)}
  });
  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
 }

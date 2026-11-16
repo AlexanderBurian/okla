@@ -19,6 +19,8 @@ if(window.__oklaBootstrapV91)return;
 if(window.__oklaCompleteV71){console.warn('[OKLA V91] A previous OKLA bootstrap is already running; remove duplicate Shoptet tags.');return}
 window.__oklaBootstrapV91=true;
 window.__oklaCompleteV71=true;
+/* passes to run once just before the page is shown (see reveal()); null once it is shown */
+window.__oklaBeforeReveal=[];
 var current=document.currentScript;
 var base=current&&current.src?current.src.split(/[?#]/)[0].replace(/[^/]*$/,''):'';
 var aiApiUrl=current&&current.getAttribute('data-api-url');
@@ -28,6 +30,56 @@ window.__oklaApiUrl=(aiApiUrl||'').replace(/\/$/,'');
 /* Wake the Render service while the storefront modules are still loading, so
    the first customer message does not pay the cold-start delay. */
 if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cache:'no-store'}).catch(function(){})}catch(e){}}
+/* Phones fire "resize" whenever the address bar slides in or out during scrolling (only the height changes, by about
+   50-120 px). The storefront's layout code depends on the width, so resize listeners (OKLA's modules, the shop's own
+   jQuery ones) are not called for such a small height-only change: scrolling on a phone no longer reruns every layout
+   fix (each round was a ~0.3 s freeze). A width change, turning the phone or the keyboard (a big height change) still
+   reaches them. The decision is made once per event, by whichever of the hooks below sees it first. */
+(function(){
+ try{
+  var add=window.addEventListener,remove=window.removeEventListener,wrapped=new WeakMap();
+  var lastW=window.innerWidth,lastH=window.innerHeight,seen=null,skip=false;
+  function heightOnly(e){
+   if(e&&e===seen)return skip;
+   seen=e;
+   var w=window.innerWidth,h=window.innerHeight;
+   skip=w===lastW&&Math.abs(h-lastH)<=160;
+   if(!skip){lastW=w;lastH=h}
+   return skip;
+  }
+  /* listeners added before this loader: stopped here (those that run before it are the jQuery ones, handled below) */
+  add.call(window,'resize',function(e){if(heightOnly(e))e.stopImmediatePropagation()},true);
+  function wrap(fn){
+   var w=wrapped.get(fn);
+   if(!w){w=function(e){if(!heightOnly(e))return fn.apply(this,arguments)};wrapped.set(fn,w)}
+   return w;
+  }
+  window.addEventListener=function(type,fn,opts){
+   if(type==='resize'&&typeof fn==='function')return add.call(this||window,type,wrap(fn),opts);
+   return add.apply(this||window,arguments);
+  };
+  window.removeEventListener=function(type,fn,opts){
+   if(type==='resize'&&typeof fn==='function'&&wrapped.has(fn))return remove.call(this||window,type,wrapped.get(fn),opts);
+   return remove.apply(this||window,arguments);
+  };
+  /* jQuery keeps one listener of its own on the window, added by the shop before this loader, and calls every
+     $(window).on('resize') handler from it (on the product page one of them measured the gallery, ~0.25 s a time) */
+  function patchJquery(){
+   var $=window.jQuery;
+   if(!$||!$.event||typeof $.event.dispatch!=='function'||$.event.dispatch.__oklaResize)return;
+   var dispatch=$.event.dispatch;
+   var patched=function(ev){
+    var native=ev&&(ev.originalEvent||ev);
+    if(this===window&&native&&native.type==='resize'&&heightOnly(native))return;
+    return dispatch.apply(this,arguments);
+   };
+   patched.__oklaResize=true;
+   $.event.dispatch=patched;
+  }
+  patchJquery();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',patchJquery,{once:true});
+ }catch(e){}
+})();
 /* Touch tablets held upright (768-991 px wide) fall between the phone layout
    (<=767 px) and the desktop one (>=992 px) and get a mix of both. They get the
    polished phone layout instead: the viewport is laid out 767 px wide (about
@@ -144,6 +196,11 @@ function whenFontsReady(done){
 function reveal(){
  if(revealed)return;
  revealed=true;clearTimeout(revealTimer);revealTimer=null;
+ /* The passes that read the page's colours (button colours, text contrast) wait for this moment instead of running
+    after every file while the page is still being built under the curtain: they run once, here, just before it is
+    shown. (The list is closed first, so a pass asked for while these run runs at once.) */
+ var hooks=window.__oklaBeforeReveal||[];window.__oklaBeforeReveal=null;
+ hooks.forEach(function(f){try{f()}catch(e){}});
  /* at once, no fade: the finished page replaces the previous one in one step */
  root.classList.remove('okla-curtain','okla-shown');bootStyle.remove();
  /* the footer tag's own curtain (html:not(.okla-ready) body{opacity:0}) lifts at the same moment, not after its 2.5 s timer */

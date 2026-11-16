@@ -10,13 +10,16 @@
  'use strict';
  if(window.__oklaDeadlinkGuard)return;window.__oklaDeadlinkGuard=true;
 
- var CACHE_KEY='okla.deadlinks.v1';
+ /* results kept for a day (not per browser session), so a returning visitor does not check the footer links again */
+ var CACHE_KEY='okla.deadlinks.v2',CACHE_TTL=24*3600*1000;
  var MAX_CHECKS=60;          /* hard cap on HEAD requests per page            */
  var CONCURRENCY=3;
  var cache={};
- try{cache=JSON.parse(sessionStorage.getItem(CACHE_KEY)||'{}')||{};}catch(e){cache={};}
+ var stored=null;try{stored=JSON.parse(localStorage.getItem(CACHE_KEY)||'null');}catch(e){}
+ if(stored&&stored.t>Date.now()-CACHE_TTL&&stored.map)cache=stored.map;else stored=null;
+ var savedAt=stored?stored.t:Date.now();
  var saveTimer=null;
- function saveCache(){if(saveTimer)return;saveTimer=setTimeout(function(){saveTimer=null;try{sessionStorage.setItem(CACHE_KEY,JSON.stringify(cache));}catch(e){}},300);}
+ function saveCache(){if(saveTimer)return;saveTimer=setTimeout(function(){saveTimer=null;try{localStorage.setItem(CACHE_KEY,JSON.stringify({t:savedAt,map:cache}));}catch(e){}},300);}
 
  function sameOrigin(u){try{return new URL(u,location.href).origin===location.origin;}catch(e){return false;}}
  function isArticle(){return /^\/nase-novinky\/[^/]+\/?$/.test(location.pathname);}

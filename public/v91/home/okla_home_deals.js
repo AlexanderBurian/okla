@@ -88,6 +88,9 @@
  function stripRef(main){
   return main.querySelector(':scope>.homepage-group-title[data-okla-row-copy]')||main.querySelector(':scope>#okla-news-v55');
  }
+ /* in place = right before r, other OKLA homepage sections between them allowed (deals, sign-in strip, promo can want
+    the same spot; requiring "directly before" made them move each other for ever) */
+ function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals)$/.test(n.id))n=n.nextElementSibling;return n===r}
  function place(strip){var main=document.getElementById('okla-cat-circles').parentNode,r=stripRef(main);if(r)main.insertBefore(strip,r);else main.appendChild(strip)}
  function mount(){
   if(document.getElementById('okla-deals'))return true;
@@ -99,8 +102,8 @@
   var strip=guest()?buildSignin():null;if(strip)place(strip);
   function fix(){
    if(deals.parentNode!==main)return;
-   var r=dealsRef(main);if(r&&r!==deals&&deals.nextElementSibling!==r)main.insertBefore(deals,r);
-   if(strip&&strip.parentNode===main){var sr=stripRef(main);if(sr?strip.nextElementSibling!==sr:main.lastElementChild!==strip)place(strip)}
+   var r=dealsRef(main);if(r&&r!==deals&&!before(deals,r))main.insertBefore(deals,r);
+   if(strip&&strip.parentNode===main){var sr=stripRef(main);if(sr?!before(strip,sr):main.lastElementChild!==strip)place(strip)}
   }
   if(window.MutationObserver)new MutationObserver(fix).observe(main,{childList:true});
   setTimeout(fix,300);setTimeout(fix,1500);

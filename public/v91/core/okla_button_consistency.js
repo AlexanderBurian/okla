@@ -92,13 +92,18 @@
 
  function scan(root,force){var out=[];collect(root,force,out,new Set());process(out)}
 
+ /* while the page is still hidden under the loader's curtain, the work waits and runs once just before it is shown */
+ function oklaUntilShown(fn){var q=window.__oklaBeforeReveal;if(!q)return false;if(q.indexOf(fn)<0)q.push(fn);return true}
+ function scanAll(){scan(document,false)}
  function start(){
-  scan(document,false);
+  if(!oklaUntilShown(scanAll))scanAll();
   if(window.MutationObserver&&document.body){
+   /* added buttons are gathered and read once per frame (before paint), not after every single change */
+   var pending=[],pendingSeen=new Set(),queued=false;
+   function flushAdded(){queued=false;var list=pending.filter(function(b){return b.isConnected});pending=[];pendingSeen=new Set();if(list.length)process(list)}
    new MutationObserver(function(records){
-    var out=[],seen=new Set();
-    records.forEach(function(record){record.addedNodes.forEach(function(node){collect(node,false,out,seen)})});
-    process(out);
+    records.forEach(function(record){record.addedNodes.forEach(function(node){collect(node,false,pending,pendingSeen)})});
+    if(pending.length&&!queued){queued=true;if(!oklaUntilShown(flushAdded))requestAnimationFrame(flushAdded)}
    }).observe(document.body,{childList:true,subtree:true});
   }
   window.addEventListener('load',function(){scan(document,true)},{once:true});

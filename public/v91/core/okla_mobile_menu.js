@@ -75,7 +75,7 @@
  }
  document.addEventListener('click',function(e){
   var btn=e.target&&e.target.closest&&e.target.closest('#okla-v61-bottom .okm61-bottom-action');
-  if(!btn||btn.getAttribute('aria-label')!=='Menu')return;
+  if(!btn||btn.getAttribute('data-okm61-kind')!=='menu')return;/* by kind: the label is translated on other languages */
   var overlay=document.getElementById('okla-v61-drawer');if(!overlay)return;
   var body=overlay.querySelector('.okm61-drawer-body'),head=overlay.querySelector('.okm61-drawer-head strong');
   if(!body)return;
@@ -90,6 +90,6 @@
  /* Katalog reuses the same overlay: drop the menu marker when it opens. */
  document.addEventListener('click',function(e){
   var btn=e.target&&e.target.closest&&e.target.closest('#okla-v61-bottom .okm61-bottom-action');
-  if(btn&&btn.getAttribute('aria-label')!=='Menu'){var o=document.getElementById('okla-v61-drawer');if(o)o.classList.remove('okla-mm-open')}
+  if(btn&&btn.getAttribute('data-okm61-kind')!=='menu'){var o=document.getElementById('okla-v61-drawer');if(o)o.classList.remove('okla-mm-open')}
  },true);
 })();

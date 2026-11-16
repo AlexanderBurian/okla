@@ -138,7 +138,7 @@ var bar=document.getElementById('okla-v61-bottom');if(bar)return;
 bar=n('nav');bar.id='okla-v61-bottom';bar.setAttribute('aria-label','Hlavní mobilní navigace');
 var raw=document.querySelector('#header a.cart-count'),cart=raw&&raw.getAttribute('href');
 var menuItems=[['home','Domů','/'],['catalog','Katalog',null],['cart','Košík',cart&&cart!=='#'?cart:'/kosik/'],['orders','Objednávky','/stav-objednavky/'],['menu','Menu',null]];
-menuItems.forEach(function(it){var a=n(it[2]?'a':'button','okm61-bottom-action'+(it[0]==='home'&&isHome()?' is-active':''));if(it[2])a.href=it[2];else{a.type='button';a.addEventListener('click',function(){drawer(it[0])})}a.setAttribute('aria-label',it[1]);a.append(svg(it[0]),n('span','',it[1]));bar.appendChild(a)});
+menuItems.forEach(function(it){var a=n(it[2]?'a':'button','okm61-bottom-action'+(it[0]==='home'&&isHome()?' is-active':''));if(it[2])a.href=it[2];else{a.type='button';a.addEventListener('click',function(){drawer(it[0])})}a.setAttribute('aria-label',it[1]);a.dataset.okm61Kind=it[0];a.append(svg(it[0]),n('span','',it[1]));bar.appendChild(a)});
 document.body.appendChild(bar);
 }
 var drawerCloseTimer, drawerTrigger;
@@ -283,12 +283,11 @@ return result;
 const mobile=window.matchMedia('(max-width:767px)');
 
 const body=document.body;
-let y0=Math.max(0,window.scrollY||0),visible=true;
 function update(force){
  /* Retired directional header. V91 owns the only scroll header; keeping these
-    classes off prevents old CSS from changing the fixed gradient. */
- visible=true;body.classList.remove('okla-v66-hide-header','okla-v66-show-header');
- y0=Math.max(0,window.scrollY||window.pageYOffset||0);
+    classes off prevents old CSS from changing the fixed gradient. (Touched only when present, and no scroll position
+    read: reading it forced the whole page to be laid out on every focus and timer.) */
+ if(body.classList.contains('okla-v66-hide-header')||body.classList.contains('okla-v66-show-header'))body.classList.remove('okla-v66-hide-header','okla-v66-show-header');
 }
 function constrainCards(){
  if(!mobile.matches)return;
@@ -390,6 +389,9 @@ return d;
 /* === public/v91/behavior_v69.js / behavior only === */
 /* OKLA mobile v69: original static, external header only on upward scroll */
 (function(){'use strict';if(window.__oklaV69)return;window.__oklaV69=true;
+/* retired: okla_mobile_shell (V91) owns the phone's scroll header and hides #okla-v69-floating for good
+   (okla_mobile_shell.css), so this one no longer runs - it only read the page layout on every scroll event */
+return;
 var mq=matchMedia('(max-width:767px)');
 var floating=null,lastY=Math.max(0,window.scrollY||0),direction='none';
 function original(){return document.querySelector('#header #okla-v61-header')}
@@ -492,6 +494,7 @@ function removeWarranty(){
 document.querySelectorAll('#okla-warranty-strip,.okla-warranty-strip').forEach(n=>n.remove());
 }
 function duplicate(id){let arr=Array.from(document.querySelectorAll('[id="'+id+'"]'));arr.slice(1).forEach(x=>x.remove())}
+const navChecked=new WeakSet();
 function deDupe(){
 /* Only remove confirmed duplicates, never unique legal/footer blocks */
 ['okla-v61-bottom','okla-v61-categories','okla-v61-dots','okla-news-v55','okla-warranty-strip','okla-v69-floating'].forEach(duplicate);
@@ -502,6 +505,9 @@ document.querySelectorAll('main#content .homepage-blog-wrapper,main#content .hom
 if(MOBILE.matches){
 const base=document.querySelector('#okla-v61-bottom');
 if(base)document.querySelectorAll('body nav,body [role="navigation"]').forEach(el=>{
+/* each navigation is judged once: reading its text and position laid the whole page out again on every change in
+   the content (every slider step, every lazily added block while scrolling) */
+if(navChecked.has(el))return;navChecked.add(el);
 if(el===base||el.contains(base)||base.contains(el)||el.closest('#okla-v61-drawer')||el.id==='navigation')return;
 const labels=(el.innerText||'').replace(/\s+/g,' ').trim().toLowerCase();
 if(!labels||!['domů katalog košík objednávky menu','domů katalog košík objednávky menu'].includes(labels))return;

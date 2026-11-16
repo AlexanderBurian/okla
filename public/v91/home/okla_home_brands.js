@@ -8,7 +8,7 @@
  if(location.pathname!=='/'&&location.pathname!=='')return;
  var brands=[
   ['ANENG','aneng.svg'],['Benetech','benetech.png'],['Flipper Devices','flipper.svg'],
-  ['HABOTEST','habotest.svg'],['LAFVIN','lafvin.png'],['LILYGO','lilygo-wordmark.png'],
+  ['HABOTEST','habotest.svg'],['LAFVIN','lafvin.png'],['LILYGO','lilygo-wordmark.webp'],
   ['M5Stack','m5stack.svg'],['TASI','tasi.png'],['WANBO','wanbo.png'],
   ['Waveshare','waveshare.png'],['WINTACT','wintact.jpg'],['YESIDO','yesido.png']
  ];

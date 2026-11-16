@@ -30,7 +30,7 @@
   var inner;
   if(s.storewide){
    inner='<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
-    '<img class="okla-hero__gift" src="'+BASE+'v91/img/promo/storewide-gift.png" alt="" loading="eager" decoding="async">'+
+    '<img class="okla-hero__gift" src="'+BASE+'v91/img/promo/storewide-gift.webp" alt="" loading="eager" decoding="async">'+
     '<div class="okla-hero__text okla-hero__text--wide">'+
      '<h2 class="okla-hero__title">'+s.title+'</h2>'+
      '<p class="okla-hero__lead okla-hero__wideline"><strong>'+s.strong+'</strong><span>'+s.when+'</span></p>'+

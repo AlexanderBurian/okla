@@ -15,7 +15,7 @@
    bg.appendChild(document.createElement('i'));
    bar.insertBefore(bg,bar.firstChild);
   }
-  var cart=bar.querySelector('.okm61-bottom-action[aria-label="Košík"]');
+  var cart=bar.querySelector('.okm61-bottom-action[data-okm61-kind="cart"]');
   if(cart){
    cart.classList.add('okla-tb-cart');
    if(/^\/(kosik|objednavka)(\/|$)/.test(location.pathname)){
@@ -26,7 +26,7 @@
   }
   /* "Objednávky" is the current item on the order-status page (/stav-objednavky/, served by
      /login/?zobrazit=stav-objednavky) and on the account's order list */
-  var orders=bar.querySelector('.okm61-bottom-action[aria-label="Objednávky"]');
+  var orders=bar.querySelector('.okm61-bottom-action[data-okm61-kind="orders"]');
   if(orders&&!orders.classList.contains('is-active')&&(/^\/(stav-objednavky|objednavky)(\/|$)/.test(location.pathname)||/[?&]zobrazit=stav-objednavky(&|$)/.test(location.search))){
    orders.classList.add('is-active');
    var ol=orders.querySelector('span');if(ol){ol.__oktc=1;ol.style.setProperty('color','#0646ab','important')}
@@ -45,13 +45,14 @@
  document.addEventListener('click',function(e){
   var btn=e.target&&e.target.closest&&e.target.closest('#okla-v61-bottom .okm61-bottom-action');
   if(!btn)return;
-  var label=btn.getAttribute('aria-label');
-  if(label!=='Katalog'&&label!=='Menu')return;
+  /* by the button's kind, not its label: the label is translated on the English, Slovak and Hungarian site */
+  var kind=btn.getAttribute('data-okm61-kind');
+  if(kind!=='catalog'&&kind!=='menu')return;
   var overlay=document.getElementById('okla-v61-drawer');if(!overlay)return;
   var bar=document.getElementById('okla-v61-bottom');
   [].slice.call(bar.querySelectorAll('.is-panel')).forEach(function(b){b.classList.remove('is-panel')});
   btn.classList.add('is-panel');
-  if(label==='Katalog'){
+  if(kind==='catalog'){
    var head=overlay.querySelector('.okm61-drawer-head strong'),body=overlay.querySelector('.okm61-drawer-body');
    if(head){head.replaceChildren(logo())}
    if(body&&!body.querySelector('.okla-tb-cats-title')){

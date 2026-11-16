@@ -60,19 +60,19 @@
  '</div></div>'+
 
  /* FEATURE ROWS */
- feat(false,'vyber.jpg','Výběr produktů','Pečlivě vybíráme, co prodáváme',
+ feat(false,'vyber.webp','Výběr produktů','Pečlivě vybíráme, co prodáváme',
    'Neprodáváme všechno. Do nabídky se dostane jen to, co bychom si koupili i my. Sledujeme novinky, crowdfunding i vaše tipy a vybíráme, co má reálný smysl.',
    '/','Jak vybíráme')+
- feat(true,'test.jpg','Testování','Každý produkt vyzkoušíme',
+ feat(true,'test.webp','Testování','Každý produkt vyzkoušíme',
    'Než se produkt objeví v nabídce, projde rukama technika. Zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis, ne jen opsaný datasheet.',
    '/kontakt/','Zeptejte se nás')+
- feat(false,'sklad.jpg','Sklad a expedice','Expedujeme z Ostravy do 24 hodin',
+ feat(false,'sklad.webp','Sklad a expedice','Expedujeme z Ostravy do 24 hodin',
    'Sklad a zázemí máme v Ostravě. Objednávky balíme a odesíláme zpravidla do 24 hodin v pracovní dny a doručujeme přes zavedené dopravce a výdejní místa.',
    '/doprava-a-platba/','Doprava a platba')+
 
  /* BLUE B2B BAND */
  '<div class="oka-biz">'+
-   '<img class="oka-biz__img" src="'+IMG('firmy.jpg')+'" alt="Prodejna a velkoobchod" loading="lazy">'+
+   '<img class="oka-biz__img" src="'+IMG('firmy.webp')+'" alt="Prodejna a velkoobchod" loading="lazy">'+
    '<div class="oka-biz__body"><div class="oka-biz__inner">'+
      '<h2>Provozujete e-shop nebo prodejnu? Odebírejte velkoobchodně</h2>'+
      '<ul class="oka-biz__list">'+

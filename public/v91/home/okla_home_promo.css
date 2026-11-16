@@ -19,7 +19,7 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__cta:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important}
 
 /* ---- Flipper ONE teaser: dark premium background, official product render on the right. ---- */
-#okla-promo-deals .okla-campaign__card--flipper{background:#000 url('../img/promo/flipper-one-bg.png') center/cover no-repeat!important;color:#fff!important;font-family:Arial,"Helvetica Neue",sans-serif!important}
+#okla-promo-deals .okla-campaign__card--flipper{background:#000 url('../img/promo/flipper-one-bg.webp') center/cover no-repeat!important;color:#fff!important;font-family:Arial,"Helvetica Neue",sans-serif!important}
 #okla-promo-deals .okla-campaign__card--flipper::before{content:""!important;position:absolute!important;z-index:1!important;inset:0!important;pointer-events:none!important;background:linear-gradient(90deg,transparent 52%,rgba(0,0,0,.18) 68%,rgba(0,0,0,.60) 100%)!important}
 #okla-promo-deals .okla-campaign__flipper-copy{position:absolute!important;z-index:4!important;left:7.2%!important;top:145px!important;width:34%!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;text-align:left!important}
 #okla-promo-deals .okla-campaign__brand{margin:0 0 7px!important;font-size:31px!important;font-weight:700!important;line-height:1!important;letter-spacing:-.035em!important;color:#fff!important}
@@ -93,12 +93,12 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__card--flipper{background:#000 url('../img/promo/flipper-one-spot.jpg') no-repeat!important;background-size:auto 100%!important;background-position:-140% 100%!important}
 #okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(90deg,rgba(0,0,0,.25) 0%,transparent 38%)!important}
 #okla-promo-deals .okla-campaign__card--flipper::after{content:""!important;position:absolute!important;z-index:2!important;right:0!important;bottom:0!important;width:30%!important;height:96%!important;pointer-events:none!important;
-  background:url('../img/promo/flipper-one-tower.png') right bottom/contain no-repeat!important;opacity:.28!important;filter:brightness(1.35)!important}
+  background:url('../img/promo/flipper-one-tower.webp') right bottom/contain no-repeat!important;opacity:.28!important;filter:brightness(1.35)!important}
 /* the device: brighter where the light falls, a soft sheen from above clipped to its shape, a contact shadow below */
 #okla-promo-deals .okla-campaign__flipper-stage{filter:brightness(.97) contrast(1.02) saturate(.85) drop-shadow(0 22px 22px rgba(0,0,0,.55))!important;opacity:1!important}
 #okla-promo-deals .okla-campaign__flipper-stage::before{content:""!important;position:absolute!important;z-index:5!important;inset:0!important;pointer-events:none!important;
   background:radial-gradient(ellipse 70% 85% at 50% -12%,rgba(220,232,255,.55) 0%,rgba(200,215,240,.22) 38%,transparent 70%)!important;mix-blend-mode:screen!important;
-  -webkit-mask:url('../img/promo/flipper-one-official-og.png') center/100% 100% no-repeat!important;mask:url('../img/promo/flipper-one-official-og.png') center/100% 100% no-repeat!important}
+  -webkit-mask:url('../img/promo/flipper-one-official-og.webp') center/100% 100% no-repeat!important;mask:url('../img/promo/flipper-one-official-og.webp') center/100% 100% no-repeat!important}
 #okla-promo-deals .okla-campaign__flipper-stage::after{content:""!important;position:absolute!important;z-index:1!important;left:12%!important;right:12%!important;bottom:-5%!important;height:12%!important;pointer-events:none!important;
   background:radial-gradient(ellipse at center,rgba(0,0,0,.75) 0%,rgba(0,0,0,.35) 45%,transparent 72%)!important;filter:blur(6px)!important}
 @media(max-width:1200px){#okla-promo-deals .okla-campaign__card--flipper{background-position:-120% 100%!important}}

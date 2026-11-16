@@ -146,7 +146,7 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
 }
 
 /* ---------- Store-wide hero slide (slide 1, Best Buy style: blue picture, yellow gift, no autoplay) ---------- */
-.okla-hero__slide--storewide .okla-hero__media{background-image:url('../assets/storewide-bg.png')}
+.okla-hero__slide--storewide .okla-hero__media{background-image:url('../assets/storewide-bg.webp')}
 html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--storewide .okla-hero__media{background-position:center!important;background-size:cover!important}
 /* the picture carries its own gradient; keep the shared scrims light so the right stays clear for the gift */
 html body.type-index #content .okla-hero .okla-hero__slide--storewide::before{background:linear-gradient(270deg,rgba(1,23,55,.16) 0%,rgba(1,23,55,0) 46%)!important}
@@ -178,3 +178,7 @@ html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-h
   /* beat okla_mobile_unified's #carousel .carousel-inner img rule (it forces width/height 100% + cover) */
   html body.type-index #content#content .banners-row #carousel .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-4%!important;bottom:-8%!important;width:44%!important;max-width:44%!important;height:auto!important;object-fit:contain!important}
 }
+
+/* the banner dots stay 9 px to look at, but take a finger-sized tap (an invisible 32 px high area reaching halfway into the gaps) */
+html body.type-index #content .okla-hero__dots:not(#okhb-a) button{position:relative}
+html body.type-index #content .okla-hero__dots:not(#okhb-a) button::after{content:"";position:absolute;left:50%;top:50%;width:calc(100% + 8px);height:32px;transform:translate(-50%,-50%)}

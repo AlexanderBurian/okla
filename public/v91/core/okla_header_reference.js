@@ -145,7 +145,7 @@
   schedule();
   window.addEventListener('load',schedule,{once:true});
   window.addEventListener('pageshow',schedule);
-  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(ev){document.documentElement.addEventListener(ev,schedule)});
+  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated'].forEach(function(ev){document.addEventListener(ev,schedule)});/* Shoptet fires these on document, which <html> never sees */
   window.addEventListener('resize',schedule,{passive:true});
   if(desktop.addEventListener)desktop.addEventListener('change',schedule);
   [200,900,2000].forEach(function(ms){setTimeout(schedule,ms)});

@@ -577,7 +577,8 @@
   hideHelpBox();
   hideEmptyShells();
   addQuantityButtons();
-  addParcel();
+  /* no walking parcel: the checkout skin (okla_checkout_alza.js) removes it on every step, so adding it only made it
+     flash, left window listeners behind and kept its animation running */
   addCoupon();
   placeExtras();
   hideExtrasHeading();
@@ -620,7 +621,8 @@
   hideEmptyShells();
   addPaymentIcons();
   addQuantityButtons();
-  addParcel();
+  /* no walking parcel: the checkout skin (okla_checkout_alza.js) removes it on every step, so adding it only made it
+     flash, left window listeners behind and kept its animation running */
   addCoupon();
   moveCartExtras();
   hideExtrasHeading();

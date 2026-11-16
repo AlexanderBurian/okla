@@ -83,29 +83,62 @@
     start();
   }
 
-  articles.forEach(function (article, index) {
-    fetch(article[0], { credentials: 'same-origin' })
+  /* Each article's cover and date are read from its page (two meta tags in its head) and kept for 12 hours, so the
+     homepage does not download and parse five whole articles on every visit. The tags are read from the page text -
+     building a whole document of every article was a long freeze on phones. */
+  var CACHE_KEY = 'okla-news-covers-v1', CACHE_TTL = 12 * 3600 * 1000, cache = {};
+  try { cache = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {}; } catch (e) { cache = {}; }
+  function metaContent(html, prop) {
+    var tags = html.match(/<meta\b[^>]*>/gi) || [];
+    for (var i = 0; i < tags.length; i++) {
+      var attr = /\b(?:property|name)\s*=\s*["']([^"']*)["']/i.exec(tags[i]);
+      if (!attr || attr[1].toLowerCase() !== prop) continue;
+      var m = tags[i].match(/\bcontent\s*=\s*"([^"]*)"|\bcontent\s*=\s*'([^']*)'/i);
+      if (m) return (m[1] != null ? m[1] : m[2] || '').replace(/&amp;/g, '&').trim();
+    }
+    return '';
+  }
+  function use(index, entry) {
+    if (entry.date) dates[index] = entry.date;
+    if (entry.img) covers[index] = entry.img;
+  }
+  function read(article, index) {
+    return fetch(article[0], { credentials: 'same-origin' })
       .then(function (response) {
         if (!response.ok) throw new Error('Article request failed: ' + response.status);
         return response.text();
       })
       .then(function (html) {
-        var doc = new DOMParser().parseFromString(html, 'text/html');
+        var entry = { t: Date.now(), img: '', date: '' };
         /* the publication date shown under the title (Shoptet: "31.10.2026") */
-        var published = doc.querySelector('meta[property="article:published_time"]');
-        var when = published && (published.getAttribute('content') || '').trim();
-        if (when && /^\d{1,2}\.\d{1,2}\.\d{4}$/.test(when)) { dates[index] = when; paint(); }
-        var meta = doc.querySelector('meta[property="og:image"]');
-        if (!meta) return;
-        var url = new URL(meta.getAttribute('content') || '', location.origin + article[0]);
-        if (url.protocol !== 'https:' && url.protocol !== 'http:') return;
-        if (url.hostname !== location.hostname && url.hostname !== 'cdn.myshoptet.com') return;
-        if (/preforma-logo|favicon/.test(url.pathname) || url.pathname.indexOf('/user/logos/') !== -1) return;
-        covers[index] = url.href;
+        var when = metaContent(html, 'article:published_time');
+        if (when && /^\d{1,2}\.\d{1,2}\.\d{4}$/.test(when)) entry.date = when;
+        var image = metaContent(html, 'og:image');
+        if (image) {
+          var url = new URL(image, location.origin + article[0]);
+          var allowed = (url.protocol === 'https:' || url.protocol === 'http:') &&
+            (url.hostname === location.hostname || url.hostname === 'cdn.myshoptet.com') &&
+            !/preforma-logo|favicon/.test(url.pathname) && url.pathname.indexOf('/user/logos/') === -1;
+          if (allowed) entry.img = url.href;
+        }
+        cache[article[0]] = entry;
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify(cache)); } catch (e) {}
+        use(index, entry);
         paint();
       })
       .catch(function () {
         // Keep the latest verified native thumbnail above, never a stock image.
       });
+  }
+  var stale = [];
+  articles.forEach(function (article, index) {
+    var entry = cache[article[0]];
+    if (entry) use(index, entry);
+    if (!entry || !(entry.t > Date.now() - CACHE_TTL)) stale.push([article, index]);
   });
+  paint();
+  if (stale.length) {
+    var later = window.requestIdleCallback || function (f) { setTimeout(f, 1200); };
+    later(function () { stale.forEach(function (s) { read(s[0], s[1]); }); }, { timeout: 4000 });
+  }
 })();
