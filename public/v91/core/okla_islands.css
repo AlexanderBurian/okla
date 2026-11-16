@@ -150,7 +150,6 @@ html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#o
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) .okla-warranty-button::before{content:""!important;position:absolute!important;right:10px!important;bottom:100%!important;width:116px!important;height:112px!important;margin:0!important;background:url('../img/okla-manul-warranty.webp') center bottom/contain no-repeat!important;pointer-events:none!important;transform:none!important}
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d) :is(.okla-warranty-title,.okla-warranty-subtitle){max-width:calc(100% - 120px)!important}
 }
-}
 
 /* PC: the footer island ends 16px above the page's end (the grey shows under it), so its rounded bottom corners and
    soft shadow are seen like every other island's */
