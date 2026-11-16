@@ -1,39 +1,89 @@
-/* OKLA – PC pages with the left sidebar (categories, search, ...): a clean look. The page's one white card goes; every
-   sidebar box (categories, filters, payments, top 10) and the page's content are white islands of their own on the page
-   grey, with rounded corners and the islands' soft shadow. The boxes' headings are centred over a hairline; the
-   categories are dark text (no blue), the open one on a light neutral grey, no side bar or overhang. */
+/* OKLA – PC pages with the left sidebar (categories, search, ...). The page's one white card goes; every sidebar box
+   and the page's content are white islands of their own on the page grey, with a crisp 1px edge and rounded corners.
+   Each box opens with a dark bar: a white icon on the left, its name centred ("Kategorie", "Filtrovat",
+   "Top 10 produktů"). The categories are full-width rows with their photo, the open one in the shop's blue; the price
+   filter has its prices under the slider and the stock filter its own small heading ("Podle dostupnosti"). The
+   "Přijímáme online platby" box is not shown. */
 @media(min-width:992px){
   html body #content-wrapper.content-wrapper:has(aside.sidebar-left):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f#osb-g#osb-h#osb-i#osb-j){background:transparent!important;box-shadow:none!important;border:0!important;overflow:visible!important}
   html body #content-wrapper .content-wrapper-in:has(>aside.sidebar-left):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:flex-start!important;gap:16px!important}
   html body #content-wrapper aside.sidebar.sidebar-left:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:transparent!important;border:0!important;box-shadow:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){padding:0!important;background:transparent!important;border:0!important}
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0 0 16px!important;padding:18px 14px 14px!important;border:0!important;border-radius:12px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box::before,
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box::after{content:none!important;display:none!important}
-  /* the boxes' headings: centred, over a hairline */
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box :is(h3.pageElement__heading,h4):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:block!important;box-sizing:border-box!important;width:auto!important;max-width:none!important;margin:0 -14px 12px!important;padding:0 14px 14px!important;border:0!important;border-bottom:1px solid #eceef1!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 16px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;text-align:center!important}
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box :is(h3.pageElement__heading,h4) span{font:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important}
-  /* the page's content: an island too */
-  html body #content-wrapper .content-wrapper-in>main#content:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:1 1 auto!important;min-width:0!important;padding-bottom:24px!important;border-radius:12px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
 
-  /* categories: plain dark rows, the open one on light grey */
+  /* the boxes */
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){position:relative!important;margin:0 0 16px!important;padding:0 0 14px!important;border:1px solid #dfe3e8!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important;overflow:hidden!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(.box-filters)::before,
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(.box-filters)::after{content:none!important;display:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-onlinePayments:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:none!important}
+
+  /* the dark bar: Shoptet's own heading (Kategorie, Top 10 produktů), or a drawn one for the filters */
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f),
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{position:relative!important;display:block!important;box-sizing:border-box!important;width:auto!important;max-width:none!important;height:auto!important;margin:0 0 8px!important;padding:14px 44px!important;border:0!important;border-radius:0!important;background:#0b2540!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 17px/24px "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;text-align:center!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading span{display:inline!important;font:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important;text-transform:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{content:"Filtrovat"!important}
+  /* the icons */
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before,
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:""!important;position:absolute!important;left:16px!important;top:16px!important;display:block!important;width:20px!important;height:20px!important;margin:0!important;border:0!important;background:#fff!important;-webkit-mask:var(--osb-icon) center/contain no-repeat!important;mask:var(--osb-icon) center/contain no-repeat!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading::after{content:none!important;display:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading{--osb-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9z'/%3E%3C/svg%3E")}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories h3.pageElement__heading{--osb-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6h12M9 12h12M9 18h12' stroke='black' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='6' r='1.8'/%3E%3Ccircle cx='4' cy='12' r='1.8'/%3E%3Ccircle cx='4' cy='18' r='1.8'/%3E%3C/svg%3E")}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters{--osb-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 4h18l-7 8.2V19l-4 2v-8.8z'/%3E%3C/svg%3E")}
+
+  /* the page's content: an island with the same edge */
+  html body #content-wrapper .content-wrapper-in>main#content:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:1 1 auto!important;min-width:0!important;padding-bottom:24px!important;border:1px solid #dfe3e8!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important}
+
+  /* categories: full-width rows with the photo; the open one in blue */
+  html body #content-wrapper aside.sidebar.sidebar-left #categories:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .categories:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:center!important;gap:12px!important;width:auto!important;margin:0 0 2px!important;padding:6px 10px 6px 6px!important;border:0!important;border-radius:10px!important;background:transparent!important;box-shadow:none!important;transform:none!important;color:#26313f!important;text-decoration:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:center!important;gap:12px!important;width:auto!important;min-height:0!important;margin:0!important;padding:6px 14px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;transform:none!important;color:#0b2540!important;text-decoration:none!important;transition:background-color .12s ease!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before,
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:none!important;display:none!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#26313f!important;-webkit-text-fill-color:#26313f!important;font:500 14.5px/1.3 "Open Sans",Arial,sans-serif!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:left!important}
   /* a category named in capitals in Shoptet (PŘÍSLUŠENSTVÍ) reads like the others */
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a[href*="/prislusenstvi/"] .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:inline-block!important;text-transform:lowercase!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a[href*="/prislusenstvi/"] .okla-cat-label::first-letter{text-transform:uppercase!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg:has(>.okla-cat-photo-wrap):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:0 0 44px!important;width:44px!important;min-width:44px!important;height:44px!important;margin:0!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){width:44px!important;height:44px!important;margin:0!important;background:#f4f5f7!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active,.topic.active)>.topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f),
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#f2f3f5!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg:has(>.okla-cat-photo-wrap):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:0 0 40px!important;width:40px!important;min-width:40px!important;height:40px!important;margin:0!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){width:40px!important;height:40px!important;margin:0!important;border-radius:50%!important;background:#f2f3f5!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#0859d8!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#fff!important;-webkit-text-fill-color:#fff!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#fff!important}
+
+  /* filters: "CENA" centred, the prices under the slider, a line, "PODLE DOSTUPNOSTI" and the stock box */
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filters-unveil-button-wrapper:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters :is(.filters-wrapper,#filters):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters #filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){padding:8px 16px 0!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .slider-wrapper:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;flex-direction:column!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters :is(.slider-wrapper h4,.filter-section h4):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f),
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-section-boolean:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{display:block!important;order:0!important;width:auto!important;margin:0 0 14px!important;padding:0!important;border:0!important;background:none!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:700 14px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.02em!important;text-transform:uppercase!important;text-align:center!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters :is(.slider-wrapper h4,.filter-section h4) span{font:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .slider-content:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){order:1!important;position:relative!important;height:auto!important;margin:6px 10px 0!important;padding:0!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .slider-header :is(.from,.to):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){position:static!important;float:none!important;transform:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .slider-header:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){order:2!important;position:static!important;inset:auto!important;transform:none!important;display:flex!important;justify-content:space-between!important;margin:14px 0 0!important;padding:0!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:700 14px/1.3 "Open Sans",Arial,sans-serif!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .slider-header *{font:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-sections:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:18px 0 0!important;padding:16px 0 0!important;border:0!important;border-top:1px solid #e3e7ed!important;background:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-section-boolean:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-section-boolean:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{content:"Podle dostupnosti"!important;margin-bottom:10px!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-section-boolean .filter-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#26313f!important;-webkit-text-fill-color:#26313f!important;font:400 14px/1.4 "Open Sans",Arial,sans-serif!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-count:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin-left:4px!important;color:#6b7787!important;-webkit-text-fill-color:#6b7787!important;font-weight:400!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-count:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{content:"("!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-count:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:")"!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-section-button:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:12px 0 0!important;padding:0!important;border:0!important;text-align:center!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filter-section-button a:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:600 13px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
+
+  /* top 10: the list with a little room from the edges */
+  html body #content-wrapper aside.sidebar.sidebar-left .box-topProducts .top-products-wrapper:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .box-topProducts ol.top-products:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:4px 12px 0!important}
 }
 @media(min-width:992px) and (hover:hover){
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#f6f7f8!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover .okla-cat-label{color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic:not(.active)>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#f2f3f5!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .categories.active>.topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#0751c6!important}
+}
+
+/* Category pages: the hand with the phone and the product on the right sit higher and smaller, so they stay clear of
+   the sidebar and the listing. */
+@media(min-width:992px){
+  html body.type-category .okla-side-art--left:not(#oksa-x#oksa-y){transform:translateY(-70px) scale(.66)!important;transform-origin:top right!important}
+  html body.type-category .okla-side-art--right:not(#oksa-x#oksa-y){transform:translateY(-80px) scale(.64)!important;transform-origin:top center!important}
 }
