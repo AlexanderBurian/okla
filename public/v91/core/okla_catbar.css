@@ -72,11 +72,22 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-panel{box-shadow:none!important;border:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c)::before{background:#fff!important}
 }
-/* subcategories in the panel: the product photo in a light grey circle, the name under it (no price) */
+/* subcategories in the panel: a product photo on the left (no circle), the name in bold on the right, up to three of
+   its products under it */
 @media(min-width:992px){
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid--subs{min-height:0!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-img{max-width:132px!important;border-radius:50%!important;background:#f1f3f6!important;overflow:hidden!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-img img{width:76%!important;height:76%!important;object-fit:contain!important;opacity:0!important;mix-blend-mode:multiply}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-img img.is-photo{opacity:1!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-item--sub .okcb-name{font-size:14px!important;font-weight:600!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:28px!important;row-gap:28px!important;min-height:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;column-gap:14px!important;align-items:start!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img{display:grid!important;place-items:center!important;width:76px!important;height:76px!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img{display:block!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;opacity:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img.is-photo{opacity:1!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__body{min-width:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__title{display:block!important;margin:0 0 6px!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:700 15px/1.3 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links{margin:0!important;padding:0!important;list-style:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links li{margin:0!important;padding:0!important;list-style:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links li::before{content:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links a{display:block!important;overflow:hidden!important;padding:2px 0!important;color:#2b3a4e!important;-webkit-text-fill-color:#2b3a4e!important;font:400 13.5px/1.45 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;text-overflow:ellipsis!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__more a{color:#2b3a4e!important;-webkit-text-fill-color:#2b3a4e!important}
+}
+@media(min-width:992px) and (hover:hover){
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) :is(.okcb-sub__title,.okcb-sub__links a):hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;text-decoration:underline!important;text-underline-offset:3px!important}
 }

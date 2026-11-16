@@ -56,17 +56,24 @@
       best-selling products */
    var subs=window.oklaSubcats?window.oklaSubcats.list(c.href):[];
    if(subs.length){
-    grid.innerHTML='';grid.classList.add('okcb-grid--subs');
-    grid.style.setProperty('grid-template-columns','repeat('+Math.max(subs.length,5)+',minmax(0,1fr))','important');
+    /* each subcategory: a product photo on the left, its name in bold on the right and up to three of its products
+       under it (like a big shop's category menu); no circles or cards */
+    grid.innerHTML='';grid.classList.add('okcb-grid--subs');grid.style.removeProperty('grid-template-columns');
     var imgs={};
     subs.forEach(function(sc){
-     var a=el('a','okcb-item okcb-item--sub');a.href=sc.href;
-     var f=el('span','okcb-img');var im=el('img');im.alt='';f.appendChild(im);imgs[sc.href]={f:f,im:im};
-     a.append(f,el('span','okcb-name',sc.label));grid.appendChild(a);
+     var box=el('div','okcb-sub');
+     var pic=el('a','okcb-sub__img');pic.href=sc.href;pic.tabIndex=-1;pic.setAttribute('aria-hidden','true');var im=el('img');im.alt='';pic.appendChild(im);
+     var body=el('div','okcb-sub__body');var t=el('a','okcb-sub__title',sc.label);t.href=sc.href;body.appendChild(t);
+     var links=el('ul','okcb-sub__links');body.appendChild(links);
+     box.append(pic,body);grid.appendChild(box);imgs[sc.href]={pic:pic,im:im};
+     window.oklaSubcats.products(sc.href).then(function(items){
+      items.slice(0,3).forEach(function(it){var li=el('li');var a=el('a','',it.t);a.href=it.u;li.appendChild(a);links.appendChild(li)});
+      if(items.length>3){var li=el('li','okcb-sub__more');var a=el('a','','… další produkty');a.href=sc.href;li.appendChild(a);links.appendChild(li)}
+     });
     });
     /* one photo per subcategory, never the same product twice (okla_subcats.js) */
     window.oklaSubcats.images(c.href,subs).then(function(map){
-     Object.keys(imgs).forEach(function(h){var x=imgs[h];if(map[h]){x.im.src=map[h];x.im.classList.add('is-photo')}else x.f.classList.add('is-empty')});
+     Object.keys(imgs).forEach(function(h){var x=imgs[h];if(map[h]){x.im.src=map[h];x.im.classList.add('is-photo')}else x.pic.classList.add('is-empty')});
     });
     return;
    }

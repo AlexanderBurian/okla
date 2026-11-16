@@ -8,13 +8,14 @@
    The product lists of the pages are kept for 12 hours on the device. Used by:
    - the category page: Shoptet's subcategory tiles (ul.subcategories), styled in okla_subcats.css;
    - the header's category panel (okla_catbar.js): window.oklaSubcats.list(categoryHref) gives the subcategories from
-     Shoptet's own menu, window.oklaSubcats.images(categoryHref, subs) the photos (a promise of {href: photo}). */
+     Shoptet's own menu, window.oklaSubcats.images(categoryHref, subs) the photos (a promise of {href: photo}),
+     window.oklaSubcats.products(href) a page's products (a promise of [{u: address, t: name, ...}]). */
 (function(){
  'use strict';
  if(window.__oklaSubcatsV1)return;window.__oklaSubcatsV1=true;
- var KEY='okla-subcat-pages-v1',TTL=12*3600*1000,store={};
+ var KEY='okla-subcat-pages-v2',TTL=12*3600*1000,store={};
  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){store={}}
- try{localStorage.removeItem('okla-subcat-img-v1');localStorage.removeItem('okla-subcat-img-v2')}catch(e){}
+ try{['okla-subcat-img-v1','okla-subcat-img-v2','okla-subcat-pages-v1'].forEach(function(k){localStorage.removeItem(k)})}catch(e){}
  function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
  function pathOf(u){try{return new URL(u,location.origin).pathname}catch(e){return String(u||'')}}
  function norm(t){return String(t||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
@@ -33,7 +34,7 @@
     if(!a||!src||/^data:|folder\.svg/i.test(src))return;
     var u=pathOf(a.getAttribute('href'));if(seen[u])return;seen[u]=1;
     var priceEl=c.querySelector('[data-micro-price]');
-    items.push({u:u,n:norm(a.textContent),s:src,p:priceEl?Number(priceEl.getAttribute('data-micro-price'))||0:0});
+    items.push({u:u,t:(a.textContent||'').replace(/\s+/g,' ').trim(),n:norm(a.textContent),s:src,p:priceEl?Number(priceEl.getAttribute('data-micro-price'))||0:0});
    });
    store[p]={t:Date.now(),items:items};save();
    return items;
@@ -83,7 +84,7 @@
   });
   return out;
  }
- window.oklaSubcats={list:list,images:images};
+ window.oklaSubcats={list:list,images:images,products:products};
 
  /* the category page's tiles */
  function tiles(){
