@@ -10,20 +10,20 @@
   html body #content-wrapper aside.sidebar.sidebar-left:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:transparent!important;border:0!important;box-shadow:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){padding:0!important;background:transparent!important;border:0!important}
 
-  /* the boxes */
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){position:relative!important;margin:0 0 16px!important;padding:0 0 14px!important;border:1px solid #dfe3e8!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important;overflow:hidden!important}
+  /* the boxes: the edge is an inset shadow, so the blue bar on top covers it fully (no light pixels beside the bar) */
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){position:relative!important;margin:0 0 16px!important;padding:0 0 14px!important;border:0!important;border-radius:14px!important;background:#fff!important;box-shadow:inset 0 0 0 1px #dfe3e8!important;overflow:hidden!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(.box-filters)::before,
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box:not(.box-filters)::after{content:none!important;display:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-onlinePayments:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:none!important}
 
   /* the dark bar: Shoptet's own heading (Kategorie, Top 10 produktů), or a drawn one for the filters */
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f),
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{position:relative!important;display:block!important;box-sizing:border-box!important;width:auto!important;max-width:none!important;height:auto!important;margin:0 0 8px!important;padding:14px 44px!important;border:0!important;border-radius:0!important;background:#0b2540!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 17px/24px "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;text-align:center!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{position:relative!important;display:block!important;box-sizing:border-box!important;width:auto!important;max-width:none!important;height:auto!important;margin:0 0 8px!important;padding:15px 45px 14px!important;border:0!important;border-radius:14px 14px 0 0!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 17px/24px "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;text-align:center!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading span{display:inline!important;font:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important;text-transform:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before{content:"Filtrovat"!important}
   /* the icons */
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before,
-  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:""!important;position:absolute!important;left:16px!important;top:16px!important;display:block!important;width:20px!important;height:20px!important;margin:0!important;border:0!important;background:#fff!important;-webkit-mask:var(--osb-icon) center/contain no-repeat!important;mask:var(--osb-icon) center/contain no-repeat!important}
+  html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box-filters:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:""!important;position:absolute!important;left:17px!important;top:17px!important;display:block!important;width:20px!important;height:20px!important;margin:0!important;border:0!important;background:#fff!important;-webkit-mask:var(--osb-icon) center/contain no-repeat!important;mask:var(--osb-icon) center/contain no-repeat!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading::after{content:none!important;display:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box h3.pageElement__heading{--osb-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9z'/%3E%3C/svg%3E")}
   html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories h3.pageElement__heading{--osb-icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6h12M9 12h12M9 18h12' stroke='black' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='4' cy='6' r='1.8'/%3E%3Ccircle cx='4' cy='12' r='1.8'/%3E%3Ccircle cx='4' cy='18' r='1.8'/%3E%3C/svg%3E")}
@@ -32,12 +32,14 @@
   /* the page's content: an island with the same edge */
   html body #content-wrapper .content-wrapper-in>main#content:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:1 1 auto!important;min-width:0!important;padding-bottom:24px!important;border:1px solid #dfe3e8!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important}
 
-  /* categories: full-width rows with the photo; the open one in blue */
+  /* categories: full-width rows with the photo (drawn straight at its size, not scaled up afterwards, so it stays sharp;
+     the photos have a transparent margin of their own, hence the larger picture in the 40px slot); the open one on a
+     soft grey with its name in blue */
   html body #content-wrapper aside.sidebar.sidebar-left #categories:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .categories:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:0!important;border:0!important;background:none!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:center!important;gap:12px!important;width:auto!important;min-height:0!important;margin:0!important;padding:6px 14px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;transform:none!important;color:#0b2540!important;text-decoration:none!important;transition:background-color .12s ease!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:flex!important;align-items:center!important;gap:12px!important;width:auto!important;min-height:0!important;margin:0 1px!important;padding:6px 13px!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;transform:none!important;color:#0b2540!important;text-decoration:none!important;transition:background-color .12s ease!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::before,
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f)::after{content:none!important;display:none!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:600 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:left!important}
@@ -45,10 +47,10 @@
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a[href*="/prislusenstvi/"] .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:inline-block!important;text-transform:lowercase!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a[href*="/prislusenstvi/"] .okla-cat-label::first-letter{text-transform:uppercase!important}
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg:has(>.okla-cat-photo-wrap):not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){flex:0 0 40px!important;width:40px!important;min-width:40px!important;height:40px!important;margin:0!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){width:40px!important;height:40px!important;margin:0!important;border-radius:50%!important;background:#f2f3f5!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#0859d8!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#fff!important;-webkit-text-fill-color:#fff!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#fff!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .okla-cat-photo-wrap:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:block!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;overflow:visible!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .okla-cat-photo-wrap img:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:block!important;box-sizing:content-box!important;width:66px!important;height:66px!important;min-height:66px!important;max-width:none!important;max-height:none!important;margin:-13px!important;padding:0!important;object-fit:contain!important;transform:none!important;filter:none!important;mix-blend-mode:normal!important;image-rendering:auto!important;border-radius:0!important;background:transparent!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){background:#f2f4f7!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories :is(.categories.active>.topic,.topic.active)>a .okla-cat-label:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font-weight:700!important}
 
   /* filters: "CENA" centred, the prices under the slider, a line, "PODLE DOSTUPNOSTI" and the stock box */
   html body #content-wrapper aside.sidebar.sidebar-left .box-filters .filters-unveil-button-wrapper:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){display:none!important}
@@ -77,13 +79,12 @@
   html body #content-wrapper aside.sidebar.sidebar-left .box-topProducts ol.top-products:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f){margin:0!important;padding:4px 12px 0!important}
 }
 @media(min-width:992px) and (hover:hover){
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic:not(.active)>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#f2f3f5!important}
-  html body #content-wrapper aside.sidebar.sidebar-left #categories .categories.active>.topic>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#0751c6!important}
+  html body #content-wrapper aside.sidebar.sidebar-left #categories .topic:not(.active)>a.okla-category-with-icon:not(#osb-a#osb-b#osb-c#osb-d#osb-e#osb-f):hover{background:#f6f7f9!important}
 }
 
 /* Category pages: the hand with the phone and the product on the right sit higher and smaller, so they stay clear of
    the sidebar and the listing. */
 @media(min-width:992px){
-  html body.type-category .okla-side-art--left:not(#oksa-x#oksa-y){transform:translateY(-70px) scale(.66)!important;transform-origin:top right!important}
-  html body.type-category .okla-side-art--right:not(#oksa-x#oksa-y){transform:translateY(-80px) scale(.64)!important;transform-origin:top center!important}
+  html body.type-category .okla-side-art--left:not(#oksa-x#oksa-y){transform:translateY(-36px) scale(.8)!important;transform-origin:top right!important}
+  html body.type-category .okla-side-art--right:not(#oksa-x#oksa-y){transform:translateY(-36px) scale(.78)!important;transform-origin:top center!important}
 }
