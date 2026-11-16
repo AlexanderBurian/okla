@@ -117,16 +117,10 @@
 
  /* Cart, right column (after B&H's cart, in OKLA's look): the summary box gets a title and its lines (the goods with the
     number of pieces, delivery chosen in the next step, the total), and under it boxes of their own - the discount code
-    (open, PC), delivery facts and help. Only facts the shop states elsewhere: dispatch within 24 h on working days from
-    Ostrava, Zásilkovna pick-up points and boxes, delivery to CZ/SK/HU, 14 days to return, 24 months warranty. */
+    (open) and help. PC only: phones keep the cart as it was. */
  var DESK=window.matchMedia('(min-width:992px)');
  function ico(d){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>'}
  var ICON={
-  truck:'M3 7h11v8H3zM14 10h4l3 3v2h-7M7.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17.5 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z',
-  pin:'M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10zM12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z',
-  globe:'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z',
-  ret:'M4 9h11a5 5 0 0 1 0 10H8M4 9l4-4M4 9l4 4',
-  shield:'M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6zM9 12l2 2 4-4',
   chat:'M4 5h16v11H9l-5 4zM8 10h8M8 13h5',
   mail:'M4 6h16v12H4zM4 7l8 6 8-6'
  };
@@ -172,15 +166,6 @@
   var aside=document.createElement('div');aside.className='okla-cart-aside';
   aside.innerHTML=
    '<section class="okla-cart-aside__card okla-cart-aside__card--coupon"><h2 class="okla-cart-aside__title">Slevový nebo dárkový kód</h2><div class="okla-cart-aside__coupon-slot"></div></section>'+
-   '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Doprava a dodání</h2><ul class="okla-cart-aside__list">'+
-    '<li>'+ico(ICON.truck)+'<span><strong>Expedujeme do 24 hodin</strong>v pracovní dny ze skladu v Ostravě</span></li>'+
-    '<li>'+ico(ICON.pin)+'<span><strong>Zásilkovna</strong>výdejní místa a boxy, cenu dopravy uvidíte v dalším kroku</span></li>'+
-    '<li>'+ico(ICON.globe)+'<span><strong>Česko, Slovensko, Maďarsko</strong>tam všude doručujeme</span></li>'+
-   '</ul><a class="okla-cart-aside__more" href="/doprava-a-platba/">Doprava a platba</a></section>'+
-   '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Nakupujte bez obav</h2><ul class="okla-cart-aside__list">'+
-    '<li>'+ico(ICON.ret)+'<span><strong>Vrácení do 14 dnů</strong>bez udání důvodu</span></li>'+
-    '<li>'+ico(ICON.shield)+'<span><strong>Záruka 24 měsíců</strong>reklamace vyřídíme rychle</span></li>'+
-   '</ul></section>'+
    '<section class="okla-cart-aside__card"><h2 class="okla-cart-aside__title">Potřebujete poradit?</h2><p class="okla-cart-aside__text">Pomůžeme s výběrem i s objednávkou.</p>'+
     '<div class="okla-cart-aside__help"><a class="okla-cart-aside__chat" href="/kontakt/">'+ico(ICON.chat)+'<span>Napsat podpoře</span></a>'+
     '<a class="okla-cart-aside__mail" href="mailto:podpora@okla.cz">'+ico(ICON.mail)+'<span>podpora@okla.cz</span></a></div></section>';

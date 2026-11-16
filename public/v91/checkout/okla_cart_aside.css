@@ -1,7 +1,6 @@
 /* OKLA cart - the right column as separate islands (okla_checkout_alza.js, buildCartAside): on PC the items are one
-   island on the left; on the right the summary with "Pokračovat", then the discount code, delivery, buying without
-   worries and help - each its own white island with the soft island shadow on the page grey. Phones: the summary stays as
-   it was (lines added), the other islands follow under it; the code stays behind its toggle. */
+   island on the left; on the right the summary with "Pokračovat", then the discount code and help - each its own white
+   island with the soft island shadow on the page grey. Phones and tablets: the cart as it was. */
 
 /* shared: the islands' inside */
 html body.in-kosik .okla-cart-aside__card:not(#oca-a#oca-b#oca-c#oca-d#oca-e){box-sizing:border-box;margin:0;padding:20px 22px;border:0;border-radius:8px;background:#fff;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06);font-family:"Open Sans",Arial,sans-serif}
@@ -26,13 +25,13 @@ html body.in-kosik .okla-cart-aside__mail:not(#oca-a#oca-b#oca-c#oca-d#oca-e):ho
 html body.in-kosik .okla-cart-aside__mail svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* the summary's own lines: goods (pieces), delivery, then the total under a thin line */
-html body.in-kosik #content .okla-cart-summary__totals:not(#oca-a#oca-b#oca-c#oca-d#oca-e){column-gap:0!important;row-gap:10px!important}
 html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>span:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#46556a!important;font:400 14px/1.35 "Open Sans",Arial,sans-serif!important;text-align:left!important}
 html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>.okla-cart-summary__val:not(#oca-a#oca-b#oca-c#oca-d#oca-e){padding-left:16px!important;color:#0b2540!important;font-weight:600!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content .okla-cart-summary__divider:not(#oca-a#oca-b#oca-c#oca-d#oca-e){grid-column:1/-1!important;height:1px!important;margin:4px 0!important;background:#e3e7ed!important}
-html body.in-kosik #content .okla-cart-summary__row--gross>strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){padding-left:16px!important}
 
 @media(min-width:992px){
+  html body.in-kosik #content .okla-cart-summary__totals:not(#oca-a#oca-b#oca-c#oca-d#oca-e){column-gap:0!important;row-gap:10px!important}
+  html body.in-kosik #content .okla-cart-summary__row--gross>strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){padding-left:16px!important}
   /* the page's white card goes: the items and the right column's boxes are islands of their own */
   html body.in-kosik #content-wrapper.content-wrapper:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){background:transparent!important;box-shadow:none!important;overflow:visible!important}
   html body.in-kosik #content-wrapper#content-wrapper .cart-inner.cart-inner:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){background:none!important;background-image:none!important;margin-left:-19px!important;margin-right:-19px!important;column-gap:20px!important;padding-bottom:0!important}
@@ -53,7 +52,9 @@ html body.in-kosik #content .okla-cart-summary__row--gross>strong:not(#oca-a#oca
 }
 
 @media(max-width:991px){
-  html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:none}
-  html body.in-kosik .okla-cart-aside:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;gap:12px;margin:20px 0 0}
-  html body.in-kosik .okla-cart-aside__card--coupon:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f){display:none}
+  /* phones and tablets: the cart as it was - no title, no extra lines, no boxes */
+  html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e),
+  html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship):not(#oca-a#oca-b#oca-c#oca-d#oca-e),
+  html body.in-kosik #content .okla-cart-summary__divider:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f),
+  html body.in-kosik .okla-cart-aside:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:none!important}
 }
