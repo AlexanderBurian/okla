@@ -242,6 +242,7 @@ var PAGE={
  account:bodyIs(/(^|\s)in-(login|registrace|zapomenute-heslo|klient|objednavky|platby|osobni-udaje|danove-doklady|zalohove-faktury|dobropisy|dodaci-listy|slevy|hodnoceni|diskuze|doklady|muj-ucet|zakaznik)/)||(function(){try{var a=document.querySelectorAll('#content-wrapper a,#content a,.sidebar a');for(var i=0;i<a.length;i++){if(/^\s*odhl[aá]sit/i.test(a[i].textContent))return true}}catch(e){}return false})(),
  signIn:bodyIs(/(^|\s)in-(login|registrace)(\s|$)/),
  notFound:!!(body&&body.classList.contains('in-404')),
+ category:bodyIs(/(^|\s)type-category(\s|$)/),
  /* every native legal / information article uses the full content card width */
  legal:/^\/(?:obchodni-podminky|podminky-ochrany-osobnich-udaju|reklamacni-rad|vraceni-zbozi-a-odstoupeni|podminky-reklamnich-akci|prohlaseni-o-pristupnosti|doprava-a-platba)(?:\/|$)/.test(path),
  /* "Objednávka odeslána" (/objednavka/dekujeme/, after an order is sent) */
@@ -303,6 +304,8 @@ var BUNDLES=[
  ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css']],
  /* Homepage editorial blocks, the search field typing example searches */
  ['29-home-magazine','home',['v91/home/okla_news_home_datart.css','v91/home/okla_news_home_alza.css','v91/home/okla_home_brands.css','v91/home/okla_home_brands.js','v91/home/okla_home_retail_refresh.css','v91/home/okla_home_retail_refresh.js','v91/home/okla_search_typing.js']],
+ /* Category pages: sorting as round chips, the category's definition and its about text */
+ ['30-category','category',['v91/pages/okla_category.css','v91/pages/okla_category_seo.js']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */
  ['99-later','all',['v91/core/okla_search.css','v91/core/okla_search.js','v91/core/okla_login_popup.css','v91/core/okla_login_popup.js','v91/core/okla_cart_modal.css','v91/core/okla_cart_modal.js','okla_footer.js']]
 ];

@@ -115,6 +115,14 @@
     pool=mixed;
     for(var i=0;ol.children.length<10&&i<pool.length;i++)ol.appendChild(topRow(pool[i]));
     var box=ol.closest('.box-topProducts');if(box)box.classList.toggle('okla-hidden-box',ol.children.length===0);
+    /* Shoptet's box can keep an old picture address of a product (its photo was replaced since): the current photo */
+    [].slice.call(ol.querySelectorAll('img')).forEach(function(im){
+     var a=im.closest('li')&&im.closest('li').querySelector('a[href]'),it=a&&byPath[path(a.getAttribute('href'))];
+     if(!it||!it.image)return;
+     var fix=function(){if(im.getAttribute('src')!==it.image){im.removeAttribute('srcset');im.setAttribute('data-src',it.image);im.src=it.image}};
+     if(im.complete&&im.naturalWidth===0&&im.getAttribute('src')&&!/^data:/.test(im.getAttribute('src')))fix();
+     else im.addEventListener('error',fix,{once:true});
+    });
    });
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
