@@ -180,11 +180,51 @@ function noteProviderError(model: string, error: unknown): void {
 /* models the account cannot use (404 / 400): skipped for an hour instead of being tried on every question */
 const unavailableUntil = new Map<string, number>();
 
+/* the models this API key can use (read from Groq once an hour), shown in /health */
+export const availableModels: { ids: string[]; at?: string } = { ids: [] };
+
+/* how long Groq asks to wait after a 429 ("Please try again in 7.5s" / "1m2s", or the retry-after header), in ms */
+export function retryAfterMs(error: unknown): number | undefined {
+  const e = error as { headers?: Record<string, string> | { get?: (name: string) => string | null }; error?: { error?: { message?: string } }; message?: string };
+  const headers = e.headers as { get?: (name: string) => string | null } & Record<string, string> | undefined;
+  const header = typeof headers?.get === "function" ? headers.get("retry-after") : headers?.["retry-after"];
+  if (header && Number.isFinite(Number(header))) return Number(header) * 1000;
+  const text = String(e.error?.error?.message ?? e.message ?? "");
+  const m = text.match(/try again in (?:(\d+)m)?\s*([\d.]+)\s*(ms|s)\b/i);
+  if (!m) return undefined;
+  const minutes = Number(m[1] ?? 0);
+  const value = Number(m[2]);
+  return minutes * 60_000 + ((m[3] ?? "s").toLowerCase() === "ms" ? value : value * 1000);
+}
+
+/* a question written in Czech or Slovak (the answer without the language model is in Czech only) */
+function czechQuestion(context: ChatContext): boolean {
+  if (context.lang && !/^(cs|sk)/i.test(context.lang)) return false;
+  return !/\b(the|you|what|how|do|does|is|are|can|ship|price|which|szia|mennyi|hogyan|milyen)\b/i.test(context.message);
+}
+
 export class GroqEngine implements ChatEngine {
   private readonly client: Groq;
+  private modelsCheckedAt = 0;
 
-  constructor(apiKey: string, private readonly model: string, private readonly fallbackModels: string[] = []) {
+  constructor(apiKey: string, private readonly model: string, private readonly fallbackModels: string[] = [], private readonly maxWaitMs = 8_000) {
     this.client = new Groq({ apiKey });
+  }
+
+  /* fallbacks the account really has (when the list cannot be read, all of them are tried) */
+  private async usableFallbacks(): Promise<string[]> {
+    if (Date.now() - this.modelsCheckedAt > 3_600_000) {
+      this.modelsCheckedAt = Date.now();
+      try {
+        const list = await this.client.models.list({ timeout: 3_000, maxRetries: 0 });
+        availableModels.ids = list.data.map((m) => m.id).sort();
+        availableModels.at = new Date().toISOString();
+      } catch {
+        /* keep the last list */
+      }
+    }
+    const known = new Set(availableModels.ids);
+    return known.size ? this.fallbackModels.filter((m) => known.has(m)) : this.fallbackModels;
   }
 
   private create(context: ChatContext, budget: ContextBudget, lean: boolean, model = this.model) {
@@ -194,38 +234,58 @@ export class GroqEngine implements ChatEngine {
       /* a little more variety in wording, still factual */
       temperature: 0.55,
       top_p: 0.9,
-      max_completion_tokens: lean ? 650 : 900,
-      /* gpt-oss "thinks" before it answers: a short think keeps the first words quick */
+      max_completion_tokens: lean ? 600 : 800,
+      /* gpt-oss "thinks" before it answers: a short think keeps the first words quick; Qwen 3 does not think at all */
       ...(/gpt-oss/i.test(model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
+      ...(/qwen3/i.test(model) ? { reasoning_effort: "none" as const } : {}),
       stream: true
     }, { signal: context.signal, maxRetries: 0 });
   }
 
   async *stream(context: ChatContext): AsyncIterable<string> {
     /* the main model, then the fallbacks (each has its own per-minute limit), then the main model with lean sources */
+    const fallbacks = await this.usableFallbacks();
     const attempts: Array<[string, ContextBudget, boolean]> = [
       [this.model, NORMAL_BUDGET, false],
-      ...this.fallbackModels.map((m): [string, ContextBudget, boolean] => [m, NORMAL_BUDGET, false]),
+      ...fallbacks.map((m): [string, ContextBudget, boolean] => [m, NORMAL_BUDGET, false]),
       [this.model, LEAN_BUDGET, true]
     ];
     let completion;
     let lastError: unknown;
-    for (const [model, budget, lean] of attempts) {
-      if (context.signal.aborted) break;
-      if ((unavailableUntil.get(model) ?? 0) > Date.now()) continue;
-      try {
-        completion = await this.create(context, budget, lean, model);
-        break;
-      } catch (error) {
-        lastError = error;
-        noteProviderError(model, error);
-        /* over the limit (429), too big (413), or a model that is not available (400/404): try the next one */
-        const status = (error as { status?: number }).status;
-        if ((status === 404 || status === 400) && model !== this.model) unavailableUntil.set(model, Date.now() + 3_600_000);
-        if (status !== 413 && status !== 429 && status !== 404 && status !== 400) throw error;
+    const started = Date.now();
+    /* when every model is over its per-minute limit and Groq asks for a short wait, wait once and go round again */
+    for (let round = 0; round < 2 && !completion; round++) {
+      let shortestWait = Infinity;
+      let allLimited = true;
+      for (const [model, budget, lean] of attempts) {
+        if (context.signal.aborted) break;
+        if ((unavailableUntil.get(model) ?? 0) > Date.now()) continue;
+        try {
+          completion = await this.create(context, budget, lean, model);
+          break;
+        } catch (error) {
+          lastError = error;
+          noteProviderError(model, error);
+          /* over the limit (429), too big (413), or a model that is not available (400/404): try the next one */
+          const status = (error as { status?: number }).status;
+          if ((status === 404 || status === 400) && model !== this.model) unavailableUntil.set(model, Date.now() + 3_600_000);
+          if (status === 429) shortestWait = Math.min(shortestWait, retryAfterMs(error) ?? Infinity);
+          else if (status !== 404 && status !== 400) allLimited = false;
+          if (status !== 413 && status !== 429 && status !== 404 && status !== 400) throw error;
+        }
       }
+      if (completion || context.signal.aborted || round > 0) break;
+      if (!allLimited || !(shortestWait <= this.maxWaitMs) || Date.now() - started > 4_000) break;
+      await wait(shortestWait + 250);
     }
-    if (!completion) throw lastError;
+    if (!completion) {
+      /* still nothing: rather than an error, a short answer straight from the shop's pages (Czech questions) */
+      if ((lastError as { status?: number })?.status === 429 && !context.signal.aborted && czechQuestion(context)) {
+        yield `${mockAnswer(context)}\n\n(Rychlá odpověď složená přímo z podkladů webu – AI poradce je teď vytížený, za chvíli odpoví podrobněji.)`;
+        return;
+      }
+      throw lastError;
+    }
 
     for await (const chunk of completion) {
       if (context.signal.aborted) return;

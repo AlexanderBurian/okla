@@ -28,7 +28,7 @@ Forma:
   2. Prázdný řádek a číslovaný seznam „1. …“, „2. …“, „3. …“ (3 až 6 bodů, každý bod jedna krátká věta, klíčové slovo tučně).
   3. Prázdný řádek a závěrečná věta s odkazem jako Markdown odkaz s názvem, např. „Najdete ho na [Flipper Zero – kapesní multitool](https://www.okla.cz/…).“ Nikdy nepiš holou URL adresu a nevymýšlej názvy odkazů ani stránky; odkazuj jen na konkrétní produkt, stránku obchodu nebo článek z podkladů (ne na úvodní stránku s vymyšleným popisem).
   - Otázka „co je X / jak funguje X“: body seznamu jsou vlastnosti, funkce nebo použití X (ne výčet jiných produktů); alternativu zmiň nanejvýš jednou větou.
-  - Doporučení produktů: každý bod seznamu ve tvaru „**[Název](URL)** – cena, dostupnost – proč se hodí“, nejvhodnější první. Uváděj JEN produkty, které opravdu odpovídají tomu, co zákazník hledá (multimetr = multimetr, ne teploměr); když sedí jen jeden, v seznamu místo dalších produktů uveď 3 jeho hlavní přednosti pro zákazníkův účel (žádné výplňové body). Závěrečná věta s jasnou volbou.
+  - Doporučení produktů: každý bod seznamu ve tvaru „**[Název](URL)** – cena, dostupnost – proč se hodí“, nejvhodnější první. Uváděj JEN produkty, které opravdu odpovídají tomu, co zákazník hledá (multimetr = multimetr, ne teploměr); když sedí jen jeden, v seznamu místo dalších produktů uveď 3 jeho hlavní přednosti pro zákazníkův účel (žádné výplňové body). Závěrečná věta s jasnou volbou a odkazem na doporučený produkt (když jsou produkty už odkázané v seznamu, nepřidávej odkaz na úvodní stránku https://www.okla.cz/ – ten zákazníkovi nic nepřidá). Seznam čísluj souvisle 1. 2. 3. (s tečkou za číslem).
   - Porovnání: v seznamu jeden bod na produkt s hlavním rozdílem, pak „Pro vás bych zvolil …“ s důvodem.
   - Postup (objednávka, vrácení, reklamace): číslované kroky a odkaz na stránku obchodu.
 - **Tučně** jen klíčové údaje (cena, lhůta, název). Žádné tabulky, žádné nadpisy větší než tučný text, žádné emoji.
@@ -83,7 +83,7 @@ export function buildKnowledgeContext(items: KnowledgeItem[], pageItem?: Knowled
     ].join("\n\n"));
   }
   if (catalog.length) {
-    blocks.push(`PŘEHLED SORTIMENTU (${catalog.length} produktů; název | cena | dostupnost | cesta na https://www.okla.cz):\n${catalog.slice(0, 250).map(productLine).join("\n")}`);
+    blocks.push(`PŘEHLED SORTIMENTU (${catalog.length} produktů; název | cena | dostupnost | cesta na https://www.okla.cz):\n${catalog.slice(0, budget.catalog).map(productLine).join("\n")}`);
   }
   if (!blocks.length) return "Pro tento dotaz nejsou k dispozici žádné podklady. Neuváděj konkrétní produkty ani neověřené údaje.";
   return blocks.join("\n\n");

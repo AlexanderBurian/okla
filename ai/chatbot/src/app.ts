@@ -4,7 +4,8 @@ import cors from "@fastify/cors";
 import rateLimit from "@fastify/rate-limit";
 import Fastify, { type FastifyError, type FastifyInstance } from "fastify";
 import type { AppConfig } from "./config.js";
-import { GroqEngine, MockEngine, providerErrors } from "./engine.js";
+import { availableModels, GroqEngine, MockEngine, providerErrors } from "./engine.js";
+import { normalize } from "./knowledge.js";
 import { KnowledgeStore } from "./knowledge.js";
 import { lookupOrder } from "./orderStatus.js";
 import type { ChatEngine } from "./types.js";
@@ -14,6 +15,24 @@ interface BuildOptions {
   config: AppConfig;
   engine?: ChatEngine;
   knowledge?: KnowledgeStore;
+}
+
+/* answers to the first question of a conversation (the widget's suggested questions come again and again), kept
+   for 20 minutes: they come back at once and leave the provider's per-minute limit for new questions */
+const ANSWER_TTL = 20 * 60_000;
+const answerCache = new Map<string, { text: string; at: number }>();
+function cacheKey(message: string, page: string | undefined, lang: string | undefined): string {
+  return `${lang ?? ""}|${page ?? ""}|${normalize(message)}`;
+}
+function cachedAnswer(key: string): string | undefined {
+  const hit = answerCache.get(key);
+  if (!hit) return undefined;
+  if (Date.now() - hit.at > ANSWER_TTL) { answerCache.delete(key); return undefined; }
+  return hit.text;
+}
+function rememberAnswer(key: string, text: string): void {
+  answerCache.set(key, { text, at: Date.now() });
+  while (answerCache.size > 300) answerCache.delete(answerCache.keys().next().value as string);
 }
 
 function sse(event: string, data: unknown): string {
@@ -73,6 +92,8 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     ok: true,
     mode: config.mockMode ? "mock" : "groq",
     knowledge: knowledge.counts(),
+    models: availableModels,
+    cachedAnswers: answerCache.size,
     providerErrors
   }));
 
@@ -140,9 +161,14 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
       if (!reply.raw.writableEnded) controller.abort(new Error("client_closed"));
     });
 
+    const key = input.history.length === 0 && !(engine instanceof MockEngine) ? cacheKey(input.message, input.page, input.lang) : undefined;
     try {
       if (isPersonalOrderRequest(input.message)) {
         reply.raw.write(sse("token", { text: "Ke konkrétní objednávce nemám přístup. Kvůli ochraně soukromí sem neposílejte číslo objednávky ani osobní údaje. Napište prosím na [podpora@okla.cz](mailto:podpora@okla.cz)." }));
+      } else if (key && cachedAnswer(key)) {
+        /* the same first question asked a moment ago: the same answer, streamed in pieces like a fresh one */
+        const text = cachedAnswer(key) as string;
+        for (let i = 0; i < text.length; i += 48) reply.raw.write(sse("token", { text: text.slice(i, i + 48) }));
       } else {
         /* the question alone, and together with the last exchange (so "a ten druhý?" still finds the products) */
         const lastUser = [...input.history].reverse().find((entry) => entry.role === "user")?.content ?? "";
@@ -160,9 +186,13 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
           knowledge: relevant,
           signal: controller.signal
         });
+        let answer = "";
         for await (const token of stream) {
+          answer += token;
           reply.raw.write(sse("token", { text: token }));
         }
+        /* only full model answers of a fresh conversation are kept (not the quick answers from the pages) */
+        if (key && !controller.signal.aborted && answer.length > 40 && !answer.includes("AI poradce je teď vytížený")) rememberAnswer(key, answer);
       }
       if (!controller.signal.aborted) reply.raw.write(sse("done", { ok: true }));
     } catch (error) {

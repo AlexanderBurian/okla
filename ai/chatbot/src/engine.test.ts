@@ -16,3 +16,59 @@ describe("mock stream", () => {
     expect(output).toContain("[Vrácení zboží](https://www.okla.cz/vraceni-zbozi/)");
   });
 });
+
+import { GroqEngine, retryAfterMs } from "./engine.js";
+
+function limited(seconds: string) {
+  return Object.assign(new Error(`Rate limit reached. Please try again in ${seconds}. Visit ...`), { status: 429 });
+}
+async function collect(engine: GroqEngine, message: string, lang = "cs") {
+  let out = "";
+  for await (const t of engine.stream({
+    message, history: [], lang, signal: new AbortController().signal,
+    knowledge: [{ id: "return", type: "faq", title: "Vrácení zboží", content: "Zboží můžete vrátit do 14 dnů od převzetí bez udání důvodu.", url: "https://www.okla.cz/vraceni-zbozi/" }]
+  })) out += t;
+  return out;
+}
+function fakeGroq(engine: GroqEngine, create: (model: string) => unknown, models = ["openai/gpt-oss-120b", "openai/gpt-oss-20b"]) {
+  const e = engine as unknown as { client: { models: { list: () => Promise<unknown> } }; create: (c: unknown, b: unknown, l: boolean, m: string) => unknown };
+  e.client.models.list = async () => ({ data: models.map((id) => ({ id })) });
+  const calls: string[] = [];
+  e.create = async (_c, _b, _l, model) => { calls.push(model); return create(model); };
+  return calls;
+}
+
+describe("Groq engine", () => {
+  it("přečte čekání z odpovědi 429", () => {
+    expect(retryAfterMs(limited("7.5s"))).toBe(7500);
+    expect(retryAfterMs(limited("1m2s"))).toBe(62000);
+    expect(retryAfterMs(limited("450ms"))).toBe(450);
+    expect(retryAfterMs(new Error("other"))).toBeUndefined();
+  });
+
+  it("když jsou všechny modely přetížené, odpoví česky z podkladů webu místo chyby", async () => {
+    const engine = new GroqEngine("test", "openai/gpt-oss-120b", ["openai/gpt-oss-20b", "neexistujici/model"], 0);
+    const calls = fakeGroq(engine, () => { throw limited("40s"); });
+    const out = await collect(engine, "Jak vrátím zboží?");
+    expect(out).toContain("14 dnů");
+    expect(out).toContain("AI poradce je teď vytížený");
+    /* a model the account does not have is not tried */
+    expect(calls).not.toContain("neexistujici/model");
+  });
+
+  it("anglický dotaz při přetížení vrátí chybu (odpověď z podkladů je jen česky)", async () => {
+    const engine = new GroqEngine("test", "openai/gpt-oss-120b", [], 0);
+    fakeGroq(engine, () => { throw limited("40s"); });
+    await expect(collect(engine, "Do you ship to Germany?", "en")).rejects.toMatchObject({ status: 429 });
+  });
+
+  it("při krátkém čekání počká a zkusí to znovu", async () => {
+    const engine = new GroqEngine("test", "openai/gpt-oss-120b", [], 2_000);
+    let n = 0;
+    fakeGroq(engine, () => {
+      if (n++ < 2) throw limited("0.05s");
+      return (async function* () { yield { choices: [{ delta: { content: "Hotovo." } }] }; })();
+    });
+    expect(await collect(engine, "Jak vrátím zboží?")).toBe("Hotovo.");
+  });
+});
