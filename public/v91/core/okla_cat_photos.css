@@ -20,14 +20,8 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a:has(.
    name was squeezed into a 9px column, one letter under another) */
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>:is(.okla-cat-svg,.okla-cat-label):not(#okcp-a#okcp-b#okcp-c){position:static!important;inset:auto!important;transform:none!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>.okla-cat-label:not(#okcp-a#okcp-b#okcp-c){flex:1 1 auto!important;width:auto!important;height:auto!important;min-width:0!important}
-/* the open category's subcategories: under its name, in line with it, the current one blue */
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul:not(#okcp-a#okcp-b#okcp-c){margin:2px 0 8px!important;padding:0 0 0 72px!important;list-style:none!important;background:none!important;border:0!important}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul>li:not(#okcp-a#okcp-b#okcp-c){margin:0!important;padding:0!important;border:0!important;background:none!important;list-style:none!important}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul>li::before{content:none!important}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul>li>a:not(#okcp-a#okcp-b#okcp-c){display:block!important;padding:5px 8px 5px 0!important;border:0!important;background:none!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13.5px/1.35 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:normal!important}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul>li>a:not(#okcp-a#okcp-b#okcp-c):hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul>li:is(.active,.current)>a:not(#okcp-a#okcp-b#okcp-c),
-html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul>li>a.active:not(#okcp-a#okcp-b#okcp-c){color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font-weight:600!important}
+/* no subcategories in the sidebar (they are on the category page and in the header's panel) */
+html body #content-wrapper aside.sidebar.sidebar-left #categories .categories>ul:not(#okcp-a#okcp-b#okcp-c){display:none!important}
 /* ...and Shoptet's "+" icon (its font glyph) that comes with it on every span: not on the photo and the name */
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>:is(.okla-cat-svg,.okla-cat-label)::before{content:none!important;display:none!important}
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic>a>.okla-cat-label:not(#okcp-a#okcp-b#okcp-c){text-align:left!important}
