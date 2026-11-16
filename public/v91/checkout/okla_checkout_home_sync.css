@@ -203,12 +203,8 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
     border:1px solid transparent!important;
     border-radius:10px!important;
     background:#fff!important;
-    transition:border-color .15s ease,box-shadow .15s ease!important;
   }
-  html body.in-kosik #okla-cart-recs .ocr-card:hover{
-    border-color:#e0e0e0!important;
-    box-shadow:0 4px 12px rgba(0,0,0,.08)!important;
-  }
+  /* no whole-card hover: one product style with the homepage (only the button and the name react) */
   html body.in-kosik #okla-cart-recs .ocr-form .btn-cart{
     height:34px!important;
     border-radius:0!important;
