@@ -37,7 +37,7 @@
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-panel[hidden]{display:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-panel-in{max-width:none!important;margin:0!important;padding:22px 20px 28px!important;box-sizing:border-box!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-head{display:flex!important;align-items:baseline!important;gap:18px!important;margin:0 0 16px!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-title{color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:800 20px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-title{color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:600 20px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-all{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:600 14px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:20px!important;min-height:200px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-loading{grid-column:1/-1!important;margin:0!important;color:#6b7686!important;font:400 14px/1.4 "Open Sans",Arial,sans-serif!important}
@@ -72,17 +72,17 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-panel{box-shadow:none!important;border:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c)::before{background:#fff!important}
 }
-/* subcategories in the panel: each a light rounded tile (as on the category page) with a product photo on the left,
-   the name in bold and up to three of its products under it */
+/* subcategories in the panel: each a light grey rounded tile (as on the category page), a product photo on the left and
+   the name on the right */
 @media(min-width:992px){
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:12px!important;row-gap:12px!important;min-height:0!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;column-gap:14px!important;align-items:start!important;padding:12px 14px 12px 10px!important;border-radius:10px!important;background:#edf2f9!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub{display:grid!important;grid-template-columns:56px minmax(0,1fr)!important;column-gap:14px!important;align-items:center!important;padding:8px 14px 8px 8px!important;border-radius:10px!important;background:#f2f3f5!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img{mix-blend-mode:multiply!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img{display:grid!important;place-items:center!important;width:76px!important;height:76px!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img{display:grid!important;place-items:center!important;width:56px!important;height:56px!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img{display:block!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;opacity:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img.is-photo{opacity:1!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__body{min-width:0!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__title{display:block!important;margin:0 0 6px!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:700 15px/1.3 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__title{display:block!important;margin:0!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:600 15px/1.3 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links{margin:0!important;padding:0!important;list-style:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links li{margin:0!important;padding:0!important;list-style:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links li::before{content:none!important}
@@ -91,4 +91,12 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
 }
 @media(min-width:992px) and (hover:hover){
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) :is(.okcb-sub__title,.okcb-sub__links a):hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;text-decoration:underline!important;text-underline-offset:3px!important}
+}
+/* the whole tile opens the subcategory */
+@media(min-width:992px){
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub{position:relative!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__title::after{content:""!important;position:absolute!important;inset:0!important;border-radius:10px!important}
+}
+@media(min-width:992px) and (hover:hover){
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub:hover{background:#e8eaed!important}
 }

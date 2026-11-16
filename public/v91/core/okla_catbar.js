@@ -56,20 +56,14 @@
       best-selling products */
    var subs=window.oklaSubcats?window.oklaSubcats.list(c.href):[];
    if(subs.length){
-    /* each subcategory: a product photo on the left, its name in bold on the right and up to three of its products
-       under it (like a big shop's category menu); no circles or cards */
+    /* each subcategory a light grey tile: a product photo on the left, its name on the right */
     grid.innerHTML='';grid.classList.add('okcb-grid--subs');grid.style.removeProperty('grid-template-columns');
     var imgs={};
     subs.forEach(function(sc){
      var box=el('div','okcb-sub');
      var pic=el('a','okcb-sub__img');pic.href=sc.href;pic.tabIndex=-1;pic.setAttribute('aria-hidden','true');var im=el('img');im.alt='';pic.appendChild(im);
      var body=el('div','okcb-sub__body');var t=el('a','okcb-sub__title',sc.label);t.href=sc.href;body.appendChild(t);
-     var links=el('ul','okcb-sub__links');body.appendChild(links);
      box.append(pic,body);grid.appendChild(box);imgs[sc.href]={pic:pic,im:im};
-     window.oklaSubcats.products(sc.href).then(function(items){
-      items.slice(0,3).forEach(function(it){var li=el('li');var a=el('a','',it.t);a.href=it.u;li.appendChild(a);links.appendChild(li)});
-      if(items.length>3){var li=el('li','okcb-sub__more');var a=el('a','','… další produkty');a.href=sc.href;li.appendChild(a);links.appendChild(li)}
-     });
     });
     /* one photo per subcategory, never the same product twice (okla_subcats.js) */
     window.oklaSubcats.images(c.href,subs).then(function(map){
