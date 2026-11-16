@@ -6,12 +6,12 @@ html.okla-gal-open okla-ai-chat{display:none!important}
 .okla-gal[hidden]{display:none!important}
 .okla-gal:focus{outline:none}
 
-.okla-gal__bar{flex:none;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:56px;padding:0 20px;background:#eef0f3;border-bottom:1px solid #e3e7ed;color:#0b2540}
+.okla-gal__bar{flex:none;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:56px;padding:0 20px;background:#f5f6f8;color:#0b2540}
 .okla-gal__logo{justify-self:start;display:block;height:30px;width:auto}
 .okla-gal__count{min-width:60px;text-align:center;font-size:16px;font-weight:700;letter-spacing:.02em;color:#0b2540}
 .okla-gal .okla-gal__close{justify-self:end;display:grid;place-items:center;width:40px;height:40px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;color:#0b2540;cursor:pointer;box-shadow:none}
 .okla-gal .okla-gal__close svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
-.okla-gal .okla-gal__close:hover{background:#e1e5eb}
+.okla-gal .okla-gal__close:hover{background:#e8ebef}
 .okla-gal .okla-gal__close:focus-visible{outline:2px solid #0859d8;outline-offset:2px}
 
 .okla-gal__stage{position:relative;flex:1 1 auto;min-height:0;display:flex;align-items:center;justify-content:center;padding:32px 96px;touch-action:pan-y}
