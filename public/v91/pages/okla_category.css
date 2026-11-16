@@ -33,3 +33,16 @@ html body.type-category #content .okla-cat-about p:not(#ocat-a#ocat-b#ocat-c){ma
   html body.type-category #content .okla-cat-about:not(#ocat-a#ocat-b#ocat-c){margin-top:24px;padding-top:18px;font-size:14px}
   html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c){font-size:17px}
 }
+
+/* --- the title: larger and stronger --- */
+html body.type-category #content .category-top h1:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){margin:0 0 4px!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:700 32px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.01em!important}
+html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c#ocat-d){font-size:21px!important;font-weight:700!important}
+@media(max-width:767px){
+  html body.type-category #content .category-top h1:not(#ocat-a#ocat-b#ocat-c#ocat-d#ocat-e){font-size:26px!important}
+  html body.type-category #content .okla-cat-about h2:not(#ocat-a#ocat-b#ocat-c#ocat-d){font-size:18px!important}
+}
+
+/* --- PC: four products in a row (the listing is narrower than the page: the category menu stands beside it) --- */
+@media(min-width:992px){
+  html body.type-category #content .okla-cards:not(.okla-slider-track):not(#okla-cards-a#okla-cards-b#ocat-a#ocat-b){grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:16px!important}
+}

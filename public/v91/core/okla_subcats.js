@@ -110,4 +110,7 @@
   return true;
  }
  var tries=0;(function tick(){if(tiles()||++tries>20)return;setTimeout(tick,200)})();
+ /* Shoptet redraws the category's top (and its subcategories) when the sorting or a filter changes: the tiles again */
+ var queued=false;
+ try{new MutationObserver(function(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;tiles()})}).observe(document.getElementById('content')||document.body,{childList:true,subtree:true})}catch(e){}
 })();

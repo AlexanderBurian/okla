@@ -204,4 +204,7 @@
   return true;
  }
  var tries=0;(function tick(){if(run()||++tries>30)return;setTimeout(tick,150)})();
+ /* Shoptet redraws the listing (with the title block) when the sorting, a filter or the page changes: add them again */
+ var queued=false;
+ try{new MutationObserver(function(){if(queued)return;queued=true;requestAnimationFrame(function(){queued=false;run()})}).observe(document.getElementById('content')||document.body,{childList:true,subtree:true})}catch(e){}
 })();

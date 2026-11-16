@@ -72,11 +72,12 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c) .okcb-panel{box-shadow:none!important;border:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b#okcb-c)::before{background:#fff!important}
 }
-/* subcategories in the panel: a product photo on the left (no circle), the name in bold on the right, up to three of
-   its products under it */
+/* subcategories in the panel: each a light rounded tile (as on the category page) with a product photo on the left,
+   the name in bold and up to three of its products under it */
 @media(min-width:992px){
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:28px!important;row-gap:28px!important;min-height:0!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;column-gap:14px!important;align-items:start!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:12px!important;row-gap:12px!important;min-height:0!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub{display:grid!important;grid-template-columns:76px minmax(0,1fr)!important;column-gap:14px!important;align-items:start!important;padding:12px 14px 12px 10px!important;border-radius:10px!important;background:#edf2f9!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img{mix-blend-mode:multiply!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img{display:grid!important;place-items:center!important;width:76px!important;height:76px!important;margin:0!important;padding:0!important;border:0!important;background:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img{display:block!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;opacity:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img.is-photo{opacity:1!important}
