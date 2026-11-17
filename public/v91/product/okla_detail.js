@@ -57,7 +57,27 @@
   quantity.classList.remove('ok86-stepper-ready');
   qa('.ok86-qty-step',quantity).forEach(n=>n.remove());
  }
- function paramsTab(p,detail){var tabs=q('ul.p-detail-tabs',document);var content=q('#tab-content');var native=q('#description table.detail-parameters');if(!tabs||!content||!native||q('#ok86-parameters'))return;
+ /* A product without parameters in Shoptet still gets its "Parametry" tab: the facts its own page states (code, category,
+    brand, availability) and the shop's warranty, in Shoptet's own table markup. */
+ function pageParams(p,detail){
+  var rows=[],txt=n=>n?(n.textContent||'').replace(/\s+/g,' ').trim():'';
+  var sku=txt(q('[itemprop="sku"], .p-code [data-micro="sku"], .p-code span:last-child',detail))||(p&&!/^URL:/.test(p.code||'')?p.code:'');
+  var cat=breadcrumbCategory();
+  var brand=(p&&p.brand)||'';var bm=q('[itemprop="manufacturer"] [itemprop="name"], meta[itemprop="brand"]',document);if(!brand&&bm)brand=bm.getAttribute('content')||txt(bm);
+  if(/^(n\/a|-|–)$/i.test(brand))brand='';
+  var stock=txt(q('.availability-value .availability-label, .availability-label',detail));
+  if(brand)rows.push(['Výrobce',brand]);
+  if(cat)rows.push(['Kategorie',cat.name,cat.href]);
+  if(sku)rows.push(['Kód produktu',sku]);
+  if(stock)rows.push(['Dostupnost',stock]);
+  rows.push(['Záruka','24 měsíců']);
+  if(rows.length<2)return null;
+  var table=el('table','detail-parameters ok86-page-params'),tb=el('tbody');table.append(tb);
+  rows.forEach(r=>{var tr=el('tr'),th=el('th'),lab=el('span','row-header-label',r[0]);lab.append(el('span','row-header-label-colon',':'));th.append(lab);var td=el('td');
+   if(r[2]){var l=el('a','',r[1]);l.href=r[2];td.append(l)}else td.textContent=r[1];tr.append(th,td);tb.append(tr)});
+  return table;
+ }
+ function paramsTab(p,detail){var tabs=q('ul.p-detail-tabs',document);var content=q('#tab-content');var native=q('#description table.detail-parameters');if(!native&&tabs&&content&&!q('#ok86-parameters'))native=pageParams(p,detail);if(!tabs||!content||!native||q('#ok86-parameters'))return;
   var li=el('li','shp-tab ok86-parameters-tab');li.setAttribute('role','none');
   var a=el('a','shp-tab-link','Parametry');a.href='#ok86-parameters';a.setAttribute('role','tab');a.setAttribute('aria-selected','false');li.append(a);
   var disc=q('li[data-testid="tabDiscussion"]',tabs);if(disc)tabs.insertBefore(li,disc);else tabs.append(li);
