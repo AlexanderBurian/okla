@@ -80,10 +80,13 @@
  function oklaUntilShown(fn){var q=window.__oklaBeforeReveal;if(!q)return false;if(q.indexOf(fn)<0)q.push(fn);return true}
  function run(){if(!oklaUntilShown(run))paint(document);}
  function frame(){queued=false;paint(document);recheck=false;}
- function schedule(){if(queued)return;queued=true;if(!oklaUntilShown(frame))requestAnimationFrame(frame);}
+ /* after the page is shown, new content is read when the browser is idle (one pass for many changes): reading at every
+    frame recomputed the styles of the whole page again and again while a big product page was still settling */
+ var oklaIdle=window.requestIdleCallback?function(f){requestIdleCallback(f,{timeout:600})}:function(f){setTimeout(f,150)};
+ function schedule(){if(queued)return;queued=true;if(!oklaUntilShown(frame))oklaIdle(frame);}
 
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
- window.addEventListener('load',run,{once:true});
+ window.addEventListener('load',schedule,{once:true});
  /* one late pass for content that appeared without a node being added (the observer below catches the rest) */
  setTimeout(schedule,2000);
 

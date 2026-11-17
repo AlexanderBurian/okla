@@ -53,7 +53,9 @@ function oklaUntilShown(fn){var q=window.__oklaBeforeReveal;if(!q)return false;i
 function scanBody(){scan(document.body)}
 function start(){
  if(!oklaUntilShown(scanBody))scanBody();
- window.addEventListener('load',function(){scan(document.body)},{once:true});
+ /* (after the page is shown: read when the browser is idle, one pass for many changes - see okla_text_contrast.js) */
+ var oklaIdle=window.requestIdleCallback?function(f){requestIdleCallback(f,{timeout:600})}:function(f){setTimeout(f,150)};
+ window.addEventListener('load',function(){oklaIdle(function(){scan(document.body)})},{once:true});
  document.addEventListener('pointerover',function(e){
   var el=e.target&&e.target.closest&&e.target.closest(selector);
   if(el)mark(el);
@@ -69,7 +71,7 @@ function start(){
    if(m.type==='attributes'){var t=m.target;if(t&&t.nodeType===1&&!pendingSeen.has(t)&&t.matches&&t.matches(selector)){pendingSeen.add(t);pending.push(t)}continue;}
    for(var j=0;j<m.addedNodes.length;j++)collect(m.addedNodes[j],pending,pendingSeen);
   }
-  if(pending.length&&!queued){queued=true;if(!oklaUntilShown(flush))requestAnimationFrame(flush)}
+  if(pending.length&&!queued){queued=true;if(!oklaUntilShown(flush))oklaIdle(flush)}
  });
  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['class','style']});
 }

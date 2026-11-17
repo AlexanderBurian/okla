@@ -12,6 +12,8 @@
    img.src=base+'v91/img/catc/'+MAP[m[1]]+'.webp';img.classList.add('okla-cat-photo');
    /* the grey circle is a frame of its own, so the photo can sit larger inside it */
    if(!img.parentNode.classList.contains('okla-cat-photo-wrap')){var w=document.createElement('span');w.className='okla-cat-photo-wrap';img.parentNode.insertBefore(w,img);w.appendChild(img)}
+   /* the wrap's holder is marked, so the stylesheet needs no ":has(>.okla-cat-photo-wrap)" on every element of the page */
+   var h=img.parentNode.parentNode;if(h&&h.classList&&!h.classList.contains('okla-cat-photo-holder'))h.classList.add('okla-cat-photo-holder');
   });
  }
  /* category names shown shorter than in Shoptet: "Měřicí technika a nářadí" -> "Měřicí technika" (every place it is shown) */
@@ -24,5 +26,7 @@
  }
  function swapAll(){swap();if(document.body)rename(document.body)}
  swapAll();
- if(window.MutationObserver){var q=false;new MutationObserver(function(){if(q)return;q=true;requestAnimationFrame(function(){q=false;swapAll()})}).observe(document.documentElement,{childList:true,subtree:true})}
+ /* later changes: only what was added is looked through (walking every text of a big product page after every change
+    cost phones a lot) */
+ if(window.MutationObserver){var q=false,added=[];new MutationObserver(function(recs){for(var i=0;i<recs.length;i++)for(var j=0;j<recs[i].addedNodes.length;j++){var n=recs[i].addedNodes[j];if(n.nodeType===1)added.push(n);else if(n.nodeType===3&&n.parentNode)added.push(n.parentNode)}if(q||!added.length)return;q=true;requestAnimationFrame(function(){q=false;var list=added;added=[];list.forEach(function(n){if(!n.isConnected)return;if(n.tagName==='IMG'){if(n.parentNode)swap(n.parentNode)}else{swap(n);rename(n)}});if(/n[áa][řr]ad/i.test(document.title))rename(document.createElement('i'))})}).observe(document.documentElement,{childList:true,subtree:true})}
 })();

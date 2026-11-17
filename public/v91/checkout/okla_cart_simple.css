@@ -804,3 +804,10 @@ html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{b
   /* thank-you page */
   html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b#okla-ty-c){padding-left:0!important;padding-right:0!important}
 }
+
+/* Phones: the cart page is white all the way down (no grey page under and around its blocks) */
+@media(max-width:767px){
+  html:has(body.in-kosik),html body.in-kosik,html body.in-kosik :is(.overall-wrapper,#content-wrapper,.content-wrapper-in,main#content):not(#ocs-a#ocs-b#ocs-c){background:#fff!important;background-image:none!important}
+  /* one line between the products and the summary (the products' own bottom line is enough) */
+  html body.in-kosik #content .okla-cart-summary:not(#ocs-a#ocs-b#ocs-c){border-top:0!important}
+}
