@@ -153,13 +153,38 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
  window.addEventListener('load',fixLogo);
 })();
+/* State classes on <html> for the stylesheets: the cookie bar is shown (okla-cookiebar-open), the phone menu drawer is
+   open (okla-drawer-open), the cart panel is open (okla-cartmodal-open). These used to be body:has(...) rules - and a
+   :has() that looks at style/hidden attributes anywhere in the page made EVERY inline-style change (the colour passes
+   make hundreds) restyle the whole page: about 80 full restyles while a product page loads, 5-6 s on a phone. */
+(function(){
+ if(!window.MutationObserver)return;
+ var root=document.documentElement,attrs=new MutationObserver(sync),queued=false;
+ function watch(el){if(el&&!el.__oklaStateWatch){el.__oklaStateWatch=1;attrs.observe(el,{attributes:true,attributeFilter:['style','hidden','class']})}}
+ function set(cls,on){if(root.classList.contains(cls)!==on)root.classList.toggle(cls,on)}
+ function sync(){
+  queued=false;
+  var cb=document.querySelector('.siteCookies.js-siteCookies'),dr=document.getElementById('okla-v61-drawer'),cm=document.getElementById('okla-cart-modal');
+  set('okla-cookiebar-open',!!cb&&!/display:\s*none/.test(cb.getAttribute('style')||''));
+  set('okla-drawer-open',!!dr&&dr.parentNode===document.body&&!dr.hasAttribute('hidden'));
+  set('okla-cartmodal-open',!!cm&&cm.classList.contains('is-open'));
+  watch(cb);watch(dr);watch(cm);
+ }
+ function start(){
+  sync();
+  /* added or removed elements: checked once per batch (three look-ups) */
+  new MutationObserver(function(){if(!queued){queued=true;Promise.resolve().then(sync)}}).observe(document.body,{childList:true,subtree:true});
+ }
+ if(document.body)start();else document.addEventListener('DOMContentLoaded',start);
+})();
 
 
 /* ---- 4. Curtain ----------------------------------------------------------------------------------------------- */
 /* Until the modules are in place a white curtain (the colour of the top of the finished page) covers the page, so a
    half-styled page never shows; the curtain covers it at once and is removed in one step from the finished page. The page
    under it is left alone, so its backgrounds draw as always. A small spinner appears only when loading takes over 1.2 s,
-   and the curtain goes after 4 s whatever happens (counted from when the page's HTML is in place). Once it is gone, nothing of the loader stays on the page. */
+   and the curtain goes after 4 s if a file is still downloading (counted from when the page's HTML is in place; a slow
+   phone still putting the page together is waited for), and after 10 s whatever happens. Once it is gone, nothing of the loader stays on the page. */
 var root=document.documentElement;
 var head=document.head||root;
 var bootStyle=document.createElement('style');
@@ -306,6 +331,8 @@ var BUNDLES=[
  ['29-home-magazine','home',['v91/home/okla_news_home_datart.css','v91/home/okla_news_home_alza.css','v91/home/okla_home_brands.css','v91/home/okla_home_brands.js','v91/home/okla_home_retail_refresh.css','v91/home/okla_home_retail_refresh.js','v91/home/okla_search_typing.js']],
  /* Category pages: sorting as round chips, the category's definition and its about text */
  ['30-category','category',['v91/pages/okla_category.css','v91/pages/okla_category_seo.js']],
+ /* The original storefront's own stylesheet (legacy v53): after every page's own bundles, where its <style> used to be added */
+ ['31-legacy-css','all',['legacy/v53/zapati_firsthalf.css']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */
  ['99-later','all',['v91/core/okla_search.css','v91/core/okla_search.js','v91/core/okla_login_popup.css','v91/core/okla_login_popup.js','v91/core/okla_cart_modal.css','v91/core/okla_cart_modal.js','okla_footer.js']]
 ];
@@ -399,7 +426,9 @@ function loadAi(){
 var PAGE=detectPage();
 if(PAGE.legal)document.documentElement.classList.add('okla-legal-wide');
 var lists=filesFor(PAGE),modules=lists.modules,deferred=lists.deferred;
-revealTimer=setTimeout(reveal,4000);
+/* 4 s safety net for a download that hangs. When every file has arrived and the page is only still being put together
+   (a slow phone), the curtain stays until it is finished (finalize shows it), so a half-built page is never shown. */
+revealTimer=setTimeout(function(){if(!(pending<=0))reveal()},4000);
 /* The "later" files start downloading now, so they are ready in the browser cache when they are added - at low
    priority, so on a slow connection they do not hold up the files the page waits for. */
 var hints=deferred.map(function(file){return preload(url(file,0),isCss(file)?'style':'script','low')});

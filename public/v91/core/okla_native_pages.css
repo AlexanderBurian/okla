@@ -290,7 +290,9 @@ html body.in-vyhledavani #products:not(.okla-cards).products-block,html body.typ
    and the accept/decline buttons stacked in a column on the right. The page is
    locked from scrolling while it is open, and a very long text scrolls inside
    the bar instead of off-screen. */
-html:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])){overflow:hidden!important}
+/* html.okla-cookiebar-open is set by the loader while the bar is shown (the class repeated = the specificity of the former
+   html:has(...) rule; a :has() looking at style attributes made every inline-style change on the page restyle all of it) */
+html.okla-cookiebar-open.okla-cookiebar-open.okla-cookiebar-open.okla-cookiebar-open{overflow:hidden!important}
 html body .siteCookies.js-siteCookies{
   position:fixed!important;inset:0!important;top:0!important;left:0!important;right:0!important;bottom:0!important;
   width:auto!important;max-width:none!important;height:auto!important;margin:0!important;padding:0!important;border:0!important;
@@ -348,15 +350,15 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
    it steps aside while a popup owns the screen (cookie bar or open cart panel)
    so it never overlaps them. The mobile right-edge position lives in
    ai/v1/widget.js. */
-html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
-html body:has(#okla-cart-modal.is-open) okla-ai-chat{display:none!important}
+html.okla-cookiebar-open.okla-cookiebar-open.okla-cookiebar-open.okla-cookiebar-open body okla-ai-chat,
+html.okla-cartmodal-open body:not(#okla-cm-x) okla-ai-chat{display:none!important}
 @media(max-width:767px){
   html body okla-ai-chat{display:none!important}
   html body.type-index okla-ai-chat,
   html body.in-newsroom okla-ai-chat,
   html body.okla-newsroom-page okla-ai-chat{display:block!important}
-  html body:has(.siteCookies.js-siteCookies:not([style*="display:none"]):not([style*="display: none"])) okla-ai-chat,
-  html body:has(#okla-cart-modal.is-open) okla-ai-chat{display:none!important}
+  html.okla-cookiebar-open.okla-cookiebar-open.okla-cookiebar-open.okla-cookiebar-open body okla-ai-chat,
+  html.okla-cartmodal-open body:not(#okla-cm-x) okla-ai-chat{display:none!important}
 }
 
 /* ---------- Empty-cart search: OKLA autocomplete panel ----------
@@ -528,13 +530,13 @@ html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(
 html body #content-wrapper aside.sidebar.sidebar-left .box-onlinePayments .pageElement__heading,
 html body #content-wrapper aside.sidebar.sidebar-left .box-topProducts .pageElement__heading,
 html body #content-wrapper aside.sidebar.sidebar-left .box-top-products .pageElement__heading,
-html body #content-wrapper aside.sidebar.sidebar-left .box:has(.top-products-wrapper) .pageElement__heading{
+html body #content-wrapper aside.sidebar.sidebar-left .box.box-topProducts .pageElement__heading{
   display:block!important;width:100%!important;text-align:center!important;
 }
 html body #content-wrapper aside.sidebar.sidebar-left .box-onlinePayments .pageElement__heading > *,
 html body #content-wrapper aside.sidebar.sidebar-left .box-topProducts .pageElement__heading > *,
 html body #content-wrapper aside.sidebar.sidebar-left .box-top-products .pageElement__heading > *,
-html body #content-wrapper aside.sidebar.sidebar-left .box:has(.top-products-wrapper) .pageElement__heading > *{
+html body #content-wrapper aside.sidebar.sidebar-left .box.box-topProducts .pageElement__heading > *{
   display:block!important;text-align:center!important;
 }
 /* Keep Visa / Mastercard in one row, centered. */

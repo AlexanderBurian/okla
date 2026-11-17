@@ -14,6 +14,9 @@
    if(!img.parentNode.classList.contains('okla-cat-photo-wrap')){var w=document.createElement('span');w.className='okla-cat-photo-wrap';img.parentNode.insertBefore(w,img);w.appendChild(img)}
    /* the wrap's holder is marked, so the stylesheet needs no ":has(>.okla-cat-photo-wrap)" on every element of the page */
    var h=img.parentNode.parentNode;if(h&&h.classList&&!h.classList.contains('okla-cat-photo-holder'))h.classList.add('okla-cat-photo-holder');
+   /* the link holding a photo (was a:has(.okla-cat-photo-wrap) in the stylesheet: a :has() before a catch-all part made
+      every element added anywhere on the page restyle all of it) */
+   var lk=img.closest('a');if(lk&&!lk.classList.contains('okla-cat-photo-link'))lk.classList.add('okla-cat-photo-link');
   });
  }
  /* category names shown shorter than in Shoptet: "Měřicí technika a nářadí" -> "Měřicí technika" (every place it is shown) */
