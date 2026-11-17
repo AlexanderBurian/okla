@@ -142,6 +142,16 @@
   left.classList.add('is-on');
   right.classList.add('is-on');
   card.style.minHeight=Math.ceil(ART_TOP_OFFSET+HAND_BOTTOM*width)+'px';
+  /* Category pages: the sidebar is a column of separate boxes, so the hand may run under the "Kategorie" box only.
+     Both pictures start level with the boxes' top, and are made smaller (never larger than 0.9) until the hand's arm
+     meets the box's edge at least 48px above the box's bottom (the arm crosses the edge between 33% and 77% of the
+     picture's height = 1.458 art widths). The CSS clips the hand at that edge (okla_sidebar_clean.css). */
+  var box=document.body.classList.contains('type-category')&&document.querySelector('#content-wrapper aside.sidebar-left .box-categories');
+  if(box){
+   var b=box.getBoundingClientRect(),boxH=b.height/z,boxTop=b.top/z+sy;
+   var s=Math.max(.5,Math.min(.9,(boxH-48)/(1.458*width)));
+   [left,right].forEach(function(el){el.style.top=boxTop+'px';el.style.setProperty('--okla-cat-art-s',s.toFixed(3))});
+  }
  }
 
  var frame=0;
