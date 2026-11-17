@@ -360,8 +360,19 @@ function filesFor(PAGE){
  });
  return {modules:modules,deferred:deferred};
 }
+/* Stylesheets written into the page's <head> by the Shoptet header tag (<link data-okla-b="<bundle>">): every bundle's
+   stylesheet, in the table's order, those of the other kinds of page switched off (media="not all"). The look is then
+   part of the page like on any web site - the browser fetches it together with the HTML (from its own cache on later
+   visits) - and this loader only switches on the bundles of this page, in place, so the cascade order is the table's.
+   Without those links (an older header tag) the loader adds the stylesheets itself, as before. */
+var headMode=!sourceMode&&!!document.querySelector('link[data-okla-b="01-core"]');
+function headLink(file){if(!headMode||!isCss(file)||file.indexOf('dist/')!==0)return null;return document.querySelector('link[data-okla-b="'+file.slice(5,-4)+'"]')}
+/* f runs once the page is shown */
+function afterShown(f){(function w(){if(window.__oklaRevealed)setTimeout(f,0);else setTimeout(w,40)})()}
 function preload(href,as,priority){
  var hint=document.createElement('link');
+ /* the main scripts are fetched as text (see "one go" below): their preload must be a CORS fetch to be reused */
+ if(as==='script'&&priority==='high'&&!sourceMode&&window.fetch){as='fetch';hint.crossOrigin='anonymous'}
  hint.rel='preload';hint.as=as;hint.href=href;
  /* stylesheets are requested in CORS mode everywhere (link, preload, the fetch() that stores them), so the browser
     cache serves all three from ONE download - a no-CORS <link> and a CORS fetch() do not share the cached copy */
@@ -431,7 +442,7 @@ var lists=filesFor(PAGE),modules=lists.modules,deferred=lists.deferred;
 revealTimer=setTimeout(function(){if(!(pending<=0))reveal()},4000);
 /* The "later" files start downloading now, so they are ready in the browser cache when they are added - at low
    priority, so on a slow connection they do not hold up the files the page waits for. */
-var hints=deferred.map(function(file){return preload(url(file,0),isCss(file)?'style':'script','low')});
+var hints=deferred.filter(function(file){return !headLink(file)}).map(function(file){return preload(url(file,0),isCss(file)?'style':'script','low')});
 /* The language packs are requested by okla_i18n.js only after it runs; for a visitor with another language they start
    downloading now with everything else. The address matches the one okla_i18n.js asks for. */
 (function(){
@@ -498,6 +509,7 @@ function grabCss(file){
  try{fetch(abs,{cache:'force-cache',mode:'cors',credentials:'same-origin'}).then(function(r){return r.ok?r.text():null}).then(function(t){if(t!=null)cssFresh[file]=absolutizeCss(t,abs)}).catch(function(){})}catch(e){}
 }
 function saveCssCache(){
+ if(headMode)return;
  setTimeout(function(){
   try{
    var css={},any=false,k;
@@ -510,17 +522,24 @@ function saveCssCache(){
 }
 
 /* If the device already has this release's full look, paint it at once. */
-var mainCssHit=allCssCached(modules);
+var mainCssHit=!headMode&&allCssCached(modules);
 var cachedNow=mainCssHit?injectCachedCss(modules,'okla-css-cache-main'):[];
 
 /* The "later" files load after the page is shown, using the stored look when the device holds all of it. */
+var lateLinks=[];
 function loadDeferred(){
- var coveredDef=allCssCached(deferred)?injectCachedCss(deferred,'okla-css-cache-deferred'):[];
+ var coveredDef=!headMode&&allCssCached(deferred)?injectCachedCss(deferred,'okla-css-cache-deferred'):[];
  deferred.forEach(function(file){
   if(coveredDef.indexOf(file)>=0)return;
-  var src=url(file,0);
-  if(isCss(file)){var link=document.createElement('link');link.rel='stylesheet';link.crossOrigin='anonymous';link.href=src;link.onload=function(){grabCss(file)};head.appendChild(link);}
-  else{var s=document.createElement('script');s.src=src;s.async=false;head.appendChild(s);}
+  var src=url(file,0),hl=headLink(file);
+  if(hl){if(hl.media!=='all')hl.media='all';lateLinks.push(hl);try{hl.dispatchEvent(new Event('load'))}catch(e){}return}
+  if(isCss(file)){var link=document.createElement('link');link.rel='stylesheet';link.crossOrigin='anonymous';link.href=src;link.onload=function(){grabCss(file)};head.appendChild(link);lateLinks.push(link);}
+  /* the scripts (search, login popup, cart panel, footer) are not needed for the first view: they run once it is shown;
+     the passes that re-read colours when a stylesheet arrives are told about the "later" stylesheets switched on in
+     place - now (as when such a stylesheet was added) and again shortly after these scripts have run (the footer exists and its colour transitions have ended) */
+  else afterShown(function(){var s=document.createElement('script');s.src=src;s.async=false;
+   s.onload=s.onerror=function(){setTimeout(function(){lateLinks.forEach(function(l){try{l.dispatchEvent(new Event('load'))}catch(e){}})},600)};
+   head.appendChild(s);});
  });
 }
 function finalize(){
@@ -539,10 +558,33 @@ function finalize(){
    settled. */
 var toLoad=modules.filter(function(f){return cachedNow.indexOf(f)<0});
 var pending=toLoad.length;
-function settle(){if(--pending<=0)finalize()}
+/* The scripts are downloaded as text and run one after another in ONE go, once everything has arrived: the browser does
+   not redraw the hidden page between two of them (each redraw restyled the whole page - most of the waiting on a phone),
+   and every script finds all stylesheets in place. Each runs as before: in the page's global scope, every file of a
+   bundle in its own try/catch (tools/build.js), under its own name in the console (sourceURL). Without fetch() - or in
+   source mode - the scripts are added as <script> elements as before. */
+var oneGo=!sourceMode&&!!window.fetch;
+var jsText={};
+function runScripts(){
+ toLoad.forEach(function(file){
+  var t=jsText[file];if(!t)return;
+  try{(0,eval)(t+'\n//# sourceURL='+url(file,0))}catch(e){setTimeout(function(){throw e})}
+ });
+}
+function settle(){if(--pending<=0){if(oneGo)runScripts();finalize()}}
 /* The page waits for these files (under the curtain): they are fetched before images and other page content. */
 function loadOne(file,attempt){
  var src=url(file,attempt);
+ /* a stylesheet already in the page's head: switched on in place, done once it has arrived (a failed one is added again) */
+ var hl=!attempt&&headLink(file);
+ if(hl){
+  if(hl.media!=='all')hl.media='all';
+  if(hl.getAttribute('data-okla-e')){loadOne(file,1);return}
+  if(hl.sheet||hl.getAttribute('data-okla-l')){settle();return}
+  hl.addEventListener('load',function(){settle()},{once:true});
+  hl.addEventListener('error',function(){loadOne(file,1)},{once:true});
+  return;
+ }
  function failed(){
   if(attempt<2){setTimeout(function(){loadOne(file,attempt+1)},400);return}
   console.error('[OKLA] module missing:',file);settle();
@@ -552,6 +594,11 @@ function loadOne(file,attempt){
   link.onload=function(){grabCss(file);settle()};link.onerror=failed;
   head.appendChild(link);
  }else{
+  if(oneGo){
+   fetch(src,{mode:'cors',credentials:'same-origin',priority:'high'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.text()})
+    .then(function(t){jsText[file]=t;settle()},failed);
+   return;
+  }
   var script=document.createElement('script');script.src=src;script.async=false;script.fetchPriority='high';
   script.onload=settle;script.onerror=failed;
   head.appendChild(script);
@@ -570,7 +617,7 @@ else toLoad.forEach(function(file){loadOne(file,0)});
 var earlyHints=[];
 function preloadEarly(){
  var l=filesFor(detectPage());
- l.modules.forEach(function(f){earlyHints.push(preload(url(f,0),isCss(f)?'style':'script','high'))});
+ l.modules.forEach(function(f){if(!headLink(f))earlyHints.push(preload(url(f,0),isCss(f)?'style':'script','high'))});
 }
 if(document.readyState==='loading'){
  if(document.body)preloadEarly();

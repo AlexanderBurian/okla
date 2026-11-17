@@ -59,7 +59,10 @@
     (blocked?rest:round).push(x);
    }
    /* on a recheck, a text painted before is read without its paint (its own colour may have changed since) */
-   round.forEach(function(x){if(recheck&&x.__oktcPainted)x.style.removeProperty('color')});
+   /* ... with its colour transition switched off while it is read: otherwise the read gives the start of a transition
+      back from the paint (the painted colour itself), and a grey text stayed grey */
+   var untr=[];
+   round.forEach(function(x){if(recheck&&x.__oktcPainted){untr.push([x,x.style.getPropertyValue('transition'),x.style.getPropertyPriority('transition')]);x.style.setProperty('transition','none','important');x.style.removeProperty('color')}});
    var colours=round.map(function(x){return getComputedStyle(x).color});
    for(var k=0;k<round.length;k++){
     var el=round[k];waiting.delete(el);el.__oktc=1;
@@ -71,6 +74,8 @@
     if(lum<0){el.__oktc=0;el.__oktcSeen=1;continue;}
     el.style.setProperty('color', lum<140?BLACK:SOFT, 'important');el.__oktcPainted=1;
    }
+   /* transitions back on only after the new colours are in place (no animation from the unpainted colour) */
+   if(untr.length){getComputedStyle(untr[0][0]).color;untr.forEach(function(u){if(u[1])u[0].style.setProperty('transition',u[1],u[2]);else u[0].style.removeProperty('transition')})}
    todo=rest;
   }
  }
