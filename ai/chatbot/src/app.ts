@@ -10,6 +10,8 @@ import { KnowledgeStore } from "./knowledge.js";
 import { lookupOrder } from "./orderStatus.js";
 import type { ChatEngine } from "./types.js";
 import { isPersonalOrderRequest, validateChatBody, ValidationError } from "./validation.js";
+import { guardStream, refusal, TopicGate } from "./topicGate.js";
+import type { KnowledgeItem } from "./types.js";
 
 interface BuildOptions {
   config: AppConfig;
@@ -85,6 +87,22 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     ? new MockEngine()
     : new GroqEngine(config.groqApiKey as string, config.groqModel, config.groqFallbackModels));
 
+  /* the hard topic block (topicGate.ts): with the language model's classifier when the shop runs on Groq */
+  const gate = new TopicGate(config.mockMode ? undefined : config.groqApiKey);
+  const gateStats = { allowed: 0, blocked: 0, byReason: {} as Record<string, number> };
+
+  /* the catalogue for the model: the whole one for a choice over the range (budget, cheapest, what do you have,
+     recommend, compare), otherwise the products the search finds plus a short list - fewer tokens, more answers per
+     minute within the provider's limit */
+  const LISTING = /do \d|kc\b|korun|nejlevn|nejdraz|levn|co mate|co nabizite|sortiment|nabidk|doporuc|poradt|poradi|vyber|vybrat|porovn|srovn|rozdil|alternativ|darek|skladem|hledam|chci|potrebuj|ktery|ktera|ktere|jaky|jakou|jake|kategori/;
+  function catalogFor(message: string, history: string): KnowledgeItem[] {
+    const all = knowledge.products();
+    if (LISTING.test(normalize(`${history} ${message}`))) return all;
+    const found = knowledge.search(`${history} ${message}`, 14).filter((item) => item.type === "product");
+    const ids = new Set(found.map((item) => item.id));
+    return [...found, ...all.filter((item) => !ids.has(item.id))].slice(0, 20);
+  }
+
   app.addHook("onClose", async () => knowledge.close());
 
   app.get("/health", async () => ({
@@ -93,6 +111,7 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     mode: config.mockMode ? "mock" : "groq",
     knowledge: knowledge.counts(),
     models: availableModels,
+    topicGate: gateStats,
     cachedAnswers: answerCache.size,
     providerErrors
   }));
@@ -165,6 +184,16 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
     try {
       if (isPersonalOrderRequest(input.message)) {
         reply.raw.write(sse("token", { text: "Ke konkrétní objednávce nemám přístup. Kvůli ochraně soukromí sem neposílejte číslo objednávky ani osobní údaje. Napište prosím na [podpora@okla.cz](mailto:podpora@okla.cz)." }));
+      } else if (!(await (async () => {
+        /* the hard topic block: anything not about OKLA, its products or buying is refused with a fixed text */
+        const verdict = await gate.check(input.message, input.history, knowledge.products(), controller.signal, knowledge.byUrl(input.page)?.title);
+        gateStats.byReason[`${verdict.allowed ? "allow" : "block"}:${verdict.reason}`] = (gateStats.byReason[`${verdict.allowed ? "allow" : "block"}:${verdict.reason}`] ?? 0) + 1;
+        if (verdict.allowed) { gateStats.allowed++; return true; }
+        gateStats.blocked++;
+        reply.raw.write(sse("token", { text: refusal(input.lang) }));
+        return false;
+      })())) {
+        /* refused above */
       } else if (key && cachedAnswer(key)) {
         /* the same first question asked a moment ago: the same answer, streamed in pieces like a fresh one */
         const text = cachedAnswer(key) as string;
@@ -181,13 +210,13 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
           history: input.history,
           lang: input.lang,
           pageItem,
-          catalog: knowledge.products(),
+          catalog: catalogFor(input.message, lastUser),
           faqs: knowledge.faqs(),
           knowledge: relevant,
           signal: controller.signal
         });
         let answer = "";
-        for await (const token of stream) {
+        for await (const token of guardStream(stream, input.lang)) {
           answer += token;
           reply.raw.write(sse("token", { text: token }));
         }

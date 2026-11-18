@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
-import { crawlShop } from "./liveCatalog.js";
+import { crawlShop, formatPrice } from "./liveCatalog.js";
 import type { KnowledgeItem } from "./types.js";
 
 const STOP_WORDS = new Set([
@@ -240,6 +240,26 @@ export function parseShoptetFeed(xml: string): KnowledgeItem[] {
   });
 }
 
+/* one overview per top category of the live catalogue ("what do you have in measuring tools?"): the products with
+   price and stock, so a question about a whole category finds them all at once */
+export function categoryOverviews(products: KnowledgeItem[]): KnowledgeItem[] {
+  const groups = new Map<string, KnowledgeItem[]>();
+  for (const item of products) {
+    const top = item.category?.split(">")[0]?.trim();
+    if (!top) continue;
+    groups.set(top, [...(groups.get(top) ?? []), item]);
+  }
+  return [...groups].map(([name, list]) => ({
+    id: `category-${normalize(name).replace(/ /g, "-")}`,
+    type: "faq" as const,
+    title: `Kategorie ${name} – přehled produktů`,
+    content: `V kategorii ${name} nabízí OKLA.cz ${list.length} ${list.length === 1 ? "produkt" : list.length < 5 ? "produkty" : "produktů"}: ${list
+      .map((item) => `${item.title} (${[formatPrice(item.price), item.inStock === undefined ? undefined : item.inStock ? "skladem" : "není skladem"].filter(Boolean).join(", ")})`)
+      .join("; ")}.`,
+    keywords: [name, "kategorie", "co máte", "nabídka", "sortiment"]
+  }));
+}
+
 export class KnowledgeStore {
   private localItems: KnowledgeItem[] = [];
   private csvItems: KnowledgeItem[] = [];
@@ -265,8 +285,14 @@ export class KnowledgeStore {
       const csv = await readFile(this.csvFilePath, "utf8");
       this.csvItems = parseShoptetCsv(csv, this.shopBaseUrl).slice(0, 20_000);
     }
+    try {
+      const snap = JSON.parse(await readFile(new URL("../data/catalog-snapshot.json", import.meta.url), "utf8")) as { products?: KnowledgeItem[]; pages?: KnowledgeItem[] };
+      if (snap.products?.length) this.liveItems = [...snap.products, ...(snap.pages ?? []), ...categoryOverviews(snap.products)];
+    } catch {
+      /* no snapshot: the CSV until the first crawl */
+    }
     if (this.crawl && this.shopBaseUrl) {
-      /* first crawl in the background: the service answers from the CSV until the live catalogue is in */
+      /* first crawl in the background: the service answers from the snapshot (or the CSV) until the live catalogue is in */
       void this.refreshLive();
       this.crawlTimer = setInterval(() => void this.refreshLive(), this.crawlMinutes * 60_000);
       this.crawlTimer.unref();
@@ -324,7 +350,7 @@ export class KnowledgeStore {
     if (!this.shopBaseUrl) return;
     try {
       const { products, pages } = await crawlShop(this.shopBaseUrl);
-      if (products.length) this.liveItems = [...products, ...pages];
+      if (products.length) this.liveItems = [...products, ...pages, ...categoryOverviews(products)];
     } catch {
       /* keep the last good catalogue */
     }

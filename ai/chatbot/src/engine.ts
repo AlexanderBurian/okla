@@ -21,7 +21,8 @@ function sentences(text: string): string[] {
     .replace(/(Cena|Dostupnost|Kategorie|Značka|Výrobce|Kód produktu|Cena v produktovém CSV):[^.]*\./g, " ")
     .split(/(?<=[.!?])\s+/)
     .map((s) => s.replace(/^Popis:\s*/i, "").trim())
-    .filter((s) => s.length > 25 && s.length < 400);
+    /* the shop's generic filler sentence says nothing about the product */
+    .filter((s) => s.length > 25 && s.length < 400 && !/^Praktické využití nabízí/i.test(s));
 }
 
 function best(text: string, question: string, count = 2): string[] {
@@ -283,7 +284,7 @@ export class GroqEngine implements ChatEngine {
   private readonly client: Groq;
   private modelsCheckedAt = 0;
 
-  constructor(apiKey: string, private readonly model: string, private readonly fallbackModels: string[] = [], private readonly maxWaitMs = 8_000) {
+  constructor(apiKey: string, private readonly model: string, private readonly fallbackModels: string[] = [], private readonly maxWaitMs = 12_000) {
     this.client = new Groq({ apiKey });
   }
 
@@ -308,7 +309,7 @@ export class GroqEngine implements ChatEngine {
       model,
       messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget),
       /* a little more variety in wording, still factual */
-      temperature: 0.55,
+      temperature: 0.4,
       top_p: 0.9,
       max_completion_tokens: lean ? 600 : 800,
       /* gpt-oss "thinks" before it answers: a short think keeps the first words quick; Qwen 3 does not think at all */
@@ -366,7 +367,7 @@ export class GroqEngine implements ChatEngine {
         }
       }
       if (completion || context.signal.aborted || round > 0) break;
-      if (!allLimited || !(shortestWait <= this.maxWaitMs) || Date.now() - started > 4_000) break;
+      if (!allLimited || !(shortestWait <= this.maxWaitMs) || Date.now() - started > 7_000) break;
       await wait(shortestWait + 250);
     }
     if (!completion) {

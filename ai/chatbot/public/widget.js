@@ -383,7 +383,7 @@
       <div class="composer-area">
         <form class="composer">
           <label class="sr-only" for="okla-input">Napi\u0161te dotaz</label>
-          <textarea id="okla-input" rows="1" maxlength="1200" placeholder="Zeptejte se na cokoliv\u2026" aria-describedby="okla-disclaimer"></textarea>
+          <textarea id="okla-input" rows="1" maxlength="1200" placeholder="Zeptejte se na produkty, n\xE1kup nebo dopravu\u2026" aria-describedby="okla-disclaimer"></textarea>
           <button class="send" type="submit" aria-label="Odeslat zpr\xE1vu" disabled>${me}</button>
         </form>
         <p class="disclaimer" id="okla-disclaimer">Odpov\u011Bdi vytv\xE1\u0159\xED AI. Ov\u011B\u0159te d\u016Fle\u017Eit\xE9 informace a nepos\xEDlejte osobn\xED \xFAdaje.</p>

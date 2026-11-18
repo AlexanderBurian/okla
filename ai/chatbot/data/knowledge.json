@@ -39,38 +39,32 @@
     {
       "id": "faq-return",
       "type": "faq",
-      "title": "Vrácení zboží",
-      "content": "Spotřebitel může při nákupu na dálku zpravidla odstoupit bez uvedení důvodu do 14 dnů od převzetí. Oznámení lze poslat na podpora@okla.cz. Zboží se následně odesílá bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení. Platí zákonné výjimky a podrobné podmínky na stránce Vrácení zboží.",
+      "title": "Vrácení zboží do 14 dnů",
+      "content": "Spotřebitel, který koupil zboží na Okla.cz na dálku, může zpravidla do 14 dnů od převzetí odstoupit od smlouvy bez udání důvodu. Stačí poslat jednoznačné oznámení na podpora@okla.cz (ideálně číslo objednávky, jméno a zboží); důvod ani schválení nejsou potřeba, vzorový formulář je dobrovolný (součást obchodních podmínek). Zboží pak odešlete nejpozději do 14 dnů od odstoupení; přímé náklady zpětné dopravy obvykle hradí spotřebitel. Zboží lze rozbalit a přiměřeně vyzkoušet jako v kamenné prodejně; vrátit jde i bez originálního obalu, musí být ale dobře zabalené. U zařízení s poškozenou Li-ion baterií se předem domluvte na bezpečném předání.",
       "url": "https://www.okla.cz/vraceni-zbozi-a-odstoupeni/",
       "keywords": [
         "vrácení",
+        "vrátit",
         "odstoupení",
         "14 dnů",
-        "rozbalené",
-        "refundace",
-        "vrátit",
-        "vracím",
-        "vrácením",
-        "rozbalil",
-        "odstoupit"
+        "peníze zpět",
+        "výměna"
       ]
     },
     {
       "id": "faq-complaint",
       "type": "faq",
-      "title": "Reklamace",
-      "content": "Reklamaci lze uplatnit na podpora@okla.cz. Je vhodné uvést výrobek, popis vady a požadované řešení; neposílejte do chatu osobní údaje ani číslo objednávky. Reklamace spotřebitele se vyřizuje nejpozději do 30 dnů, pokud není výslovně dohodnuta delší lhůta.",
+      "title": "Reklamace – jak ji uplatnit",
+      "content": "Spotřebitel může vytknout vadu, která se projeví do 24 měsíců od převzetí (zákonná odpovědnost za vady). Reklamaci uplatníte e-mailem na podpora@okla.cz: uveďte číslo objednávky, označení výrobku, popis závady a požadované řešení; fotografie nebo krátké video pomůže, ale není podmínkou. Originální obal ani originál faktury se nevyžaduje. Pokud je třeba výrobek posoudit, podpora pošle pokyny k odeslání. Reklamaci lze uplatnit i písemně na sídlo prodávajícího. Před odesláním zařízení zálohujte data a odhlaste soukromé účty. Reklamace spotřebitele se vyřizuje nejpozději do 30 dnů, pokud není dohodnuta delší lhůta. Do chatu neposílejte číslo objednávky ani osobní údaje.",
       "url": "https://www.okla.cz/reklamacni-rad/",
       "keywords": [
         "reklamace",
+        "reklamovat",
         "vada",
         "nefunguje",
+        "rozbité",
         "oprava",
-        "výměna",
-        "záruka",
-        "reklamovat",
-        "reklamaci",
-        "porucha"
+        "záruka"
       ]
     },
     {
@@ -215,20 +209,80 @@
       "id": "faq-company",
       "type": "faq",
       "title": "Provozovatel a kontaktní údaje",
-      "content": "Provozovatelem Okla.cz je společnost Kratas Pro s.r.o., IČO 23695340, DIČ CZ23695340. Kontakt: e-mail podpora@okla.cz nebo kontaktní formulář na stránce Kontakt (témata: dotaz k objednávce, poradenství s výběrem, reklamace nebo vrácení, velkoobchod / spolupráce). Pomůžeme s objednávkou i reklamací a poradíme s výběrem vhodného přístroje. Sklad a zázemí: Ostrava, Moravskoslezský kraj.",
+      "content": "Provozovatelem e-shopu Okla.cz je společnost Kratas Pro s.r.o., Petržílkova 2583/15, Stodůlky, 158 00 Praha 5, zapsaná u Městského soudu v Praze pod sp. zn. C 431005, IČO 23695340, DIČ CZ23695340. Sklad a zázemí: Ostrava. Kontakt: e-mail podpora@okla.cz nebo kontaktní formulář na stránce Kontakt (témata: dotaz k objednávce, poradenství s výběrem, reklamace nebo vrácení, velkoobchod / spolupráce). Telefonní linku ani kamennou prodejnu e-shop neuvádí; osobní odběr není v podkladech uveden.",
       "url": "https://www.okla.cz/kontakt/",
       "keywords": [
-        "kontakt",
-        "provozovatel",
         "firma",
-        "ičo",
-        "dič",
+        "provozovatel",
+        "sídlo",
         "adresa",
-        "e-mail",
-        "email",
-        "telefon",
-        "kdo provozuje",
-        "sídlo"
+        "IČO",
+        "DIČ",
+        "kontakt",
+        "Kratas Pro",
+        "telefon"
+      ]
+    },
+    {
+      "id": "faq-adviser-scope",
+      "type": "faq",
+      "title": "Co umí OKLA poradce",
+      "content": "OKLA poradce je AI asistent e-shopu Okla.cz. Pomůže vybrat a porovnat produkty z nabídky OKLA podle použití a rozpočtu, vysvětlí jejich vlastnosti a technologie (NFC, ESP32, True RMS, Wi-Fi endoskopy…), poradí s prvními kroky a odpoví na dotazy k nákupu: doprava, platba, vrácení, reklamace, záruka, kontakt. Odpovídá jen na dotazy k OKLA, jejím produktům a nákupu. K objednávkám ani zákaznickým účtům nemá přístup; s konkrétní objednávkou pomůže podpora@okla.cz.",
+      "keywords": [
+        "co umíš",
+        "kdo jsi",
+        "poradce",
+        "chatbot",
+        "asistent"
+      ]
+    },
+    {
+      "id": "faq-languages",
+      "type": "faq",
+      "title": "Jazykové verze webu a doručení do zahraničí",
+      "content": "Web Okla.cz lze přepnout do češtiny, slovenštiny, maďarštiny a angličtiny (přepínač jazyka v záhlaví a v patičce). Doručujeme do Česka, na Slovensko a do Maďarska; do jiných zemí zatím nedoručujeme. Kupní smlouva se uzavírá v českém jazyce.",
+      "url": "https://www.okla.cz/doprava-a-platba/",
+      "keywords": [
+        "jazyk",
+        "slovensky",
+        "maďarsky",
+        "anglicky",
+        "Slovensko",
+        "Maďarsko",
+        "zahraničí",
+        "Německo",
+        "Rakousko",
+        "Polsko"
+      ]
+    },
+    {
+      "id": "faq-prices-discounts",
+      "type": "faq",
+      "title": "Ceny, akce a slevové kódy",
+      "content": "Rozhodující je konečná cena zobrazená před odesláním objednávky; doprava a případný příplatek za způsob úhrady jsou uvedeny zvlášť před objednáním. Slevový kód se zadává do pole v košíku před dokončením objednávky; neuplatněný kód nelze automaticky přiznat zpětně. Každý kód může mít vlastní platnost, výši slevy, minimální hodnotu nákupu nebo omezení na produkty; kódy nelze kombinovat, pokud to akce výslovně nepovoluje. Akce platí jen po dobu a v rozsahu uvedeném u nabídky. Aktuální slevové kódy chatbot nezná.",
+      "url": "https://www.okla.cz/podminky-reklamnich-akci/",
+      "keywords": [
+        "sleva",
+        "slevový kód",
+        "kupón",
+        "akce",
+        "výprodej",
+        "cena"
+      ]
+    },
+    {
+      "id": "faq-privacy",
+      "type": "faq",
+      "title": "Osobní údaje a účet",
+      "content": "Správcem osobních údajů je provozovatel Okla.cz; dotazy, žádosti o přístup, opravu nebo výmaz zasílejte na podpora@okla.cz. Osobní údaje se zpracovávají podle GDPR, neprodávají se ani nezveřejňují pro marketing třetích stran. Nákup je možný i bez registrace; se zákaznickým účtem uvidíte historii objednávek. O zrušení účtu lze požádat e-mailem.",
+      "url": "https://www.okla.cz/podminky-ochrany-osobnich-udaju/",
+      "keywords": [
+        "osobní údaje",
+        "GDPR",
+        "soukromí",
+        "účet",
+        "registrace",
+        "zrušit účet"
       ]
     }
   ]

@@ -433,7 +433,7 @@ import {
       <div class="composer-area">
         <form class="composer">
           <label class="sr-only" for="okla-input">Napište dotaz</label>
-          <textarea id="okla-input" rows="1" maxlength="1200" placeholder="Zeptejte se na cokoliv…" aria-describedby="okla-disclaimer"></textarea>
+          <textarea id="okla-input" rows="1" maxlength="1200" placeholder="Zeptejte se na produkty, nákup nebo dopravu…" aria-describedby="okla-disclaimer"></textarea>
           <button class="send" type="submit" aria-label="Odeslat zprávu" disabled>${sendIcon}</button>
         </form>
         <p class="disclaimer" id="okla-disclaimer">Odpovědi vytváří AI. Ověřte důležité informace a neposílejte osobní údaje.</p>
