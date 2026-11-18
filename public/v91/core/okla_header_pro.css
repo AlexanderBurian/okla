@@ -1,0 +1,84 @@
+/* PC header, right side (okla_header_template103.js draws the account and the cart): one row -
+   account (avatar, "Můj účet" / "Přihlásit se", chevron) | orders, language flag | the blue cart button with its count
+   and total. Favourites have no function in the shop and stay hidden. */
+@media(min-width:992px){
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c){
+    display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:4px!important;
+    grid-template-columns:none!important;width:max-content!important;height:80px!important;overflow:visible!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>*{
+    order:0!important;float:none!important;position:relative!important;left:auto!important;top:auto!important;transform:none!important;
+    margin:0!important;flex:none!important;max-width:none!important;min-height:0!important;max-height:none!important;visibility:visible!important
+  }
+
+  /* account */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]{
+    display:flex!important;align-items:center!important;height:52px!important;width:max-content!important;padding:0!important;
+    border:0!important;border-radius:14px!important;background:none!important;box-shadow:none!important;cursor:pointer!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]:is(:hover,[aria-expanded="true"]){
+    --okla-face-bg:#f2f6fc;--okla-avatar-bg:#dce8fc
+  }
+
+  /* dividers */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator{
+    display:block!important;width:1px!important;height:30px!important;margin:0 10px!important;padding:0!important;border:0!important;
+    background:#e1e6ee!important;opacity:1!important;visibility:visible!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::before,
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::after{content:none!important;display:none!important}
+
+  /* orders and language: round icon buttons */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale){
+    display:grid!important;place-items:center!important;width:46px!important;height:46px!important;min-width:0!important;padding:0!important;
+    border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;
+    visibility:visible!important;opacity:1!important;cursor:pointer!important;text-decoration:none!important;transition:background-color .16s ease!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale):is(:hover,.is-open){
+    background:#f2f6fc!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale):focus-visible{
+    outline:2px solid #0751c6!important;outline-offset:2px!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders::before,
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders::after,
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale::before,
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale::after{content:none!important;display:none!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders>svg{
+    display:block!important;width:24px!important;height:24px!important;margin:0!important;color:#0b2540!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders>svg path{
+    fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale>svg{
+    display:block!important;width:26px!important;height:26px!important;margin:0!important;border:1px solid #dfe5ee!important;border-radius:50%!important;box-sizing:border-box!important
+  }
+  /* the language menu under the flag */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale>.okla-lang-menu{
+    display:none!important;top:calc(100% + 8px)!important;z-index:9500!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale.is-open>.okla-lang-menu{display:block!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale .okla-lang-option{
+    width:100%!important;min-width:0!important;height:auto!important;font:500 14px/1.2 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:normal!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale .okla-lang-option.is-current{font-weight:700!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale .okla-lang-option>svg{
+    display:block!important;flex:none!important;width:22px!important;height:22px!important;border:1px solid #e0e4ea!important;border-radius:50%!important;box-sizing:border-box!important
+  }
+
+  /* favourites: no function in the shop */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-favorites{display:none!important}
+
+  /* cart */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]{
+    display:flex!important;align-items:center!important;height:48px!important;width:max-content!important;padding:0!important;margin-left:2px!important;
+    border:0!important;border-radius:12px!important;background:none!important;box-shadow:none!important;cursor:pointer!important;text-decoration:none!important
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]:is(:hover,[aria-expanded="true"]){
+    --okla-face-bg:#0751c6
+  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]:focus-visible,
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]:focus-visible{
+    outline:2px solid #0751c6!important;outline-offset:3px!important
+  }
+}

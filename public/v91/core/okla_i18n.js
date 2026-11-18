@@ -217,6 +217,8 @@
   s.innerHTML='<defs><clipPath id="'+id+'"><circle cx="16" cy="16" r="16"/></clipPath></defs><g clip-path="url(#'+id+')">'+FLAGS[code]+'</g>';
   return s;
  }
+ /* the PC header's flag menu (okla_header_template103.js) offers the same choice */
+ window.oklaLang={current:lang,langs:LANGS.slice(),label:LABEL,flag:flag,choose:choose};
 
  function footerSwitch(){
   var box=document.querySelector('#okla-footer-links .okla-lang');
