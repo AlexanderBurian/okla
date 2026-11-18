@@ -175,3 +175,16 @@
 @media(max-width:767px) and (prefers-reduced-motion:reduce){
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-panel{transition:none!important}
 }
+
+/* Phones: the Katalog / Menu panels on the bottom bar's lines too (10px from the screen edge): the logo, the close
+   button's cross, the titles, the rows (their pictures and chevrons) and the Menu's cards */
+@media(max-width:767px){
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-head{padding-left:10px!important;padding-right:10px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-close{margin-right:-9px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okla-tb-cats-title{padding-left:10px!important;padding-right:10px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-list .okm61-cat-row{padding-left:10px!important;padding-right:10px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okla-mm-hero{padding-left:10px!important;padding-right:10px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okla-mm-title{padding-left:10px!important;padding-right:10px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okla-mm-list{padding-left:10px!important;padding-right:10px!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okla-mm-account-card{margin-left:10px!important;margin-right:10px!important}
+}

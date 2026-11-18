@@ -64,8 +64,10 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
    (the hand keeps holding the phone), and the right product shrinks toward the outer margin so it never reaches - and
    never touches - the island. */
 @media(min-width:992px){
-  html body .okla-side-art--left:not(#oksa-x){transform:translateY(-24px) scale(.86)!important;transform-origin:bottom right!important}
-  html body .okla-side-art--right:not(#oksa-x){transform:scale(.82)!important;transform-origin:center right!important}
+  /* both the same size and both shrinking toward their top: the pictures start at the same height and the two captions
+     sit on one line (they are laid out at the same height inside the art - see the cqw margins above) */
+  html body .okla-side-art--left:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
+  html body .okla-side-art--right:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
   /* the glasses no longer overhang to the left (toward the island); only the outer (right) overhang stays */
   html body .okla-side-art--right .okla-side-art__stage--glasses .okla-side-art__product:not(#oksa-x){inset:0 -8% 0 0!important}
 }

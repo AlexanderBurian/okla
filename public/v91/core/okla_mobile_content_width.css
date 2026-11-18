@@ -1,8 +1,8 @@
 /* OKLA mobile content rail.
-   The navbar uses a 14px inner gutter. Every page now uses the same rail;
-   individual templates must not silently switch between 12, 14 and 16px. */
+   Everything on phones sits on the bottom bar's lines: 10px from the screen edge, like its first and last button
+   (2026-11-18; was 14px). Every page uses this one rail through --okla-mobile-gutter. */
 @media(max-width:767px){
-  :root{--okla-mobile-gutter:14px}
+  :root{--okla-mobile-gutter:10px}
 
   html body #header #okla-v61-header{
     box-sizing:border-box!important;
@@ -42,4 +42,29 @@
   html body #content-wrapper main#content#content{padding-left:14px!important;padding-right:14px!important}
   html body #content#content .okla-slider-shell{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
   html body #content#content .okla-slider-shell .products.okla-slider-track{padding-left:0!important;padding-right:0!important}
+}
+
+/* Phones (2026-11-18): really everything on the bottom bar's lines - 10px from the screen edge. The templates below
+   had their own fixed gutters (14, 16, 18, 20px and two of them stacked, 30px); they now add nothing, so their content
+   starts on the page rail. Boxes inside keep their own inner padding. */
+@media(max-width:767px){
+  html body #header #okla-v61-header:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:10px!important;padding-right:10px!important}
+  html body .container.breadcrumbs-wrapper:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:10px!important;padding-right:10px!important}
+  html body #content-wrapper main#content:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:10px!important;padding-right:10px!important}
+  /* product page: the detail block adds no gutter of its own (and its title no longer pulls back by one) */
+  html body #content .p-detail:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:0!important;padding-right:0!important}
+  html body #content .p-detail .p-detail-inner-header.okla-m-title-top:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){margin-left:0!important;margin-right:0!important}
+  /* own pages: contact, about, how to buy, complaint, order status, account */
+  html body #content :is(.oka-c-wrap,.ohb-wrap,.oka-wrap,.okla-rk__wrap,.okla-os__wrap):not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:0!important;padding-right:0!important}
+  html body #content .okla-about .oka-hero:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){margin-left:0!important;margin-right:0!important}
+  html body #content .okla-about .oka-biz__body:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:0!important;padding-right:0!important}
+  /* sign-in / registration pages */
+  html body:is(.in-login,.in-registrace,.in-klient) #content-wrapper main#content:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f#okr-g){padding-left:0!important;padding-right:0!important}
+  html body:is(.in-login,.in-registrace,.in-klient) #content .content-inner:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:10px!important;padding-right:10px!important}
+  /* the search icon's own edge on the line (its button has 9px of air around the icon) */
+  html body #header #okla-v61-header .okla-m-search-open:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){margin-right:-8px!important}
+  /* the homepage warranty band on the rail too (it ran 2px past both screen edges) */
+  html body.type-index #content #okla-warranty:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
+  /* footer */
+  html body #okla-footer-content:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:10px!important;padding-right:10px!important}
 }
