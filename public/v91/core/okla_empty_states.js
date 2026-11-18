@@ -67,6 +67,19 @@
  }
  function emptyCart(){
   [].slice.call(document.querySelectorAll('.cart-empty .empty-cart-boxes ul li a')).forEach(function(a){var t=niceCase(a.textContent);if(t!==a.textContent.trim())a.textContent=t});
+  /* phones: one calm block about the cart itself - a picture, the message and one way on (okla_empty_states.css shows it
+     instead of the heading, the category list and the search) */
+  var box=document.querySelector('.cart-inner.cart-empty');
+  if(!box||box.querySelector('.okla-cart-empty'))return;
+  var hero=el('section','okla-cart-empty');
+  var pic=el('div','okla-cart-empty__pic');pic.setAttribute('aria-hidden','true');
+  pic.innerHTML='<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="56" fill="#eaf1fd"/><path d="M28 38h9l8 36a5 5 0 0 0 5 4h30a5 5 0 0 0 5-4l6-25H41" stroke="#0859d8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="89" r="5" fill="#0859d8"/><circle cx="78" cy="89" r="5" fill="#0859d8"/><path d="M58 56h18" stroke="#9db9e8" stroke-width="5" stroke-linecap="round"/></svg>';
+  hero.appendChild(pic);
+  hero.appendChild(el('h1','okla-cart-empty__title','Váš košík je prázdný'));
+  hero.appendChild(el('p','okla-cart-empty__text','Vyberte si z naší nabídky – měřicí techniku, multitooly i chytrou elektroniku.'));
+  var go=el('a','okla-cart-empty__btn','Začít nakupovat');go.href='/';
+  hero.appendChild(go);
+  box.insertBefore(hero,box.firstChild);
  }
  function run(){page404();pageSearch();emptyCart()}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();

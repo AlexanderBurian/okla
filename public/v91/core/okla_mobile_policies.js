@@ -6,7 +6,7 @@
  window.__oklaMobilePolishV113=true;
  var mobile=window.matchMedia('(max-width:767px)');
  var root=document.documentElement;
- var THEME='#eaf4fd'; // the top colour of the mobile page gradient (--okla-mg over white) - the same tint the Katalog / Menu panels show under the status bar
+ var THEME=getComputedStyle(document.documentElement).getPropertyValue('--okla-mg').trim()==='none'?'#ffffff':'#eaf4fd'; // the top colour of the mobile page gradient (--okla-mg over white) - the same tint the Katalog / Menu panels show under the status bar
 
  function isCartOrCheckout(){
   var path=location.pathname.replace(/\/+/g,'/');

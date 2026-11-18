@@ -119,4 +119,5 @@
    pages that use it (menu, panels: var(--okla-mg)) stay as they are; delete this block to bring it back. */
 @media(max-width:767px){
   html:root{--okla-mg:none}
+  html:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e#okla-mg-f#okla-mg-g){background:#fff!important}
 }
