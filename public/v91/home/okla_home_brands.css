@@ -37,3 +37,8 @@ html body #content #okla-brands-v1 .okla-brands__item{display:flex!important;fle
   html body.type-index #content #okla-brands-v1 .okla-brands__shell>.okla-slider-controls>button{display:grid!important;visibility:visible!important;pointer-events:auto!important;width:26px!important;min-width:26px!important;height:50px!important;min-height:50px!important;padding:0!important;border:0!important;background:#0646aa!important;color:#fff!important;box-shadow:0 2px 7px rgba(6,45,100,.18)!important}
   html body.type-index #content #okla-brands-v1 .okla-brands__shell>.okla-slider-controls>button svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 }
+
+/* phones: no arrows - the logos are swiped */
+@media(max-width:767px){
+  html body.type-index #content #okla-brands-v1 .okla-brands__shell>.okla-slider-controls:not(#okb-a#okb-b#okb-c#okb-d#okb-e#okb-f){display:none!important}
+}
