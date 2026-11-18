@@ -15,14 +15,15 @@
   sec.setAttribute('aria-label','Flipper ONE a LILYGO T-Embed');
   var grid=el('div','okla-campaign__grid');
 
-  /* Flipper ONE - teaser, not a sales link yet */
+  /* Flipper ONE */
   var cf=el('article','okla-campaign__card okla-campaign__card--flipper');
   var cfCopy=el('div','okla-campaign__flipper-copy');
   var cfBrand=el('h2','okla-campaign__brand');cfBrand.textContent='Flipper ONE';
   var cfKick=el('p','okla-campaign__kicker');
   cfKick.innerHTML='<span class="okla-campaign__kicker-hot">OPEN LINUX</span> <span class="okla-campaign__kicker-cool">· WI‑FI 6E · M.2</span>';
   var cfText=el('p','okla-campaign__text');cfText.innerHTML='Otevřený síťový multitool<br>pro vývojáře a nadšence.';
-  var cfCta=el('span','okla-campaign__cta okla-campaign__cta--soon');cfCta.textContent='PŘIPRAVUJEME';cfCta.setAttribute('aria-label','Flipper ONE připravujeme');
+  /* the shop sells it now: the button leads to its page */
+  var cfCta=el('a','okla-campaign__cta okla-campaign__cta--soon');cfCta.href='/flipper-one-otevreny-linuxovy-sitovy-multitool/';cfCta.textContent='Zjistit více';
   cfCopy.append(cfBrand,cfKick,cfText,cfCta);
   var cfStage=el('div','okla-campaign__flipper-stage');
   var cfImg=el('img','okla-campaign__flipper');cfImg.src=base+'v91/img/promo/flipper-one-official-og.webp';cfImg.alt='Flipper ONE';cfImg.loading='lazy';cfImg.draggable=false;cfImg.decoding='async';

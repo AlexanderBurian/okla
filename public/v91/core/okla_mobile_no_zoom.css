@@ -1,13 +1,13 @@
 /* iOS Safari and mobile Chromium zoom focused text controls below 16 px.
    Keep native page zoom available; only raise editable control typography.
-   The :not(#…#…#…) ID-boost makes 16px win over every other input font rule,
+   The :not(#…) ID-boost (18 ids: more than any other rule of the site) makes 16px win over every other input font rule,
    so typing never triggers a zoom anywhere on the site. */
 @media(max-width:991px){
- html body input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="range"]):not([type="color"]):not(#okla-nz-a#okla-nz-b#okla-nz-c),
- html body textarea:not(#okla-nz-a#okla-nz-b#okla-nz-c),
- html body select:not(#okla-nz-a#okla-nz-b#okla-nz-c),
- html body [contenteditable="true"]:not(#okla-nz-a#okla-nz-b#okla-nz-c),
- html body [contenteditable=""]:not(#okla-nz-a#okla-nz-b#okla-nz-c){
+ html body input:not([type="hidden"]):not([type="checkbox"]):not([type="radio"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="file"]):not([type="range"]):not([type="color"]):not(#okla-nz-a#okla-nz-b#okla-nz-c#okla-nz-d#okla-nz-e#okla-nz-f#okla-nz-g#okla-nz-h#okla-nz-i#okla-nz-j#okla-nz-k#okla-nz-l#okla-nz-m#okla-nz-n#okla-nz-o#okla-nz-p#okla-nz-q#okla-nz-r),
+ html body textarea:not(#okla-nz-a#okla-nz-b#okla-nz-c#okla-nz-d#okla-nz-e#okla-nz-f#okla-nz-g#okla-nz-h#okla-nz-i#okla-nz-j#okla-nz-k#okla-nz-l#okla-nz-m#okla-nz-n#okla-nz-o#okla-nz-p#okla-nz-q#okla-nz-r),
+ html body select:not(#okla-nz-a#okla-nz-b#okla-nz-c#okla-nz-d#okla-nz-e#okla-nz-f#okla-nz-g#okla-nz-h#okla-nz-i#okla-nz-j#okla-nz-k#okla-nz-l#okla-nz-m#okla-nz-n#okla-nz-o#okla-nz-p#okla-nz-q#okla-nz-r),
+ html body [contenteditable="true"]:not(#okla-nz-a#okla-nz-b#okla-nz-c#okla-nz-d#okla-nz-e#okla-nz-f#okla-nz-g#okla-nz-h#okla-nz-i#okla-nz-j#okla-nz-k#okla-nz-l#okla-nz-m#okla-nz-n#okla-nz-o#okla-nz-p#okla-nz-q#okla-nz-r),
+ html body [contenteditable=""]:not(#okla-nz-a#okla-nz-b#okla-nz-c#okla-nz-d#okla-nz-e#okla-nz-f#okla-nz-g#okla-nz-h#okla-nz-i#okla-nz-j#okla-nz-k#okla-nz-l#okla-nz-m#okla-nz-n#okla-nz-o#okla-nz-p#okla-nz-q#okla-nz-r){
   font-size:16px!important;
  }
 }

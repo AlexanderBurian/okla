@@ -1,0 +1,22 @@
+/* Phones: every product row (homepage, product page, cart suggestions built with the same slider) is a strip the finger
+   moves - two cards and the edge of the third, a light snap to the card, no arrows and no autoplay (okla_v53's slider
+   does not move it on phones). The brand row keeps its own rules (okla_home_brands.css). */
+@media(max-width:767px){
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-viewport{
+    display:block!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;
+    scroll-snap-type:x proximity!important;overscroll-behavior-x:contain!important;scrollbar-width:none!important;
+    width:100%!important;max-width:100%!important;margin:0!important;padding:2px 0 6px!important;touch-action:pan-x pan-y!important
+  }
+  html body #content .okla-slider-shell:not(.okla-brands__shell) .okla-slider-viewport::-webkit-scrollbar{display:none!important}
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track{
+    display:flex!important;flex-wrap:nowrap!important;gap:10px!important;grid-template-columns:none!important;
+    width:max-content!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important;
+    transform:none!important;transition:none!important
+  }
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track>.product{
+    flex:0 0 calc((100vw - 30px) / 2.18)!important;width:calc((100vw - 30px) / 2.18)!important;min-width:0!important;max-width:none!important;
+    margin:0!important;scroll-snap-align:start!important
+  }
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track>.product[data-okla-clone]{display:none!important}
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f)>.okla-slider-controls{display:none!important}
+}

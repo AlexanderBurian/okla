@@ -150,3 +150,49 @@ html body .okla-recap-card{display:contents}
   html body.in-kosik #content .okla-cart-summary__divider:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h){display:block!important;height:1px!important;margin:10px 0 12px!important;background:#e3e7ed!important}
   html body.in-kosik #content .okla-cart-summary__row--gross:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h){display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:12px!important;margin:0!important;padding:0!important}
 }
+
+/* phones: the three steps at the top as on PC - each with its icon and its name, joined by lines - and higher up
+   (right under the header, the same place in every step) */
+@media(max-width:767px){
+  html body.ordering-process #content-wrapper#content-wrapper ol.cart-header:not(#ocs-a#ocs-b#ocs-c#ocs-d){
+    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:0!important;
+    width:100%!important;min-height:0!important;margin:0 0 8px!important;padding:2px 0 10px!important;box-sizing:border-box!important
+  }
+  /* nothing above them: the same height in the cart and in steps 2 and 3 */
+  html body.ordering-process #content-wrapper#content-wrapper :is(.cart-content,#checkoutContent):has(ol.cart-header):not(#ocs-a#ocs-b#ocs-c#ocs-d){padding-top:0!important;margin-top:0!important}
+  html body.ordering-process #content-wrapper#content-wrapper ol.cart-header:not(#ocs-a#ocs-b#ocs-c#ocs-d)>li.step{
+    display:flex!important;align-items:center!important;flex:1 1 auto!important;justify-content:flex-start!important;min-width:0!important;min-height:0!important;
+    font-size:12.5px!important;line-height:1.2!important;white-space:nowrap!important
+  }
+  html body.ordering-process #content-wrapper#content-wrapper ol.cart-header:not(#ocs-a#ocs-b#ocs-c#ocs-d)>li.step:last-child{flex:0 0 auto!important}
+  html body.ordering-process #content-wrapper#content-wrapper ol.cart-header:not(#ocs-a#ocs-b#ocs-c#ocs-d)>li.step::before{flex:none!important;width:28px!important;height:28px!important;margin-right:6px!important}
+  html body.ordering-process #content-wrapper#content-wrapper ol.cart-header:not(#ocs-a#ocs-b#ocs-c#ocs-d)>li.step:not(:last-child)::after{
+    content:""!important;display:block!important;flex:1 1 auto!important;width:auto!important;min-width:10px!important;height:2px!important;margin:0 8px!important;background:#d7dde5!important
+  }
+  html body.ordering-process #content-wrapper#content-wrapper ol.cart-header:not(#ocs-a#ocs-b#ocs-c#ocs-d)>li.step>:is(a,strong){display:inline!important;width:auto!important;flex:none!important;padding:0!important}
+}
+
+/* phones: the cart and step 2 the same - no empty strip under the products, the total as plain lines (no box, no extra
+   lines around it), the button row alike in both steps (the same "Zpět" link, the button taking the rest of the row) */
+@media(max-width:767px){
+  html body.in-kosik #content-wrapper#content-wrapper .cart-content>.cart-summary:not(#ocs-a#ocs-b#ocs-c#ocs-d){min-height:0!important;padding:0!important;margin:0!important}
+  html body.in-kosik #content-wrapper#content-wrapper .okla-cart-summary:not(#ocs-a#ocs-b#ocs-c#ocs-d){margin-top:16px!important}
+  html body.ordering-process:not(.in-kosik) #content-wrapper#content-wrapper #checkoutSidebar:not(#ocs-a#ocs-b#ocs-c#ocs-d){padding:14px 0 0!important;border:0!important;box-shadow:none!important;background:#fff!important}
+  html body.ordering-process:not(.in-kosik) #content-wrapper#content-wrapper #checkoutSidebar .order-summary-item.price:not(#ocs-a#ocs-b#ocs-c#ocs-d){
+    display:flex!important;align-items:baseline!important;justify-content:space-between!important;margin:0!important;padding:0!important;
+    border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important
+  }
+  html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav:not(#ocs-a#ocs-b#ocs-c#ocs-d){margin:16px 0 0!important;padding:12px 0!important;border:0!important;border-top:1px solid #e3e7ed!important;box-shadow:none!important}
+  html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step:not(#ocs-a#ocs-b#ocs-c#ocs-d){display:flex!important;align-items:center!important;gap:16px!important;flex-wrap:nowrap!important}
+  html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step>.next-step-back:not(#ocs-a#ocs-b#ocs-c#ocs-d){
+    flex:none!important;display:inline-flex!important;align-items:center!important;gap:6px!important;width:auto!important;height:44px!important;margin:0!important;padding:0!important;
+    border:0!important;background:none!important;box-shadow:none!important;color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;
+    font:600 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:uppercase!important;letter-spacing:.02em!important
+  }
+  html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step>.next-step-back *:not(#ocs-a#ocs-b#ocs-c#ocs-d){font:inherit!important;text-transform:inherit!important;letter-spacing:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important}
+  html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step>:is(#continue-order-button,#orderFormButton,.btn-conversion):not(#ocs-a#ocs-b#ocs-c#ocs-d){flex:1 1 auto!important;width:auto!important;min-width:0!important;height:48px!important;margin:0!important}
+}
+@media(max-width:767px){
+  html body.ordering-process:not(.in-kosik) #content-wrapper#content-wrapper #checkoutSidebar .order-summary-item.price>:first-child:not(#ocs-a#ocs-b#ocs-c#ocs-d){color:#0b2540!important;font:700 15px/1.3 "Open Sans",Arial,sans-serif!important}
+  html body.ordering-process:not(.in-kosik) #content-wrapper#content-wrapper #checkoutSidebar .order-summary-item.price>:last-child:not(#ocs-a#ocs-b#ocs-c#ocs-d){color:#0859d8!important;font:800 22px/1.2 "Open Sans",Arial,sans-serif!important}
+}

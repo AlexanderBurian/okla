@@ -168,3 +168,6 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 @media(hover:none){
   #okla-cart-modal#okla-cart-modal .okla-cm__card-btn:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):not(:disabled):is(:hover,:focus-visible){background:#fff!important;border-color:#d9e4f9!important}
 }
+
+/* the cross scrolls with the content (okla_cart_modal.js puts it into the top part); no focus ring after a tap */
+#okla-cart-modal#okla-cart-modal .okla-cm__close:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):focus:not(:focus-visible){outline:none!important;box-shadow:none!important}

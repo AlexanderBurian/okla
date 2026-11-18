@@ -303,3 +303,20 @@ html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c){flex-direction:c
 html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.name{order:1!important}
 html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.ratings-wrapper{order:2!important;margin:6px 0 2px!important}
 html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.availability{order:3!important}
+
+/* Phones: the card's button is the same as on PC and in the "added to cart" panel - white, light blue edge, navy
+   "Do košíku" with the cart, centred under the price (no more green strip along the card's bottom). */
+@media(max-width:767px){
+ :root{--okla-card-btn-h:38px;--okla-card-btn-pad:0 14px;--okla-card-btn-fs:14px;--okla-card-btn-fw:700;--okla-card-btn-radius:6px;--okla-card-btn-icon:19px;--okla-card-btn-gap:8px;
+  --okla-card-btn-bg:#fff;--okla-card-btn-edge:#d9e4f9;--okla-card-btn-ink:#164194;--okla-card-btn-bg-hover:#fff}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p{padding-bottom:14px!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{height:auto!important;margin:10px 0 0!important;padding:0!important;text-align:center!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button),
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled),
+ html body #content#content .product:hover:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:hover),
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:disabled):is(:hover,:focus-visible,:active){
+  position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;top:auto!important;
+  display:inline-flex!important;width:auto!important;max-width:100%!important;margin:0 auto!important;
+  border:1px solid var(--okla-card-btn-edge)!important;
+ }
+}

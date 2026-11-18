@@ -321,6 +321,9 @@
           transform-origin: center;
           transition: transform .42s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .42s;
           will-change: transform;
+          /* opaque below its own edge too: nothing of the page ever shows under it (an iPhone keyboard moving the view) */
+          background: #fff;
+          box-shadow: 0 100vh 0 0 #fff;
         }
         .panel.open {
           opacity: 1;
@@ -406,3 +409,21 @@
 Moje odpov\u011Bdi mohou obsahovat chyby. Aktu\xE1ln\xED cenu, dostupnost a d\u016Fle\u017Eit\xE9 parametry si ov\u011B\u0159te na str\xE1nce produktu. Do chatu nepos\xEDlejte osobn\xED ani platebn\xED \xFAdaje.
 
 **S \u010D\xEDm v\xE1m mohu pomoci?**`,s=U(e);_(s,new Date),O.push({role:"assistant",content:e}),z.textContent=Tx.statusInfo,A()}S.addEventListener("click",()=>P(!v.classList.contains("open"))),pe.addEventListener("click",we),H.addEventListener("click",()=>{let e=v.classList.toggle("expanded");H.setAttribute("aria-pressed",String(e)),H.setAttribute("aria-label",e?Tx.shrink:Tx.expand),H.title=e?Tx.shrink:Tx.expand}),ue.addEventListener("click",()=>P(!1)),C.addEventListener("submit",e=>{e.preventDefault(),Q(b.value)}),b.addEventListener("input",()=>{q.disabled=E||!b.value.trim(),b.style.height="auto",b.style.height=`${Math.min(b.scrollHeight,72)}px`}),b.addEventListener("keydown",e=>{e.key==="Enter"&&!e.shiftKey&&(e.preventDefault(),C.requestSubmit())}),m.addEventListener("keydown",e=>{e.key==="Escape"&&v.classList.contains("open")&&P(!1)}),F=()=>{w+=1,I?.abort(),W.cancel(),k.hide(),L!==void 0&&clearTimeout(L),window.removeEventListener("scroll",y),T.removeEventListener("change",y)},xe()})();})();
+
+/* OKLA phones: the open chat always covers exactly the visible screen - with the iPhone keyboard up as well (the panel
+   follows the visual viewport) - and the page under it does not scroll */
+(function(){
+ var mq=matchMedia('(max-width:767px)'),locked=false,watched=null;
+ var st=document.createElement('style');st.textContent='html.okla-ai-lock,html.okla-ai-lock body{overflow:hidden!important;overscroll-behavior:none!important}';(document.head||document.documentElement).appendChild(st);
+ function panel(){var h=document.querySelector('okla-ai-chat');return h&&h.shadowRoot&&h.shadowRoot.querySelector('.panel')}
+ function fit(){
+  var p=panel();if(!p)return;
+  if(p!==watched){watched=p;new MutationObserver(fit).observe(p,{attributes:true,attributeFilter:['class']})}
+  var open=p.classList.contains('open')&&mq.matches,vv=window.visualViewport;
+  if(open&&vv){p.style.top=vv.offsetTop+'px';p.style.bottom='auto';p.style.height=vv.height+'px'}else{p.style.top='';p.style.bottom='';p.style.height=''}
+  if(open!==locked){locked=open;document.documentElement.classList.toggle('okla-ai-lock',open)}
+ }
+ if(window.visualViewport){visualViewport.addEventListener('resize',fit);visualViewport.addEventListener('scroll',fit)}
+ if(mq.addEventListener)mq.addEventListener('change',fit);
+ (function wait(n){if(panel())fit();else if(n<120)setTimeout(function(){wait(n+1)},500)})(0);
+})();

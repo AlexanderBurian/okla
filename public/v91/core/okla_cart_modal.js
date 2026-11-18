@@ -18,7 +18,7 @@
  function pathOf(url){try{return new URL(url,location.origin).pathname}catch(e){return ''}}
  function byUrlPath(href){var p=pathOf(href);if(!p)return null;var l=list();for(var i=0;i<l.length;i++)if(l[i].url&&pathOf(l[i].url)===p)return l[i];return null}
  function num(v){var n=Number(String(v==null?'':v).replace(/[^\d,.-]/g,'').replace(',','.'));return isFinite(n)?n:0}
- function money(n){n=Math.round(n);if(!(n>0))return '';return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+',-'}
+ function money(n){n=Math.round(n);if(!(n>0))return '';return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'} /* the same '589 Kč' as the product cards */
  function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
  var NS='http://www.w3.org/2000/svg';
  function icon(d,cls){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');if(cls)s.setAttribute('class',cls);var p=document.createElementNS(NS,'path');p.setAttribute('d',d);s.appendChild(p);return s}
@@ -63,7 +63,9 @@
   var go=el('a','okla-cm__btn okla-cm__btn--go');go.href='/kosik/';go.append(el('span','','Pokračovat do košíku'),icon(CHEVRON_R));
   foot.append(stay,go);
 
-  box.append(close,scroll,foot);
+  /* the cross belongs to the top of the content: it scrolls (and is pulled on a phone) together with it */
+  top.style.position='relative';top.appendChild(close);
+  box.append(scroll,foot);
   root.append(overlay,box);
   document.body.appendChild(root);
   overlay.addEventListener('click',hide);close.addEventListener('click',hide);stay.addEventListener('click',hide);
@@ -195,7 +197,8 @@
   quietNativePopups();
   refs.scroll.scrollTop=0;
   root.classList.add('is-open');root.setAttribute('aria-hidden','false');document.documentElement.classList.add('okla-cm-lock');
-  var c=root.querySelector('.okla-cm__close');if(c)c.focus({preventScroll:true});
+  /* focus for keyboards only: a tap-opened panel shows no ring around the cross */
+  var c=root.querySelector('.okla-cm__close');if(c)c.focus({preventScroll:true,focusVisible:false});
   /* the real amount in the cart (the product may have been there already) */
   if(main.url&&row._sync)cartLine(main).then(function(line){if(line&&state&&state.product===main)row._sync(line.amount)},function(){});
  }
