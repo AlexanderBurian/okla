@@ -1,5 +1,5 @@
 /* OKLA – "Doporučujeme přidat k nákupu": one unified cross-sell panel on chosen
-   product pages (29 of 45, see MAP). Each row has a "přidat"
+   product pages (see MAP). Each row has a "přidat"
    checkbox (like Alza): ticking it adds the companion product to the cart,
    unticking removes it again — both through Shoptet's own cart actions. A live
    footer sums what is selected. Products are real items the shop sells. */
@@ -18,20 +18,20 @@
  var MULTIMETR={pid:'175',prc:'178',name:'ANENG 616 digitální multimetr',note:'Napětí, proud a odpor při stavbě i opravách',price:589,href:'/aneng-616-digitalni-multimetr-6000-counts/',img:P('175-3_aneng-616-digitalni-multimetr-6000-counts---pohled-1.jpg','6af04772')};
  var PINZETA={pid:'169',prc:'172',name:'ANENG GN702 LCR pinzeta',note:'Rychlé měření SMD součástek',price:1089,href:'/aneng-gn702-lcr-merici-pinzeta/',img:P('169_aneng-gn702-lcr-merici-pinzeta---pohled-1.jpg','6af04771')};
  var IRTEPLOMER={pid:'172',prc:'175',name:'ANENG TH06 IR teploměr',note:'Bezkontaktní měření teploty povrchu',price:589,href:'/aneng-th06-bezkontaktni-ir-teplomer/',img:P('172-2_aneng-th06-bezkontaktni-ir-teplomer---pohled-1.jpg','6af04772')};
- var SROUBOVAK={pid:'235',prc:'238',name:'Elektrický přesný šroubovák 32v1',note:'Rozebrání elektroniky bez námahy',price:489,href:'/elektricky-presny-sroubovak-32v1-sedy/',img:P('235_elektricky-presny-sroubovak-32v1---sedy---pohled-1.jpg','6af04772')};
+ var SROUBOVAK={pid:'407',prc:'410',name:'QST EXPRESS posuvné měřítko 150 mm',note:'Přesné změření součástek, šroubů a dílů',price:189,href:'/qst-express-digitalni-posuvne-meritko-150-mm-z-kompozitu-s-uhlikovymi-vlakny/',img:''};
  var MIKROSKOP={pid:'208',prc:'211',name:'USB digitální mikroskop 50–1000×',note:'Kontrola pájení a drobných detailů',price:589,href:'/usb-digitalni-mikroskop-50-1000/',img:P('208_usb-digitalni-mikroskop-50-1000---pohled-1.jpg','6af04772')};
- var KOMPRESE={pid:'163',prc:'166',name:'Tester komprese motoru',note:'Stav válců u auta a motocyklu',price:389,href:'/tester-komprese-motoru-pro-auto-a-motocykl/',img:P('163_tester-komprese-motoru-pro-auto-a-motocykl---pohled-1.jpg','6af04771')};
+ var KOMPRESE={pid:'392',prc:'395',name:'Kingbolen Ediag OBD2 diagnostika',note:'Chybové kódy a diagnostika auta v telefonu',price:3789,href:'/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/',img:''};
  var ENDOSKOP={pid:'181',prc:'184',name:'B313 inspekční kamera 5 m',note:'Pohled do válců a míst bez přístupu',price:1289,href:'/b313-inspekcni-kamera-se-dvema-objektivy-5-m/',img:P('181_b313-inspekcni-kamera-se-dvema-objektivy-5-m---pohled-1.jpg','6af04772')};
  var TLOUSTKOMER={pid:'244',prc:'247',name:'Benetech GM200A tloušťkoměr laku',note:'Odhalí přelakované díly karoserie',price:489,href:'/benetech-gm200a-tloustkomer-laku/',img:P('244_benetech-gm200a-tloustkomer-laku---pohled-1.jpg','6af04774')};
  var VLHKOMER={pid:'256',prc:'259',name:'Benetech GM605 vlhkoměr',note:'Vlhkost dřeva a stavebních materiálů',price:389,href:'/benetech-gm605-vlhkomer-dreva-a-stavebnich-materialu/',img:P('256-4_benetech-gm605-vlhkomer-dreva-a-stavebnich-materialu---pohled-1.jpg','6af04771')};
- var TERMOKAMERA={pid:'220',prc:'223',name:'RX-350 termokamera',note:'Tepelné mosty a úniky tepla na první pohled',price:3989,href:'/rx-350-termokamera-320-240-px/',img:P('220_rx-350-termokamera-320--240-px---pohled-1.jpg','6af04771')};
+ var TERMOKAMERA={pid:'389',prc:'392',name:'ANENG TH104 IR teploměr',note:'Teplota povrchů s barevným displejem',price:489,href:'/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/',img:''};
  var DALKOMER={pid:'166',prc:'169',name:'ANENG B60 laserový dálkoměr',note:'Rychlé zaměření místností do 60 m',price:889,href:'/aneng-b60-laserovy-dalkomer-60-m/',img:P('166-3_aneng-b60-laserovy-dalkomer-60-m---pohled-1.jpg','6af04771')};
  var HLUKOMER={pid:'247',prc:'250',name:'Benetech GM1351 hlukoměr',note:'Hladina hluku v dB',price:389,href:'/benetech-gm1351-digitalni-hlukomer/',img:P('247-6_benetech-gm1351-digitalni-hlukomer---pohled-1.jpg','6af04774')};
  var LUXMETR={pid:'250',prc:'253',name:'Benetech GM1010 luxmetr',note:'Intenzita osvětlení pracoviště',price:389,href:'/benetech-gm1010-digitalni-luxmetr/',img:P('250-5_benetech-gm1010-digitalni-luxmetr---pohled-1.jpg','6af04771')};
  var TESTERVODY={pid:'193',prc:'196',name:'MF-X41 tester kvality vody 4v1',note:'TDS, EC, salinita a teplota vody',price:589,href:'/mf-x41-tester-kvality-vody-4v1/',img:P('193_mf-x41-tester-kvality-vody-4v1---pohled-1.jpg','6af04771')};
  var PHMETR={pid:'202',prc:'205',name:'PH-04L digitální pH metr',note:'Kyselost vody, bazénu i akvária',price:290,href:'/ph-04l-digitalni-ph-metr/',img:P('202_ph-04l-digitalni-ph-metr---pohled-1.jpg','6af04771')};
- var SLUCHATKA={pid:'232',prc:'235',name:'A18 překladová sluchátka',note:'Překlad rozhovoru přímo do uší',price:589,href:'/a18-prekladova-bluetooth-sluchatka/',img:P('232_a18-prekladova-bluetooth-sluchatka---pohled-1.jpg','6af04772')};
- var DIKTAFON={pid:'229',prc:'232',name:'Q61A AI diktafon s přepisem',note:'Nahrávání a přepis schůzek',price:1189,href:'/q61a-ai-diktafon-s-prepisem-8-gb/',img:P('229-3_q61a-ai-diktafon-s-prepisem---8-gb---pohled-1.jpg','6af04771')};
+ var SLUCHATKA={pid:'226',prc:'229',name:'A2 chytré brýle s kamerou a AI překladem',note:'Překlad a kamera přímo v brýlích',price:2089,href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/',img:''};
+ var DIKTAFON={pid:'205',prc:'208',name:'X18 kapesní termotiskárna',note:'Tisk poznámek a štítků z telefonu',price:389,href:'/x18-kapesni-termotiskarna-bila/',img:''};
  var BRYLE={pid:'238',prc:'241',name:'F62 překladové chytré brýle',note:'Hudba, hovory a překlad v brýlích',price:589,href:'/f62-prekladove-chytre-bryle-cerne/',img:P('238_f62-prekladove-chytre-bryle---cerne---pohled-1.jpg','6af04772')};
 
  /* Only pairings that make sense together: electronics bench, car check-up,
@@ -48,24 +48,19 @@
   '/aneng-gn702-lcr-merici-pinzeta/':[MULTIMETR,MIKROSKOP,SROUBOVAK],
   '/aneng-aos03-osciloskopicky-multimetr/':[PINZETA,MIKROSKOP,SROUBOVAK],
   '/usb-digitalni-mikroskop-50-1000/':[PINZETA,SROUBOVAK,MULTIMETR],
-  '/elektricky-presny-sroubovak-32v1-sedy/':[MIKROSKOP,MULTIMETR,PINZETA],
-  '/tester-komprese-motoru-pro-auto-a-motocykl/':[ENDOSKOP,IRTEPLOMER,MULTIMETR],
   '/b313-inspekcni-kamera-se-dvema-objektivy-5-m/':[KOMPRESE,TLOUSTKOMER,IRTEPLOMER],
   '/p80-prumyslovy-endoskop-4-3-5-m/':[KOMPRESE,TLOUSTKOMER,IRTEPLOMER],
   '/f220-wi-fi-endoskop-5-5-mm-5-m/':[KOMPRESE,TLOUSTKOMER,IRTEPLOMER],
   '/nk-5001-pro-3v1-endoskop-5-5-mm/':[KOMPRESE,TLOUSTKOMER,IRTEPLOMER],
   '/benetech-gm200a-tloustkomer-laku/':[ENDOSKOP,KOMPRESE,MULTIMETR],
-  '/rx-350-termokamera-320-240-px/':[VLHKOMER,IRTEPLOMER,DALKOMER],
   '/benetech-gm620-vlhkomer-s-externi-sondou/':[TERMOKAMERA,IRTEPLOMER,DALKOMER],
   '/benetech-gm1351-digitalni-hlukomer/':[LUXMETR,IRTEPLOMER],
   '/tasi-ta8151-digitalni-hlukomer/':[LUXMETR,IRTEPLOMER],
   '/benetech-gm1010-digitalni-luxmetr/':[HLUKOMER,IRTEPLOMER],
   '/mf-x41-tester-kvality-vody-4v1/':[PHMETR,IRTEPLOMER],
   '/ph-04l-digitalni-ph-metr/':[TESTERVODY,IRTEPLOMER],
-  '/a2-chytre-bryle-s-kamerou-a-ai-prekladem/':[SLUCHATKA,DIKTAFON],
-  '/f62-prekladove-chytre-bryle-cerne/':[SLUCHATKA,DIKTAFON],
-  '/a18-prekladova-bluetooth-sluchatka/':[DIKTAFON,BRYLE],
-  '/q61a-ai-diktafon-s-prepisem-8-gb/':[SLUCHATKA,BRYLE]
+  '/a2-chytre-bryle-s-kamerou-a-ai-prekladem/':[BRYLE,DIKTAFON],
+  '/f62-prekladove-chytre-bryle-cerne/':[SLUCHATKA,DIKTAFON]
  };
  function here(){var p=location.pathname;if(p.charAt(p.length-1)!=='/')p+='/';return p}
  function items(){return MAP[here()]||null}

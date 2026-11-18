@@ -95,7 +95,30 @@
    .catch(function(){return 0;});   /* network/abort -> unknown, do nothing */
  }
 
+ /* Products of the old range that articles still link to: the link goes to the current product of the same kind;
+    the ones without a successor are known to be gone (made plain text without asking the server). */
+ var MOVED={
+  '/laserovy-dalkomer-rychle-digitalni-mereni/':'/aneng-b60-laserovy-dalkomer-60-m/',
+  '/digitalni-tloustkomer-presne-mereni-materialu/':'/hw-300-digitalni-tloustkomer-laku-a-povlaku-0-2000-m-fe-nfe/',
+  '/ai-chytre-bryle-wai4-bezdratova-elektronika/':'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/',
+  '/usb-c-tester-digitalni-meric-napajeni/':'/fnirsi-fnb58-usb-tester-rychleho-nabijeni/',
+  '/kapesni-digitalni-osciloskop-mereni-signalu/':'/fnirsi-2c23t-osciloskop-multimetr-a-generator-3v1/',
+  '/wi-fi-endoskopicka-kamera-bezdratova-inspekce/':'/f220-wi-fi-endoskop-5-5-mm-5-m/',
+  '/usb-c-endoskopicka-kamera-inspekce-tezko-dostupnych-mist/':'/nk-5001-pro-3v1-endoskop-5-5-mm/',
+  '/usb-digitalni-mikroskop-detaily-na-displeji/':'/hm020-digitalni-mikroskop-s-2-displejem/'
+ };
+ var GONE={'/digitalni-kapesni-vaha-presnost-zobrazeni-0-01-g/':1,'/nfc-karta-pro-google-recenze-priloz-a-ohodnot/':1,'/r99-chytry-prsten/':1,'/usb-c-pajecka-kompaktni-pajeci-nastroj/':1};
+ function remap(){
+  document.querySelectorAll('a[href]').forEach(function(a){
+   var u;try{u=new URL(a.getAttribute('href'),location.href);}catch(e){return;}
+   if(u.origin!==location.origin)return;
+   if(MOVED[u.pathname]){a.setAttribute('href',MOVED[u.pathname]);return;}
+   if(GONE[u.pathname]){cache[u.origin+u.pathname]=404;}
+  });
+ }
+
  function run(){
+  remap();
   var list=candidates().slice(0,MAX_CHECKS);
   var i=0;
   function worker(){

@@ -92,6 +92,8 @@ html body .oka-biz__list svg{width:22px;height:22px;flex:none;margin-top:1px;fil
 
 /* ---------------- MAP ---------------- */
 html body .oka-map .oka-wrap{text-align:center}
+/* the map's place is kept while its outline loads (the page no longer jumps when it appears) */
+html body #okla-about-map:not(.is-fallback){aspect-ratio:1000/740}
 html body .oka-map__head{max-width:720px;margin:0 auto 32px}
 html body .oka-map__head p{margin-top:16px;font-size:16px;line-height:1.7;color:var(--mut)}
 html body #okla-about-map{width:100%;max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center}

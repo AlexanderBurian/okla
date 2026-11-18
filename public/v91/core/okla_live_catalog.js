@@ -74,7 +74,8 @@
     if(it.available!=null)existing.available=it.available;
     /* confirmed on the shop now, with its cart ids */
     existing.live=true;if(it.pid)existing.pid=it.pid;if(it.prc)existing.prc=it.prc;
-    if(!existing.image&&it.image)existing.image=it.image;
+    /* the listing's picture is the current one (a renamed or replaced photo); OKLA's own product pictures stay */
+    if(it.image&&!/\/v91\/img\/products\//.test(existing.image||''))existing.image=it.image;
    }else{
     it.related=(byCat[it.defaultCategory]||[]).filter(function(c){return c!==it.code}).slice(0,6);
     cat[it.code]=it;

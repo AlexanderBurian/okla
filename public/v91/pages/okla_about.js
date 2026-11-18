@@ -48,7 +48,7 @@
  /* STATS */
  '<div class="oka-stats"><div class="oka-wrap">'+
    stat('icon-founded.webp','2019','Rok založení')+
-   stat('icon-products.webp','33','Produktů v nabídce')+
+   stat('icon-products.webp',String(Object.keys(window.OKLA_V86_CATALOG||{}).length||61),'Produktů v nabídce')+
    stat('icon-countries.webp','3','Země doručení')+
    stat('icon-express.webp','24 h','Expedice ze skladu')+
  '</div></div>'+
