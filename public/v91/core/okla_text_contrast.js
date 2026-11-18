@@ -24,7 +24,7 @@
     deliberate light "CENA" slider label exactly as they are. */
  function skip(e){
   return e.closest('input,textarea,select,option,button,.btn,.unveil-button,[contenteditable],svg,'
-   +'okla-ai-chat,#okla-cart-modal,#okla-cart-preview,.slider-wrapper h4,[class*="placeholder"],'
+   +'okla-ai-chat,#okla-cart-modal,#okla-cart-preview,#okla-v61-bottom,.slider-wrapper h4,[class*="placeholder"],'
    /* subcategories (sidebar, tiles, header panel) have their own colours */
    +'#categories .categories>ul,ul.subcategories,.okcb-panel')!=null;
  }

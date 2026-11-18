@@ -64,3 +64,38 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',retry,{once:true});else retry();
  window.addEventListener('load',mount,{once:true});
 })();
+
+/* Phones: the brand row has no end - the logos are there three times and, once the finger lets go, the row is moved by
+   one whole set when it gets near either end (the same logos are under the finger, so the jump cannot be seen). */
+(function(){
+ 'use strict';
+ var phone=matchMedia('(max-width:767px)');
+ function endless(){
+  var box=document.getElementById('okla-brands-v1');
+  var viewport=box&&box.querySelector('.okla-brands__viewport'),track=box&&box.querySelector('.okla-brands__track');
+  if(!viewport||!track)return false;
+  if(track.dataset.oklaEndless)return true;
+  if(!phone.matches)return true;
+  var items=[].slice.call(track.querySelectorAll(':scope>.okla-brands__item:not([data-okla-copy])'));
+  if(items.length<3)return true;
+  track.dataset.oklaEndless='1';
+  function copy(it){var c=it.cloneNode(true);c.setAttribute('data-okla-copy','1');c.setAttribute('aria-hidden','true');c.tabIndex=-1;return c}
+  items.forEach(function(it){track.appendChild(copy(it))});
+  items.slice().reverse().forEach(function(it){track.insertBefore(copy(it),track.firstChild)});
+  function setWidth(){return items[0].offsetLeft-track.firstElementChild.offsetLeft}
+  var w=0;
+  function centre(){w=setWidth();if(w>0)viewport.scrollLeft=w}
+  requestAnimationFrame(centre);
+  var t=0;
+  function settle(){
+   if(!w)w=setWidth();if(!w)return;
+   var x=viewport.scrollLeft;
+   if(x<w*0.5)viewport.scrollLeft=x+w;else if(x>w*1.5)viewport.scrollLeft=x-w;
+  }
+  viewport.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(settle,140)},{passive:true});
+  if('onscrollend' in window)viewport.addEventListener('scrollend',settle);
+  addEventListener('resize',function(){w=0},{passive:true});
+  return true;
+ }
+ var n=0;(function wait(){if(endless())return;if(++n<80)setTimeout(wait,150)})();
+})();

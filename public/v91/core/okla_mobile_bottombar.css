@@ -1,0 +1,48 @@
+/* Phones: the bottom bar as five even tabs - icon with its name under it. The current tab is OKLA blue with a short
+   blue line along the bar's top edge above it; the cart's count is a small blue badge on its icon. White, one hairline
+   on top, no shadow; the same items, links and panels as before (okla_mobile_tabbar.js). Replaces the round buttons
+   with the sliding pill (okla_mobile_pillbar.css). */
+@media(max-width:767px){
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h){
+    position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;z-index:1000!important;
+    display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;align-items:stretch!important;gap:0!important;
+    width:100%!important;height:calc(58px + env(safe-area-inset-bottom,0px))!important;min-height:0!important;max-height:none!important;
+    margin:0!important;padding:0 4px env(safe-area-inset-bottom,0px)!important;box-sizing:border-box!important;
+    border:0!important;border-top:1px solid #e3e8ef!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;overflow:visible!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okla-tb-bg{display:none!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action,
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action:is(:hover,:focus,:active,.is-active){
+    position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;
+    width:auto!important;min-width:0!important;height:58px!important;min-height:0!important;margin:0!important;padding:0!important;
+    border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;transform:none!important;
+    color:#5b6779!important;-webkit-text-fill-color:#5b6779!important;text-decoration:none!important;cursor:pointer!important;
+    -webkit-tap-highlight-color:transparent!important;outline:none!important;transition:color .15s ease!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action::before,
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action::after{content:none!important;display:none!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action>svg{
+    display:block!important;flex:none!important;width:24px!important;height:24px!important;margin:0!important;padding:0!important;
+    background:none!important;border-radius:0!important;color:inherit!important;stroke:currentColor!important;transform:none!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action>span{
+    display:block!important;position:static!important;max-width:100%!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;
+    overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;opacity:1!important;visibility:visible!important;clip:auto!important;clip-path:none!important;
+    color:inherit!important;-webkit-text-fill-color:currentColor!important;font:600 11px/1.15 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;transform:none!important
+  }
+  /* the current tab */
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action.is-active{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action.is-active>span{font-weight:700!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action.is-active::after{
+    content:""!important;display:block!important;position:absolute!important;top:-1px!important;left:50%!important;width:28px!important;height:3px!important;
+    margin-left:-14px!important;border-radius:0 0 3px 3px!important;background:#0859d8!important
+  }
+  /* the cart's count */
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action>.okla-tb-count{
+    position:absolute!important;top:5px!important;left:calc(50% + 5px)!important;right:auto!important;bottom:auto!important;
+    display:block!important;min-width:18px!important;height:18px!important;margin:0!important;padding:0 5px!important;box-sizing:border-box!important;
+    border:2px solid #fff!important;border-radius:9px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
+    font:700 10px/14px "Open Sans",Arial,sans-serif!important;text-align:center!important;transform:none!important;box-shadow:none!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action>.okla-tb-count[hidden]{display:none!important}
+}

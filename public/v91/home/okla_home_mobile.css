@@ -1,0 +1,35 @@
+/* Homepage on phones:
+   - the page white (the top - header, search, banner, categories - pure white);
+   - "Novinky" as one row the finger moves (a card and the edge of the next), on the 10 px rail;
+   - "2 roky záruka" as a light blue band across the whole screen, its text and button on the 10 px rail;
+   - the banner's text a little more to the left, the gift a little more to the right. */
+@media(max-width:767px){
+  html body.type-index:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background-color:#fff!important}
+
+  /* Novinky: one row */
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-grid{
+    display:flex!important;flex-wrap:nowrap!important;gap:12px!important;grid-template-columns:none!important;
+    width:auto!important;margin:0 -10px!important;padding:0 10px 6px!important;scroll-padding:0 10px!important;
+    overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;scroll-snap-type:x proximity!important;
+    overscroll-behavior-x:contain!important;scrollbar-width:none!important
+  }
+  html body.type-index #content #okla-news-v55 .okn-grid::-webkit-scrollbar{display:none!important}
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-card{flex:0 0 78%!important;width:78%!important;min-width:0!important;margin:0!important;scroll-snap-align:start!important}
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-body{padding-left:0!important;padding-right:0!important}
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-desc{display:none!important}
+  /* the section itself on the rail (its own side padding gone); the heading where the other section headings are */
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){padding-left:0!important;padding-right:0!important}
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-head{padding-left:10px!important;padding-right:10px!important;margin-left:0!important}
+  html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-heading{padding:0!important;margin-left:0!important}
+
+  /* 2 roky záruka: a band across the screen */
+  html body.type-index #content #okla-warranty:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){
+    width:auto!important;max-width:none!important;margin-left:-10px!important;margin-right:-10px!important;padding:26px 10px!important;
+    border-radius:0!important;box-sizing:border-box!important
+  }
+  html body.type-index #content #okla-warranty:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okla-warranty-inner{padding-left:0!important;padding-right:0!important;margin:0!important;max-width:none!important}
+
+  /* the banner */
+  html body.type-index #content .okla-hero:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okla-hero__slide--storewide .okla-hero__text{padding-left:4%!important}
+  html body.type-index #content#content .banners-row #carousel .okla-hero:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okla-hero__slide--storewide img.okla-hero__gift{right:-6%!important}
+}
