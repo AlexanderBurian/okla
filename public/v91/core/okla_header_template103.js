@@ -33,7 +33,7 @@
       '.chev{display:block;flex:none;width:12px;height:8px;margin-left:3px;color:#8593a6;transition:transform .2s ease}' +
       '</style>',
     cart: '<style>:host{display:block}' +
-      '.face{display:flex;align-items:center;gap:12px;height:48px;padding:0 18px 0 15px;border-radius:12px;background:var(--okla-face-bg,#0859d8);transition:background-color .16s ease;color:#fff;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased;box-shadow:0 6px 16px -8px rgba(8,89,216,.75)}' +
+      '.face{display:flex;align-items:center;gap:17px;height:48px;padding:0 18px 0 15px;border-radius:12px;background:var(--okla-face-bg,#0859d8);transition:background-color .16s ease;color:#fff;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased;box-shadow:0 6px 16px -8px rgba(8,89,216,.75)}' +
       '.icon{position:relative;flex:none;width:24px;height:24px}' +
       '.icon svg{display:block;width:24px;height:24px}' +
       '.count{position:absolute;top:-9px;right:-11px;min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:10px;background:#fff;color:#0859d8;box-shadow:0 0 0 2px var(--okla-face-bg,#0859d8);font:800 11.5px/20px ' + FONT + ';text-align:center;transition:box-shadow .16s ease}' +

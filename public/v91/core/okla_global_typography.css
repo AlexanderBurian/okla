@@ -25,8 +25,21 @@ html body :is(input,textarea,select,button)::placeholder{
 }
 /* Sections whose styles live in the shop's own HTML (the homepage "Novinky" block, the warranty box) name the old
    typeface with ID selectors - they get Open Sans too. */
-html body #content#content#content :is([class^="okn-"],[class*=" okn-"],[class^="okla-warranty"],[class*=" okla-warranty"]),
-html body #content#content#content :is([class^="okn-"],[class*=" okn-"],[class^="okla-warranty"],[class*=" okla-warranty"]) *:not(svg){
+/* (the blocks named one by one by their id / class - an attribute test such as [class*=" okn-"] in front of "*" made the
+   browser look at every ancestor of every element of the page at each restyle) */
+html body #content#content#content .okn-grid,
+html body #content#content#content .okn-card,
+html body #content#content#content .okn-heading,
+html body #content#content#content #okla-warranty,
+html body #content#content#content #okla-warranty-strip,
+html body #content#content#content .okla-warranty-strip,
+html body #content#content#content #okla-news-v55 *:not(svg),
+html body #content#content#content .okn-grid *:not(svg),
+html body #content#content#content .okn-card *:not(svg),
+html body #content#content#content .okn-heading *:not(svg),
+html body #content#content#content #okla-warranty *:not(svg),
+html body #content#content#content #okla-warranty-strip *:not(svg),
+html body #content#content#content .okla-warranty-strip *:not(svg){
   font-family:'Open Sans',Arial,sans-serif!important;
 }
 /* Explicitly counter old, more-specific Roboto / Segoe declarations. */

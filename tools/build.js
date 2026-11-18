@@ -132,7 +132,40 @@ function dummy(s){ /* a selector with specificity s that matches nothing */
  if(!s[2]&&!d)return '';
  return d;
 }
-let bucketStats={rules:0,selectors:0};
+/* "html body :is(#form .btn, .bar__btn):not(#x)" - arguments with combinators inside cannot be filed under their class
+   (a :where() holding "#form .btn" is still tried on every element). Right after "html body" the :is() can be written
+   out: "html body :where(#form) :where(.btn):is(*,D):not(#x), html body :where(.bar__btn):is(*,D):not(#x)". Every
+   element of the page is inside html and body, so "html body #form .btn" matches the same elements as
+   "html body :is(#form .btn)"; each compound in :where() adds no specificity and :is(*,D) adds that of the original
+   :is(), so the cascade is unchanged. Only when the part before :is() is html and body alone. */
+const HTMLBODY=/^html(?:[.#:\[][^\s>+~]*)?\s+body(?:[.#:\[][^\s>+~]*)?\s+$/;
+function compounds(sel){ /* "a b>c" -> ['a',' ','b','>','c'] */
+ const cut=topSplit(sel,ch=>ch===' '||ch==='>'||ch==='+'||ch==='~');
+ const out=[];let a=0;
+ for(let k=0;k<cut.length;k++){const i=cut[k];
+  if(i>a)out.push(sel.slice(a,i));
+  let comb=sel[i];
+  while(k+1<cut.length&&cut[k+1]===cut[k]+1){k++;if(sel[cut[k]]!==' ')comb=sel[cut[k]]}
+  if(out.length&&!/^[ >+~]$/.test(out[out.length-1]))out.push(comb);else if(out.length&&comb!==' ')out[out.length-1]=comb;
+  a=cut[k]+1;
+ }
+ out.push(sel.slice(a));
+ return out.filter(x=>x!=='');
+}
+function inlineIs(sel){
+ const m=/:is\(/i.exec(sel);if(!m)return null;
+ const pre=sel.slice(0,m.index);if(!HTMLBODY.test(pre))return null;
+ const open=m.index+3,close=closeParen(sel,open);if(close<0)return null;
+ const args=splitList(sel.slice(open+1,close)).filter(Boolean);
+ if(args.length<2||args.some(x=>/::|:(before|after)\b/i.test(x)))return null;
+ if(!args.some(x=>topSplit(x,ch=>ch===' '||ch==='>'||ch==='+'||ch==='~').length))return null; /* compounds only: bucketSelector's case */
+ const pad=dummy(maxSpec(args.map(spec))),rest=sel.slice(close+1);
+ return args.map(x=>{
+  const parts=compounds(x).map(p=>/^[ >+~]$/.test(p)?p:':where('+p+')');
+  return pre+parts.join('')+(pad?':is(*,'+pad+')':'')+rest;
+ });
+}
+let bucketStats={rules:0,selectors:0,inlined:0};
 function bucketSelector(sel){
  const comb=topSplit(sel,ch=>ch===' '||ch==='>'||ch==='+'||ch==='~');
  const start=comb.length?comb[comb.length-1]+1:0;
@@ -147,7 +180,10 @@ function bucketSelector(sel){
  if(args.some(x=>/::|:(before|after)\b/i.test(x)))return null;
  const pre=sel.slice(0,start),rest=sel.slice(close+1);
  const pad=m[1].toLowerCase()==='is'?dummy(maxSpec(args.map(spec))):'';
- return args.map(x=>pre+':where('+x+')'+(pad?':is(*,'+pad+')':'')+rest);
+ /* an argument with combinators inside ("B C"): :where(C) after it (the same element must match C anyway, and :where()
+    adds no specificity) lets the browser file the rule under C's class / id / tag */
+ const tail=x=>{const c=compounds(x);return c.length>1?':where('+c[c.length-1]+')':''};
+ return args.map(x=>pre+':where('+x+')'+tail(x)+(pad?':is(*,'+pad+')':'')+rest);
 }
 function bucketCss(css){
  /* walk the (minified) stylesheet; preludes of style rules are rewritten, at-rules and @keyframes steps are left alone */
@@ -164,7 +200,10 @@ function bucketCss(css){
    else if(stack.length&&stack[stack.length-1]==='keyframes')kind='step';
    if(kind==='style'){
     const parts=splitList(t);let changed=false;const outParts=[];
-    for(const p of parts){const r=bucketSelector(p);if(r){changed=true;bucketStats.selectors++;outParts.push(...r)}else outParts.push(p)}
+    for(const p0 of parts){
+     const inl=inlineIs(p0);if(inl){changed=true;bucketStats.inlined++}
+     for(const p of inl||[p0]){const r=bucketSelector(p);if(r){changed=true;bucketStats.selectors++;outParts.push(...r)}else outParts.push(p)}
+    }
     if(changed){bucketStats.rules++;out+=css.slice(start,i).replace(t,outParts.join(','))}else out+=prelude;
    }else out+=prelude;
    out+='{';stack.push(kind);start=i+1;continue}
@@ -211,4 +250,4 @@ for(const [name,,files] of table){
 }
 /* bundles no longer in the table */
 for(const f of fs.readdirSync(DIST))if(!keep.has(f))fs.unlinkSync(path.join(DIST,f));
-console.log('fast-filed selectors: '+bucketStats.selectors+' in '+bucketStats.rules+' rules');console.log(table.length+' bundles, '+keep.size+' files in public/dist: '+Math.round(total.src/1024)+' kB of sources -> '+Math.round(total.out/1024)+' kB');
+console.log('fast-filed selectors: '+bucketStats.selectors+' in '+bucketStats.rules+' rules; written-out :is(): '+bucketStats.inlined);console.log(table.length+' bundles, '+keep.size+' files in public/dist: '+Math.round(total.src/1024)+' kB of sources -> '+Math.round(total.out/1024)+' kB');
