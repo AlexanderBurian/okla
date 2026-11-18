@@ -46,7 +46,8 @@ html body .oka-link svg{width:17px;height:17px;fill:none;stroke:currentColor;str
 /* ---------------- HERO (full-bleed image, text overlaid left) ---------------- */
 /* Natural-size, full-width hero: image itself determines height. Never stretch or crop. */
 html body .oka-hero{position:relative!important;overflow:hidden;color:#fff;width:100%;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:auto!important;display:block!important}
-html body .oka-hero__img{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:none!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center;display:block!important;z-index:0}
+/* the photo's shape is known before it loads (1619 x 971), so the figures below it no longer jump down on phones */
+html body .oka-hero__img{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:none!important;aspect-ratio:auto 1619/971!important;object-fit:contain!important;object-position:center;display:block!important;z-index:0}
 html body .oka-hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(8,20,52,.84) 0%,rgba(8,20,52,.6) 30%,rgba(8,20,52,.22) 55%,rgba(8,20,52,0) 78%)}
 html body .oka-hero .oka-wrap{position:absolute;left:0;right:0;top:0;bottom:0;max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;z-index:2}
 html body .oka-hero__text{max-width:600px;text-align:left}
