@@ -108,7 +108,7 @@ html body .okla-recap-card{display:contents}
   html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}
   html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}
   /* every step white all the way down, like the cart (no grey page between and around the blocks, no grey recap) */
-  html:has(body.ordering-process),html body.ordering-process,
+  html:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h):has(body.ordering-process),html body.ordering-process,
   html body.ordering-process :is(.overall-wrapper,#content-wrapper,.content-wrapper-in,main#content,.content-inner,.cart-inner,.cart-row,.col-md-8,.cart-content):not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f){background:#fff!important;background-image:none!important;box-shadow:none!important}
   html body.ordering-process:not(.in-kosik) #content #checkoutSidebar:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){background:#fff!important;background-image:none!important;border:0!important;border-top:1px solid #e3e7ed!important;box-shadow:none!important}
   html body.ordering-process:not(.in-kosik) #content .okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){background:#fff!important}
