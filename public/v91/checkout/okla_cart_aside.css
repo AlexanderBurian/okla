@@ -141,4 +141,5 @@ html body .okla-recap-card{display:contents}
   html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>span:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h){color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 14px/1.4 "Open Sans",Arial,sans-serif!important;padding:0!important}
   html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>.okla-cart-summary__val:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important}
   html body.in-kosik #content .okla-cart-summary__divider:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h){display:block!important;height:1px!important;margin:10px 0 12px!important;background:#e3e7ed!important}
+  html body.in-kosik #content .okla-cart-summary__row--gross:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h){display:flex!important;align-items:baseline!important;justify-content:space-between!important;gap:12px!important;margin:0!important;padding:0!important}
 }
