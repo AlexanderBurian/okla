@@ -114,3 +114,9 @@
   html:not(#okla-mg-a#okla-mg-b#okla-mg-c#okla-mg-d#okla-mg-e#okla-mg-f){background:#eaf4fd!important;background-image:none!important}
   html body:not(#okla-mg-a){background-color:#fff!important}
 }
+
+/* EXPERIMENT (2026-11-18): no page-top gradient on phones - every page starts plain white. The gradient above and the
+   pages that use it (menu, panels: var(--okla-mg)) stay as they are; delete this block to bring it back. */
+@media(max-width:767px){
+  html:root{--okla-mg:none}
+}
