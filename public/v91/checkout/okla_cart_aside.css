@@ -107,6 +107,8 @@ html body .okla-recap-card{display:contents}
   html body.ordering-process #content#content .okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){border-radius:0!important}
   html body.in-kosik #content#content .cart-inner>.okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}
   html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}
+  /* steps 2 and 3: the button row on the same lines ("Zpět" and "Pokračovat" no longer touch the screen edges) */
+  html body.ordering-process:not(.in-kosik) #content#content .okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
 
   /* the summary block: a little air above it */
   html body.in-kosik #content .okla-cart-summary:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f){margin-top:18px!important;padding:0!important}
