@@ -777,3 +777,6 @@ html body {padding-bottom:calc(58px + env(safe-area-inset-bottom,0px))!important
   
 }
 
+
+/* All devices: the site's pictures cannot be dragged out of the page (okla_behavior.js stops it in every browser) */
+html body img{-webkit-user-drag:none;user-drag:none}

@@ -604,3 +604,14 @@ warranty:document.querySelectorAll('#okla-warranty-strip').length,
 expanded:shells.filter(x=>x.classList.contains('okm61-expanded')).length,news:document.querySelectorAll('#okla-news-v55').length};
 };
 })();
+
+/* OKLA: pictures of the site are not dragged out of the page (a ghost copy of the banner, the hand with the phone, a
+   product photo followed the mouse). Every picture, and a link wrapping a picture, refuses the drag; text links and
+   form fields drag as before. okla_mobile_unified.css switches the browser's own picture drag off as well. */
+(function(){
+ if(window.__oklaNoImageDrag)return;window.__oklaNoImageDrag=true;
+ document.addEventListener('dragstart',function(e){
+  var t=e.target;if(!t||t.nodeType!==1)return;
+  if(t.tagName==='IMG'||t.tagName==='svg'||t.tagName==='PICTURE'||(t.tagName==='A'&&t.querySelector('img,picture,svg'))){e.preventDefault()}
+ },true);
+})();
