@@ -179,7 +179,14 @@ function pageAnswer(page: KnowledgeItem, question: string): string {
 }
 
 function productAnswer(item: KnowledgeItem): string {
-  const lines = sentences(item.content).slice(0, 4);
+  /* each sentence once, never the product's bare name (the short description and the description repeat each other) */
+  const seen = new Set<string>([normalize(item.title)]);
+  const lines = sentences(item.content).filter((line) => {
+    const key = normalize(line);
+    if (seen.has(key) || [...seen].some((s) => s.length > 20 && (key.includes(s) || s.includes(key)))) return false;
+    seen.add(key);
+    return true;
+  }).slice(0, 4);
   const facts = [priceOf(item), item.inStock === undefined ? undefined : item.inStock ? "skladem" : "momentálně není skladem"].filter(Boolean).join(", ");
   const [lead, ...rest] = lines;
   return `${lead ?? item.title}${rest.length ? `\n\n${rest.map((l, i) => `${i + 1}. ${l}`).join("\n")}` : ""}\n\nNajdete ho na ${link(item)}${facts ? ` (${facts})` : ""}.`;
