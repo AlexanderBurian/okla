@@ -156,3 +156,22 @@
   html body:not(#okla-tb-a#okla-tb-b#okla-tb-c) .container.breadcrumbs-wrapper{padding-left:14px!important;padding-right:14px!important}
   html body:not(#okla-tb-a#okla-tb-b#okla-tb-c) .container.breadcrumbs-wrapper>.breadcrumbs{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
 }
+
+/* Phones: the Katalog / Menu panels are whole pages that slide in from the right and out to the right (2026-11-18).
+   The panel itself is opaque white and fills the screen from the top to the bottom, so nothing of the page beneath can
+   show through - not even when the panel is pulled past its top or end on an iPhone (the bounce shows the panel's own
+   white). The whole panel moves (no longer only its content), on the compositor (transform), quick and smooth. */
+@media(max-width:767px){
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d){position:fixed!important;inset:0!important;overflow:hidden!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-panel{
+    position:absolute!important;inset:0!important;height:auto!important;min-height:100%!important;
+    background:#fff!important;background-image:none!important;
+    transform:translate3d(100%,0,0)!important;transition:transform .26s cubic-bezier(.2,.8,.2,1)!important;will-change:transform;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden
+  }
+  html.okla-tb-on body #okla-v61-drawer.is-open:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-panel{transform:translate3d(0,0,0)!important}
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) :is(.okm61-drawer-head,.okm61-drawer-body){background-color:#fff!important;transform:none!important;transition:none!important}
+}
+@media(max-width:767px) and (prefers-reduced-motion:reduce){
+  html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b#okla-tb-c#okla-tb-d) .okm61-drawer-panel{transition:none!important}
+}
