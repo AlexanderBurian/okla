@@ -508,3 +508,10 @@ html body #okla-cart-preview .okla-cp__go:hover{
     display:none!important;
   }
 }
+
+/* Shoptet's own hover cart (#cart-widget) opened together with the OKLA preview, under it: with a few items it was
+   hidden behind it, with many it stuck out behind it (taller, its own scrollbar and button). The OKLA preview is the
+   only one on PC. */
+@media(min-width:992px){
+  html.okla-header-reference body #cart-widget:not(#okla-cw-a#okla-cw-b){display:none!important}
+}
