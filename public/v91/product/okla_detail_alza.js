@@ -16,20 +16,23 @@
 
  function arrange(){
   var w=q('.p-detail .p-info-wrapper');if(!w)return false;
-  var h=q('.p-detail-inner-header',w),link=q('.ok86-description-link',w),avail=q('.availability-value',w),price=q('.p-final-price-wrapper',w),cart=q('.add-to-cart',w),xsell=q('.okla-xsell',w);
-  if(!h||!avail||!price||!cart)return false;
+  /* the title: in the buying column on PC; a phone's layout puts it above the pictures (then it is looked up in the whole
+     product, and the buying column is arranged all the same - it was skipped on phones, which kept the old look) */
+  var h=q('.p-detail-inner-header',w)||q('.p-detail .p-detail-inner-header'),link=q('.ok86-description-link',w),avail=q('.availability-value',w),price=q('.p-final-price-wrapper',w),cart=q('.add-to-cart',w),xsell=q('.okla-xsell',w);
+  if(!avail||!price||!cart)return false;
   if(w.dataset.oklaAlza==='1')return true;
   if(!xsell&&arrange.tries++<30)return false; /* give the companion box a moment to appear */
   w.dataset.oklaAlza='1';w.classList.add('okla-dalza');
 
   /* share button beside the title (Shoptet's own share trigger) */
   var share=q('.link-icon.share',w);
-  if(share&&!q('.okla-dalza__share',h)){
+  if(share&&h&&!q('.okla-dalza__share',h)){
    var b=el('button','okla-dalza__share',SHARE);b.type='button';b.setAttribute('aria-label','Sdílet');
    b.addEventListener('click',function(e){e.preventDefault();share.click()});h.classList.add('okla-dalza__head');h.appendChild(b);
   }
 
-  var after=link||q('.p-short-description',w)||h;
+  var after=link||q('.p-short-description',w)||(h&&w.contains(h)?h:null);
+  if(!after){after=el('span','okla-dalza__anchor');w.insertBefore(after,w.firstChild)}
   if(xsell){after.after(xsell);after=xsell}
 
   /* the stock panel: the stock in green, and one line with the delivery and returns links */
