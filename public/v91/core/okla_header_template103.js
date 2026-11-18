@@ -1,8 +1,8 @@
 /* PC header, right side: account, orders, language and cart (okla_header_pro.css lays the row out).
    The account and the cart keep Shoptet's own button and link (the login popup, the hover cart, the cart count); their
    look is drawn inside them (a shadow root, so no legacy style can reach it):
-   - account: a round avatar, "Můj účet" and under it "Přihlásit se" (a guest) or "Můj přehled" (signed in), a chevron;
-   - cart: a solid blue button with the cart, its count on a white badge and the total ("Košík" while it is empty).
+   - account: a small round avatar, "Můj účet" and under it "Přihlásit se" (a guest) or "Můj přehled" (signed in), a chevron;
+   - cart: the solid cart with its count on a blue badge (the total is in its tooltip and label).
    The flag opens the language menu (the same choice as the footer's "Jazyk webu"). */
 (function () {
   'use strict';
@@ -18,41 +18,42 @@
     var lang = window.OKLA_LANG || document.documentElement.getAttribute('data-okla-lang') || 'cs';
     return TEXT[lang] || TEXT.cs;
   }
-  var chevron = '<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 1.75 6 6.25l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  var person = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.9"/><path d="M4.6 20.2c.6-3.9 3.6-6.1 7.4-6.1s6.8 2.2 7.4 6.1"/></svg>';
+  var chevron = '<svg class="chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 1.75 6 6.25l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  /* solid figures, like the orders icon and the cart beside them */
+  var person = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 12.2a4.6 4.6 0 1 0 0-9.2 4.6 4.6 0 0 0 0 9.2Zm0 1.9c-4.6 0-8.2 2.4-8.2 5.6v.5c0 .66.54 1.2 1.2 1.2h14c.66 0 1.2-.54 1.2-1.2v-.5c0-3.2-3.6-5.6-8.2-5.6Z"/></svg>';
   var basket = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.9 3.1h1.9c.8 0 1.5.55 1.66 1.33L5.8 6h14.5c.86 0 1.5.8 1.3 1.64l-1.45 6.27A3 3 0 0 1 17.23 16.3H9.6a3 3 0 0 1-2.92-2.33L4.62 4.95H1.9z" fill="currentColor"/><circle cx="9.6" cy="20" r="1.75" fill="currentColor"/><circle cx="17.2" cy="20" r="1.75" fill="currentColor"/></svg>';
+  /* --okla-ink (set by okla_header_pro.css on hover) colours the figure and the title; nothing gets a background */
   var STYLE = {
     account: '<style>:host{display:block}' +
-      '.face{display:flex;align-items:center;gap:11px;height:52px;padding:0 12px 0 6px;border-radius:14px;background:var(--okla-face-bg,transparent);transition:background-color .16s ease;color:#0b2540;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased}' +
-      '.avatar{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--okla-avatar-bg,#eaf1fd);color:#0859d8;transition:background-color .16s ease,color .16s ease}' +
-      '.avatar svg{display:block;width:22px;height:22px}' +
-      '.copy{display:flex;flex-direction:column;align-items:flex-start;gap:1px}' +
-      '.title{font:700 15px/19px ' + FONT + ';letter-spacing:-.005em;color:#0b2540}' +
-      '.sub{font:600 13px/17px ' + FONT + ';color:#0859d8}' +
+      '.face{display:flex;align-items:center;height:40px;color:#0b2540;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased}' +
+      '.avatar{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e9eef5;color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
+      '.avatar svg{display:block;width:20px;height:20px}' +
+      '.copy{display:flex;flex-direction:column;align-items:flex-start;margin-left:10px}' +
+      '.title{font:600 15px/19px ' + FONT + ';color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
+      '.sub{font:400 13px/17px ' + FONT + ';color:#0859d8}' +
       '.sub.member{color:#5b6b80}' +
-      '.chev{display:block;flex:none;width:12px;height:8px;margin-left:3px;color:#8593a6;transition:transform .2s ease}' +
+      '.chev{display:block;flex:none;width:12px;height:8px;margin-left:14px;color:#7d8899}' +
       '</style>',
     cart: '<style>:host{display:block}' +
-      '.face{display:flex;align-items:center;gap:17px;height:48px;padding:0 18px 0 15px;border-radius:12px;background:var(--okla-face-bg,#0859d8);transition:background-color .16s ease;color:#fff;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased;box-shadow:0 6px 16px -8px rgba(8,89,216,.75)}' +
-      '.icon{position:relative;flex:none;width:24px;height:24px}' +
-      '.icon svg{display:block;width:24px;height:24px}' +
-      '.count{position:absolute;top:-9px;right:-11px;min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:10px;background:#fff;color:#0859d8;box-shadow:0 0 0 2px var(--okla-face-bg,#0859d8);font:800 11.5px/20px ' + FONT + ';text-align:center;transition:box-shadow .16s ease}' +
+      '.face{display:flex;align-items:center;justify-content:center;width:40px;height:40px;color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
+      '.icon{position:relative;flex:none;width:28px;height:28px}' +
+      '.icon svg{display:block;width:28px;height:28px}' +
+      '.count{position:absolute;top:-6px;right:-8px;min-width:18px;height:18px;padding:0 4px;box-sizing:border-box;border-radius:9px;background:#0859d8;color:#fff;box-shadow:0 0 0 2px #fff;font:700 11px/18px ' + FONT + ';text-align:center;font-variant-numeric:tabular-nums}' +
       '.count[hidden]{display:none}' +
-      '.price{font:700 15px/1 ' + FONT + ';letter-spacing:-.005em;font-variant-numeric:tabular-nums}' +
       '</style>'
   };
 
   function face(link, isCart) {
     var host = link.querySelector(':scope > okla-action-face');
-    if (host && host.shadowRoot && host.shadowRoot.querySelector('.face[data-v="2"]')) return host.shadowRoot;
+    if (host && host.shadowRoot && host.shadowRoot.querySelector('.face[data-v="3"]')) return host.shadowRoot;
     if (!host) {
       host = document.createElement('okla-action-face');
       host.attachShadow({mode: 'open'});
       link.appendChild(host);
     }
     host.shadowRoot.innerHTML = isCart
-      ? STYLE.cart + '<span class="face" data-v="2"><span class="icon">' + basket + '<span class="count" hidden></span></span><span class="price"></span></span>'
-      : STYLE.account + '<span class="face" data-v="2"><span class="avatar">' + person + '</span><span class="copy"><span class="title"></span><span class="sub"></span></span>' + chevron + '</span>';
+      ? STYLE.cart + '<span class="face" data-v="3"><span class="icon">' + basket + '<span class="count" hidden></span></span></span>'
+      : STYLE.account + '<span class="face" data-v="3"><span class="avatar">' + person + '</span><span class="copy"><span class="title"></span><span class="sub"></span></span>' + chevron + '</span>';
     link.setAttribute('data-action-face', '');
     return host.shadowRoot;
   }
@@ -133,11 +134,11 @@
     if (quantity === '0') quantity = '';
     var total = price ? price.textContent.replace(/\s+/g, ' ').trim() : '';
     var empty = !quantity || /^0(\s|$)/.test(total);
-    setText(c.querySelector('.price'), empty || !total ? words.cart : total);
     var count = c.querySelector('.count');
     setText(count, quantity);
     count.toggleAttribute('hidden', !quantity);
     setAttr(cart, 'aria-label', words.cart + (empty ? '' : ' – ' + quantity + ' ks, ' + total));
+    setAttr(cart, 'title', empty ? words.cart : words.cart + ': ' + total);
 
     /* orders: a guest finds an order by its number, a customer gets the list */
     var orders = row.querySelector(':scope > .okla-header-orders');

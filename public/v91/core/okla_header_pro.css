@@ -1,62 +1,53 @@
-/* PC header, right side (okla_header_template103.js draws the account and the cart): one row -
-   account (avatar, "Můj účet" / "Přihlásit se", chevron) | orders, language flag | the blue cart button with its count
-   and total. Favourites have no function in the shop and stay hidden. */
+/* PC header, right side (okla_header_template103.js draws the account and the cart), laid out like a calm row of
+   solid icons: account (small avatar, "Můj účet" / "Přihlásit se", chevron) | orders, language flag | cart with its count.
+   One rhythm: 18 px either side of a divider, 8 px between the icons, every icon in a 40 px square. Hover only changes
+   the colour to the OKLA blue - no backgrounds. Favourites have no function in the shop and stay hidden. */
 @media(min-width:992px){
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c){
-    display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:4px!important;
+    display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:0!important;
     grid-template-columns:none!important;width:max-content!important;height:80px!important;overflow:visible!important
   }
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>*{
     order:0!important;float:none!important;position:relative!important;left:auto!important;top:auto!important;transform:none!important;
-    margin:0!important;flex:none!important;max-width:none!important;min-height:0!important;max-height:none!important;visibility:visible!important
+    margin:0!important;flex:none!important;max-width:none!important;min-height:0!important;max-height:none!important;visibility:visible!important;
+    background:none!important;box-shadow:none!important;border:0!important
   }
 
   /* account */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]{
-    display:flex!important;align-items:center!important;height:52px!important;width:max-content!important;padding:0!important;
-    border:0!important;border-radius:14px!important;background:none!important;box-shadow:none!important;cursor:pointer!important
+    display:flex!important;align-items:center!important;height:40px!important;width:max-content!important;padding:0!important;cursor:pointer!important
   }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]:is(:hover,[aria-expanded="true"]){
-    --okla-face-bg:#f2f6fc;--okla-avatar-bg:#dce8fc
-  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]:is(:hover,[aria-expanded="true"]){--okla-ink:#0859d8}
 
   /* dividers */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator{
-    display:block!important;width:1px!important;height:30px!important;margin:0 10px!important;padding:0!important;border:0!important;
-    background:#e1e6ee!important;opacity:1!important;visibility:visible!important
+    display:block!important;width:1px!important;height:28px!important;margin:0 18px!important;padding:0!important;
+    background:#dfe4ec!important;opacity:1!important
   }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::before,
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::after{content:none!important;display:none!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::before,html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::after{content:none!important;display:none!important}
 
-  /* orders and language: round icon buttons */
+  /* orders and language */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale){
-    display:grid!important;place-items:center!important;width:46px!important;height:46px!important;min-width:0!important;padding:0!important;
-    border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;
-    visibility:visible!important;opacity:1!important;cursor:pointer!important;text-decoration:none!important;transition:background-color .16s ease!important
+    display:grid!important;place-items:center!important;width:40px!important;height:40px!important;min-width:0!important;padding:0!important;
+    border-radius:0!important;color:#0b2540!important;opacity:1!important;cursor:pointer!important;text-decoration:none!important;transition:color .15s ease!important
   }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale):is(:hover,.is-open){
-    background:#f2f6fc!important
-  }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale):focus-visible{
-    outline:2px solid #0751c6!important;outline-offset:2px!important
-  }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders::before,
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders::after,
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale::before,
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale::after{content:none!important;display:none!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders>svg{
-    display:block!important;width:24px!important;height:24px!important;margin:0!important;color:#0b2540!important
-  }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders>svg path{
-    fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale{margin-left:8px!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders:is(:hover,:focus-visible){color:#0859d8!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale,.okla-header-account,a.cart-count):focus-visible{outline:2px solid #0751c6!important;outline-offset:2px!important;border-radius:6px!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale::before,html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale::after,html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders::before{content:none!important;display:none!important}
+  /* the orders icon: a solid clipboard with a tick (drawn here, the link's own line icon is hidden) */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders>svg{display:none!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-orders::after{
+    content:""!important;display:block!important;position:static!important;width:26px!important;height:26px!important;background:currentColor!important;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M9 2h6a1.5 1.5 0 0 1 1.5 1.5V4H18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1.5v-.5A1.5 1.5 0 0 1 9 2Zm.5 2v1.6h5V4ZM15.8 10.2l-5 5-2.6-2.6-1.4 1.4 4 4 6.4-6.4Z'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M9 2h6a1.5 1.5 0 0 1 1.5 1.5V4H18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1.5v-.5A1.5 1.5 0 0 1 9 2Zm.5 2v1.6h5V4ZM15.8 10.2l-5 5-2.6-2.6-1.4 1.4 4 4 6.4-6.4Z'/%3E%3C/svg%3E") center/contain no-repeat!important
   }
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale>svg{
-    display:block!important;width:26px!important;height:26px!important;margin:0!important;border:1px solid #dfe5ee!important;border-radius:50%!important;box-sizing:border-box!important
+    display:block!important;width:24px!important;height:24px!important;margin:0!important;border:1px solid #d9dfe8!important;border-radius:50%!important;
+    box-sizing:border-box!important;transition:border-color .15s ease,box-shadow .15s ease!important
   }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale:is(:hover,.is-open)>svg{border-color:#0859d8!important;box-shadow:0 0 0 2px rgba(8,89,216,.15)!important}
   /* the language menu under the flag */
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale>.okla-lang-menu{
-    display:none!important;top:calc(100% + 8px)!important;z-index:9500!important
-  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale>.okla-lang-menu{display:none!important;top:calc(100% + 8px)!important;z-index:9500!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale.is-open>.okla-lang-menu{display:block!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale .okla-lang-option{
     width:100%!important;min-width:0!important;height:auto!important;font:500 14px/1.2 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;text-transform:none!important;letter-spacing:normal!important
@@ -71,14 +62,8 @@
 
   /* cart */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]{
-    display:flex!important;align-items:center!important;height:48px!important;width:max-content!important;padding:0!important;margin-left:2px!important;
-    border:0!important;border-radius:12px!important;background:none!important;box-shadow:none!important;cursor:pointer!important;text-decoration:none!important
+    display:flex!important;align-items:center!important;justify-content:center!important;width:40px!important;height:40px!important;padding:0!important;
+    cursor:pointer!important;text-decoration:none!important
   }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]:is(:hover,[aria-expanded="true"]){
-    --okla-face-bg:#0751c6
-  }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]:focus-visible,
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-account[data-action-face]:focus-visible{
-    outline:2px solid #0751c6!important;outline-offset:3px!important
-  }
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]:is(:hover,[aria-expanded="true"]){--okla-ink:#0859d8}
 }
