@@ -114,3 +114,11 @@ html.okla-acc .okla-acc-nav__link.is-logout:hover{background:#fdecee}
   html.okla-acc-center #content .content-inner{padding:20px 16px!important;border-radius:14px!important}
   html.okla-acc .okla-acc-nav{border-radius:14px;margin-bottom:14px}
 }
+
+/* Sign-in pages (login, registration, forgotten password): only the card template shows. PC: no white content
+   island around it (the card sits right on the page grey); phones: no box lines across the screen (the form sits
+   on the white page). Beats the islands' content-wrapper rules (okla_islands.css), like the cart does. */
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo) #content-wrapper.content-wrapper:not(#oau-a#oau-b#oau-c#oau-d#oau-e#oau-f#oau-g#oau-h){background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important;clip-path:none!important;overflow:visible!important}
+@media(max-width:767px){
+  html body:is(.in-login,.in-registrace,.in-zapomenute-heslo) #content .content-inner:not(#oau-a#oau-b#oau-c#oau-d#oau-e#oau-f#oau-g#oau-h){border:0!important;border-radius:0!important;box-shadow:none!important}
+}
