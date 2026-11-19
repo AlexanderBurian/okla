@@ -14,9 +14,16 @@
     transform:none!important;transition:none!important
   }
   html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track>.product{
-    flex:0 0 calc((100vw - 30px) / 2.18)!important;width:calc((100vw - 30px) / 2.18)!important;min-width:0!important;max-width:none!important;
+    flex:0 0 calc((100vw - 30px) / 2.08)!important;width:calc((100vw - 30px) / 2.08)!important;min-width:0!important;max-width:none!important;
     margin:0!important;scroll-snap-align:start!important
   }
   html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track>.product[data-okla-clone]{display:none!important}
   html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f)>.okla-slider-controls{display:none!important}
+  /* Every row's cards are as tall as the homepage's: the same padding, picture, name, stars and stock lines (the product
+     page's 'Mohlo by vás zajímat' / 'Doporučené' and the cart's suggestions used to be about 70px taller). */
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product .p{padding-top:10px!important;padding-left:8px!important;padding-right:8px!important}
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product .p>a.image{height:142px!important;min-height:142px!important;max-height:142px!important;margin-bottom:7px!important}
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product a.name{flex:0 0 38px!important;height:38px!important;min-height:38px!important;max-height:38px!important;line-height:19px!important;margin-bottom:4px!important}
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product .ratings-wrapper{margin-top:6px!important;margin-bottom:2px!important}
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product .availability{height:22px!important;min-height:22px!important;max-height:22px!important;margin-bottom:2px!important}
 }
