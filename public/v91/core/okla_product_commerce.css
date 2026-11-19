@@ -28,21 +28,8 @@ html body.ok89-detail #content .p-detail .price-final *{
  color:var(--okla-commerce-price)!important;
  -webkit-text-fill-color:var(--okla-commerce-price)!important;
 }
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary:not(:disabled){
- border:1px solid var(--okla-commerce-cart)!important;
- border-radius:8px!important;
- background:var(--okla-commerce-cart)!important;
- background-color:var(--okla-commerce-cart)!important;
- color:#fff!important;
- -webkit-text-fill-color:#fff!important;
-}
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary:not(:disabled):is(:hover,:focus-visible){
- border-color:var(--okla-commerce-cart-hover)!important;
- background:var(--okla-commerce-cart-hover)!important;
- background-color:var(--okla-commerce-cart-hover)!important;
- color:#fff!important;
- -webkit-text-fill-color:#fff!important;
-}
+
+
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{
  color:#fff!important;
  filter:brightness(0) invert(1)!important;
@@ -262,16 +249,15 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
  --okla-card-btn-cart:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z'/%3E%3C/svg%3E");
 }
 @media(max-width:767px){
- :root{--okla-card-btn-h:44px;--okla-card-btn-pad:0 10px;--okla-card-btn-fs:15px;--okla-card-btn-fw:400;--okla-card-btn-radius:0;--okla-card-btn-icon:21px;--okla-card-btn-gap:8px;
-  --okla-card-btn-bg:#fff;--okla-card-btn-edge:transparent;--okla-card-btn-ink:#5c8f00;--okla-card-btn-bg-hover:#fff}
+ 
  /* the strip runs edge to edge along the card's bottom: it is placed on the card itself, the card keeps room for it */
- html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p{position:relative!important;padding-bottom:calc(var(--okla-card-btn-h) + 14px)!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p{position:relative!important;}
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p>.p-in{position:static!important}
  /* nothing between the card and the strip may become its containing block (the tools row was nudged with a transform) */
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools,
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools form{position:static!important;transform:none!important;overflow:visible!important;contain:none!important;filter:none!important}
  /* the tools row is empty once the strip leaves it, so it takes no room */
- html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{height:0!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important}
+ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{min-height:0!important;max-height:none!important;}
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button),
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):is(:hover,:focus,:focus-visible,:active,:disabled),
  html body #content#content .product:hover:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):not(:hover),

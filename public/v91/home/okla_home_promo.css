@@ -19,8 +19,8 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__cta:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important}
 
 /* ---- Flipper ONE teaser: dark premium background, official product render on the right. ---- */
-#okla-promo-deals .okla-campaign__card--flipper{background:#000 url('../img/promo/flipper-one-bg.webp') center/cover no-repeat!important;color:#fff!important;font-family:Arial,"Helvetica Neue",sans-serif!important}
-#okla-promo-deals .okla-campaign__card--flipper::before{content:""!important;position:absolute!important;z-index:1!important;inset:0!important;pointer-events:none!important;background:linear-gradient(90deg,transparent 52%,rgba(0,0,0,.18) 68%,rgba(0,0,0,.60) 100%)!important}
+#okla-promo-deals .okla-campaign__card--flipper{color:#fff!important;font-family:Arial,"Helvetica Neue",sans-serif!important}
+#okla-promo-deals .okla-campaign__card--flipper::before{content:""!important;position:absolute!important;z-index:1!important;inset:0!important;pointer-events:none!important;}
 #okla-promo-deals .okla-campaign__flipper-copy{position:absolute!important;z-index:4!important;left:7.2%!important;top:145px!important;width:34%!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;text-align:left!important}
 #okla-promo-deals .okla-campaign__brand{margin:0 0 7px!important;font-size:31px!important;font-weight:700!important;line-height:1!important;letter-spacing:-.035em!important;color:#fff!important}
 #okla-promo-deals .okla-campaign__kicker{margin:0!important;font-size:13px!important;font-weight:600!important;line-height:1.25!important;letter-spacing:.005em!important}
@@ -29,7 +29,7 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__text{margin:18px 0 24px!important;font-size:17px!important;font-weight:400!important;line-height:1.32!important;letter-spacing:-.01em!important;color:#fff!important}
 #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta{height:41px!important;min-height:41px!important;padding:0 20px!important;border:1px solid rgba(255,255,255,.62)!important;border-radius:7px!important;background:rgba(0,0,0,.12)!important;color:#fff!important;font-size:12px!important;font-weight:600!important;letter-spacing:.025em!important;box-shadow:none!important;cursor:default!important;backdrop-filter:blur(2px)!important}
 #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta:is(:hover,:focus-visible){border-color:rgba(255,255,255,.82)!important;background:rgba(255,255,255,.06)!important;color:#fff!important;outline:0!important}
-#okla-promo-deals .okla-campaign__flipper-stage{position:absolute!important;z-index:3!important;right:4.5%!important;top:165px!important;width:54.5%!important;max-width:none!important;margin:0!important;opacity:.91!important;filter:brightness(.86) contrast(.95) saturate(.78) drop-shadow(0 20px 24px rgba(0,0,0,.48))!important}
+#okla-promo-deals .okla-campaign__flipper-stage{position:absolute!important;z-index:3!important;top:165px!important;width:54.5%!important;max-width:none!important;margin:0!important;}
 #okla-promo-deals .okla-campaign__flipper{display:block!important;position:relative!important;z-index:2!important;width:100%!important;height:auto!important;max-width:none!important;object-fit:contain!important;margin:0!important}
 #okla-promo-deals .okla-campaign__flipper-screen{position:absolute!important;z-index:3!important;left:33.05%!important;top:20.2%!important;width:35.25%!important;height:49.2%!important;max-width:none!important;object-fit:cover!important;border-radius:1.8%!important;margin:0!important;filter:saturate(.94) contrast(1.04)!important;pointer-events:none!important}
 #okla-promo-deals .okla-campaign__fineprint{position:absolute!important;z-index:4!important;left:7.2%!important;bottom:40px!important;margin:0!important;color:rgba(255,255,255,.62)!important;font-size:9px!important;font-weight:400!important;line-height:1.28!important}
@@ -47,7 +47,7 @@ html body.type-index #content #okla-promo-deals{
 /* Narrower desktop windows: keep the copy clear of the product. */
 @media(max-width:1200px){
   #okla-promo-deals .okla-campaign__flipper-copy{left:6.5%!important;width:38%!important}
-  #okla-promo-deals .okla-campaign__flipper-stage{right:3.5%!important;width:55%!important}
+  #okla-promo-deals .okla-campaign__flipper-stage{width:55%!important}
 }
 
 /* Phones: stack the two cards (the site keeps its own mobile layout otherwise). */
@@ -55,11 +55,11 @@ html body.type-index #content #okla-promo-deals{
   html body.type-index #content #okla-promo-deals{padding:0!important}
   #okla-promo-deals .okla-campaign__grid{grid-template-columns:1fr!important;gap:14px!important}
   #okla-promo-deals .okla-campaign__card{min-height:420px!important;border-radius:12px!important}
-  #okla-promo-deals .okla-campaign__flipper-copy{left:24px!important;top:29px!important;width:calc(100% - 48px)!important;align-items:flex-start!important;text-align:left!important}
-  #okla-promo-deals .okla-campaign__brand{font-size:27px!important;font-weight:700!important}
-  #okla-promo-deals .okla-campaign__text{margin:13px 0 17px!important;font-size:15px!important;font-weight:400!important}
-  #okla-promo-deals .okla-campaign__flipper-stage{left:50%!important;right:auto!important;top:auto!important;bottom:57px!important;width:390px!important;max-width:118%!important;transform:translateX(-50%)!important}
-  #okla-promo-deals .okla-campaign__fineprint{left:24px!important;bottom:16px!important}
+  #okla-promo-deals .okla-campaign__flipper-copy{align-items:flex-start!important;text-align:left!important}
+  #okla-promo-deals .okla-campaign__brand{font-weight:700!important}
+  #okla-promo-deals .okla-campaign__text{font-weight:400!important}
+  
+  
   #okla-promo-deals .okla-campaign__card--lilygo{min-height:460px!important}
   #okla-promo-deals .okla-campaign__lilygo-copy{width:90%!important;padding-top:27px!important}
   #okla-promo-deals .okla-campaign__lilygo-title{max-width:300px!important;margin-inline:auto!important;font-size:23px!important}
@@ -70,15 +70,15 @@ html body.type-index #content #okla-promo-deals{
 
 /* Flipper ONE: the cell tower in the background is toned down (a darker veil over the right half, under the device),
    and the device sits a little further left. */
-#okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(90deg,transparent 40%,rgba(0,0,0,.38) 58%,rgba(0,0,0,.72) 80%,rgba(0,0,0,.82) 100%)!important}
+
 #okla-promo-deals .okla-campaign__flipper-stage{right:7.5%!important}
 @media(max-width:1200px){#okla-promo-deals .okla-campaign__flipper-stage{right:6%!important}}
 
 /* Phones: copy on top, the whole device below it (nothing cut at the sides), the small print at the bottom; the tower
    kept faint behind it all. */
 @media(max-width:767px){
-  #okla-promo-deals .okla-campaign__card--flipper{min-height:470px!important;background-position:72% center!important}
-  #okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.30) 42%,rgba(0,0,0,.55) 100%),linear-gradient(90deg,rgba(0,0,0,.15) 30%,rgba(0,0,0,.6) 100%)!important}
+  #okla-promo-deals .okla-campaign__card--flipper{min-height:470px!important;}
+  
   #okla-promo-deals .okla-campaign__flipper-copy{left:22px!important;right:22px!important;top:28px!important;width:auto!important}
   #okla-promo-deals .okla-campaign__brand{margin-bottom:8px!important;font-size:28px!important}
   #okla-promo-deals .okla-campaign__kicker{font-size:12.5px!important}
@@ -105,7 +105,7 @@ html body.type-index #content #okla-promo-deals{
 @media(max-width:767px){
   #okla-promo-deals .okla-campaign__card--flipper{background-size:cover!important;background-position:50% 100%!important}
   #okla-promo-deals .okla-campaign__card--flipper::before{background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,transparent 45%)!important}
-  #okla-promo-deals .okla-campaign__card--flipper::after{right:0!important;top:14px!important;bottom:auto!important;width:46%!important;height:62%!important;background-position:right top!important;opacity:.24!important}
+  #okla-promo-deals .okla-campaign__card--flipper::after{right:0!important;top:14px!important;bottom:auto!important;width:46%!important;height:62%!important;background-position:right top!important;}
 }
 
 /* PC: no tower, a larger device. Phones: the tower fades into the scene (soft left and bottom edges). */

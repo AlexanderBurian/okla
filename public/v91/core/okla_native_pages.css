@@ -26,7 +26,7 @@ html body .cart-empty .empty-cart-boxes{
   display:flex!important;flex-wrap:wrap!important;align-items:flex-start!important;
   gap:28px 56px!important;margin:0!important;
   background:#fff!important;border:1px solid #e6ebf2!important;border-radius:14px!important;
-  padding:30px 34px!important;box-shadow:0 1px 4px rgba(6,29,58,.06)!important;box-sizing:border-box!important;
+  padding:30px 34px!important;box-sizing:border-box!important;
 }
 html body .cart-empty .empty-cart-boxes > .col-md-6{
   flex:1 1 320px!important;width:auto!important;max-width:none!important;
@@ -36,10 +36,10 @@ html body .cart-empty .empty-cart-boxes h3{
   font-size:16px!important;font-weight:700!important;color:#09336c!important;margin:0 0 16px!important;
 }
 html body .cart-empty .empty-cart-boxes ul{list-style:none!important;margin:0!important;padding:0!important}
-html body .cart-empty .empty-cart-boxes ul li{margin:0 0 11px!important}
+
 html body .cart-empty .empty-cart-boxes ul li a{
-  display:inline-flex!important;align-items:center!important;gap:9px!important;
-  font-size:14px!important;font-weight:600!important;color:#141923!important;text-decoration:none!important;
+  gap:9px!important;
+  font-size:14px!important;font-weight:600!important;
 }
 html body .cart-empty .empty-cart-boxes ul li a:before{
   content:"";width:7px;height:7px;flex:none;border-radius:50%;background:#0859d8;
@@ -47,7 +47,7 @@ html body .cart-empty .empty-cart-boxes ul li a:before{
 html body .cart-empty .empty-cart-boxes ul li a:hover{color:#0646aa!important}
 html body .cart-empty .empty-cart-boxes .search-form{display:flex!important;gap:8px!important;flex-wrap:nowrap!important;max-width:460px!important}
 html body .cart-empty .empty-cart-boxes .search-form input:not([type="submit"]){
-  flex:1 1 auto!important;min-width:0!important;border:1px solid #cdd2da!important;border-radius:8px!important;height:42px!important;padding:0 14px!important;
+  flex:1 1 auto!important;min-width:0!important;padding:0 14px!important;
 }
 /* Empty-cart search button -> brand blue (Shoptet paints it purple). */
 html body .cart-empty .search .btn,
@@ -208,7 +208,7 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okl
 }
 html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon::before{
   display:block!important;content:""!important;position:absolute!important;left:calc(-1 * var(--okla-hover-overhang,20px))!important;
-  top:0!important;bottom:0!important;width:3px!important;border-radius:0!important;background:transparent!important;pointer-events:none!important;z-index:1!important;
+  top:0!important;width:3px!important;border-radius:0!important;background:transparent!important;pointer-events:none!important;z-index:1!important;
 }
 @media(hover:hover) and (pointer:fine){
   html body #content-wrapper aside.sidebar.sidebar-left #categories .topic > a.okla-category-with-icon:hover{background:#eef4fb!important;color:#0642A1!important;box-shadow:calc(-1 * var(--okla-hover-overhang,20px)) 0 0 0 #eef4fb!important}
@@ -229,7 +229,7 @@ html body #content-wrapper aside.sidebar.sidebar-left #categories .topic.active 
 html body.in-vyhledavani #products:not(.okla-cards) .product .p-code,
 html body.type-search #products:not(.okla-cards) .product .p-code{display:none!important}
 html body.in-vyhledavani #products:not(.okla-cards).products-block,
-html body.type-search #products:not(.okla-cards).products-block{display:flex!important;flex-wrap:wrap!important;align-items:stretch!important;gap:6px 0!important}
+html body.type-search #products:not(.okla-cards).products-block{display:flex!important;flex-wrap:wrap!important;align-items:stretch!important;}
 html body.in-vyhledavani #products:not(.okla-cards).products-block > .product,
 html body.type-search #products:not(.okla-cards).products-block > .product{flex:0 0 25%!important;max-width:25%!important}
 @media(max-width:1100px){
@@ -338,10 +338,10 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#0859d8!important;color:#fff!important;border:1.5px solid #0859d8!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0751c6!important;border-color:#0751c6!important}
 @media(max-width:720px){
-  html body .siteCookies.js-siteCookies .siteCookies__form{flex-direction:column!important;align-items:stretch!important;gap:16px!important;padding:20px 18px calc(18px + env(safe-area-inset-bottom))!important;max-height:86vh!important}
+  
   html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
-  html body .siteCookies.js-siteCookies .siteCookies__text{column-count:1!important}
-  html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{width:100%!important}
+  
+  
 }
 
 /* ---------- AI assistant visibility ----------
@@ -403,14 +403,9 @@ html body #filters .filter-section-boolean fieldset>div{
   stroke-linecap:round!important;stroke-linejoin:round!important;color:#06409c!important;
 }
 /* Bigger, legible pictogram slot in the desktop sidebar category list. */
-#content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{
-  flex:0 0 27px!important;width:27px!important;height:27px!important;
-}
-#content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:25px!important;height:25px!important}
-@media(min-width:768px){
-  #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{flex:0 0 32px!important;width:32px!important;height:32px!important}
-  #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{width:30px!important;height:30px!important}
-}
+
+
+
 /* Slightly larger pictograms in the mobile category grid. */
 #okla-v61-categories .okm61-category-icon{flex:0 0 32px!important;width:32px!important;height:32px!important}
 #okla-v61-categories .okm61-category-icon img.okla-category-png{width:32px!important;height:32px!important}
@@ -687,20 +682,20 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
    visible, "Nastavení" stays under the text. */
 @media(max-width:720px){
   html body .siteCookies.js-siteCookies .siteCookies__form{
-    gap:14px!important;padding:18px 16px calc(14px + env(safe-area-inset-bottom))!important;
-    max-height:88vh!important;max-height:88dvh!important;height:auto!important;overflow:hidden!important;
-    display:grid!important;grid-template-rows:minmax(0,1fr) auto!important;grid-template-columns:minmax(0,1fr)!important;
+    
+    max-height:88dvh!important;height:auto!important;
+    grid-template-rows:minmax(0,1fr) auto!important;grid-template-columns:minmax(0,1fr)!important;
   }
   html body .siteCookies.js-siteCookies .siteCookies__content{
     min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;
   }
   html body .siteCookies.js-siteCookies .siteCookies__text{columns:auto!important;column-count:auto!important}
-  html body .siteCookies.js-siteCookies .siteCookies__content:before{font-size:18px!important;margin:0 0 8px!important}
+  
   html body .siteCookies.js-siteCookies .siteCookies__text{font-size:13px!important;line-height:1.5!important}
   html body .siteCookies.js-siteCookies .siteCookies__text p{margin:0 0 8px!important}
-  html body .siteCookies.js-siteCookies .siteCookies__links{margin:10px 0 0!important;text-align:left!important}
+  
   html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{
-    flex:none!important;width:100%!important;display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;
+    flex:none!important;
   }
   html body .siteCookies.js-siteCookies .siteCookies__button{height:46px!important;padding:0 10px!important;font-size:14px!important;white-space:nowrap!important}
 }

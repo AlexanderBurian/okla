@@ -31,11 +31,11 @@ html body.ordering-process .overall-wrapper{background:var(--okla-page)!importan
   html body.ordering-process #content-wrapper.content-wrapper{
     margin:16px auto 32px!important;
     border:0!important;
-    border-radius:var(--okla-radius)!important;
-    background:var(--okla-surface)!important;
-    box-shadow:var(--okla-shadow)!important;
-    clip-path:none!important;
-    overflow:hidden!important;
+    
+    
+    
+    
+    
   }
   html body.ordering-process #content-wrapper.content-wrapper::before{
     height:4px!important;
@@ -160,16 +160,16 @@ html body.ordering-process #content#content .okla-step-nav .next-step button[typ
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-back{
   min-height:38px!important;
   height:38px!important;
-  border:0!important;
+  
   border-radius:0!important;
-  background:transparent!important;
-  color:var(--okla-muted)!important;
-  -webkit-text-fill-color:var(--okla-muted)!important;
+  
+  
+  
   font-size:13px!important;
-  font-weight:600!important;
-  letter-spacing:0!important;
-  text-transform:none!important;
-  box-shadow:none!important;
+  
+  
+  
+  
 }
 
 /* Delivery/payment choices use the same 8px card geometry as homepage islands. */
@@ -189,12 +189,12 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   html body.in-kosik #okla-cart-recs{
     width:min(1273px,calc(100% - 40px))!important;
     max-width:1273px!important;
-    border-radius:var(--okla-radius)!important;
-    background:#fff!important;
-    box-shadow:var(--okla-shadow)!important;
+    
+    
+    
   }
   html body.in-kosik #okla-cart-recs .ocr-title{
-    color:var(--okla-ink)!important;
+    
     font-family:inherit!important;
     font-size:22px!important;
   }
@@ -206,9 +206,9 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   }
   /* no whole-card hover: one product style with the homepage (only the button and the name react) */
   html body.in-kosik #okla-cart-recs .ocr-form .btn-cart{
-    height:34px!important;
-    border-radius:0!important;
-    background:#0859d8!important;
+    
+    
+    
     font-size:15px!important;
     font-weight:600!important;
   }

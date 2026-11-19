@@ -126,53 +126,50 @@
   transform:none!important;
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
-  display:flex!important;
-  align-items:center!important;
-  gap:7px!important;
+  
+  
+  
   padding-top:0!important;
   padding-bottom:0!important;
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-cart-symbol{
-  position:relative!important;
-  display:flex!important;
-  flex:0 0 28px!important;
-  width:28px!important;
+  
+  
+  
+  
   min-width:28px!important;
-  height:30px!important;
-  min-height:30px!important;
+  
+  
   align-self:center!important;
-  align-items:center!important;
-  justify-content:center!important;
-  margin:0!important;
-  padding:0!important;
-  transform:none!important;
+  
+  
+  
+  
+  
  }
  /* Price and icon: both have the same 30px-high center aligned box.
     The quantity badge alone is allowed to sit higher than this axis. */
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.cart-price{
   position:relative!important;
-  display:inline-flex!important;
+  
   align-self:center!important;
-  align-items:center!important;
-  justify-content:center!important;
-  width:auto!important;
-  height:30px!important;
-  min-height:30px!important;
-  max-height:30px!important;
-  margin:0!important;
-  padding:0!important;
-  top:0!important;
+  
+  
+  
+  
+  
+  
+  
+  
+  
   bottom:auto!important;
-  transform:none!important;
-  line-height:30px!important;
-  font:700 15px/30px "Open Sans",Arial,sans-serif!important;
-  white-space:nowrap!important;
+  
+  
+  
+  
   vertical-align:middle!important;
  }
- html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-chevron{
-  align-self:center!important;
-  transform:translateY(-2px) rotate(45deg)!important;
- }
+ 
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account .okla-header-copy,
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account .okla-header-icon{
   align-self:center!important;

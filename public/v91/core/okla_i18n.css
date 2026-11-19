@@ -15,7 +15,7 @@ html body #header .okla-lang-option .okla-lang-flag{flex:none;width:22px;height:
 /* Phones: the flag sits in the top bar between the logo and the search button, the menu opens under it. */
 html body #header #okla-v61-header .okm61-top:has(.okla-lang-mobile){justify-content:flex-start!important}
 html body #header #okla-v61-header .okm61-top:has(.okla-lang-mobile) .okla-m-search-open{margin-left:4px!important}
-html body #okla-v61-header .okm61-top .okla-lang-mobile{position:relative;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;margin:0 2px 0 auto;cursor:pointer;flex:none}
+html body #okla-v61-header .okm61-top .okla-lang-mobile{position:relative;align-items:center;justify-content:center;width:40px;height:40px;margin:0 2px 0 auto;cursor:pointer;flex:none}
 html body #okla-v61-header .okm61-top .okla-lang-mobile .okla-lang-flag{display:block;width:26px;height:26px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
 html body #okla-v61-header .okla-lang-mobile .okla-lang-menu{display:none;position:absolute;top:calc(100% + 8px);right:-44px;z-index:9000;min-width:170px;padding:6px;background:#fff;border:1px solid #e6ebf2;border-radius:12px;box-shadow:0 18px 40px rgba(11,37,64,.18);box-sizing:border-box}
 html body #okla-v61-header .okla-lang-mobile.is-open .okla-lang-menu{display:block}

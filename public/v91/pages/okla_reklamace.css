@@ -13,7 +13,7 @@ html.okla-rk-takeover .breadcrumbs-wrapper,
 html.okla-rk-takeover .breadcrumb{display:none!important}
 
 html body .okla-rk{
-  box-sizing:border-box;max-width:760px;margin:30px auto 10px;padding:0 0 8px;
+  box-sizing:border-box;margin:30px auto 10px;padding:0 0 8px;
   font-family:"Open Sans",Arial,sans-serif;color:#0b2540;
 }
 html body .okla-rk *,html body .okla-rk *:before,html body .okla-rk *:after{box-sizing:border-box}
@@ -106,10 +106,10 @@ html body .okla-rk__choice label:after{
 }
 html body .okla-rk__choice label b{font-size:14px;font-weight:700;color:#0b2540}
 html body .okla-rk__choice label span{font-size:12px;line-height:1.4;color:#66758a}
-html body .okla-rk__choice input:checked+label{border-color:#0859d8;background:#f3faff;box-shadow:none}
+
 html body .okla-rk__choice input:checked+label:before{border-color:#0859d8}
 html body .okla-rk__choice input:checked+label:after{transform:translateY(-50%) scale(1)}
-html body .okla-rk__choice input:focus-visible+label{border-color:#0646ab;box-shadow:0 0 0 2px rgba(6,70,171,.16)}
+
 html body .okla-rk__choice input[name=resolution]+label{min-height:54px;padding-top:11px;padding-bottom:11px}
 
 /* Conditional block (bank account for refund) */
@@ -127,7 +127,7 @@ html body .okla-rk__consent.is-invalid label{color:#c0344a}
 html body .okla-rk__actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:26px 0 0}
 html body .okla-rk__submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;height:54px;
-  border:1px solid #0751c6;border-radius:12px;background:#0751c6;color:#fff;cursor:pointer;
+  border:1px solid #0751c6;border-radius:12px;cursor:pointer;
   font-family:"Open Sans",Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;
   transition:background-color .15s ease,border-color .15s ease,opacity .15s ease;
 }
@@ -166,14 +166,14 @@ html body .okla-rk__done-links a{
   display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:10px;
   font-size:14px;font-weight:700;text-decoration:none;
 }
-html body .okla-rk__done-links .is-primary{background:#0859d8;color:#fff;border:1px solid #0859d8}
+html body .okla-rk__done-links .is-primary{border:1px solid #0859d8}
 html body .okla-rk__done-links .is-primary:hover{background:#0751c6;border-color:#0751c6}
-html body .okla-rk__done-links .is-ghost{background:#fff;color:#0b2540;border:1px solid #d7deea}
+html body .okla-rk__done-links .is-ghost{border:1px solid #d7deea}
 html body .okla-rk__done-links .is-ghost:hover{background:#f4f7fb}
 
 /* Mobile */
 @media(max-width:760px){
-  html body .okla-rk{margin:16px 16px 0;max-width:none}
+  html body .okla-rk{margin:16px 16px 0;}
   html body .okla-rk__title{font-size:25px}
   html body .okla-rk__card{padding:22px 18px 24px;border-radius:16px}
   html body .okla-rk__grid{grid-template-columns:minmax(0,1fr)}

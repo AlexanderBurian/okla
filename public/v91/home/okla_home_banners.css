@@ -87,7 +87,7 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
  .okla-hero__lead{font-size:13px;line-height:1.35}
  .okla-hero__cta{height:34px;padding:0 16px;margin-top:4px;font-size:13px}
  /* Room under the picture for the dots, so the sections below start under them. */
- html body.type-index #content .banners-row{padding-bottom:26px!important}
+ 
  /* Compact neutral pagination: dots for waiting banners, a long pill for the
     banner that is playing now. */
  .okla-hero__dots{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;min-height:11px}
@@ -113,20 +113,20 @@ html body .okla-hero .okla-hero__cta:hover,html body .okla-tile .okla-tile__cta:
   html body.type-index #content .banners-row:not(#okhb-a){display:block!important;padding-bottom:0!important;margin-top:14px!important}
   html body.type-index #content .banners-row:not(#okhb-a)>.col-sm-4{display:none!important}
   html body.type-index #content .banners-row:not(#okhb-a)>.col-sm-8{width:100%!important;max-width:100%!important;flex:none!important;float:none!important;padding:0!important}
-  html body.type-index #content .banners-row:not(#okhb-a) #carousel{height:auto!important;min-height:0!important;overflow:visible!important;background:transparent!important;box-shadow:none!important}
-  html body.type-index #content .banners-row:not(#okhb-a) #carousel .carousel-inner{position:static!important;height:auto!important;min-height:0!important;overflow:visible!important;background:transparent!important}
+  html body.type-index #content .banners-row:not(#okhb-a) #carousel{overflow:visible!important;background:transparent!important;box-shadow:none!important}
+  html body.type-index #content .banners-row:not(#okhb-a) #carousel .carousel-inner{position:static!important;overflow:visible!important;background:transparent!important}
   html body.type-index #content .okla-hero .okla-hero__slide--mobile-only:not(#okhb-a){display:block!important}
-  html body.type-index #content .okla-hero__dots:not(#okhb-a){position:relative;z-index:4;display:flex!important;align-items:center;justify-content:center;gap:8px;margin-top:12px;margin-bottom:6px;min-height:11px}
-  html body.type-index #content .okla-hero__dots:not(#okhb-a) button{display:block;flex:0 0 9px;width:9px;height:9px;padding:0;border:0;border-radius:999px;background:#c7ced8;box-shadow:none;cursor:pointer;transition:flex-basis .22s ease,width .22s ease,background-color .22s ease}
-  html body.type-index #content .okla-hero__dots:not(#okhb-a) button[aria-current="true"]{flex-basis:42px;width:42px;background:#aeb7c3}
+  html body.type-index #content .okla-hero__dots:not(#okhb-a){position:relative;z-index:4;display:flex!important;align-items:center;justify-content:center;}
+  html body.type-index #content .okla-hero__dots:not(#okhb-a) button{display:block;padding:0;border:0;border-radius:999px;box-shadow:none;cursor:pointer;transition:flex-basis .22s ease,width .22s ease,background-color .22s ease}
+  
   html body.type-index #content .okla-hero__dots:not(#okhb-a) button:focus-visible{outline:2px solid #0b2540;outline-offset:3px}
 }
 /* PC: a much taller hero (like on phones the banner fills the view), the product kept in sight on the right, bigger
    text and button, and a much bigger slider control under it */
 @media (min-width:768px){
   /* rounded top only; the bottom stays flat because the hero joins the category circles below */
-  html body.type-index #content .okla-hero:not(#okhb-a){aspect-ratio:5/2!important;border-radius:8px 8px 0 0!important}
-  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-size:cover!important;background-position:74% center!important}
+  html body.type-index #content .okla-hero:not(#okhb-a){border-radius:8px 8px 0 0!important}
+  html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__media{background-size:cover!important;}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__slide--endo .okla-hero__media{background-position:right 9% 62%,center!important;background-size:auto 90%,cover!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__text{width:46%!important;padding:0 4% 0 5%!important;gap:12px!important}
   html body.type-index #content .okla-hero:not(#okhb-a) .okla-hero__title{font-size:44px!important;line-height:1.1!important}
@@ -182,7 +182,7 @@ html body.type-index #content .okla-hero .okla-hero__slide--storewide img.okla-h
   html body.type-index #content .okla-hero .okla-hero__slide--storewide .okla-hero__fineprint{display:none!important}
   /* the gift sinks into the bottom edge (about a sixth of the box below it; a margin in % is of the width) */
   /* beat okla_mobile_unified's #carousel .carousel-inner img rule (it forces width/height 100% + cover) */
-  html body.type-index #content#content .banners-row #carousel .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{right:-3%!important;bottom:0!important;margin-bottom:-10%!important;width:60%!important;max-width:60%!important;height:auto!important;object-fit:contain!important;filter:drop-shadow(-10px 0 22px rgba(0,24,55,.35))!important}
+  html body.type-index #content#content .banners-row #carousel .okla-hero .okla-hero__slide--storewide img.okla-hero__gift{bottom:0!important;margin-bottom:-10%!important;width:60%!important;max-width:60%!important;height:auto!important;object-fit:contain!important;filter:drop-shadow(-10px 0 22px rgba(0,24,55,.35))!important}
 }
 
 /* the banner dots stay 9 px to look at, but take a finger-sized tap (an invisible 32 px high area reaching halfway into the gaps) */

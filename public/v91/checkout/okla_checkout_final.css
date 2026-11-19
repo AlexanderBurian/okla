@@ -3,9 +3,7 @@
    longer get recoloured by generic hover/focus rules. */
 
 /* The parcel may travel to the active checkout step, but never jumps/bounces. */
-html body.ordering-process .okla-parcel{
- animation:none!important;
-}
+
 
 /* Goods total: label and live Shoptet value share one centred row. */
 html body.in-kosik .okla-goods-total-row{
@@ -41,21 +39,21 @@ html body.in-kosik .okla-goods-total-price *{
 html body.in-kosik .okla-coupon__row{
  display:flex!important;
  align-items:center!important;
- gap:8px!important;
+ 
  box-sizing:border-box!important;
- padding-left:10px!important;
+ 
 }
 html body.in-kosik input.okla-coupon__input{
  box-sizing:border-box!important;
- height:46px!important;
- min-height:46px!important;
- padding:0 12px 0 18px!important;
- border:1px solid #cdd2da!important;
- border-radius:999px!important;
+ 
+ 
+ 
+ 
+ 
  outline:0!important;
- box-shadow:none!important;
+ 
  background:#fff!important;
- line-height:44px!important;
+ 
 }
 html body.in-kosik input.okla-coupon__input:focus{
  border-color:#0859d8!important;
@@ -64,8 +62,8 @@ html body.in-kosik input.okla-coupon__input:focus{
 }
 html body.in-kosik .okla-coupon__btn{
  box-sizing:border-box!important;
- height:46px!important;
- min-height:46px!important;
+ 
+ 
  margin:0!important;
 }
 
@@ -75,10 +73,10 @@ html body.in-kosik .okla-coupon__btn{
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish{
  border-color:#0859d8!important;
- background:#0859d8!important;
+ 
  background-color:#0859d8!important;
- color:#fff!important;
- -webkit-text-fill-color:#fff!important;
+ 
+ 
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){

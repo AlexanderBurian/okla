@@ -6,7 +6,7 @@ html body .okla-about{
   /* full-bleed out of Shoptet's content column */
   width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
   overflow-x:hidden;
-  font-family:'Open Sans',Arial,sans-serif;
+  
   color:#1a2330;background:#fff;
   --b:#0647ac;      /* the one brand colour */
   --bd:#053888;     /* darker (hover) */

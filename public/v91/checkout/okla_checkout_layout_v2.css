@@ -22,10 +22,10 @@
   html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.row.cart-row{grid-column:1!important;grid-row:1/span 3!important;margin:0!important;min-width:0!important;padding-right:24px!important}
   html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-cart-summary__sentinel{grid-column:1!important;grid-row:3!important}
   html body.in-kosik:not(#okc-a#okc-b) #content#content .cart-inner>.okla-cart-summary{
-    grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:18px!important;
-    margin:0!important;padding:28px 24px 8px!important;border:0!important;background:transparent!important;
+    grid-column:2!important;grid-row:1!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;
+    margin:0!important;border:0!important;
   }
-  html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__totals{width:100%!important;margin:0!important;grid-template-columns:1fr auto!important;column-gap:16px!important}
+  html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__totals{width:100%!important;margin:0!important;grid-template-columns:1fr auto!important;}
   html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__row>span:first-child{text-align:left!important}
   html body.in-kosik:not(#okc-a#okc-b) #content#content .okla-cart-summary__coupon{order:2!important}
 

@@ -25,7 +25,7 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-claim{margin:4p
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image{position:relative!important;display:block!important;flex:1 1 auto!important;min-height:150px!important;margin:14px 0 14px!important;text-decoration:none!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-image img{
   position:absolute!important;inset:0!important;display:block!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;margin:auto!important;object-fit:contain!important;
-  filter:drop-shadow(0 10px 12px rgba(8,29,58,.18))!important;transition:transform .35s cubic-bezier(.2,.8,.2,1)!important;
+  filter:drop-shadow(0 10px 12px rgba(8,29,58,.18))!important;
 }
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-copy{min-height:0!important;margin:0 0 14px!important;padding:0!important;color:#3b4a5e!important;font:400 14px/1.4 "Open Sans",Arial,sans-serif!important}
 html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-copy strong{color:#081d3a!important;font-weight:700!important;white-space:nowrap!important}
@@ -53,7 +53,7 @@ html body.type-index #content #okla-deals:not(#okd-a#okd-b) .okd-button:focus-vi
    two buttons, all in one row, flat (no framed box). Mobile: the benefits become a ticked list. */
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b){
   display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px 24px!important;margin:16px 0 36px!important;padding:18px 26px!important;
-  border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important;box-sizing:border-box!important;
+  border:0!important;border-radius:8px!important;background:#fff!important;box-sizing:border-box!important;
 }
 /* account pictogram (PC only) */
 html body.type-index #content #okla-signin-strip:not(#oks-a#oks-b) .oks-avatar{flex:0 0 auto!important;width:40px!important;height:40px!important;margin-right:4px!important;fill:none!important;stroke:#0859d8!important;stroke-width:1.5!important;stroke-linecap:round!important;stroke-linejoin:round!important}

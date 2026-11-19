@@ -46,9 +46,7 @@
   html body.ok89-detail #header#header #okla-v61-header#okla-v61-header::after { content: none !important; display: none !important; }
 
   /* 6. Purchase bar that appears after scrolling past the button: the same gradient as the header */
-  html body.ok89-detail.ok89-detail .okla-m-buybar.okla-m-buybar {
-    background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important;
-  }
+  
 
   /* 7. Related cards: gold decorative stars (the homepage look) and a single cart icon */
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .product .okv73-rating-stars { display: inline-flex !important; gap: 1px !important; }
@@ -74,9 +72,7 @@
   }
 
   /* 9. The whole header band, not only its inner part, uses the same gradient */
-  html body.ok89-detail.ok89-detail #header#header {
-    background: linear-gradient(180deg, #e5f5ff 0%, #ffffff 100%) !important;
-  }
+  
 
   /* 10. The gradient stays only at the real top of the page. The bar that appears after scrolling (sticky header, shown or
          white states) and the purchase bar are plain white. */

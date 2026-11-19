@@ -24,7 +24,7 @@ html.okla-m-stuck body #header #okla-v61-header{position:fixed!important;top:0!i
 html.okla-m-stuck body #header #okla-v61-header .okm61-top{height:34px!important;min-height:34px!important;margin:0!important}
 html.okla-m-stuck body #header #okla-v61-header .okm61-logo img{max-height:30px!important}
 html.okla-m-stuck body #header #okla-v61-header .okla-m-search-open{height:34px!important;min-height:34px!important;flex-basis:34px!important;width:34px!important}
-html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transform:translateY(-105%)!important;box-shadow:none!important;transition:none!important}
+html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transform:translateY(-105%)!important;transition:none!important}
 /* Hiding is instant (no white bar sliding away over the page-top gradient); only showing on scroll-up slides in. */
 /* Product pages never use the floating mobile header. This is also a CSS
    safety net if an old class survives browser back/forward cache restoration. */

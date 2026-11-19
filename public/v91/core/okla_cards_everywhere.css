@@ -57,7 +57,7 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
 #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{display:flex!important;flex-direction:column!important;align-items:stretch!important;position:relative!important;width:100%!important;height:100%!important;min-width:0!important;margin:0!important;padding:14px 12px 20px!important;border:1px solid transparent!important;border-radius:9px!important;box-sizing:border-box!important;background:#fff!important;box-shadow:0 2px 12px transparent!important;text-align:center!important;transition:box-shadow .2s ease!important;transform:none!important;z-index:0!important}
 @media(hover:hover) and (pointer:fine){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover{z-index:3!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover{z-index:3!important;box-shadow:0 2px 12px rgba(0,0,0,.20)!important;transform:none!important}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover{z-index:3!important;}
 }
 #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:focus-within{z-index:3!important;border-color:#b8cbe4!important;box-shadow:0 1px 9px rgba(0,0,0,.13)!important}
 @media(prefers-reduced-motion:reduce){
@@ -92,68 +92,60 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding:11px 8px 16px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:15px!important}
 }
+
 @media(max-width:767px){
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding:9px 6px 13px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:140px!important;min-height:120px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:13px!important;line-height:20px!important;height:43px!important;min-height:43px!important;max-height:43px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{width:128px!important;height:69px!important;min-height:69px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .price-final strong{font-size:18px!important}
-  
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-rating-caption{font-size:9px!important}
-}
-@media(max-width:767px){
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{border:1px solid #e1e5ec!important;border-radius:9px!important;box-shadow:0 2px 11px rgba(30,43,63,.18)!important;transform:none!important;transition:none!important}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{transition:none!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:focus-within{box-shadow:0 2px 11px rgba(30,43,63,.18)!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings{min-height:38px!important;flex-direction:column!important;gap:2px!important;margin-bottom:7px!important}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings{margin-bottom:7px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-ratings .stars-placeholder{flex-direction:column!important;gap:2px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-empty-stars{gap:1px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-empty-stars svg{width:14px!important;height:14px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-rating-caption{font-size:10px!important;line-height:13px!important}
 }
 @media(min-width:992px){
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding:11px 9px 16px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(142px,13.4vw,184px)!important;min-height:142px!important;max-height:184px!important;margin-bottom:9px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:14px!important;font-weight:600!important;line-height:21px!important;height:46px!important;min-height:46px!important;max-height:46px!important;margin-bottom:5px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings{min-height:22px!important;margin-bottom:8px!important}
+  
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(142px,13.4vw,184px)!important;}
+  
+  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .availability{font-size:11px!important;line-height:17px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{width:139px!important;max-width:100%!important;height:67px!important;min-height:67px!important;margin-top:9px!important}
+  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices:before{height:22px!important;flex-basis:22px!important;font-size:10px!important;line-height:22px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .price-final strong{font-size:20px!important;line-height:29px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .p-tools{margin-top:15px!important}
+  
+  
   
 }
 @media(min-width:992px) and (max-width:1199px){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding:9px 5px 14px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:144px!important;min-height:125px!important}
+  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:12px!important;line-height:18px!important;height:40px!important;min-height:40px!important;max-height:40px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{width:114px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .price-final strong{font-size:17px!important}
   
 }
 @media(min-width:992px){
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(182px,15.5vw,216px)!important;min-height:182px!important;max-height:216px!important;margin-bottom:6px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{transform:scale(1.13)!important;transform-origin:center center!important;will-change:auto!important}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(182px,15.5vw,216px)!important;}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{will-change:auto!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding-top:7px!important}
 }
 @media(min-width:992px) and (max-width:1199px){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:177px!important;min-height:170px!important;max-height:177px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{transform:scale(1.10)!important}
+  
 }
 @media(min-width:992px){
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding:9px 10px 17px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(176px,14.5vw,205px)!important;min-height:176px!important;max-height:205px!important;margin-bottom:8px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{transform:scale(1.12)!important}
+  
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(176px,14.5vw,205px)!important;margin-bottom:8px!important}
+  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings{margin-bottom:7px!important;min-height:21px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:14px!important;font-weight:600!important;line-height:21px!important;height:44px!important;min-height:44px!important;max-height:44px!important;margin-bottom:6px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{width:144px!important;min-height:68px!important;height:68px!important;margin-top:11px!important}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{min-height:68px!important;height:68px!important;margin-top:11px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .price-final strong{font-size:20px!important;line-height:28px!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .p-tools{margin-top:17px!important}
+  
   
 }
 @media(min-width:992px){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{display:flex!important;flex-direction:column!important;align-items:stretch!important;height:100%!important;min-width:0!important;box-sizing:border-box!important;padding:11px 10px 18px!important;border:1px solid transparent!important;border-radius:9px!important;background:#fff!important;box-shadow:none!important;transform:none!important;transition:border-color .18s ease,box-shadow .18s ease!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;height:clamp(172px,14vw,202px)!important;min-height:172px!important;max-height:202px!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0 auto 9px!important;padding:5px 8px!important;overflow:hidden!important;background:#fff!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;margin:auto!important;object-fit:contain!important;object-position:center center!important;transform:none!important;filter:none!important}
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;margin:auto!important;object-fit:contain!important;object-position:center center!important;filter:none!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{width:144px!important;max-width:100%!important;margin-left:auto!important;margin-right:auto!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .p-tools{margin-top:auto!important;padding-top:15px!important}
 }
@@ -163,18 +155,15 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   
 }
 
-@media(max-width:767px){
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{transform:none!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
-}
+
 
 /* ===== from v91/okla_mobile_unified.css ===== */
 @media (max-width:767px){
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{position:relative!important;box-sizing:border-box!important;background:#fff!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{display:flex!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;margin:0!important;padding:10px 8px 13px!important;border:1px solid #e1e7ef!important;border-radius:9px!important;background:#fff!important;box-sizing:border-box!important;box-shadow:0 1px 4px rgba(21,43,68,.095)!important;transform:none!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;width:100%!important;height:138px!important;min-height:138px!important;max-height:138px!important;margin:0 0 5px!important;padding:2px!important;overflow:hidden!important;background:#fff!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;margin:auto!important;padding:0!important;object-fit:contain!important;object-position:center!important;transform:scale(1.06)!important;filter:none!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-in,
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-in-in{display:flex!important;flex:1 1 auto!important;flex-direction:column!important;align-items:stretch!important;min-width:0!important;width:100%!important;margin:0!important;padding:0!important}
+  
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{box-sizing:border-box!important;}
+  
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{margin:auto!important;padding:0!important;filter:none!important}
+  
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings,
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:row!important;flex-wrap:nowrap!important;min-width:0!important;width:100%!important;min-height:19px!important;height:auto!important;gap:2px!important;margin:0 0 6px!important;padding:0!important;color:#708092!important;font-size:10px!important;line-height:15px!important;white-space:nowrap!important}
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper .stars-placeholder{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:2px!important;white-space:nowrap!important;font-size:10px!important}
@@ -191,29 +180,28 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
 }
 @media(max-width:767px){
   #content .okla-cards.okla-cards.okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{position:relative!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;float:none!important;width:100%!important;min-width:0!important;max-width:none!important;height:100%!important;margin:0!important;padding:8px 8px 10px!important;background:#fff!important;border:1px solid #e0e7ef!important;border-radius:9px!important;box-shadow:0 1px 5px rgba(14,42,68,.06)!important;transform:none!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;width:100%!important;max-width:none!important;height:130px!important;min-height:130px!important;max-height:130px!important;margin:0 0 6px!important;padding:2px!important;overflow:hidden!important;background:#fff!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-in,
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-in-in{display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;flex:1 1 auto!important;width:100%!important;max-width:none!important;min-width:0!important;margin:0!important;padding:0!important}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{transform:none!important}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{max-width:none!important;}
+  
+  
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .ratings-wrapper,
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .ratings-wrapper.okla-ratings{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;min-height:18px!important;height:18px!important;max-height:18px!important;width:100%!important;margin:1px 0 5px!important;padding:0!important;overflow:hidden!important;white-space:nowrap!important;line-height:16px!important;font-size:10px!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;width:100%!important;max-width:100%!important;height:38px!important;min-height:38px!important;max-height:38px!important;margin:0 0 4px!important;padding:0!important;font-size:12px!important;line-height:19px!important;font-weight:650!important;text-align:center!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .availability{display:block!important;width:100%!important;max-width:100%!important;min-height:29px!important;height:auto!important;margin:0!important;padding:0!important;line-height:14px!important;font-size:10px!important;text-align:center!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-bottom{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;min-width:0!important;max-width:none!important;margin-top:auto!important;padding:0!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-bottom>div{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:0!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .prices{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;max-width:155px!important;height:57px!important;min-height:57px!important;margin:7px 0 0!important;padding:0!important;overflow:hidden!important;border-radius:5px!important;background:#eaf3fd!important}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product a.name{max-width:100%!important;font-weight:650!important;}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .availability{max-width:100%!important;}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-bottom{margin-top:auto!important;}
+  
+  
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .prices:before{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 19px!important;width:100%!important;height:19px!important;min-height:19px!important;line-height:19px!important;font-size:9px!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .price-final{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:37px!important;height:37px!important;margin:0!important;padding:0!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .price-final strong{display:block!important;max-width:100%!important;white-space:nowrap!important;font-size:17px!important;line-height:26px!important;font-weight:800!important;letter-spacing:-.25px!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-width:0!important;max-width:none!important;margin:0!important;padding:9px 0 0!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-tools form{display:flex!important;width:100%!important;min-width:0!important;margin:0!important}
+  
+  
+  
+  
 }
 @media(max-width:767px){
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{position:relative!important;overflow:visible!important}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{overflow:visible!important}
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;min-height:0!important;max-height:none!important;margin:0!important;padding:9px 9px 11px!important;border:1px solid #e0e6ee!important;border-radius:9px!important;background:#fff!important;box-shadow:0 1px 4px rgba(19,48,77,.075)!important;overflow:hidden!important}
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 130px!important;width:100%!important;height:130px!important;min-height:130px!important;max-height:130px!important;margin:0 0 6px!important;padding:2px!important;border:0!important;background:#fff!important;overflow:hidden!important;position:relative!important;float:none!important}
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;position:static!important;max-width:100%!important;max-height:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;float:none!important}
+  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;position:static!important;max-width:100%!important;max-height:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;float:none!important}
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-in,
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-in-in{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;flex:1 1 auto!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;max-height:none!important;margin:0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important}
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .ratings-wrapper{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;min-height:17px!important;height:17px!important;max-height:17px!important;flex:0 0 17px!important;margin:2px 0 5px!important;padding:0!important;float:none!important;white-space:nowrap!important;overflow:hidden!important;font-size:10px!important;line-height:17px!important}
@@ -233,8 +221,8 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-bottom>.p-tools{border-top:1px solid #edf0f3!important;margin:9px -9px -10px!important;padding:7px 7px 8px!important;width:calc(100% + 18px)!important;max-width:none!important;box-sizing:border-box!important;background:#fff!important}
 }
 @media(max-width:767px){
-  #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{position:relative!important}
-  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{display:flex!important;flex-direction:column!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;margin:0!important;padding:9px 8px 0!important;border:1px solid #e0e6ed!important;border-radius:9px!important;overflow:hidden!important;background:#fff!important;box-shadow:0 1px 5px rgba(18,46,70,.05)!important}
+  
+  #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{display:flex!important;flex-direction:column!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;margin:0!important;padding:9px 8px 0!important;border:1px solid #e0e6ed!important;border-radius:9px!important;background:#fff!important;box-shadow:0 1px 5px rgba(18,46,70,.05)!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:132px!important;min-height:132px!important;max-height:132px!important;margin:0 0 5px!important;overflow:hidden!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-in,
@@ -251,37 +239,37 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}
 }
 @media(max-width:767px){
-  body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{position:relative!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{box-sizing:border-box!important;position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;min-height:0!important;margin:0!important;padding:12px 11px 0!important;border:1px solid #e7ebef!important;border-radius:7px!important;background:#fff!important;box-shadow:0 1px 4px rgba(0,25,60,.05)!important;overflow:hidden!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;position:relative!important;width:100%!important;min-width:0!important;max-width:100%!important;height:151px!important;min-height:151px!important;max-height:151px!important;margin:0 0 7px!important;padding:2px!important;background:white!important;overflow:hidden!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image img{position:static!important;display:block!important;max-width:100%!important;max-height:100%!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;float:none!important;transform:none!important}
+  
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{float:none!important;min-height:0!important;}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image{max-width:100%!important;}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image img{float:none!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-in,
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-in-in{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:1 1 auto!important;float:none!important;min-width:0!important;width:100%!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 21px!important;width:100%!important;min-width:0!important;height:21px!important;min-height:21px!important;max-height:21px!important;margin:0 0 5px!important;padding:0!important;font-size:10px!important;line-height:21px!important;white-space:nowrap!important;overflow:hidden!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;flex:0 0 43px!important;width:100%!important;min-height:43px!important;height:43px!important;max-height:43px!important;margin:0 0 5px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font:500 13px/21.5px "Open Sans","Segoe UI",Arial,sans-serif!important;color:#102e5f!important}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper{font-size:10px!important;line-height:21px!important;white-space:nowrap!important;}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product a.name{font:500 13px/21.5px "Open Sans","Segoe UI",Arial,sans-serif!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .availability{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;width:100%!important;min-height:27px!important;height:27px!important;max-height:27px!important;margin:0 0 8px!important;padding:0!important;overflow:hidden!important;text-align:center!important;font-size:10px!important;line-height:13px!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-end!important;flex:0 0 auto!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:auto 0 0!important;padding:0!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;transform:none!important}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-bottom{justify-content:flex-end!important;flex:0 0 auto!important;float:none!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-bottom>div{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;flex:0 0 82px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;height:82px!important;min-height:82px!important;max-height:82px!important;margin:0!important;padding:0!important;border:0!important;border-radius:5px!important;box-shadow:none!important;background:#eef6fc!important;overflow:hidden!important;transform:none!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices::before{content:"NOVINKA"!important;position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 30px!important;width:100%!important;min-height:30px!important;height:30px!important;max-height:30px!important;margin:0!important;padding:0!important;background:#0b336c!important;color:#fff!important;line-height:30px!important;font-size:11px!important;font-weight:750!important;letter-spacing:.2px!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 52px!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:52px!important;height:52px!important;max-height:52px!important;margin:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;overflow:hidden!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;white-space:nowrap!important;font:800 20px/27px "Open Sans","Segoe UI",Arial,sans-serif!important;color:#0a346c!important;letter-spacing:-.35px!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex:0 0 53px!important;float:none!important;box-sizing:border-box!important;width:calc(100% + 22px)!important;max-width:none!important;min-width:0!important;min-height:53px!important;height:53px!important;max-height:53px!important;margin:10px -11px 0!important;padding:0 11px!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;border-top:1px solid #e9edf1!important;background:#fff!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{float:none!important;}
+  
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{float:none!important;}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final strong{font:800 20px/27px "Open Sans","Segoe UI",Arial,sans-serif!important;}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools{float:none!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;}
+  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{float:none!important;}
 }
 @media(max-width:767px){
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 22px!important;width:100%!important;min-width:0!important;min-height:22px!important;height:22px!important;max-height:22px!important;gap:3px!important;padding:0!important;margin:0 0 6px!important;overflow:hidden!important}
-  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-placeholder{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;width:100%!important;max-width:100%!important;min-width:0!important;color:#8a95a3!important;font:400 9px/15px "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;overflow:hidden!important}
-  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:1px!important;flex:0 0 auto!important}
-  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars svg{display:block!important;width:13px!important;height:13px!important;flex:0 0 13px!important;stroke:#ecad12!important;fill:none!important;stroke-width:1.55!important}
-  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-caption{font-size:9px!important;white-space:nowrap!important}
+  
+  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-placeholder{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:100%!important;min-width:0!important;color:#8a95a3!important;font:400 9px/15px "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;overflow:hidden!important}
+  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important}
+  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars svg{display:block!important;flex:0 0 13px!important;}
+  body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-caption{white-space:nowrap!important}
 }
 @media(max-width:767px){
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars svg{fill:#f3b91d!important;stroke:#f3b91d!important;stroke-width:1.2!important;width:14px!important;height:14px!important;flex-basis:14px!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars{gap:1px!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-placeholder{gap:5px!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-caption{color:#7d8998!important;font-size:9px!important}
-  body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;flex:0 0 48px!important;width:100%!important;min-height:48px!important;height:48px!important;max-height:48px!important;line-height:23px!important;font-size:14.3px!important;font-weight:550!important;overflow:hidden!important;margin:0 0 4px!important}
+  
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv74-hide-unavailable{display:none!important}
 }
 @media (max-width: 767px){
@@ -299,12 +287,12 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv74-hide-unavailable{display: none !important}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .availability:not(.okv74-hide-unavailable){text-align: center !important}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-bottom{position: static !important;display: flex !important;flex-direction: column !important;align-items: stretch !important;width: 100% !important;min-width: 0 !important;max-width: 100% !important;height: auto !important;min-height: 0 !important;margin: auto 0 0 !important;padding: 0 !important;transform: none !important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{position: static !important;display: flex !important;flex-direction: column !important;align-items: stretch !important;justify-content: flex-start !important;flex: 0 0 auto !important;box-sizing: border-box !important;width: 100% !important;min-width: 0 !important;max-width: 100% !important;height: auto !important;min-height: 0 !important;max-height: none !important;margin: 0 !important;padding: 0 !important;background: transparent !important;border: 0 !important;border-radius: 6px !important;box-shadow: none !important;overflow: hidden !important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices::before{content: "NOVINKA" !important;position: static !important;display: flex !important;flex: 0 0 auto !important;align-items: center !important;justify-content: center !important;box-sizing: border-box !important;width: 100% !important;height: auto !important;min-height: 0 !important;max-height: none !important;margin: 0 !important;padding: 8px !important;border: 0 !important;border-radius: 6px 6px 0 0 !important;background: var(--okla-card-navy) !important;color: #FFFFFF !important;font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;font-size: 14px !important;font-weight: 700 !important;line-height: 20px !important;letter-spacing: .5px !important;text-align: center !important;text-transform: uppercase !important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{position: static !important;display: flex !important;flex: 0 0 auto !important;align-items: center !important;justify-content: center !important;box-sizing: border-box !important;width: 100% !important;min-width: 0 !important;max-width: 100% !important;height: auto !important;min-height: 0 !important;max-height: none !important;margin: 0 !important;padding: 16px 2px !important;border: 0 !important;border-radius: 0 0 6px 6px !important;background: var(--okla-card-price-bg) !important;box-shadow: none !important;overflow: hidden !important;text-align: center !important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{position: static !important;display: flex !important;flex-direction: column !important;align-items: stretch !important;justify-content: flex-start !important;flex: 0 0 auto !important;box-sizing: border-box !important;min-width: 0 !important;max-width: 100% !important;}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices::before{position: static !important;flex: 0 0 auto !important;align-items: center !important;justify-content: center !important;box-sizing: border-box !important;width: 100% !important;height: auto !important;min-height: 0 !important;max-height: none !important;margin: 0 !important;padding: 8px !important;border: 0 !important;border-radius: 6px 6px 0 0 !important;background: var(--okla-card-navy) !important;color: #FFFFFF !important;font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;font-size: 14px !important;font-weight: 700 !important;line-height: 20px !important;letter-spacing: .5px !important;text-align: center !important;text-transform: uppercase !important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{position: static !important;display: flex !important;flex: 0 0 auto !important;align-items: center !important;justify-content: center !important;box-sizing: border-box !important;min-width: 0 !important;max-width: 100% !important;overflow: hidden !important;text-align: center !important}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final strong{position: static !important;display: block !important;width: auto !important;max-width: 100% !important;margin: 0 !important;padding: 0 !important;color: var(--okla-card-navy) !important;font-family: "Open Sans", "Segoe UI", Arial, sans-serif !important;font-size: 24px !important;font-weight: 800 !important;line-height: 1.2 !important;text-align: center !important;letter-spacing: -.4px !important;white-space: nowrap !important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools{position: static !important;display: flex !important;flex-direction: row !important;flex: 0 0 56px !important;align-items: center !important;justify-content: center !important;box-sizing: border-box !important;width: calc(100% + 2 * var(--okla-card-padding)) !important;max-width: none !important;min-width: 0 !important;height: 56px !important;min-height: 56px !important;max-height: 56px !important;margin: 12px calc(-1 * var(--okla-card-padding)) 0 !important;padding: 0 var(--okla-card-padding) !important;border: 0 !important;border-top: 1px solid var(--okla-card-line) !important;border-radius: 0 !important;background: #FFFFFF !important;box-shadow: none !important;transform: none !important;overflow: hidden !important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{position: static !important;display: flex !important;flex-direction: row !important;align-items: center !important;justify-content: center !important;width: 100% !important;min-width: 0 !important;max-width: 100% !important;margin: 0 !important;padding: 0 !important;transform: none !important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools{position: static !important;display: flex !important;flex-direction: row !important;flex: 0 0 56px !important;align-items: center !important;justify-content: center !important;box-sizing: border-box !important;width: calc(100% + 2 * var(--okla-card-padding)) !important;max-width: none !important;min-width: 0 !important;margin: 12px calc(-1 * var(--okla-card-padding)) 0 !important;padding: 0 var(--okla-card-padding) !important;border: 0 !important;border-radius: 0 !important;background: #FFFFFF !important;box-shadow: none !important;overflow: hidden !important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{position: static !important;display: flex !important;flex-direction: row !important;align-items: center !important;justify-content: center !important;min-width: 0 !important;margin: 0 !important;padding: 0 !important;transform: none !important}
   
   
   
@@ -321,11 +309,11 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
 }
 @media(min-width:992px){
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b){--ok89-ink:#0642A1;--ok89-hover:#EAF3FF}
-  html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{position:relative!important;isolation:isolate!important;overflow:visible!important}
+  html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product{isolation:isolate!important;overflow:visible!important}
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p,
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover,
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p{box-sizing:border-box!important;position:relative!important;isolation:isolate!important;background:#fff!important;border:1px solid transparent!important;box-shadow:none!important;border-radius:10px!important;transform:none!important;overflow:visible!important;transition:none!important;padding-bottom:12px!important}
-  html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p::after{content:''!important;display:block!important;pointer-events:none!important;position:absolute!important;inset:8px -2px -28px -2px!important;border-radius:10px!important;border:1px solid transparent!important;box-shadow:none!important;background:none!important;transition:border-color .16s ease,box-shadow .16s ease!important;z-index:3!important}
+  html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p::after{content:''!important;display:block!important;position:absolute!important;border:1px solid transparent!important;box-shadow:none!important;background:none!important;transition:border-color .16s ease,box-shadow .16s ease!important;z-index:3!important}
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p::after,
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:focus-within::after{border-color:#E0E0E0!important;box-shadow:0 4px 12px rgba(0,0,0,.08)!important}
   
@@ -333,13 +321,13 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   
   
   
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:1px!important;vertical-align:middle!important;flex:none!important;color:#F4B526!important;white-space:nowrap!important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .ok89-decor-stars svg{width:13px!important;height:13px!important;flex:0 0 13px!important;fill:currentColor!important;stroke:currentColor!important;stroke-width:.5px!important;display:block!important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .ok89-decor-stars{vertical-align:middle!important;flex:none!important;white-space:nowrap!important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .ok89-decor-stars svg{flex:0 0 13px!important;stroke-width:.5px!important;}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .okv80-stars,
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .okv73-rating-stars,
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .okla-empty-stars,
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .stars-placeholder svg{display:none!important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;flex-wrap:wrap!important;white-space:nowrap!important;font-size:12px!important;color:#888!important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper{display:flex!important;align-items:center!important;white-space:nowrap!important;font-size:12px!important;color:#888!important}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .stars-placeholder{display:inline-block!important;white-space:nowrap!important;font-size:12px!important;color:#888!important}
 }
 @media(min-width:992px){
@@ -353,7 +341,7 @@ html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-card
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b){--okla-cta-blue:#0642A1!important}
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p,
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p,
-  html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover{display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:12px 13px 24px!important;margin:0!important;height:100%!important;min-height:414px!important;background:#fff!important;overflow:visible!important;box-shadow:none!important}
+  html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover{display:flex!important;flex-direction:column!important;align-items:stretch!important;padding:12px 13px 24px!important;margin:0!important;height:100%!important;background:#fff!important;overflow:visible!important;box-shadow:none!important}
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:172px!important;min-height:172px!important;max-height:172px!important;margin:0 0 5px!important;background:#fff!important;overflow:hidden!important}
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{display:block!important;max-width:100%!important;max-height:157px!important;width:auto!important;height:auto!important;object-fit:contain!important;margin:auto!important}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper{min-height:19px!important;margin:0 0 7px!important;padding:0!important;flex-wrap:nowrap!important;justify-content:flex-start!important;gap:5px!important;overflow:hidden!important}
@@ -365,8 +353,8 @@ html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-card
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .prices,
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .prices{position:static!important;box-sizing:border-box!important;width:min(144px,100%)!important;max-width:100%!important;height:68px!important;min-height:68px!important;max-height:68px!important;margin:11px auto 0!important;transform:none!important;transition:none!important}
   html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools,
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools{position:static!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;width:100%!important;margin-top:auto!important;padding:16px 0 0!important;min-height:54px!important;transform:none!important;transition:none!important}
-  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;display:flex!important;justify-content:center!important;align-items:center!important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product:hover .p-tools{position:static!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-end!important;width:100%!important;padding:16px 0 0!important;transform:none!important;transition:none!important}
+  html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{margin:0!important;padding:0!important;display:flex!important;justify-content:center!important;align-items:center!important}
   
   
   

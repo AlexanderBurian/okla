@@ -6,7 +6,7 @@
 html body .oka-contact{
   width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
   overflow-x:hidden;
-  font-family:'Open Sans',Arial,sans-serif;
+  
   color:#1a2330;background:#fff;
   --b:#0642A1;--bd:#0e2f66;--mut:#5a6676;--line:#e3e7ee;--grey:#f2f4f7;
 }
@@ -94,7 +94,7 @@ html body .oka-c-form__note a{color:var(--b);text-decoration:none}
   html body .oka-c-top h1{font-size:32px}
   html body .oka-c-top__head p{font-size:17px}
   html body .oka-c-cards{grid-template-columns:1fr;gap:16px}
-  html body .oka-c-card{padding:28px 22px;border-radius:14px;background:#fff;box-shadow:0 1px 6px rgba(11,37,64,.06)}
+  html body .oka-c-card{padding:28px 22px;border-radius:14px;background:#fff;}
   html body .oka-c-card + .oka-c-card{border-left:0}
   html body .oka-c-card__ic{width:104px;height:104px;margin-bottom:16px}
   html body .oka-c-card__ic img{width:96px;height:96px}

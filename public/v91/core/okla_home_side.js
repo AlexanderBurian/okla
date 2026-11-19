@@ -165,8 +165,15 @@
   build();
   layout();
   window.addEventListener('resize',schedule);
+  /* The card moves when the header grows (the category bar is added after this script) or anything above it changes
+     height. A ResizeObserver re-places the art in the same frame, before it is painted, so the art never shows at an
+     old position first and then jumps. 'load' stays as a safety net (it changes nothing when the art is already in
+     place, e.g. where the page is not being rendered and the observer has not run yet). */
+  if(window.ResizeObserver){
+   var ro=new ResizeObserver(function(){layout()});
+   [document.getElementById('header'),document.getElementById('content-wrapper'),document.body].forEach(function(el){if(el)ro.observe(el)});
+  }
   window.addEventListener('load',layout);
-  setTimeout(layout,800);
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
  else start();

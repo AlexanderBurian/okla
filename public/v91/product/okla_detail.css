@@ -10,8 +10,8 @@
  --okd-font:"Open Sans","Segoe UI",Arial,sans-serif;
 }
 /* 1. White product sheet, no old navy border. */
-html body.ok89-detail #content-wrapper{box-sizing:border-box!important;max-width:var(--okd-width)!important;margin-inline:auto!important;border:0!important;border-top:4px solid #1D54AA!important;border-radius:14px!important;background:#fff!important;box-shadow:none!important;overflow:hidden!important}
-html body.ok89-detail #content-wrapper::before{display:none!important;content:none!important}
+html body.ok89-detail #content-wrapper{box-sizing:border-box!important;max-width:var(--okd-width)!important;margin-inline:auto!important;border:0!important;background:#fff!important;}
+
 html body.ok89-detail #content,html body.ok89-detail #content .p-detail,html body.ok89-detail #content .p-detail-inner{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;background:#fff!important}
 html body.ok89-detail #content .p-detail{padding:24px 24px 32px!important;margin:0!important;border:0!important;box-shadow:none!important}
 html body.ok89-detail #content .p-detail *{box-sizing:border-box!important;font-family:var(--okd-font)!important}
@@ -33,15 +33,15 @@ html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-inner-header{
 html body.ok89-detail #content .p-detail .p-detail-inner-header h1{color:var(--okd-ink)!important;font:700 28px/1.28 var(--okd-font)!important;margin:0!important;overflow-wrap:break-word!important}
 html body.ok89-detail #content .p-detail .p-detail-inner-header .ok86-model{white-space:nowrap!important}
 html body.ok89-detail #content .p-detail .ok86-brand{display:block!important;margin:0 0 16px!important;font-size:13px!important;color:var(--okd-blue)!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-info{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:8px!important;float:none!important;margin:0 0 16px!important;padding:0!important;width:100%!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-info{align-items:center!important;flex-wrap:wrap!important;gap:8px!important;float:none!important;margin:0 0 16px!important;padding:0!important;width:100%!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper>.p-short-description{display:block!important;float:none!important;margin:0 0 10px!important;color:#555!important;font:400 14px/1.55 var(--okd-font)!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper>.ok86-description-link{display:block!important;margin:0 0 16px!important}
 html body.ok89-detail #content .p-detail .ok86-description-link a{color:var(--okd-blue)!important;font-size:13px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{display:flex!important;align-items:center!important;flex-wrap:wrap!important;min-height:48px!important;width:100%!important;margin:0 0 16px!important;padding:12px 16px!important;border:0!important;border-radius:6px!important;background:#F5F5F5!important}
-html body.ok89-detail #content .p-detail .availability-value.ok86-in .availability-label{color:#3A9B2E!important;font-weight:700!important}
-html body.ok89-detail #content .p-detail .availability-value.ok86-out .availability-label{color:#CC0000!important;font-weight:700!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{display:flex!important;align-items:center!important;flex-wrap:wrap!important;width:100%!important;margin:0 0 16px!important;border:0!important;}
+
+
 html body.ok89-detail #content .p-detail .p-final-price-wrapper{position:static!important;display:block!important;float:none!important;width:100%!important;margin:0 0 16px!important;padding:0!important;border:0!important;background:transparent!important}
-html body.ok89-detail #content .p-detail .price-final,html body.ok89-detail #content .p-detail .price-final *{color:var(--okd-price)!important;font:800 32px/1.25 var(--okd-font)!important}
+html body.ok89-detail #content .p-detail .price-final,html body.ok89-detail #content .p-detail .price-final *{font:800 32px/1.25 var(--okd-font)!important}
 html body.ok89-detail #content .p-detail .p-detail-inner-header .p-code{display:none!important}
 /* 4. Shoptet-native amount input and its REAL increase/decrease buttons.
    The input is inside a label (Shoptet 2025); no duplicated JavaScript controls. */
@@ -72,12 +72,12 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary::before,
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary::after{display:none!important;content:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary svg{display:none!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{display:inline-flex!important;flex:0 0 18px!important;width:18px!important;height:18px!important;align-items:center!important;justify-content:center!important;margin-right:9px!important;line-height:1!important;color:inherit!important;font-size:19px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{flex:0 0 18px!important;width:18px!important;height:18px!important;align-items:center!important;justify-content:center!important;margin-right:9px!important;line-height:1!important;}
 /* 6. Favorites, secondary actions, native legal microcopy. */
 html body.ok89-detail #content .p-detail .p-info-wrapper :is(.add-to-favourites,.add-to-favorites,.favorite-link,.fav-link){display:inline-flex!important;align-items:center!important;gap:8px!important;min-height:20px!important;margin:0 0 12px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;color:var(--okd-blue)!important;font:400 14px/1.4 var(--okd-font)!important;text-transform:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper){display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:wrap!important;gap:20px!important;margin:0 0 16px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper) a{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;text-transform:none!important;font:400 13px/1.4 var(--okd-font)!important;color:var(--okd-muted)!important}
-html body.ok89-detail #content .p-detail .ok86-micro{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:6px 16px!important;padding:13px 0!important;margin:0!important;border-top:1px solid #E5E5E5!important;color:var(--okd-muted)!important;font:400 12px/1.4 var(--okd-font)!important}
+html body.ok89-detail #content .p-detail .ok86-micro{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:6px 16px!important;margin:0!important;border-top:1px solid #E5E5E5!important;color:var(--okd-muted)!important;font:400 12px/1.4 var(--okd-font)!important}
 /* 6b. Favourites: plain link with heart icon, no bordered button (Alza secondary action). */
 html body.ok89-detail #content .p-detail .p-info-wrapper .okla-detail-favorite{display:inline-flex!important;align-items:center!important;gap:8px!important;min-height:24px!important;margin:12px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:var(--okd-blue)!important;font:400 14px/1.4 var(--okd-font)!important;cursor:pointer!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .okla-detail-favorite svg{display:block!important;width:18px!important;height:18px!important;flex:0 0 18px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
@@ -86,21 +86,21 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 /* 6g. Cart button in the product slider: same as homepage (icon comes from the button background; the inline SVG stays hidden). */
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .btn-cart svg.ok89-cart{display:none!important}
 /* 6f. Tabs: full-width baseline, inactive tabs light grey, active tab keeps its blue top bar aligned with the others. */
-html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:3px solid transparent!important}
-html body.ok89-detail #content ul.p-detail-tabs>li:not(.active)>a{color:#6B7280!important}
+
+
 html body.ok89-detail #content .shp-tabs-row{width:100%!important}
 /* 7. Actual Shoptet native tabs; the list itself is styled to avoid wrapper-name mismatch. */
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper){display:block!important;box-sizing:border-box!important;position:relative!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important}
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(.row,.shp-tabs-holder,.shp-tabs-row){box-sizing:border-box!important;float:none!important;max-width:100%!important;width:100%!important;min-width:0!important;margin:0!important;padding:0!important;background:#fff!important}
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) .shp-tabs-row{display:flex!important;align-items:flex-end!important;flex-wrap:nowrap!important;border:0!important;border-bottom:1px solid var(--okd-line)!important;min-height:43px!important}
-html body.ok89-detail #content ul.p-detail-tabs{box-sizing:border-box!important;display:flex!important;align-items:stretch!important;justify-content:flex-start!important;flex-wrap:nowrap!important;gap:3px!important;width:max-content!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;border:0!important;list-style:none!important}
-html body.ok89-detail #content ul.p-detail-tabs>li{box-sizing:border-box!important;display:flex!important;align-items:stretch!important;flex:0 0 auto!important;float:none!important;position:relative!important;margin:0 0 -1px!important;padding:0!important;border:1px solid var(--okd-line)!important;border-radius:0!important;background:#fff!important;box-shadow:none!important}
+html body.ok89-detail #content ul.p-detail-tabs{box-sizing:border-box!important;display:flex!important;align-items:stretch!important;justify-content:flex-start!important;flex-wrap:nowrap!important;width:max-content!important;max-width:none!important;margin:0!important;padding:0!important;background:#fff!important;border:0!important;list-style:none!important}
+html body.ok89-detail #content ul.p-detail-tabs>li{box-sizing:border-box!important;display:flex!important;align-items:stretch!important;flex:0 0 auto!important;float:none!important;position:relative!important;margin:0 0 -1px!important;padding:0!important;border:1px solid var(--okd-line)!important;background:#fff!important;box-shadow:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li::before,html body.ok89-detail #content ul.p-detail-tabs>li::after{display:none!important;content:none!important}
-html body.ok89-detail #content ul.p-detail-tabs>li>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:40px!important;margin:0!important;padding:8px 15px!important;border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;color:#6B7280!important;font:400 15px/1.4 var(--okd-font)!important;text-decoration:none!important;text-transform:none!important}
-html body.ok89-detail #content ul.p-detail-tabs>li.active{z-index:2!important;border-top:3px solid var(--okd-blue)!important;border-bottom-color:white!important}
-html body.ok89-detail #content ul.p-detail-tabs>li.active>a{padding-top:6px!important;min-height:38px!important;color:#1A1A1A!important}
+html body.ok89-detail #content ul.p-detail-tabs>li>a{display:inline-flex!important;align-items:center!important;justify-content:center!important;margin:0!important;border:0!important;background:#fff!important;box-shadow:none!important;text-decoration:none!important;text-transform:none!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active{z-index:2!important;border-bottom-color:white!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active>a{padding-top:6px!important;}
 html body.ok89-detail #content ul.p-detail-tabs>li>a:hover{color:var(--okd-blue)!important}
-html body.ok89-detail #content .ok99-tab-house{display:inline-block!important;font-size:19px!important;line-height:1!important;color:#56738C!important}
+
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(#tab-content,.tab-content){float:none!important;display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:24px 0 0!important;background:#fff!important}
 /* 8. Content, params (35/65) and separators. */
 html body.ok89-detail #content .p-detail .description-inner,html body.ok89-detail #content .p-detail-tabs-wrapper .description-inner{color:#262626!important;font:400 15px/1.6 var(--okd-font)!important}
@@ -146,7 +146,7 @@ html body.ok89-detail #content .ok97-native-reviews :is(.star,.star::before){col
  html body.ok89-detail #content .ok97-review-score>strong{font-size:44px!important}
 }
 /* 9. Related slider, same card geometry as homepage but isolated. */
-html body.ok89-detail #content .ok86-related{box-sizing:border-box!important;position:relative!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:32px 0 20px!important;border-top:1px solid #E5E5E5!important;background:#fff!important}
+html body.ok89-detail #content .ok86-related{box-sizing:border-box!important;position:relative!important;width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:32px 0 20px!important;background:#fff!important}
 html body.ok89-detail #content .ok86-related h2{margin:0 0 20px!important;font:700 22px/1.4 var(--okd-font)!important}
 html body.ok89-detail #content .ok97-related-viewport{width:100%!important;min-width:0!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important;scroll-snap-type:x mandatory!important}
 html body.ok89-detail #content .ok97-related-viewport::-webkit-scrollbar{display:none!important}
@@ -166,7 +166,7 @@ html body.ok89-detail #content .ok97-related-prev{left:-12px!important}
 html body.ok89-detail #content .ok97-related-next{right:-12px!important}
 html body.ok89-detail #content .ok97-related-arrow[hidden]{display:none!important}
 /* 10. Four documented trust facts only; exact original wording. */
-html body.ok89-detail #content .ok86-trust{box-sizing:border-box!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;width:100%!important;max-width:100%!important;margin:40px 0 24px!important;padding:20px!important;border-radius:8px!important;background:#F5F5F5!important}
+html body.ok89-detail #content .ok86-trust{box-sizing:border-box!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;width:100%!important;max-width:100%!important;margin:40px 0 24px!important;padding:20px!important;border-radius:8px!important;background:#F5F5F5!important}
 html body.ok89-detail #content .ok86-trust>div{display:flex!important;align-items:center!important;gap:9px!important;color:#1A1A1A!important;font:500 12px/1.4 var(--okd-font)!important}
 html body.ok89-detail #content .ok86-trust svg{display:block!important;flex:0 0 22px!important;width:22px!important;height:22px!important;max-width:22px!important;max-height:22px!important;stroke:#1D54AA!important;fill:none!important}
 html body.ok89-detail #content .ok86-trust a{color:#1D54AA!important}
@@ -194,7 +194,7 @@ html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-plac
  html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary{flex:0 0 52px!important;min-width:0!important;width:100%!important}
  html body.ok89-detail #content .p-detail .p-detail-inner-header .ok86-model{white-space:normal!important}
  html body.ok89-detail #content .shp-tabs-row{max-width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important}
- html body.ok89-detail #content ul.p-detail-tabs>li>a{font-size:13px!important;padding:8px 10px!important}
+ html body.ok89-detail #content ul.p-detail-tabs>li>a{font-size:13px!important;}
  html body.ok89-detail #content .ok86-related-track{--okd-card-gap:12px}
  html body.ok89-detail #content .ok86-related-card{flex-basis:calc((100% - 12px)/2)!important;width:calc((100% - 12px)/2)!important;padding:8px!important}
  html body.ok89-detail #content .ok86-related-card>img{height:140px!important}
@@ -236,24 +236,22 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:2px!important;color:#F4B526!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;fill:currentColor!important;stroke:none!important}
 /* 8h. Tabs: the blue bar is an inset shadow, not a border, so its ends are square (no mitred corners); unselected tabs have no top line. */
-html body.ok89-detail #content ul.p-detail-tabs>li.active{border-top:0!important;box-shadow:inset 0 3px 0 #1D54AA!important}
-html body.ok89-detail #content ul.p-detail-tabs>li:not(.active){border-top:0!important;box-shadow:none!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active{border-top:0!important;}
+
 /* 8i. Slider width as on homepage (its container is 1010 px on desktop, so the cards keep the homepage size). */
 html body.ok89-detail #content .ok86-related{max-width:1111px!important;margin-left:auto!important;margin-right:auto!important}
 /* 8j. Cart button hover exactly as homepage. */
 
 /* 8k. Desktop: five cards in a row, exactly as the homepage (the loader counts visible cards as items-1, which gives four for five records). */
-@media(min-width:992px){
-html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:calc((100% - 64px) / 5)!important}
-}
+
 /* 8l. Less space above the product sheet: the breadcrumb row on product pages is 28 px high instead of 51 px. */
-html body.ok89-detail .breadcrumbs.navigation-home-icon-wrapper{min-height:28px!important;padding:0!important}
+
 /* 8m. Original breadcrumb arrows (1 px diagonal pseudo-lines on each link) are hidden on product pages; the single › separator stays. */
 html body.ok89-detail .breadcrumbs a::before,html body.ok89-detail .breadcrumbs a::after{display:none!important;content:none!important}
 /* 8n. Blue top bar of the product sheet: a flat 4 px bar drawn inside the rounded sheet, so its underside stays straight.
    (The old 4 px border-top met the rounded side borders in a mitre, which bent the bar downwards at both ends.) */
-html body.ok89-detail #content-wrapper{border-top:0!important;position:relative!important}
-html body.ok89-detail #content-wrapper::before{display:block!important;content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:4px!important;background:#1D54AA!important;z-index:5!important;pointer-events:none!important}
+html body.ok89-detail #content-wrapper{position:relative!important}
+html body.ok89-detail #content-wrapper::before{content:""!important;position:absolute!important;background:#1D54AA!important;z-index:5!important;pointer-events:none!important}
 /* 8o. Mobile: the tab row must not stick out of the 16 px gutters (the desktop -24 px bleed made it 387 px on a 375 px screen). */
 @media(max-width:991px){
 html body.ok89-detail #content .p-detail-tabs-wrapper,html body.ok89-detail #content .p-details-tabs-wrapper{margin-left:0!important;margin-right:0!important;width:100%!important}
@@ -273,13 +271,13 @@ html body.ok89-detail #content .ok86-related{max-width:none!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:186px!important;justify-content:space-between!important}
 }
 /* 8s. Tabs as on Alza: 44 px tall, 15 px dark-grey labels with 16 px side padding, solid home icon, 4 px gaps. */
-html body.ok89-detail #content ul.p-detail-tabs{gap:4px!important}
-html body.ok89-detail #content ul.p-detail-tabs>li>a{min-height:44px!important;height:44px!important;padding:0 16px!important;font:400 15px/44px var(--okd-font)!important;color:#333!important}
-html body.ok89-detail #content ul.p-detail-tabs>li.active>a{min-height:44px!important;height:44px!important;padding:0 16px!important;color:#1A1A1A!important}
-html body.ok89-detail #content .ok99-tab-house{font-size:20px!important;font-weight:700!important;line-height:44px!important;color:#333!important}
+
+html body.ok89-detail #content ul.p-detail-tabs>li>a{padding:0 16px!important;color:#333!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active>a{padding:0 16px!important;color:#1A1A1A!important}
+html body.ok89-detail #content .ok99-tab-house{font-weight:700!important;color:#333!important}
 /* 8t. Blue top bar: drawn above the sheet with elliptical corners (14 px across, 4 px down), so its underside is flat and only the top corners round.
    The sheet no longer clips it; its content is clipped by its own rounded box instead. */
-html body.ok89-detail #content-wrapper{overflow:visible!important}
+
 html body.ok89-detail #content-wrapper .content-wrapper-in{border-radius:14px!important;overflow:hidden!important}
 html body.ok89-detail #content-wrapper::before{top:-4px!important;left:0!important;right:0!important;height:4px!important;border-radius:14px 14px 0 0 / 4px 4px 0 0!important}
 /* 8u. Tabs as on Alza: tab row starts 32 px inside the sheet, tabs have 4 px rounded top corners,
@@ -287,8 +285,8 @@ html body.ok89-detail #content-wrapper::before{top:-4px!important;left:0!importa
 @media(min-width:992px){
 html body.ok89-detail #content .p-detail-tabs-wrapper .shp-tabs-row{padding-left:32px!important}
 }
-html body.ok89-detail #content ul.p-detail-tabs>li{border-radius:4px 4px 0 0!important}
-html body.ok89-detail #content ul.p-detail-tabs>li>a{border-radius:4px 4px 0 0!important}
+
+
 html body.ok89-detail #content .ok99-tab-house{display:inline-block!important;width:18px!important;height:18px!important;font-size:0!important;line-height:0!important;vertical-align:middle!important;background-color:#4A4A4A!important;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active .ok99-tab-house{background-color:#1A1A1A!important}
 /* 8v. Alza comparison (1:1 measure): tabs have square corners, 41 px tall incl. the 3 px cap, 4-5 px between tabs. */
@@ -298,7 +296,7 @@ html body.ok89-detail #content ul.p-detail-tabs>li.active>a{height:41px!importan
 html body.ok89-detail #content ul.p-detail-tabs{gap:4px!important}
 /* 8w. Blue cap on the selected tab: drawn on the tab link (the link covers the list item, so a shadow on the item was hidden). Inset, so the tab does not get taller. */
 html body.ok89-detail #content ul.p-detail-tabs>li.active{box-shadow:none!important}
-html body.ok89-detail #content ul.p-detail-tabs>li.active>a{background:#fff!important;box-shadow:inset 0 3px 0 0 #1D54AA!important}
+html body.ok89-detail #content ul.p-detail-tabs>li.active>a{background:#fff!important;}
 /* 8y. Cart button hover in the product slider: background #DBE5F6, outline and text the same colour #053D96 (identical outline and content), label included. background-color only, so the cart icon image stays. */
 
 /* 8aa. Selected tab: blue cap 1 px wider on each side than the tab, shown at once (no transition). */
@@ -324,14 +322,14 @@ html body.ok89-detail #content ul.p-detail-tabs>li.active::before{content:""!imp
 /* 8am. Cart button transition as on homepage: background and outline fade over 0.18 s; the label and glyph change at once, as on homepage. */
 
 /* 8an. Buy box rhythm after Alza (more air between the blocks). Only the right-hand purchase column changes. */
-html body.ok89-detail #content .p-detail .p-detail-inner-header{margin-bottom:20px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.p-short-description{margin-bottom:14px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.ok86-description-link{margin-bottom:24px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{margin-bottom:28px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper>.p-final-price-wrapper{margin-bottom:24px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart{margin-bottom:28px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper){margin-bottom:24px!important}
-html body.ok89-detail #content .p-detail .ok86-micro{padding:24px 0 16px!important}
+
+
+
+
+
+
+
+
 /* 8ao. Quantity stepper: the + and − signs are visible again (they were hidden by the native sign spans), same colour as the stepper arrows. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease) :is(.increase__sign,.decrease__sign){display:inline-block!important;font:400 22px/1 var(--okd-font)!important;color:#7B8191!important}
 /* 8ap. Mobile: the product content keeps the 16 px side gutters (the title and buy box were touching the screen edges). */
@@ -344,8 +342,8 @@ html body.ok89-detail #content .p-detail .row.product-top{margin-left:0!importan
 }
 /* 8as. Product image field: no 446 px cap, the field takes the full gallery column and is about twice the previous area; the photo scales with it. */
 @media(min-width:992px){
-html body.ok89-detail #content .p-detail .p-image-wrapper .p-image{width:100%!important;max-width:none!important;min-height:640px!important}
-html body.ok89-detail #content .p-detail .p-main-image img{width:100%!important;max-width:100%!important;max-height:none!important;height:auto!important;aspect-ratio:auto!important}
+html body.ok89-detail #content .p-detail .p-image-wrapper .p-image{width:100%!important;max-width:none!important;}
+
 }
 /* 8at. Buy box: larger vertical gaps between the blocks. */
 html body.ok89-detail #content .p-detail .p-detail-inner-header{margin-bottom:24px!important}
@@ -362,8 +360,8 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .social-buttons.no-disp
 /* 8av. Favourites are not shown (this shop has no favourites function). Hidden in CSS as well, because the button is created after the script's own removal step. */
 html body.ok89-detail #content .p-detail .okla-detail-favorite{display:none!important}
 /* 8aw. Print / Ask / Share row: more air between the icons and between icon and label. */
-html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{gap:40px!important;margin-top:8px!important}
-html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{display:flex!important;flex-direction:column!important;align-items:center!important;gap:12px!important}
+html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons{gap:40px!important;}
+html body.ok89-detail #content .p-detail .p-info-wrapper .link-icons .link-icon{display:flex!important;flex-direction:column!important;align-items:center!important;}
 /* 8ax. The quantity buttons had an absolutely positioned ::before (about 365 x 846 px) that covered the whole buy box and took every click.
    It is removed, so each button, link and the cart button receive their own clicks. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease)::before,html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease)::after{content:none!important;display:none!important}
@@ -396,7 +394,7 @@ html body.ok89-detail #content .ok86-related .okla-slider-track>.product{flex:0 
 html body.ok89-detail #content-wrapper{border-top:6px solid #063F99!important;border-radius:6px!important;overflow:hidden!important;background-color:#fff!important;background-image:none!important;box-shadow:rgba(0,25,65,.11) 0px 0px 10px 0px!important}
 html body.ok89-detail #content-wrapper::before{display:none!important}
 /* 8bd. The breadcrumb row has a 1 px grey bottom border that ran across the top of the sheet. The homepage has no breadcrumb, so the line goes on this page. */
-html body.ok89-detail .breadcrumbs.navigation-home-icon-wrapper{border-bottom:0!important}
+
 /* 8bd. Buy button: the shop's green with black text (like the other green buttons) and about 240 px wide instead of stretched across the buy box. */
 @media(min-width:992px){
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary{background:var(--okd-green)!important;border-color:var(--okd-green)!important;color:var(--okd-green-ink)!important;flex:0 0 240px!important;width:240px!important;max-width:100%!important}

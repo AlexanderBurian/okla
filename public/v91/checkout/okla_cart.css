@@ -1,34 +1,34 @@
 /* OKLA cart page, in the layout of a modern checkout: product rows as cards, a quantity stepper, a summary card.
    Loaded only on ordering pages. The top bar and the step underline are removed. */
-body.ordering-process #content-wrapper{border-top:0!important;border-radius:16px;box-shadow:0 2px 14px rgba(11,37,64,.08)}
+
 body.in-kosik .cart-header{border-bottom:0;margin-bottom:8px}
-body.in-kosik table.cart-table{width:100%;border-collapse:separate;border-spacing:0 12px}
-body.in-kosik table.cart-table tr.removeable{background:#fff;box-shadow:0 1px 4px rgba(11,37,64,.08)}
+
+
 body.in-kosik table.cart-table tr.removeable td{padding:16px 12px;border:0;vertical-align:middle;background:#fff}
 body.in-kosik table.cart-table tr.removeable td:first-child{border-radius:14px 0 0 14px;padding-left:16px}
 body.in-kosik table.cart-table tr.removeable td:last-child{border-radius:0 14px 14px 0;padding-right:16px}
-body.in-kosik .cart-p-image img{width:88px;height:88px;object-fit:contain}
+body.in-kosik .cart-p-image img{width:88px;height:88px;}
 body.in-kosik .p-name a.main-link{font-size:16px;font-weight:600;line-height:1.35;color:#0b2540;text-transform:none;text-decoration:none}
 body.in-kosik .p-name a.main-link:hover{color:#0859d9;text-decoration:underline}
 body.in-kosik .availability-label{font-size:14px;font-weight:600}
 body.in-kosik .p-quantity .p-label,body.in-kosik .p-availability .p-label{display:none}
-body.in-kosik .quantity-form{display:inline-flex;align-items:center;margin:0;border:1px solid #cdd2da;border-radius:10px;height:44px;overflow:hidden;background:#fff}
-body.in-kosik .quantity-form .quantity{display:inline-flex;align-items:center;height:44px}
-body.in-kosik .quantity-form input.amount{width:56px;height:42px;border:0;text-align:center;font-size:16px;font-weight:600;color:#0b2540;-moz-appearance:textfield;appearance:textfield}
-body.in-kosik .quantity-form input.amount::-webkit-outer-spin-button,body.in-kosik .quantity-form input.amount::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-body.in-kosik .quantity-form .quantity>button{display:inline-flex!important;align-items:center;justify-content:center;width:42px;height:44px;border:0;background:#f5f7fa;color:#0b2540;font-size:20px;font-weight:600;cursor:pointer}
-body.in-kosik .quantity-form .quantity>button:hover{background:#e6ebf2}
+body.in-kosik .quantity-form{margin:0;}
+
+body.in-kosik .quantity-form input.amount{color:#0b2540;appearance:textfield}
+
+body.in-kosik .quantity-form .quantity>button{display:inline-flex!important;align-items:center;justify-content:center;width:42px;border:0;color:#0b2540;font-size:20px;font-weight:600;cursor:pointer}
+
 body.in-kosik .p-price{font-size:14px;color:#6b7280;white-space:nowrap}
 body.in-kosik .p-total{font-size:18px;font-weight:700;color:#0b2540;text-align:right;white-space:nowrap}
-body.in-kosik .remove-item{width:32px;height:32px;border:0;border-radius:50%;background:#f5f7fa;cursor:pointer}
-body.in-kosik .remove-item:hover{background:#e6ebf2}
-body.in-kosik .box.box-sm{background:#fff;border:1px solid #e6ebf2;border-radius:16px;padding:22px;box-shadow:0 2px 10px rgba(11,37,64,.06)}
+body.in-kosik .remove-item{width:32px;height:32px;border-radius:50%;cursor:pointer}
+
+body.in-kosik .box.box-sm{padding:22px;}
 body.in-kosik .next-step{display:flex;flex-direction:column;gap:12px}
 body.in-kosik .next-step .btn{display:flex;align-items:center;justify-content:center;width:100%;height:52px;border-radius:10px;font-size:16px;font-weight:700}
 body.in-kosik .next-step-forward{background:#0859d8!important;border-color:#0859d8!important;color:#fff!important}
 body.in-kosik .next-step-back{background:#fff;border:1px solid #0b2540;color:#0b2540}
 @media(max-width:767px){
- body.in-kosik table.cart-table tr.removeable{display:grid;grid-template-columns:88px 1fr auto;gap:8px 12px;padding:12px}
+ body.in-kosik table.cart-table tr.removeable{gap:8px 12px;}
  body.in-kosik table.cart-table tr.removeable td{padding:0!important;border-radius:0!important}
  body.in-kosik .p-availability,body.in-kosik .p-price{display:none}
  body.in-kosik .p-quantity{grid-column:2}
@@ -36,35 +36,35 @@ body.in-kosik .next-step-back{background:#fff;border:1px solid #0b2540;color:#0b
 }
 body.in-kosik table.cart-table td.cart-p-image{width:84px}
 body.in-kosik table.cart-table td.p-name{width:auto!important}
-body.in-kosik table.cart-table td.p-availability{width:96px}
-body.in-kosik table.cart-table td.p-quantity{width:150px}
+
+
 body.in-kosik table.cart-table td.p-price{display:none!important}
 body.in-kosik table.cart-table td.p-total{width:120px}
 body.ordering-process .cart-header *{border:0!important;box-shadow:none!important}
 body.in-kosik .cart-row>.col-md-8{flex:0 0 68%;max-width:68%}
 body.in-kosik .cart-row>.col-md-4{flex:0 0 32%;max-width:32%}
-body.in-kosik table.cart-table{table-layout:auto}
-body.in-kosik table.cart-table{width:100%!important;max-width:none!important}
+
+body.in-kosik table.cart-table{max-width:none!important}
 body.in-kosik table.cart-table td.p-availability{width:90px}
 body.in-kosik table.cart-table td.p-quantity{width:140px}
-body.in-kosik .cart-content{padding-left:0!important;padding-right:0!important}
+body.in-kosik .cart-content{padding-right:0!important}
 
 /* Checkout steps as one connected track: a green line fills and each step turns green as the customer moves on. */
-body.ordering-process .cart-header{position:relative;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 26px;padding:0;border:0!important;counter-reset:okla-step;list-style:none}
-body.ordering-process .cart-header::before,body.ordering-process .cart-header::after{content:"";position:absolute;left:calc(100%/6);top:22px;height:4px;border-radius:2px}
-body.ordering-process .cart-header::before{width:calc(100%*2/3);background:#e6ebf2}
-body.ordering-process .cart-header::after{width:0;background:linear-gradient(90deg,#0751c6,#0751c6);transition:width .7s cubic-bezier(.22,.8,.3,1)}
-body.ordering-process .cart-header .step{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-width:0;font-size:14px;line-height:1.3;font-weight:500;color:#6b7280}
+body.ordering-process .cart-header{position:relative;counter-reset:okla-step;list-style:none}
+body.ordering-process .cart-header::before,body.ordering-process .cart-header::after{position:absolute;}
+
+
+body.ordering-process .cart-header .step{z-index:1;flex-direction:column;}
 body.ordering-process .cart-header .step strong,body.ordering-process .cart-header .step a,body.ordering-process .cart-header .step span{color:inherit;font-weight:inherit;text-decoration:none}
-body.ordering-process .cart-header .step::before{counter-increment:okla-step;content:counter(okla-step);display:flex;align-items:center;justify-content:center;box-sizing:border-box;width:40px;height:40px;border-radius:50%;background:#fff;border:3px solid #cdd2da;color:#6b7280;font-size:15px;font-weight:700}
-body.in-kosik .cart-header .step-1::before,body.in-krok-1 .cart-header .step-2::before,body.in-krok-2 .cart-header .step-3::before{border-color:#0751c6;color:#4f9400;box-shadow:0 0 0 6px rgba(7,75,182,.18);animation:okla-step-pulse 2s ease-in-out infinite}
-body.in-krok-1 .cart-header .step-1::before,body.in-krok-2 .cart-header .step-1::before,body.in-krok-2 .cart-header .step-2::before{content:"";background:#0751c6 url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'%3E%3Cpath d=\'M5 12.5l4.2 4.2L19 7\' fill=\'none\' stroke=\'%23fff\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E") center/16px 16px no-repeat;border-color:#0751c6}
-body.in-kosik .cart-header .step-1,body.in-krok-1 .cart-header .step-2,body.in-krok-2 .cart-header .step-3{color:#0b2540;font-weight:700}
-body.in-krok-1 .cart-header .step-1,body.in-krok-2 .cart-header .step-1,body.in-krok-2 .cart-header .step-2{color:#0b2540}
+body.ordering-process .cart-header .step::before{counter-increment:okla-step;}
+
+body.in-krok-1 .cart-header .step-1::before,body.in-krok-2 .cart-header .step-1::before,body.in-krok-2 .cart-header .step-2::before{content:"";background:#0751c6 url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\'%3E%3Cpath d=\'M5 12.5l4.2 4.2L19 7\' fill=\'none\' stroke=\'%23fff\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\'/%3E%3C/svg%3E") center/16px 16px no-repeat;}
+
+
 body.in-krok-1 .cart-header::after{width:calc(100%/3)}
 body.in-krok-2 .cart-header::after{width:calc(100%*2/3)}
 @keyframes okla-step-pulse{0%,100%{box-shadow:0 0 0 6px rgba(7,75,182,.18)}50%{box-shadow:0 0 0 10px rgba(7,75,182,.06)}}
-@media (prefers-reduced-motion:reduce){body.ordering-process .cart-header::after{transition:none}body.ordering-process .cart-header .step::before{animation:none!important}}
+
 body.in-kosik .cart-content>:not(table){padding-left:12px;padding-right:12px}
-body.ordering-process .cart-header{width:100%}
-body.ordering-process .cart-header .step{width:100%;justify-self:stretch}
+
+body.ordering-process .cart-header .step{justify-self:stretch}

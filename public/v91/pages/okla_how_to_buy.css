@@ -29,7 +29,7 @@ html.okla-htb-page body main#content > .content-inner{max-width:none!important;w
 .ohb-facts svg{width:22px;height:22px;color:#0b2540;stroke-width:2.6}
 /* steps */
 .ohb-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:0;padding:0;list-style:none;counter-reset:none}
-.ohb-step{position:relative;margin:0;padding:26px 24px 24px;border-radius:20px;background:#fff;box-shadow:0 1px 0 rgba(11,37,64,.04)}
+.ohb-step{position:relative;margin:0;padding:26px 24px 24px;border-radius:20px;background:#fff;}
 .ohb-step::before{content:none}
 .ohb-step__num{position:absolute;top:26px;right:24px;display:grid;place-items:center;width:30px;height:30px;border:1.5px solid #dbe3ec;border-radius:50%;font:700 14px/1 "Open Sans",Arial,sans-serif;color:#0b2540}
 .ohb-step__ic,.ohb-card__ic{display:block;width:32px;height:32px;margin:0 0 20px;color:#0b2540}

@@ -29,17 +29,12 @@
     height:56px!important;margin:0!important;padding:0!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header{
-    display:flex!important;align-items:center!important;justify-content:flex-end!important;
+    
     flex:0 1 350px!important;width:100%!important;max-width:350px!important;
-    min-width:0!important;height:54px!important;
+    min-width:0!important;
     gap:0!important;margin:0!important;
   }
-  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-account{
-    display:flex!important;align-items:center!important;justify-content:flex-start!important;
-    flex:1 1 145px!important;width:auto!important;min-width:130px!important;
-    max-width:170px!important;gap:8px!important;min-height:44px!important;
-    border-radius:11px!important;
-  }
+  
   html body #header .header-top .navigation-buttons .okla-exact-header .okla-header-copy strong{
     font:700 13px/17px "Open Sans",Arial,sans-serif!important;color:#102a54!important;
   }
@@ -47,22 +42,12 @@
     font:400 11px/15px "Open Sans",Arial,sans-serif!important;color:#1d54aa!important;
   }
   html body #header .header-top .navigation-buttons .okla-exact-header .okla-header-icon{
-    width:34px!important;height:34px!important;flex:0 0 34px!important;
-    background:#eaf4ff!important;color:#0642a0!important;
-    border-radius:11px!important;
+    
+    color:#0642a0!important;
+    
   }
-  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders,
-  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites,
-  html body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale{
-    flex:0 0 40px!important;width:40px!important;min-width:40px!important;
-    max-width:40px!important;min-height:44px!important;
-    border-radius:9px!important;
-  }
-  html body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count{
-    flex:0 0 43px!important;width:43px!important;min-width:43px!important;
-    max-width:43px!important;min-height:44px!important;
-    border-radius:9px!important;
-  }
+  
+  
   html body #header .header-top .navigation-buttons .okla-exact-header>:is(button,a):hover{
     background:transparent!important;
   }

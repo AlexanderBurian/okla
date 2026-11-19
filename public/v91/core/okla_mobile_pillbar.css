@@ -5,11 +5,11 @@
 @media(max-width:767px){
   /* ---- the bar ---- */
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d){
-    position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;
-    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px!important;
-    width:100%!important;height:calc(62px + env(safe-area-inset-bottom,0px))!important;min-height:0!important;max-height:none!important;margin:0!important;padding:7px 10px calc(7px + env(safe-area-inset-bottom,0px))!important;box-sizing:border-box!important;
-    border:0!important;border-top:1px solid #e3e8ef!important;border-radius:0!important;background:#fff!important;overflow:visible!important;
-    box-shadow:0 -4px 16px rgba(8,29,58,.06)!important;grid-template-columns:none!important;
+    
+    justify-content:space-between!important;
+    
+    border-top:1px solid #e3e8ef!important;
+    
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okla-tb-bg{display:none!important}
   /* ---- an item: a round button (48px) ---- */
@@ -46,7 +46,7 @@
   /* the cart's number, top right on its round button */
   /* the current item's name always whole: a little less room around it, and on the narrowest phones smaller round
      buttons ("Objednávky" was cut to "Objednáv" on a 375 px phone, "Košík" on a 320 px one) */
-  html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d){gap:4px!important}
+  
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action>span{font-size:13px!important;text-overflow:ellipsis!important}
   html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active,
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel{padding-right:12px!important}
@@ -56,7 +56,7 @@
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d){padding-left:8px!important;padding-right:8px!important}
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action{flex-basis:42px!important;min-width:42px!important;height:42px!important;border-radius:21px!important}
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action svg{flex-basis:42px!important;width:42px!important;height:42px!important;padding:11px!important}
-    html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count{left:26px!important}
+    
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart{overflow:visible!important}
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count{
@@ -80,7 +80,7 @@
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav,
   html.okla-tb-on body.in-krok-2:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important;padding-bottom:12px!important}
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav.is-stuck::after{display:none!important}
-  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.08)!important;border-radius:14px 14px 0 0!important}
+  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav.is-stuck{border-radius:14px 14px 0 0!important}
   /* the Katalog / Menu panels end above the pill */
   html.okla-tb-on body #okla-v61-drawer:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-drawer-body{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))!important}
   /* the cart on phones: compact rows - the cells without their own padding, the stock right under the name,

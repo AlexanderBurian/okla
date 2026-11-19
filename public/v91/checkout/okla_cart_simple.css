@@ -16,8 +16,8 @@ html body.ordering-process .okla-parcel{display:none!important;animation:none!im
 html body.ordering-process .cart-header::before{height:3px!important;background:#e1e6ed!important}
 html body.ordering-process .cart-header::after{height:3px!important;background:#074dbb!important;transition:none!important}
 html body.ordering-process .cart-header .step::before{
-  border:2px solid #aeb8c5!important;background:#fff!important;color:#657184!important;
-  box-shadow:none!important;animation:none!important
+  
+  animation:none!important
 }
 html body.in-kosik .cart-header .step-1::before,
 html body.in-krok-1 .cart-header .step-2::before,
@@ -29,9 +29,8 @@ html body.in-krok-2 .cart-header .step-1::before,
 html body.in-krok-2 .cart-header .step-2::before{
   border-color:#074dbb!important;background-color:#074dbb!important
 }
-html body.ordering-process .cart-header .step{color:#657184!important}
-html body.ordering-process .cart-header .step.active,
-html body.ordering-process .cart-header .step.completed{color:#0b2540!important}
+
+
 
 /* Cart lines are rows, not floating cards. */
 html body.in-kosik table.cart-table{border-collapse:collapse!important;border-spacing:0!important}
@@ -40,7 +39,7 @@ html body.in-kosik table.cart-table tr.removeable{
   border-radius:0!important;box-shadow:none!important
 }
 html body.in-kosik table.cart-table tr.removeable>td{
-  padding-top:16px!important;padding-bottom:16px!important;background:#fff!important;
+  background:#fff!important;
   border:0!important;border-bottom:1px solid #e1e6ed!important;border-radius:0!important
 }
 html body.in-kosik .cart-p-image img{object-fit:contain!important}
@@ -94,10 +93,7 @@ html body.ordering-process:not(.in-kosik) .radio-wrapper :is(.payment-shipping-p
 html body.ordering-process:not(.in-kosik) .shipping-billing-summary :is(.price,strong){
   color:#074dbb!important;-webkit-text-fill-color:#074dbb!important
 }
-html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
-  position:static!important;border:0!important;border-left:1px solid #e1e6ed!important;
-  border-radius:0!important;background:#fafbfc!important;padding:20px!important;box-shadow:none!important
-}
+
 html body.ordering-process .form-control,
 html body.ordering-process textarea,
 html body.ordering-process select{
@@ -124,13 +120,12 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn:hover
 
 @media(max-width:767px){
   html body.ordering-process #content-wrapper{border-left:0!important;border-right:0!important;border-radius:0!important}
-  html body.in-kosik table.cart-table tr.removeable{padding:14px 0!important}
-  html body.in-kosik table.cart-table tr.removeable>td{border-bottom:0!important;padding-top:0!important;padding-bottom:0!important}
+  
+  html body.in-kosik table.cart-table tr.removeable>td{border-bottom:0!important;}
   html body.in-kosik .cart-row>.col-md-8,
   html body.in-kosik .cart-row>.col-md-4{flex:0 0 100%!important;max-width:100%!important}
   html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
-    border-left:0!important;border-top:1px solid #e1e6ed!important;background:#fafbfc!important;padding:16px!important
-  }
+    border-top:1px solid #e1e6ed!important;}
   html body.ordering-process #content#content .okla-step-nav{padding:16px 0!important}
 }
 
@@ -139,11 +134,10 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn:hover
    live last: the old experimental checkout themes stay harmless underneath. */
 
 html body.ordering-process .cart-header{
-  display:flex!important;align-items:center!important;justify-content:flex-start!important;
-  gap:22px!important;width:auto!important;max-width:620px!important;min-height:58px!important;
-  margin:0!important;padding:0 26px!important;border:0!important;border-bottom:1px solid #e1e6ed!important;
-  background:transparent!important;overflow:visible!important
-}
+  justify-content:flex-start!important;
+  max-width:620px!important;
+  border:0!important;
+  }
 html body.ordering-process .cart-header .step,
 html body.ordering-process .cart-header .step:first-of-type{
   position:relative!important;display:grid!important;grid-template-columns:34px auto!important;
@@ -158,7 +152,7 @@ html body.ordering-process .cart-header .step:not(:last-child)::after{
   margin-top:-1px!important;background:#c8cdd3!important
 }
 html body.ordering-process .cart-header .step::before{
-  content:""!important;display:flex!important;position:static!important;z-index:1!important;
+  position:static!important;z-index:1!important;
   grid-column:1!important;grid-row:1!important;width:34px!important;height:34px!important;
   align-items:center!important;justify-content:center!important;border:0!important;border-radius:50%!important;
   background:#c8cdd3!important;color:#fff!important;font-size:14px!important;font-weight:700!important;
@@ -173,19 +167,18 @@ html body.ordering-process .cart-header .step>span{
   display:block!important;grid-column:2!important;grid-row:1!important;width:auto!important;
   margin:0!important;padding:0!important;color:inherit!important;text-align:left!important
 }
-html body.ordering-process .cart-header .step.active{color:#0859d9!important;background:transparent!important}
+
 html body.ordering-process .cart-header .step.active::before{background:#085ada!important;color:#fff!important}
-html body.ordering-process .cart-header .step.completed{color:#5f6874!important;background:transparent!important}
+
 html body.ordering-process .cart-header .step.completed::before{
   content:"✓"!important;background:#c8cdd3!important;color:#fff!important
 }
 
 /* Cart total: a real two-row recap immediately before the continue button. */
 html body.in-kosik .okla-alza-total{
-  display:grid!important;grid-template-columns:auto auto!important;align-items:center!important;
-  justify-content:end!important;column-gap:22px!important;row-gap:4px!important;
-  margin-left:auto!important;padding:0 8px!important;white-space:nowrap!important
-}
+  grid-template-columns:auto auto!important;
+  column-gap:22px!important;row-gap:4px!important;
+  }
 html body.in-kosik .okla-alza-total__net-label,
 html body.in-kosik .okla-alza-total__label{
   grid-column:1!important;margin:0!important;text-align:right!important;font-size:13px!important;
@@ -196,21 +189,17 @@ html body.in-kosik .okla-alza-total__value{
   grid-column:2!important;margin:0!important;text-align:right!important;line-height:1.15!important
 }
 html body.in-kosik .okla-alza-total__net-value{font-size:13px!important;font-weight:500!important;color:#303841!important}
-html body.in-kosik .okla-alza-total__value{font-size:21px!important;font-weight:800!important;color:#0859d8!important}
+
 
 /* Delivery/payment recap: products first, then transport/payment and totals. */
-html body.ordering-process:not(.in-kosik) .cart-row{
-  grid-template-columns:minmax(0,1fr) 320px!important
-}
-html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{
-  padding:24px 18px!important;background:#f6f7f8!important;border-left:1px solid #e1e5ea!important
-}
+
+
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
-  display:block!important;position:static!important;margin:0!important;padding:0!important;
-  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important
+  display:block!important;position:static!important;margin:0!important;
+  border-radius:0!important;box-shadow:none!important
 }
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box>h2{
-  display:block!important;margin:0 0 12px!important;padding:0!important;background:transparent!important;
+  margin:0 0 12px!important;padding:0!important;background:transparent!important;
   color:#0b2540!important;font-size:13px!important;font-weight:700!important;line-height:1.2!important;
   letter-spacing:.02em!important;text-transform:uppercase!important
 }
@@ -251,8 +240,7 @@ html body.ordering-process:not(.in-kosik) .order-summary .price-primary{
 
 @media(max-width:767px){
   html body.ordering-process .cart-header{
-    gap:10px!important;max-width:100%!important;min-height:48px!important;padding:0 14px!important;overflow:hidden!important
-  }
+    max-width:100%!important;}
   html body.ordering-process .cart-header .step,
   html body.ordering-process .cart-header .step:first-of-type{
     grid-template-columns:28px auto!important;gap:6px!important;height:48px!important;font-size:11px!important
@@ -260,12 +248,12 @@ html body.ordering-process:not(.in-kosik) .order-summary .price-primary{
   html body.ordering-process .cart-header .step:not(:last-child){padding-right:20px!important}
   html body.ordering-process .cart-header .step:not(:last-child)::after{width:15px!important;height:2px!important}
   html body.ordering-process .cart-header .step::before{width:28px!important;height:28px!important;font-size:12px!important}
-  html body.in-kosik .okla-alza-total{column-gap:12px!important;padding:0!important}
+  html body.in-kosik .okla-alza-total{column-gap:12px!important;}
   html body.in-kosik .okla-alza-total__net-label,
   html body.in-kosik .okla-alza-total__net-value{display:none!important}
-  html body.in-kosik .okla-alza-total__label{font-size:12px!important}
-  html body.in-kosik .okla-alza-total__value{font-size:20px!important}
-  html body.ordering-process:not(.in-kosik) .cart-row>.col-md-4{padding:18px 16px!important}
+  
+  
+  
 }
 
 /* -------------------------------------------------------------------------
@@ -330,7 +318,7 @@ html body.in-kosik #content#content .okla-step-nav{
   background:#fff!important;box-shadow:0 -5px 16px rgba(11,37,64,.08)!important;box-sizing:border-box!important
 }
 html body.in-kosik #content#content .okla-step-nav .next-step{
-  display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important
+  gap:12px!important
 }
 html body.in-kosik #content#content .okla-step-nav .next-step .next-step-forward{
   min-width:132px!important
@@ -385,9 +373,8 @@ html body.in-krok-2 #order-form :is(.co-contact-information>h2,.co-billing-addre
   font-size:18px!important;text-transform:none!important
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish){
-  border-color:#0859d8!important;background:#0859d8!important;color:#fff!important;
-  -webkit-text-fill-color:#fff!important
-}
+  border-color:#0859d8!important;
+  }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.next-step-forward,.next-step-finish):is(:hover,:focus,:active){
   border-color:#0856d1!important;background:#0856d1!important;color:#fff!important;
   -webkit-text-fill-color:#fff!important
@@ -408,7 +395,7 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.n
     bottom:54px!important;width:calc(100% + 32px)!important;margin:16px -16px 0!important;padding:12px 16px!important
   }
   html body.in-kosik #content#content .okla-step-nav .next-step{
-    display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;gap:8px!important
+    grid-template-columns:auto minmax(0,1fr)!important;gap:8px!important
   }
   html body.in-kosik .okla-alza-total{grid-column:1/-1!important;grid-row:1!important;align-items:flex-end!important}
   html body.in-kosik #content#content .okla-step-nav .next-step .next-step-back{grid-column:1!important;grid-row:2!important}
@@ -430,18 +417,18 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn:is(.n
 
 /* --- Steps: Datart icons, no background, small, top left ------------- */
 html body.ordering-process #content#content ol.cart-header{
-  display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:nowrap!important;
-  gap:0!important;width:auto!important;max-width:none!important;height:auto!important;min-height:0!important;
-  margin:0 0 22px!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important;
+  justify-content:flex-start!important;flex-wrap:nowrap!important;
+  width:auto!important;max-width:none!important;
+  box-shadow:none!important;
   list-style:none!important;counter-reset:none!important;
 }
 html body.ordering-process #content#content ol.cart-header::before,
 html body.ordering-process #content#content ol.cart-header::after{content:none!important;display:none!important}
 html body.ordering-process #content#content ol.cart-header>li.step{
-  position:relative!important;display:flex!important;align-items:center!important;flex:0 0 auto!important;
-  width:auto!important;height:auto!important;min-width:0!important;margin:0!important;padding:0!important;
+  position:relative!important;display:flex!important;flex:0 0 auto!important;
+  min-width:0!important;margin:0!important;padding:0!important;
   background:none!important;border:0!important;box-shadow:none!important;clip-path:none!important;
-  color:#7b8594!important;font:600 13px/1.2 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  font:600 13px/1.2 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
 }
 html body.ordering-process #content#content ol.cart-header>li.step>:is(strong,a){
   display:flex!important;align-items:center!important;gap:0!important;margin:0!important;padding:0!important;
@@ -455,7 +442,7 @@ html body.ordering-process #content#content ol.cart-header>li.step span{
 /* the round icon */
 html body.ordering-process #content#content ol.cart-header>li.step::before{
   content:""!important;display:block!important;position:static!important;flex:none!important;
-  width:30px!important;height:30px!important;margin:0 9px 0 0!important;padding:0!important;box-sizing:border-box!important;
+  margin:0 9px 0 0!important;padding:0!important;box-sizing:border-box!important;
   border:1.5px solid #c9d1dc!important;border-radius:50%!important;background:#fff center/16px 16px no-repeat!important;
   color:transparent!important;font-size:0!important;transform:none!important;box-shadow:none!important;
 }
@@ -463,19 +450,19 @@ html body.ordering-process #content#content ol.cart-header>li.step-1::before{bac
 html body.ordering-process #content#content ol.cart-header>li.step-2::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a95a5' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5h11v9.5h-11z'/%3E%3Cpath d='M13.5 9.5h4l3 3.4V16h-7'/%3E%3Ccircle cx='6.5' cy='17.5' r='1.6'/%3E%3Ccircle cx='17' cy='17.5' r='1.6'/%3E%3C/svg%3E")!important}
 html body.ordering-process #content#content ol.cart-header>li.step-3::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238a95a5' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}
 /* current step: blue ring, blue icon, dark label */
-html body.ordering-process #content#content ol.cart-header>li.step.active{color:#0b2540!important}
-html body.ordering-process #content#content ol.cart-header>li.step.active::before{border-color:#0859d8!important}
-html body.ordering-process #content#content ol.cart-header>li.step-1.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230859d8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 4h2l2.4 10.2a1.5 1.5 0 0 0 1.5 1.1h7.7a1.5 1.5 0 0 0 1.5-1.1L20 8H6.2'/%3E%3Ccircle cx='9.5' cy='19' r='1.3'/%3E%3Ccircle cx='17' cy='19' r='1.3'/%3E%3C/svg%3E")!important}
-html body.ordering-process #content#content ol.cart-header>li.step-2.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230859d8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 6.5h11v9.5h-11z'/%3E%3Cpath d='M13.5 9.5h4l3 3.4V16h-7'/%3E%3Ccircle cx='6.5' cy='17.5' r='1.6'/%3E%3Ccircle cx='17' cy='17.5' r='1.6'/%3E%3C/svg%3E")!important}
-html body.ordering-process #content#content ol.cart-header>li.step-3.active::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230859d8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8' r='3.6'/%3E%3Cpath d='M5 20c.8-3.6 3.6-5.6 7-5.6s6.2 2 7 5.6'/%3E%3C/svg%3E")!important}
+
+
+
+
+
 /* finished steps: filled blue with a white check */
 html body.ordering-process #content#content ol.cart-header>li.step.completed{color:#46556a!important}
 html body.ordering-process #content#content ol.cart-header>li.step.completed::before{border-color:#0859d8!important;background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/15px 15px no-repeat!important}
 /* connector between steps */
 html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{
   content:""!important;display:block!important;position:static!important;flex:none!important;
-  width:40px!important;height:2px!important;margin:0 12px!important;padding:0!important;border:0!important;
-  background:#d6dce4!important;clip-path:none!important;transform:none!important;
+  padding:0!important;border:0!important;
+  clip-path:none!important;transform:none!important;
 }
 html body.ordering-process #content#content ol.cart-header>li.step.completed:not(:last-child)::after{background:#0859d8!important}
 
@@ -487,7 +474,7 @@ html body.in-kosik #content#content .okla-cart-summary{
 html body.in-kosik #content#content .okla-cart-summary__toggle{
   display:inline-flex!important;align-items:center!important;gap:7px!important;margin:6px 0 0!important;padding:0!important;
   border:0!important;background:none!important;box-shadow:none!important;cursor:pointer!important;
-  color:#0751c6!important;-webkit-text-fill-color:#0751c6!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
+  -webkit-text-fill-color:#0751c6!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
 }
 html body.in-kosik #content#content .okla-cart-summary__toggle::before{
   content:""!important;width:15px!important;height:15px!important;flex:none!important;border-radius:50%!important;
@@ -501,10 +488,10 @@ html body.in-kosik #content#content .okla-cart-summary__coupon-body .okla-coupon
 html body.in-kosik #content#content .okla-cart-summary__coupon-body .okla-coupon__title{display:none!important}
 html body.in-kosik #content#content .okla-cart-summary__totals{display:grid!important;grid-template-columns:auto auto!important;column-gap:40px!important;row-gap:8px!important;align-items:baseline!important;margin-left:auto!important}
 html body.in-kosik #content#content .okla-cart-summary__row{display:contents!important}
-html body.in-kosik #content#content .okla-cart-summary__row>span:first-child{color:#46556a!important;font:400 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important}
+html body.in-kosik #content#content .okla-cart-summary__row>span:first-child{font:400 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important}
 html body.in-kosik #content#content .okla-cart-summary__net{color:#46556a!important;font:500 14px/1.3 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content#content .okla-cart-summary__row--gross>span:first-child{color:#0b2540!important;font-weight:700!important}
-html body.in-kosik #content#content .okla-cart-summary__gross{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:800 22px/1.15 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
+html body.in-kosik #content#content .okla-cart-summary__gross{font:800 22px/1.15 "Open Sans",Arial,sans-serif!important;text-align:right!important;white-space:nowrap!important}
 html body.in-kosik #content#content .okla-cart-summary__sentinel{height:1px!important;margin-top:-1px!important}
 
 /* the button row sticks to the bottom of the screen until it reaches its place */
@@ -517,12 +504,12 @@ html body.in-kosik #content#content .cart-inner{overflow:visible!important}
 html body.in-kosik #content#content .cart-inner>.okla-step-nav{
   position:sticky!important;bottom:0!important;z-index:30!important;background:#fff!important;
   margin:0!important;padding:14px 24px!important;border-top:1px solid #e4e8ee!important;
-  transition:box-shadow .15s ease!important;
+  
 }
 html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;border-top-color:#dfe4ea!important}
 html body.in-kosik #content#content .cart-inner>.okla-step-nav .okla-alza-total{display:none!important}
 html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-alza-total{
-  display:grid!important;grid-template-columns:auto!important;justify-items:end!important;row-gap:1px!important;margin:0 18px 0 auto!important;padding:0!important;
+  justify-items:end!important;row-gap:1px!important;margin:0 18px 0 auto!important;padding:0!important;
 }
 html body.in-kosik #content#content .okla-step-nav .okla-alza-total :is(.okla-alza-total__net-label,.okla-alza-total__net-value){display:none!important}
 html body.in-kosik #content#content .okla-step-nav .okla-alza-total__label{color:#46556a!important;font:400 13px/1.2 "Open Sans",Arial,sans-serif!important}
@@ -547,7 +534,7 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{content:attr(data-qty) "x "!important;color:#46556a!important;font:400 13px/1.45 "Open Sans",Arial,sans-serif!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name a{color:#46556a!important;-webkit-text-fill-color:#46556a!important;font:400 13px/1.45 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-amount{display:none!important}
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price{grid-column:3!important;grid-row:1!important;margin:0!important;color:#0b2540!important;font:500 13px/1.3 "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;text-align:right!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-price{grid-column:3!important;grid-row:1!important;margin:0!important;color:#0b2540!important;font:500 13px/1.3 "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .order-summary-item.helper{display:none!important}
 /* shipping and payment lines with an icon, price in green */
 html body.ordering-process:not(.in-kosik) #content#content .order-summary #shipping-billing-summary{margin:4px 0 0!important;padding:12px 0 2px!important;border-top:1px solid #dfe4ea!important;background:none!important}
@@ -583,14 +570,14 @@ html body.ordering-process:not(.in-kosik) #content#content .payment-shipping-pri
 
 /* --- Phones ------------------------------------------------------------ */
 @media(max-width:767px){
-  html body.ordering-process #content#content ol.cart-header{margin:0 0 16px!important;padding:0 16px!important}
-  html body.ordering-process #content#content ol.cart-header>li.step{font-size:12px!important}
-  html body.ordering-process #content#content ol.cart-header>li.step::before{width:26px!important;height:26px!important;margin-right:6px!important;background-size:14px 14px!important}
-  html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{width:14px!important;margin:0 7px!important}
+  
+  
+  
+  
   html body.in-kosik #content#content .okla-cart-summary{flex-direction:column!important;gap:14px!important;margin:4px 16px 0!important}
   html body.in-kosik #content#content .okla-cart-summary__totals{width:100%!important;grid-template-columns:1fr auto!important}
   html body.in-kosik #content#content .okla-cart-summary__row>span:first-child{text-align:left!important}
-  html body.in-kosik #content#content .cart-inner>.okla-step-nav{bottom:calc(58px + env(safe-area-inset-bottom))!important;padding:10px 16px!important}
+  html body.in-kosik #content#content .cart-inner>.okla-step-nav{padding:10px 16px!important}
   html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck .okla-alza-total{margin-right:10px!important}
   html body.in-kosik #content#content .okla-step-nav .okla-alza-total__label{font-size:11px!important}
   html body.in-kosik #content#content .okla-step-nav .okla-alza-total__value{font-size:18px!important}
@@ -606,7 +593,7 @@ html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4 :
 html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4>*{background:none!important;box-shadow:none!important;border:0!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name,
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name a{display:block!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;-webkit-line-clamp:unset!important;max-height:none!important;max-width:none!important}
-html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{float:left!important;margin-right:4px!important}
+html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-item-name::before{margin-right:4px!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single{flex-wrap:nowrap!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-label{display:none!important}
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-shipping-billing-info{min-width:0!important;flex-wrap:nowrap!important;align-items:center!important}
@@ -629,15 +616,15 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .recap
 html body.ordering-process:not(.in-kosik) #content#content .order-summary .recapitulation-single>strong>span{order:2!important;flex:none!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:600!important;white-space:nowrap!important}
 /* steps 2/3 on desktop: the steps sit top left like on the cart page */
 @media(min-width:768px){
-  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8{padding-top:22px!important;padding-left:24px!important}
-  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8>.cart-content{padding-top:0!important;padding-left:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8{padding-top:22px!important;}
+  html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-8>.cart-content{padding-top:0!important;}
 }
 /* shipping / payment options: separate cards with a gap, never touching */
 html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper{
-  margin:0 0 10px!important;border:1px solid #dde2e9!important;border-radius:8px!important;
+  margin:0 0 10px!important;
 }
 html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:last-child{margin-bottom:0!important}
-html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-table>.radio-wrapper:has(input:checked){border-color:#0961ed!important}
+
 /* phones: the cart button row never overflows - "Zpět" as wide as its text,
    "Pokračovat" takes the rest (arrow clear of the text); stacked under 340px */
 @media(max-width:767px){
@@ -671,14 +658,14 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
   /* cart: summary line and the button bar run across the whole card */
   html body.in-kosik #content#content .okla-cart-summary{margin:4px -20px 0!important;padding:22px 44px 18px!important}
   html body.in-kosik #content#content .cart-inner>.okla-step-nav{
-    margin:0 -20px!important;padding:14px 44px 20px!important;max-width:none!important;
+    margin:0 -20px!important;max-width:none!important;
     border-top:1px solid transparent!important;box-shadow:none!important;
   }
   html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck{
     padding-bottom:14px!important;border-top-color:#dfe4ea!important;box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;
   }
   /* steps 2 and 3: the grey recap reaches the right edge of the card */
-  html body.ordering-process:not(.in-kosik) #content#content .cart-row{margin-right:-20px!important}
+  
 }
 @media(min-width:768px){
   /* no second line under the last product - the summary line closes the list */
@@ -711,20 +698,14 @@ html body.ordering-process:not(.in-kosik) #content#content .order-summary .cart-
 }
 /* steps: the strip was a 30px box with overflow hidden and the circles sat 1px lower,
    so their bottom edge was cut off - let it size to the circles and never clip them */
-html body.ordering-process #content#content ol.cart-header{height:auto!important;min-height:0!important;overflow:visible!important;align-items:center!important;padding-top:2px!important;padding-bottom:2px!important}
-html body.ordering-process #content#content ol.cart-header>li.step{height:auto!important;min-height:30px!important;overflow:visible!important;margin-top:0!important;margin-bottom:0!important;align-items:center!important}
-@media(max-width:767px){
-  html body.ordering-process #content#content ol.cart-header>li.step{min-height:26px!important}
-}
+html body.ordering-process #content#content ol.cart-header{height:auto!important;align-items:center!important;padding-top:2px!important;padding-bottom:2px!important}
+html body.ordering-process #content#content ol.cart-header>li.step{height:auto!important;overflow:visible!important;margin-top:0!important;margin-bottom:0!important;align-items:center!important}
+
 /* steps 30% larger - the whole thing (circle, icon, label, connector) scales together */
-html body.ordering-process #content#content ol.cart-header>li.step{zoom:1.3}
+
 /* phones: no room for a 30% zoom of the whole row, so the circles grow 30%
    (26 -> 34px) and the lines and gaps get shorter so all three steps still fit */
-@media(max-width:767px){
-  html body.ordering-process #content#content ol.cart-header>li.step{zoom:1!important;font-size:13px!important;min-height:34px!important}
-  html body.ordering-process #content#content ol.cart-header>li.step::before{width:34px!important;height:34px!important;margin-right:5px!important;background-size:18px 18px!important}
-  html body.ordering-process #content#content ol.cart-header>li.step:not(:last-child)::after{width:10px!important;margin:0 4px!important}
-}
+
 /* finished step had an extra 9px gap between its circle and label - same spacing for all three */
 html body.ordering-process #content#content ol.cart-header>li.step{gap:0!important;column-gap:0!important}
 /* ===== cart bottom bar: no flicker, VAT label above the price, price per piece ===== */
@@ -779,7 +760,7 @@ html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{b
   html body.ordering-process:not(.in-kosik) #content#content#content .okla-step-nav{width:auto!important;max-width:none!important;margin-left:-20px!important;margin-right:-20px!important;padding-left:24px!important;padding-right:24px!important}
 }
 @media(max-width:767px){
-  html body.ordering-process #content-wrapper #content#content#content{padding-left:16px!important;padding-right:16px!important}
+  
   html body.ordering-process #content#content#content ol.cart-header{padding-left:0!important;padding-right:0!important}
   /* cart */
   html body.in-kosik #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
@@ -789,8 +770,8 @@ html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{b
   /* checkout steps 2/3: form column on the line, the grey recap runs edge to edge with its content on the line */
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8{padding-left:0!important;padding-right:0!important}
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
-  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4{margin-left:-16px!important;margin-right:-16px!important;padding-left:16px!important;padding-right:16px!important;border-left:0!important;border-right:0!important}
-  html body.ordering-process:not(.in-kosik) #content#content#content .okla-step-nav{padding-left:0!important;padding-right:0!important}
+  html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4{border-left:0!important;border-right:0!important}
+  
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4 :is(.cart-content,.order-summary,.order-summary-inner,.checkout-box,.cart-items){margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
   /* thank-you page */
   html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b#okla-ty-c){padding-left:0!important;padding-right:0!important}

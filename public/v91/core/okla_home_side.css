@@ -36,8 +36,9 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
    for all of them. */
 .okla-side-art__stage{position:relative;width:100%;height:132cqw}
 .okla-side-art__product{position:absolute;inset:0;width:100%;height:100%;background-size:contain;background-position:center;background-repeat:no-repeat}
-/* glasses are wider than tall, so they get a bit more width (running slightly past the art box) */
-.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 -8%;width:auto;background-image:url('../assets/side-glasses.png');background-position:center 34%;transform:scaleX(-1)}
+/* glasses are wider than tall, so they get a bit more width - running past the art box on the outer (right) side only,
+   never toward the island */
+.okla-side-art__stage--glasses .okla-side-art__product{inset:0 -8% 0 0;width:auto;background-image:url('../assets/side-glasses.png');background-position:center 34%;transform:scaleX(-1)}
 /* the glasses look to the right (mirrored); the price tag is not part of the picture, so it stays readable */
 .okla-side-art__stage--meter .okla-side-art__product{background-image:url('../assets/side-meter.png');background-position:30% 20%;background-size:auto 92%}
 .okla-side-art__stage--endoscope .okla-side-art__product{background-image:url('../assets/side-endoscope.png')}
@@ -68,6 +69,4 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
      sit on one line (they are laid out at the same height inside the art - see the cqw margins above) */
   html body .okla-side-art--left:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
   html body .okla-side-art--right:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
-  /* the glasses no longer overhang to the left (toward the island); only the outer (right) overhang stays */
-  html body .okla-side-art--right .okla-side-art__stage--glasses .okla-side-art__product:not(#oksa-x){inset:0 -8% 0 0!important}
 }

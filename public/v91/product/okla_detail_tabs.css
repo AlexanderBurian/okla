@@ -227,18 +227,18 @@ html body #colorbox #ratingWrapper .rate-count.active{color:#0b2540!important}
    "Hodnocení" tab under the summary. */
 html body #content .votes-wrap{display:block!important;margin:22px 0 0!important;padding:0!important;border:0!important;background:none!important}
 html body #content .votes-wrap .vote-wrap{
-  display:block!important;margin:0!important;padding:22px 4px!important;border:0!important;border-top:1px solid #e6ebf2!important;border-radius:0!important;
+  display:block!important;margin:0!important;border:0!important;border-top:1px solid #e6ebf2!important;border-radius:0!important;
   background:none!important;box-shadow:none!important;font-family:"Open Sans",Arial,sans-serif!important;
 }
 html body #content .votes-wrap .vote-wrap:first-child{border-top:0!important;padding-top:6px!important}
-html body #content .votes-wrap .vote-header{display:flex!important;align-items:center!important;gap:12px!important;margin:0 0 10px!important;padding:0!important}
+html body #content .votes-wrap .vote-header{display:flex!important;gap:12px!important;padding:0!important}
 html body #content .votes-wrap .vote-pic{position:relative!important;display:block!important;flex:0 0 44px!important;width:44px!important;height:44px!important;min-width:44px!important;max-width:44px!important;min-height:44px!important;max-height:44px!important;margin:0!important;padding:0!important;border:0!important;border-radius:50%!important;overflow:hidden!important;background:#eef6fd!important;transform:none!important}
 html body #content .votes-wrap .vote-initials{
   position:absolute!important;inset:0!important;left:0!important;top:0!important;width:100%!important;height:100%!important;min-width:0!important;display:grid!important;place-items:center!important;margin:0!important;padding:0!important;border-radius:50%!important;transform:none!important;
   background:var(--avatar-bg,#0859d8)!important;color:#fff!important;font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.02em!important;
 }
 html body #content .votes-wrap .vote-pic img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
-html body #content .votes-wrap .vote-summary{display:flex!important;flex-direction:column!important;gap:3px!important;min-width:0!important}
+html body #content .votes-wrap .vote-summary{display:flex!important;flex-direction:column!important;min-width:0!important}
 html body #content .votes-wrap .vote-name{display:block!important;font:700 16px/1.25 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;white-space:normal!important}
 html body #content .votes-wrap .vote-rating{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:10px!important}
 html body #content .votes-wrap .vote-rating .stars{display:flex!important;gap:2px!important}
@@ -253,7 +253,7 @@ html body #content .votes-wrap .star::before,html body #content .votes-wrap .sta
 html body #content .votes-wrap .vote-delimeter{display:none!important}
 html body #content .votes-wrap .vote-time{font:400 13px/1.3 "Open Sans",Arial,sans-serif!important;color:#8a96a6!important}
 html body #content .votes-wrap .vote-time::before{content:"Hodnoceno "!important}
-html body #content .votes-wrap .vote-content{margin:0 0 0 56px!important;padding:0!important;font:400 15.5px/1.6 "Open Sans",Arial,sans-serif!important;color:#1f2d3d!important;white-space:normal!important;overflow-wrap:anywhere!important}
+html body #content .votes-wrap .vote-content{padding:0!important;font:400 15.5px/1.6 "Open Sans",Arial,sans-serif!important;color:#1f2d3d!important;white-space:normal!important;overflow-wrap:anywhere!important}
 /* the shop's answer under a review, when there is one */
 html body #content .votes-wrap .vote-wrap .vote-wrap,
 html body #content .votes-wrap .vote-reply,
