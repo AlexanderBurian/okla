@@ -68,3 +68,23 @@
   /* footer */
   html body #okla-footer-content:not(#okr-a#okr-b#okr-c#okr-d#okr-e#okr-f){padding-left:10px!important;padding-right:10px!important}
 }
+
+/* Rail audit fixes (phones): nothing reaches past the 10 px lines or the screen.
+   - a card's button row is as wide as the card's inside (it was the card's full width from its inner edge, so the
+     button sat 8 px right of the centre and the row ran 15 px out of the card);
+   - the product page's benefits and small print are as wide as their column (they were the screen's width);
+   - the rows that run to the screen's edges (category circles, the deals row, the filter chips under "Nejčastěji
+     zakoupeno společně") go exactly to the edges (they went 4 px past them). */
+@media(max-width:767px){
+  html body #content .product:not(#orf-a#orf-b#orf-c#orf-d#orf-e#orf-f#orf-g#orf-h#orf-i#orf-j#orf-k#orf-l) .p-tools{width:auto!important;max-width:100%!important;margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
+  html body #content :is(.ok86-benefits,.ok86-micro):not(#orf-a#orf-b#orf-c#orf-d#orf-e#orf-f#orf-g#orf-h#orf-i#orf-j#orf-k#orf-l){width:auto!important;max-width:100%!important;box-sizing:border-box!important}
+  html body #content :is(#okla-cat-circles,#okla-deals,.okla-bt__chips):not(#orf-a#orf-b#orf-c#orf-d#orf-e#orf-f#orf-g#orf-h#orf-i#orf-j#orf-k#orf-l){margin-left:-10px!important;margin-right:-10px!important;width:auto!important;max-width:none!important}
+}
+@media(max-width:767px){
+  /* product page: the share icon by the title is gone on phones (the "Sdílet" in the tools row does the same) */
+  html body #content .p-detail-inner-header .okla-dalza__share:not(#orf-a#orf-b#orf-c#orf-d#orf-e#orf-f#orf-g#orf-h#orf-i#orf-j#orf-k#orf-l){display:none!important}
+}
+@media(max-width:767px){
+  /* the category circles and the deals row start on the 10 px line (they started at 14 px) */
+  html body #content :is(#okla-cat-circles .okcc-row,#okla-deals .okd-track):not(#orf-a#orf-b#orf-c#orf-d#orf-e#orf-f#orf-g#orf-h#orf-i#orf-j#orf-k#orf-l){padding-left:10px!important;padding-right:10px!important;scroll-padding-left:10px!important;scroll-padding-right:10px!important}
+}

@@ -41,7 +41,10 @@ html body.in-kosik .quantity-form input.amount::-webkit-inner-spin-button,html b
 html body.in-kosik .quantity-form .okla-qty{margin:0!important;flex:none;display:flex!important;align-items:center!important;justify-content:center!important;padding:0!important;line-height:1!important}
 
 /* No glow: the cards, buttons and inputs have no shadow; the product row keeps its own. */
-html body.in-kosik .okla-coupon,html body.in-kosik .extra.delivery,html body.in-kosik .okla-coupon__input,html body.in-kosik .okla-coupon__btn,html body.ordering-process .next-step-back{box-shadow:none!important}
+html body.in-kosik .okla-coupon,
+html body.in-kosik .okla-coupon__input,
+html body.in-kosik .okla-coupon__btn,
+html body.ordering-process .next-step-back{box-shadow:none!important}
 /* The coupon and delivery cards are the same size, and their text is centred at the same size. */
 html body.in-kosik .extras-wrapper{align-items:stretch}
 html body.in-kosik .extras-wrapper>.extras-col{display:flex;flex-direction:column}
@@ -49,8 +52,6 @@ html body.in-kosik .extras-wrapper>.extras-col>*{flex:1 1 auto;display:flex;flex
 html body.in-kosik .okla-coupon{min-height:150px;padding:20px 22px;align-items:center;justify-content:center;text-align:center;box-sizing:border-box}
 html body.in-kosik .okla-coupon__title{font-size:18px;margin:0 0 14px}
 html body.in-kosik .okla-coupon__row{justify-content:center}
-html body.in-kosik .extra.delivery{flex:1 1 auto;min-height:150px;padding:20px 22px;justify-content:center;box-sizing:border-box}
-html body.in-kosik .extra.delivery span{font-size:18px;line-height:1.4}
 /* Each summary product: the name runs along the full width on its own line (not squeezed into a narrow column where it
    broke one word per line), with the picture to its left and the quantity and price together on a compact second line. */
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item{display:grid!important;grid-template-columns:40px minmax(0,1fr) auto!important;grid-template-rows:auto auto!important;align-items:center;column-gap:12px!important;row-gap:2px!important;border:0!important;border-bottom:1px solid #e6ebf2!important;padding:10px 0!important;margin:0!important}
@@ -112,7 +113,6 @@ html body.ordering-process:not(.in-kosik) .cart-row>.col-md-8{flex:1 1 0!importa
 html body.in-kosik .quantity-form .quantity{border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
 /* The checkout card is the cart's summary card: white with a thin border. The green free-shipping note is not shown; the recap below is unchanged. */
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{background:#fff!important;border:1px solid #e6ebf2!important;border-radius:16px!important;padding:20px!important}
-html body.ordering-process:not(.in-kosik) .okla-free-ship{display:none!important}
 /* No frame around the summary. */
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{background:none!important;border:0!important;border-radius:0!important;padding:0!important;display:flow-root!important}
 /* Cart: the coupon and delivery cards stack under the summary box at the top right, the same width and height; one colour for the delivery message. */
@@ -142,8 +142,7 @@ html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper .pay
 html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper .payment-shipping-price{margin-left:auto!important;white-space:nowrap!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrap{display:flex!important;flex-direction:column!important;flex:1 1 auto!important}
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon,html body.in-kosik .cart-row>.col-md-4 .extra.delivery{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
-html body.in-kosik .extra.delivery span,html body.in-kosik .extra.delivery strong{color:#0b2540!important}
+html body.in-kosik .cart-row>.col-md-4 .okla-coupon{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
 /* Cart: the remove button is a round target, and its cross is centred in it; the button sits further right. */
 html body.in-kosik tr.removeable .remove-item{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;width:32px!important;height:32px!important;margin-right:-12px!important;padding:0!important;border:0!important;border-radius:50%!important;background:#f5f7fa!important;font-size:0!important}
 html body.in-kosik tr.removeable .remove-item::after{content:none!important}
@@ -160,10 +159,6 @@ html body.ordering-process .cart-header .step::after{mask-size:22px 22px!importa
 /* The parcel and the blue track are moved frame by frame from one position, so the CSS transitions are off. */
 html body.ordering-process .cart-header::after,html body.ordering-process .okla-parcel{transition:none!important}
 /* The delivery card is one loading bar: a blue fill grows from the left with the goods total towards 5 000 Kč; no outline. */
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery{position:relative!important;overflow:hidden!important;isolation:isolate;background:#e6eefb!important;border:0!important;outline:0!important;box-shadow:none!important;margin:0!important}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery::after{content:""!important;display:block!important;position:absolute!important;left:0;top:0;bottom:0;width:var(--pct,0%);background:#bcd6f7;transition:width 1.2s cubic-bezier(.45,0,.25,1);z-index:0}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery>*{position:relative;z-index:1}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery::before{position:relative!important;z-index:1}
 html body.in-kosik .cart-row>.col-md-4 .okla-coupon{margin:0!important}
 /* Checkout: the summary column does not move while the page scrolls. */
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{position:static!important;top:auto!important}
@@ -182,7 +177,6 @@ html body.in-krok-2 #order-form input[type=checkbox]:checked+label::before{backg
 html body.in-krok-2 #order-form input[type=checkbox]{-webkit-appearance:none!important;appearance:none!important;width:18px!important;height:18px!important;margin:0 12px 0 0!important;border:1.5px solid #9aa6b5!important;border-radius:5px!important;background:#fff!important;flex:none!important;vertical-align:middle!important}
 html body.in-krok-2 #order-form input[type=checkbox]:checked{background:#0859d8 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px 14px no-repeat!important;border-color:#0859d8!important}
 html body.ordering-process .co-box label,html body.ordering-process .co-box .required-asterisk,html body.ordering-process .form-legend,html body.ordering-process .required-asterisk{color:#0b2540!important}
-html body.in-kosik .extra.delivery::before{position:static!important;top:auto!important;left:auto!important;transform:none!important;flex:none}
 /* Step buttons, as on Alza: one row under the whole page content; the way back is a white button at the bottom left,
    the way on a green button at the bottom right, on the same line. */
 html body.ordering-process #content .okla-step-nav{clear:both;display:block;width:100%;margin:32px 0 8px;padding:24px 0 0;border-top:1px solid #e6ebf2;box-sizing:border-box}

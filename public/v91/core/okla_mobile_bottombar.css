@@ -50,3 +50,8 @@
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step>.next-step-back{display:none!important}
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step>:is(#continue-order-button,.next-step-forward,.btn-conversion){flex:1 1 100%!important;width:100%!important;max-width:none!important;order:0!important}
 }
+
+/* the current page: the name stays grey like the others (only the pictogram is blue) */
+@media(max-width:767px){
+  html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h#obb-i#obb-j)>.okm61-bottom-action.is-active>span{color:#5b6779!important;-webkit-text-fill-color:#5b6779!important;font-weight:600!important}
+}

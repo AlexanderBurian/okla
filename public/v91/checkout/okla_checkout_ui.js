@@ -487,20 +487,6 @@
   return isFinite(n)?n:null;
  }
 
- function formatKc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+' Kč'}
-
- /* The goods total from the page, and the free delivery from 5 000 Kč. */
- function goodsTotal(){
-  var leaf=Array.prototype.find.call(document.querySelectorAll('body *'),function(e){return e.children.length===0&&/Celkem za zboží/.test(e.textContent||'')});
-  var node=leaf;
-  for(var i=0;node&&i<4;i++){
-   var v=kcNumber(node.textContent.replace(/Celkem za zboží/,''));
-   if(v!==null)return v;
-   node=node.parentElement;
-  }
-  return null;
- }
-
  /* Mark the native goods-total label and price without cloning or replacing
     them. Shoptet remains the only owner of the live calculated value. */
  function alignGoodsTotal(){
@@ -519,37 +505,8 @@
   pricePart.classList.add('okla-goods-total-price');
  }
 
- function freeShippingText(total){
-  var rest=5000-total;
-  var parts=[];
-  if(rest>0){parts.push('Nakupte ještě za '); parts.push({b:formatKc(rest)}); parts.push(' a dopravu máte '); parts.push({b:'zdarma'}); parts.push('!');}
-  else{parts.push('Dopravu máte '); parts.push({b:'zdarma'}); parts.push('!');}
-  return parts;
- }
-
- function fillParts(target,parts){
-  target.textContent='';
-  parts.forEach(function(p){
-   if(typeof p==='string')target.appendChild(document.createTextNode(p));
-   else{var b=document.createElement('strong');b.textContent=p.b;target.appendChild(b)}
-  });
- }
-
- function freeShipping(){
-  var total=goodsTotal();
-  if(total===null)total=0;
-  var parts=freeShippingText(total);
-  /* The delivery card is a loading bar: its fill grows with the goods total towards 5 000 Kč. */
-  var pct=Math.min(100,Math.max(0,total/5000*100));
-  document.querySelectorAll('.extra.delivery').forEach(function(e){e.style.setProperty('--pct',pct.toFixed(2)+'%')});
-  document.querySelectorAll('.extra.delivery span').forEach(function(s){fillParts(s,parts)});
-  var box=document.querySelector('.order-summary .checkout-box');
-  if(box&&!box.querySelector('.okla-free-ship')){
-   var note=el('p','okla-free-ship');
-   fillParts(note,parts);
-   box.insertBefore(note,box.firstChild);
-  }
- }
+ /* (the old "Nakupte ještě za … a dopravu máte zdarma" card is gone: the shop has no free-shipping limit; Shoptet's own
+    delivery card stays hidden - okla_checkout_ui.css) */
 
  /* On the cart the coupon and delivery cards sit one under the other, right under the summary box and in the same container,
     so they always have the box's width: nothing is measured. */
@@ -583,7 +540,6 @@
   placeExtras();
   hideExtrasHeading();
   moveNextStep();
-  freeShipping();
   alignGoodsTotal();
   alignNav();
  }
@@ -631,7 +587,6 @@
   moveTerms();
   alignGoodsTotal();
   alignNav();
-  freeShipping();
   keepOnlyZasilkovna();
   requireZasilkovnaPoint();
  }

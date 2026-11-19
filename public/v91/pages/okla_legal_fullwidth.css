@@ -42,3 +42,5 @@ html.okla-legal-wide body #content .content-inner :is(div,section,article,main)[
     overflow-wrap:anywhere;
   }
 }
+/* the page title like every other page's title (bold navy, not the thin grey one) */
+html.okla-legal-wide body #content h1:not(#olg-a#olg-b#olg-c#olg-d#olg-e#olg-f){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font-weight:800!important;letter-spacing:-.01em!important}

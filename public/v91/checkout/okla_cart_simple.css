@@ -60,22 +60,13 @@ html body.in-kosik .remove-item:focus{background:transparent!important;border:0!
 
 /* Summary, voucher and free delivery use one restrained visual language. */
 html body.in-kosik .box.box-sm,
-html body.in-kosik .okla-coupon,
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery{
+html body.in-kosik .okla-coupon{
   border:1px solid #e1e6ed!important;border-radius:6px!important;background:#fff!important;
   box-shadow:none!important
 }
-html body.in-kosik .okla-coupon,
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery{
+html body.in-kosik .okla-coupon{
   min-height:0!important;padding:18px!important
 }
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery{justify-content:flex-start!important;text-align:left!important;overflow:visible!important}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery::after{display:none!important;content:none!important}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery::before{
-  flex:0 0 30px!important;width:30px!important;height:30px!important;
-  mask-size:30px 30px!important;-webkit-mask-size:30px 30px!important
-}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery span{font-size:15px!important;text-align:left!important}
 html body.in-kosik .okla-coupon__title{margin-bottom:10px!important;font-size:15px!important;text-align:left!important}
 html body.in-kosik .okla-coupon__title strong{color:#0b2540!important}
 html body.in-kosik .okla-coupon__row{padding-left:0!important;gap:8px!important}

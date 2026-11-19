@@ -70,24 +70,6 @@ html body.in-kosik .okla-coupon__btn{
 }
 
 /* Centre the truck and message as one group inside the whole blue card. */
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery{
- display:flex!important;
- flex-direction:row!important;
- align-items:center!important;
- justify-content:center!important;
- gap:18px!important;
- text-align:center!important;
-}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery::before{
- display:block!important;
- flex:0 0 46px!important;
- margin:0!important;
-}
-html body.in-kosik .cart-row>.col-md-4 .extra.delivery span{
- flex:0 1 auto!important;
- margin:0!important;
- text-align:left!important;
-}
 
 /* Checkout actions with dark text use the brighter OKLA green. */
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
