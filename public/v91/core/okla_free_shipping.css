@@ -1,5 +1,5 @@
 /* Okla – free delivery progress (okla_free_shipping.js): a white box with the discount-code box's outline - a truck, "Do dopravy zdarma zbývá 599 Kč"
-   with the amount in bold, a thin bar in the shop blue that fills up, and "Doprava zdarma od 1 500 Kč" in small grey
+   with the amount in bold, a 10px bar in the shop blue that fills up, and "Doprava zdarma od 1 500 Kč" in small grey
    under it. Reached: a tick and "Dopravu máte zdarma" over a full bar. Above the discount-code field in the cart, and
    under the added item in the "added to cart" popup. */
 html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c){
