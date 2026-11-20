@@ -48,7 +48,10 @@
   function render(i){
    var c=list[i];panel.innerHTML='';
    var wrap=el('div','okcb-panel-in');
-   var head=el('div','okcb-head');var h=el('a','okcb-title',c.label);h.href=c.href;var all=el('a','okcb-all','Zobrazit vše');all.href=c.href;head.append(h,all);
+   var head=el('div','okcb-head');var h=el('a','okcb-title',c.label);h.href=c.href;var all=el('a','okcb-all','Zobrazit vše');all.href=c.href;
+   /* the category's own short line beside its name (okla_cat_text.js) */
+   var cline=window.oklaCatText?window.oklaCatText(c.href):'';
+   if(cline){var cd=el('span','okcb-desc',cline);cd.setAttribute('data-okla-i18n-skip','');head.append(h,cd,all)}else head.append(h,all);
    var grid=el('div','okcb-grid');grid.appendChild(el('p','okcb-loading','Načítám…'));
    wrap.append(head,grid);panel.appendChild(wrap);
    var inn=bar.querySelector('.okcb-inner');if(inn){wrap.style.setProperty('padding-left',inn.style.paddingLeft,'important');wrap.style.setProperty('padding-right',inn.style.paddingRight,'important')}
@@ -63,6 +66,9 @@
      var box=el('div','okcb-sub');
      var pic=el('a','okcb-sub__img');pic.href=sc.href;pic.tabIndex=-1;pic.setAttribute('aria-hidden','true');var im=el('img');im.alt='';pic.appendChild(im);
      var body=el('div','okcb-sub__body');var t=el('a','okcb-sub__title',sc.label);t.href=sc.href;body.appendChild(t);
+     /* one short line about the subcategory under its name (okla_cat_text.js) */
+     var line=window.oklaCatText?window.oklaCatText(sc.href):'';
+     if(line){var d=el('span','okcb-sub__desc',line);d.setAttribute('data-okla-i18n-skip','');body.appendChild(d)}
      box.append(pic,body);grid.appendChild(box);imgs[sc.href]={pic:pic,im:im};
     });
     /* one photo per subcategory, never the same product twice (okla_subcats.js) */
