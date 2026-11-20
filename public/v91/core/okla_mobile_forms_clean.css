@@ -1,5 +1,5 @@
 /* Phones: the order-status and sign-in pages in a clean, calm layout (the way Alza does its order lookup).
-   - a soft blue gradient band at the top of the order-status page, the content on an even 16px rail;
+   - a plain white page (no gradients), the content on an even 16px rail;
    - a large centred heading, then the fields: 50px tall, 8px corners, a plain grey border, labels in normal case;
    - the parcel-number field carries a magnifier like a search box;
    - one full-width button, 52px, 8px corners, the text in normal case (no capitals, no letter spacing);
@@ -7,16 +7,7 @@
    Only phones (up to 767px), only these pages: html.okla-os-login-combo (/stav-objednavky/) and html.okla-os-pure-login
    (/login/). Loaded last (28-last), so it settles the earlier page rules. */
 @media (max-width:767px){
-  /* ---- the page: gradient band at the top, 16px rail ---- */
-  /* the band: a full-width layer behind the top of the content (the page's wrappers paint no background of their own) */
-  html:is(.okla-os-login-combo,.okla-os-pure-login) body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content{background:transparent!important;position:relative!important}
-  /* (the order-status page only: the plain sign-in page stays white under its logo) */
-  html.okla-os-login-combo body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content::before{
-    content:""!important;position:absolute!important;z-index:0!important;top:-24px!important;left:50%!important;width:100vw!important;margin-left:-50vw!important;height:460px!important;
-    background:linear-gradient(180deg,#e7f0fd 0,#f3f7fe 55%,rgba(255,255,255,0) 100%)!important;pointer-events:none!important;
-  }
-  /* the content above the band */
-  html:is(.okla-os-login-combo,.okla-os-pure-login) body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content>*{position:relative!important;z-index:1!important}
+  /* ---- the page: plain white, 16px rail ---- */
   /* no breadcrumb above the heading on phones */
   html:is(.okla-os-login-combo,.okla-os-pure-login) body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) :is(.breadcrumbs-wrapper,.breadcrumbs,.okla-breadcrumbs,nav.breadcrumb){display:none!important}
   html.okla-os-login-combo body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content .okla-order-status{

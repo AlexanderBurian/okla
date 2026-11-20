@@ -1,0 +1,13 @@
+/* Form fields at the right width, on every page and screen: a field fills exactly the column it stands in, so its
+   edges line up with the fields above and below it and with the form's button.
+   - Shoptet caps some fields (a <select> at 440px, e.g. "Téma" in the contact form) - the cap goes, the column decides;
+   - only fields inside a field wrapper (Shoptet's .form-group, OKLA's own field boxes), so search boxes and amounts in
+     the cart keep their own sizes; a wrapper with two controls in one row (phone prefix + number) keeps its layout;
+   - registration: the e-mail on its own row, the two passwords side by side (a lone half-width "Heslo (kontrola)"
+     looked broken). */
+html body:not(#ofw-a#ofw-b#ofw-c#ofw-d) #content :is(.form-group,.form-control-wrapper,.oka-c-field,.okla-os-field,.okla-rk__field):not(:has(> :is(input:not([type=hidden]),select) ~ :is(input:not([type=hidden]),select)))>:is(input:not([type=checkbox],[type=radio],[type=hidden],[type=submit],[type=button],[type=image],[type=file],[type=range],[type=number]),select,textarea):not(.amount){
+  box-sizing:border-box!important;width:100%!important;max-width:none!important;min-width:0!important;
+}
+/* Shoptet's field box inside a form group spans the group (it gets a fixed width in places) */
+html body:not(#ofw-a#ofw-b#ofw-c#ofw-d) #content form .form-group>.form-control-wrapper{box-sizing:border-box!important;width:100%!important;max-width:none!important}
+html body.in-registrace:not(#ofw-a#ofw-b#ofw-c#ofw-d) #content .co-registration>fieldset>.form-group.smart-label-wrapper:has(input[type=email],input[name=email]){grid-column:1/-1!important}
