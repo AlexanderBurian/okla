@@ -1,7 +1,8 @@
 /* Okla – the homepage articles ("Co je u nás nového") follow Shoptet by themselves.
 
-   The source is Shoptet's own article list (/nase-novinky/), read as text in one request. The cards show its first
-   articles in its order (a new article published in Shoptet appears on its own, a removed one disappears), each with:
+   The source is Shoptet's own article list (/nase-novinky/), read as text in one request. The cards show the Flipper
+   Zero article first (top left), then the list's first articles in its order (a new article published in Shoptet
+   appears on its own, a removed one disappears), each with:
    - the title (without the shop's " | Okla.cz" ending) and the link;
    - the picture chosen in the administration ("Obrázek článku");
    - the publication date;
@@ -18,7 +19,9 @@
   window.__oklaNewsNativeImages = true;
 
   var LIST = '/nase-novinky/';
-  var CACHE_KEY = 'okla-news-list-v3', FRESH = 5 * 60 * 1000, MAX = 5;
+  var CACHE_KEY = 'okla-news-list-v4', FRESH = 5 * 60 * 1000, MAX = 5;
+  /* always the first card (top left), wherever it is in Shoptet's list */
+  var PINNED = '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/';
   /* labels of the first articles (the newsroom uses the same) */
   var LABEL = {
     '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/': 'Multitool a RF',
@@ -62,7 +65,7 @@
   function parse(html) {
     var out = [], seen = {};
     var pieces = html.split(/class="news-item"/).slice(1);
-    for (var i = 0; i < pieces.length && out.length < MAX; i++) {
+    for (var i = 0; i < pieces.length; i++) {
       var p = pieces[i];
       var head = /class="image"[\s\S]*?<a\b[^>]*\bhref="([^"]+)"[\s\S]*?<img\b([^>]*)>/.exec(p);
       var titleM = /<a\b[^>]*class="title"[^>]*>([\s\S]*?)<\/a>/.exec(p);
@@ -98,6 +101,9 @@
         minutes: Math.max(2, Math.round(words / 200))
       });
     }
+    /* the pinned article first (top left, the big card), then the others in Shoptet's order */
+    out.sort(function (a, b) { return (b.href === PINNED) - (a.href === PINNED); });
+    out = out.slice(0, MAX);
     return out.length ? out : null;
   }
 
