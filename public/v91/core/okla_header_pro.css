@@ -58,8 +58,10 @@
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale:hover>svg{border-color:#0859d8!important}
 
   /* support: the headset, and its drop-down - a plain white panel with a soft shadow, square-ish corners, no pointer:
-     a short heading, the e-mail as a blue link row, then the help pages as rows */
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support>.okla-support-icon{display:block!important;width:26px!important;height:26px!important}
+     a short heading, the help pages as rows, and the e-mail as the last row (plain dark text, no pictogram) */
+  /* the headset at the clipboard's 26px; an old rule squeezed it to 23px and drew a thin outline round every shape
+     (blurry edges) - the drawing's own fills and strokes count */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support>.okla-support-icon{display:block!important;width:26px!important;height:26px!important;max-width:none!important;fill:currentColor!important;stroke:none!important;stroke-width:0!important;overflow:visible!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support>.okla-support-menu{
     display:none!important;position:absolute!important;top:100%!important;left:50%!important;z-index:9500!important;width:280px!important;
     margin-top:8px!important;padding:16px 0 8px!important;box-sizing:border-box!important;transform:translateX(-50%)!important;background:#fff!important;border:0!important;
@@ -75,12 +77,9 @@
     display:flex!important;align-items:center!important;gap:10px!important;height:40px!important;padding:0 18px!important;box-sizing:border-box!important;border-radius:0!important;
     background:none!important;color:#0b2540!important;font:400 14px/1.25 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;transition:background-color .12s ease,color .12s ease!important
   }
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mail{border-top:1px solid #e6eaf0!important;border-bottom:1px solid #e6eaf0!important;color:#0859d8!important;font-weight:600!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mail{margin-top:4px!important;border-top:1px solid #e6eaf0!important;border-bottom:0!important;color:#0b2540!important;font-weight:600!important;height:44px!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support :is(.okla-support-mail,.okla-support-link):hover{background:#f3f6fa!important;color:#0859d8!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mail{height:54px!important;gap:12px!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mailicon{display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;width:32px!important;height:32px!important;border-radius:50%!important;background:#eef4fd!important;color:#0859d8!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mailicon>svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-links{display:block!important;margin-top:4px!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-links{display:block!important;margin-top:0!important;border-top:1px solid #e6eaf0!important;padding-top:4px!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-label{display:block!important;flex:1 1 auto!important;min-width:0!important;font:inherit!important;color:inherit!important;white-space:nowrap!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-arrow{display:block!important;flex:none!important;width:6px!important;height:10px!important;color:#9aa6b6!important}
 

@@ -72,10 +72,15 @@
     if (node && node.getAttribute(name) !== value) node.setAttribute(name, value);
   }
 
-  /* The headset: the support panel - the e-mail first, then the shop's help pages. Sits between the orders and the flag. */
-  var headset = '<svg class="okla-support-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5a8.5 8.5 0 0 0-8.5 8.5v5.6a2.9 2.9 0 0 0 2.9 2.9h1.4c.66 0 1.2-.54 1.2-1.2v-5.6c0-.66-.54-1.2-1.2-1.2H5.9V11a6.1 6.1 0 0 1 12.2 0v.5h-1.9c-.66 0-1.2.54-1.2 1.2v5.6c0 .66.54 1.2 1.2 1.2h1.9a1.4 1.4 0 0 1-1.4 1.3h-2.9a1.1 1.1 0 1 0 0 2.2h2.9a3.6 3.6 0 0 0 3.6-3.6V11A8.5 8.5 0 0 0 12 2.5Z"/></svg>';
-  /* a thin-line envelope on a soft round tile (the clean Alza-like look) */
-  var mailIcon = '<span class="okla-support-mailicon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.8 7.4 8.2 5.8 8.2-5.8"/></svg></span>';
+  /* The headset: the support panel - the shop's help pages, then the e-mail. Sits between the orders and the flag. */
+  /* a solid headset drawn on the same 24-unit grid and with the same weight as the orders clipboard beside it: a round
+     headband, two full ear cups and a short microphone boom */
+  var headset = '<svg class="okla-support-icon" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path d="M4.3 13v-1.5a7.7 7.7 0 0 1 15.4 0V13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>' +
+    '<rect x="2" y="10.6" width="6.4" height="8.9" rx="2.6" fill="currentColor"/>' +
+    '<rect x="15.6" y="10.6" width="6.4" height="8.9" rx="2.6" fill="currentColor"/>' +
+    '<path d="M19.2 19.3a2.6 2.6 0 0 1-2.6 2.3h-2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+    '<rect x="9" y="20.1" width="5.4" height="3" rx="1.5" fill="currentColor"/></svg>';
   var arrow = '<svg class="okla-support-arrow" viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5 6 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function support(row, words) {
     var lang = (window.oklaLang && window.oklaLang.current) || document.documentElement.getAttribute('data-okla-lang') || 'cs';
@@ -123,8 +128,9 @@
     box.innerHTML = headset +
       '<span class="okla-support-menu" role="menu">' +
         '<span class="okla-support-head"></span><span class="okla-support-lead"></span>' +
-        '<a class="okla-support-mail" role="menuitem" href="mailto:podpora@okla.cz">' + mailIcon + '<span class="okla-support-label">podpora@okla.cz</span>' + arrow + '</a>' +
         '<span class="okla-support-links">' + links.map(function (l) { return '<a class="okla-support-link" role="menuitem" href="' + l[0] + '"><span class="okla-support-label"></span>' + arrow + '</a>'; }).join('') + '</span>' +
+        /* the e-mail last, a plain row like the others */
+        '<a class="okla-support-mail" role="menuitem" href="mailto:podpora@okla.cz"><span class="okla-support-label">podpora@okla.cz</span>' + arrow + '</a>' +
       '</span>';
     box.querySelector('.okla-support-head').textContent = words.supportTitle;
     box.querySelector('.okla-support-lead').textContent = words.supportLead;
