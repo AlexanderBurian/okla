@@ -209,10 +209,11 @@ const LANG_LINE: Record<string, string> = { cs: "česky", sk: "slovensky", en: "
 
 /* a model's decline is used only when it is clearly just a decline */
 export function acceptableDecline(text: string): boolean {
-  const t = text.trim();
-  /* no facts (numbers, links), short, and in the polite form (no "tebe / potřebuješ" in Czech and Slovak) */
-  return t.length >= 30 && t.length <= 260 && !/\d|https?:|www\.|\[|\]|[*#`]|\n/.test(t) && (t.match(/[.!?]/g) ?? []).length <= 3
-    && !/(^|[\s,])(tebe|tobě|tobe|ti|tvůj|tvoje|potřebuješ|chceš|můžeš|hľadáš|potrebuješ)([\s,.!?]|$)/i.test(t);
+  /* the shop's own names ("ESP32", "OKLA.cz") are not facts about the question */
+  const t = text.trim().replace(/\bESP32(-[A-Z0-9]+)?\b/gi, "ESP").replace(/\bOKLA\.cz\b/gi, "OKLA");
+  /* no facts (numbers, links), short, and in the polite form (no "tebe / potřebuješ / ptej" in Czech and Slovak) */
+  return t.length >= 30 && t.length <= 260 && !/\d|https?:|www\.|\[|\]|[*#`]|\n/.test(t) && (t.match(/[.!?…]+(\s|$)/g) ?? []).length <= 3
+    && !/(^|[\s,])(tebe|tobě|tobe|ti|tvůj|tvoje|potřebuješ|chceš|můžeš|hledáš|hľadáš|potrebuješ|ptej|zeptej|napiš|podívej|zkus)([\s,.!?]|$)/i.test(t);
 }
 
 /* for /health: how the declines were made (no message contents) */
