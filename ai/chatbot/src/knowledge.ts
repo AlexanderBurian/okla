@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
-import { crawlShop, formatPrice } from "./liveCatalog.js";
+import { cleanPageText, crawlShop, formatPrice } from "./liveCatalog.js";
 import type { KnowledgeItem } from "./types.js";
 
 const STOP_WORDS = new Set([
@@ -294,7 +294,7 @@ export class KnowledgeStore {
     }
     try {
       const snap = JSON.parse(await readFile(new URL("../data/catalog-snapshot.json", import.meta.url), "utf8")) as { products?: KnowledgeItem[]; pages?: KnowledgeItem[] };
-      if (snap.products?.length) this.liveItems = [...snap.products, ...(snap.pages ?? []), ...categoryOverviews(snap.products, this.shopBaseUrl)];
+      if (snap.products?.length) this.liveItems = [...snap.products, ...(snap.pages ?? []).map((page) => ({ ...page, content: cleanPageText(page.content) })), ...categoryOverviews(snap.products, this.shopBaseUrl)];
     } catch {
       /* no snapshot: the CSV until the first crawl */
     }

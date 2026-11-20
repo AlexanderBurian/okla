@@ -49,11 +49,14 @@ function productBullet(item: KnowledgeItem): string {
   return `- ${link(item)}${facts ? ` (${facts})` : ""}${about ? `: ${about}` : ""}`;
 }
 
-const SHOP_INFO = /doprav|postovn|dorucen|dorucit|zasilkovn|vydejn|platb|zaplat|dobirk|kartou|prevod|vracen|vratit|odstoup|reklamac|reklamov|zaruk|kontakt|zavolat|telefonni cislo|telefonicky|email|e mail|podpor|obchodni podmink|osobni udaj|gdpr|faktur|jak nakup|jak objedn|registrac/;
+const SHOP_INFO = /doprav|postovn|dorucen|dorucit|zasilkovn|vydejn|platb|zaplat|dobirk|kartou|prevod|vracen|vrati[tml]|odstoup|reklamac|reklamov|zaruk|kontakt|zavolat|telefonni cislo|telefonicky|email|e mail|podpor|obchodni podmink|osobni udaj|gdpr|faktur|jak nakup|jak objedn|registrac|kdo (vlastne )?jste|o vas\b|o firme|odkud (posilate|jste)|velkoobchod/;
 
 /* which page answers which topic (the shop's own pages first, then the short local notes) */
 const TOPICS: [RegExp, string[]][] = [
-  [/vracen|vratit|odstoup|14 dn/, ["page-https://www.okla.cz/vraceni-zbozi-a-odstoupeni/", "faq-return"]],
+  [/kdo (vlastne )?jste|o vas\b|o firme/, ["faq-about"]],
+  [/odkud (posilate|jste)|kam dorucuj|do zahranici|slovensk|madarsk/, ["faq-dispatch-countries"]],
+  [/velkoobchod/, ["faq-wholesale"]],
+  [/vracen|vrati[tml]|odstoup|14 dn/, ["page-https://www.okla.cz/vraceni-zbozi-a-odstoupeni/", "faq-return"]],
   [/reklamac|reklamov|vada|nefunguj|porouch/, ["page-https://www.okla.cz/reklamacni-rad/", "faq-complaint"]],
   [/zaruk|garanc/, ["faq-warranty"]],
   [/doprav|postovn|dorucen|dorucit|zasilkovn|vydejn|platb|zaplat|dobirk|kartou|prevod/, ["faq-shipping-payment"]],
@@ -216,9 +219,14 @@ export function quickAnswer(context: Pick<ChatContext, "message" | "knowledge" |
   const one = named.length === 1 ? named[0] : context.pageItem && /\b(tento|tenhle|tahle|toto|tohle)\b/.test(q) ? context.pageItem : undefined;
   if (one && !compare) return productAnswer(one);
 
-  /* a question about buying, the shop or an article: the shop's page that the search put first */
-  const page = items.slice(0, 3).find((i) => i.type === "faq");
-  if (page && (SHOP_INFO.test(q) || items[0]?.type === "faq") && !named.length) return pageAnswer(page, context.message);
+  /* a question about buying or the shop: the page for its topic, else the shop page the search put first (only for
+     such questions: a gift or product question must never get the terms and conditions) */
+  if (SHOP_INFO.test(q) && !named.length) {
+    const pool = [...items, ...(context.faqs ?? [])];
+    const preferred = TOPICS.find(([re]) => re.test(q))?.[1] ?? [];
+    const page = preferred.map((id) => pool.find((item) => item.id === id)).find(Boolean) ?? items.slice(0, 3).find((i) => i.type === "faq" && !i.id.startsWith("category-"));
+    if (page) return pageAnswer(page, context.message);
+  }
 
   /* a choice: only products whose name or category matches what is asked (multimetr = multimetr) */
   const budget = budgetOf(context.message);
@@ -315,8 +323,8 @@ export class GroqEngine implements ChatEngine {
     return this.client.chat.completions.create({
       model,
       messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget),
-      /* a little more variety in wording, still factual */
-      temperature: 0.4,
+      /* natural, varied wording; the facts come from the sources */
+      temperature: 0.6,
       top_p: 0.9,
       max_completion_tokens: lean ? 600 : 800,
       /* gpt-oss "thinks" before it answers: a short think keeps the first words quick; Qwen 3 does not think at all */

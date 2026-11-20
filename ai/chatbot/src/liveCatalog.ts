@@ -166,14 +166,21 @@ export function productToItem(p: LiveProduct): KnowledgeItem {
   };
 }
 
+/* the shop's company line that every information page repeats at its top ("DIČ: … | IČO: … | Okla.cz – Kratas Pro
+   s.r.o. | E-mail: …") is page chrome, not content: an answer built from the page must never start with it */
+export function cleanPageText(text: string): string {
+  return text
+    .replace(/DIČ:\s*CZ\d+\s*\|\s*IČO:\s*\d+\s*\|[^|]{0,80}\|\s*E-mail:\s*\S+\s*\.?/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export function parseInfoPage(html: string, url: string, title: string): KnowledgeItem | undefined {
   const body = blockAfter(html, /<div[^>]*class="[^"]*content-inner[^"]*"[^>]*>/i)
     || blockAfter(html, /<main[^>]*>/i)
     || html;
-  const text = htmlToText(body)
-    .replace(/Přejít na obsah|Přihlášení|Košík je prázdný/gi, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  const text = cleanPageText(htmlToText(body)
+    .replace(/Přejít na obsah|Přihlášení|Košík je prázdný/gi, " "));
   if (text.length < 80) return undefined;
   return {
     id: `page-${url}`,
