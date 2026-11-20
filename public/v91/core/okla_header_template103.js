@@ -1,10 +1,10 @@
-/* PC header, right side: account, support, orders, language and cart (okla_header_pro.css lays the row out as
-   separate soft tiles). The account and the cart keep Shoptet's own button and link (the login popup, the hover cart,
-   the cart count); their look is drawn inside them (a shadow root, so no legacy style can reach it):
-   - account: a small round avatar, "Můj účet" and under it "Přihlásit se" (a guest) or "Můj přehled" (signed in), a chevron;
-   - cart: the cart on the OKLA blue tile, its count on a small yellow price tag (the total is in its tooltip and label).
-   The headset opens the support panel (e-mail, contact form, delivery, returns, complaints, how to buy); the flag opens
-   the language menu (the same choice as the footer's "Jazyk webu"). */
+/* PC header, right side: account | orders, support, language | cart (okla_header_pro.css lays the row out as solid
+   icons without backgrounds). The account and the cart keep Shoptet's own button and link (the login popup, the hover
+   cart, the cart count); their look is drawn inside them (a shadow root, so no legacy style can reach it):
+   - account: a grey round avatar, "Můj účet" and under it "Přihlásit se" (a guest) or "Můj přehled" (signed in), a chevron;
+   - cart: the solid cart, its count on a red badge (the total is in its tooltip and label).
+   The headset opens the support drop-down on hover or click (e-mail, contact form, delivery, returns, complaints, how
+   to buy); the flag opens the language dialog (the same choice as the footer's "Jazyk webu"). */
 (function () {
   'use strict';
   var desktop = matchMedia('(min-width:992px)');
@@ -90,10 +90,19 @@
       box.setAttribute('data-okla-i18n-skip', '');
       var before = row.querySelector(':scope > .okla-header-locale') || row.querySelector(':scope > a.cart-count');
       row.insertBefore(box, before);
+      /* opens on hover (a short grace period lets the pointer travel into the panel) and on click / Enter */
+      var timer = 0;
       var open = function (state) {
+        clearTimeout(timer);
         box.classList.toggle('is-open', state);
         box.setAttribute('aria-expanded', state ? 'true' : 'false');
       };
+      box.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') open(true); });
+      box.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        clearTimeout(timer);
+        timer = setTimeout(function () { open(false); }, 200);
+      });
       box.addEventListener('click', function (e) {
         var menu = box.querySelector('.okla-support-menu');
         if (menu && menu.contains(e.target)) return;
@@ -113,7 +122,7 @@
     box.innerHTML = headset +
       '<span class="okla-support-menu" role="menu">' +
         '<span class="okla-support-head"></span><span class="okla-support-lead"></span>' +
-        '<a class="okla-support-mail" role="menuitem" href="mailto:podpora@okla.cz">' + mailIcon + '<span class="okla-support-label">podpora@okla.cz</span></a>' +
+        '<a class="okla-support-mail" role="menuitem" href="mailto:podpora@okla.cz">' + mailIcon + '<span class="okla-support-label">podpora@okla.cz</span>' + arrow + '</a>' +
         '<span class="okla-support-links">' + links.map(function (l) { return '<a class="okla-support-link" role="menuitem" href="' + l[0] + '"><span class="okla-support-label"></span>' + arrow + '</a>'; }).join('') + '</span>' +
       '</span>';
     box.querySelector('.okla-support-head').textContent = words.supportTitle;
@@ -122,7 +131,56 @@
     for (var i = 0; i < spans.length; i++) spans[i].textContent = links[i][1];
   }
 
-  /* The flag: the current language, and the menu of all four. */
+  /* The flag: the current language. A click opens a small dialog in the middle of the page: the four languages as a
+     list to pick from, and "Potvrdit / Confirm". */
+  var dialog = null;
+  function langDialog() {
+    var api = window.oklaLang;
+    if (!api) return;
+    if (!dialog) {
+      dialog = document.createElement('div');
+      dialog.className = 'okla-langdlg';
+      dialog.setAttribute('data-okla-i18n-skip', '');
+      dialog.hidden = true;
+      dialog.innerHTML = '<div class="okla-langdlg__shade"></div>' +
+        '<div class="okla-langdlg__box" role="dialog" aria-modal="true" aria-labelledby="okla-langdlg-title">' +
+          '<button type="button" class="okla-langdlg__close" aria-label="Zavřít / Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>' +
+          '<h2 class="okla-langdlg__title" id="okla-langdlg-title">OKLA.cz – Jazyk / Language</h2>' +
+          '<div class="okla-langdlg__list" role="radiogroup"></div>' +
+          '<div class="okla-langdlg__foot"><button type="button" class="okla-langdlg__ok">Potvrdit / Confirm</button></div>' +
+        '</div>';
+      document.body.appendChild(dialog);
+      var hide = function () { dialog.hidden = true; document.documentElement.classList.remove('okla-langdlg-open'); };
+      dialog.querySelector('.okla-langdlg__shade').addEventListener('click', hide);
+      dialog.querySelector('.okla-langdlg__close').addEventListener('click', hide);
+      dialog.querySelector('.okla-langdlg__ok').addEventListener('click', function () {
+        var picked = dialog.querySelector('input:checked');
+        hide();
+        if (picked && picked.value !== window.oklaLang.current) window.oklaLang.choose(picked.value);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !dialog.hidden) hide(); });
+    }
+    var list = dialog.querySelector('.okla-langdlg__list');
+    list.textContent = '';
+    api.langs.forEach(function (code) {
+      var row = document.createElement('label');
+      row.className = 'okla-langdlg__opt';
+      row.setAttribute('lang', code);
+      var input = document.createElement('input');
+      input.type = 'radio';
+      input.name = 'okla-langdlg';
+      input.value = code;
+      input.checked = code === api.current;
+      var name = document.createElement('span');
+      name.textContent = api.label[code];
+      row.append(input, api.flag(code), name);
+      list.appendChild(row);
+    });
+    dialog.hidden = false;
+    document.documentElement.classList.add('okla-langdlg-open');
+    var current = list.querySelector('input:checked');
+    if (current) current.focus({preventScroll: true});
+  }
   function locale(row, words) {
     var box = row.querySelector(':scope > .okla-header-locale');
     var api = window.oklaLang;
@@ -131,43 +189,16 @@
     box.setAttribute('data-okla-i18n-skip', '');
     box.setAttribute('role', 'button');
     box.setAttribute('tabindex', '0');
-    box.setAttribute('aria-haspopup', 'true');
-    box.setAttribute('aria-expanded', 'false');
+    box.setAttribute('aria-haspopup', 'dialog');
     box.setAttribute('aria-label', words.lang + ': ' + api.label[api.current]);
     box.title = words.lang;
     box.replaceChildren(api.flag(api.current));
-    var menu = document.createElement('span');
-    menu.className = 'okla-lang-menu';
-    menu.setAttribute('role', 'menu');
-    api.langs.forEach(function (code) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'okla-lang-option' + (code === api.current ? ' is-current' : '');
-      b.setAttribute('role', 'menuitem');
-      b.setAttribute('lang', code);
-      b.appendChild(api.flag(code));
-      var s = document.createElement('span');
-      s.textContent = api.label[code];
-      b.appendChild(s);
-      b.addEventListener('click', function (e) { e.stopPropagation(); close(); api.choose(code); });
-      menu.appendChild(b);
-    });
-    box.appendChild(menu);
-    function open(state) {
-      box.classList.toggle('is-open', state);
-      box.setAttribute('aria-expanded', state ? 'true' : 'false');
-    }
-    function close() { open(false); }
-    box.addEventListener('click', function (e) {
-      if (menu.contains(e.target)) return;
-      open(!box.classList.contains('is-open'));
-    });
+    if (box.hasAttribute('data-okla-lang-bound')) return;
+    box.setAttribute('data-okla-lang-bound', '');
+    box.addEventListener('click', langDialog);
     box.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(!box.classList.contains('is-open')); }
-      if (e.key === 'Escape') close();
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); langDialog(); }
     });
-    document.addEventListener('click', function (e) { if (!box.contains(e.target)) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
   }
 
   function draw() {

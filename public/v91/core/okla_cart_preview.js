@@ -28,18 +28,17 @@ function lang(){var l=String(window.OKLA_LANG||document.documentElement.lang||'c
  return l==='en'?['Your cart','Items','Total','View cart','Cart is empty','Loading…','Unable to load cart']:l==='sk'?['Váš košík','Kusov','Celkom','Prejsť do košíka','Košík je prázdny','Načítavam…','Nepodarilo sa načítať']:l==='hu'?['Kosár','Darab','Összesen','Kosár megnyitása','A kosár üres','Betöltés…','Nem sikerült betölteni']:['Váš košík','Kusů','Celkem','Přejít do košíku','Košík je prázdný','Načítám…','Náhled není dostupný']}
 function build(){
  if(pop)return;pop=el('aside');pop.id='okla-cart-preview';pop.setAttribute('role','region');pop.setAttribute('aria-hidden','true');
- var head=el('div','okla-cp__header'),name=el('h2','okla-cp__heading'),countNode=el('span','okla-cp__count');
- head.append(name,countNode);
- var list=el('div','okla-cp__list'),foot=el('div','okla-cp__footer'),total=el('div','okla-cp__total'),label=el('span'),sum=el('strong'),go=el('a','okla-cp__go');
- go.href='/kosik/';total.append(label,sum);foot.append(total,go);pop.append(head,list,foot);document.body.appendChild(pop);
- pop.refs={name:name,count:countNode,list:list,total:total,label:label,sum:sum,go:go};
+ /* the products, then the total (no heading and no button: a click on the cart icon goes to the cart) */
+ var list=el('div','okla-cp__list'),total=el('div','okla-cp__total'),label=el('span'),sum=el('strong');
+ total.append(label,sum);pop.append(list,total);document.body.appendChild(pop);
+ pop.refs={list:list,total:total,label:label,sum:sum};
  pop.addEventListener('pointerenter',function(){clearTimeout(timer);timer=0});
  pop.addEventListener('pointerleave',delay);
 }
 function header(){
  var r=pop.refs,l=lang(),q=effectiveCount(),c=cart(),price=c&&c.querySelector('.cart-price');
- r.name.textContent=l[0];r.count.textContent=q===null?'':l[1]+': '+q;r.label.textContent=l[2];r.go.textContent=l[3];
- r.sum.textContent=price?txt(price.textContent):'';r.total.style.display=r.sum.textContent?'':'none';
+ r.label.textContent=l[2];
+ r.sum.textContent=price?txt(price.textContent):'';r.total.style.display=r.sum.textContent&&q>0?'':'none';
 }
 function message(s){pop.refs.list.replaceChildren(el('div','okla-cp__message',s))}
 function itemTotal(row){
@@ -72,11 +71,6 @@ function move(){
  if(!anchor||!pop)return;var r=anchor.getBoundingClientRect(),w=Math.min(441,innerWidth-24);
  var left=Math.max(12,Math.min(innerWidth-w-12,r.right-w));
  pop.style.width=w+'px';pop.style.left=left+'px';pop.style.top=Math.max(8,r.bottom+12)+'px';
- var face=anchor.querySelector('okla-action-face');
- var icon=face&&face.shadowRoot&&face.shadowRoot.querySelector('.figure')||anchor.querySelector('.okla-cart-symbol'),ir=icon?icon.getBoundingClientRect():r;
- var center=ir.left+ir.width/2;
- var right=Math.max(18,Math.min(w-26,left+w-center-9));
- pop.style.setProperty('--okla-cart-arrow-right',right+'px');
 }
 function close(){clearTimeout(timer);timer=0;anchor=null;version++;if(pop){pop.classList.remove('is-open');pop.setAttribute('aria-hidden','true')}}
 function pointerInside(){
