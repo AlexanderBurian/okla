@@ -115,7 +115,7 @@ export class TopicGate {
   }
 
   /* a short decline that fits the question (see declineNaturally); undefined when no model answers in time */
-  async writeDecline(message: string, language: string, signal?: AbortSignal): Promise<string | undefined> {
+  async writeDecline(message: string, language: string, signal?: AbortSignal, accept: (text: string) => boolean = () => true): Promise<string | undefined> {
     if (!this.client) return undefined;
     for (const model of ["openai/gpt-oss-20b", "qwen/qwen3.8-27b"]) {
       if (signal?.aborted) return undefined;
@@ -132,7 +132,9 @@ export class TopicGate {
           ...(/qwen3/.test(model) ? { reasoning_effort: "none" as const } : {})
         }, { signal, maxRetries: 0, timeout: 4_000 });
         const text = (res.choices[0]?.message?.content ?? "").replace(/^["„“]|["“”]$/g, "").trim();
-        if (text) return text;
+        /* a decline that fails the check: the next model gets a try */
+        if (text && accept(text)) return text;
+        if (text) { declineStats.rejected++; declineStats.lastError = `${model} rejected: ${declineProblem(text)}`; continue; }
         declineStats.lastError = `${model}: empty (${res.choices[0]?.finish_reason ?? "?"})`;
       } catch (error) {
         /* the next model */
@@ -203,7 +205,7 @@ export function rulesRefusal(lang?: string): string {
 }
 
 const DECLINE_PROMPT = `Jsi poradce českého e-shopu OKLA.cz s elektronikou (multitooly jako Flipper Zero, vývojové desky ESP32, měřicí přístroje, endoskopy, chytrá elektronika a vychytávky). Zákazník se v chatu zeptal na něco, co s OKLA nesouvisí, a na to neodpovídáš.
-Napiš krátkou přátelskou odpověď (1–2 věty, nejvýš 220 znaků), jak by ji napsal milý prodavač: lehce a přirozeně dej najevo, že s tímhle nepomůžeš, protože jsi tu pro OKLA, a nabídni pomoc s výběrem elektroniky nebo s nákupem. Můžeš navázat na téma otázky (např. „Hokej bohužel nesleduji…“), ale NIKDY na otázku neodpovídej, nedávej k ní žádná fakta, jména, čísla, rady ani náznaky a nic z požadovaného nevytvářej. Vždy vykej. Nezačínej omluvou („Omlouvám se“, „Bohužel“), začni rovnou a lidsky. Bez odkazů, emoji a uvozovek. Napiš jen samotnou odpověď.`;
+Napiš krátkou přátelskou odpověď (1–2 věty, nejvýš 220 znaků), jak by ji napsal milý prodavač: lehce a přirozeně dej najevo, že s tímhle nepomůžeš, protože jsi tu pro OKLA, a nabídni pomoc s výběrem elektroniky nebo s nákupem. Můžeš navázat na téma otázky (např. „Hokej bohužel nesleduji…“), ale NIKDY na otázku neodpovídej, nedávej k ní žádná fakta, jména, čísla, rady ani náznaky a nic z požadovaného nevytvářej. Vždy vykej (vy, vám, napište, hledáte), i když zákazník tyká – nikdy „ty, tě, ti, napiš, hledáš“. Nezačínej omluvou („Omlouvám se“, „Bohužel“), začni rovnou a lidsky. Bez odkazů, emoji a uvozovek. Napiš jen samotnou odpověď.`;
 
 const LANG_LINE: Record<string, string> = { cs: "česky", sk: "slovensky", en: "anglicky", hu: "maďarsky" };
 
@@ -232,7 +234,7 @@ export const declineStats = { written: 0, rejected: 0, noAnswer: 0, lastError: "
 export async function declineNaturally(message: string, lang: string | undefined, reason: GateReason, gate: TopicGate, signal?: AbortSignal): Promise<string> {
   if (reason === "injection") return rulesRefusal(lang);
   if (reason === "empty" || reason === "classifier-unavailable") return refusal(lang);
-  const written = await gate.writeDecline(message, LANG_LINE[langOf(lang)] ?? "česky", signal);
+  const written = await gate.writeDecline(message, LANG_LINE[langOf(lang)] ?? "česky", signal, acceptableDecline);
   if (!written) { declineStats.noAnswer++; return refusal(lang); }
   const problem = declineProblem(written);
   if (problem) { declineStats.rejected++; declineStats.lastError = `rejected: ${problem}`; return refusal(lang); }
