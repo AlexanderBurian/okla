@@ -21,7 +21,7 @@
   var h=q('.p-detail-inner-header',w)||q('.p-detail .p-detail-inner-header'),link=q('.ok86-description-link',w),avail=q('.availability-value',w),price=q('.p-final-price-wrapper',w),cart=q('.add-to-cart',w),xsell=q('.okla-xsell',w);
   if(!avail||!price||!cart)return false;
   if(w.dataset.oklaAlza==='1')return true;
-  if(!xsell&&arrange.tries++<30)return false; /* give the companion box a moment to appear */
+  /* arranged at once (the stock panel never waits); the companion box, which may come later, is slotted above it */
   w.dataset.oklaAlza='1';w.classList.add('okla-dalza');
 
   /* share button beside the title (Shoptet's own share trigger) */
@@ -33,11 +33,10 @@
 
   var after=link||q('.p-short-description',w)||(h&&w.contains(h)?h:null);
   if(!after){after=el('span','okla-dalza__anchor');w.insertBefore(after,w.firstChild)}
-  if(xsell){after.after(xsell);after=xsell}
-
   /* the stock panel: the stock in green, and one line with the delivery and returns links */
   var box=el('div','okla-dalza__stock');
   after.after(box);
+  var tries=0;(function slot(){var s=xsell||q('.okla-xsell',w);if(s){if(s.nextElementSibling!==box)box.before(s);return}if(++tries<40)setTimeout(slot,150)})();
   var r1=el('div','okla-dalza__stockline');r1.appendChild(avail);box.appendChild(r1);
   var links=el('div','okla-dalza__links');
   links.appendChild(el('a','okla-dalza__link',TRUCK+'<span>Doprava a platba</span>'));links.lastChild.href='/doprava-a-platba/';
@@ -55,6 +54,5 @@
   var benefits=q('.ok86-benefits',w);if(benefits)cart.after(benefits);
   return true;
  }
- arrange.tries=0;
  var n=0;(function tick(){if(arrange()||++n>80)return;setTimeout(tick,150)})();
 })();

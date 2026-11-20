@@ -81,3 +81,5 @@ html body #content#content .p-info-wrapper.okla-dalza:not(#oda-a#oda-b#oda-c#oda
   html body #content#content .p-info-wrapper.okla-dalza:not(#oda-a#oda-b#oda-c#oda-d#oda-e#oda-f#oda-g#oda-h#oda-i#oda-j#oda-k) .add-to-cart>.quantity{flex-basis:108px!important;width:108px!important}
   html body #content#content .p-info-wrapper.okla-dalza:not(#oda-a#oda-b#oda-c#oda-d#oda-e#oda-f#oda-g#oda-h#oda-i#oda-j#oda-k) .add-to-cart>button{font-size:14px!important;gap:6px!important}
 }
+/* out of stock: the same line in red */
+html body #content#content .p-info-wrapper.okla-dalza:not(#oda-a#oda-b#oda-c#oda-d#oda-e#oda-f#oda-g#oda-h#oda-i#oda-j) .okla-dalza__stockline .availability-value.ok86-out :is(.availability-label,.availability-amount){color:#cc0000!important;-webkit-text-fill-color:#cc0000!important}
