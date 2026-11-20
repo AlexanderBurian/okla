@@ -96,7 +96,7 @@ html.okla-ord-ready body .okla-ord-btn{
 html.okla-ord-ready body .okla-ord-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 /* Green with black text – "Sledovat zásilku" */
 html.okla-ord-ready body .okla-ord-btn--track{background:#0859d8;border-color:#0859d8;color:#fff}
-html.okla-ord-ready body .okla-ord-btn--track:hover{background:#0751c6;border-color:#0751c6}
+html.okla-ord-ready body .okla-ord-btn--track:hover{background:#0859d8;border-color:#0859d8}
 html.okla-ord-ready body .okla-ord-btn--rk{background:#fff;border-color:#d63b4a;color:#c52f3e!important}
 html.okla-ord-ready body .okla-ord-btn--rk:hover{background:#fff1f3;border-color:#bd2f3e;color:#a92532!important}
 html.okla-ord-ready body .okla-ord-btn--invoice{background:#fff;border-color:#cbd4dd;color:#173a5b!important}

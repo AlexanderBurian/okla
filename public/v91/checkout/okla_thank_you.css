@@ -63,7 +63,7 @@ html.okla-ty-page body #content .okla-ty__paynote{display:block!important;paddin
 html.okla-ty-page body #content .okla-ty__actions{display:flex!important;justify-content:center!important;flex-wrap:wrap!important;gap:12px!important;margin:32px 0 0!important}
 html.okla-ty-page body #content a.okla-ty__btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;min-width:250px!important;height:52px!important;margin:0!important;padding:0 24px!important;border-radius:12px!important;font:700 15.5px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;box-shadow:none!important;transition:background-color .15s ease,border-color .15s ease!important}
 html.okla-ty-page body #content a.okla-ty__btn--primary{border:0!important;background:var(--ty-blue)!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
-html.okla-ty-page body #content a.okla-ty__btn--primary:hover{background:#0751c6!important}
+html.okla-ty-page body #content a.okla-ty__btn--primary:hover{background:#0859d8!important}
 html.okla-ty-page body #content a.okla-ty__btn--ghost{border:1px solid var(--ty-blue)!important;background:#fff!important;color:var(--ty-blue)!important;-webkit-text-fill-color:var(--ty-blue)!important}
 html.okla-ty-page body #content a.okla-ty__btn--ghost:hover{background:var(--ty-blue-bg)!important}
 

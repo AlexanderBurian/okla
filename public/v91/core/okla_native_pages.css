@@ -56,7 +56,7 @@ html body .cart-empty form button[type="submit"]{
   color:#fff!important;border-radius:8px!important;font-weight:700!important;box-shadow:none!important;text-shadow:none!important;
 }
 html body .cart-empty .search .btn:hover,
-html body .cart-empty form button[type="submit"]:hover{background:#0751c6!important;border-color:#0751c6!important;color:#fff!important}
+html body .cart-empty form button[type="submit"]:hover{background:#0859d8!important;border-color:#0859d8!important;color:#fff!important}
 
 /* ---------- Category listing ----------
    The native "Nejprodávanější" featured block (small heading + a loose inline row
@@ -336,7 +336,7 @@ html body .siteCookies.js-siteCookies .siteCookies__button{
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child{background:#fff!important;color:#0b2540!important;border:1.5px solid #cdd2da!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:first-child:hover{border-color:#0859d8!important;color:#0859d8!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#0859d8!important;color:#fff!important;border:1.5px solid #0859d8!important}
-html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0751c6!important;border-color:#0751c6!important}
+html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0859d8!important;border-color:#0859d8!important}
 @media(max-width:720px){
   
   html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
@@ -663,7 +663,7 @@ html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__bottom button{
   box-shadow:none!important;cursor:pointer!important;
 }
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__uncheckLink{background:#fff!important;border:1.5px solid #0642A1!important;color:#0642A1!important;text-decoration:none!important}
-html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cookiesSetting__button--green){background:#0642A1!important;border:1px solid #0642A1!important;color:#fff!important}
+html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button:not(.cookiesSetting__button--green){background:#0859d8!important;border:1px solid #0859d8!important;color:#fff!important}
 html body #colorbox #cboxContent.cookiesDialog .cookiesSetting__button--green{background:#0859d8!important;border:1px solid #0859d8!important;color:#fff!important}
 html body #colorbox #cboxContent.cookiesDialog #cboxClose{
   position:fixed!important;top:calc(14px + env(safe-area-inset-top,0px))!important;right:14px!important;left:auto!important;bottom:auto!important;

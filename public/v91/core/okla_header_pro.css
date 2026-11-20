@@ -120,5 +120,5 @@ html body .okla-langdlg .okla-langdlg__opt input[type=radio]{position:static!imp
 .okla-langdlg__opt svg{display:block;flex:none;width:20px;height:20px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
 .okla-langdlg__foot{display:flex;justify-content:flex-end;margin-top:18px}
 .okla-langdlg__ok{height:36px;margin:0;padding:0 16px;border:0;background:#0859d8;color:#fff;font:700 13px/36px "Open Sans",Arial,sans-serif;cursor:pointer;box-shadow:none}
-.okla-langdlg__ok:hover{background:#0749b3}
+.okla-langdlg__ok:hover{background:#0859d8}
 .okla-langdlg__ok:focus-visible,.okla-langdlg__close:focus-visible{outline:2px solid #0751c6;outline-offset:2px}

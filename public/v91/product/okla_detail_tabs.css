@@ -165,7 +165,7 @@ html body #colorbox #dialogFormRating .dialog__actionButtons .btn{
   border:1px solid #0859d8!important;border-radius:12px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important;
 }
-html body #colorbox #dialogFormRating .dialog__actionButtons .btn:is(:hover,:focus-visible){background:#0751c6!important;border-color:#0751c6!important;color:#fff!important}
+html body #colorbox #dialogFormRating .dialog__actionButtons .btn:is(:hover,:focus-visible){background:#0859d8!important;border-color:#0859d8!important;color:#fff!important}
 html body #colorbox:has(#dialogFormRating,#ratingWrapper) #cboxClose{
   position:absolute!important;top:14px!important;right:14px!important;left:auto!important;bottom:auto!important;width:40px!important;height:40px!important;margin:0!important;padding:0!important;
   border:0!important;border-radius:50%!important;background:transparent!important;box-shadow:none!important;color:#0b2540!important;z-index:3!important;
@@ -339,7 +339,7 @@ html body #content .ok97-review-form #formRating button[type="submit"]{
   border:1px solid #0859d8!important;border-radius:12px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important;
 }
-html body #content .ok97-review-form #formRating button[type="submit"]:is(:hover,:focus-visible){background:#0751c6!important;border-color:#0751c6!important;color:#fff!important}
+html body #content .ok97-review-form #formRating button[type="submit"]:is(:hover,:focus-visible){background:#0859d8!important;border-color:#0859d8!important;color:#fff!important}
 html body #content .ok97-review-form #formRating .js-validator-msg{margin:6px 0 0!important;font-size:13px!important}
 @media(max-width:767px){
   html body #content .ok97-review-form{padding:22px 18px 20px!important;border-radius:18px!important}

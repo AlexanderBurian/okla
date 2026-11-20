@@ -127,11 +127,11 @@ html body .okla-rk__consent.is-invalid label{color:#c0344a}
 html body .okla-rk__actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:26px 0 0}
 html body .okla-rk__submit{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;height:54px;
-  border:1px solid #0751c6;border-radius:12px;cursor:pointer;
+  border:1px solid #0859d8;border-radius:12px;cursor:pointer;
   font-family:"Open Sans",Arial,sans-serif;font-size:15px;font-weight:800;letter-spacing:0;text-transform:none;
   transition:background-color .15s ease,border-color .15s ease,opacity .15s ease;
 }
-html body .okla-rk__submit:hover{background:#063F9A;border-color:#063F9A}
+html body .okla-rk__submit:hover{background:#0859d8;border-color:#0859d8}
 html body .okla-rk__submit svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 html body .okla-rk__submit[disabled]{opacity:.6;cursor:default}
 html body .okla-rk__submit.is-loading{color:transparent;position:relative}
@@ -167,7 +167,7 @@ html body .okla-rk__done-links a{
   font-size:14px;font-weight:700;text-decoration:none;
 }
 html body .okla-rk__done-links .is-primary{border:1px solid #0859d8}
-html body .okla-rk__done-links .is-primary:hover{background:#0751c6;border-color:#0751c6}
+html body .okla-rk__done-links .is-primary:hover{background:#0859d8;border-color:#0859d8}
 html body .okla-rk__done-links .is-ghost{border:1px solid #d7deea}
 html body .okla-rk__done-links .is-ghost:hover{background:#f4f7fb}
 

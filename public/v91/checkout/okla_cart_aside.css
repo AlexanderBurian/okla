@@ -18,7 +18,7 @@ html body.ordering-process .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#o
 html body.ordering-process .okla-cart-aside__text:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0 0 14px;color:#46556a;font:400 13px/1.45 "Open Sans",Arial,sans-serif}
 html body.ordering-process .okla-cart-aside__help:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;align-items:stretch;gap:12px}
 html body.ordering-process .okla-cart-aside__chat:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:42px;min-height:0;margin:0;padding:0 16px;border:0;border-radius:8px;background:#0859d8;color:#fff;-webkit-text-fill-color:#fff;font:600 15px/1 "Open Sans",Arial,sans-serif;text-transform:none;letter-spacing:0;text-decoration:none;box-shadow:none;cursor:pointer}
-html body.ordering-process .okla-cart-aside__chat:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#0751c6;color:#fff;-webkit-text-fill-color:#fff}
+html body.ordering-process .okla-cart-aside__chat:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#0859d8;color:#fff;-webkit-text-fill-color:#fff}
 html body.ordering-process .okla-cart-aside__chat svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 html body.ordering-process .okla-cart-aside__mail:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:inline-flex;align-items:center;justify-content:center;gap:8px;color:#0859d8;-webkit-text-fill-color:#0859d8;font:600 14px/1.3 "Open Sans",Arial,sans-serif;text-decoration:none}
 html body.ordering-process .okla-cart-aside__mail:not(#oca-a#oca-b#oca-c#oca-d#oca-e):hover{text-decoration:underline}
@@ -47,7 +47,7 @@ html body.in-kosik #content .okla-cart-summary__divider:not(#oca-a#oca-b#oca-c#o
   html body.ordering-process .okla-cart-aside__coupon-slot .okla-coupon__row:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex!important;gap:8px!important;margin:0!important}
   html body.ordering-process .okla-cart-aside__coupon-slot .okla-coupon__input:not(#oca-a#oca-b#oca-c#oca-d#oca-e){flex:1 1 auto!important;min-width:0!important;height:42px!important;margin:0!important;padding:0 12px!important;border:1px solid #d5dbe3!important;border-radius:8px!important;background:#fff!important;font:400 14px/1 "Open Sans",Arial,sans-serif!important}
   html body.ordering-process .okla-cart-aside__coupon-slot .okla-coupon__btn:not(#oca-a#oca-b#oca-c#oca-d#oca-e){flex:none!important;height:42px!important;min-height:0!important;margin:0!important;padding:0 16px!important;border:0!important;border-radius:8px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:600 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;box-shadow:none!important}
-  html body.ordering-process .okla-cart-aside__coupon-slot .okla-coupon__btn:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#0751c6!important}
+  html body.ordering-process .okla-cart-aside__coupon-slot .okla-coupon__btn:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#0859d8!important}
   html body.ordering-process .okla-cart-aside__coupon-slot .okla-coupon__note:not(#oca-a#oca-b#oca-c#oca-d#oca-e):empty{display:none!important}
 }
 

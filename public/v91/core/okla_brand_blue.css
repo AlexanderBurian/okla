@@ -22,7 +22,7 @@ html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-c
   background:#0859d8!important;background-color:#0859d8!important;background-image:none!important;border-color:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;
 }
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h):is(:hover,:focus-visible,:active){
-  background:#0751c6!important;background-color:#0751c6!important;border-color:#0751c6!important;
+  background:#0859d8!important;background-color:#0859d8!important;border-color:#0859d8!important;
 }
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 

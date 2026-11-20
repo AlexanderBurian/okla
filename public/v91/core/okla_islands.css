@@ -14,9 +14,10 @@
   /* breadcrumbs on the grey page */
   /* the breadcrumbs are the top of the page's white island (the white runs up to them) */
   html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){background:#fff!important;box-shadow:none!important;margin:0 auto!important;border-radius:0!important;padding:8px 20px 0!important;box-sizing:border-box!important}
-  /* the content: an island (rounded white card) on every page but the homepage */
-  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:16px!important;border:0!important;border-radius:8px!important;background:#fff!important;clip-path:none!important;overflow:hidden!important}
-  html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:16px!important;border-top-left-radius:8px!important;border-top-right-radius:8px!important}
+  /* the content: an island (rounded white card) on every page but the homepage; 21px below the category bar - the
+     same gap on every page (the homepage's first block and the customer centre's card sit at 21px too) */
+  html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:21px!important;border:0!important;border-radius:8px!important;background:#fff!important;clip-path:none!important;overflow:hidden!important}
+  html body .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:21px!important;border-top-left-radius:8px!important;border-top-right-radius:8px!important}
   /* Homepage keeps its per-block islands, so its content-wrapper stays flush (no extra gap above the search). */
   html body.type-index .overall-wrapper>.container.breadcrumbs-wrapper+#content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important;border-top-left-radius:0!important;border-top-right-radius:0!important}
   html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important;border-radius:0!important}

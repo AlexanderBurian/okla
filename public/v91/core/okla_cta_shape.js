@@ -21,8 +21,8 @@
  /* Only the navy "Otevřít filtr" is recoloured — the Okla blue, via its own
     button variables (colour only, size/shape untouched). Every other button
     keeps its own colour: green stays green. */
- /* The filter toggle gets a deeper Okla blue — never the lighter #0859d8. */
- var FILTER_BLUE='#074bb7';
+ /* The filter toggle in the shop's one button blue, like every other button. */
+ var FILTER_BLUE='#0859d8';
  function filterBlue(){
   document.querySelectorAll('.unveil-button').forEach(function(b){
    /* Drive the button variables … */

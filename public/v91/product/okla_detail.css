@@ -220,7 +220,7 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .ratings-wrapper{font:400 12px/1.4 var(--okd-font)!important;color:#888!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .price-final,html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .price-final *{color:#073571!important;font:800 20px/1.2 var(--okd-font)!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .price-final{width:144px!important;height:46px!important;margin:0 auto!important;padding:0 4px!important;background:transparent!important;text-align:center!important}
-html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .btn-cart{font:600 14px/1.2 var(--okd-font)!important;color:#0642A1!important;border:1px solid #0642A1!important;border-radius:6px!important;padding:6px 12px!important;background-color:#fff!important}
+html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .btn-cart{font:600 14px/1.2 var(--okd-font)!important;color:#0642A1!important;border:1px solid #0859d8!important;border-radius:6px!important;padding:6px 12px!important;background-color:#fff!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product :is(.p-desc,.p-code){display:none!important}
 /* 8c. Cart button border and label colour exactly as the homepage button (#0642A1), stronger selector than the homepage hover/focus rules. */
 

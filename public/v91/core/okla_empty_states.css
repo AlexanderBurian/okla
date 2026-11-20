@@ -21,7 +21,7 @@ html body #content .okla-empty-search button{
   width:40px!important;height:40px!important;min-width:0!important;margin:0!important;padding:0!important;
   border:0!important;border-radius:10px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;color:#fff!important;cursor:pointer!important;
 }
-html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#0751c6!important}
+html body #content .okla-empty-search button:is(:hover,:focus-visible){background:#0859d8!important}
 html body #content .okla-empty-search button svg{width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important}
 html body #content .okla-empty-chips{display:flex!important;flex-wrap:wrap!important;justify-content:center!important;gap:8px!important;margin:0!important;padding:0!important}
 html body #content .okla-empty-chip{
@@ -126,5 +126,5 @@ html body .okla-cart-empty{display:none}
   html body .okla-cart-empty__title:not(#okce-a#okce-b#okce-c){margin:0 0 10px!important;padding:0!important;color:#0b2540!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;text-align:center!important}
   html body .okla-cart-empty__text:not(#okce-a#okce-b#okce-c){max-width:300px;margin:0 0 26px!important;color:#46556a!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important}
   html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c){display:inline-flex!important;align-items:center;justify-content:center;min-width:210px;height:50px;padding:0 28px!important;border-radius:8px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:700 16px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;box-shadow:none!important}
-  html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c):is(:hover,:active){background:#0751c6!important}
+  html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c):is(:hover,:active){background:#0859d8!important}
 }

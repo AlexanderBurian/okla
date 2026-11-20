@@ -64,7 +64,7 @@
   +'.okla-hsearch__in{flex:1 1 auto;min-width:0;height:100%;border:0!important;outline:none!important;box-shadow:none!important;background:transparent;color:#1a1a1a;font:400 16px/1.2 "Open Sans",Arial,sans-serif}'
   +'.okla-hsearch__in::placeholder{color:#8a97a8}'
   +'.okla-hsearch__btn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 18px;border:0;border-radius:9px;background:#0859d8;color:#fff;font:700 14px/1 "Open Sans",Arial,sans-serif;cursor:pointer}'
-  +'.okla-hsearch__btn:hover{background:#0751c6}'
+  +'.okla-hsearch__btn:hover{background:#0859d8}'
   +'.okla-hsearch__res{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;box-sizing:border-box;width:100%;max-width:680px;margin:0 auto;background:#fff;border:1px solid #e6ecf4;border-radius:12px;box-shadow:0 14px 34px rgba(18,41,68,.16);overflow:hidden;max-height:70vh;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none}'
   +'.okla-hsearch__res.is-open{display:block}'
   +'.okla-hsearch__item{display:flex;align-items:center;gap:12px;padding:10px 14px;text-decoration:none;border-top:1px solid #f1f4f8}'

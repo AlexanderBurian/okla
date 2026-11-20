@@ -80,9 +80,9 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){
- border-color:#0751c6!important;
- background:#0751c6!important;
- background-color:#0751c6!important;
+ border-color:#0859d8!important;
+ background:#0859d8!important;
+ background-color:#0859d8!important;
  color:#fff!important;
  -webkit-text-fill-color:#fff!important;
  filter:none!important;

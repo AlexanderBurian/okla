@@ -126,7 +126,7 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 #okla-cart-modal#okla-cart-modal .okla-cm__qty:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j){display:inline-flex;align-items:stretch;gap:0;height:42px;border-radius:8px;overflow:hidden;background:#eaf1fd}
 #okla-cart-modal#okla-cart-modal .okla-cm__step:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j),
 #okla-cart-modal#okla-cart-modal .okla-cm__step:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):is(:hover,:focus,:active,:focus-visible){flex:0 0 42px!important;width:42px!important;height:42px!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#0859d8!important;background-image:none!important;color:#fff!important;box-shadow:none!important;outline:0!important;transform:none!important;opacity:1!important}
-#okla-cart-modal#okla-cart-modal .okla-cm__step:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):not(:disabled):hover{background:#0751c6!important}
+#okla-cart-modal#okla-cart-modal .okla-cm__step:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):not(:disabled):hover{background:#0859d8!important}
 #okla-cart-modal#okla-cart-modal .okla-cm__step:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):not(:disabled):active{background:#0646ad!important}
 #okla-cart-modal#okla-cart-modal .okla-cm__step:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):disabled{background:#b7cdf2!important;cursor:default!important}
 #okla-cart-modal#okla-cart-modal .okla-cm__qty-val:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j){height:42px;min-width:70px;margin:0;padding:0 10px;background:#eaf1fd;line-height:42px}

@@ -53,7 +53,7 @@
     background:#0859d8!important;border:1px solid #0859d8!important;color:#fff!important;box-shadow:none!important;
     font:600 16px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;
   }
-  html:is(.okla-os-login-combo,.okla-os-pure-login) body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content :is(.okla-os-lookup__btn,.login-form button[type="submit"]):active{background:#0646b0!important;border-color:#0646b0!important}
+  html:is(.okla-os-login-combo,.okla-os-pure-login) body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content :is(.okla-os-lookup__btn,.login-form button[type="submit"]):active{background:#0859d8!important;border-color:#0859d8!important}
   html.okla-os-login-combo body:not(#ofc-a#ofc-b#ofc-c#ofc-d#ofc-e#ofc-f#ofc-g#ofc-h) #content#content#content .okla-os-lookup__btn svg{display:none!important}
 
   /* ---- the sign-in form under the lookup: its own section ---- */

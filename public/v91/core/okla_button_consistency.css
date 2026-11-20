@@ -77,7 +77,7 @@ html.okla-ord-ready body .okla-ord-head:is(:hover,:active){
   /* "Otevřít / Zavřít filtr": one flat, deeper Okla blue — never the lighter
      #0859d8, and no hover/tap change at all. */
   html body .unveil-button{-webkit-tap-highlight-color:transparent!important}
-  html body .unveil-button:is(:hover,:focus,:focus-visible,:active){filter:none!important;background:#074bb7!important;background-color:#074bb7!important;border-color:#074bb7!important;color:#fff!important;box-shadow:none!important;outline:none!important;transform:none!important}
+  html body .unveil-button:is(:hover,:focus,:focus-visible,:active){filter:none!important;background:#0859d8!important;background-color:#0859d8!important;border-color:#0859d8!important;color:#fff!important;box-shadow:none!important;outline:none!important;transform:none!important}
   html body :is(
     button,input[type="button"],input[type="submit"],input[type="reset"],
     .btn,a.btn,.button,a.button,[role="button"]
@@ -186,8 +186,8 @@ html body #filters .filter-section-boolean input[type="checkbox"] + label{
 /* Customer centre: preserve the normal Okla colours on hover. */
 html.okla-acc-polished body #content :is(.btn.btn-primary,.btn.btn-conversion),
 html.okla-acc-polished body #content :is(.btn.btn-primary,.btn.btn-conversion):is(:hover,:active,:focus){
-  border-color:#1d54aa!important;
-  background:#1d54aa!important;
+  border-color:#0859d8!important;
+  background:#0859d8!important;
   color:#fff!important;
 }
 html.okla-acc-polished body #content :is(.btn.btn-default,.btn.btn-secondary),
@@ -258,8 +258,8 @@ html body .okla-rk__choice label::after{
 }
 html body .okla-rk__submit,
 html body .okla-rk__submit:is(:hover,:active,:focus){
-  border-color:#0751c6!important;
-  background:#0751c6!important;
+  border-color:#0859d8!important;
+  background:#0859d8!important;
   color:#fff!important;
 }
 html body .okla-rk__done-links .is-primary,
@@ -285,8 +285,8 @@ html body .cart-empty :is(.search .btn,form button[type="submit"]):is(:hover,:ac
    before the JS runs it is never the lighter #0859d8 and never navy. */
 html body.type-category :is(a.unveil-button,.unveil-button.btn),
 html body.type-category :is(a.unveil-button,.unveil-button.btn):is(:hover,:active,:focus){
-  border-color:#074bb7!important;
-  background:#074bb7!important;
+  border-color:#0859d8!important;
+  background:#0859d8!important;
   color:#fff!important;
   filter:none!important;box-shadow:none!important;
 }

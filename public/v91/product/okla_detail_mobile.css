@@ -24,7 +24,7 @@
     transition: none !important; background: #0859d8 !important; background-color: #0859d8 !important; border-color: #0859d8 !important; color: #fff !important;
   }
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary:not(:disabled):hover {
-    transition: none !important; background: #0751c6 !important; background-color: #0751c6 !important; border-color: #0751c6 !important; color: #fff !important;
+    transition: none !important; background: #0859d8 !important; background-color: #0859d8 !important; border-color: #0859d8 !important; color: #fff !important;
   }
 
   /* 4. "Zobrazit další produkty": the homepage button, not the grey browser box with a black chevron */

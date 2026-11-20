@@ -36,10 +36,10 @@ html body .oka-c-card .oka-c-btn{margin-top:auto}
 html body .oka-c-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   height:46px;padding:0 24px;border-radius:6px;border:1px solid var(--b);
-  background:var(--b);color:#fff;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;
+  background:#0859d8;border-color:#0859d8;color:#fff;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;
   transition:background-color .15s ease,border-color .15s ease;
 }
-html body .oka-c-btn:hover{background:var(--bd);border-color:var(--bd);color:#fff}
+html body .oka-c-btn:hover{background:#0859d8;border-color:#0859d8;color:#fff}
 html body .oka-c-btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 html body .oka-c-consent{display:flex;align-items:flex-start;gap:10px;margin:4px 0 18px;color:var(--mut);font-size:13px;line-height:1.45;cursor:pointer}
