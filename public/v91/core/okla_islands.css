@@ -23,6 +23,8 @@
 
   /* ---- homepage: every block its own island ---- */
   html body.type-index #content-wrapper.content-wrapper:not(#okis-a#okis-b){background:transparent!important;overflow:visible!important;}
+  /* the customer centre draws its own card (.okla-acc-shell); the wrapper around it stays clear (no white strips above and below the card) */
+  html.okla-acc-center body #content-wrapper.content-wrapper:not(#okis-a#okis-b){background:transparent!important;overflow:visible!important}
   html body.type-index #content-wrapper #content.content:not(#okis-a#okis-b){padding-left:0!important;padding-right:0!important;background:transparent!important}
   /* the islands */
   html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c),

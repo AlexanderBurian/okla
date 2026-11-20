@@ -86,8 +86,8 @@ html.okla-acc-polished body #content-wrapper .okla-acc-shell > aside.sidebar.sid
   html.okla-acc-polished body #content-wrapper .okla-acc-shell,
   html.okla-acc-polished body #content-wrapper.okla-acc-shell{
     /* wide enough for the longest item ("Moje doklady k přijaté platbě") on one line */
-    --okla-acc-nav-width:320px;
-    grid-template-columns:320px minmax(0,1fr)!important;
+    --okla-acc-nav-width:340px;
+    grid-template-columns:340px minmax(0,1fr)!important;
   }
   html.okla-acc-polished body #content-wrapper .okla-acc-shell > aside.sidebar.sidebar-left.okla-acc-shell__nav{
     flex:none!important;width:100%!important;max-width:100%!important;min-width:0!important;
