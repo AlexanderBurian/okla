@@ -1,4 +1,4 @@
-/* OKLA AI widget branding bridge. The deployed widget has its own multilingual
+/* Okla AI widget branding bridge. The deployed widget has its own multilingual
    shadow DOM, so branding is changed without replacing that newer runtime. */
 (function(){
 'use strict';
@@ -28,7 +28,7 @@ function patch(host){
   var brand=root.querySelector('.brand-mini img');
   if(brand&&brand.getAttribute('src')!==logo){brand.src=logo;brand.removeAttribute('hidden')}
   var welcome=root.querySelector('.welcome');
-  if(welcome){welcome.removeAttribute('aria-labelledby');welcome.setAttribute('aria-label','OKLA.cz')}
+  if(welcome){welcome.removeAttribute('aria-labelledby');welcome.setAttribute('aria-label','Okla.cz')}
   root.querySelectorAll('.welcome-brand,.welcome-title').forEach(function(node){node.remove()});
   root.querySelectorAll('.assistant-avatar img').forEach(function(img){
    if(img.getAttribute('src')!==avatar){img.src=avatar;img.removeAttribute('hidden')}

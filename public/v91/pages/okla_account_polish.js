@@ -1,4 +1,4 @@
-/* OKLA V122 – one semantic account navigation, crisp vector icons, a clean
+/* Okla V122 – one semantic account navigation, crisp vector icons, a clean
    customer-centre shell and an explicit logout confirmation. */
 (function(){
  'use strict';

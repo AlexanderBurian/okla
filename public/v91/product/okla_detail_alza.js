@@ -1,4 +1,4 @@
-/* OKLA product page, Alza-like order of the buying column (PC and phones), in OKLA's own look:
+/* Okla product page, Alza-like order of the buying column (PC and phones), in Okla's own look:
    brand link, title with a share button beside it, short description and "show full description",
    "Doporučujeme přidat k nákupu" box, a stock card (stock, delivery, returns), the price, then the buying row and the benefits. Only moves the existing native elements (the purchase form
    and its listeners stay the same) and adds two small pieces of text. */

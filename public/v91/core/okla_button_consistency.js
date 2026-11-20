@@ -1,4 +1,4 @@
-/* OKLA V127 – retain each button's resting colours and classify its fill.
+/* Okla V127 – retain each button's resting colours and classify its fill.
    The last CSS layer can then darken filled actions very slightly and softly
    tint empty actions without inheriting unrelated legacy hover colours. */
 (function(){
@@ -15,7 +15,7 @@
   var r=+n[0],g=+n[1],b=+n[2];
   return g>=110&&g>r*1.23&&g>b*1.36&&r<180&&b<125;
  }
- /* Buttons that must adopt the OKLA blue even though their base colour is not
+ /* Buttons that must adopt the Okla blue even though their base colour is not
     green (e.g. the dark-navy "Otevřít filtr"). */
  function forceBlue(button){
   try{return button.matches('.unveil-button,.filter-toggle,.js-filter-toggle')}catch(e){return false}
@@ -48,7 +48,7 @@
 
  function apply(button,style){
   var bg=style.bg,img=style.img,bd=style.bd,col=style.col;
-  /* Only the navy filter button ("Otevřít filtr") becomes the OKLA blue; every
+  /* Only the navy filter button ("Otevřít filtr") becomes the Okla blue; every
      other button keeps its own resting colour (green stays green). Use the deeper
      #074bb7 (rgb 0,92,189) — the lighter #0859d8 read as "light blue". */
   if(forceBlue(button)){

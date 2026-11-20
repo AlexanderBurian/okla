@@ -1,4 +1,4 @@
-/* OKLA – subcategories with a picture. Shoptet shows a folder icon for a subcategory; here each one gets the photo of
+/* Okla – subcategories with a picture. Shoptet shows a folder icon for a subcategory; here each one gets the photo of
    a product that stands for it, and no two subcategories of one category share a photo:
    - each subcategory's candidates are its own products, best first: the most words shared with the subcategory's
      name ("Kapesní platformy" -> a "kapesní" device), then the dearer one (usually the flagship);

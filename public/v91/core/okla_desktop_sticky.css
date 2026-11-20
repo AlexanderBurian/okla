@@ -1,4 +1,4 @@
-/* OKLA V109 – COMPACT version of the existing desktop sticky header.
+/* Okla V109 – COMPACT version of the existing desktop sticky header.
    Only applies while the header is pinned on >=992px screens.
    The normal header, both mobile headers and Shoptet controls are unchanged. */
 @media (min-width:992px) {

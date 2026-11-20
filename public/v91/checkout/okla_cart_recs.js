@@ -1,4 +1,4 @@
-/* OKLA – cart page on PC (≥992px): "Doporučujeme k nákupu" under the cart (DATART style) - up to ten products (a slider) from the
+/* Okla – cart page on PC (≥992px): "Doporučujeme k nákupu" under the cart (DATART style) - up to ten products (a slider) from the
    homepage's "To nejlepší od nás" (then "Akční zboží"), leaving out what is already in the cart. Each card has the
    shop's own add-to-cart form (Shoptet adds its security token on submit), so "Do košíku" adds it and the cart reloads. */
 (function(){

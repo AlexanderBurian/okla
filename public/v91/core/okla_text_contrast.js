@@ -1,4 +1,4 @@
-/* OKLA – kill the washed-out grey texts. Shoptet scatters many greyish text
+/* Okla – kill the washed-out grey texts. Shoptet scatters many greyish text
    colours around (#4d4d4d body copy, #767676 links, #636b75 breadcrumbs, #888
    captions, #9ba5b0 …). This pass finds every element whose *own* text is a low
    -saturation grey and repaints it: the prominent greys to a strong near-black,

@@ -1,4 +1,4 @@
-/* OKLA V91 – "O nás" page, rebuilt PPL-style: full-width, clean white, a single
+/* Okla V91 – "O nás" page, rebuilt PPL-style: full-width, clean white, a single
    brand blue, no gradients / eyebrows / decorative graphics, real stock photos.
    Rendered by okla_about.js on /o-nas/ (takes over the CMS page). */
 
@@ -126,7 +126,7 @@ html body .oka-art:after{content:"";position:absolute;inset:0;z-index:1;backgrou
 html body .oka-art__badge{position:absolute;top:16px;left:16px;z-index:2;width:46px;height:46px;border-radius:12px;background:#fff;display:grid;place-items:center;color:var(--b);box-shadow:0 2px 8px rgba(7,20,52,.2)}
 html body .oka-art__badge svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 html body .oka-art__cap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 22px 24px}
-html body .oka-art__cat{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:8px}
+html body .oka-art__cat{display:block;font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.8);margin-bottom:8px}
 html body .oka-art h3{font-size:20px;line-height:1.25;font-weight:700;color:#fff;text-wrap:balance}
 
 /* ---------------- CLOSING / CONTACT ---------------- */

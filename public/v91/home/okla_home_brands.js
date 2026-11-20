@@ -1,4 +1,4 @@
-/* Homepage brand carousel. The list is deliberately curated from brands actually sold on OKLA.
+/* Homepage brand carousel. The list is deliberately curated from brands actually sold on Okla.
    It is built with the homepage product slider's own markup (okla-slider-shell / viewport / track / controls with
    okla-slider-prev / next), so the arrows get exactly the same look from the shared styles, and it moves the same way:
    an endless loop shifted one logo at a time, swipe on touch screens; no autoplay (the product rows don't either). */

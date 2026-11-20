@@ -1,4 +1,4 @@
-/* OKLA V114 – mobile footer call-to-action enhancement.
+/* Okla V114 – mobile footer call-to-action enhancement.
    On phones the desktop QR-to-email becomes an actual tap-to-email link.
    Original QR, markup and desktop functionality stay in place. */
 (function(){
@@ -18,7 +18,7 @@
    a.className='okla-promo-mobile-mail';
    a.href=qr.getAttribute('href')||'mailto:podpora@okla.cz';
    a.rel='nofollow';
-   a.setAttribute('aria-label','Napsat e-mail podpoře OKLA');
+   a.setAttribute('aria-label','Napsat e-mail podpoře Okla');
    a.textContent='Napsat podpoře';
    column.appendChild(a);
   }

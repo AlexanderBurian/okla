@@ -1,6 +1,6 @@
-/* OKLA slovenčina: the texts of the site, Shoptet's messages and the patterns with numbers in them. Used by okla_i18n.js. */
+/* Okla slovenčina: the texts of the site, Shoptet's messages and the patterns with numbers in them. Used by okla_i18n.js. */
 (window.OKLA_I18N_PACKS=window.OKLA_I18N_PACKS||{}).sk={
- title:[[/Můj e-shop/,'OKLA'],[/^Vítejte v našem obchodě/,'Vitajte v našom obchode'],[/^Nákupní košík/,'Nákupný košík'],[/^Přihlášení zákazníka/,'Prihlásenie zákazníka']],
+ title:[[/Můj e-shop/,'Okla'],[/^Vítejte v našem obchodě/,'Vitajte v našom obchode'],[/^Nákupní košík/,'Nákupný košík'],[/^Přihlášení zákazníka/,'Prihlásenie zákazníka']],
  /* "Do košíku <product>": the product name is translated too. */
  attrRules:[[/^Do košíku (.+)$/,'Do košíka '],[/^Přidat do košíku (.+)$/,'Pridať do košíka '],[/^Zobrazit kategorii (.+)$/,'Zobraziť kategóriu '],[/^(.+) hlavní obrázek$/,'',' – hlavný obrázok']],
  cardMore:'...',
@@ -27,7 +27,7 @@
   'Poslední hodnocení':'Posledné hodnotenia','Zápatí':'Päta stránky','Pečlivě vybraný sortiment pro každý den':'Starostlivo vybraný sortiment na každý deň',
   'Objednávky vyřizujeme co nejrychleji':'Objednávky vybavujeme čo najrýchlejšie','Zákaznická podpora na e-mailu':'Zákaznícka podpora e-mailom',
   'Bezpečné možnosti platby':'Bezpečné možnosti platby','Výdejní místa po celé ČR':'Výdajné miesta po celej ČR',
-  'Průvodci a návody z OKLA':'Sprievodcovia a návody od OKLA','Otevřít newsroom':'Otvoriť newsroom','Nevíte, který přístroj vybrat?':'Neviete, ktorý prístroj vybrať?',
+  'Průvodci a návody z Okla':'Sprievodcovia a návody od Okla','Otevřít newsroom':'Otvoriť newsroom','Nevíte, který přístroj vybrat?':'Neviete, ktorý prístroj vybrať?',
   'Napište nám a poradíme podle toho, k čemu ho budete používat.':'Napíšte nám a poradíme podľa toho, na čo ho budete používať.',
   'Naskenujte a napište nám':'Naskenujte a napíšte nám',
   'Flipper Zero, Wi-Fi endoskopy, USB-C testery, NFC karty a měřicí technika. Vysvětlujeme parametry a ukazujeme, jak s produktem zacházet.':'Flipper Zero, Wi-Fi endoskopy, USB-C testery, NFC karty a meracia technika. Vysvetľujeme parametre a ukazujeme, ako s produktom zaobchádzať.',
@@ -108,21 +108,21 @@
   'Od laserových dálkoměrů až po digitální váhy. Jaké parametry sledovat a kdy se vyplatí pořídit specializovaný nástroj?':'Od laserových diaľkomerov až po digitálne váhy. Aké parametre sledovať a kedy sa oplatí kúpiť špecializovaný nástroj?'
  },
  attr:{
-  'Zavolat na 123456789':'Zavolať na 123456789','OKLA.cz – úvodní stránka':'OKLA.cz – úvodná stránka','Napište, co hledáte':'Napíšte, čo hľadáte',
+  'Zavolat na 123456789':'Zavolať na 123456789','Okla.cz – úvodní stránka':'Okla.cz – úvodná stránka','Napište, co hledáte':'Napíšte, čo hľadáte',
   'Vyhledávání':'Vyhľadávanie','Návrhy vyhledávání':'Návrhy vyhľadávania','Přihlášení':'Prihlásenie','Menu':'Menu','Účet, objednávky, oblíbené, jazyk a košík':'Účet, objednávky, obľúbené, jazyk a košík',
   'Můj účet – přihlásit se':'Môj účet – prihlásiť sa','Moje objednávky':'Moje objednávky','Oblíbené produkty':'Obľúbené produkty','Čeština, česká koruna':'Slovenčina, česká koruna',
   'Čeština · CZK':'Slovenčina · CZK','Nákupní košík':'Nákupný košík','Hlavní menu':'Hlavné menu','Hlavní banner':'Hlavný banner','Projektor':'Projektor','Chytré brýle':'Inteligentné okuliare',
   'Laserový dálkoměr':'Laserový diaľkomer','Zobrazit banner 1':'Zobraziť banner 1','Zobrazit banner 2':'Zobraziť banner 2','Zobrazit banner 3':'Zobraziť banner 3','Zobrazit banner 4':'Zobraziť banner 4',
-  'QR kód: napsat e-mail na podporu OKLA':'QR kód: napísať e-mail na podporu OKLA','Naše kontroly':'Naše kontroly','Sociální profily připravujeme':'Sociálne profily pripravujeme',
+  'QR kód: napsat e-mail na podporu Okla':'QR kód: napísať e-mail na podporu Okla','Naše kontroly':'Naše kontroly','Sociální profily připravujeme':'Sociálne profily pripravujeme',
   'Facebook – profil připravujeme':'Facebook – profil pripravujeme','Instagram – profil připravujeme':'Instagram – profil pripravujeme','YouTube – profil připravujeme':'YouTube – profil pripravujeme',
-  'X – profil připravujeme':'X – profil pripravujeme','Předchozí':'Predchádzajúce','Následující':'Nasledujúce','Ruka s telefonem OKLA':'Ruka s telefónom OKLA',
+  'X – profil připravujeme':'X – profil pripravujeme','Předchozí':'Predchádzajúce','Následující':'Nasledujúce','Ruka s telefonem Okla':'Ruka s telefónom Okla',
   'Wi-Fi modul pro Flipper Zero':'Wi-Fi modul pre Flipper Zero','Zavřít':'Zavrieť','Domů':'Domov','Sdílet produkt':'Zdieľať produkt','Dostupnost':'Dostupnosť',
   'Zvýšit množství o 1':'Zvýšiť množstvo o 1','Snížit množství o 1':'Znížiť množstvo o 1','Zvýšit množství':'Zvýšiť množstvo','Snížit množství':'Znížiť množstvo',
   'Informace k nákupu':'Informácie k nákupu','Tisknout produkt':'Vytlačiť produkt','Mluvit s prodejcem':'Hovoriť s predajcom','Popis':'Popis',
   'Hodnocení produktu':'Hodnotenie produktu','Rychlý nákup':'Rýchly nákup','Zadejte kód kupónu':'Zadajte kód kupónu','Kód kupónu':'Kód kupónu',
   'Nejlevnější - Aktuálně nastavené řazení':'Najlacnejšie - aktuálne nastavené radenie','Kód':'Kód','Odstranit z košíku':'Odstrániť z košíka','Jazyk webu':'Jazyk webu',
   'Dekorativní hvězdy, nejde o zákaznické hodnocení':'Dekoratívne hviezdičky, nejde o hodnotenie zákazníkov','Předchozí produkty':'Predchádzajúce produkty','Další produkty':'Ďalšie produkty',
-  'Informace o záruce':'Informácie o záruke','Můj e-shop':'OKLA','Loga kreditních karet':'Logá kreditných kariet'
+  'Informace o záruce':'Informácie o záruke','Můj e-shop':'Okla','Loga kreditních karet':'Logá kreditných kariet'
  },
  messages:{
   more:'Viac',cancel:'Zrušiť',removedItem:'Položka bola odstránená z košíka.',

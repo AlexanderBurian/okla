@@ -1,4 +1,4 @@
-/* OKLA V91 – homepage behavior only. CSS is loaded once by canonical bootstrap. */
+/* Okla V91 – homepage behavior only. CSS is loaded once by canonical bootstrap. */
 (function(){'use strict';if(window.__oklaHomeV89)return;window.__oklaHomeV89=true;
 
 

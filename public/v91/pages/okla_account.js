@@ -1,6 +1,6 @@
-/* OKLA V91 – customer account / client centre ("Zákaznické centrum"). Brings the
+/* Okla V91 – customer account / client centre ("Zákaznické centrum"). Brings the
    logged-in account pages (Moje objednávky, Moje platby, …) and the login/register
-   pages into the OKLA style: tags <html> with .okla-acc (so the CSS can card the
+   pages into the Okla style: tags <html> with .okla-acc (so the CSS can card the
    content, hide the decorative side-art and drop the mobile footer) and rebuilds
    the account menu as a clean list from its standard "Moje …" / "Odhlásit se"
    labels. Everything is defensive: if the menu is not found, nothing is rebuilt. */

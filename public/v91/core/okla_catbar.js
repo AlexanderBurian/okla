@@ -1,4 +1,4 @@
-/* OKLA – PC category bar under the header (DATART style): the shop's top categories in one row; pointing at one (or
+/* Okla – PC category bar under the header (DATART style): the shop's top categories in one row; pointing at one (or
    focusing it) opens a white panel under the bar with the category's subcategories (each with the photo of one of its
    products) or, for a category without them, its best sellers - photo, name, price - taken from
    the category page's own "Nejprodávanější" box (fetched once, on first open), and a "Zobrazit vše" link. The page

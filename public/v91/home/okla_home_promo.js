@@ -1,5 +1,5 @@
-/* OKLA - homepage promo island: a two-card feature block (Flipper ONE + LILYGO T-Embed) built from the supplied
-   campaign and brought to the OKLA island style (okla_home_promo.css). Placed among the product sliders (before the
+/* Okla - homepage promo island: a two-card feature block (Flipper ONE + LILYGO T-Embed) built from the supplied
+   campaign and brought to the Okla island style (okla_home_promo.css). Placed among the product sliders (before the
    fourth product heading, else the third, else before the magazine) and kept in place when other scripts re-order the
    homepage sections. Links go to the real product pages; nothing about price or stock is claimed here. */
 (function(){
@@ -56,7 +56,7 @@
   return main.querySelector(':scope>#okla-news-v55');
  }
 
- /* in place = right before r, other OKLA homepage sections between them allowed (deals, sign-in strip, promo can want
+ /* in place = right before r, other Okla homepage sections between them allowed (deals, sign-in strip, promo can want
     the same spot; requiring "directly before" made them move each other for ever) */
  function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals)$/.test(n.id))n=n.nextElementSibling;return n===r}
  var tries=0;

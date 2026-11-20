@@ -1,4 +1,4 @@
-/* OKLA – "Doporučujeme přidat k nákupu" unified cross-sell panel (okla_cross_sell.js).
+/* Okla – "Doporučujeme přidat k nákupu" unified cross-sell panel (okla_cross_sell.js).
    One card, a "přidat" checkbox per row that adds/removes the item from the cart,
    and a live footer summary. One blue accent, clean white, no gradients. */
 .okla-xsell{margin:26px 0 6px;font-family:"Open Sans",Arial,sans-serif;border:1px solid #e3e9f1;border-radius:18px;background:#fff;overflow:hidden}

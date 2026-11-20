@@ -1,4 +1,4 @@
-/* OKLA mobile shell – max-width 767 px only. Desktop never sees these rules: every new element is hidden outside the media query. */
+/* Okla mobile shell – max-width 767 px only. Desktop never sees these rules: every new element is hidden outside the media query. */
 .okla-m-search-open,
 .okla-m-search,
 .okla-m-buybar,
@@ -45,7 +45,7 @@ html body .okla-m-search__cancel{flex:0 0 auto!important;display:inline-flex!imp
 html body .okla-m-search__cancel svg{width:22px!important;height:22px!important;display:block!important}
 html body .okla-m-search__cancel:active{background:#eef3fa!important}
 html body .okla-m-search__results{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;padding:0 16px 28px!important}
-html body .okla-m-search__head{padding:14px 0 6px!important;color:#6b7685!important;font:700 12px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important}
+html body .okla-m-search__head{padding:14px 0 6px!important;color:#6b7685!important;font:700 12px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important}
 html body .okla-m-search__item{display:flex!important;align-items:center!important;gap:12px!important;padding:10px 0!important;border-bottom:1px solid #eef2f6!important;text-decoration:none!important;color:#0b2540!important;-webkit-tap-highlight-color:transparent!important}
 html body .okla-m-search__thumb{flex:0 0 56px!important;width:56px!important;height:56px!important;margin:0!important;padding:2px!important;border:1px solid #eef2f6!important;border-radius:10px!important;background:#fff!important;object-fit:contain!important}
 html body .okla-m-search__body{display:flex!important;flex-direction:column!important;gap:4px!important;min-width:0!important}

@@ -1,4 +1,4 @@
-/* OKLA mobile shell (max-width 767 px only). Compact header with a search icon, a sticky header on scroll up,
+/* Okla mobile shell (max-width 767 px only). Compact header with a search icon, a sticky header on scroll up,
    a full-screen search (suggestions from the catalog, submit to the native Shoptet search) and a buy bar on product pages.
    Desktop is not touched: every piece checks the mobile media query. */
 (function () {

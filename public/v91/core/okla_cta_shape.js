@@ -1,4 +1,4 @@
-/* OKLA CTA shape. On top of the blue CTA palette (okla_all_cta_blue.css):
+/* Okla CTA shape. On top of the blue CTA palette (okla_all_cta_blue.css):
    1. A cart pictogram on the LEFT of every "do košíku / přidat do košíku" button.
    2. One corner rounding (RADIUS) on every button of the shop - commerce CTAs, form submits, page CTAs.
    Done with inline styles / a prepended inline SVG, so it beats every stylesheet
@@ -18,10 +18,10 @@
  /* only the real add-to-cart buttons get the cart icon */
  var ICON_SEL='.btn-cart,.add-to-cart-button,.okla-m-buybar__btn';
 
- /* Only the navy "Otevřít filtr" is recoloured — the OKLA blue, via its own
+ /* Only the navy "Otevřít filtr" is recoloured — the Okla blue, via its own
     button variables (colour only, size/shape untouched). Every other button
     keeps its own colour: green stays green. */
- /* The filter toggle gets a deeper OKLA blue — never the lighter #0859d8. */
+ /* The filter toggle gets a deeper Okla blue — never the lighter #0859d8. */
  var FILTER_BLUE='#074bb7';
  function filterBlue(){
   document.querySelectorAll('.unveil-button').forEach(function(b){

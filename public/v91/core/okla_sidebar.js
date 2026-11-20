@@ -1,4 +1,4 @@
-/* OKLA left sidebar: Shoptet's "Top 10" list points at old product pictures that no longer exist (404). A picture that
+/* Okla left sidebar: Shoptet's "Top 10" list points at old product pictures that no longer exist (404). A picture that
    fails is replaced by the product's picture from the catalogue, found by the product link. */
 (function(){
  'use strict';

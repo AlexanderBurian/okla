@@ -1,4 +1,4 @@
-/* OKLA V109: reuse the existing live desktop header as a fixed navigation bar.
+/* Okla V109: reuse the existing live desktop header as a fixed navigation bar.
    It stays visible in BOTH scroll directions, and returns to the original flow
    only when the visitor is almost at the top. No cloned links or icons. */
 (function(){

@@ -1,4 +1,4 @@
-/* OKLA V118 — footer promotion safe in CS / SK / EN / HU.
+/* Okla V118 — footer promotion safe in CS / SK / EN / HU.
    The original promo DOM, illustration, translated copy and links are reused.
    Text determines the necessary height: no fixed 225px row, 1200px zoom
    or clipped translated buttons. All selectors scoped to the promo only. */
@@ -414,7 +414,7 @@
 }
 
 
-/* OKLA V119 — desktop hand finishes exactly at the purple banner's bottom.
+/* Okla V119 — desktop hand finishes exactly at the purple banner's bottom.
    Restore the original footer's asymmetric clipping: top bleed allowed,
    bottom bleed forbidden. The image is moved down by the banner's existing
    bottom padding, so it meets the lower edge without changing text columns,
@@ -432,7 +432,7 @@
 }
 
 
-/* OKLA V125 — a genuinely white footer card and a clean illustration crop.
+/* Okla V125 — a genuinely white footer card and a clean illustration crop.
    The hand/phone is enlarged around its bottom edge. Its source image continues
    below the banner, where the banner clips it, so the asset's straight cut can
    never be visible inside the purple panel. */
@@ -474,7 +474,7 @@ html body footer#footer{
  }
 }
 
-/* OKLA – phones: bigger hand with phone, placed higher, cut edges hidden.
+/* Okla – phones: bigger hand with phone, placed higher, cut edges hidden.
    The photo (461x480) is cut on its right edge and bottom (the wrist). It is
    taken out of the grid and anchored to the card's bottom-right corner,
    overflowing both edges, so the clipped card (overflow:hidden) hides both

@@ -1,4 +1,4 @@
-/* OKLA V91 product page on phones: full-width rules, related cards 1:1 with the homepage, blue purchase button, one simple header gradient.
+/* Okla V91 product page on phones: full-width rules, related cards 1:1 with the homepage, blue purchase button, one simple header gradient.
    Loaded last on product pages (after the mobile shell). Selectors are doubled on purpose so they win over the older rules. */
 @media (max-width: 991px) {
   /* 1. Horizontal rules run the full width of the phone, as on desktop */

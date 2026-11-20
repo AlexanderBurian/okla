@@ -1,4 +1,4 @@
-/* OKLA V91 – expands Shoptet's short cookie-bar sentence to the fuller,
+/* Okla V91 – expands Shoptet's short cookie-bar sentence to the fuller,
    two-column privacy text (Allegro-style length). The two columns come from the
    CSS (column-count) once the text is long enough. The wording is generic cookie
    boilerplate and the merchant should review it against their real processing;
@@ -24,7 +24,7 @@
 
     var paras = [
       'Pomocí souborů cookie a souvisejících technologií (např. pixelů a SDK) a zpracováním vašich údajů (včetně jedinečných identifikátorů a údajů o vašem zařízení a prohlížeči) vám můžeme lépe přizpůsobit zobrazovaný obsah a reklamu.',
-      'Pokud udělíte souhlas s ukládáním informací ve vašem zařízení a s jejich zpracováním, pomůže nám to zlepšovat obsah, měření, bezpečnost a vyhledávání na webu OKLA.cz. Správcem vašich osobních údajů je provozovatel obchodu OKLA.cz, případně naši partneři, se kterými údaje sdílíme jen v nezbytném rozsahu.',
+      'Pokud udělíte souhlas s ukládáním informací ve vašem zařízení a s jejich zpracováním, pomůže nám to zlepšovat obsah, měření, bezpečnost a vyhledávání na webu Okla.cz. Správcem vašich osobních údajů je provozovatel obchodu Okla.cz, případně naši partneři, se kterými údaje sdílíme jen v nezbytném rozsahu.',
       'My a naši partneři můžeme zpracovávat osobní údaje pro následující účely: ukládání a přístup k informacím v zařízení; personalizovaná reklama a obsah, měření reklamy a obsahu, průzkum publika a vývoj služeb; zajištění bezpečnosti, předcházení podvodům a odstraňování chyb; technické zajištění zobrazení reklamy a obsahu.',
       'Souhlas je dobrovolný a platí po dobu 12 měsíců. Můžete jej kdykoli odvolat nebo upravit v nastavení souborů cookie; odvoláním není dotčena zákonnost zpracování vycházejícího ze souhlasu uděleného před jeho odvoláním.'
     ];

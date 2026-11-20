@@ -100,7 +100,10 @@ export function resolveLinks(text: string, table: LinkTable): string {
     /* a key the model wrote outside a link: "(#p12)" or "#p12" */
     .replace(/\s?\(#p\d+\)/gi, "")
     .replace(/(^|[\s(])#p\d+\b/gi, "$1")
-    .replace(/[ \t]+([,.;:!?])/g, "$1");
+    .replace(/[ \t]+([,.;:!?])/g, "$1")
+    /* the shop's name as it is written: Okla.cz / Okla (the model sometimes capitalises it; addresses are lower case) */
+    .replace(/\bOKLA\.CZ\b|\bOKLA\.cz\b/g, "Okla.cz")
+    .replace(/\bOKLA\b/g, "Okla");
 }
 
 /* the stream with links resolved: text is passed on up to the last place where a link might still be being written
@@ -131,6 +134,9 @@ function holdFrom(text: string): number {
   const bold = text.lastIndexOf("**");
   if (bold >= 0 && (text.match(/\*\*/g) ?? []).length % 2 === 1 && text.length - bold < 120) return bold;
   if (text.endsWith("*")) return text.length - 1;
+  /* the shop's name being written at the very end ("OK" may become "OKLA") */
+  const brand = text.match(/\bO(K(L(A(\.(C|c)?)?)?)?)?$/);
+  if (brand && brand.index !== undefined) return brand.index;
   /* a key being written at the very end ("#p1" may become "#p12") */
   const key = text.match(/#p?\d*$/i);
   if (key && key.index !== undefined) return key.index;

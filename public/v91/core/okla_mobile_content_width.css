@@ -1,4 +1,4 @@
-/* OKLA mobile content rail.
+/* Okla mobile content rail.
    Everything on phones sits on the bottom bar's lines: 10px from the screen edge, like its first and last button
    (2026-11-18; was 14px). Every page uses this one rail through --okla-mobile-gutter. */
 @media(max-width:767px){

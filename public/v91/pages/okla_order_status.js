@@ -1,4 +1,4 @@
-/* OKLA V91 – "Stav objednávky" page. Our card with an order-summary box on top
+/* Okla V91 – "Stav objednávky" page. Our card with an order-summary box on top
    and an Alza-style status timeline below. Shown on /stav-objednavky/ (a CMS page
    the shop creates) or into any [data-okla-order-status] element.
 

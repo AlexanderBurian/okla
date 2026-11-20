@@ -1,4 +1,4 @@
-/* OKLA languages: Czech (the shop's own language), English, Slovak and Hungarian. The choice is made in the footer ("Jazyk webu") and remembered in the browser. A chosen language other than Czech is applied in place:
+/* Okla languages: Czech (the shop's own language), English, Slovak and Hungarian. The choice is made in the footer ("Jazyk webu") and remembered in the browser. A chosen language other than Czech is applied in place:
    its pack (okla_i18n_<lang>.js) translates the texts, field hints, labels and Shoptet's messages, and its product file
    (okla_i18n_products_<lang>.js) the product names, descriptions and specifications. Content added later (the cart
    drawer, search suggestions, a redrawn cart) is translated as it appears. Prices stay in CZK. */
@@ -158,7 +158,7 @@
  function translateProductPage(){
   var p=productOnPage();
   if(!p)return;
-  if(p.name_t&&document.title.indexOf(p.name_t)!==0)document.title=p.name_t+' | OKLA.cz';
+  if(p.name_t&&document.title.indexOf(p.name_t)!==0)document.title=p.name_t+' | Okla.cz';
   var desc=document.querySelector('#description .basic-description');
   if(desc&&p.desc_t_html&&!desc.hasAttribute('data-okla-i18n')){desc.innerHTML=p.desc_t_html;desc.setAttribute('data-okla-i18n',lang)}
   var short=document.querySelector('.p-detail .p-short-description');
@@ -261,7 +261,7 @@
    walk(document.body);
    translateProductPage();
    PACK.title.forEach(function(r){document.title=document.title.replace(r[0],r[1])});
-   /* A title the patterns did not cover is translated part by part ("Objednávka - informace o Vás - OKLA"). */
+   /* A title the patterns did not cover is translated part by part ("Objednávka - informace o Vás - Okla"). */
    var whole=translateText(document.title);
    if(whole!=null)document.title=whole;
    else if(/ - /.test(document.title)){

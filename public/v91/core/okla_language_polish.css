@@ -1,4 +1,4 @@
-/* OKLA V101 — language flags: blue edge touches only the selected top flag.
+/* Okla V101 — language flags: blue edge touches only the selected top flag.
    The menu's arrow is positioned by the flag's actual center, not guessed offsets. */
 :root{--okla-flag-blue:#0751c6}
 

@@ -1,4 +1,4 @@
-/* OKLA – mobile page top on the homepage, product detail and category pages (as on big shops):
+/* Okla – mobile page top on the homepage, product detail and category pages (as on big shops):
    1. The product title (with its share button) moves above the main image,
       so the page top has room for the gradient. On wider screens it goes
       back to its original place in the info column.

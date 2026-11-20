@@ -1,4 +1,4 @@
-/* OKLA V125 – customer "Moje objednávky" list. After sign-in Shoptet renders the
+/* Okla V125 – customer "Moje objednávky" list. After sign-in Shoptet renders the
    order history in #content. We rebuild it as one calm UI: each order is a single
    grey card; clicking the card opens it in place, with sections (delivery status,
    products, actions) split by light horizontal rules. Products carry tiny

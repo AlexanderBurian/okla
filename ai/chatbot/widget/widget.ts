@@ -407,7 +407,7 @@ import {
       }
     </style>
     <template id="welcome-template">
-      <section class="welcome" aria-label="OKLA.cz">
+      <section class="welcome" aria-label="Okla.cz">
         <div class="welcome-input"></div>
         <div class="suggestions">
           <div class="suggestions-list">
@@ -418,7 +418,7 @@ import {
         </div>
       </section>
     </template>
-    <section class="panel" id="okla-panel" role="dialog" aria-modal="false" aria-label="AI poradce OKLA" aria-hidden="true">
+    <section class="panel" id="okla-panel" role="dialog" aria-modal="false" aria-label="AI poradce Okla" aria-hidden="true">
       <header class="topbar">
         <div class="topbar-group">
           <button class="top-action info-control" type="button" aria-label="Informace o AI poradci" title="Informace o AI poradci">${infoIcon}</button>
@@ -439,7 +439,7 @@ import {
         <p class="disclaimer" id="okla-disclaimer">Odpovědi vytváří AI. Ověřte důležité informace a neposílejte osobní údaje.</p>
       </div>
     </section>
-    <button class="launcher" type="button" aria-label="Otevřít OKLA poradce" aria-controls="okla-panel" aria-expanded="false">
+    <button class="launcher" type="button" aria-label="Otevřít Okla poradce" aria-controls="okla-panel" aria-expanded="false">
       <img class="launcher-desktop-icon" data-robot-image src="${assetUrl}" alt="">
       <svg class="launcher-search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="13.5" cy="10.5" r="6.5"></circle><path d="m8.5 15.5-5 5"></path></svg>
     </button>
@@ -484,7 +484,7 @@ import {
     panel.setAttribute("aria-hidden", String(!open));
     panel.setAttribute("aria-modal", String(open && mobileLauncherMedia.matches));
     launcher.setAttribute("aria-expanded", String(open));
-    launcher.setAttribute("aria-label", open ? "Zavřít OKLA poradce" : "Otevřít OKLA poradce");
+    launcher.setAttribute("aria-label", open ? "Zavřít Okla poradce" : "Otevřít Okla poradce");
     if (focusTimer !== undefined) clearTimeout(focusTimer);
     if (open) focusTimer = setTimeout(() => input.focus(), 180);
     else launcher.focus();
@@ -746,7 +746,7 @@ import {
   function showAssistantInfo() {
     if (busy) return;
     beginConversation();
-    const text = "Jsem **OKLA poradce**, virtuální asistent s umělou inteligencí.\n\n- Pomohu vám vybrat elektroniku podle použití, rozpočtu a požadovaných funkcí.\n- Vysvětlím vlastnosti produktů a poradím s informacemi o nákupu z dostupných podkladů.\n- Nemám přístup k vašim objednávkám ani zákaznickému účtu. S konkrétní objednávkou pomůže [podpora@okla.cz](mailto:podpora@okla.cz).\n\nMoje odpovědi mohou obsahovat chyby. Aktuální cenu, dostupnost a důležité parametry si ověřte na stránce produktu. Do chatu neposílejte osobní ani platební údaje.\n\n**S čím vám mohu pomoci?**";
+    const text = "Jsem **Okla poradce**, virtuální asistent s umělou inteligencí.\n\n- Pomohu vám vybrat elektroniku podle použití, rozpočtu a požadovaných funkcí.\n- Vysvětlím vlastnosti produktů a poradím s informacemi o nákupu z dostupných podkladů.\n- Nemám přístup k vašim objednávkám ani zákaznickému účtu. S konkrétní objednávkou pomůže [podpora@okla.cz](mailto:podpora@okla.cz).\n\nMoje odpovědi mohou obsahovat chyby. Aktuální cenu, dostupnost a důležité parametry si ověřte na stránce produktu. Do chatu neposílejte osobní ani platební údaje.\n\n**S čím vám mohu pomoci?**";
     const message = addAssistantMessage(text);
     completeAssistantMessage(message, new Date());
     history.push({ role: "assistant", content: text });

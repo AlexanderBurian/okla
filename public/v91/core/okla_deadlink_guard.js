@@ -1,4 +1,4 @@
-/* OKLA – dead-link guard. Some article bodies link to products that no longer
+/* Okla – dead-link guard. Some article bodies link to products that no longer
    exist, and the footer links to /stav-objednavky/, which 404s. Rather than let
    visitors land on a 404, this quietly HEAD-checks the internal links inside the
    article content and the footer; any that return 404/410 are neutralised —

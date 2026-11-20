@@ -1,4 +1,4 @@
-/* OKLA product page - "Nejčastěji zakoupeno společně" above the description tabs: the site's own product slider
+/* Okla product page - "Nejčastěji zakoupeno společně" above the description tabs: the site's own product slider
    (real Shoptet product cards, the homepage slider built by the loader's __oklaSliderFor - the same as "Mohlo by vás
    zajímat" below, class ok86-related) with filter chips on one line: "Doporučené" (the product's related products and
    its category) and the shop's categories (loaded when picked). Cards are read from the live shop pages and cached

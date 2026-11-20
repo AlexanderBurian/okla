@@ -1,5 +1,5 @@
-/* OKLA V91 | unified branded navigation on every Shoptet page.
-   Distinct OKLA navy/cyan accents, no third-party layout or branding. */
+/* Okla V91 | unified branded navigation on every Shoptet page.
+   Distinct Okla navy/cyan accents, no third-party layout or branding. */
 @media (min-width:992px) {
   html body #header .header-top{
     display:grid!important;
@@ -181,7 +181,7 @@
   html body #content-wrapper main#content img:not(.okla-warranty-png){max-width:100%;}
 }
 
-/* OKLA V92: native Shoptet header fallbacks on all page types. */
+/* Okla V92: native Shoptet header fallbacks on all page types. */
 @media(min-width:768px){
   html.okla-header-v92 body #header .header-top>.site-name-wrapper,
   html.okla-header-v92 body #header .header-top>.search,
@@ -259,7 +259,7 @@
     display:flex!important;
   }
 }
-/* OKLA V93 – minimal clean desktop controls, no blue focus boxes or filled account pills. */
+/* Okla V93 – minimal clean desktop controls, no blue focus boxes or filled account pills. */
 @media(min-width:992px){
   /* Original desired hierarchy: icon + two-line account copy, three small tools,
      then a bare cart icon. No border, pills or hover-painted containers. */

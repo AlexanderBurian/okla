@@ -1,4 +1,4 @@
-/* OKLA – the one storefront loader. Everything OKLA adds to the Shoptet shop starts here. Best placed in the page's head
+/* Okla – the one storefront loader. Everything Okla adds to the Shoptet shop starts here. Best placed in the page's head
    (Shoptet: HTML kód > záhlaví, `async`, after the small inline curtain); it also works from the footer (`defer`).
 
    1. Start-up       asset address, AI wake-up, tablet viewport, desktop scaling, logo
@@ -16,7 +16,7 @@
 
 /* ---- 1. Start-up ---------------------------------------------------------------------------------------------- */
 if(window.__oklaBootstrapV91)return;
-if(window.__oklaCompleteV71){console.warn('[OKLA V91] A previous OKLA bootstrap is already running; remove duplicate Shoptet tags.');return}
+if(window.__oklaCompleteV71){console.warn('[OKLA V91] A previous Okla bootstrap is already running; remove duplicate Shoptet tags.');return}
 window.__oklaBootstrapV91=true;
 window.__oklaCompleteV71=true;
 /* passes to run once just before the page is shown (see reveal()); null once it is shown */
@@ -31,7 +31,7 @@ window.__oklaApiUrl=(aiApiUrl||'').replace(/\/$/,'');
    the first customer message does not pay the cold-start delay. */
 if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cache:'no-store'}).catch(function(){})}catch(e){}}
 /* Phones fire "resize" whenever the address bar slides in or out during scrolling (only the height changes, by about
-   50-120 px). The storefront's layout code depends on the width, so resize listeners (OKLA's modules, the shop's own
+   50-120 px). The storefront's layout code depends on the width, so resize listeners (Okla's modules, the shop's own
    jQuery ones) are not called for such a small height-only change: scrolling on a phone no longer reruns every layout
    fix (each round was a ~0.3 s freeze). A width change, turning the phone or the keyboard (a big height change) still
    reaches them. The decision is made once per event, by whichever of the hooks below sees it first. */
@@ -136,13 +136,13 @@ if(window.__oklaApiUrl){try{fetch(window.__oklaApiUrl+'/health',{mode:'cors',cac
  if(!patchSlider()){var sTries=0,sTimer=setInterval(function(){if(patchSlider()||++sTries>60)clearInterval(sTimer)},250);}
 })();
 /* The shop's uploaded logo (user/logos/…) is missing on the live site, so the header shows a broken image. We serve the
-   OKLA logo from the bundle instead and repoint every logo image to it — the desktop header, the mobile header and any
+   Okla logo from the bundle instead and repoint every logo image to it — the desktop header, the mobile header and any
    copy it makes. Runs now and on later DOM changes (the mobile header is built after load). */
 (function(){
  var logoUrl=base+'v91/img/okla-logo.png';
  function fixLogo(){
   var imgs=document.querySelectorAll('img[src*="/user/logos/"],img[src*="preforma-logo"],#okla-v61-header .okm61-logo img,#header .okm61-logo img');
-  for(var i=0;i<imgs.length;i++){var im=imgs[i];if(im.getAttribute('src')!==logoUrl){im.removeAttribute('srcset');im.src=logoUrl;im.alt=im.alt||'OKLA.cz'}}
+  for(var i=0;i<imgs.length;i++){var im=imgs[i];if(im.getAttribute('src')!==logoUrl){im.removeAttribute('srcset');im.src=logoUrl;im.alt=im.alt||'Okla.cz'}}
  }
  function start(){
   fixLogo();
@@ -326,7 +326,7 @@ var BUNDLES=[
  ['26-checkout-skin','checkout',['v91/checkout/okla_cart_simple.css','v91/checkout/okla_checkout_layout_v2.css','v91/checkout/okla_checkout_home_sync.css','v91/checkout/okla_cart_aside.css','v91/checkout/okla_checkout_alza.js']],
  ['27-thank-you','thankYou',['v91/checkout/okla_thank_you.css','v91/checkout/okla_thank_you.js']],
  /* No zoom on phone fields, AI chat branding, the logo blue for Shoptet's own template colours */
- ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css','v91/core/okla_sidebar_clean.css','v91/core/okla_header_pro.css','v91/core/okla_mobile_sliders.css','v91/core/okla_mobile_bottombar.css','v91/core/okla_mobile_forms_clean.css','v91/core/okla_form_widths.css']],
+ ['28-last','all',['v91/core/okla_mobile_no_zoom.css','v91/core/okla_ai_brand.js','v91/core/okla_brand_blue.css','v91/core/okla_catbar.css','v91/core/okla_catbar.js','v91/core/okla_islands.css','v91/core/okla_ui_categories.css','v91/core/okla_sidebar_clean.css','v91/core/okla_header_pro.css','v91/core/okla_mobile_sliders.css','v91/core/okla_mobile_bottombar.css','v91/core/okla_mobile_forms_clean.css','v91/core/okla_form_widths.css','v91/core/okla_no_caps.css']],
  /* Homepage editorial blocks, the search field typing example searches */
  ['29-home-magazine','home',['v91/home/okla_news_home_datart.css','v91/home/okla_news_home_alza.css','v91/home/okla_home_brands.css','v91/home/okla_home_brands.js','v91/home/okla_home_retail_refresh.css','v91/home/okla_home_retail_refresh.js','v91/home/okla_search_typing.js','v91/home/okla_home_mobile.css']],
  /* Category pages: sorting as round chips, the category's definition and its about text */

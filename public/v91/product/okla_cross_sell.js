@@ -1,4 +1,4 @@
-/* OKLA – "Doporučujeme přidat k nákupu": one unified cross-sell panel on chosen
+/* Okla – "Doporučujeme přidat k nákupu": one unified cross-sell panel on chosen
    product pages (see MAP). Each row has a "přidat"
    checkbox (like Alza): ticking it adds the companion product to the cart,
    unticking removes it again — both through Shoptet's own cart actions. A live

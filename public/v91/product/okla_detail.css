@@ -1,5 +1,5 @@
 
-/* OKLA V99 — one canonical product-detail stylesheet.
+/* Okla V99 — one canonical product-detail stylesheet.
    Deliberately scoped: homepage and categories are never modified. */
 :root{
  --okd-blue:#1D54AA;--okd-darkblue:#0642A1;--okd-page:#BEE3F8;

@@ -147,8 +147,8 @@
     {
       "id": "faq-about",
       "type": "faq",
-      "title": "O nás – kdo je OKLA",
-      "content": "OKLA je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Začali jsme v roce 2019 v Ostravě, protože zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je OKLA kurátorský obchod: raději méně produktů, ale takových, za kterými si stojíme a které sami používáme. Do nabídky se dostane jen to, co bychom si koupili i my; sledujeme novinky, crowdfunding i tipy zákazníků. Než se produkt objeví v nabídce, projde rukama technika – zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis, ne jen opsaný datasheet.",
+      "title": "O nás – kdo je Okla",
+      "content": "Okla je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Začali jsme v roce 2019 v Ostravě, protože zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je Okla kurátorský obchod: raději méně produktů, ale takových, za kterými si stojíme a které sami používáme. Do nabídky se dostane jen to, co bychom si koupili i my; sledujeme novinky, crowdfunding i tipy zákazníků. Než se produkt objeví v nabídce, projde rukama technika – zapojíme ho, vyzkoušíme reálné použití a napíšeme srozumitelný popis, ne jen opsaný datasheet.",
       "url": "https://www.okla.cz/o-nas/",
       "keywords": [
         "o nás",
@@ -226,8 +226,8 @@
     {
       "id": "faq-adviser-scope",
       "type": "faq",
-      "title": "Co umí OKLA poradce",
-      "content": "OKLA poradce je AI asistent e-shopu Okla.cz. Pomůže vybrat a porovnat produkty z nabídky OKLA podle použití a rozpočtu, vysvětlí jejich vlastnosti a technologie (NFC, ESP32, True RMS, Wi-Fi endoskopy…), poradí s prvními kroky a odpoví na dotazy k nákupu: doprava, platba, vrácení, reklamace, záruka, kontakt. Odpovídá jen na dotazy k OKLA, jejím produktům a nákupu. K objednávkám ani zákaznickým účtům nemá přístup; s konkrétní objednávkou pomůže podpora@okla.cz.",
+      "title": "Co umí Okla poradce",
+      "content": "Okla poradce je AI asistent e-shopu Okla.cz. Pomůže vybrat a porovnat produkty z nabídky Okla podle použití a rozpočtu, vysvětlí jejich vlastnosti a technologie (NFC, ESP32, True RMS, Wi-Fi endoskopy…), poradí s prvními kroky a odpoví na dotazy k nákupu: doprava, platba, vrácení, reklamace, záruka, kontakt. Odpovídá jen na dotazy k Okla, jejím produktům a nákupu. K objednávkám ani zákaznickým účtům nemá přístup; s konkrétní objednávkou pomůže podpora@okla.cz.",
       "keywords": [
         "co umíš",
         "kdo jsi",

@@ -1,4 +1,4 @@
-/* OKLA — article hero image.
+/* Okla — article hero image.
    On a single article page (/nase-novinky/<slug>/) the main (hero) image should match the image used for the same
    article on the homepage and in the newsroom, i.e. the article's og:image. The article template keeps its own markup;
    this only swaps the hero image source so all three places show one consistent picture per article. */

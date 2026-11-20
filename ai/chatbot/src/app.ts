@@ -174,7 +174,7 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
       if (isPersonalOrderRequest(input.message)) {
         reply.raw.write(sse("token", { text: "Ke konkrétní objednávce nemám přístup. Kvůli ochraně soukromí sem neposílejte číslo objednávky ani osobní údaje. Napište prosím na [podpora@okla.cz](mailto:podpora@okla.cz)." }));
       } else if (!(await (async () => {
-        /* the hard topic block: anything not about OKLA, its products or buying is refused with a fixed text */
+        /* the hard topic block: anything not about Okla, its products or buying is refused with a fixed text */
         const verdict = await gate.check(input.message, input.history, knowledge.products(), controller.signal, knowledge.byUrl(input.page)?.title);
         gateStats.byReason[`${verdict.allowed ? "allow" : "block"}:${verdict.reason}`] = (gateStats.byReason[`${verdict.allowed ? "allow" : "block"}:${verdict.reason}`] ?? 0) + 1;
         if (verdict.allowed) { gateStats.allowed++; return true; }

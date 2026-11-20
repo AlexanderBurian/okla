@@ -1,4 +1,4 @@
-/* OKLA – thank-you page after an order (okla_thank_you.js), in the checkout style: Open Sans, navy text, OKLA blue
+/* Okla – thank-you page after an order (okla_thank_you.js), in the checkout style: Open Sans, navy text, Okla blue
    actions. A thank-you header and two actions; for a plain bank transfer also the payment card with the QR code. */
 html.okla-ty-page body #content .okla-ty-src{display:none!important}
 html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){

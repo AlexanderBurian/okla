@@ -1,4 +1,4 @@
-/* OKLA final CTA palette. Buttons detected with a genuinely green background
+/* Okla final CTA palette. Buttons detected with a genuinely green background
    are converted to the same blue used by "Více o záruce". */
 html body .okla-green-cta,
 html body .okla-green-cta:is(:hover,:focus,:focus-visible,:active),

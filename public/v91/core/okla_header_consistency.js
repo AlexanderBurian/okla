@@ -1,4 +1,4 @@
-/* OKLA V92: universal header bootstrap, independent of native Shoptet header mode. */
+/* Okla V92: universal header bootstrap, independent of native Shoptet header mode. */
 (function(){
  'use strict';
  if(window.__oklaUniversalHeaderV92)return;

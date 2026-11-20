@@ -1,6 +1,6 @@
-/* OKLA V91: identify genuinely green action buttons, including controls
+/* Okla V91: identify genuinely green action buttons, including controls
    inserted after page load. The marker remains stable after the final palette
-   changes their computed colour from green to OKLA blue. */
+   changes their computed colour from green to Okla blue. */
 (function(){
 'use strict';
 if(window.__oklaGreenCtaV91)return;

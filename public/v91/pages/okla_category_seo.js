@@ -1,4 +1,4 @@
-/* OKLA category pages - a short definition of the category under its title and a longer "about" block under the
+/* Okla category pages - a short definition of the category under its title and a longer "about" block under the
    products (SEO and orientation). Czech only (the other languages show none). A description written in Shoptet for
    the category (.category-perex) wins: then no intro is added here. The texts describe the kinds of products the
    category holds, never prices, stock or delivery. */

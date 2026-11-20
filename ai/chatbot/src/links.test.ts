@@ -39,7 +39,7 @@ describe("odkazy v odpovědi", () => {
   });
   it("známé stránky, úvod a e-mail podpory nechá", () => {
     expect(resolveLinks("[Vrácení zboží](https://www.okla.cz/vraceni-zbozi-a-odstoupeni/)", table)).toBe("[Vrácení zboží](https://www.okla.cz/vraceni-zbozi-a-odstoupeni/)");
-    expect(resolveLinks("[OKLA](https://www.okla.cz/)", table)).toBe("[OKLA](https://www.okla.cz/)");
+    expect(resolveLinks("[OKLA](https://www.okla.cz/)", table)).toBe("[Okla](https://www.okla.cz/)");
     expect(resolveLinks("[podpora@okla.cz](mailto:podpora@okla.cz)", table)).toBe("[podpora@okla.cz](mailto:podpora@okla.cz)");
   });
   it("přesný název produktu jen tučně udělá odkazem, i když přijde po kouscích", async () => {
@@ -49,6 +49,10 @@ describe("odkazy v odpovědi", () => {
   it("název zopakovaný vedle odkazu a odkaz s klíčem místo textu sloučí", () => {
     expect(resolveLinks("Rozdíl: Flipper Zero ([Flipper Zero](#p1)) je hotový nástroj.", table)).toBe("Rozdíl: [Flipper Zero](https://www.okla.cz/flipper-zero/) je hotový nástroj.");
     expect(resolveLinks("Hodí se **Flipper Zero** ([p1](#p1)).", table)).toBe("Hodí se [Flipper Zero](https://www.okla.cz/flipper-zero/).");
+  });
+  it("jméno obchodu píše Okla.cz / Okla, i když přijde po kouscích; adresy nechá", async () => {
+    expect(resolveLinks("Jsme OKLA.CZ, tedy OKLA, viz [Vrácení](https://www.okla.cz/vraceni-zbozi-a-odstoupeni/).", table)).toBe("Jsme Okla.cz, tedy Okla, viz [Vrácení](https://www.okla.cz/vraceni-zbozi-a-odstoupeni/).");
+    expect(await collect(linkStream(from(["U nás v O", "KL", "A.", "CZ najdete…"]), table))).toBe("U nás v Okla.cz najdete…");
   });
   it("klíč mimo odkaz vynechá", () => {
     expect(resolveLinks("Flipper Zero (#p1) je skvělý.", table)).toBe("Flipper Zero je skvělý.");

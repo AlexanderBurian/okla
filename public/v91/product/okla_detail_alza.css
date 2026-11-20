@@ -1,4 +1,4 @@
-/* OKLA product page - Alza-like buying column (okla_detail_alza.js), in OKLA's own colours and type. */
+/* Okla product page - Alza-like buying column (okla_detail_alza.js), in Okla's own colours and type. */
 html body #content#content .p-info-wrapper.okla-dalza:not(#oda-a#oda-b#oda-c#oda-d#oda-e#oda-f#oda-g#oda-h#oda-i#oda-j){--dz-navy:#0b2540;--dz-ink:#164194;--dz-green:#689700;--dz-red:#d0102b;--dz-grey:#5d6877}
 
 /* brand link and title with the share button */

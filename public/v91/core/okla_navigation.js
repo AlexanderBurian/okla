@@ -1,4 +1,4 @@
-/* OKLA V91: DOM-only breadcrumb enhancer; visual rules in standalone CSS. */
+/* Okla V91: DOM-only breadcrumb enhancer; visual rules in standalone CSS. */
 (function(){'use strict';
  /* Use a version-specific guard.  Older navigation helpers can still be
     present in Shoptet's cached page and must not prevent this repair pass. */

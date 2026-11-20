@@ -1,4 +1,4 @@
-/* OKLA product page - the picture viewer (okla_gallery.js): the whole screen, a grey bar on top, the picture on white,
+/* Okla product page - the picture viewer (okla_gallery.js): the whole screen, a grey bar on top, the picture on white,
    plain grey arrows at the sides, the thumbnails in a row underneath */
 html.okla-gal-open,html.okla-gal-open body{overflow:hidden!important}
 html.okla-gal-open okla-ai-chat{display:none!important}

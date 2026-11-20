@@ -1,4 +1,4 @@
-/* OKLA V101 – final desktop search icon and vertically aligned header.
+/* Okla V101 – final desktop search icon and vertically aligned header.
    This file loads last. The native search form and dynamic Shoptet cart values remain. */
 @media(min-width:768px){
  html.okla-header-reference body #header .header-top>.search form.search-form fieldset::before,
@@ -181,7 +181,7 @@
 }
 
 
-/* OKLA V102: top flag blue rim and basket badge to the LEFT of icon. */
+/* Okla V102: top flag blue rim and basket badge to the LEFT of icon. */
 @media(min-width:992px){
  /* This replaces a later reference rule that sets border:0 on the selected
     flag, which was why the requested blue outline wasn't visible. */

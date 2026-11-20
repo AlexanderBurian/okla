@@ -1,4 +1,4 @@
-/* OKLA cart - the right column as separate islands (okla_checkout_alza.js, buildCartAside): on PC the items are one
+/* Okla cart - the right column as separate islands (okla_checkout_alza.js, buildCartAside): on PC the items are one
    island on the left; on the right the summary with "Pokračovat", then the discount code and help - each its own white
    island with the soft island shadow on the page grey. Phones and tablets: the cart as it was. */
 
@@ -187,7 +187,7 @@ html body .okla-recap-card{display:contents}
   html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step>.next-step-back:not(#ocs-a#ocs-b#ocs-c#ocs-d){
     flex:none!important;display:inline-flex!important;align-items:center!important;gap:6px!important;width:auto!important;height:44px!important;margin:0!important;padding:0!important;
     border:0!important;background:none!important;box-shadow:none!important;color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;
-    font:600 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:uppercase!important;letter-spacing:.02em!important
+    font:600 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important
   }
   html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step>.next-step-back *:not(#ocs-a#ocs-b#ocs-c#ocs-d){font:inherit!important;text-transform:inherit!important;letter-spacing:inherit!important;color:inherit!important;-webkit-text-fill-color:inherit!important}
   html body.ordering-process #content-wrapper#content-wrapper .okla-step-nav .next-step>:is(#continue-order-button,#orderFormButton,.btn-conversion):not(#ocs-a#ocs-b#ocs-c#ocs-d){flex:1 1 auto!important;width:auto!important;min-width:0!important;height:48px!important;margin:0!important}

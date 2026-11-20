@@ -16,7 +16,7 @@ process.on("SIGTERM", () => void shutdown("SIGTERM"));
 
 try {
   await app.listen({ host: config.host, port: config.port });
-  app.log.info({ mode: config.mockMode ? "mock" : "groq" }, "OKLA chatbot is ready");
+  app.log.info({ mode: config.mockMode ? "mock" : "groq" }, "Okla chatbot is ready");
 } catch (error) {
   app.log.error(error);
   process.exit(1);

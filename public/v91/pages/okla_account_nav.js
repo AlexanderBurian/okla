@@ -1,4 +1,4 @@
-/* OKLA – account navigation: on mobile the sidebar becomes a menu button that
+/* Okla – account navigation: on mobile the sidebar becomes a menu button that
    opens a right-side drawer (same behaviour as the category menu). The existing
    V125 nav (icons, active item, logout confirmation) is moved into the drawer,
    so nothing is duplicated and all styling is reused. Desktop is untouched here

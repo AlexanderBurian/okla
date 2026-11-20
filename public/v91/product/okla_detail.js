@@ -1,4 +1,4 @@
-/* OKLA V91: product detail behavior, native Shoptet cart state preserved.
+/* Okla V91: product detail behavior, native Shoptet cart state preserved.
    Real stock from schema.org Offer. Catalog from supplied CSV only.
    Shoptet native form, product/gallery links, rating and discussion retained. */
 (function () {

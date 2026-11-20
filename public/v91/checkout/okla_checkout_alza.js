@@ -100,7 +100,7 @@
   if(g.textContent!==gText)g.textContent=gText;
  }
 
- /* Cart, right column (after B&H's cart, in OKLA's look): the summary box gets a title and its lines (the goods with the
+ /* Cart, right column (after B&H's cart, in Okla's look): the summary box gets a title and its lines (the goods with the
     number of pieces, delivery chosen in the next step, the total), and under it boxes of their own - the discount code
     (open) and help. PC only: phones keep the cart as it was. */
  var DESK=window.matchMedia('(min-width:992px)');

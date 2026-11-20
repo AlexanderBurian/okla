@@ -1,4 +1,4 @@
-/* OKLA V97 – desktop-only cart preview. Independent from add-to-cart drawer. */
+/* Okla V97 – desktop-only cart preview. Independent from add-to-cart drawer. */
 @media(min-width:992px){
   
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
@@ -122,7 +122,7 @@
 @media(prefers-reduced-motion:reduce){#okla-cart-preview{transition:none!important}}
 @media(max-width:991px){#okla-cart-preview{display:none!important}}
 
-/* OKLA V98: final grouped desktop header and hover-cart styling. */
+/* Okla V98: final grouped desktop header and hover-cart styling. */
 @media(min-width:992px){
  html.okla-header-reference body #header .header-top{
   grid-template-columns:minmax(142px,190px) minmax(260px,1fr) minmax(355px,390px)!important;
@@ -211,7 +211,7 @@
 }
 
 
-/* OKLA V99 — true aligned header controls + icon-overlapping cart badge. */
+/* Okla V99 — true aligned header controls + icon-overlapping cart badge. */
 @media (min-width:992px){
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header{
     display:flex!important;
@@ -304,8 +304,8 @@
   
 }
 
-/* Shoptet's own hover cart (#cart-widget) opened together with the OKLA preview, under it: with a few items it was
-   hidden behind it, with many it stuck out behind it (taller, its own scrollbar and button). The OKLA preview is the
+/* Shoptet's own hover cart (#cart-widget) opened together with the Okla preview, under it: with a few items it was
+   hidden behind it, with many it stuck out behind it (taller, its own scrollbar and button). The Okla preview is the
    only one on PC. */
 @media(min-width:992px){
   html.okla-header-reference body #cart-widget:not(#okla-cw-a#okla-cw-b){display:none!important}

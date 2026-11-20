@@ -1,4 +1,4 @@
-/* OKLA login popup: Shoptet opens its login widget in the top right corner, over the header. On desktop it is placed
+/* Okla login popup: Shoptet opens its login widget in the top right corner, over the header. On desktop it is placed
    right under the "Můj účet" button, with its arrow pointing at the button; a click outside or Escape closes it. */
 (function(){
  'use strict';

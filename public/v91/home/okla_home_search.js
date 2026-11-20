@@ -1,4 +1,4 @@
-/* OKLA – an open search bar at the very top of the homepage, so visitors can
+/* Okla – an open search bar at the very top of the homepage, so visitors can
    type straight away instead of first tapping the magnifier. From the very first
    letter it shows live product results (photo, name, price) in a dropdown.
 

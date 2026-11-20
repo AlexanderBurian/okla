@@ -1,4 +1,4 @@
-/* OKLA V91 – smart style for the pages Shoptet still renders natively:
+/* Okla V91 – smart style for the pages Shoptet still renders natively:
    empty cart, search results, the cookie consent bar and the assistant widget's
    visibility. Chrome (header, nav, footer, product cards) is styled elsewhere;
    this only covers the gaps. Brand blue: #0859d8. */
@@ -62,7 +62,7 @@ html body .cart-empty form button[type="submit"]:hover{background:#0751c6!import
    The native "Nejprodávanější" featured block (small heading + a loose inline row
    of products + a "show more" toggle) just duplicates the grid below in the old
    Shoptet look. Hide the whole block so the page reads cleanly: title -> sorting
-   -> uniform OKLA card grid. */
+   -> uniform Okla card grid. */
 html body.type-category .products-top-wrapper,
 html body.type-category .products-top-header,
 html body.type-category .products.products-top{display:none!important}
@@ -77,7 +77,7 @@ html body.type-category .category-filter-trigger{
 html body.type-category a.unveil-button:hover,
 html body.type-category .unveil-button.btn:hover{background:#053a8c!important;border-color:#053a8c!important;color:#fff!important}
 
-/* ---------- Category & search cards: the OKLA product card ----------
+/* ---------- Category & search cards: the Okla product card ----------
    One definition that reproduces the homepage card 1:1 on the category and search
    grids: framed white card with a hover lift, contained image (zoom clipped), five
    decorative gold stars (injected by okla_native_pages.js), centred name, the
@@ -176,7 +176,7 @@ html body.type-search #products:not(.okla-cards) .product .prices{
 }
 html body.type-category #products:not(.okla-cards) .product .prices:before,
 html body.type-search #products:not(.okla-cards) .product .prices:before{
-  content:'NOVINKA'!important;display:flex!important;align-items:center!important;justify-content:center!important;
+  content:'Novinka'!important;display:flex!important;align-items:center!important;justify-content:center!important;
   flex:0 0 21px!important;width:100%!important;height:21px!important;background:#082e66!important;color:#fff!important;font-size:9px!important;font-weight:800!important;letter-spacing:.04em!important;
 }
 html body.type-category #products:not(.okla-cards) .product .price-final,
@@ -249,7 +249,7 @@ html body.in-vyhledavani #content > h2 strong,html body.type-search #content > h
 /* Section labels (Články / Produkty): small uppercase navy caps, evenly spaced. */
 html body.in-vyhledavani .search-products-heading,html body.type-search .search-products-heading,
 html body.in-vyhledavani .search-results-group h4,html body.type-search .search-results-group h4{
-  font-size:13px!important;font-weight:800!important;text-transform:uppercase!important;letter-spacing:.05em!important;
+  font-size:13px!important;font-weight:800!important;text-transform:none!important;letter-spacing:0!important;
   color:#09336c!important;margin:26px 0 14px!important;
 }
 /* Articles: styled result rows (card + document glyph + chevron) instead of a bare list. */
@@ -284,7 +284,7 @@ html body.in-vyhledavani .search-results-group .display-results-group:hover,html
 /* A touch more breathing room between product rows. */
 html body.in-vyhledavani #products:not(.okla-cards).products-block,html body.type-search #products:not(.okla-cards).products-block{gap:22px 0!important}
 
-/* ---------- Cookie consent: Allegro-style, OKLA palette ----------
+/* ---------- Cookie consent: Allegro-style, Okla palette ----------
    A full-width bar docked at the bottom over a dimmed, blurred backdrop (same as
    the cart drawer). Heading, the text in up to two columns, the settings link,
    and the accept/decline buttons stacked in a column on the right. The page is
@@ -361,7 +361,7 @@ html.okla-cartmodal-open body:not(#okla-cm-x) okla-ai-chat{display:none!importan
   html.okla-cartmodal-open body:not(#okla-cm-x) okla-ai-chat{display:none!important}
 }
 
-/* ---------- Empty-cart search: OKLA autocomplete panel ----------
+/* ---------- Empty-cart search: Okla autocomplete panel ----------
    okla_search.js now also attaches its panel (the same one as the header) to the
    empty-cart search field. The field needs a positioning context above the blur
    overlay so the panel drops right under it. */
@@ -386,7 +386,7 @@ html body #filters .filter-section-boolean fieldset>div{
 }
 
 /* ---------- Category pictograms ----------
-   The category icons are now OKLA pictograms (PNG/SVG art) injected as an <img>
+   The category icons are now Okla pictograms (PNG/SVG art) injected as an <img>
    inside the existing icon wrapper. The wrapper already sizes the slot (21px in
    the sidebar, 28px in the mobile grid); the image just fills it, contained. */
 .okla-cat-svg img.okla-category-png,
@@ -411,11 +411,11 @@ html body #filters .filter-section-boolean fieldset>div{
 #okla-v61-categories .okm61-category-icon img.okla-category-png{width:32px!important;height:32px!important}
 
 /* ---------- Native/CMS text pages: unified mobile width ----------
-   Pages Shoptet renders without an OKLA card (Kontakty and every CMS text page
+   Pages Shoptet renders without an Okla card (Kontakty and every CMS text page
    — obchodní podmínky, reklamační řád, …) have no side gutter, so the heading,
    text, form fields and the submit button bleed to the screen edges. Give them
    the SAME 14px side gutter the homepage uses, so every page reads at one width.
-   The OKLA full-bleed views (cart/checkout, the order-status hero) keep their
+   The Okla full-bleed views (cart/checkout, the order-status hero) keep their
    own edges and are excluded. */
 @media(max-width:767px){
   html body:not(.type-index):not(.ordering-process) #content-wrapper main#content{
@@ -477,7 +477,7 @@ html body #content-wrapper aside.sidebar.sidebar-left .sidebar-inner > .box:not(
 /* Desktop: product cards 8% larger */
 @media(min-width:992px){html body.type-category #products:not(.okla-cards).products-block > .product,html body.type-search #products:not(.okla-cards).products-block > .product{zoom:1.08!important}}
 
-/* OKLA V91: accessory pictogram and centered category/payment layouts */
+/* Okla V91: accessory pictogram and centered category/payment layouts */
 /* The accessories SVG is square and fills its icon slot like the other PNG pictograms. */
 .okla-cat-svg img.okla-category-png[src*="prislusenstvi.svg"],
 .okm61-category-icon img.okla-category-png[src*="prislusenstvi.svg"]{
@@ -547,7 +547,7 @@ html body #content-wrapper aside.sidebar.sidebar-left .box-onlinePayments img{
 }
 
 /* ---------- Empty category ("Produkty teprve připravujeme") ----------
-   Same language as the OKLA 404 page: one centred white card, the checkout parcel
+   Same language as the Okla 404 page: one centred white card, the checkout parcel
    pictogram instead of Shoptet's grey icon-font box, dark
    headline, grey help text and the green checkout button with dark text. */
 html body #content .empty-content-category{
@@ -574,7 +574,7 @@ html body #content .empty-content-category .btn{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
   min-width:240px!important;height:52px!important;margin:0!important;padding:0 32px!important;box-sizing:border-box!important;
   border:1px solid #0859d8!important;border-radius:10px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
-  font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#fff!important;text-decoration:none!important;
+  font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important;text-decoration:none!important;
   transition:background-color .15s ease,border-color .15s ease!important;
 }
 /* hover: the shared subtle darkening of the green (8% towards black), never Shoptet's purple default */
@@ -587,7 +587,7 @@ html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec
 }
 
 /* ---------- Cookie SETTINGS dialog (Shoptet colorbox .cookiesDialog) ----------
-   Full screen on every device, in the OKLA language: a white page with the
+   Full screen on every device, in the Okla language: a white page with the
    content centred (max 640px), Open Sans navy headings, each cookie group as a
    light-grey rounded card, the same round toggle as the rest of the site and
    the site buttons (green "Povolit vše", blue "Potvrdit moje volby",

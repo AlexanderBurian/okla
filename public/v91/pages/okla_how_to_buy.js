@@ -1,4 +1,4 @@
-/* OKLA – "Jak nakupovat" (/jak-nakupovat/): the CMS page is empty, so it is built here from the shop's own terms
+/* Okla – "Jak nakupovat" (/jak-nakupovat/): the CMS page is empty, so it is built here from the shop's own terms
    (obchodní podmínky, Doprava a platba, Vrácení zboží): a white intro, the six steps of an order on grey, a white
    checklist before sending, "after the purchase" on grey, help, and at the bottom the homepage "Novinky" slider
    (the same cards and slider as on the homepage, read live from the homepage). No invented carriers or prices:
@@ -45,7 +45,7 @@
  var HTML=''+
  '<section class="okla-htb" aria-label="Jak nakupovat">'+
   '<div class="ohb-sec ohb-sec--white ohb-hero"><div class="ohb-wrap">'+
-   '<h1>Jak nakupovat na OKLA</h1>'+
+   '<h1>Jak nakupovat na Okla</h1>'+
    '<p class="ohb-lead">Objednávka zabere pár minut. Vyberete zboží, v košíku zvolíte dopravu a platbu, vyplníte údaje a odešlete. O každém kroku vás informujeme e-mailem.</p>'+
    '<ul class="ohb-facts">'+
     '<li>'+ic(I.user)+'<span>Bez nutnosti registrace</span></li>'+

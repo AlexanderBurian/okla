@@ -195,7 +195,7 @@ export function parseInfoPage(html: string, url: string, title: string): Knowled
 /* a magazine article (/nase-novinky/<article>/): its heading and text, for "how do I choose / what is" questions */
 export function parseArticlePage(html: string, url: string): KnowledgeItem | undefined {
   const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
-  const heading = h1 ? htmlToText(h1[1] ?? "").replace(/\s*\|\s*OKLA\.cz\s*$/i, "").replace(/\.$/, "") : "";
+  const heading = h1 ? htmlToText(h1[1] ?? "").replace(/\s*\|\s*Okla\.cz\s*$/i, "").replace(/\.$/, "") : "";
   const body = blockAfter(html, /<div[^>]*class="[^"]*okla-clanek__body[^"]*"[^>]*>/i)
     || blockAfter(html, /<div[^>]*class="[^"]*news-item-detail[^"]*"[^>]*>/i)
     || blockAfter(html, /<div[^>]*class="[^"]*content-inner[^"]*"[^>]*>/i);
@@ -216,7 +216,7 @@ async function get(url: string, timeoutMs = 15000): Promise<Response> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    return await fetch(url, { signal: controller.signal, headers: { "user-agent": "OKLA-poradce/1.0 (+katalog pro chat)", accept: "text/html,application/xml,*/*" } });
+    return await fetch(url, { signal: controller.signal, headers: { "user-agent": "Okla-poradce/1.0 (+katalog pro chat)", accept: "text/html,application/xml,*/*" } });
   } finally {
     clearTimeout(timer);
   }

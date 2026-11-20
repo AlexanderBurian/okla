@@ -1,6 +1,6 @@
-/* OKLA – phones: the bottom bar with the raised cart, and the Katalog / Menu panels with a fixed top
+/* Okla – phones: the bottom bar with the raised cart, and the Katalog / Menu panels with a fixed top
    (okla_mobile_tabbar.css). The bar and its panel (#okla-v61-drawer) are built by okla_behavior.js and the Menu content
-   by okla_mobile_menu.js; this adds the bar's notched background, marks the cart, puts the OKLA logo into the top of the
+   by okla_mobile_menu.js; this adds the bar's notched background, marks the cart, puts the Okla logo into the top of the
    Katalog panel (its title moves into the content, as in Menu) and marks the item whose panel is open. */
 (function(){
  'use strict';
@@ -37,7 +37,7 @@
 
  function logo(){
   var img=document.createElement('img');img.className='okla-mm-logo';
-  img.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';img.alt='OKLA.cz';
+  img.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';img.alt='Okla.cz';
   return img;
  }
 

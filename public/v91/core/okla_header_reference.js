@@ -1,4 +1,4 @@
-/* OKLA V94: align native Shoptet header behavior with the reference visual.
+/* Okla V94: align native Shoptet header behavior with the reference visual.
    Search is still the real /action/ProductSearch/ form; cart price stays native. */
 (function(){
  'use strict';
@@ -96,10 +96,10 @@
   if(name){
    var lang=window.OKLA_LANG||document.documentElement.getAttribute('data-okla-lang')||'cs';
    var labels={
-    cs:['PŘIHLÁŠENÍ','MŮJ ÚČET'],
-    en:['SIGN IN','MY ACCOUNT'],
-    sk:['PRIHLÁSENIE','MÔJ ÚČET'],
-    hu:['BEJELENTKEZÉS','FIÓKOM']
+    cs:['Přihlášení','Můj účet'],
+    en:['Sign in','My account'],
+    sk:['Prihlásenie','Môj účet'],
+    hu:['Bejelentkezés','Fiókom']
    };
    var pair=labels[lang]||labels.cs;
    var label=pair[loginVisible?0:1];

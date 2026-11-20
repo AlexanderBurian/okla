@@ -146,7 +146,7 @@
       dialog.innerHTML = '<div class="okla-langdlg__shade"></div>' +
         '<div class="okla-langdlg__box" role="dialog" aria-modal="true" aria-labelledby="okla-langdlg-title">' +
           '<button type="button" class="okla-langdlg__close" aria-label="Zavřít / Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>' +
-          '<h2 class="okla-langdlg__title" id="okla-langdlg-title">OKLA.cz – Jazyk / Language</h2>' +
+          '<h2 class="okla-langdlg__title" id="okla-langdlg-title">Okla.cz – Jazyk / Language</h2>' +
           '<div class="okla-langdlg__list" role="radiogroup"></div>' +
           '<div class="okla-langdlg__foot"><button type="button" class="okla-langdlg__ok">Potvrdit / Confirm</button></div>' +
         '</div>';

@@ -1,4 +1,4 @@
-/* OKLA left sidebar (categories, payments, top 10) on desktop. It used to be shrunk with zoom 0.85, which drew 14 px
+/* Okla left sidebar (categories, payments, top 10) on desktop. It used to be shrunk with zoom 0.85, which drew 14 px
    text at 11.9 px and soft. It now keeps the same width (295 px x 0.85) without zoom, so every text is drawn at its full,
    sharp size and larger than before; the page layout beside it does not move. */
 @media(min-width:992px){

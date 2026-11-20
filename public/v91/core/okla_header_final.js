@@ -1,4 +1,4 @@
-/* OKLA V101 – replace the legacy filled search icon with one crisp SVG.
+/* Okla V101 – replace the legacy filled search icon with one crisp SVG.
    Keeps Shoptet's original submit button, so native search still works. */
 (function(){
  'use strict';

@@ -1,4 +1,4 @@
-/* OKLA clean checkout. Loaded last on ordering pages. */
+/* Okla clean checkout. Loaded last on ordering pages. */
 html body.ordering-process #content-wrapper{
   border:1px solid #e1e6ed!important;
   border-top:4px solid #074dbb!important;
@@ -107,7 +107,7 @@ html body.ordering-process .order-icon{padding-left:0!important}
 html body.ordering-process :is(.okla-footer-benefits,.okla-footer-promo,#okla-footer-benefits,#okla-footer-promo),
 html body.ordering-process #footer :is(#okla-footer-benefits,#okla-footer-promo){display:none!important}
 
-/* A simple footer action row; global OKLA blue remains the CTA colour. */
+/* A simple footer action row; global Okla blue remains the CTA colour. */
 html body.ordering-process #content#content .okla-step-nav{
   margin-top:24px!important;padding:20px 0!important;border-top:1px solid #e1e6ed!important
 }
@@ -201,7 +201,7 @@ html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box>h2{
   margin:0 0 12px!important;padding:0!important;background:transparent!important;
   color:#0b2540!important;font-size:13px!important;font-weight:700!important;line-height:1.2!important;
-  letter-spacing:.02em!important;text-transform:uppercase!important
+  letter-spacing:0!important;text-transform:none!important
 }
 html body.ordering-process:not(.in-kosik) .order-summary .cart-item{
   display:grid!important;grid-template-columns:52px minmax(0,1fr) auto!important;
@@ -258,7 +258,7 @@ html body.ordering-process:not(.in-kosik) .order-summary .price-primary{
 
 /* -------------------------------------------------------------------------
    Structural checkout pass based on the supplied reference.  The visual
-   language remains OKLA; only the deliberately plain checkout composition is
+   language remains Okla; only the deliberately plain checkout composition is
    mirrored.  No decorative cards or brand illustrations survive here. */
 
 html body.ordering-process .cart-header{

@@ -1,4 +1,4 @@
-/* OKLA product page - "Nejčastěji zakoupeno společně" (okla_bought_together.js). The section, its heading, the slider
+/* Okla product page - "Nejčastěji zakoupeno společně" (okla_bought_together.js). The section, its heading, the slider
    and the cards look exactly like "Mohlo by vás zajímat" (class ok86-related, okla_detail.css); only the chips and the
    section's place are set here. */
 html body.ok89-detail #content #okla-bought-together.okla-bt:not(#obt-a#obt-b#obt-c#obt-d#obt-e){margin-top:8px!important;margin-bottom:28px!important}

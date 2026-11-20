@@ -1,4 +1,4 @@
-/* OKLA – cart page on PC: the cart its own island with grey above it (not touching the header), and the recommended
+/* Okla – cart page on PC: the cart its own island with grey above it (not touching the header), and the recommended
    products as a second island under it (okla_cart_recs.js) */
 #okla-cart-recs{display:none}
 @media(min-width:992px){

@@ -1,4 +1,4 @@
-/* OKLA – homepage category circles (okla_home_categories.js), Best Buy style; and on PC the homepage without the
+/* Okla – homepage category circles (okla_home_categories.js), Best Buy style; and on PC the homepage without the
    left sidebar (the content across the full width). */
 #okla-cat-circles{display:none}
 html body.type-index #content #okla-cat-circles:not(#okcc-a){display:block!important;margin:22px 0 34px!important;padding:0!important}

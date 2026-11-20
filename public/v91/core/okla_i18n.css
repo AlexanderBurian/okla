@@ -1,4 +1,4 @@
-/* OKLA languages: the switch under the header flag and the two choices in the footer. */
+/* Okla languages: the switch under the header flag and the two choices in the footer. */
 html.okla-i18n-pending body{visibility:hidden!important}
 
 html body #header .okla-header-locale{position:relative!important;cursor:pointer!important}

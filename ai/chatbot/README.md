@@ -1,4 +1,4 @@
-# OKLA AI chatbot
+# Okla AI chatbot
 
 Samostatný chatbot pro e-shop OKLA: izolovaný widget bez frameworku (Shadow DOM) a Node.js/TypeScript backend se streamováním odpovědí přes SSE. Výchozí mock režim funguje bezpečně bez API klíče.
 
@@ -22,7 +22,7 @@ Chatbot nemá přístup k objednávkám ani zákaznickým účtům a nemá se po
 V PowerShellu:
 
 ```powershell
-cd C:\Users\OMEN\Desktop\OKLA.CZ\chatbot
+cd C:\Users\OMEN\Desktop\Okla.cz\chatbot
 Copy-Item .env.example .env
 npm install
 npm run build

@@ -1,5 +1,5 @@
-/* OKLA V91: one consistent typeface across the storefront.
-   Open Sans is the OKLA typeface used by the footer and is applied sitewide.
+/* Okla V91: one consistent typeface across the storefront.
+   Open Sans is the Okla typeface used by the footer and is applied sitewide.
    Leave SVG and icon-font glyphs alone. */
 /* Open Sans is served from jsDelivr (the same CDN as the rest of the site), not Google Fonts: it starts downloading with
    the site files (the loader preloads it), the page is shown only once it is ready, and no visitor data goes to Google
@@ -52,7 +52,7 @@ html body #content .okla-slider-shell .product :is(a,button,span,strong){
   font-family:'Open Sans',Arial,sans-serif!important;
 }
 /* Restrict the black text override to CTAs confirmed to have green backgrounds.
-   Do not recolor OKLA's blue add-to-cart buttons. */
+   Do not recolor Okla's blue add-to-cart buttons. */
 html body .okla-green-cta,
 html body .okla-green-cta:is(:hover,:focus,:active),
 html body .okla-green-cta :is(span,strong,b,small),

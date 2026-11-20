@@ -1,4 +1,4 @@
-/* OKLA product catalogue: every product the shop has (snapshot of the shop, 2026-11-18; built by
+/* Okla product catalogue: every product the shop has (snapshot of the shop, 2026-11-18; built by
    tools/build_static_catalog.mjs), so search, the cart drawer and suggestions never offer a product that no longer exists,
    even before okla_live_catalog.js has read the listings (it keeps refreshing prices and stock, adds new products and
    drops removed ones). The four original products keep their fuller data (parameters, SEO texts). */

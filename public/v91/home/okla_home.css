@@ -1,4 +1,4 @@
-/* OKLA V91: canonical desktop/card rules + isolated tablet/mobile. */
+/* Okla V91: canonical desktop/card rules + isolated tablet/mobile. */
 /* Desktop 4-card carousel, tablet 3-card carousel. Existing native carousel JS remains intact. */
 @media(min-width:992px){
  html body.type-index #content .products.products-block.okla-slider-track{display:flex!important;flex-wrap:nowrap!important;align-items:stretch!important;justify-content:flex-start!important;gap:24px!important;width:100%!important;min-width:0!important;}

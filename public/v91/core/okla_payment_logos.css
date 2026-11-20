@@ -1,4 +1,4 @@
-/* OKLA – payment logos in the footer bottom row (okla_payment_logos.js): plain logos, no frame,
+/* Okla – payment logos in the footer bottom row (okla_payment_logos.js): plain logos, no frame,
    bottom left on desktop, centred under the copyright on smaller screens. */
 html body .footer-bottom.okla-has-pay{position:relative!important;flex-wrap:wrap!important}
 html body .okla-pay{display:flex!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important}

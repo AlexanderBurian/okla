@@ -1,4 +1,4 @@
-/* OKLA – homepage deal cards (Best Buy style, one heading per card) and, for guests, a sign-in strip among the product rows.
+/* Okla – homepage deal cards (Best Buy style, one heading per card) and, for guests, a sign-in strip among the product rows.
    Cards: our measuring instruments - title, what it measures, a cut-out photo of the product (the shop's own photo),
    the price and a "Nakoupit" button. The price written here is only the first paint: once the row comes into view the
    real price is read from each product page, and a product that no longer exists drops out. No discounts are claimed.
@@ -18,7 +18,7 @@
  function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
  function buildDeals(){
-  var sec=el('section');sec.id='okla-deals';sec.setAttribute('aria-label','Měřicí přístroje OKLA');
+  var sec=el('section');sec.id='okla-deals';sec.setAttribute('aria-label','Měřicí přístroje Okla');
   var track=el('div','okd-track');
   DEALS.forEach(function(d){
    var card=el('article','okd-card');card.setAttribute('data-url',d.url);
@@ -56,7 +56,7 @@
   return !!document.querySelector('a[href^="/login/"]');
  }
  function buildSignin(){
-  /* Best Buy style: a heading, four true benefits of an OKLA account with ticks, two buttons */
+  /* Best Buy style: a heading, four true benefits of an Okla account with ticks, two buttons */
   var box=el('section');box.id='okla-signin-strip';box.setAttribute('aria-label','Zákaznický účet');
   /* account pictogram (PC): shown next to the sign-in text, Best Buy style */
   var av=document.createElementNS('http://www.w3.org/2000/svg','svg');av.setAttribute('viewBox','0 0 24 24');av.setAttribute('aria-hidden','true');av.setAttribute('class','oks-avatar');av.innerHTML='<circle cx="12" cy="8" r="3.4"/><path d="M5 19.5c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/>';
@@ -88,7 +88,7 @@
  function stripRef(main){
   return main.querySelector(':scope>.homepage-group-title[data-okla-row-copy]')||main.querySelector(':scope>#okla-news-v55');
  }
- /* in place = right before r, other OKLA homepage sections between them allowed (deals, sign-in strip, promo can want
+ /* in place = right before r, other Okla homepage sections between them allowed (deals, sign-in strip, promo can want
     the same spot; requiring "directly before" made them move each other for ever) */
  function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals)$/.test(n.id))n=n.nextElementSibling;return n===r}
  function place(strip){var main=document.getElementById('okla-cat-circles').parentNode,r=stripRef(main);if(r)main.insertBefore(strip,r);else main.appendChild(strip)}

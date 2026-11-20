@@ -1,4 +1,4 @@
-/* Phones: the bottom bar as five even tabs - icon with its name under it. The current page's pictogram is OKLA blue;
+/* Phones: the bottom bar as five even tabs - icon with its name under it. The current page's pictogram is Okla blue;
    the cart's count is a small blue badge on its icon. White, no line on top, no shadow; the same items, links and panels as before (okla_mobile_tabbar.js). Replaces the round buttons
    with the sliding pill (okla_mobile_pillbar.css). */
 @media(max-width:767px){
@@ -29,7 +29,7 @@
     overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important;opacity:1!important;visibility:visible!important;clip:auto!important;clip-path:none!important;
     color:inherit!important;-webkit-text-fill-color:currentColor!important;font:600 11px/1.15 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;transform:none!important
   }
-  /* the current page: only its pictogram turns OKLA blue (the name stays as it is) */
+  /* the current page: only its pictogram turns Okla blue (the name stays as it is) */
   html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action.is-active>svg{color:#0859d8!important;stroke:#0859d8!important}
   /* the cart's count */
   html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action>.okla-tb-count{

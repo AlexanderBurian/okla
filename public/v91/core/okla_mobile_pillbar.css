@@ -1,4 +1,4 @@
-/* OKLA – phones (≤767px): the bottom bar flat along the bottom edge, full width (replaces the raised-cart bar drawn by
+/* Okla – phones (≤767px): the bottom bar flat along the bottom edge, full width (replaces the raised-cart bar drawn by
    okla_mobile_tabbar.css; the same items, links and panels from okla_behavior.js / okla_mobile_tabbar.js).
    Every item is a round grey button with its icon; the current one (the page's item, or the open Katalog / Menu panel)
    grows into a pill: a blue circle with the white icon and its name next to it. Switching slides the pill over. */

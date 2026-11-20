@@ -1,4 +1,4 @@
-/* OKLA – phones: the pill bottom bar switches smoothly.
+/* Okla – phones: the pill bottom bar switches smoothly.
    - The pill's slide is only animated after the page has been painted, so a new page shows its current item at once
      (no growing/shrinking while it loads).
    - A tap on a link moves the pill to the tapped item right away, so the switch is visible before the next page

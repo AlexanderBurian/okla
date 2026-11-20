@@ -1,4 +1,4 @@
-/* OKLA V113 — isolated mobile cart/menu/footer, order-history CTA, safe-area polish.
+/* Okla V113 — isolated mobile cart/menu/footer, order-history CTA, safe-area polish.
    No existing layout modules are removed or rewritten. */
 @media (max-width:767px) {
   /* Match the light-blue upper header in browser/standalone safe areas where

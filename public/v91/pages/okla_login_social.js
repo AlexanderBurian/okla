@@ -1,4 +1,4 @@
-/* OKLA – add Google + Facebook next to Seznam on the login page, as one clean
+/* Okla – add Google + Facebook next to Seznam on the login page, as one clean
    row of brand buttons (Shoptet renders only Seznam). Each button links to
    Shoptet's own social-login endpoint; the native e-mail/password form, its
    CSRF token and the honeypot are left exactly as they are.

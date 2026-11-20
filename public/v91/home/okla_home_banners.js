@@ -1,4 +1,4 @@
-/* OKLA homepage banners: the hero (Flipper Zero on desktop, plus the glasses on mobile) in the
+/* Okla homepage banners: the hero (Flipper Zero on desktop, plus the glasses on mobile) in the
    main Shoptet carousel slot, and the two lower tiles (glasses, then the endoscopes bottom right). Every banner has the
    same darkening, text and blue CTA. The hero has dots and autoplay; the dots show only on mobile, under the picture.
    Autoplay stays continuous on phones, pauses on desktop hover/focus and skips

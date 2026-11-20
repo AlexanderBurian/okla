@@ -1,7 +1,7 @@
 /* PC header, right side (okla_header_template103.js draws the account, the cart and the support panel): a crisp row of
    solid dark icons with no backgrounds - account (grey avatar, "Můj účet" / "Přihlásit se", chevron) | orders, support,
    language | cart with its count on a red badge. Thin divider lines and even air keep the groups apart; hover only turns
-   an icon OKLA blue. Favourites have no function in the shop and stay hidden. */
+   an icon Okla blue. Favourites have no function in the shop and stay hidden. */
 .okla-header-support{display:none}
 @media(min-width:992px){
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c){
@@ -20,7 +20,7 @@
   }
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::before,html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-exact-separator::after{content:none!important;display:none!important}
 
-  /* every action: a dark solid icon, OKLA blue on hover or while its menu is open */
+  /* every action: a dark solid icon, Okla blue on hover or while its menu is open */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-account,.okla-header-orders,.okla-header-support,.okla-header-locale,a.cart-count){
     box-sizing:border-box!important;color:#0b2540!important;cursor:pointer!important;text-decoration:none!important;opacity:1!important;transition:color .15s ease!important
   }

@@ -1,4 +1,4 @@
-/* OKLA – the category pictograms (left sidebar on PC, the phone Katalog panel, category menus) are replaced by the same
+/* Okla – the category pictograms (left sidebar on PC, the phone Katalog panel, category menus) are replaced by the same
    product photos as the homepage category circles (v91/img/catc/), on a small light grey circle. */
 (function(){
  'use strict';

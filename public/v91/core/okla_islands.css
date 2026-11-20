@@ -1,4 +1,4 @@
-/* OKLA – PC (≥992px) page model, DATART style: a light grey page; the header row and the category bar run across the
+/* Okla – PC (≥992px) page model, DATART style: a light grey page; the header row and the category bar run across the
    whole window in their colours (light grey header, the bar a touch lighter); the content sits in white "islands" -
    on the homepage every block is its own white rounded card with 16px of grey between them; on the other pages the
    content card (and the category sidebar) is the island. Phones keep their own look. The pop-up (sticky) header is
@@ -138,7 +138,7 @@ html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-c
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add,.p-info-wrapper .quantity :is(button.increase,button.decrease)):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i) *{color:#fff!important;-webkit-text-fill-color:#fff!important}
 html body :is(#product-detail-form .add-to-cart-button,.p-info-wrapper .add-to-cart-button,.okla-dbb__btn:not(.is-watch),.okla-m-buybar__btn,.okla-xsell__add):not(:disabled):not(#okg-a#okg-b#okg-c#okg-d#okg-e#okg-f#okg-g#okg-h#okg-i) svg :is(path,circle){stroke:#fff!important}
 
-/* Homepage warranty island: the OKLA manul sits on its bottom edge, left of the button, peeking a little over the top */
+/* Homepage warranty island: the Okla manul sits on its bottom edge, left of the button, peeking a little over the top */
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d){position:relative!important;overflow:visible!important}
 html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d)::after{content:""!important;position:absolute!important;z-index:2!important;right:auto!important;left:50%!important;transform:translateX(-50%)!important;bottom:0!important;width:166px!important;height:160px!important;
   background:url('../img/okla-manul-warranty.webp') center bottom/contain no-repeat!important;pointer-events:none!important}

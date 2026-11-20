@@ -1,4 +1,4 @@
-/* OKLA desktop search, as on Alza: when a search field is focused the rest of the page is blurred and a panel opens
+/* Okla desktop search, as on Alza: when a search field is focused the rest of the page is blurred and a panel opens
    right under the field. Empty field: popular searches and frequently searched products. While typing: the matching
    products from the catalogue and a row that searches the whole shop. Phones keep Shoptet's own search.
    Attaches to the header field and to the empty-cart search field; each gets its own panel, sharing one overlay. */

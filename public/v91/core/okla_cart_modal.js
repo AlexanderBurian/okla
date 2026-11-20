@@ -1,4 +1,4 @@
-/* OKLA "added to cart" dialog (Alza style). After a product is added to the cart, a dialog opens over the dimmed page
+/* Okla "added to cart" dialog (Alza style). After a product is added to the cart, a dialog opens over the dimmed page
    (centred on PC, full screen on phones): a green confirmation, the added product with a quantity stepper (it changes
    the amount in the real Shoptet cart) and its price, up to eight products "bought together" as
    product cards, and two ways on. Opens on every add to cart (product cards, the product page, the cart API). */

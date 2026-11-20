@@ -1,5 +1,5 @@
-/* OKLA V91: ONE unified mobile appearance file. All former style injection removed from behavior modules. */
-/* OKLA V61 — mobile-specific redesign, base desktop untouched */
+/* Okla V91: ONE unified mobile appearance file. All former style injection removed from behavior modules. */
+/* Okla V61 — mobile-specific redesign, base desktop untouched */
 @media (max-width:767px){
 :root{--okm-blue:#0646aa;--okm-ink:#082f62;--okm-pale:#eff8ff}
 html{scroll-padding-top:126px!important}
@@ -70,7 +70,7 @@ body.type-index #content-wrapper main#content{display:block!important;position:r
 #content .okla-slider-shell .okla-slider-track .p-bottom{display:block!important;flex:none!important;width:100%!important;margin-top:auto!important;padding:0!important}
 #content .okla-slider-shell .okla-slider-track .p-bottom>div{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;min-width:0!important}
 #content .okla-slider-shell .okla-slider-track .prices{display:flex!important;flex-direction:column!important;align-items:center!important;width:100%!important;max-width:156px!important;height:64px!important;min-height:64px!important;margin:8px auto 0!important;padding:0!important;border-radius:5px!important;overflow:hidden!important;background:#eaf3fc!important}
-#content .okla-slider-shell .okla-slider-track .prices:before{content:'NOVINKA'!important;display:flex!important;justify-content:center!important;align-items:center!important;flex:0 0 21px!important;width:100%!important;min-height:21px!important;height:21px!important;background:#082e66!important;color:#fff!important;font-size:9px!important;font-weight:800!important;line-height:21px!important}
+#content .okla-slider-shell .okla-slider-track .prices:before{content:'Novinka'!important;display:flex!important;justify-content:center!important;align-items:center!important;flex:0 0 21px!important;width:100%!important;min-height:21px!important;height:21px!important;background:#082e66!important;color:#fff!important;font-size:9px!important;font-weight:800!important;line-height:21px!important}
 #content .okla-slider-shell .okla-slider-track .price-final{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:43px!important;min-height:43px!important;margin:0!important;padding:0!important}
 #content .okla-slider-shell .okla-slider-track .price-final strong{display:block!important;width:100%!important;font-size:18px!important;line-height:28px!important;color:#053685!important;font-weight:800!important;white-space:nowrap!important;letter-spacing:-.2px!important}
 #content .okla-slider-shell .okla-slider-track .p-tools{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;padding:11px 0 0!important;min-height:43px!important}
@@ -207,7 +207,7 @@ body:not(.okla-v66-show-header):not(.okla-v66-hide-header) #header #okla-v61-hea
 #content .okla-slider-shell .okla-slider-track>.product .p-bottom{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;justify-content:flex-end!important;float:none!important;flex:0 0 auto!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;max-height:none!important;margin:auto 0 0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important;overflow:visible!important}
 #content .okla-slider-shell .okla-slider-track>.product .p-bottom>div{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important}
 #content .okla-slider-shell .okla-slider-track>.product .prices{position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:flex-start!important;flex:0 0 58px!important;float:none!important;width:100%!important;max-width:none!important;min-width:0!important;height:58px!important;min-height:58px!important;max-height:58px!important;margin:2px 0 0!important;padding:0!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;background:#eaf3fc!important;border:0!important;border-radius:6px!important;box-shadow:none!important;transform:none!important;overflow:hidden!important}
-#content .okla-slider-shell .okla-slider-track>.product .prices::before{content:"NOVINKA"!important;position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 19px!important;width:100%!important;min-height:19px!important;max-height:19px!important;height:19px!important;line-height:19px!important;margin:0!important;padding:0!important;background:#0b356e!important;color:#fff!important;font-size:9px!important;font-weight:800!important;box-shadow:none!important}
+#content .okla-slider-shell .okla-slider-track>.product .prices::before{content:"Novinka"!important;position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 19px!important;width:100%!important;min-height:19px!important;max-height:19px!important;height:19px!important;line-height:19px!important;margin:0!important;padding:0!important;background:#0b356e!important;color:#fff!important;font-size:9px!important;font-weight:800!important;box-shadow:none!important}
 #content .okla-slider-shell .okla-slider-track>.product .price-final{position:static!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 39px!important;float:none!important;width:100%!important;max-width:100%!important;height:39px!important;min-height:39px!important;max-height:39px!important;margin:0!important;padding:0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;box-shadow:none!important;overflow:hidden!important}
 #content .okla-slider-shell .okla-slider-track>.product .price-final strong{display:block!important;max-width:100%!important;margin:0!important;padding:0!important;white-space:nowrap!important;line-height:26px!important;font-size:17px!important;font-weight:800!important;letter-spacing:-.35px!important}
 #content .okla-slider-shell .okla-slider-track>.product .p-tools,#content .okla-slider-shell .okla-slider-track>.product .p-tools form{position:static!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;float:none!important;min-width:0!important;width:100%!important;max-width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:9px 0 0!important;top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;transform:none!important;overflow:visible!important;box-shadow:none!important}
@@ -435,7 +435,7 @@ html body #okla-v61-bottom .okm61-bottom-action span {
 }
 
 /* okla_mobile_v77.js */
-/* OKLA V77 — exact requested Alza-style product tiles. Mobile only.
+/* Okla V77 — exact requested Alza-style product tiles. Mobile only.
    No changes to product data or native Shoptet add-to-cart handlers. */
 @media (max-width: 767px) {
   :root {
@@ -640,7 +640,7 @@ html body #okla-v61-bottom .okm61-bottom-action span {
 
   /* C — full-width top badge */
   html body.type-index #content .okla-slider-shell .product .prices::before {
-    content: "NOVINKA" !important;
+    content:"Novinka" !important;
     position: static !important;
     display: flex !important;
     flex: 0 0 auto !important;
@@ -661,9 +661,9 @@ html body #okla-v61-bottom .okm61-bottom-action span {
     font-size: 14px !important;
     font-weight: 700 !important;
     line-height: 20px !important;
-    letter-spacing: .5px !important;
+    letter-spacing:0 !important;
     text-align: center !important;
-    text-transform: uppercase !important;
+    text-transform:none !important;
   }
 
   /* C — pale-blue bottom price, 24px with 16px vertical padding */

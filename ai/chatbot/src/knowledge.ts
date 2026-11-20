@@ -259,7 +259,7 @@ export function categoryOverviews(products: KnowledgeItem[], base = "https://www
     id: `category-${normalize(name).replace(/ /g, "-")}`,
     type: "faq" as const,
     title: `Kategorie ${name} – přehled produktů`,
-    content: `V kategorii ${name} nabízí OKLA.cz ${list.length} ${list.length === 1 ? "produkt" : list.length < 5 ? "produkty" : "produktů"}: ${list
+    content: `V kategorii ${name} nabízí Okla.cz ${list.length} ${list.length === 1 ? "produkt" : list.length < 5 ? "produkty" : "produktů"}: ${list
       .map((item) => `${item.title} (${[formatPrice(item.price), item.inStock === undefined ? undefined : item.inStock ? "skladem" : "není skladem"].filter(Boolean).join(", ")})`)
       .join("; ")}.`,
     url: new URL(`/${categorySlug(name)}/`, base).toString(),

@@ -1,6 +1,6 @@
-/* OKLA magyar: the texts of the site, Shoptet's messages and the patterns with numbers in them. Used by okla_i18n.js. */
+/* Okla magyar: the texts of the site, Shoptet's messages and the patterns with numbers in them. Used by okla_i18n.js. */
 (window.OKLA_I18N_PACKS=window.OKLA_I18N_PACKS||{}).hu={
- title:[[/Můj e-shop/,'OKLA'],[/^Vítejte v našem obchodě/,'Üdvözöljük üzletünkben'],[/^Nákupní košík/,'Kosár'],[/^Přihlášení zákazníka/,'Vásárlói bejelentkezés'],[/^Stránka neexistuje/,'Az oldal nem található']],
+ title:[[/Můj e-shop/,'Okla'],[/^Vítejte v našem obchodě/,'Üdvözöljük üzletünkben'],[/^Nákupní košík/,'Kosár'],[/^Přihlášení zákazníka/,'Vásárlói bejelentkezés'],[/^Stránka neexistuje/,'Az oldal nem található']],
  /* "Do košíku <product>": the product name is translated too. */
  attrRules:[[/^Do košíku (.+)$/,'Kosárba: '],[/^Přidat do košíku (.+)$/,'Kosárba: '],[/^Zobrazit kategorii (.+)$/,'Kategória megnyitása: '],[/^(.+) hlavní obrázek$/,'',' – fő kép']],
  cardMore:'...',
@@ -27,7 +27,7 @@
   'Poslední hodnocení':'Legutóbbi értékelések','Zápatí':'Lábléc','Pečlivě vybraný sortiment pro každý den':'Gondosan válogatott kínálat minden napra',
   'Objednávky vyřizujeme co nejrychleji':'A rendeléseket a lehető leggyorsabban teljesítjük','Zákaznická podpora na e-mailu':'Ügyfélszolgálat e-mailben',
   'Bezpečné možnosti platby':'Biztonságos fizetési módok','Výdejní místa po celé ČR':'Átvételi pontok Csehország-szerte',
-  'Průvodci a návody z OKLA':'Útmutatók és tippek az OKLA-tól','Otevřít newsroom':'A newsroom megnyitása','Nevíte, který přístroj vybrat?':'Nem tudja, melyik eszközt válassza?',
+  'Průvodci a návody z Okla':'Útmutatók és tippek az Okla-tól','Otevřít newsroom':'A newsroom megnyitása','Nevíte, který přístroj vybrat?':'Nem tudja, melyik eszközt válassza?',
   'Napište nám a poradíme podle toho, k čemu ho budete používat.':'Írjon nekünk, és aszerint tanácsot adunk, mire fogja használni.',
   'Naskenujte a napište nám':'Olvassa be és írjon nekünk',
   'Flipper Zero, Wi-Fi endoskopy, USB-C testery, NFC karty a měřicí technika. Vysvětlujeme parametry a ukazujeme, jak s produktem zacházet.':'Flipper Zero, Wi-Fi endoszkópok, USB-C teszterek, NFC-kártyák és mérőeszközök. Elmagyarázzuk a paramétereket, és megmutatjuk, hogyan bánjon a termékkel.',
@@ -108,21 +108,21 @@
   'Od laserových dálkoměrů až po digitální váhy. Jaké parametry sledovat a kdy se vyplatí pořídit specializovaný nástroj?':'A lézeres távolságmérőktől a digitális mérlegekig. Milyen paraméterekre figyeljen, és mikor éri meg speciális eszközt venni?'
  },
  attr:{
-  'Zavolat na 123456789':'Hívás: 123456789','OKLA.cz – úvodní stránka':'OKLA.cz – főoldal','Napište, co hledáte':'Mit keres?',
+  'Zavolat na 123456789':'Hívás: 123456789','Okla.cz – úvodní stránka':'Okla.cz – főoldal','Napište, co hledáte':'Mit keres?',
   'Vyhledávání':'Keresés','Návrhy vyhledávání':'Keresési javaslatok','Přihlášení':'Bejelentkezés','Menu':'Menü','Účet, objednávky, oblíbené, jazyk a košík':'Fiók, rendelések, kedvencek, nyelv és kosár',
   'Můj účet – přihlásit se':'Fiókom – bejelentkezés','Moje objednávky':'Rendeléseim','Oblíbené produkty':'Kedvenc termékek','Čeština, česká koruna':'Magyar, cseh korona',
   'Čeština · CZK':'Magyar · CZK','Nákupní košík':'Kosár','Hlavní menu':'Főmenü','Hlavní banner':'Fő banner','Projektor':'Projektor','Chytré brýle':'Okosszemüveg',
   'Laserový dálkoměr':'Lézeres távolságmérő','Zobrazit banner 1':'1. banner','Zobrazit banner 2':'2. banner','Zobrazit banner 3':'3. banner','Zobrazit banner 4':'4. banner',
-  'QR kód: napsat e-mail na podporu OKLA':'QR-kód: e-mail az OKLA ügyfélszolgálatának','Naše kontroly':'Ellenőrzéseink','Sociální profily připravujeme':'Közösségi profiljaink hamarosan elérhetők',
+  'QR kód: napsat e-mail na podporu Okla':'QR-kód: e-mail az Okla ügyfélszolgálatának','Naše kontroly':'Ellenőrzéseink','Sociální profily připravujeme':'Közösségi profiljaink hamarosan elérhetők',
   'Facebook – profil připravujeme':'Facebook – hamarosan','Instagram – profil připravujeme':'Instagram – hamarosan','YouTube – profil připravujeme':'YouTube – hamarosan',
-  'X – profil připravujeme':'X – hamarosan','Předchozí':'Előző','Následující':'Következő','Ruka s telefonem OKLA':'Kéz OKLA-s telefonnal',
+  'X – profil připravujeme':'X – hamarosan','Předchozí':'Előző','Následující':'Következő','Ruka s telefonem Okla':'Kéz Okla-s telefonnal',
   'Wi-Fi modul pro Flipper Zero':'Wi-Fi modul Flipper Zero-hoz','Zavřít':'Bezárás','Domů':'Főoldal','Sdílet produkt':'Termék megosztása','Dostupnost':'Elérhetőség',
   'Zvýšit množství o 1':'Mennyiség növelése 1-gyel','Snížit množství o 1':'Mennyiség csökkentése 1-gyel','Zvýšit množství':'Mennyiség növelése','Snížit množství':'Mennyiség csökkentése',
   'Informace k nákupu':'Vásárlási információk','Tisknout produkt':'Termék nyomtatása','Mluvit s prodejcem':'Beszélgetés az eladóval','Popis':'Leírás',
   'Hodnocení produktu':'Termékértékelés','Rychlý nákup':'Gyors vásárlás','Zadejte kód kupónu':'Kuponkód','Kód kupónu':'Kuponkód',
   'Nejlevnější - Aktuálně nastavené řazení':'Legolcsóbb - jelenlegi rendezés','Kód':'Kód','Odstranit z košíku':'Eltávolítás a kosárból','Jazyk webu':'Nyelv',
   'Dekorativní hvězdy, nejde o zákaznické hodnocení':'Díszítő csillagok, nem vásárlói értékelés','Předchozí produkty':'Előző termékek','Další produkty':'További termékek',
-  'Informace o záruce':'Garanciális információk','Můj e-shop':'OKLA','Loga kreditních karet':'Bankkártya-logók'
+  'Informace o záruce':'Garanciális információk','Můj e-shop':'Okla','Loga kreditních karet':'Bankkártya-logók'
  },
  messages:{
   more:'Több',cancel:'Mégse',removedItem:'A tétel kikerült a kosárból.',

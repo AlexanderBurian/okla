@@ -1,4 +1,4 @@
-/* OKLA – mobile bottom bar "Menu" = the customer centre (like the account menu
+/* Okla – mobile bottom bar "Menu" = the customer centre (like the account menu
    of big shops): sign-in / registration on top, then the customer's shopping and
    service links. "Katalog" keeps opening the categories.
    The bottom bar and its drawer (#okla-v61-drawer) are built by okla_behavior.js;
@@ -82,7 +82,7 @@
   body.replaceChildren();build(body);
   if(head){
    head.replaceChildren();
-   var logo=el('img','okla-mm-logo');logo.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';logo.alt='OKLA.cz';
+   var logo=el('img','okla-mm-logo');logo.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';logo.alt='Okla.cz';
    head.appendChild(logo);
   }
   overlay.classList.add('okla-mm-open');

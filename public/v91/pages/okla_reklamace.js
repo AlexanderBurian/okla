@@ -1,4 +1,4 @@
-/* OKLA V123 – "Reklamace a vrácení zboží" form. A dedicated, fully functional
+/* Okla V123 – "Reklamace a vrácení zboží" form. A dedicated, fully functional
    complaint / return form on /reklamace/ (a page the shop has not created, so we
    take over the Shoptet 404). It submits automatically to Shoptet's own mail form
    action (/action/MailForm/SendEmail/, formId 1 – the same endpoint the contact
@@ -329,7 +329,7 @@
   }else{
    document.documentElement.classList.add('okla-rk-takeover');
    host.insertBefore(node,host.firstChild);
-   document.title='Reklamace a vrácení zboží · OKLA';
+   document.title='Reklamace a vrácení zboží · Okla';
   }
   wire(node,ref);
   return true;

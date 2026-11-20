@@ -1,4 +1,4 @@
-/* OKLA – products beside an article (/nase-novinky/<article>/).
+/* Okla – products beside an article (/nase-novinky/<article>/).
    The article text carries hand-made product cards (.okla-clanek__aside .okla-clanek__card); some point to products the
    shop no longer sells and one article lists the same product twice. Here the column is rebuilt from the homepage's own
    product cards (cloned 1:1: picture, rating, name, stock, price, "Do košíku" that really adds to the cart):

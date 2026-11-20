@@ -1,4 +1,4 @@
-/* OKLA / Shoptet-native news covers.
+/* Okla / Shoptet-native news covers.
    This module sets the pictures (and the publication dates) of the custom homepage news grid.
    The current article thumbnail in Shoptet (og:image) is the source of truth. */
 (function () {

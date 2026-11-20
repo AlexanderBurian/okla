@@ -1,4 +1,4 @@
-/* OKLA – product detail content switcher (like kratas.cz).
+/* Okla – product detail content switcher (like kratas.cz).
    The three existing sections under the product – description, reviews and
    parameters – keep their content and look; only the switching changes:
    - desktop: three equal tabs, the active one is a white tab joined to the

@@ -1,4 +1,4 @@
-/* OKLA – desktop product page (>=992px):
+/* Okla – desktop product page (>=992px):
    - buy bar at the top of the window, in the sticky header's place (as on the big shops), once the page's own buy
      button has scrolled away: picture, name, stars, stock, price and the green "Do košíku" (it clicks Shoptet's own
      button, so the cart, quantity and drawer work as usual). Sold-out products get "Hlídat dostupnost", which opens

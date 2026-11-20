@@ -72,9 +72,9 @@ export function mockAnswer(context: Pick<ChatContext, "message" | "knowledge" | 
   const isFirst = history.length === 0;
   const q = normalize(message);
 
-  if (/kokain|heroin|pervitin|marihuan|drogy|zbrane|pistol|samopal|vybusnin|munic|granat/.test(q)) return "OKLA se zaměřuje na elektroniku, s tímhle vám nepomohu. Rád ale poradím s multitooly, měřicí technikou nebo chytrou elektronikou.";
+  if (/kokain|heroin|pervitin|marihuan|drogy|zbrane|pistol|samopal|vybusnin|munic|granat/.test(q)) return "Okla se zaměřuje na elektroniku, s tímhle vám nepomohu. Rád ale poradím s multitooly, měřicí technikou nebo chytrou elektronikou.";
   if (/cizi|bez svoleni|bez opravneni|ukrast|obejit|prolomit/.test(q) && /kart|zamek|pristup|auto|alarm|wifi|heslo/.test(q)) return "S obcházením cizího zabezpečení nepomohu. U vlastních karet a zařízení vám rád vysvětlím, jak funguje NFC a RFID a co se dá legálně zkoušet.";
-  if (/^(ahoj|dobry den|cau|zdravim|hello|hi|dobry vecer|nazdar)( .{0,12})?$/.test(q)) return "Dobrý den, jsem **OKLA poradce**. Pomůžu vám vybrat elektroniku, porovnat produkty nebo zodpovím dotazy k nákupu. Co hledáte?";
+  if (/^(ahoj|dobry den|cau|zdravim|hello|hi|dobry vecer|nazdar)( .{0,12})?$/.test(q)) return "Dobrý den, jsem **Okla poradce**. Pomůžu vám vybrat elektroniku, porovnat produkty nebo zodpovím dotazy k nákupu. Co hledáte?";
   if (/^(diky|dekuji|super|dik|ok|okay|jasne)\b/.test(q) && q.length < 30) return "Rádo se stalo. Kdybyste potřebovali ještě s něčím poradit, jsem tady.";
   if (/kde.*(balik|objednav|zasilk)|stav.*objednav|sledov.*zasil|objednav.*(stav|dorazi)/.test(q)) {
     return "K objednávkám nemám přístup. Stav zjistíte na stránce [Stav objednávky](https://www.okla.cz/stav-objednavky/), případně vám pomůže podpora na [podpora@okla.cz](mailto:podpora@okla.cz).";
@@ -154,7 +154,7 @@ export function mockAnswer(context: Pick<ChatContext, "message" | "knowledge" | 
   if (faq && !/kategori|sortiment/.test(q)) return `${best(faq.content, message, 2).join(" ")}${faq.url && !faq.url.startsWith("mailto:") ? `\n\n[${faq.title}](${faq.url})` : ""}`;
 
   const cats = [...new Set(catalog.map((item) => item.category?.split(">").pop()?.trim()).filter(Boolean))].slice(0, 8);
-  const greeting = isFirst ? "Dobrý den, jsem **OKLA poradce**. " : "";
+  const greeting = isFirst ? "Dobrý den, jsem **Okla poradce**. " : "";
   return `${greeting}Tohle v nabídce nemám, nebo jsem dotazu úplně neporozuměl.${cats.length ? ` Prodáváme: ${cats.join(", ")}.` : ""} Napište mi, co hledáte a k čemu to chcete používat, a doporučím konkrétní produkt.`;
 }
 

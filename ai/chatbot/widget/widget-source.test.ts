@@ -66,7 +66,7 @@ describe("geometrie widgetu", () => {
     expect(source).not.toContain("addAssistantMessage(\"\", true)");
   });
 
-  it("používá skutečné logo OKLA, samostatný avatar a mobilní textarea bez zoomu", async () => {
+  it("používá skutečné logo Okla, samostatný avatar a mobilní textarea bez zoomu", async () => {
     const source = await readFile("./widget/widget.ts", "utf8");
     expect(source).toContain('assets/okla-brand-logo.png');
     expect(source).toContain('assets/okla-assistant-avatar.png');

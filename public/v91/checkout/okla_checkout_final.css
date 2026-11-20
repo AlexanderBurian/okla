@@ -69,7 +69,7 @@ html body.in-kosik .okla-coupon__btn{
 
 /* Centre the truck and message as one group inside the whole blue card. */
 
-/* Checkout actions with dark text use the brighter OKLA green. */
+/* Checkout actions with dark text use the brighter Okla green. */
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish{
  border-color:#0859d8!important;

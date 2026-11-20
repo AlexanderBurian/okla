@@ -1,4 +1,4 @@
-/* OKLA – homepage in Shoptet's wide layout (no left sidebar): Shoptet splits the page into separate blocks - the main
+/* Okla – homepage in Shoptet's wide layout (no left sidebar): Shoptet splits the page into separate blocks - the main
    content (#content), a full-width box with the banners, and a second <main class="content"> with the product
    sections. All the homepage scripts work on one #content, so before they run the banners and the product sections are
    gathered back into #content (in their order), and the emptied boxes go. Nothing is changed on any other page or when

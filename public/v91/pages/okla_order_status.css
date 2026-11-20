@@ -1,4 +1,4 @@
-/* OKLA V91 – "Stav objednávky" page. Structure + look only (data wired later).
+/* Okla V91 – "Stav objednávky" page. Structure + look only (data wired later).
    Same visual language as the empty cart: a navy heading and a clean white card,
    with an order-summary box at the top and an Alza-style status timeline below.
    Brand blue: #0859d8. */
@@ -253,7 +253,7 @@ html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__intro{margin:0 0 2
 html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__form{flex-direction:column!important;align-items:stretch!important;justify-content:flex-start!important;max-width:none!important;gap:14px!important;margin:0!important}
 html.okla-os-login-combo .okla-os-card--open .okla-os-field{flex:0 0 auto!important;width:100%!important;text-align:left!important}
 html.okla-os-login-combo .okla-os-card--open .okla-os-field input{width:100%!important}
-html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__btn{width:100%!important;height:52px!important;margin-top:4px!important;text-transform:uppercase;letter-spacing:.03em}
+html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__btn{width:100%!important;height:52px!important;margin-top:4px!important;text-transform:none;letter-spacing:0}
 html.okla-os-login-combo .okla-os-card--open .okla-os-lookup__err{text-align:center!important}
 /* the shop's sign-in form: open as well (no box, no zoom), a clear gap under the search */
 html.okla-os-login-combo body #content#content .content-inner{

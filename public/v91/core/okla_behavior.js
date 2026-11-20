@@ -1,6 +1,6 @@
-/* OKLA V91: 11 compatibility behavior modules in original bootstrap order. No CSS injection. */
+/* Okla V91: 11 compatibility behavior modules in original bootstrap order. No CSS injection. */
 /* === public/v91/behavior_v57.js / behavior only === */
-/* OKLA V57 — stable homepage cleanup + neon technology art + cart visual fix */
+/* Okla V57 — stable homepage cleanup + neon technology art + cart visual fix */
 (function(){
 'use strict';if(window.__okla57)return;window.__okla57=true;
 
@@ -43,7 +43,7 @@ setTimeout(apply,200);setTimeout(apply,750);setTimeout(apply,1700);
 })();
 
 /* === public/legacy/v61/okla_mobile_v61.js / behavior only === */
-/* OKLA V61 — native Shoptet mobile, independent of legacy V58 */
+/* Okla V61 — native Shoptet mobile, independent of legacy V58 */
 (function(){
 'use strict';
 if(window.__oklaV61)return;window.__oklaV61=1;
@@ -73,8 +73,8 @@ var searchState=null,categories=[];
 function header(){
 var outer=document.querySelector('#header');if(!outer)return;
 var shell=document.getElementById('okla-v61-header');if(!shell){shell=n('div');shell.id='okla-v61-header';
-var row=n('div','okm61-top'),logo=n('a','okm61-logo');logo.href='/';logo.setAttribute('aria-label','OKLA.cz – úvodní stránka');
-var source=outer.querySelector('.site-name-wrapper img,.site-name img');if(source){var im=n('img');im.alt='OKLA.cz';im.src=source.currentSrc||source.src;logo.appendChild(im)}else logo.textContent='OKLA.cz';
+var row=n('div','okm61-top'),logo=n('a','okm61-logo');logo.href='/';logo.setAttribute('aria-label','Okla.cz – úvodní stránka');
+var source=outer.querySelector('.site-name-wrapper img,.site-name img');if(source){var im=n('img');im.alt='Okla.cz';im.src=source.currentSrc||source.src;logo.appendChild(im)}else logo.textContent='Okla.cz';
 row.appendChild(logo);shell.append(row,n('div','okm61-search'));outer.prepend(shell)}
 var slot=shell.querySelector('.okm61-search');
 var original=outer.querySelector('.header-top>.search')||outer.querySelector('.header-top .search');
@@ -146,7 +146,7 @@ function drawer(kind){
 clearTimeout(drawerCloseTimer);
 drawerTrigger=document.activeElement;
 var overlay=document.getElementById('okla-v61-drawer');if(!overlay){overlay=n('div');overlay.id='okla-v61-drawer';overlay.hidden=true;
-var panel=n('div','okm61-drawer-panel');panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Navigace OKLA');
+var panel=n('div','okm61-drawer-panel');panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');panel.setAttribute('aria-label','Navigace Okla');
 var head=n('div','okm61-drawer-head'),name=n('strong','','Katalog'),close=n('button','okm61-drawer-close');close.type='button';close.setAttribute('aria-label','Zavřít');close.appendChild(svg('close'));close.addEventListener('click',closeDrawer);head.append(name,close);
 var body=n('div','okm61-drawer-body');panel.append(head,body);overlay.append(panel);overlay.addEventListener('click',function(e){if(e.target===overlay)closeDrawer()});document.body.append(overlay);overlay.addEventListener('keydown',function(e){if(e.key==='Escape')closeDrawer()})}
 var area=overlay.querySelector('.okm61-drawer-body');area.replaceChildren();overlay.querySelector('.okm61-drawer-head strong').textContent=kind==='menu'?'Menu':'Všechny kategorie';
@@ -178,7 +178,7 @@ setTimeout(correct,320);setTimeout(correct,1000);setTimeout(correct,2200);
 })();
 
 /* === public/legacy/v62/okla_recovery_v62.js / behavior only === */
-/* OKLA V62 – independent recovery for hero dots, categories and product reveal */
+/* Okla V62 – independent recovery for hero dots, categories and product reveal */
 (function(){
 'use strict';
 if(window.__oklaRecovery62)return;window.__oklaRecovery62=1;
@@ -221,9 +221,9 @@ button.setAttribute('aria-expanded','false');shell.after(button)
 })
 }
 function repair(){if(!active.matches||(location.pathname!=='/'&&location.pathname!==''))return;
-try{fixDots()}catch(e){console.warn('OKLA hero dots:',e)}
-try{fixCategories()}catch(e){console.warn('OKLA mobile categories:',e)}
-try{fixProductButtons()}catch(e){console.warn('OKLA mobile products:',e)}
+try{fixDots()}catch(e){console.warn('Okla hero dots:',e)}
+try{fixCategories()}catch(e){console.warn('Okla mobile categories:',e)}
+try{fixProductButtons()}catch(e){console.warn('Okla mobile products:',e)}
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',repair,{once:true});else repair();
 window.addEventListener('load',repair,{once:true});setTimeout(repair,250);setTimeout(repair,1000);setTimeout(repair,2300);
@@ -231,7 +231,7 @@ window.oklaMobileRecover=repair;
 })();
 
 /* === public/v91/behavior_v65.js / behavior only === */
-/* OKLA V65 – all JS, mobile refinements and evidence hooks, native Shoptet actions preserved */
+/* Okla V65 – all JS, mobile refinements and evidence hooks, native Shoptet actions preserved */
 (function(){
 'use strict';if(window.__oklaV65)return;window.__oklaV65=true;
 const narrow=window.matchMedia('(max-width:767px)');
@@ -276,7 +276,7 @@ return result;
 })();
 
 /* === public/v91/behavior_v66.js / behavior only === */
-/* OKLA V66 — directional sticky header + fixed Shoptet product cards.
+/* Okla V66 — directional sticky header + fixed Shoptet product cards.
   Does NOT replace product forms or cart buttons. */
 (function(){
 'use strict';if(window.__oklaV66)return;window.__oklaV66=true;
@@ -336,7 +336,7 @@ window.oklaMobileV66Inspect=function(){
 })();
 
 /* === public/legacy/v67/okla_native_cart_v67.js / behavior only === */
-/* OKLA V67 – recover native Shoptet cart controls from inside constrained price panel.
+/* Okla V67 – recover native Shoptet cart controls from inside constrained price panel.
    Nodes are moved, not cloned: Shoptet form listeners and native product actions remain intact. */
 (function(){
 'use strict';
@@ -387,7 +387,7 @@ return d;
 })();
 
 /* === public/v91/behavior_v69.js / behavior only === */
-/* OKLA mobile v69: original static, external header only on upward scroll */
+/* Okla mobile v69: original static, external header only on upward scroll */
 (function(){'use strict';if(window.__oklaV69)return;window.__oklaV69=true;
 /* retired: okla_mobile_shell (V91) owns the phone's scroll header and hides #okla-v69-floating for good
    (okla_mobile_shell.css), so this one no longer runs - it only read the page layout on every scroll event */
@@ -401,8 +401,8 @@ var source=original().querySelector('.okm61-logo');if(!source)return;
 floating=document.createElement('div');floating.id='okla-v69-floating';floating.setAttribute('aria-hidden','true');floating.inert=true;
 var shell=document.createElement('div');shell.className='okm69-shell';
 var row=document.createElement('div');row.className='okm69-logo-row';
-var logo=document.createElement('a');logo.className='okm69-logo';logo.href=source.getAttribute('href')||'/';logo.setAttribute('aria-label','OKLA – úvodní stránka');
-var originImg=source.querySelector('img');if(originImg){var img=document.createElement('img');img.src=originImg.currentSrc||originImg.src;img.alt=originImg.alt||'OKLA';logo.appendChild(img)}else logo.textContent=source.textContent||'OKLA';
+var logo=document.createElement('a');logo.className='okm69-logo';logo.href=source.getAttribute('href')||'/';logo.setAttribute('aria-label','Okla – úvodní stránka');
+var originImg=source.querySelector('img');if(originImg){var img=document.createElement('img');img.src=originImg.currentSrc||originImg.src;img.alt=originImg.alt||'Okla';logo.appendChild(img)}else logo.textContent=source.textContent||'Okla';
 row.appendChild(logo);
 var originalForm=original().querySelector('.okm61-search form'),originalInput=originalForm&&originalForm.querySelector('input[name]');
 var form=document.createElement('form');form.className='okm69-search';form.method='get';form.action=originalForm&&originalForm.getAttribute('action')||'/vyhledavani/';form.setAttribute('role','search');
@@ -424,7 +424,7 @@ window.oklaMobileV69Inspect=function(){var o=document.getElementById('header');r
 })();
 
 /* === public/v91/behavior_v71.js / behavior only === */
-/* OKLA V71 mobile finishing layer, keeps full V68 page and native Shoptet product controls. */
+/* Okla V71 mobile finishing layer, keeps full V68 page and native Shoptet product controls. */
 (function(){'use strict';if(window.__oklaV71)return;window.__oklaV71=true;
 const narrow=window.matchMedia('(max-width:767px)');
 const NS='http://www.w3.org/2000/svg';
@@ -455,7 +455,7 @@ return{width:innerWidth,y:scrollY,originalHeaderPosition:a?getComputedStyle(a).p
 })();
 
 /* === public/v91/behavior_v72.js / behavior only === */
-/* OKLA V72 – incremental, mobile-only products and subtle Alza-like header gradient; all native cart handlers preserved. */
+/* Okla V72 – incremental, mobile-only products and subtle Alza-like header gradient; all native cart handlers preserved. */
 (function(){'use strict';if(window.__oklaV72)return;window.__oklaV72=true;var m=window.matchMedia('(max-width:767px)');
 var NS='http://www.w3.org/2000/svg';
 function cartIcon(){var s=document.createElementNS(NS,'svg');s.classList.add('okv72-cart');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');['M3 4h2.5l2 11h10.2l2.2-7H6','M10 20h.01','M18 20h.01'].forEach(function(d){var p=document.createElementNS(NS,'path');p.setAttribute('d',d);s.appendChild(p)});return s}
@@ -465,7 +465,7 @@ window.addEventListener('load',apply,{once:true});window.addEventListener('resiz
 window.oklaV72Check=function(){var track=document.querySelector('#content .okla-slider-shell .okla-slider-track'),products=[...track?.children||[]].filter(x=>x.classList.contains('product')).slice(0,2);var cards=products.map(function(p){var r=p.getBoundingClientRect(),pr=p.querySelector('.prices')?.getBoundingClientRect(),btn=p.querySelector('.btn-cart')?.getBoundingClientRect();return{width:r.width,priceHeight:pr?.height||0,buttonHeight:btn?.height||0,buttonInside:!!(btn&&btn.left>=r.left-1&&btn.right<=r.right+1),belowPrice:!!(pr&&btn&&btn.top>=pr.bottom-1)}});return{viewport:innerWidth,logoHeight:document.querySelector('#okla-v61-header .okm61-logo img')?.getBoundingClientRect().height??null,cards,gridColumns:track?getComputedStyle(track).gridTemplateColumns:null,noHorizontalOverflow:document.documentElement.scrollWidth<=innerWidth+2,newsExists:!!document.querySelector('#okla-news-v55'),categoriesExist:!!document.querySelector('#okla-v61-categories')}}})();
 
 /* === public/v91/behavior_v73.js / behavior only === */
-/* OKLA V73: gradient continuation, honest 5-star placeholders, remove warranty and exact duplicates. */
+/* Okla V73: gradient continuation, honest 5-star placeholders, remove warranty and exact duplicates. */
 (function(){'use strict';if(window.__oklaV73)return;window.__oklaV73=true;
 const MOBILE=window.matchMedia('(max-width:767px)');
 
@@ -533,7 +533,7 @@ return{mobile:MOBILE.matches,placeholderStars:rat,warrantyCount:document.querySe
 })();
 
 /* === public/v91/behavior_v74.js / behavior only === */
-/* OKLA V74 — full stars, larger names, no unavailable notices, one global show-more, green cart glyphs, subtler right gradient. */
+/* Okla V74 — full stars, larger names, no unavailable notices, one global show-more, green cart glyphs, subtler right gradient. */
 (function(){'use strict';if(window.__oklaV74)return;window.__oklaV74=true;
 const mq=window.matchMedia('(max-width:767px)');
 const NS='http://www.w3.org/2000/svg';

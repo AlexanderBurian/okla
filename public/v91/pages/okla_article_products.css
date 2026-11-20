@@ -1,4 +1,4 @@
-/* OKLA – products beside an article (okla_article_products.js): the homepage product cards (the shared .okla-cards
+/* Okla – products beside an article (okla_article_products.js): the homepage product cards (the shared .okla-cards
    look), three in a column on PC with roomy vertical gaps, a swipeable row on phones and tablets. Only the layout of
    the cards is set here; their look stays the homepage one. */
 html body #content .okla-clanek__aside.okla-art-aside{display:block!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}

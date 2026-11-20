@@ -1,4 +1,4 @@
-/* OKLA – product page tools (Tisk, Zeptat se, Hlídat, Sdílet) in the OKLA style (okla_product_tools.css).
+/* Okla – product page tools (Tisk, Zeptat se, Hlídat, Sdílet) in the Okla style (okla_product_tools.css).
    Sdílet: Shoptet's share block loads Twitter and Facebook widgets that often stay empty; it is replaced by our own
    panel – Kopírovat odkaz, Facebook, WhatsApp, X, E-mail – and on phones by the system share sheet when available.
    Tisk, Zeptat se and Hlídat stay Shoptet's own (their dialogs are styled in CSS). */

@@ -1,7 +1,7 @@
 /* Form fields at the right width, on every page and screen: a field fills exactly the column it stands in, so its
    edges line up with the fields above and below it and with the form's button.
    - Shoptet caps some fields (a <select> at 440px, e.g. "Téma" in the contact form) - the cap goes, the column decides;
-   - only fields inside a field wrapper (Shoptet's .form-group, OKLA's own field boxes), so search boxes and amounts in
+   - only fields inside a field wrapper (Shoptet's .form-group, Okla's own field boxes), so search boxes and amounts in
      the cart keep their own sizes; a wrapper with two controls in one row (phone prefix + number) keeps its layout;
    - registration: the e-mail on its own row, the two passwords side by side (a lone half-width "Heslo (kontrola)"
      looked broken). */

@@ -1,4 +1,4 @@
-/* OKLA – desktop product buy bar (okla_desktop_buybar.js). A full-width white strip at the TOP of the window, content
+/* Okla – desktop product buy bar (okla_desktop_buybar.js). A full-width white strip at the TOP of the window, content
    as wide as the header's content: picture, name with stars and stock, price, green button. It slides down once the
    page's own buy button has scrolled away and takes the sticky header's place while it is shown. The product
    gallery stays in view while the right-hand column is scrolled. */

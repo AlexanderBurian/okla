@@ -1,4 +1,4 @@
-/* OKLA cart and checkout: white cards, clear steps, a summary card on the right and one navy action.
+/* Okla cart and checkout: white cards, clear steps, a summary card on the right and one navy action.
    Loaded only on ordering pages (body.ordering-process). The side art is off on these pages. */
 
 body.ordering-process .cart-header{flex-wrap:nowrap;}

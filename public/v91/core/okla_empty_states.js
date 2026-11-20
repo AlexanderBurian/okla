@@ -1,6 +1,6 @@
-/* OKLA – pages with nothing to show, in the same language as the empty
+/* Okla – pages with nothing to show, in the same language as the empty
    category card (one centred white card, dark headline, grey help text):
-   - 404: OKLA wording instead of Shoptet's "A safra! Něco se pokazilo.",
+   - 404: Okla wording instead of Shoptet's "A safra! Něco se pokazilo.",
      plus a search field and the shop categories;
    - search without results: a card with the searched term, a search field
      (pre-filled) and the categories instead of a bare "Produkty nebyly nalezeny";

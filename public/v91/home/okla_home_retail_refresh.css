@@ -1,4 +1,4 @@
-/* OKLA homepage retail refresh. Presentation only; navbar and native actions stay untouched. */
+/* Okla homepage retail refresh. Presentation only; navbar and native actions stay untouched. */
 html body.type-index #content .okla-hero,
 html body.type-index #content .okla-tile{border-radius:4px!important;box-shadow:0 2px 8px rgba(9,39,69,.12)!important}
 html body.type-index #content .okla-hero__slide::before,

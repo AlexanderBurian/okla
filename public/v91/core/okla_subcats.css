@@ -1,4 +1,4 @@
-/* OKLA – the category page's subcategories (okla_subcats.js) as light rounded tiles (in the manner of big shops' category
+/* Okla – the category page's subcategories (okla_subcats.js) as light rounded tiles (in the manner of big shops' category
    tiles): a light neutral grey rectangle with rounded corners, the photo of a product of the subcategory on the left
    (its white background melts into the tile), the name on the right */
 html body #content ul.subcategories.okla-subcats:not(#osc-a#osc-b#osc-c#osc-d){display:grid!important;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))!important;gap:10px!important;margin:16px 0 24px!important;padding:0!important;list-style:none!important;float:none!important;width:auto!important}

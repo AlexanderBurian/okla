@@ -1,4 +1,4 @@
-/* OKLA V127 – one button language across the storefront.
+/* Okla V127 – one button language across the storefront.
    Every text/action button is rounded. Button hover never uses the blue field
    outline: filled actions darken very slightly, empty actions get a soft tint. */
 
@@ -74,7 +74,7 @@ html.okla-ord-ready body .okla-ord-head:is(:hover,:active){
   ).okla-button--filled:not(.okla-header-account):not(.okla-ord-head):not(.oka-c-tab):not(.okla-password-toggle):not(.okla-xsell__item):not(.btn-cart):not(.add-to-cart-button):not(.unveil-button):not(#__okla_button_filled_a#__okla_button_filled_b#__okla_button_filled_c#__okla_button_filled_d):not([disabled]):not([aria-disabled="true"]):hover{
     filter:brightness(.96)!important;
   }
-  /* "Otevřít / Zavřít filtr": one flat, deeper OKLA blue — never the lighter
+  /* "Otevřít / Zavřít filtr": one flat, deeper Okla blue — never the lighter
      #0859d8, and no hover/tap change at all. */
   html body .unveil-button{-webkit-tap-highlight-color:transparent!important}
   html body .unveil-button:is(:hover,:focus,:focus-visible,:active){filter:none!important;background:#074bb7!important;background-color:#074bb7!important;border-color:#074bb7!important;color:#fff!important;box-shadow:none!important;outline:none!important;transform:none!important}
@@ -183,7 +183,7 @@ html body #filters .filter-section-boolean input[type="checkbox"] + label{
   background-image:none!important;
 }
 
-/* Customer centre: preserve the normal OKLA colours on hover. */
+/* Customer centre: preserve the normal Okla colours on hover. */
 html.okla-acc-polished body #content :is(.btn.btn-primary,.btn.btn-conversion),
 html.okla-acc-polished body #content :is(.btn.btn-primary,.btn.btn-conversion):is(:hover,:active,:focus){
   border-color:#1d54aa!important;
@@ -397,7 +397,7 @@ html body.type-index #content .homepage-group-title.okla-slider-heading .okla-se
    hollow round handles (white fill + a thin blue ring).
    ============================================================ */
 html body .slider-wrapper h4{margin:0 0 12px!important;text-align:center!important}
-html body .slider-wrapper h4 span{font:700 12px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.09em!important;text-transform:uppercase!important;color:#1a1a1a!important}
+html body .slider-wrapper h4 span{font:700 12px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#1a1a1a!important}
 /* The slider-content wrapper carries a grey (#dadada) background in the theme,
    which shows past the track ends as ugly grey stubs. Clear it. */
 html body .slider-wrapper .slider-content{background:transparent!important;background-color:transparent!important}
@@ -442,7 +442,7 @@ html body .okla-button--green:not(#okla-gh-a#okla-gh-b#okla-gh-c#okla-gh-d#okla-
 }
 
 /* Checkboxes (Shoptet draws them as label::before / ::after): a rounded 18 px
-   box instead of the sharp 14 px square, and when ticked a filled OKLA-blue box
+   box instead of the sharp 14 px square, and when ticked a filled Okla-blue box
    with a white check mark instead of a smaller square inside. Centred on the
    same point as before, so the label text does not move. Radios untouched. */
 html body input[type=checkbox]+label::before{

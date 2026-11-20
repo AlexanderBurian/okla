@@ -1,0 +1,10 @@
+/* No text in capitals anywhere: labels, headings, buttons and badges are written with a capital first letter only
+   ("E-mail", "Odeslat reklamaci", "Novinka"), never "E-MAIL". Okla's own styles no longer set text-transform:uppercase;
+   this last rule also undoes it in Shoptet's own styles (form labels, section titles, "Přihlásit přes", ...). (In Okla's
+   own styles the wide letter spacing that went with the capitals is gone too.) Loaded last (28-last). */
+html body:not(#onc-a#onc-b#onc-c#onc-d#onc-e#onc-f#onc-g#onc-h#onc-i#onc-j) *,
+html body:not(#onc-a#onc-b#onc-c#onc-d#onc-e#onc-f#onc-g#onc-h#onc-i#onc-j) *::before,
+html body:not(#onc-a#onc-b#onc-c#onc-d#onc-e#onc-f#onc-g#onc-h#onc-i#onc-j) *::after,
+html body:not(#onc-a#onc-b#onc-c#onc-d#onc-e#onc-f#onc-g#onc-h#onc-i#onc-j) ::placeholder{
+  text-transform:none!important;font-variant-caps:normal!important;
+}

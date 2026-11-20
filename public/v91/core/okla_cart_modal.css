@@ -1,4 +1,4 @@
-/* OKLA "added to cart" dialog (okla_cart_modal.js), Alza style: centred dialog on PC, full screen on phones.
+/* Okla "added to cart" dialog (okla_cart_modal.js), Alza style: centred dialog on PC, full screen on phones.
    Everything is scoped under #okla-cart-modal and guarded, so the site's global button and text rules stay out. */
 html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 #okla-cart-modal{--cm-green:#0859d8;--cm-green-dark:#0751c6;--cm-navy:#0b2540;--cm-ink:#164194;--cm-red:#d0102b;--cm-grey:#6b7686;

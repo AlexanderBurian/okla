@@ -1,5 +1,5 @@
-/* OKLA newsroom – /newsroom and the article list /nase-novinky/. Article grid in the Alza-style layout with search and two filters.
-   Colours, type and buttons follow the OKLA storefront. Loaded by zapati_firsthalf.js on this path only. */
+/* Okla newsroom – /newsroom and the article list /nase-novinky/. Article grid in the Alza-style layout with search and two filters.
+   Colours, type and buttons follow the Okla storefront. Loaded by zapati_firsthalf.js on this path only. */
 (function(){
 'use strict';
 if(window.__oklaNewsroomV1)return;
@@ -166,10 +166,10 @@ function mount(){
  document.body.classList.add('okla-newsroom-page');
  var root=document.createElement('section');
  root.className='okla-newsroom';
- root.setAttribute('aria-label','Newsroom OKLA');
+ root.setAttribute('aria-label','Newsroom Okla');
  root.innerHTML='<header class="nr-hero">'
   +'<h1 class="nr-title">Newsroom</h1>'
-  +'<p class="nr-lead">Průvodci a návody k produktům z nabídky OKLA. Hledejte podle slova, tématu nebo kategorie.</p>'
+  +'<p class="nr-lead">Průvodci a návody k produktům z nabídky Okla. Hledejte podle slova, tématu nebo kategorie.</p>'
   +'<div class="nr-controls">'
   +'<label class="nr-field"><span class="nr-sr">Hledat článek</span><input type="search" placeholder="Hledat článek" autocomplete="off">'+ICON.search+'</label>'
   +'<label class="nr-field"><span class="nr-sr">Téma</span><select data-filter="topic">'+options('topic','Všechna témata')+'</select>'+ICON.chevron+'</label>'

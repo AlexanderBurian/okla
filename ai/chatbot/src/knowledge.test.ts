@@ -19,7 +19,7 @@ describe("knowledge search", () => {
 
 describe("Shoptet feed", () => {
   it("načte produkt a odkaz z XML", () => {
-    const xml = `<SHOP><SHOPITEM><ITEM_ID>42</ITEM_ID><PRODUCTNAME>Testovací kabel</PRODUCTNAME><DESCRIPTION><![CDATA[USB kabel]]></DESCRIPTION><URL>https://www.okla.cz/kabel/</URL><MANUFACTURER>OKLA</MANUFACTURER></SHOPITEM></SHOP>`;
+    const xml = `<SHOP><SHOPITEM><ITEM_ID>42</ITEM_ID><PRODUCTNAME>Testovací kabel</PRODUCTNAME><DESCRIPTION><![CDATA[USB kabel]]></DESCRIPTION><URL>https://www.okla.cz/kabel/</URL><MANUFACTURER>Okla</MANUFACTURER></SHOPITEM></SHOP>`;
     expect(parseShoptetFeed(xml)).toEqual([
       expect.objectContaining({ id: "feed-42", title: "Testovací kabel", url: "https://www.okla.cz/kabel/" })
     ]);
@@ -29,7 +29,7 @@ describe("Shoptet feed", () => {
 describe("Shoptet CSV", () => {
   it("načte středníky v uvozovkách, cenu a bezpečný produktový odkaz", () => {
     const csv = "\uFEFFcode;name;price;productVisibility;defaultCategory;shortDescription;manufacturer;itemType\r\n" +
-      "OKL-900;USB-C měřič – přesný tester;1290;visible;Měřicí technika;\"Měří napětí; proud a výkon.\";OKLA;product\r\n";
+      "OKL-900;USB-C měřič – přesný tester;1290;visible;Měřicí technika;\"Měří napětí; proud a výkon.\";Okla;product\r\n";
     const products = parseShoptetCsv(csv, "https://825108.myshoptet.com/");
     expect(products).toHaveLength(1);
     expect(products[0]).toEqual(expect.objectContaining({

@@ -1,4 +1,4 @@
-/* OKLA homepage side art: a phone on the left; on the right one of four products, picked at random on every page
+/* Okla homepage side art: a phone on the left; on the right one of four products, picked at random on every page
    load (Flipper Zero with its Wi-Fi module, A2 glasses, ANENG AOS03 meter, P80 endoscope), each with its price on a
    price tag. They sit in the page margins beside the white card and touch its edges. Shown only when both margins are
    wide enough. The price comes from the product page (cached for the session), so it never goes stale. */
@@ -28,7 +28,7 @@
   if(document.getElementById('okla-side-left'))return;
   block('okla-side-left','left',
    '<a class="okla-side-art__link" href="/obchodni-podminky/">'+
-   '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem OKLA"></div>'+
+   '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem Okla"></div>'+
    '</a>'+
    '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>');
   renderRight(shuffled(RIGHT.slice()));

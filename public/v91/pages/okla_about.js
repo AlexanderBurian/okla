@@ -1,8 +1,8 @@
-/* OKLA V91 – "O nás" page, rebuilt PPL-style: full-width, clean white, one brand
+/* Okla V91 – "O nás" page, rebuilt PPL-style: full-width, clean white, one brand
    blue, no gradients / eyebrows / decorative graphics, real committed stock
    photos. Includes a flat SVG map (our three states in one blue, neighbours
    grey) built from committed GeoJSON with real borders. Shown on /o-nas/
-   (takes over the CMS page). Company facts are editorial placeholders for OKLA
+   (takes over the CMS page). Company facts are editorial placeholders for Okla
    to adjust here — no fabricated registry IDs, awards or certifications. */
 (function(){
  'use strict';
@@ -34,10 +34,10 @@
 
  /* HERO */
  '<div class="oka-hero">'+
-   '<img class="oka-hero__img" src="'+IMG('hero-building.webp')+'" alt="Budova OKLA">'+
+   '<img class="oka-hero__img" src="'+IMG('hero-building.webp')+'" alt="Budova Okla">'+
    '<div class="oka-wrap"><div class="oka-hero__text">'+
      '<h1>Gadgety a chytrá elektronika, kterým rozumíme</h1>'+
-     '<p>OKLA je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Vybíráme, testujeme a posíláme z Ostravy do tří zemí.</p>'+
+     '<p>Okla je český e-shop s pečlivě vybranou technikou: od Flipper Zero přes Wi-Fi endoskopy a USB-C testery po měřicí přístroje. Vybíráme, testujeme a posíláme z Ostravy do tří zemí.</p>'+
      '<div class="oka-hero__cta">'+
        '<a class="oka-btn oka-btn--white" href="/">Prohlédnout sortiment'+ARROW+'</a>'+
        '<a class="oka-link" href="/kontakt/">Napište nám'+ARROW+'</a>'+
@@ -56,7 +56,7 @@
  /* INTRO */
  '<div class="oka-sec oka-intro"><div class="oka-wrap">'+
    '<h2 class="oka-h2">Malý tým, který techniku opravdu baví</h2>'+
-   '<p>Začali jsme v roce 2019 v Ostravě z jednoduché frustrace: zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je OKLA kurátorský obchod. Raději méně produktů, ale takových, za kterými si stojíme a které sami používáme.</p>'+
+   '<p>Začali jsme v roce 2019 v Ostravě z jednoduché frustrace: zajímavé gadgety se v Česku buď nedaly sehnat, nebo k nim nikdo neuměl poradit. Dnes je Okla kurátorský obchod. Raději méně produktů, ale takových, za kterými si stojíme a které sami používáme.</p>'+
  '</div></div>'+
 
  /* FEATURE ROWS */
@@ -208,7 +208,7 @@
   wrap.innerHTML=HTML;
   var node=wrap.firstChild;
   host.insertBefore(node,host.firstChild);
-  document.title='O nás · OKLA';
+  document.title='O nás · Okla';
   initMap();
   initCounters();
   initCarousel();

@@ -1,4 +1,4 @@
-/* OKLA – homepage categories as one row of big round tiles (Best Buy style): a light grey circle with a product photo
+/* Okla – homepage categories as one row of big round tiles (Best Buy style): a light grey circle with a product photo
    from the category and the category name under it. PC: one row across the full width (the left sidebar is gone on the
    homepage); phones: the same circles in a row that scrolls sideways (replaces the icon tiles #okla-v61-categories).
    The categories and their links come from the shop's own navigation; a category without its photo yet (an empty

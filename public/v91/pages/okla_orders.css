@@ -1,4 +1,4 @@
-/* OKLA V125 – customer "Moje objednávky". Neutral grey order panels without
+/* Okla V125 – customer "Moje objednávky". Neutral grey order panels without
    a card outline, plus billing, delivery and invoice actions. No gradients. */
 
 html.okla-ord-ready body .okla-ord-native-hidden{display:none!important}
@@ -41,7 +41,7 @@ html.okla-ord-ready body .okla-ord-card.is-open .okla-ord-body{display:block;ani
 html.okla-ord-ready body .okla-ord-sec{padding:16px 2px;border-top:1px solid #e4e9f0}
 
 /* ---- Delivery status (shown at once) ---- */
-html.okla-ord-ready body .okla-ord-status__label{display:block;margin:0 0 12px;font:700 11.5px/1 "Open Sans",Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#8995a5}
+html.okla-ord-ready body .okla-ord-status__label{display:block;margin:0 0 12px;font:700 11.5px/1 "Open Sans",Arial,sans-serif;letter-spacing:0;text-transform:none;color:#8995a5}
 html.okla-ord-ready body .okla-ord-status__cancel{display:inline-flex;align-items:center;height:28px;padding:0 13px;border-radius:999px;background:#fdeaec;color:#c0344a;border:1px solid #f5c6ce;font:700 12.5px/1 "Open Sans",Arial,sans-serif}
 html.okla-ord-ready body .okla-ord-steps{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start}
 html.okla-ord-ready body .okla-ord-step{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
@@ -81,7 +81,7 @@ html.okla-ord-ready body .okla-ord-detail-card__lines li{margin:0;color:#5f6d7d;
 html.okla-ord-ready body .okla-ord-shipping__title{margin:0 0 12px;color:#0b2540;font:800 13px/1.25 "Open Sans",Arial,sans-serif}
 html.okla-ord-ready body .okla-ord-shipping__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0}
 html.okla-ord-ready body .okla-ord-shipping__row{min-width:0;padding:13px 14px;background:#fff;border:0;border-radius:10px}
-html.okla-ord-ready body .okla-ord-shipping__row dt{margin:0 0 5px;color:#8995a5;font:700 11.5px/1.25 "Open Sans",Arial,sans-serif;text-transform:uppercase;letter-spacing:.035em}
+html.okla-ord-ready body .okla-ord-shipping__row dt{margin:0 0 5px;color:#8995a5;font:700 11.5px/1.25 "Open Sans",Arial,sans-serif;text-transform:none;letter-spacing:0}
 html.okla-ord-ready body .okla-ord-shipping__row dd{margin:0;color:#34465a;font:600 12.5px/1.45 "Open Sans",Arial,sans-serif;overflow-wrap:anywhere}
 
 /* ---- Actions: equal and symmetric; complaint is the red outlined action ---- */

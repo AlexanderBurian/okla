@@ -1,4 +1,4 @@
-/* OKLA checkout pages. The header icons are the same as on the homepage; the order summary shows the product
+/* Okla checkout pages. The header icons are the same as on the homepage; the order summary shows the product
    thumbnails; the payment methods get pictograms; the cart gets minus and plus buttons; the help box and the
    empty boxes are hidden. */
 (function(){

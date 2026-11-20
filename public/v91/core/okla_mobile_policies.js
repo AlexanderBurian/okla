@@ -1,4 +1,4 @@
-/* OKLA V113 – mobile-only footer visibility and iOS header theme color.
+/* Okla V113 – mobile-only footer visibility and iOS header theme color.
    Existing navigation, drawer and order-status modules remain authoritative. */
 (function(){
  'use strict';

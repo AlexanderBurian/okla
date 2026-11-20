@@ -1,4 +1,4 @@
-/* OKLA product page - the picture viewer. A click on the product's main picture opens the shop's pictures over the whole
+/* Okla product page - the picture viewer. A click on the product's main picture opens the shop's pictures over the whole
    screen: a grey bar on top (logo, "2 / 6", close), the picture in the middle on white with arrows at the sides, the
    thumbnails in a row underneath (the current one framed). Arrow keys, Escape, swiping on phones and the phone's Back
    button work. It replaces Shoptet's own lightbox (colorbox) for the product pictures only - colorbox stays for the
@@ -42,7 +42,7 @@
  function build(){
   box=el('div','okla-gal');box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');box.setAttribute('aria-label','Galerie obrázků produktu');box.hidden=true;box.tabIndex=-1;
   var bar=el('div','okla-gal__bar');
-  var logo=el('img','okla-gal__logo');logo.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';logo.alt='OKLA.cz';
+  var logo=el('img','okla-gal__logo');logo.src=(window.__oklaAssetBase||'')+'v91/img/okla-logo.png';logo.alt='Okla.cz';
   count=el('div','okla-gal__count');count.setAttribute('aria-live','polite');
   var close=el('button','okla-gal__close');close.type='button';close.setAttribute('aria-label','Zavřít galerii');
   close.appendChild(icon('M6 6l12 12M18 6 6 18'));

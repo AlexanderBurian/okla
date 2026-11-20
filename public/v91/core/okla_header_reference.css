@@ -1,5 +1,5 @@
-/* OKLA V94: header reference layout. This stylesheet intentionally loads after
-   the older OKLA header styles and overrides only the desktop/tablet header.
+/* Okla V94: header reference layout. This stylesheet intentionally loads after
+   the older Okla header styles and overrides only the desktop/tablet header.
    Native Shoptet search and basket elements remain functional. */
 @media(min-width:992px){
   html.okla-header-reference body #header .header-top{
@@ -146,7 +146,7 @@
   }
   html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy strong{
     
-    text-transform:uppercase!important;letter-spacing:0!important;
+    text-transform:none!important;letter-spacing:0!important;
   }
   html.okla-header-reference body #header .header-top .navigation-buttons .okla-header-account .okla-header-copy small{
     display:none!important;visibility:hidden!important;
@@ -242,9 +242,9 @@
     flex-basis:42px!important;height:42px!important;min-height:42px!important;
   }
 }
-/* The existing OKLA V61 mobile controls remain responsible for 0–767px. */
+/* The existing Okla V61 mobile controls remain responsible for 0–767px. */
 
-/* OKLA V96 — one centered desktop header, visually aligned with content edges.
+/* Okla V96 — one centered desktop header, visually aligned with content edges.
    Existing Shoptet search, customer account, language picker and LIVE cart price remain.
    Does NOT touch either ordinary or sticky mobile header (under 768px). */
 @media (min-width:992px) {
@@ -488,4 +488,4 @@
     min-width:0!important;
   }
 }
-/* No changes below 768px: preserve both OKLA mobile header modes. */
+/* No changes below 768px: preserve both Okla mobile header modes. */

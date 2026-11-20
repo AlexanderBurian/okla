@@ -1,4 +1,4 @@
-/* OKLA product cards (homepage sliders, categories, search, related products). The picture is 18 % larger everywhere (6 %, then 5 % and 6 % more);
+/* Okla product cards (homepage sliders, categories, search, related products). The picture is 18 % larger everywhere (6 %, then 5 % and 6 % more);
    on desktop the content under it (stars, name, availability, badge, price, button) is 18 % larger too. The stars stand
    alone and centred: the "no reviews" text next to them is not shown. */
 html body .products .product .p .image img{transform:scale(1.18)!important;transform-origin:center center!important;transition:none!important}
@@ -20,7 +20,7 @@ html body .products .product .okv73-rating-placeholder{display:flex!important;ju
 @media(min-width:992px){
  html body .products .product .p .p-in{zoom:1.18}
 }
-/* Listing cards stay compact and uniform in the OKLA style: no product code and
+/* Listing cards stay compact and uniform in the Okla style: no product code and
    no description teaser (those are the native Shoptet listing look). The detail
    page uses different markup, so its description is untouched. */
 html body .products .product .p-code{display:none!important}

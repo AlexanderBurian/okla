@@ -1,4 +1,4 @@
-/* OKLA – homepage: the search field types example searches by itself ("Flipper Zero", "digitální multimetr", ...),
+/* Okla – homepage: the search field types example searches by itself ("Flipper Zero", "digitální multimetr", ...),
    so the visitor starts thinking of what to look for. Only the placeholder is animated - the field stays empty and
    works as usual. The moment the visitor touches the search (focus, click, tap), the animation stops for good and the
    ordinary placeholder is back, so they type their own words.

@@ -1,4 +1,4 @@
-/* OKLA – payment method logos at the very bottom of the footer, bottom left (desktop) /
+/* Okla – payment method logos at the very bottom of the footer, bottom left (desktop) /
    centred under the copyright (phones): Apple Pay, Google Pay, Mastercard, Visa.
    Apple Pay, Google Pay and Visa are the Simple Icons marks (CC0 paths, trademarks of their
    owners, shown as accepted payment methods); Mastercard is its two circles. */

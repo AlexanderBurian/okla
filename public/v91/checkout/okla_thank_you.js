@@ -1,4 +1,4 @@
-/* OKLA – the thank-you page after an order is sent (/objednavka/dekujeme/).
+/* Okla – the thank-you page after an order is sent (/objednavka/dekujeme/).
    Shoptet prints a heading, the order number, a "Platba a doručení" table and an "Obsah objednávky" table. Neither
    table is shown here; the page is only:
    - a thank-you header with the order number and the order-tracking / continue-shopping buttons, and
@@ -69,7 +69,7 @@
   var n=parseFloat(a);if(!(n>0))return null;
   var amount=n.toFixed(2);
   return {vs:vs,amount:amount,amountText:amountRow.value,
-   spd:'SPD*1.0*ACC:'+BANK.iban+'*AM:'+amount+'*CC:CZK*X-VS:'+vs+'*MSG:OKLA OBJEDNAVKA '+vs};
+   spd:'SPD*1.0*ACC:'+BANK.iban+'*AM:'+amount+'*CC:CZK*X-VS:'+vs+'*MSG:Okla objednavka '+vs};
  }
 
  function build(){

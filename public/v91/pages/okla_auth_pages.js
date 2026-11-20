@@ -1,4 +1,4 @@
-/* OKLA – isolated, Alza-style auth pages. Injects a single centred OKLA logo
+/* Okla – isolated, Alza-style auth pages. Injects a single centred Okla logo
    above the sign-in / sign-up card (the shop chrome is hidden in CSS), and
    simplifies the registration form: force an end-customer sign-up and drop the
    wholesale/customer-type choice and the optional company-billing section. The
@@ -14,13 +14,13 @@
     hidden by CSS; cloning keeps whatever logo the deployed version uses). */
  function logoBar(){
   if(document.querySelector('.okla-auth-top'))return true;
-  var logo=document.querySelector('#header img[alt="OKLA.cz"],#header img[alt*="okla" i],#header [class*="logo"] img,a[href="/"] img');
+  var logo=document.querySelector('#header img[alt="Okla.cz"],#header img[alt*="okla" i],#header [class*="logo"] img,a[href="/"] img');
   var src=logo?(logo.getAttribute('src')||logo.getAttribute('data-src')||''):'';
   if(!src)return false;                 /* wait until the header logo is in the DOM */
   var cw=document.querySelector('#content-wrapper')||document.querySelector('main#content')||document.body;
   var bar=document.createElement('div');bar.className='okla-auth-top';
-  var a=document.createElement('a');a.href='/';a.setAttribute('aria-label','OKLA.cz');
-  var img=document.createElement('img');img.src=src;img.alt='OKLA.cz';
+  var a=document.createElement('a');a.href='/';a.setAttribute('aria-label','Okla.cz');
+  var img=document.createElement('img');img.src=src;img.alt='Okla.cz';
   a.appendChild(img);bar.appendChild(a);
   (cw.parentNode||document.body).insertBefore(bar,cw);
   return true;

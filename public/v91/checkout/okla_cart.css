@@ -1,4 +1,4 @@
-/* OKLA cart page, in the layout of a modern checkout: product rows as cards, a quantity stepper, a summary card.
+/* Okla cart page, in the layout of a modern checkout: product rows as cards, a quantity stepper, a summary card.
    Loaded only on ordering pages. The top bar and the step underline are removed. */
 
 body.in-kosik .cart-header{border-bottom:0;margin-bottom:8px}

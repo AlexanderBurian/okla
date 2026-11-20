@@ -1,4 +1,4 @@
-/* OKLA V91 – "Kontakty" page. Laid out after NVIDIA's contact page but in OKLA
+/* Okla V91 – "Kontakty" page. Laid out after NVIDIA's contact page but in Okla
    blue: three contact cards, a "where to find us" block with CZ/SK/HU tabs, and
    a working contact form submitted through Shoptet's native MailForm action.
    Shown on /kontakty/ (takes over the CMS page). */
@@ -35,7 +35,7 @@
 
  /* TOP: cards */
  '<div class="oka-c-top"><div class="oka-c-wrap">'+
-   '<div class="oka-c-top__head"><h1>Kontaktujte OKLA</h1></div>'+
+   '<div class="oka-c-top__head"><h1>Kontaktujte Okla</h1></div>'+
    '<div class="oka-c-cards">'+
      card('icon-support.webp','Zákaznická podpora','Pomůžeme s objednávkou i reklamací.','Napsat podpoře','Dotaz k objednávce')+
      card('icon-advice-user-reference-v4.svg','Poradenství s výběrem','Pomůžeme vybrat vhodný přístroj.','Poradit s výběrem','Poradenství s výběrem')+
@@ -53,7 +53,7 @@
    '</div>'+
    '<div class="oka-c-panels">'+
      panel('cz',true,
-       col('Sídlo a sklad',[['OKLA – sklad a zázemí','Ostrava, Moravskoslezský kraj'],['Otevírací doba podpory','Po–Pá 9:00–17:00']])+
+       col('Sídlo a sklad',[['Okla – sklad a zázemí','Ostrava, Moravskoslezský kraj'],['Otevírací doba podpory','Po–Pá 9:00–17:00']])+
        col('Kontakt',[['E-mail','<a href="mailto:'+MAIL+'">'+MAIL+'</a>'],['Online objednávky','24/7 na okla.cz']])+
        col('Doručení',[['Dopravci a výdejní místa','Po celém Česku'],['Expedice','Zpravidla do 24 hodin v pracovní dny']])
      )+
@@ -161,7 +161,7 @@
   wrap.innerHTML=HTML;
   var node=wrap.firstChild;
   host.insertBefore(node,host.firstChild);
-  document.title='Kontakty · OKLA';
+  document.title='Kontakty · Okla';
   wire(node);
   /* Footer deep links: open the actual contact form with a relevant subject.
      The form is added by JavaScript, so the browser's initial hash jump is too early. */

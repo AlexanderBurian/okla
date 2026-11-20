@@ -1,4 +1,4 @@
-/* OKLA account pages: login, registration, forgotten password and the customer account. One centred white card in the
+/* Okla account pages: login, registration, forgotten password and the customer account. One centred white card in the
    site style: rounded fields, the green button of the checkout and centred links. Loaded only on these pages. */
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content{float:none!important;width:100%!important;max-width:none!important;margin:0 auto!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner{float:none!important;width:auto!important;max-width:480px!important;margin:32px auto 56px!important;padding:36px 36px 32px!important;background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;box-sizing:border-box!important}
@@ -7,13 +7,13 @@ html body[class*="in-klient"]:not(.in-zapomenute-heslo) #content .content-inner{
 
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h1{margin:0 0 24px!important;padding:0!important;border:0!important;text-align:center!important;font-family:"Open Sans",sans-serif!important;font-size:28px!important;font-weight:700!important;line-height:1.2!important;text-transform:none!important;color:#0b2540!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner>p{margin:0 0 20px!important;text-align:center!important;font-size:15px!important;line-height:1.5!important;color:#6b7280!important}
-html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h2{margin:0 0 14px!important;padding:0!important;border:0!important;background:none!important;font-family:"Open Sans",sans-serif!important;font-size:18px!important;font-weight:700!important;text-transform:uppercase!important;color:#0b2540!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h2{margin:0 0 14px!important;padding:0!important;border:0!important;background:none!important;font-family:"Open Sans",sans-serif!important;font-size:18px!important;font-weight:700!important;text-transform:none!important;color:#0b2540!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h2::before{content:none!important;display:none!important}
 
 /* Fields: the label above, a rounded input the full width of the card, a thin blue outline when focused. */
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content fieldset,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .co-box,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .box{margin:0 0 24px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-group{display:block!important;margin:0 0 16px!important;padding:0!important;width:auto!important}
-html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-group>label:not(.whole-width){display:block!important;position:static!important;width:auto!important;margin:0 0 6px!important;padding:0!important;text-align:left!important;font-size:12px!important;font-weight:700!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#0b2540!important}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-group>label:not(.whole-width){display:block!important;position:static!important;width:auto!important;margin:0 0 6px!important;padding:0!important;text-align:left!important;font-size:12px!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;color:#0b2540!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .form-control-wrapper{display:block!important;width:100%!important;max-width:none!important;margin:0!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content input.form-control,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content select.form-control{width:100%!important;max-width:none!important;height:46px!important;padding:0 14px!important;border:1px solid #cdd2da!important;border-radius:10px!important;background:#fff!important;box-shadow:none!important;font-size:15px!important;color:#0b2540!important;box-sizing:border-box!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content textarea.form-control{width:100%!important;max-width:none!important;padding:12px 14px!important;border:1px solid #cdd2da!important;border-radius:10px!important;box-shadow:none!important;resize:none!important;box-sizing:border-box!important}
@@ -24,7 +24,7 @@ html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"])
 
 /* The main button: the green of the checkout, the full width of the card, dark centred text. */
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .submit-wrapper{margin:24px 0 0!important;text-align:center!important}
-html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-primary,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-conversion{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:none!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 24px!important;border:1px solid #0859d8!important;border-radius:10px!important;background:#0859d8!important;box-shadow:none!important;font-family:"Open Sans",Arial,sans-serif!important;font-size:15px!important;font-weight:700!important;letter-spacing:.03em!important;text-transform:uppercase!important;color:#fff!important;transition:background-color .15s ease,border-color .15s ease}
+html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-primary,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-conversion{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:none!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 24px!important;border:1px solid #0859d8!important;border-radius:10px!important;background:#0859d8!important;box-shadow:none!important;font-family:"Open Sans",Arial,sans-serif!important;font-size:15px!important;font-weight:700!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important;transition:background-color .15s ease,border-color .15s ease}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-primary:hover,html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .btn.btn-conversion:hover{background:#0751c6!important;border-color:#0751c6!important;color:#fff!important}
 
 /* Registration and forgotten password links: centred under the button. */
@@ -52,7 +52,7 @@ html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"])
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner form{width:100%!important;max-width:none!important;margin:0!important;float:none!important}
 
 /* ===================================================================
-   Account / client centre (.okla-acc) – OKLA style, no decorations.
+   Account / client centre (.okla-acc) – Okla style, no decorations.
    Applied by okla_account.js to login, register and the logged-in
    "Zákaznické centrum" pages (Moje objednávky, Moje platby, …).
    =================================================================== */
@@ -89,7 +89,7 @@ html.okla-acc-center #content a{color:#0859d8}
 
 /* Native Shoptet account tables → calm, rounded, light rules. */
 html.okla-acc-center #content table{width:100%!important;border-collapse:collapse!important}
-html.okla-acc-center #content table th{font:700 11.5px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:.04em!important;text-transform:uppercase!important;color:#8995a5!important;text-align:left!important;padding:10px 12px!important;border-bottom:1px solid #e6ebf2!important}
+html.okla-acc-center #content table th{font:700 11.5px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#8995a5!important;text-align:left!important;padding:10px 12px!important;border-bottom:1px solid #e6ebf2!important}
 html.okla-acc-center #content table td{padding:12px!important;border-bottom:1px solid #eef2f6!important;color:#2d3b4f!important;font-size:14px!important}
 
 /* ---- Rebuilt account navigation ---- */
@@ -99,7 +99,7 @@ html.okla-acc .okla-acc-nav{
   font-family:"Open Sans",Arial,sans-serif;
 }
 html.okla-acc .okla-acc-nav__head{
-  padding:6px 14px 10px;font:700 11.5px/1 "Open Sans",Arial,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#8995a5;
+  padding:6px 14px 10px;font:700 11.5px/1 "Open Sans",Arial,sans-serif;letter-spacing:0;text-transform:none;color:#8995a5;
 }
 html.okla-acc .okla-acc-nav__link{
   display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
