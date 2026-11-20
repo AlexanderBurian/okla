@@ -42,6 +42,10 @@ describe("odkazy v odpovědi", () => {
     expect(resolveLinks("[OKLA](https://www.okla.cz/)", table)).toBe("[OKLA](https://www.okla.cz/)");
     expect(resolveLinks("[podpora@okla.cz](mailto:podpora@okla.cz)", table)).toBe("[podpora@okla.cz](mailto:podpora@okla.cz)");
   });
+  it("přesný název produktu jen tučně udělá odkazem, i když přijde po kouscích", async () => {
+    expect(resolveLinks("Zkuste **Flipper Zero** nebo **něco jiného**.", table)).toBe("Zkuste [Flipper Zero](https://www.okla.cz/flipper-zero/) nebo **něco jiného**.");
+    expect(await collect(linkStream(from(["Zkuste *", "*Flip", "per Zero*", "* dnes."]), table))).toBe("Zkuste [Flipper Zero](https://www.okla.cz/flipper-zero/) dnes.");
+  });
   it("klíč mimo odkaz vynechá", () => {
     expect(resolveLinks("Flipper Zero (#p1) je skvělý.", table)).toBe("Flipper Zero je skvělý.");
   });

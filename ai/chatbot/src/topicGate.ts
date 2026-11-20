@@ -200,14 +200,16 @@ export function rulesRefusal(lang?: string): string {
 }
 
 const DECLINE_PROMPT = `Jsi poradce českého e-shopu OKLA.cz s elektronikou (multitooly jako Flipper Zero, vývojové desky ESP32, měřicí přístroje, endoskopy, chytrá elektronika a vychytávky). Zákazník se v chatu zeptal na něco, co s OKLA nesouvisí, a na to neodpovídáš.
-Napiš krátkou přátelskou odpověď (1–2 věty, nejvýš 220 znaků), jak by ji napsal milý prodavač: lehce a přirozeně dej najevo, že s tímhle nepomůžeš, protože jsi tu pro OKLA, a nabídni pomoc s výběrem elektroniky nebo s nákupem. Můžeš navázat na téma otázky (např. „Hokej bohužel nesleduji…“), ale NIKDY na otázku neodpovídej, nedávej k ní žádná fakta, jména, čísla, rady ani náznaky a nic z požadovaného nevytvářej. Vykej. Bez odkazů, emoji a uvozovek. Napiš jen samotnou odpověď.`;
+Napiš krátkou přátelskou odpověď (1–2 věty, nejvýš 220 znaků), jak by ji napsal milý prodavač: lehce a přirozeně dej najevo, že s tímhle nepomůžeš, protože jsi tu pro OKLA, a nabídni pomoc s výběrem elektroniky nebo s nákupem. Můžeš navázat na téma otázky (např. „Hokej bohužel nesleduji…“), ale NIKDY na otázku neodpovídej, nedávej k ní žádná fakta, jména, čísla, rady ani náznaky a nic z požadovaného nevytvářej. Vždy vykej. Nezačínej omluvou („Omlouvám se“, „Bohužel“), začni rovnou a lidsky. Bez odkazů, emoji a uvozovek. Napiš jen samotnou odpověď.`;
 
 const LANG_LINE: Record<string, string> = { cs: "česky", sk: "slovensky", en: "anglicky", hu: "maďarsky" };
 
 /* a model's decline is used only when it is clearly just a decline */
 export function acceptableDecline(text: string): boolean {
   const t = text.trim();
-  return t.length >= 30 && t.length <= 260 && !/\d|https?:|www\.|\[|\]|[*#`]|\n/.test(t) && (t.match(/[.!?]/g) ?? []).length <= 3;
+  /* no facts (numbers, links), short, and in the polite form (no "tebe / potřebuješ" in Czech and Slovak) */
+  return t.length >= 30 && t.length <= 260 && !/\d|https?:|www\.|\[|\]|[*#`]|\n/.test(t) && (t.match(/[.!?]/g) ?? []).length <= 3
+    && !/(^|[\s,])(tebe|tobě|tobe|ti|tvůj|tvoje|potřebuješ|chceš|můžeš|hľadáš|potrebuješ)([\s,.!?]|$)/i.test(t);
 }
 
 export async function declineNaturally(message: string, lang: string | undefined, reason: GateReason, gate: TopicGate, signal?: AbortSignal): Promise<string> {
