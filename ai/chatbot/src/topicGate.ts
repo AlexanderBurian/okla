@@ -117,7 +117,8 @@ export class TopicGate {
   /* a short decline that fits the question (see declineNaturally); undefined when no model answers in time */
   async writeDecline(message: string, language: string, signal?: AbortSignal, accept: (text: string) => boolean = () => true): Promise<string | undefined> {
     if (!this.client) return undefined;
-    for (const model of ["openai/gpt-oss-20b", "qwen/qwen3.8-27b"]) {
+    /* the big model writes the most natural Czech (a decline is a small request); the others when it is busy */
+    for (const model of ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.8-27b"]) {
       if (signal?.aborted) return undefined;
       try {
         const res = await this.client.chat.completions.create({
