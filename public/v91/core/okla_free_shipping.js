@@ -1,8 +1,8 @@
 /* Okla – free delivery progress: "Do dopravy zdarma zbývá 599 Kč" with a bar that fills up as the cart grows, and
    "Dopravu máte zdarma" with a full bar once the limit is reached.
 
-   Where: in the cart right above the discount-code field (PC aside card and phone alike), and in the "Zboží přidáno do
-   košíku" popup under the added item.
+   Where: in the cart right above the discount-code field (the PC aside card; on phones above the folded discount-code
+   box), and in the "Zboží přidáno do košíku" popup under the added item.
 
    The numbers are Shoptet's own: the limit is the shop's "Doprava zdarma od" setting (dataLayer cartInfo.freeShippingFrom),
    the remaining amount is what Shoptet writes into its delivery note ("Nakupte ještě za 599 Kč a dopravu máte zdarma"), read
@@ -104,7 +104,10 @@
     if (!(state.limit > 0) || state.left === null || !coupon) { if (existing) existing.remove(); return; }
     var box = existing || build();
     box.classList.add('okla-fship--cart');
-    if (box.nextElementSibling !== coupon) coupon.parentElement.insertBefore(box, coupon);
+    /* on phones the code field sits in a folded "Využít slevový / dárkový poukaz" box: the bar goes above that box, so it
+       is always seen */
+    var anchor = coupon.closest('.okla-cart-summary__coupon') || coupon;
+    if (box.nextElementSibling !== anchor) anchor.parentElement.insertBefore(box, anchor);
     paint(box);
   }
 
