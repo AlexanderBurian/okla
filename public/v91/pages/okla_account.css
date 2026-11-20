@@ -105,7 +105,7 @@ html.okla-acc .okla-acc-nav__link{
   display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
   color:#2d3b4f;font:600 14px/1.25 "Open Sans",Arial,sans-serif;text-decoration:none;transition:background-color .15s ease,color .15s ease;
 }
-html.okla-acc .okla-acc-nav__link:hover{background:#f2f6fb}
+html.okla-acc .okla-acc-nav__link:hover{background:#f6f7f9}
 html.okla-acc .okla-acc-nav__link.is-active{background:#eaf6ff;color:#0646aa;font-weight:700}
 html.okla-acc .okla-acc-nav__link.is-logout{margin-top:6px;padding-top:12px;border-top:1px solid #eef2f6;border-radius:0;color:#c0344a}
 html.okla-acc .okla-acc-nav__link.is-logout:hover{background:#fdecee}

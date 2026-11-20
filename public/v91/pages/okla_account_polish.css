@@ -1,12 +1,6 @@
-/* Okla V125 — one clean customer-centre surface, crisp vector icons,
-   one separator and the same background/card cap as the homepage.
-   Applies ONLY to authenticated account pages, not login/cart/home. */
+/* Okla V125 — one clean customer-centre surface, crisp vector icons and one separator, on the shop's plain page
+   background (no gradient). Applies ONLY to authenticated account pages, not login/cart/home. */
 
-html.okla-acc-center,
-html.okla-acc-center body{
- background:linear-gradient(180deg,#fff 0%,#fefeff 18%,#f8fcff 32%,#eaf7ff 52%,#d5efff 76%,#c2e8ff 100%) 0 0/100% 950px no-repeat #c2e8ff!important;
- background-attachment:scroll!important;
-}
 html.okla-acc-center body .okla-side-art{display:none!important}
 html.okla-acc-center body #header,
 html.okla-acc-center body #header .navigation-wrapper,
@@ -48,7 +42,6 @@ html.okla-acc-polished body #content-wrapper .okla-acc-shell{
  padding:24px 26px!important;
  background:#fff!important;
  border:1px solid #dfe7f0!important;
- border-top:6px solid #063f99!important;
  border-radius:6px!important;
  box-sizing:border-box!important;
  box-shadow:0 0 10px rgba(0,25,65,.11)!important;
@@ -256,13 +249,13 @@ html.okla-acc-polished body .okla-acc-nav__link{
 }
 
 html.okla-acc-polished body .okla-acc-nav__link.is-active{
- background:#edf3f8!important;
- color:#173d62!important;
+ background:#f2f4f7!important;
+ color:#0b2540!important;
  font-weight:750!important;
  box-shadow:none!important;
 }
 html.okla-acc-polished body .okla-acc-nav__link:focus-visible{
- outline:2px solid #1d54aa!important;
+ outline:2px solid #7389a7!important;
  outline-offset:1px!important;
 }
 html.okla-acc-polished body .okla-acc-nav__link.is-logout{
@@ -475,7 +468,7 @@ html body .okla-acc-confirm__logout:hover{background:#bd2f3e;border-color:#bd2f3
   min-height:0!important;
   
   
-  border-top-width:4px!important;
+  border-top-width:1px!important;
   
  }
  html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
