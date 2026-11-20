@@ -11,13 +11,13 @@
   var FONT = '"Open Sans",Arial,Helvetica,sans-serif';
   var TEXT = {
     cs: {title: 'Můj účet', guest: 'Přihlásit se', member: 'Můj přehled', cart: 'Košík', orders: 'Moje objednávky', track: 'Stav objednávky', lang: 'Jazyk webu',
-      support: 'Podpora', supportTitle: 'Jsme tu pro vás', supportLead: 'Napište nám, rádi poradíme s výběrem i s objednávkou.', form: 'Kontaktní formulář', shipping: 'Doprava a platba', returns: 'Vrácení zboží', complaint: 'Reklamace', howto: 'Jak nakupovat'},
+      support: 'Podpora', supportTitle: 'Jsme tu pro vás', supportLead: 'Napište nám, rádi poradíme s výběrem i s objednávkou.', form: 'Kontaktní formulář', shipping: 'Doprava a platba', returns: 'Vrácení zboží', complaint: 'Reklamace', howto: 'Jak nakupovat', copy: 'Zkopírovat e-mail', copied: 'Zkopírováno'},
     en: {title: 'My account', guest: 'Sign in', member: 'Overview', cart: 'Cart', orders: 'My orders', track: 'Order status', lang: 'Language',
-      support: 'Support', supportTitle: 'We are here for you', supportLead: 'Write to us, we are glad to help with choosing and with your order.', form: 'Contact form', shipping: 'Delivery and payment', returns: 'Returns', complaint: 'Complaints', howto: 'How to buy'},
+      support: 'Support', supportTitle: 'We are here for you', supportLead: 'Write to us, we are glad to help with choosing and with your order.', form: 'Contact form', shipping: 'Delivery and payment', returns: 'Returns', complaint: 'Complaints', howto: 'How to buy', copy: 'Copy the e-mail address', copied: 'Copied'},
     sk: {title: 'Môj účet', guest: 'Prihlásiť sa', member: 'Môj prehľad', cart: 'Košík', orders: 'Moje objednávky', track: 'Stav objednávky', lang: 'Jazyk webu',
-      support: 'Podpora', supportTitle: 'Sme tu pre vás', supportLead: 'Napíšte nám, radi poradíme s výberom aj s objednávkou.', form: 'Kontaktný formulár', shipping: 'Doprava a platba', returns: 'Vrátenie tovaru', complaint: 'Reklamácia', howto: 'Ako nakupovať'},
+      support: 'Podpora', supportTitle: 'Sme tu pre vás', supportLead: 'Napíšte nám, radi poradíme s výberom aj s objednávkou.', form: 'Kontaktný formulár', shipping: 'Doprava a platba', returns: 'Vrátenie tovaru', complaint: 'Reklamácia', howto: 'Ako nakupovať', copy: 'Skopírovať e-mail', copied: 'Skopírované'},
     hu: {title: 'Fiókom', guest: 'Bejelentkezés', member: 'Áttekintés', cart: 'Kosár', orders: 'Rendeléseim', track: 'Rendelés állapota', lang: 'Nyelv',
-      support: 'Ügyfélszolgálat', supportTitle: 'Itt vagyunk önnek', supportLead: 'Írjon nekünk, szívesen segítünk a választásban és a rendelésben.', form: 'Kapcsolatfelvételi űrlap', shipping: 'Szállítás és fizetés', returns: 'Visszaküldés', complaint: 'Reklamáció', howto: 'Hogyan vásároljon'}
+      support: 'Ügyfélszolgálat', supportTitle: 'Itt vagyunk önnek', supportLead: 'Írjon nekünk, szívesen segítünk a választásban és a rendelésben.', form: 'Kapcsolatfelvételi űrlap', shipping: 'Szállítás és fizetés', returns: 'Visszaküldés', complaint: 'Reklamáció', howto: 'Hogyan vásároljon', copy: 'E-mail-cím másolása', copied: 'Másolva'}
   };
   function t() {
     var lang = window.OKLA_LANG || document.documentElement.getAttribute('data-okla-lang') || 'cs';
@@ -82,6 +82,37 @@
     '<path d="M19.2 19.3a2.6 2.6 0 0 1-2.6 2.3h-2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
     '<rect x="9" y="20.1" width="5.4" height="3" rx="1.5" fill="currentColor"/></svg>';
   var arrow = '<svg class="okla-support-arrow" viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5 6 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  /* the e-mail row copies the address: a copy pictogram, and a tick while "Zkopírováno" shows */
+  var copyIcon = '<svg class="okla-support-copy" viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2"/><path d="M15.5 8.5V6A1.5 1.5 0 0 0 14 4.5H6A1.5 1.5 0 0 0 4.5 6v8A1.5 1.5 0 0 0 6 15.5h2.5"/></svg>';
+  var tickIcon = '<svg class="okla-support-copy" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
+  var MAIL = 'podpora@okla.cz';
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    return new Promise(function (resolve, reject) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.setAttribute('readonly', '');
+      area.style.cssText = 'position:fixed;top:-1000px;left:0;opacity:0';
+      document.body.appendChild(area);
+      area.select();
+      try { if (document.execCommand('copy')) resolve(); else reject(new Error('copy')); } catch (e) { reject(e); }
+      area.remove();
+    });
+  }
+  function copyMail(row, words) {
+    if (!row || row.classList.contains('is-copied')) return;
+    var label = row.querySelector('.okla-support-label');
+    copyText(MAIL).then(function () {
+      row.classList.add('is-copied');
+      label.textContent = words.copied;
+      row.querySelector('.okla-support-copy').outerHTML = tickIcon;
+      setTimeout(function () {
+        row.classList.remove('is-copied');
+        label.textContent = MAIL;
+        row.querySelector('.okla-support-copy').outerHTML = copyIcon;
+      }, 1600);
+    }).catch(function () { /* copying blocked: the address stays visible to select by hand */ });
+  }
   function support(row, words) {
     var lang = (window.oklaLang && window.oklaLang.current) || document.documentElement.getAttribute('data-okla-lang') || 'cs';
     var box = row.querySelector(':scope > .okla-header-support');
@@ -129,13 +160,20 @@
       '<span class="okla-support-menu" role="menu">' +
         '<span class="okla-support-head"></span><span class="okla-support-lead"></span>' +
         '<span class="okla-support-links">' + links.map(function (l) { return '<a class="okla-support-link" role="menuitem" href="' + l[0] + '"><span class="okla-support-label"></span>' + arrow + '</a>'; }).join('') + '</span>' +
-        /* the e-mail last, a plain row like the others */
-        '<a class="okla-support-mail" role="menuitem" href="mailto:podpora@okla.cz"><span class="okla-support-label">podpora@okla.cz</span>' + arrow + '</a>' +
+        /* the e-mail last: a click copies the address (no mail program opens) */
+        '<span class="okla-support-mail" role="menuitem" tabindex="0"><span class="okla-support-label">' + MAIL + '</span>' + copyIcon + '</span>' +
       '</span>';
     box.querySelector('.okla-support-head').textContent = words.supportTitle;
     box.querySelector('.okla-support-lead').textContent = words.supportLead;
     var spans = box.querySelectorAll('.okla-support-link > .okla-support-label');
     for (var i = 0; i < spans.length; i++) spans[i].textContent = links[i][1];
+    var mail = box.querySelector('.okla-support-mail');
+    mail.setAttribute('title', words.copy);
+    mail.setAttribute('aria-label', words.copy + ': ' + MAIL);
+    mail.addEventListener('click', function () { copyMail(mail, words); });
+    mail.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyMail(mail, words); }
+    });
   }
 
   /* The flag: the current language. A click opens a small dialog in the middle of the page: the four languages as a
