@@ -39,7 +39,8 @@ export function buildLinkTable(catalog: KnowledgeItem[], others: KnowledgeItem[]
     if (!item.url) continue;
     for (const name of new Set([nameKey(item.title), nameKey(item.title.split(/\s[–-]\s/)[0] ?? "")])) {
       if (name.length < 4) continue;
-      names.set(name, names.has(name) && names.get(name) !== item.url ? null : item.url);
+      /* a name two products share ("LILYGO T-Deck Plus") goes to the first one, the base model */
+      if (!names.has(name)) names.set(name, item.url);
     }
   }
   const byName = new Map([...names].filter((entry): entry is [string, string] => entry[1] !== null));
@@ -66,8 +67,27 @@ export function resolveTarget(target: string, table: LinkTable): string | undefi
 }
 
 /* one finished piece of text: [text](target) links resolved, stray keys removed */
+/* "Name ([Name](#p1))" or "**Name** ([Name](#p1))" -> one link */
+function mergeRepeatedName(text: string): string {
+  const pattern = / \(\[([^\]\n]{1,80})\]\(([^)\s]{1,300})\)\)/g;
+  let out = "";
+  let last = 0;
+  for (const m of text.matchAll(pattern)) {
+    const at = m.index ?? 0;
+    const plain = (m[1] ?? "").replace(/\*\*/g, "").trim();
+    const before = text.slice(last, at);
+    const written = [`**${plain}**`, plain].find((w) => before.toLowerCase().endsWith(w.toLowerCase()));
+    if (!written) continue;
+    out += `${before.slice(0, before.length - written.length)}[${plain}](${m[2]})`;
+    last = at + m[0].length;
+  }
+  return out + text.slice(last);
+}
+
 export function resolveLinks(text: string, table: LinkTable): string {
-  return text
+  return mergeRepeatedName(text)
+    /* "**Name** ([p37](…))": a link whose text is only the key adds nothing */
+    .replace(/\s?\(\[#?p\d+\]\([^)\s]*\)\)|\[#?p\d+\]\([^)\s]*\)/gi, "")
     .replace(/\[([^\]\n]{1,200})\]\(([^)\s]{1,300})\)/g, (_m, label: string, target: string) => {
       const url = resolveTarget(target, table);
       return url ? `[${label}](${url})` : label;

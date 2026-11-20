@@ -264,7 +264,7 @@ export class MockEngine implements ChatEngine {
 export const providerErrors: Array<{ model: string; status?: number; at: string; message?: string }> = [];
 function noteProviderError(model: string, error: unknown): void {
   const e = error as { status?: number; error?: { error?: { message?: string } }; message?: string };
-  providerErrors.unshift({ model, status: e.status, at: new Date().toISOString(), message: String(e.error?.error?.message ?? e.message ?? "").slice(0, 160) });
+  providerErrors.unshift({ model, status: e.status, at: new Date().toISOString(), message: String(e.error?.error?.message ?? e.message ?? "").slice(0, 300) });
   providerErrors.length = Math.min(providerErrors.length, 8);
 }
 
@@ -322,11 +322,11 @@ export class GroqEngine implements ChatEngine {
   private create(context: ChatContext, budget: ContextBudget, lean: boolean, model = this.model, plain = false) {
     return this.client.chat.completions.create({
       model,
-      messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget),
+      messages: toGroqMessages(context.message, lean ? context.history.slice(-4) : context.history, context.knowledge, context.pageItem, context.catalog, context.lang, budget, context.focus),
       /* natural, varied wording; the facts come from the sources */
       temperature: 0.6,
       top_p: 0.9,
-      max_completion_tokens: lean ? 600 : 800,
+      max_completion_tokens: lean ? 500 : 700,
       /* gpt-oss "thinks" before it answers: a short think keeps the first words quick; Qwen 3 does not think at all */
       ...(!plain && /gpt-oss/i.test(model) ? { reasoning_effort: "low" as const, include_reasoning: false } : {}),
       ...(!plain && /qwen3/i.test(model) ? { reasoning_effort: "none" as const } : {}),
@@ -398,7 +398,8 @@ export class GroqEngine implements ChatEngine {
     for await (const chunk of completion) {
       if (context.signal.aborted) return;
       const content = chunk.choices[0]?.delta?.content;
-      if (content) yield content.replace(/--/g, "–");
+      /* a spaced double hyphen as a dash; "--port" in a command stays */
+      if (content) yield content.replace(/(^|s)--(?=s)/g, "$1–");
     }
   }
 }

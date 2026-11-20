@@ -197,12 +197,16 @@ app.get("/assets/okla-mobile-assistant-glyph-v1.png", async (_request, reply) =>
            keys in the answer become the products' addresses here, and links to pages the shop does not have are dropped */
         const catalog = knowledge.products();
         const links = buildLinkTable(catalog, knowledge.faqs());
+        /* the products the question (and the one before) is about get a line about them in the catalogue */
+        const focus = [...new Set([...knowledge.search(input.message, 12), ...(lastUser ? knowledge.search(`${lastUser} ${input.message}`, 8) : [])]
+          .filter((item) => item.type === "product").map((item) => item.id))].slice(0, 14);
         const stream = engine.stream({
           message: input.message,
           history: input.history,
           lang: input.lang,
           pageItem,
           catalog,
+          focus,
           faqs: knowledge.faqs(),
           knowledge: relevant,
           signal: controller.signal

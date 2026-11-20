@@ -31,6 +31,8 @@ export interface ChatContext {
   catalog?: KnowledgeItem[];
   /* every shop page and note, for questions about buying */
   faqs?: KnowledgeItem[];
+  /* ids of the products the question is about: the catalogue gets a line about these */
+  focus?: string[];
 }
 
 export interface ChatEngine {

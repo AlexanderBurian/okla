@@ -46,6 +46,10 @@ describe("odkazy v odpovědi", () => {
     expect(resolveLinks("Zkuste **Flipper Zero** nebo **něco jiného**.", table)).toBe("Zkuste [Flipper Zero](https://www.okla.cz/flipper-zero/) nebo **něco jiného**.");
     expect(await collect(linkStream(from(["Zkuste *", "*Flip", "per Zero*", "* dnes."]), table))).toBe("Zkuste [Flipper Zero](https://www.okla.cz/flipper-zero/) dnes.");
   });
+  it("název zopakovaný vedle odkazu a odkaz s klíčem místo textu sloučí", () => {
+    expect(resolveLinks("Rozdíl: Flipper Zero ([Flipper Zero](#p1)) je hotový nástroj.", table)).toBe("Rozdíl: [Flipper Zero](https://www.okla.cz/flipper-zero/) je hotový nástroj.");
+    expect(resolveLinks("Hodí se **Flipper Zero** ([p1](#p1)).", table)).toBe("Hodí se [Flipper Zero](https://www.okla.cz/flipper-zero/).");
+  });
   it("klíč mimo odkaz vynechá", () => {
     expect(resolveLinks("Flipper Zero (#p1) je skvělý.", table)).toBe("Flipper Zero je skvělý.");
   });
@@ -77,7 +81,7 @@ describe("katalog pro model", () => {
     expect(productText(catalog[0] as KnowledgeItem, catalog, 500)).not.toContain("Cena");
   });
   it("produkt v podkladech má klíč, starší odpovědi dostanou klíče místo adres", () => {
-    expect(buildKnowledgeContext([catalog[1] as KnowledgeItem], undefined, catalog)).toContain("ANENG 616 digitální multimetr (klíč p2)");
+    expect(buildKnowledgeContext([catalog[1] as KnowledgeItem], undefined, catalog)).toContain("ANENG 616 digitální multimetr (odkaz #p2)");
     const messages = toGroqMessages("a levnější?", [{ role: "user", content: "multimetr" }, { role: "assistant", content: "Zkuste [ANENG 616](https://www.okla.cz/aneng-616/)." }], [], undefined, catalog, "cs");
     expect(messages.find((m) => m.role === "assistant")?.content).toBe("Zkuste [ANENG 616](#p2).");
   });
