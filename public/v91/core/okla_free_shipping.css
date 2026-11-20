@@ -1,0 +1,26 @@
+/* Okla – free delivery progress (okla_free_shipping.js): a calm light panel - a truck, "Do dopravy zdarma zbývá 599 Kč"
+   with the amount in bold, a thin bar in the shop blue that fills up, and "Doprava zdarma od 1 500 Kč" in small grey
+   under it. Reached: a tick and "Dopravu máte zdarma" over a full bar. Above the discount-code field in the cart, and
+   under the added item in the "added to cart" popup. */
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c){
+  display:block!important;box-sizing:border-box!important;width:100%!important;margin:0 0 14px!important;padding:12px 14px 11px!important;
+  border:1px solid #e3e9f1!important;border-radius:8px!important;background:#f6f8fb!important;
+  font:400 14px/1.35 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;text-align:left!important;
+}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__line{display:flex!important;align-items:center!important;gap:9px!important;margin:0 0 9px!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic{display:grid!important;place-items:center!important;flex:none!important;width:20px!important;height:20px!important;color:#0859d8!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic svg{display:block!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__text{flex:1 1 auto!important;min-width:0!important;font:inherit!important;color:inherit!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__text strong{font-weight:700!important;color:#0b2540!important;white-space:nowrap!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__track{display:block!important;position:relative!important;height:6px!important;border-radius:3px!important;background:#dfe6ef!important;overflow:hidden!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__fill{display:block!important;height:100%!important;min-width:6px!important;border-radius:3px!important;background:#0859d8!important;transition:width .45s cubic-bezier(.22,1,.36,1)!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__from{display:block!important;margin:7px 0 0!important;font:400 12px/1.3 "Open Sans",Arial,sans-serif!important;color:#5b6b80!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__from:empty{display:none!important}
+/* reached: a tick, the text in bold */
+html body .okla-fship.is-done:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__text{font-weight:700!important}
+html body .okla-fship.is-done:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic svg{stroke-width:2.4!important}
+/* in the popup: a little air from the item above */
+html body .okla-fship--popup:not(#ofsh-a#ofsh-b#ofsh-c){margin:12px 0 0!important}
+@media (prefers-reduced-motion:reduce){
+  html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__fill{transition:none!important}
+}
