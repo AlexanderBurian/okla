@@ -1,6 +1,6 @@
 /* PC header, right side (okla_header_template103.js draws the account, the cart and the support panel): a crisp row of
    solid dark icons with no backgrounds - account (grey avatar, "Můj účet" / "Přihlásit se", chevron) | orders, support,
-   language | cart with its count on a red badge. Thin divider lines and even air keep the groups apart; hover changes
+   language | cart with its count on a small blue badge. Thin divider lines and even air keep the groups apart; hover changes
    no colour and adds no background. Favourites have no function in the shop and stay hidden. */
 .okla-header-support{display:none}
 @media(min-width:992px){

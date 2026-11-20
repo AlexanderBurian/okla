@@ -46,7 +46,7 @@
       '.icon{position:relative;flex:none;width:28px;height:28px}' +
       '.icon svg{display:block;width:28px;height:28px}' +
       /* the count on a crisp red badge at the cart's top right corner */
-      '.count{position:absolute;top:-7px;right:-9px;min-width:19px;height:19px;padding:0 5px;box-sizing:border-box;border-radius:10px;background:#e3262f;color:#fff;box-shadow:0 0 0 2px #fff;font:700 11px/19px ' + FONT + ';text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}' +
+      '.count{position:absolute;top:-5px;right:-7px;min-width:16px;height:16px;padding:0 4px;box-sizing:border-box;border-radius:8px;background:#0859d8;color:#fff;box-shadow:0 0 0 2px #fff;font:700 10px/16px ' + FONT + ';text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}' +
       '.count[hidden]{display:none}' +
       '</style>'
   };
