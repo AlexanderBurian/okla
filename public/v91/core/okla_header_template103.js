@@ -31,38 +31,37 @@
   /* --okla-ink (set by okla_header_pro.css on hover) colours the figure and the title; nothing gets a background */
   var STYLE = {
     account: '<style>:host{display:block}' +
-      '.face{display:flex;align-items:center;height:40px;color:#0b2540;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased}' +
-      '.avatar{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(11,37,64,.12);color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
+      '.face{display:flex;align-items:center;height:44px;color:#0b2540;white-space:nowrap;font-family:' + FONT + ';-webkit-font-smoothing:antialiased}' +
+      '.avatar{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#e6ebf2;color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
       '.avatar svg{display:block;width:20px;height:20px}' +
       '.copy{display:flex;flex-direction:column;align-items:flex-start;margin-left:10px}' +
-      '.title{font:600 15px/19px ' + FONT + ';color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
-      '.sub{font:400 13px/17px ' + FONT + ';color:#0859d8}' +
+      '.title{font:700 15px/19px ' + FONT + ';color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
+      '.sub{font:400 13px/18px ' + FONT + ';color:#0b2540}' +
       '.sub.member{color:#5b6b80}' +
-      '.chev{display:block;flex:none;width:12px;height:8px;margin-left:14px;color:#7d8899}' +
-      '.chev svg{display:block;width:12px;height:8px}' +
+      '.chev{display:block;flex:none;width:14px;height:9px;margin-left:16px;color:#8a95a5}' +
+      '.chev svg{display:block;width:14px;height:9px}' +
       '</style>',
     cart: '<style>:host{display:block}' +
-      '.face{display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:#fff}' +
-      '.icon{position:relative;flex:none;width:24px;height:24px}' +
-      '.icon svg{display:block;width:24px;height:24px}' +
-      /* the count on a small yellow price tag with its punched hole (the shop's tag motif), slightly tilted */
-      '.count{position:absolute;top:-17px;left:12px;min-width:16px;height:19px;padding:0 6px 0 11px;box-sizing:content-box;background:#ffd800;color:#0b2540;font:800 11px/19px ' + FONT + ';text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums;clip-path:polygon(7px 0,100% 0,100% 100%,7px 100%,0 50%);border-radius:0 4px 4px 0;transform:rotate(-8deg);transform-origin:0 50%;filter:drop-shadow(0 1px 1px rgba(11,37,64,.25))}' +
-      '.count::before{content:"";position:absolute;left:6px;top:50%;width:4px;height:4px;margin-top:-2px;border-radius:50%;background:#0859d8}' +
+      '.face{display:flex;align-items:center;justify-content:center;width:40px;height:40px;color:var(--okla-ink,#0b2540);transition:color .15s ease}' +
+      '.icon{position:relative;flex:none;width:28px;height:28px}' +
+      '.icon svg{display:block;width:28px;height:28px}' +
+      /* the count on a crisp red badge at the cart's top right corner */
+      '.count{position:absolute;top:-7px;right:-9px;min-width:19px;height:19px;padding:0 5px;box-sizing:border-box;border-radius:10px;background:#e3262f;color:#fff;box-shadow:0 0 0 2px #fff;font:700 11px/19px ' + FONT + ';text-align:center;white-space:nowrap;font-variant-numeric:tabular-nums}' +
       '.count[hidden]{display:none}' +
       '</style>'
   };
 
   function face(link, isCart) {
     var host = link.querySelector(':scope > okla-action-face');
-    if (host && host.shadowRoot && host.shadowRoot.querySelector('.face[data-v="5"]')) return host.shadowRoot;
+    if (host && host.shadowRoot && host.shadowRoot.querySelector('.face[data-v="6"]')) return host.shadowRoot;
     if (!host) {
       host = document.createElement('okla-action-face');
       host.attachShadow({mode: 'open'});
       link.appendChild(host);
     }
     host.shadowRoot.innerHTML = isCart
-      ? STYLE.cart + '<span class="face" data-v="5"><span class="icon">' + basket + '<span class="count" hidden></span></span></span>'
-      : STYLE.account + '<span class="face" data-v="5"><span class="avatar">' + person + '</span><span class="copy"><span class="title"></span><span class="sub"></span></span>' + chevron + '</span>';
+      ? STYLE.cart + '<span class="face" data-v="6"><span class="icon">' + basket + '<span class="count" hidden></span></span></span>'
+      : STYLE.account + '<span class="face" data-v="6"><span class="avatar">' + person + '</span><span class="copy"><span class="title"></span><span class="sub"></span></span>' + chevron + '</span>';
     link.setAttribute('data-action-face', '');
     return host.shadowRoot;
   }
