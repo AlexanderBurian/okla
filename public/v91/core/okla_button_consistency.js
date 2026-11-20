@@ -48,11 +48,10 @@
 
  function apply(button,style){
   var bg=style.bg,img=style.img,bd=style.bd,col=style.col;
-  /* Only the navy filter button ("Otevřít filtr") becomes the Okla blue; every
-     other button keeps its own resting colour (green stays green). Use the deeper
-     #074bb7 (rgb 0,92,189) — the lighter #0859d8 read as "light blue". */
+  /* Only the navy filter button ("Otevřít filtr") becomes the Okla blue #0859d8 (the one button blue of the shop);
+     every other button keeps its own resting colour (green stays green). */
   if(forceBlue(button)){
-   bg='rgb(7,75,183)';bd='rgb(7,75,183)';img='none';col='rgb(255,255,255)';
+   bg='rgb(8,89,216)';bd='rgb(8,89,216)';img='none';col='rgb(255,255,255)';
   }
   button.style.setProperty('--okla-button-rest-background',bg);
   button.style.setProperty('--okla-button-rest-image',img);
@@ -109,6 +108,16 @@
    }).observe(document.body,{childList:true,subtree:true});
   }
   window.addEventListener('load',function(){scan(document,true)},{once:true});
+  /* The loader switches a page's own stylesheets on (media "not all" -> "all") and they finish loading after the
+     buttons were first read - the customer centre's "Uložit" then kept Shoptet's old blue as its resting colour and
+     showed it on hover. Every such switch or finished stylesheet reads all buttons again. */
+  if(window.MutationObserver&&document.head){
+   var reread=0;
+   var again=function(){clearTimeout(reread);reread=setTimeout(function(){scan(document,true)},60)};
+   new MutationObserver(function(records){
+    for(var i=0;i<records.length;i++){var t=records[i].target;if(t&&t.tagName==='LINK'&&t.hasAttribute('data-okla-b')){again();return}}
+   }).observe(document.head,{subtree:true,attributes:true,attributeFilter:['media','data-okla-l']});
+  }
  }
 
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});
