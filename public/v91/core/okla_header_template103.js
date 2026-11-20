@@ -74,7 +74,8 @@
 
   /* The headset: the support panel - the e-mail first, then the shop's help pages. Sits between the orders and the flag. */
   var headset = '<svg class="okla-support-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.5a8.5 8.5 0 0 0-8.5 8.5v5.6a2.9 2.9 0 0 0 2.9 2.9h1.4c.66 0 1.2-.54 1.2-1.2v-5.6c0-.66-.54-1.2-1.2-1.2H5.9V11a6.1 6.1 0 0 1 12.2 0v.5h-1.9c-.66 0-1.2.54-1.2 1.2v5.6c0 .66.54 1.2 1.2 1.2h1.9a1.4 1.4 0 0 1-1.4 1.3h-2.9a1.1 1.1 0 1 0 0 2.2h2.9a3.6 3.6 0 0 0 3.6-3.6V11A8.5 8.5 0 0 0 12 2.5Z"/></svg>';
-  var mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.4l8 5.1 8-5.1V7Zm16 2.8-7.5 4.8a1 1 0 0 1-1 0L4 9.8V17h16Z"/></svg>';
+  /* a thin-line envelope on a soft round tile (the clean Alza-like look) */
+  var mailIcon = '<span class="okla-support-mailicon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.8 7.4 8.2 5.8 8.2-5.8"/></svg></span>';
   var arrow = '<svg class="okla-support-arrow" viewBox="0 0 8 12" aria-hidden="true"><path d="M1.5 1.5 6 6l-4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   function support(row, words) {
     var lang = (window.oklaLang && window.oklaLang.current) || document.documentElement.getAttribute('data-okla-lang') || 'cs';

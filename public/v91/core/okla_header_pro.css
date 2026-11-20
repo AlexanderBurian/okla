@@ -26,7 +26,8 @@
   }
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-support,.okla-header-locale):is(:hover,:focus-visible,.is-open){color:#0859d8!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-locale>.okla-lang-menu{display:none!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale,.okla-header-account,.okla-header-support,a.cart-count):focus-visible{outline:2px solid #0751c6!important;outline-offset:2px!important;border-radius:6px!important}
+  /* no blue focus frame around the icons (the browser drew it after a click too, e.g. around the open cart) */
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale,.okla-header-account,.okla-header-support,a.cart-count):is(:focus,:focus-visible){outline:0!important;box-shadow:none!important}
   /* the open support panel stays above the category bar under the header */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support.is-open{z-index:30!important}
 
@@ -76,7 +77,9 @@
   }
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mail{border-top:1px solid #e6eaf0!important;border-bottom:1px solid #e6eaf0!important;color:#0859d8!important;font-weight:600!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support :is(.okla-support-mail,.okla-support-link):hover{background:#f3f6fa!important;color:#0859d8!important}
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mail>svg:not(.okla-support-arrow){display:block!important;flex:none!important;width:18px!important;height:18px!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mail{height:54px!important;gap:12px!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mailicon{display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;width:32px!important;height:32px!important;border-radius:50%!important;background:#eef4fd!important;color:#0859d8!important}
+  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-mailicon>svg{display:block!important;width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-links{display:block!important;margin-top:4px!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-label{display:block!important;flex:1 1 auto!important;min-width:0!important;font:inherit!important;color:inherit!important;white-space:nowrap!important}
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-arrow{display:block!important;flex:none!important;width:6px!important;height:10px!important;color:#9aa6b6!important}
