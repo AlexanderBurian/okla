@@ -1,5 +1,5 @@
-/* Okla – one short line about every category and subcategory (cs / sk / en / hu), shown under the name in the
-   category page's subcategory tiles (okla_subcats.js) and in the header's category panel (okla_catbar.js).
+/* Okla – one short line about every category and subcategory (cs / sk / en / hu), shown in the header's category panel
+   (okla_catbar.js): under each subcategory's name and beside the category's name. (Not on the category page's tiles.)
    window.oklaCatText(href) gives the line for the current language, or '' for a category without one (a new category
    simply shows its name until a line is added here). */
 (function () {

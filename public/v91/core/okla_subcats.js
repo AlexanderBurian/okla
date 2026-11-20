@@ -99,14 +99,6 @@
    holder.classList.add('okla-subcats__img');
    var name=a.querySelector('.text'),h=pathOf(a.getAttribute('href'));
    subs.push({href:h,label:(name||a).textContent.replace(/\s+/g,' ').trim()});holders[h]={holder:holder,img:img};
-   /* the name and, under it, one short line about the subcategory (okla_cat_text.js) */
-   var line=window.oklaCatText?window.oklaCatText(h):'';
-   if(name&&line&&!a.querySelector('.okla-subcats__desc')){
-    var body=document.createElement('span');body.className='okla-subcats__body';
-    name.parentNode.insertBefore(body,name);body.appendChild(name);
-    var desc=document.createElement('span');desc.className='okla-subcats__desc';desc.setAttribute('data-okla-i18n-skip','');desc.textContent=line;
-    body.appendChild(desc);
-   }
   });
   images(location.pathname,subs).then(function(map){
    Object.keys(holders).forEach(function(h){
