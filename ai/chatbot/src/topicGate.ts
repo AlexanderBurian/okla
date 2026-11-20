@@ -133,8 +133,11 @@ export class TopicGate {
         }, { signal, maxRetries: 0, timeout: 4_000 });
         const text = (res.choices[0]?.message?.content ?? "").replace(/^["„“]|["“”]$/g, "").trim();
         if (text) return text;
-      } catch {
+        declineStats.lastError = `${model}: empty (${res.choices[0]?.finish_reason ?? "?"})`;
+      } catch (error) {
         /* the next model */
+        const e = error as { status?: number; message?: string };
+        declineStats.lastError = `${model}: ${e.status ?? ""} ${String(e.message ?? "").slice(0, 160)}`;
       }
     }
     return undefined;
@@ -212,11 +215,17 @@ export function acceptableDecline(text: string): boolean {
     && !/(^|[\s,])(tebe|tobě|tobe|ti|tvůj|tvoje|potřebuješ|chceš|můžeš|hľadáš|potrebuješ)([\s,.!?]|$)/i.test(t);
 }
 
+/* for /health: how the declines were made (no message contents) */
+export const declineStats = { written: 0, rejected: 0, noAnswer: 0, lastError: "" };
+
 export async function declineNaturally(message: string, lang: string | undefined, reason: GateReason, gate: TopicGate, signal?: AbortSignal): Promise<string> {
   if (reason === "injection") return rulesRefusal(lang);
   if (reason === "empty" || reason === "classifier-unavailable") return refusal(lang);
   const written = await gate.writeDecline(message, LANG_LINE[langOf(lang)] ?? "česky", signal);
-  return written && acceptableDecline(written) ? written.trim() : refusal(lang);
+  if (!written) { declineStats.noAnswer++; return refusal(lang); }
+  if (!acceptableDecline(written)) { declineStats.rejected++; return refusal(lang); }
+  declineStats.written++;
+  return written.trim();
 }
 
 /* the answer model marks an answer it may not give with this token (see prompt.ts) */

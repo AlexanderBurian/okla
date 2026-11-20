@@ -11,7 +11,7 @@ import { lookupOrder } from "./orderStatus.js";
 import type { ChatEngine } from "./types.js";
 import { isPersonalOrderRequest, validateChatBody, ValidationError } from "./validation.js";
 import { buildLinkTable, linkStream } from "./links.js";
-import { declineNaturally, guardStream, TopicGate } from "./topicGate.js";
+import { declineNaturally, declineStats, guardStream, TopicGate } from "./topicGate.js";
 
 interface BuildOptions {
   config: AppConfig;
@@ -100,6 +100,7 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     knowledge: knowledge.counts(),
     models: availableModels,
     topicGate: gateStats,
+    declines: declineStats,
     cachedAnswers: answerCache.size,
     providerErrors
   }));
