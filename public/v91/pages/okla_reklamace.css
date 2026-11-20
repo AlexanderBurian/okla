@@ -265,6 +265,8 @@ html body .okla-rk .okla-rk__done.is-on{
   html body .okla-rk .okla-rk__step{padding:22px 18px 24px;margin-bottom:14px;border-radius:16px}
   html body .okla-rk .okla-rk__legend{margin-bottom:20px;padding-bottom:14px;font-size:17px}
   html body .okla-rk .okla-rk__grid{gap:18px}
-  html body .okla-rk .okla-rk__actions{padding:20px 18px 22px;border-radius:16px}
+  /* phones: just the button and the note under the last card - no second box around the button (the framed card
+     around a full-width button read as two buttons) */
+  html body .okla-rk .okla-rk__actions{padding:6px 0 4px;background:transparent;border:0;border-radius:0;box-shadow:none}
   html body .okla-rk .okla-rk__consent{padding:16px}
 }
