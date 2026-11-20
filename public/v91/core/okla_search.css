@@ -4,6 +4,14 @@
 /* Only the open layer takes clicks, so a click right after closing reaches the page while the blur fades out. */
 html.okla-search-open .okla-search-overlay{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .2s ease}
 html.okla-search-open body #header .header-top .search{position:relative!important;z-index:9991!important}
+/* The header is a layer of its own (z-index 800), so the field inside it could not rise above the page's blur and was
+   blurred too. While the search is open the header comes above the blur and blurs itself with the same veil drawn
+   over its own content (logo, icons, category bar); the field and its suggestions sit above that veil, sharp. */
+@media(min-width:992px){
+  html.okla-search-open body #header#header{z-index:9993!important}
+  html.okla-search-open body #header#header::after{content:""!important;position:absolute!important;inset:0!important;z-index:9990!important;display:block!important;background:rgba(11,37,64,.16)!important;-webkit-backdrop-filter:blur(6px)!important;backdrop-filter:blur(6px)!important;pointer-events:none!important}
+  html.okla-search-open body #header#header .search{position:relative!important;z-index:9992!important}
+}
 html.okla-search-open body #header .search-whisperer{display:none!important}
 
 .okla-search-panel{display:none;position:absolute;left:0;top:100%;z-index:9992;box-sizing:border-box;width:max(100%,580px);max-height:calc(100vh - 140px);overflow:auto;margin-top:6px;padding:14px 0 8px;background:#fff;border:1px solid #e6ebf2;border-radius:12px;box-shadow:0 18px 40px rgba(11,37,64,.18);font-family:"Open Sans",Arial,sans-serif;text-align:left}
