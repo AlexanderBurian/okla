@@ -1,13 +1,16 @@
-/* Okla – the homepage articles ("Co je u nás nového") always show the picture set for each article in Shoptet.
+/* Okla – the homepage articles ("Co je u nás nového") follow Shoptet by themselves.
 
-   The source is Shoptet's own article list (/nase-novinky/): every article there carries the picture chosen in the
-   administration ("Obrázek článku") and its publication date. One request gives all of them; the picture of each card
-   is matched by the article's address, so the order of the cards does not matter.
-   - What was read last time is kept on the device and shown at once; the list is read again on every visit to the
-     homepage (at most once in 5 minutes), so a picture changed in Shoptet shows on the next visit.
-   - No picture is built in: on a first visit a card waits for Shoptet's picture (a calm empty surface), never an old
-     one; only an article missing from Shoptet's list keeps the picture it came with.
-   - The list is read as text (no whole document is built - that was a long freeze on phones). */
+   The source is Shoptet's own article list (/nase-novinky/), read as text in one request. The cards show its first
+   articles in its order (a new article published in Shoptet appears on its own, a removed one disappears), each with:
+   - the title (without the shop's " | Okla.cz" ending) and the link;
+   - the picture chosen in the administration ("Obrázek článku");
+   - the publication date;
+   - a short lead: the article's first real paragraph, shortened at a word;
+   - the label above the title (the article's own kicker, e.g. "Návod", or the label kept for the older articles) and
+     the reading time worked out from the article's length.
+   What was read last time is kept on the device and shown at once; the list is read again on every visit to the
+   homepage (at most once in 5 minutes), so a change in Shoptet shows on the next visit. On a very first visit the
+   cards wait for the list (up to 3 s) instead of showing anything out of date. */
 (function () {
   'use strict';
   if (window.__oklaNewsNativeImages) return;
@@ -15,77 +18,149 @@
   window.__oklaNewsNativeImages = true;
 
   var LIST = '/nase-novinky/';
-  var CACHE_KEY = 'okla-news-covers-v2', FRESH = 5 * 60 * 1000;
-  var known = {}, readAt = 0;
+  var CACHE_KEY = 'okla-news-list-v3', FRESH = 5 * 60 * 1000, MAX = 5;
+  /* labels of the first articles (the newsroom uses the same) */
+  var LABEL = {
+    '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/': 'Multitool a RF',
+    '/nase-novinky/wifi/': 'Endoskopy',
+    '/nase-novinky/usb-c/': 'Testery',
+    '/nase-novinky/nfc/': 'NFC',
+    '/nase-novinky/meridlo/': 'Měřicí přístroje'
+  };
+
+  var list = null, readAt = 0;
   try {
-    var saved = JSON.parse(localStorage.getItem(CACHE_KEY) || '{}') || {};
-    known = saved.items || {};
-    readAt = saved.t || 0;
+    var saved = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+    if (saved && saved.items && saved.items.length) { list = saved.items; readAt = saved.t || 0; }
     localStorage.removeItem('okla-news-covers-v1');
-  } catch (e) { known = {}; }
+    localStorage.removeItem('okla-news-covers-v2');
+  } catch (e) { list = null; }
 
   function pathOf(href) { try { return new URL(href, location.origin).pathname; } catch (e) { return String(href || ''); } }
+  function decode(s) {
+    return String(s || '').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'")
+      .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#(\d+);/g, function (m, n) { return String.fromCharCode(+n); });
+  }
+  function plain(html) { return decode(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim(); }
   function allowed(src) {
     try {
       var url = new URL(src, location.origin);
       return (url.protocol === 'https:' || url.protocol === 'http:') &&
-        (url.hostname === location.hostname || /(^|\.)myshoptet\.com$/.test(url.hostname)) &&
+        (url.hostname === location.hostname || /(^|\.)myshoptet\.com$/.test(url.hostname) || url.hostname === 'cdn.jsdelivr.net') &&
         !/preforma-logo|favicon/.test(url.pathname) && url.pathname.indexOf('/user/logos/') === -1;
     } catch (e) { return false; }
   }
+  function shorten(text, max) {
+    if (text.length <= max) return text;
+    var cut = text.slice(0, max);
+    var dot = cut.lastIndexOf('. ');
+    if (dot > max * 0.6) return cut.slice(0, dot + 1);
+    return cut.replace(/[\s,;:–-]+\S*$/, '') + '…';
+  }
 
-  /* the cards: the picture known for the card's article, or an empty surface until it is known */
-  var listRead = false;
-  function paint() {
-    var section = document.getElementById('okla-news-v55');
-    if (!section) return;
-    var cards = section.querySelectorAll('.okn-card');
-    for (var i = 0; i < cards.length; i++) {
-      var link = cards[i].querySelector('.okn-title') || cards[i].querySelector('.okn-image');
-      var img = cards[i].querySelector('.okn-image img');
-      if (!link || !img) continue;
-      var entry = known[pathOf(link.getAttribute('href'))];
-      if (entry && entry.img) {
-        if (img.getAttribute('src') !== entry.img) {
-          img.onerror = null;
-          img.removeAttribute('srcset');
-          img.removeAttribute('sizes');
-          img.setAttribute('src', entry.img);
+  /* Shoptet's article list as text: one piece per article */
+  function parse(html) {
+    var out = [], seen = {};
+    var pieces = html.split(/class="news-item"/).slice(1);
+    for (var i = 0; i < pieces.length && out.length < MAX; i++) {
+      var p = pieces[i];
+      var head = /class="image"[\s\S]*?<a\b[^>]*\bhref="([^"]+)"[\s\S]*?<img\b([^>]*)>/.exec(p);
+      var titleM = /<a\b[^>]*class="title"[^>]*>([\s\S]*?)<\/a>/.exec(p);
+      if (!head || !titleM) continue;
+      var href = pathOf(head[1]);
+      if (seen[href]) continue;
+      seen[href] = 1;
+      var src = /\bdata-src="([^"]+)"/.exec(head[2]) || /\bsrc="([^"]+)"/.exec(head[2]);
+      var img = src ? decode(src[1]) : '';
+      var t = /<time\b[^>]*>\s*([^<]*?)\s*<\/time>/.exec(p);
+      /* the article's text: without its styles, scripts and comments */
+      var at = p.indexOf('class="description"');
+      var body = at < 0 ? '' : p.slice(at).replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<!--[\s\S]*?-->/g, ' ');
+      var lead = '', kicker = '';
+      var paras = body.match(/<p\b[^>]*>[\s\S]*?<\/p>/gi) || [];
+      for (var k = 0; k < paras.length; k++) {
+        var txt = plain(paras[k]);
+        if (!kicker && /Aktualizováno|Autor:/i.test(txt)) {
+          var before = txt.split(/Aktualizováno|Autor:/i)[0].trim();
+          if (before && before.length <= 24) kicker = before;
+          continue;
         }
-        img.style.removeProperty('visibility');
-      } else if (listRead || Object.keys(known).length) {
-        /* an article that is not in Shoptet's list keeps the picture it came with */
-        img.style.removeProperty('visibility');
-      } else {
-        /* nothing known yet: a picture built into the page may be out of date, hidden until Shoptet's own is known */
-        img.style.setProperty('visibility', 'hidden');
+        if (txt.length >= 60) { lead = txt; break; }
       }
-      var date = cards[i].querySelector('.okn-date');
-      if (date && entry && entry.date && date.textContent !== entry.date) date.textContent = entry.date;
-      if (!img.alt) img.alt = (cards[i].querySelector('.okn-title') || link).textContent.trim();
+      var words = plain(body).split(' ').length;
+      out.push({
+        href: href,
+        title: plain(titleM[1]).replace(/\s*\|\s*Okla\.cz\s*$/i, ''),
+        img: img && allowed(img) ? new URL(img, location.origin).href : '',
+        date: t && /^\d{1,2}\.\d{1,2}\.\d{4}$/.test(t[1]) ? t[1] : '',
+        desc: shorten(lead, 150),
+        label: LABEL[href] || kicker,
+        minutes: Math.max(2, Math.round(words / 200))
+      });
+    }
+    return out.length ? out : null;
+  }
+
+  /* one card from one article */
+  function fill(card, a) {
+    card.hidden = false;
+    var pic = card.querySelector('.okn-image');
+    var img = pic && pic.querySelector('img');
+    var title = card.querySelector('.okn-title');
+    var body = card.querySelector('.okn-body');
+    if (pic) { pic.setAttribute('href', a.href); pic.setAttribute('aria-label', a.title); }
+    if (img) {
+      if (a.img && img.getAttribute('src') !== a.img) {
+        img.onerror = null;
+        img.removeAttribute('srcset');
+        img.removeAttribute('sizes');
+        img.setAttribute('src', a.img);
+      }
+      img.alt = a.title;
+      img.style.removeProperty('visibility');
+    }
+    if (title) { title.setAttribute('href', a.href); if (title.textContent !== a.title) title.textContent = a.title; }
+    if (body) {
+      var cat = body.querySelector('.okn-cat');
+      if (a.label) {
+        if (!cat) { cat = document.createElement('p'); cat.className = 'okn-cat'; body.insertBefore(cat, body.firstChild); }
+        if (cat.textContent !== a.label) cat.textContent = a.label;
+      } else if (cat) cat.remove();
+    }
+    var desc = card.querySelector('.okn-desc');
+    if (desc && a.desc && desc.textContent !== a.desc) desc.textContent = a.desc;
+    var date = card.querySelector('.okn-date');
+    if (date && a.date && date.textContent !== a.date) date.textContent = a.date;
+    var read = card.querySelector('.okn-read');
+    if (read) {
+      var last = read.lastChild, text = a.minutes + ' min čtení';
+      if (last && last.nodeType === 3) { if (last.nodeValue !== text) last.nodeValue = text; } else read.appendChild(document.createTextNode(text));
     }
   }
 
-  /* Shoptet's article list as text: address, picture and date of every article */
-  function parse(html) {
-    var out = {}, found = 0;
-    /* one piece per article: its picture link, the picture and the date are the first of their kind in the piece */
-    var pieces = html.split(/class="news-item"/).slice(1);
-    for (var i = 0; i < pieces.length; i++) {
-      var p = pieces[i];
-      var a = /class="image"[\s\S]*?<a\b[^>]*\bhref="([^"]+)"[\s\S]*?<img\b([^>]*)>/.exec(p);
-      if (!a) continue;
-      var src = /\bdata-src="([^"]+)"/.exec(a[2]) || /\bsrc="([^"]+)"/.exec(a[2]);
-      if (!src) continue;
-      var img = src[1].replace(/&amp;/g, '&');
-      if (!allowed(img)) continue;
-      var key = pathOf(a[1]);
-      if (out[key]) continue;
-      var t = /<time\b[^>]*>\s*([^<]*?)\s*<\/time>/.exec(p);
-      out[key] = {img: new URL(img, location.origin).href, date: t && /^\d{1,2}\.\d{1,2}\.\d{4}$/.test(t[1]) ? t[1] : ''};
-      found++;
+  var waiting = false;
+  function paint() {
+    var section = document.getElementById('okla-news-v55');
+    if (!section) return;
+    var grid = section.querySelector('.okn-grid');
+    if (!list) {
+      /* nothing known yet: the built-in cards may be out of date - wait for Shoptet's list */
+      if (grid && waiting) grid.style.setProperty('visibility', 'hidden');
+      return;
     }
-    return found ? out : null;
+    if (grid) grid.style.removeProperty('visibility');
+    var cards = section.querySelectorAll('.okn-card');
+    for (var i = 0; i < cards.length; i++) {
+      if (list[i]) fill(cards[i], list[i]);
+      else cards[i].hidden = true;
+    }
+  }
+
+  function reveal() {
+    waiting = false;
+    var section = document.getElementById('okla-news-v55');
+    var grid = section && section.querySelector('.okn-grid');
+    if (grid) grid.style.removeProperty('visibility');
   }
 
   function refresh() {
@@ -93,38 +168,41 @@
       .then(function (r) { if (!r.ok) throw new Error('list ' + r.status); return r.text(); })
       .then(function (html) {
         var items = parse(html);
-        listRead = true;
-        if (!items) { paint(); return; }
-        known = items;
-        try { localStorage.setItem(CACHE_KEY, JSON.stringify({t: Date.now(), items: items})); } catch (e) {}
+        if (items) {
+          list = items;
+          try { localStorage.setItem(CACHE_KEY, JSON.stringify({t: Date.now(), items: items})); } catch (e) {}
+        }
+        reveal();
         paint();
       })
-      .catch(function () {
-        /* the list could not be read: the pictures known so far stay; cards without one show their own */
-        listRead = true;
-        paint();
-      });
+      /* the list could not be read: what was known stays, otherwise the built-in cards show */
+      .catch(function () { reveal(); paint(); });
   }
 
-  var watchedSection = null, imageObserver = null;
+  var watchedSection = null, observer = null, painting = false;
   function bindNews() {
     var section = document.getElementById('okla-news-v55');
     if (!section) return false;
     if (section === watchedSection) return true;
-    if (imageObserver) imageObserver.disconnect();
+    if (observer) observer.disconnect();
     watchedSection = section;
-    /* an older script may set its own picture again later: Shoptet's picture wins */
-    imageObserver = new MutationObserver(function (changes) {
-      for (var i = 0; i < changes.length; i++) {
-        if (changes[i].type === 'attributes' || changes[i].addedNodes.length) { paint(); break; }
-      }
+    /* an older script may write its own picture or text again later: Shoptet's wins */
+    observer = new MutationObserver(function () {
+      if (painting) return;
+      painting = true;
+      requestAnimationFrame(function () { paint(); painting = false; });
     });
-    imageObserver.observe(section, {attributes: true, attributeFilter: ['src', 'srcset'], childList: true, subtree: true});
+    observer.observe(section, {attributes: true, attributeFilter: ['src', 'srcset', 'href'], childList: true, subtree: true});
     paint();
     return true;
   }
 
   function start() {
+    var stale = Date.now() - readAt > FRESH;
+    if (!list && stale) {
+      waiting = true;
+      setTimeout(reveal, 3000);
+    }
     if (!bindNews()) {
       var root = document.querySelector('main#content') || document.getElementById('content') || document.body;
       if (root) {
@@ -132,10 +210,9 @@
         mountObserver.observe(root, {childList: true, subtree: true});
       }
     }
-    if (Date.now() - readAt > FRESH) {
+    if (stale) {
       var later = window.requestIdleCallback || function (f) { setTimeout(f, 800); };
-      /* without anything known yet the list is read at once (the cards wait for it), otherwise when the page is idle */
-      if (Object.keys(known).length) later(refresh, {timeout: 3000}); else refresh();
+      if (list) later(refresh, {timeout: 3000}); else refresh();
     }
   }
 
