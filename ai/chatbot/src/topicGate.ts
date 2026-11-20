@@ -208,12 +208,22 @@ Napiš krátkou přátelskou odpověď (1–2 věty, nejvýš 220 znaků), jak b
 const LANG_LINE: Record<string, string> = { cs: "česky", sk: "slovensky", en: "anglicky", hu: "maďarsky" };
 
 /* a model's decline is used only when it is clearly just a decline */
-export function acceptableDecline(text: string): boolean {
+export function declineProblem(text: string): string | undefined {
   /* the shop's own names ("ESP32", "OKLA.cz") are not facts about the question */
   const t = text.trim().replace(/\bESP32(-[A-Z0-9]+)?\b/gi, "ESP").replace(/\bOKLA\.cz\b/gi, "OKLA");
   /* no facts (numbers, links), short, and in the polite form (no "tebe / potřebuješ / ptej" in Czech and Slovak) */
-  return t.length >= 30 && t.length <= 260 && !/\d|https?:|www\.|\[|\]|[*#`]|\n/.test(t) && (t.match(/[.!?…]+(\s|$)/g) ?? []).length <= 3
-    && !/(^|[\s,])(tebe|tobě|tobe|ti|tvůj|tvoje|potřebuješ|chceš|můžeš|hledáš|hľadáš|potrebuješ|ptej|zeptej|napiš|podívej|zkus)([\s,.!?]|$)/i.test(t);
+  if (t.length < 30) return "short";
+  if (t.length > 260) return `long:${t.length}`;
+  if (/\d/.test(t)) return "digit";
+  if (/https?:|www\.|\[|\]/.test(t)) return "link";
+  if (/[*#`]|\n/.test(t)) return "markup";
+  if ((t.match(/[.!?…]+(\s|$)/g) ?? []).length > 3) return "sentences";
+  if (/(^|[\s,])(tebe|tobě|tobe|ti|tvůj|tvoje|potřebuješ|chceš|můžeš|hledáš|hľadáš|potrebuješ|ptej|zeptej|napiš|podívej|zkus)([\s,.!?]|$)/i.test(t)) return "informal";
+  return undefined;
+}
+
+export function acceptableDecline(text: string): boolean {
+  return declineProblem(text) === undefined;
 }
 
 /* for /health: how the declines were made (no message contents) */
@@ -224,7 +234,8 @@ export async function declineNaturally(message: string, lang: string | undefined
   if (reason === "empty" || reason === "classifier-unavailable") return refusal(lang);
   const written = await gate.writeDecline(message, LANG_LINE[langOf(lang)] ?? "česky", signal);
   if (!written) { declineStats.noAnswer++; return refusal(lang); }
-  if (!acceptableDecline(written)) { declineStats.rejected++; return refusal(lang); }
+  const problem = declineProblem(written);
+  if (problem) { declineStats.rejected++; declineStats.lastError = `rejected: ${problem}`; return refusal(lang); }
   declineStats.written++;
   return written.trim();
 }
