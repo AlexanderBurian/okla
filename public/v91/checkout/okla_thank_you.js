@@ -1,17 +1,11 @@
 /* Okla – the thank-you page after an order is sent (/objednavka/dekujeme/), one calm white panel like the empty cart
-   (okla_empty_states.js), on phones and PC alike:
-   - on top the order steps (Košík, Doprava a platba, Dodací údaje), all three done;
-   - in the middle a picture (a parcel with a check mark), "Děkujeme za objednávku", one line with the order number, a
-     small block with the delivery (with the pickup point's name), the payment method and the total, for a plain bank
-     transfer ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount
-     to pay and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and
-     "Pokračovat v nákupu";
-   - at the bottom left the way to support.
-   The payment method and the amount to pay are read from Shoptet's own table; the delivery and its pickup point from
-   what the checkout showed (okla_order_snapshot.js, kept in this browser tab), Shoptet's table otherwise. Nothing is
-   invented. Cash on delivery, card / Apple Pay / Google Pay and payment-gateway transfers (paid automatically) get no
-   payment card. Shoptet's heading, number line and tables are hidden; anything else it puts on the page (conversion
-   scripts, a registration offer) stays where it is. */
+   (okla_empty_states.js), on phones and PC alike: a picture (a parcel with a check mark), "Děkujeme za objednávku", one
+   line with the order number, for a plain bank transfer ("Převodem") a payment card with a QR payment (Czech "QR
+   Platba", SPAYD) for the shop's account, the amount to pay and the variable symbol (the order number, as Shoptet uses
+   it) plus the same details to type in by hand, and "Pokračovat v nákupu"; at the bottom left the way to support.
+   The payment method and the amount to pay are read from Shoptet's own table. Cash on delivery, card / Apple Pay /
+   Google Pay and payment-gateway transfers (paid automatically) get no payment card. Shoptet's heading, number line and
+   tables are hidden; anything else it puts on the page (conversion scripts, a registration offer) stays where it is. */
 (function(){
  'use strict';
  if(window.__oklaThankYouV1)return;window.__oklaThankYouV1=true;
@@ -77,22 +71,6 @@
    spd:'SPD*1.0*ACC:'+BANK.iban+'*AM:'+amount+'*CC:CZK*X-VS:'+vs+'*MSG:Okla objednavka '+vs};
  }
 
- /* what okla_order_snapshot.js kept during the checkout (this tab, the last 6 hours) */
- function snapshot(){
-  try{var s=JSON.parse(sessionStorage.getItem('okla-order-snapshot')||'null');if(s&&s.items&&s.items.length&&Date.now()-s.t<6*3600*1000)return s}catch(e){}
-  return null;
- }
- function factValue(rows,re){var r=(rows||[]).filter(function(x){return re.test(norm(x.label))})[0];return r?r.value:''}
-
- /* the pickup point as Shoptet writes it ("2317 | Name, Street 1, Town, 123 45"): the place's name and its address lines */
- function pointParts(p){
-  var s=String(p||'').replace(/^\s*\d+\s*\|\s*/,'');var parts=s.split(/\s*,\s*/).filter(Boolean);
-  if(parts.length<2)return {name:s,lines:[]};
-  var name=parts.shift(),zip=parts.length&&/^\d{3}\s?\d{2}$/.test(parts[parts.length-1])?parts.pop():'';
-  var town=parts.length>1?parts.pop():'';
-  var lines=parts.slice();if(town||zip)lines.push((zip+' '+town).trim());
-  return {name:name,lines:lines};
- }
  function build(){
   var main=document.querySelector('main#content')||document.getElementById('content');
   if(!main||main.querySelector('.okla-ty'))return;
@@ -108,29 +86,11 @@
   var sentEl=short(main,/^objednavka (byla )?odeslana[!.]?$/,tables),backEl=short(main,/^zpet do obchodu$/,tables);
   var pay=facts&&payment(facts.rows,number);
 
-  /* the facts: the payment method and the amount to pay are Shoptet's, the delivery what the checkout kept (with the
-     pickup point's name) or Shoptet's */
-  var s=snapshot()||{};
-  var rows=facts?facts.rows:[];
-  var place=s.point?pointParts(s.point):null;
-  var ship=[(s.shipping&&s.shipping.name)||factValue(rows,/doprav/),place&&place.name].filter(Boolean).join(' – ');
-  var payName=factValue(rows,/^platb|zpusob platby/)||(s.payment&&s.payment.name)||'';
-  var total=factValue(rows,/uhrad|celkem/)||s.total||'';
-
-  var STEP=function(d){return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="'+d+'"/></svg>'};
   var html='<section class="okla-ty'+(pay?' okla-ty--pay':'')+'" aria-labelledby="okla-ty-title">'+
-   '<ol class="okla-ty__steps" aria-label="Kroky objednávky">'+
-    [['Košík','Košík'],['Doprava a platba','Doprava'],['Dodací údaje','Údaje']].map(function(st){
-     return '<li class="okla-ty__step is-done"><span class="okla-ty__dot">'+STEP(IC.check)+'</span><span class="okla-ty__sname"><span class="okla-ty__long">'+st[0]+'</span><span class="okla-ty__short">'+st[1]+'</span></span></li>'}).join('')+
-   '</ol>'+
    '<div class="okla-ty__main">'+
     '<div class="okla-ty__pic" aria-hidden="true"><svg class="okla-ty__success" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid meet"><circle class="okla-ty__success-ring" cx="128" cy="128" r="92" pathLength="1"/><path class="okla-ty__success-check" d="M78 130 112 164 181 95" pathLength="1"/></svg></div>'+
     '<h1 id="okla-ty-title" class="okla-ty__title">Děkujeme za objednávku</h1>'+
     '<p class="okla-ty__lead">'+(number?'Objednávku č. <strong>'+esc(number)+'</strong> jsme přijali':'Objednávku jsme přijali')+' a už na ní pracujeme. Potvrzení jsme vám poslali e-mailem.</p>';
-  if(ship||payName||total){
-   var fact=function(label,value){return value?'<div class="okla-ty__fact"><dt>'+label+'</dt><dd>'+esc(value)+'</dd></div>':''};
-   html+='<dl class="okla-ty__facts">'+fact('Doprava',ship)+fact('Platba',payName)+fact('Celkem',total)+'</dl>';
-  }
   if(pay){
    var row=function(label,value,copy,big){return '<div class="okla-ty__prow'+(big?' okla-ty__prow--big':'')+'"><dt>'+label+'</dt><dd><span class="okla-ty__pval">'+esc(value)+'</span>'+
     '<button type="button" class="okla-ty__copy" data-copy="'+esc(copy)+'" aria-label="Zkopírovat: '+label+'" title="Zkopírovat">'+svg(IC.copy,'okla-ty__cp')+svg(IC.check,'okla-ty__copied')+'</button></dd></div>'};

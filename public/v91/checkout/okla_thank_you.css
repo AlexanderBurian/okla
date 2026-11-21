@@ -1,8 +1,7 @@
 /* Okla – thank-you page after an order (okla_thank_you.js): one calm white panel like the empty cart
-   (okla_empty_states.css), on phones and PC alike - the three order steps done on top, in the middle a picture,
-   "Děkujeme za objednávku", one line, a small block with the delivery, payment and total, the payment card for a plain
-   bank transfer and "Pokračovat v nákupu", at the bottom left the way to support. Open Sans, the shop's navy text,
-   buttons #0859d8. */
+   (okla_empty_states.css), on phones and PC alike - in the middle the animated check mark, "Děkujeme za objednávku",
+   one line, the payment card for a plain bank transfer and "Pokračovat v nákupu", at the bottom left the way to
+   support. Open Sans, the shop's navy text, buttons #0859d8. */
 html.okla-ty-page body #content .okla-ty-src{display:none!important}
 html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){
   --ty-ink:#0b2540;--ty-text:#46556a;--ty-mute:#5b6b80;--ty-line:#e3e6ea;--ty-grey:#f5f7fa;--ty-blue:#0859d8;--ty-blue-bg:#eaf3fe;
@@ -19,16 +18,6 @@ html.okla-ty-page body #content .okla-ty :is(h1,h2,h3)::after{content:none!impor
 html.okla-ty-page body #content .okla-ty svg.okla-ty-ic{display:block!important;flex:none!important;width:22px!important;height:22px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;overflow:visible!important}
 html.okla-ty-page body #content .okla-ty svg.okla-ty-ic path{fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 
-/* the steps: all three done - filled blue discs with a check mark, blue lines between */
-html.okla-ty-page body #content .okla-ty__steps{display:flex!important;align-items:center!important;gap:0!important;list-style:none!important}
-html.okla-ty-page body #content .okla-ty__step{display:flex!important;align-items:center!important;gap:9px!important;list-style:none!important;color:var(--ty-ink)!important;font:600 14px/1.2 "Open Sans",Arial,sans-serif!important;white-space:nowrap!important}
-html.okla-ty-page body #content .okla-ty__step::before{content:none!important}
-html.okla-ty-page body #content .okla-ty__step+.okla-ty__step::before{content:""!important;display:block!important;width:34px!important;height:2px!important;margin:0 12px 0 4px!important;border-radius:1px!important;background:var(--ty-blue)!important}
-html.okla-ty-page body #content .okla-ty__dot{display:grid!important;place-items:center!important;flex:none!important;width:34px!important;height:34px!important;border-radius:50%!important;background:var(--ty-blue)!important;color:#fff!important}
-html.okla-ty-page body #content .okla-ty__dot svg{display:block!important;width:17px!important;height:17px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.4!important}
-html.okla-ty-page body #content .okla-ty__dot svg path{fill:none!important;stroke:currentColor!important}
-html.okla-ty-page body #content .okla-ty__short{display:none!important}
-
 /* the message */
 html.okla-ty-page body #content .okla-ty__main{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;padding:40px 0 44px!important}
 html.okla-ty-page body #content .okla-ty__pic{display:grid!important;place-items:center!important;width:210px!important;height:190px!important;margin:0 0 30px!important;padding:0!important;box-sizing:border-box!important;overflow:visible!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
@@ -41,12 +30,6 @@ html.okla-ty-page body #content .okla-ty__success-check{fill:none!important;stro
 html.okla-ty-page body #content .okla-ty h1.okla-ty__title{margin:0 0 14px!important;border:0!important;background:none!important;box-shadow:none!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;-webkit-text-fill-color:var(--ty-ink)!important;text-transform:none!important;letter-spacing:0!important;text-align:center!important}
 html.okla-ty-page body #content .okla-ty__lead{max-width:440px!important;margin:0 0 28px!important;font:400 15px/1.55 "Open Sans",Arial,sans-serif!important;color:var(--ty-text)!important}
 html.okla-ty-page body #content .okla-ty__lead strong{font-weight:700!important;color:var(--ty-ink)!important}
-/* the small extra info: delivery, payment, total */
-html.okla-ty-page body #content .okla-ty__facts{display:flex!important;flex-direction:column!important;width:100%!important;max-width:600px!important;margin:0 0 34px!important;padding:6px 18px!important;border-radius:10px!important;background:var(--ty-grey)!important;text-align:left!important}
-html.okla-ty-page body #content .okla-ty__fact{display:flex!important;justify-content:space-between!important;align-items:baseline!important;gap:16px!important;min-width:0!important;padding:12px 0!important}
-html.okla-ty-page body #content .okla-ty__fact+.okla-ty__fact{border-top:1px solid #dde2e8!important}
-html.okla-ty-page body #content .okla-ty__fact dt{flex:none!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important;color:var(--ty-mute)!important}
-html.okla-ty-page body #content .okla-ty__fact dd{min-width:0!important;font:600 13.5px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;text-align:right!important}
 html.okla-ty-page body #content a.okla-ty__btn{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:210px!important;height:50px!important;padding:0 28px!important;border:0!important;border-radius:8px!important;background:var(--ty-blue)!important;box-shadow:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:700 16px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
 html.okla-ty-page body #content a.okla-ty__btn:is(:hover,:active,:focus){background:var(--ty-blue)!important;color:#fff!important}
 /* the bottom: the way to support */
@@ -93,17 +76,12 @@ html.okla-ty-page body #content .okla-ty__pay{width:100%!important;max-width:600
 
 /* PC: taller, as the empty cart - the message gets room above and below */
 @media(min-width:768px){
-  html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){min-height:700px!important;padding:28px 12px 12px!important}
+  html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){min-height:700px!important;padding:12px!important}
   html.okla-ty-page body #content .okla-ty__main{flex:1 0 auto!important;justify-content:center!important;padding:64px 0 72px!important}
 }
-/* phones: the short step names, lines that fill the row */
+/* phones */
 @media(max-width:767px){
   html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){padding:12px 0 32px!important}
-  html.okla-ty-page body #content .okla-ty__long{display:none!important}
-  html.okla-ty-page body #content .okla-ty__short{display:inline!important}
-  html.okla-ty-page body #content .okla-ty__step+.okla-ty__step{flex:1 1 auto!important}
-  html.okla-ty-page body #content .okla-ty__step+.okla-ty__step::before{flex:1 1 auto!important;width:auto!important;min-width:14px!important;margin:0 8px!important}
-  html.okla-ty-page body #content .okla-ty__dot{width:30px!important;height:30px!important}
   html.okla-ty-page body #content .okla-ty__main{padding:36px 0 40px!important}
   html.okla-ty-page body #content .okla-ty h1.okla-ty__title{font-size:23px!important}
   html.okla-ty-page body #content .okla-ty__payhead{padding:18px!important}
