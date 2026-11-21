@@ -4,7 +4,8 @@
    - left: a check mark, "Už na vaší objednávce pracujeme" with the order number and one line, for a plain bank transfer
      ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount to pay
      and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and a
-     photo of a white delivery van with the Okla logo (v91/img/okla-van.webp, cut out, from a free Pexels photo);
+     white delivery van with the Okla logo (v91/img/okla-van.webp) driving left to right: it reaches out to the page
+     panel's left edge (the screen's on phones), which cuts off a bit of its rear;
    - right: the order summary - delivery (the method with the pickup point's name, then its address), the items with
      their photos, quantities and prices, then the subtotal, delivery, payment and the total - and a slider of other
      products (the ordered items' categories first, from the shop's live catalogue).
@@ -178,7 +179,7 @@
     '<p class="okla-ty__paynote">QR kód pro platbu najdete i v potvrzovacím e-mailu.</p>'+
    '</div>';
   }
-  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.webp')+'" width="1000" height="413" alt="Dodávka Okla.cz" loading="lazy" decoding="async"></figure>'+
+  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.webp')+'" width="1200" height="507" alt="Dodávka Okla.cz" loading="lazy" decoding="async"></figure>'+
    '</div>';
 
   /* the summary */
@@ -239,6 +240,21 @@
   if(pay)drawQr(sec.querySelector('.okla-ty__qr'));
   sec.addEventListener('click',copyClick);
   slider(sec.querySelector('.okla-ty__more'));
+  bleed(sec.querySelector('.okla-ty__photo'));
+ }
+ /* the van runs out to the white page panel's left edge (on phones the screen's): the gap between the column and that
+    edge, in the page's own (zoomed) pixels, goes to --ty-bleed */
+ function bleed(fig){
+  if(!fig)return;
+  function measure(){
+   fig.style.removeProperty('--ty-bleed');
+   var panel=document.getElementById('content-wrapper'),z=fig.currentCSSZoom||1;
+   var edge=panel?Math.max(panel.getBoundingClientRect().left,0):0;
+   var d=Math.round((fig.getBoundingClientRect().left-edge)/z);
+   if(d>0&&d<200)fig.style.setProperty('--ty-bleed',d+'px');
+  }
+  var t;window.addEventListener('resize',function(){cancelAnimationFrame(t);t=requestAnimationFrame(measure)});
+  measure();
  }
  /* the slider: the arrows move it by one card; each arrow is off at its end */
  function slider(more){
