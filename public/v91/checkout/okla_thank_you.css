@@ -1,12 +1,12 @@
 /* Okla – thank-you page after an order (okla_thank_you.js), laid out as Decathlon's: a narrow centred page in two
    columns - the confirmation (check mark, heading, one line, the payment card for a bank transfer) and a photo on the
-   left, the order summary and a product slider on the right; one column on phones. Open Sans, the shop's navy text,
-   item prices on the shop's yellow price tag. */
+   left, the order summary and a product slider on the right, across the page's white island; one column on phones.
+   Open Sans, the shop's navy text, prices in the shop's red as on the product cards. */
 html.okla-ty-page body #content .okla-ty-src{display:none!important}
 html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){
-  --ty-ink:#101820;--ty-navy:#0b2540;--ty-text:#3c4653;--ty-mute:#6b7480;--ty-line:#e3e6ea;--ty-grey:#f3f4f6;--ty-blue:#0859d8;--ty-blue-bg:#eaf3fe;--ty-tag:#ffd60a;
-  box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1fr) 350px!important;column-gap:68px!important;align-items:start!important;
-  max-width:920px!important;margin:0 auto!important;padding:56px 0 64px!important;
+  --ty-ink:#101820;--ty-navy:#0b2540;--ty-text:#3c4653;--ty-mute:#6b7480;--ty-line:#e3e6ea;--ty-grey:#f3f4f6;--ty-blue:#0859d8;--ty-blue-bg:#eaf3fe;--ty-price:#e73b49;
+  box-sizing:border-box!important;display:grid!important;grid-template-columns:minmax(0,1fr) 400px!important;column-gap:72px!important;align-items:start!important;
+  max-width:none!important;margin:0!important;padding:44px 0 56px!important;
   font-family:"Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;text-align:left!important;
 }
 html.okla-ty-page body #content .okla-ty *{box-sizing:border-box!important}
@@ -24,8 +24,8 @@ html.okla-ty-page body #content .okla-ty__ok{display:block!important;width:40px!
 html.okla-ty-page body #content .okla-ty__ok svg{display:block!important;width:40px!important;height:40px!important;fill:none!important;stroke:currentColor!important;overflow:visible!important}
 html.okla-ty-page body #content .okla-ty__ok svg path{fill:none!important;stroke:currentColor!important;stroke-width:2.6!important}
 html.okla-ty-page body #content .okla-ty h1.okla-ty__title{margin:0 0 16px!important;border:0!important;background:none!important;box-shadow:none!important;font:700 26px/1.25 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;-webkit-text-fill-color:var(--ty-ink)!important;text-transform:none!important;letter-spacing:-.5px!important;text-align:left!important}
-html.okla-ty-page body #content .okla-ty__lead{max-width:440px!important;margin:0!important;font:400 13.5px/1.55 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important}
-html.okla-ty-page body #content .okla-ty__photo{display:block!important;margin:20px 0 0!important;border-radius:0!important;overflow:hidden!important;background:var(--ty-grey)!important;aspect-ratio:494/408!important}
+html.okla-ty-page body #content .okla-ty__lead{max-width:560px!important;margin:0!important;font:400 13.5px/1.55 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important}
+html.okla-ty-page body #content .okla-ty__photo{display:block!important;margin:20px 0 0!important;border-radius:0!important;overflow:hidden!important;background:#eef3fb!important;aspect-ratio:600/495!important}
 html.okla-ty-page body #content .okla-ty__photo img{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;border:0!important;border-radius:0!important}
 
 /* the summary */
@@ -45,7 +45,7 @@ html.okla-ty-page body #content .okla-ty__ibody{display:flex!important;flex-dire
 html.okla-ty-page body #content .okla-ty__iname{font:600 12.5px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;text-decoration:none!important}
 html.okla-ty-page body #content a.okla-ty__iname:hover{text-decoration:underline!important}
 html.okla-ty-page body #content .okla-ty__imeta{font:400 12px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-text)!important}
-html.okla-ty-page body #content .okla-ty__iprice{margin-top:4px!important;padding:1px 4px!important;background:var(--ty-tag)!important;font:700 12px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;white-space:nowrap!important}
+html.okla-ty-page body #content .okla-ty__iprice{margin-top:4px!important;padding:0!important;background:none!important;font:700 14px/1.3 "Open Sans",Arial,sans-serif!important;color:var(--ty-price)!important;white-space:nowrap!important}
 html.okla-ty-page body #content .okla-ty__sum{display:flex!important;flex-direction:column!important}
 html.okla-ty-page body #content .okla-ty__srow{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:16px!important;padding:14px 0!important;border-top:1px solid var(--ty-line)!important;font:400 14px/1.35 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important}
 html.okla-ty-page body #content .okla-ty__srow:first-child{border-top:0!important;padding-top:0!important}
@@ -73,7 +73,7 @@ html.okla-ty-page body #content .okla-ty__cimg{display:grid!important;place-item
 html.okla-ty-page body #content .okla-ty__cimg img{display:block!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;mix-blend-mode:multiply!important}
 html.okla-ty-page body #content .okla-ty__cname{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;font:600 13px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important}
 html.okla-ty-page body #content a.okla-ty__card:hover .okla-ty__cname{text-decoration:underline!important}
-html.okla-ty-page body #content .okla-ty__cprice{align-self:flex-start!important;padding:1px 4px!important;background:var(--ty-tag)!important;font:700 12px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important}
+html.okla-ty-page body #content .okla-ty__cprice{align-self:flex-start!important;padding:0!important;background:none!important;font:700 16px/1.3 "Open Sans",Arial,sans-serif!important;color:var(--ty-price)!important}
 
 /* payment card (bank transfer only) */
 html.okla-ty-page body #content .okla-ty__pay{margin:36px 0 0!important;border:1px solid var(--ty-line)!important;border-radius:20px!important;background:#fff!important;overflow:hidden!important;box-shadow:none!important}
@@ -114,7 +114,7 @@ html.okla-ty-page body #content .okla-ty__pay{margin-top:22px!important;border-r
 
 /* narrower PC: a narrower summary */
 @media(min-width:992px) and (max-width:1199px){
-  html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){grid-template-columns:minmax(0,1fr) 320px!important;column-gap:40px!important;padding-left:24px!important;padding-right:24px!important}
+  html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b){grid-template-columns:minmax(0,1fr) 340px!important;column-gap:44px!important}
 }
 /* tablets and phones: one column, the summary under the confirmation */
 @media(max-width:991px){

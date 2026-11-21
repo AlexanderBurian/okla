@@ -4,7 +4,7 @@
    - left: a check mark, "Už na vaší objednávce pracujeme" with the order number and one line, for a plain bank transfer
      ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount to pay
      and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and a
-     photo of the warehouse;
+     picture of the Okla delivery van (v91/img/okla-van.svg);
    - right: the order summary - delivery (the method with the pickup point's name, then its address), the items with
      their photos, quantities and prices, then the subtotal, delivery, payment and the total - and a slider of other
      products (the ordered items' categories first, from the shop's live catalogue).
@@ -150,7 +150,7 @@
   var addr=place?place.lines:(s.address||[]);
 
   /* as on Decathlon: on the left the check mark, the heading, one line, (the payment card for a bank transfer) and the
-     photo; on the right the summary - delivery with its address, the items, the totals - and a product slider */
+     Okla delivery van; on the right the summary - delivery with its address, the items, the totals - and a product slider */
   var html='<section class="okla-ty'+(pay?' okla-ty--pay':'')+'" aria-labelledby="okla-ty-title">'+
    '<div class="okla-ty__main">'+
     '<span class="okla-ty__ok"><svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M33.5 18.6V20A13.5 13.5 0 1 1 25.5 7.7"/><path d="m14.5 19.5 4.8 4.8L34 9.6"/></svg></span>'+
@@ -178,7 +178,7 @@
     '<p class="okla-ty__paynote">QR kód pro platbu najdete i v potvrzovacím e-mailu.</p>'+
    '</div>';
   }
-  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/about/sklad.webp')+'" alt="" loading="lazy" decoding="async"></figure>'+
+  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.svg')+'" alt="Dodávka Okla.cz" loading="lazy" decoding="async"></figure>'+
    '</div>';
 
   /* the summary */
