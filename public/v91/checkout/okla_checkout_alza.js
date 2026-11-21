@@ -108,22 +108,20 @@
  var ICON={
   chat:'M20 11.5c0 4.1-3.6 7.5-8 7.5a8.6 8.6 0 0 1-3.4-.7L4 19.5l1.3-3.7A7.2 7.2 0 0 1 4 11.5C4 7.4 7.6 4 12 4s8 3.4 8 7.5zM8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01',
   mail:'M5 5.5h14A1.5 1.5 0 0 1 20.5 7v10a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 17V7A1.5 1.5 0 0 1 5 5.5zM4 7l8 6 8-6',
-  help:'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM9.7 9.3a2.4 2.4 0 0 1 4.6 1c0 1.6-2.3 2.1-2.3 3.6M12 16.7h.01',
-  next:'m9.5 6 6 6-6 6'
+  help:'M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM9.7 9.3a2.4 2.4 0 0 1 4.6 1c0 1.6-2.3 2.1-2.3 3.6M12 16.7h.01'
  };
  function HELP_HTML(){
-  /* Alza style: the title with a short line and the Okla manul beside it, then one row per way to reach us - an icon
-     on a light blue disc, what it is, one grey line and a chevron */
+  /* Alza style: the heading and a short line across the top; under them the ways to reach us on the left - an icon on a
+     light blue disc, the name and one grey line - and the whole Okla manul standing in the bottom right corner */
   var row=function(href,icon,title,sub){return '<li><a class="okla-help__row" href="'+href+'"><span class="okla-help__ic">'+ico(icon)+'</span>'+
-   '<span class="okla-help__txt"><strong>'+title+'</strong><small>'+sub+'</small></span><span class="okla-help__go">'+ico(ICON.next)+'</span></a></li>'};
+   '<span class="okla-help__txt"><strong>'+title+'</strong><small>'+sub+'</small></span></a></li>'};
   return '<section class="okla-cart-aside__card okla-help">'+
-   '<div class="okla-help__head"><div class="okla-help__intro"><h2 class="okla-cart-aside__title">Potřebujete poradit?</h2><p class="okla-help__lead">Pomůžeme s výběrem i s objednávkou.</p></div>'+
-   '<span class="okla-help__avatar" aria-hidden="true"><img src="'+(window.__oklaAssetBase||'')+'v91/img/okla-manul-avatar.webp" alt="" loading="lazy" decoding="async"></span></div>'+
-   '<ul class="okla-help__list">'+
-    row('/kontakt/',ICON.chat,'Napsat podpoře','Kontaktní formulář na webu')+
-    row('mailto:podpora@okla.cz',ICON.mail,'podpora@okla.cz','Napište nám e-mail')+
-    row('/jak-nakupovat/',ICON.help,'Jak nakupovat','Doprava, platba a vrácení zboží')+
-   '</ul></section>';
+   '<h2 class="okla-cart-aside__title">Potřebujete poradit?</h2><p class="okla-help__lead">Pomůžeme s výběrem i s objednávkou.</p>'+
+   '<div class="okla-help__body"><ul class="okla-help__list">'+
+    row('/kontakt/',ICON.chat,'Napsat podpoře','Formulář na webu')+
+    row('mailto:podpora@okla.cz',ICON.mail,'podpora@okla.cz','Odpovíme e-mailem')+
+    row('/jak-nakupovat/',ICON.help,'Jak nakupovat','Doprava a platba')+
+   '</ul><img class="okla-help__cat" src="'+(window.__oklaAssetBase||'')+'v91/img/okla-manul-avatar.webp" alt="" loading="lazy" decoding="async"></div></section>';
  }
  /* Steps 2 and 3 (PC): the right column as three islands too - the recap (title, items, delivery, payment), the total
     with the button, and help. The recap's pieces are gathered into one box (.okla-recap-card; display:contents on
