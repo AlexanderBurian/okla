@@ -5,8 +5,7 @@
 }
 #okla-v61-drawer.okla-mm-open .okm61-drawer-panel{
   left:0!important;right:0!important;width:100%!important;max-width:none!important;bottom:0!important;
-  background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;
-  background-position:left top!important;background-size:100% var(--okla-mg-h,820px)!important;box-shadow:none!important;
+  background:#fff!important;box-shadow:none!important;
 }
 #okla-v61-drawer.okla-mm-open .okm61-drawer-head{
   min-height:64px!important;padding:10px 20px!important;border-bottom:1px solid rgba(128,158,206,.32)!important;

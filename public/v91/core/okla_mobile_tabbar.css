@@ -82,7 +82,7 @@
     position:relative!important;top:auto!important;flex:0 0 60px!important;display:flex!important;align-items:flex-start!important;justify-content:space-between!important;
     box-sizing:border-box!important;height:60px!important;min-height:0!important;margin:0!important;padding:7px 8px 0 14px!important;
     border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
-    background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;background-position:left top!important;background-size:100% 820px!important;
+    background:#fff!important;
   }
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-head strong{display:flex!important;align-items:center!important;height:32px!important;margin:0!important;padding:0!important}
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okla-mm-logo{display:block!important;width:auto!important;height:32px!important;max-width:none!important;object-fit:contain!important}
@@ -94,7 +94,7 @@
   html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{
     flex:1 0 auto!important;min-height:calc(100% - 60px)!important;overflow:visible!important;
     box-sizing:border-box!important;
-    background-color:#fff!important;background-image:var(--okla-mg)!important;background-repeat:no-repeat!important;background-position:left -60px!important;background-size:100% 820px!important;
+    background:#fff!important;
     transform:translateX(100%);transition:transform .34s cubic-bezier(.22,1,.36,1)!important;
   }
   html.okla-tb-on body #okla-v61-drawer.is-open:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transform:none}

@@ -1,84 +1,14 @@
-/* Okla newsroom – /newsroom and the article list /nase-novinky/. Article grid in the Alza-style layout with search and two filters.
-   Colours, type and buttons follow the Okla storefront. Loaded by zapati_firsthalf.js on this path only. */
+/* Okla newsroom – /newsroom and the article list /nase-novinky/. Article grid in the Alza-style layout with a search and
+   a category filter. The articles are Shoptet's own (v91/core/okla_articles.js): a new article published in Shoptet
+   appears on its own, a removed one disappears, a changed title, picture or text shows at once. On /nase-novinky/ they
+   are read from the page itself, on /newsroom from that list. Loaded by zapati_firsthalf.js on these paths only. */
 (function(){
 'use strict';
 if(window.__oklaNewsroomV1)return;
-/* also the Shoptet article list /nase-novinky/: it would otherwise print every article in full one after another */
 if(!/^\/(newsroom|nase-novinky)(\/|\.html)?$/.test(location.pathname))return;
+var A=window.oklaArticles;
+if(!A)return;
 window.__oklaNewsroomV1=true;
-
-/* Current articles, newest first. A new article is one more object in this list. The href values are the page addresses
-   used in Shoptet; change them if the article pages get different addresses. */
-var ARTICLES=[
- {title:'Flipper Zero: co všechno zvládne kapesní multitool?',
-  excerpt:'Sub-GHz rádio, čtečka RFID a NFC karet a infračervený vysílač v kapesním přístroji. Samo o sobě nic neotevře, záleží na tom, co s ním umíte a na jaké systémy máte oprávnění.',
-  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_02_09.png',
-  href:'/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/',date:'2026-10-31',minutes:12,topic:'Elektronika',category:'Multitool a RF'},
- {title:'Wi-Fi endoskopická kamera: na co se zaměřit při výběru',
-  excerpt:'Ne každý endoskop nabídne stejně dobrý obraz. Záleží na průměru sondy, délce kabelu, přísvícení i kompatibilitě s telefonem.',
-  img:'/user/articles/images/download_(1).png',
-  href:'/nase-novinky/wifi/',date:'2026-10-31',minutes:9,topic:'Měření a kontrola',category:'Endoskopy'},
- {title:'USB-C testery: jak snadno zkontrolovat nabíjení',
-  excerpt:'Přehledné měření napětí, proudu a výkonu vám pomůže zjistit, co skutečně zvládne nabíječka nebo kabel.',
-  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_23-1.png',
-  href:'/nase-novinky/usb-c/',date:'2026-10-31',minutes:8,topic:'Nabíjení a napájení',category:'Testery'},
- {title:'NFC karty a štítky: nenápadná technologie s velkým využitím',
-  excerpt:'Jednoduché sdílení kontaktů, spouštění automatizací i rychlé otevírání odkazů. NFC dokáže zpříjemnit běžné činnosti a vejde se do peněženky.',
-  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_29-3.png',
-  href:'/nase-novinky/nfc/',date:'2026-10-31',minutes:8,topic:'Chytré technologie',category:'NFC'},
- {title:'Chytré měřicí gadgety: drobnosti, které ušetří čas',
-  excerpt:'Od laserových dálkoměrů až po digitální váhy. Jaké parametry sledovat a kdy se vyplatí pořídit specializovaný nástroj?',
-  img:'/user/articles/images/obr__zek_chatgpt_4._11._2026_21_01_32-4.png',
-  href:'/nase-novinky/meridlo/',date:'2026-10-31',minutes:8,topic:'Měření a kontrola',category:'Měřicí přístroje'}
-];
-
-/* Shoptet article preview images are the source of truth (same five entries as the homepage).
-   Initialize with the last verified native covers, then fetch the current og:image from each article.
-   Never fall back to unrelated stock/CDN article illustrations. */
-var NATIVE_ARTICLE_PAGES=[
- '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/',
- '/nase-novinky/wifi/',
- '/nase-novinky/usb-c/',
- '/nase-novinky/nfc/',
- '/nase-novinky/meridlo/'
-];
-ARTICLES.forEach(function(a,i){a.nativeIndex=i;});
-
-function applyNativeNewsImage(index,src){
- var article=ARTICLES[index];
- if(!article)return;
- article.img=src;
- var cards=document.querySelectorAll('.okla-newsroom .nr-card[data-native-index="'+index+'"] .nr-card__media img');
- for(var k=0;k<cards.length;k++){
-  cards[k].removeAttribute('srcset');
-  cards[k].removeAttribute('sizes');
-  if(cards[k].getAttribute('src')!==src) cards[k].setAttribute('src',src);
- }
-}
-function syncShoptetCovers(){
- NATIVE_ARTICLE_PAGES.forEach(function(page,index){
-  fetch(page,{credentials:'same-origin'})
-   .then(function(response){
-    if(!response.ok)throw new Error('HTTP '+response.status);
-    return response.text();
-   })
-   .then(function(html){
-    var doc=new DOMParser().parseFromString(html,'text/html');
-    var meta=doc.querySelector('meta[property="og:image"]');
-    if(!meta)return;
-    var raw=meta.getAttribute('content');
-    if(!raw)return;
-    var url=new URL(raw,new URL(page,location.origin));
-    if(url.protocol!=='https:'&&url.protocol!=='http:')return;
-    if(url.hostname!==location.hostname&&url.hostname!=='cdn.myshoptet.com')return;
-    if(/preforma-logo|favicon|\/user\/logos\//i.test(url.pathname))return;
-    applyNativeNewsImage(index,url.href);
-   })
-   .catch(function(){ /* Last verified Shoptet cover remains visible. */ });
- });
-}
-/* the covers above are the current ones; the check for a newer cover runs once the page has loaded */
-if(document.readyState==='complete')setTimeout(syncShoptetCovers,1200);else addEventListener('load',function(){setTimeout(syncShoptetCovers,1200)},{once:true});
 
 var ICON={
  search:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>',
@@ -93,7 +23,7 @@ var CSS=[
  'body.okla-newsroom-page #content,body.okla-newsroom-page #content :has(.okla-newsroom){max-width:none!important;width:100%!important;margin:0!important;padding:0!important}',
  '.okla-newsroom{box-sizing:border-box;width:100%;padding:28px 28px 72px;color:#081d3a;font-family:inherit}',
  '.okla-newsroom *,.okla-newsroom *::before,.okla-newsroom *::after{box-sizing:border-box}',
- '.okla-newsroom .nr-hero{display:flex;flex-direction:column;align-items:center;padding:76px 24px 60px;border-radius:24px;text-align:center;background:linear-gradient(115deg,#c2aef6 0%,#dccff9 42%,#bde4fb 100%)}',
+ '.okla-newsroom .nr-hero{display:flex;flex-direction:column;align-items:center;padding:76px 24px 60px;border-radius:24px;text-align:center;background:#eef3fa}',
  '.okla-newsroom .nr-title{margin:0;font-size:56px;line-height:1.1;font-weight:700;color:#081d3a}',
  '.okla-newsroom .nr-lead{margin:14px 0 0;max-width:640px;font-size:17px;line-height:1.6;color:#3b4a5e}',
  '.okla-newsroom .nr-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;width:100%;margin-top:44px}',
@@ -134,23 +64,22 @@ var CSS=[
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 /* Lower case without diacritics, so that "usb" finds "USB‑C" and "nfc" finds "NFC". */
-function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')}
-function options(key,first){
+function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+function options(list){
  var seen={},values=[];
- ARTICLES.forEach(function(a){if(!seen[a[key]]){seen[a[key]]=true;values.push(a[key])}});
+ list.forEach(function(a){if(a.label&&!seen[a.label]){seen[a.label]=true;values.push(a.label)}});
  values.sort(function(x,y){return x.localeCompare(y,'cs')});
- return '<option value="">'+first+'</option>'+values.map(function(v){return '<option value="'+esc(v)+'">'+esc(v)+'</option>'}).join('');
+ return '<option value="">Všechny kategorie</option>'+values.map(function(v){return '<option value="'+esc(v)+'">'+esc(v)+'</option>'}).join('');
 }
 function card(a){
  var el=document.createElement('article');
  el.className='nr-card';
- el.setAttribute('data-native-index',String(a.nativeIndex));
- el.innerHTML='<a class="nr-card__media" href="'+esc(a.href)+'" tabindex="-1" aria-hidden="true"><img src="'+esc(a.img)+'" alt="" loading="lazy" decoding="async"></a>'
+ el.innerHTML='<a class="nr-card__media" href="'+esc(a.href)+'" tabindex="-1" aria-hidden="true">'+(a.img?'<img src="'+esc(a.img)+'" alt="" loading="lazy" decoding="async">':'')+'</a>'
   +'<div class="nr-card__body">'
-  +'<p class="nr-card__category">'+esc(a.category)+'</p>'
+  +(a.label?'<p class="nr-card__category">'+esc(a.label)+'</p>':'')
   +'<h2 class="nr-card__title"><a href="'+esc(a.href)+'">'+esc(a.title)+'</a></h2>'
-  +'<p class="nr-card__excerpt">'+esc(a.excerpt)+'</p>'
-  +'<div class="nr-card__meta"><time datetime="'+esc(a.date)+'">'+esc(a.date)+'</time><span class="nr-card__read">'+ICON.clock+a.minutes+' min čtení</span></div>'
+  +'<p class="nr-card__excerpt">'+esc(A.shorten(a.desc,220))+'</p>'
+  +'<div class="nr-card__meta">'+(a.date?'<time>'+esc(a.date)+'</time>':'')+'<span class="nr-card__read">'+ICON.clock+a.minutes+' min čtení</span></div>'
   +'</div>';
  return el;
 }
@@ -160,6 +89,9 @@ function mount(){
  var content=document.querySelector('#content');
  if(!content){if(++tries<40)setTimeout(mount,250);return}
  if(document.querySelector('.okla-newsroom'))return;
+ /* /nase-novinky/ is the list itself: read before Shoptet's full copies of the articles are removed below */
+ var onList=/^\/nase-novinky\/?$/.test(location.pathname);
+ if(onList){var here=A.parse(content.innerHTML);if(here)A.keep(here)}
  if(!document.getElementById('okla-newsroom-styles')){
   var style=document.createElement('style');style.id='okla-newsroom-styles';style.textContent=CSS;document.head.appendChild(style);
  }
@@ -169,11 +101,10 @@ function mount(){
  root.setAttribute('aria-label','Newsroom Okla');
  root.innerHTML='<header class="nr-hero">'
   +'<h1 class="nr-title">Newsroom</h1>'
-  +'<p class="nr-lead">Průvodci a návody k produktům z nabídky Okla. Hledejte podle slova, tématu nebo kategorie.</p>'
+  +'<p class="nr-lead">Průvodci a návody k produktům z nabídky Okla. Hledejte podle slova nebo kategorie.</p>'
   +'<div class="nr-controls">'
   +'<label class="nr-field"><span class="nr-sr">Hledat článek</span><input type="search" placeholder="Hledat článek" autocomplete="off">'+ICON.search+'</label>'
-  +'<label class="nr-field"><span class="nr-sr">Téma</span><select data-filter="topic">'+options('topic','Všechna témata')+'</select>'+ICON.chevron+'</label>'
-  +'<label class="nr-field"><span class="nr-sr">Kategorie</span><select data-filter="category">'+options('category','Všechny kategorie')+'</select>'+ICON.chevron+'</label>'
+  +'<label class="nr-field"><span class="nr-sr">Kategorie</span><select data-filter="category"><option value="">Všechny kategorie</option></select>'+ICON.chevron+'</label>'
   +'</div>'
   +'</header>'
   +'<div class="nr-grid"></div>'
@@ -181,7 +112,7 @@ function mount(){
  content.insertBefore(root,content.firstChild);
  /* /nase-novinky/: Shoptet prints every article in full, each with its own inline stylesheet that hides everything but
     the article; the list is replaced by the cards above, so those copies go */
- if(/^\/nase-novinky\/?$/.test(location.pathname)){
+ if(onList){
   [].slice.call(content.querySelectorAll('.news-wrapper')).forEach(function(n){n.remove()});
   [].slice.call(content.querySelectorAll('style')).forEach(function(st){if(/\.okla-clanek/.test(st.textContent||''))st.remove()});
  }
@@ -189,23 +120,29 @@ function mount(){
  var grid=root.querySelector('.nr-grid');
  var empty=root.querySelector('.nr-empty');
  var search=root.querySelector('input[type="search"]');
- var selects=root.querySelectorAll('select');
+ var select=root.querySelector('select');
+ var articles=[];
 
  function render(){
-  var q=norm(search.value).trim(),topic='',category='';
-  selects.forEach(function(s){if(s.getAttribute('data-filter')==='topic')topic=s.value;else category=s.value});
-  var list=ARTICLES.filter(function(a){
-   return (!topic||a.topic===topic)
-    &&(!category||a.category===category)
-    &&(!q||norm(a.title+' '+a.excerpt+' '+a.topic+' '+a.category).indexOf(q)!==-1);
+  var q=norm(search.value).trim(),category=select.value;
+  var list=articles.filter(function(a){
+   return (!category||a.label===category)&&(!q||norm(a.title+' '+a.desc+' '+a.label).indexOf(q)!==-1);
   });
   grid.innerHTML='';
   list.forEach(function(a){grid.appendChild(card(a))});
-  empty.hidden=list.length>0;
+  /* "nothing found" only for a search or a filter, not while the list is still being read */
+  empty.hidden=list.length>0||!articles.length;
+ }
+ function use(list){
+  if(!list)return;
+  articles=list;
+  var chosen=select.value;select.innerHTML=options(list);select.value=chosen;
+  render();
  }
  search.addEventListener('input',render);
- selects.forEach(function(s){s.addEventListener('change',render)});
- render();
+ select.addEventListener('change',render);
+ use(A.cached());
+ if(!onList&&!A.fresh())A.load(use);
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();

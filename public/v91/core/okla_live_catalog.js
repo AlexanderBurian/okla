@@ -148,16 +148,6 @@
    return items;
   });
  }
- /* The original catalogue's pictures are 1000 px photos (data/product-images/OKL-xxx.jpg, ~110 kB each) shown as small
-    thumbnails (search, cart drawer, magazine): the same pictures at 480 px (v91/img/products/OKL-xxx.webp, ~11 kB). */
- (function(){
-  var base=window.__oklaAssetBase;if(!base)return;
-  var cat=catalog();
-  Object.keys(cat).forEach(function(k){
-   var p=cat[k],m=p&&typeof p.image==='string'&&p.image.match(/\/data\/product-images\/(OKL-\d+)\.jpg$/);
-   if(m)p.image=base+'v91/img/products/'+m[1]+'.webp';
-  });
- })();
  var cached=load();
  if(cached)merge(cached.items,true);
  var fresh=cached&&cached.t>Date.now()-TTL;

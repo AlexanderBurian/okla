@@ -6,9 +6,8 @@
  if (window.__oklaV88) return;
  window.__oklaV88 = true;
  
- /* The catalogue (OKLA_V86_CATALOG) holds the original products; every other product is described from its own
-    page (pageProduct), so new products get the same layout. */
- var catalog=window.OKLA_V86_CATALOG||{};
+ /* Every product is described from its own page (pageProduct): its name, brand, code and texts are always the ones
+    set in Shoptet. */
  var NS='http://www.w3.org/2000/svg';
  var q=(s,root=document)=>root.querySelector(s);
  var qa=(s,root=document)=>Array.from(root.querySelectorAll(s));
@@ -28,13 +27,10 @@
   return null;
  }
  function brandModel(h1,brand){if(!brand)return;var name=h1.textContent;
-  var patterns=[/LILYGO T Embed CC1101 ESP32 S3/i,/LILYGO T Deck Plus/i,/M5Stack Cardputer ADV/i,/WANBO X5 Pro/i,/Flipper Zero/i];
+  var patterns=[/LILYGO T Embed CC1101 ESP32 S3/i,/LILYGO T Deck Plus/i,/M5Stack Cardputer ADV/i,/Flipper Zero/i];
   var match=patterns.map(r=>name.match(r)).find(Boolean);if(!match)return;
   var start=match.index,span=el('span','ok86-model',match[0]);h1.textContent='';h1.append(document.createTextNode(name.slice(0,start)),span,document.createTextNode(name.slice(start+match[0].length)))
  }
- function setMeta(attr,key,value){var m=q('meta['+attr+'="'+key+'"]');if(!m){m=el('meta');m.setAttribute(attr,key);document.head.appendChild(m)}m.setAttribute('content',value)}
- function canonical(){var href=location.origin+location.pathname;var l=q('link[rel="canonical"]');if(!l){l=el('link');l.setAttribute('rel','canonical');document.head.append(l)}l.href=href;return href}
- function updateSeo(p){document.title=p.seoTitle;setMeta('name','description',p.metaDescription);setMeta('property','og:title',p.seoTitle);setMeta('property','og:description',p.metaDescription);setMeta('property','og:url',canonical())}
  function configureAvailability(form,buy,btn){
   var available=stockStatus(form,buy),box=q('.availability-value',buy);
   if(box){box.classList.toggle('ok86-out',available===false);box.classList.toggle('ok86-in',available===true)}
@@ -361,7 +357,7 @@
   var last=links[links.length-1];
   return last?{name:(last.textContent||'').replace(/\s+/g,' ').trim(),href:new URL(last.getAttribute('href'),location.origin).pathname}:null;
  }
- /* A product outside the catalogue, described from its own page. */
+ /* The product as its own page states it. */
  function pageProduct(sku,detail){
   var h1=q('h1',detail),cat=breadcrumbCategory();
   var brand='';
@@ -426,8 +422,7 @@
   var detail=q('#content .p-detail'),form=q('#product-detail-form',detail||document),top=q('.row.product-top',detail||document)||q('.row.product-top',document),sku=q('[itemprop="sku"]',form||document)?.getAttribute('content')||q('.p-code>span:last-child',detail||document)?.textContent?.trim();
   if(!detail||!form||!top||!sku)return;
   if(detail.dataset.ok89Complete==='1')return;
-  /* live-index entries (okla_live_catalog.js) are listing data only: such products are described from their page */
-  var p=(catalog[sku]&&!catalog[sku].live)?catalog[sku]:pageProduct(sku,detail),gallery=q(':scope > .p-image-wrapper',top),buy=q(':scope > .p-info-wrapper',top),header=q('.p-detail-inner-header',detail),rating=q('.p-detail-info',top)||q('.p-detail-info',detail),btn=q('.add-to-cart button.add-to-cart-button.btn-conversion',buy||document)||q('.add-to-cart button.add-to-cart-button',buy||document),price=q('.p-final-price-wrapper',buy||document);
+  var p=pageProduct(sku,detail),gallery=q(':scope > .p-image-wrapper',top),buy=q(':scope > .p-info-wrapper',top),header=q('.p-detail-inner-header',detail),rating=q('.p-detail-info',top)||q('.p-detail-info',detail),btn=q('.add-to-cart button.add-to-cart-button.btn-conversion',buy||document)||q('.add-to-cart button.add-to-cart-button',buy||document),price=q('.p-final-price-wrapper',buy||document);
   if(!gallery||!buy||!header||!btn||!price)return;
   /* V87 duplicate boot could leave the buy box marked empty and entirely invisible. */
   buy.classList.remove('ok86-empty');
@@ -477,9 +472,8 @@
    configureAvailability(form,buy,btn);
    var availability=q('.availability-value',buy);if(availability){new MutationObserver(()=>configureAvailability(form,buy,btn)).observe(availability,{characterData:true,childList:true,subtree:true})}
    form.addEventListener('submit',function(ev){if(stockStatus(form,buy)===false){ev.preventDefault();ev.stopImmediatePropagation()}},true);
-   paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);if(!p.fromPage)updateSeo(p);
+   paramsTab(p,detail);formatDetailPrice(buy);wireBuyLinks(buy);buyBenefits(buy);reviewSection(detail);formatTabs();relatedCarousel(p,detail);trustBar(detail);
    detail.dataset.ok89Complete='1';document.body.classList.add('ok89-detail');
-   window.oklaV89State={code:p.code,active:true,stock:stockStatus(form,buy),relatedRendered:q('.ok86-related-track')?.children.length||0,parameters:Object.keys(p.parameters||{}).length};
   }
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
