@@ -155,7 +155,7 @@
   }
   html+='<a class="okla-ty__btn" href="/">Pokračovat v nákupu</a>'+
    '</div>'+
-   '<div class="okla-ty__foot"><a class="okla-ty__help" href="mailto:podpora@okla.cz">'+svg(IC.help)+'<span>Potřebujete s objednávkou pomoct? Napište nám</span></a></div>'+
+   '<div class="okla-ty__foot"><a class="okla-ty__help" href="/kontakt/">'+svg(IC.help)+'<span>Potřebujete s objednávkou pomoct? Napište nám</span></a></div>'+
   '</section>';
 
   var box=document.createElement('div');box.innerHTML=html;var sec=box.firstChild;

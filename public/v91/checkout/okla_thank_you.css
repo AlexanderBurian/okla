@@ -51,7 +51,7 @@ html.okla-ty-page body #content a.okla-ty__btn{display:inline-flex!important;ali
 html.okla-ty-page body #content a.okla-ty__btn:is(:hover,:active,:focus){background:var(--ty-blue)!important;color:#fff!important}
 /* the bottom: the way to support */
 html.okla-ty-page body #content .okla-ty__foot{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:14px!important}
-html.okla-ty-page body #content a.okla-ty__help{display:inline-flex!important;align-items:center!important;gap:6px!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;font:400 12px/1.35 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+html.okla-ty-page body #content a.okla-ty__help{position:relative!important;z-index:2!important;display:inline-flex!important;align-items:center!important;gap:6px!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;font:400 12px/1.35 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;pointer-events:auto!important;cursor:pointer!important}
 html.okla-ty-page body #content a.okla-ty__help:hover span{text-decoration:underline!important}
 html.okla-ty-page body #content a.okla-ty__help svg.okla-ty-ic{width:15px!important;height:15px!important;stroke-width:1.7!important}
 
