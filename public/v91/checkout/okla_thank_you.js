@@ -4,7 +4,7 @@
    - left: a check mark, "Už na vaší objednávce pracujeme" with the order number and one line, for a plain bank transfer
      ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount to pay
      and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and a
-     picture of the Okla delivery van (v91/img/okla-van.svg);
+     photo of a white delivery van with the Okla logo (v91/img/okla-van.webp, cut out, from a free Pexels photo);
    - right: the order summary - delivery (the method with the pickup point's name, then its address), the items with
      their photos, quantities and prices, then the subtotal, delivery, payment and the total - and a slider of other
      products (the ordered items' categories first, from the shop's live catalogue).
@@ -178,7 +178,7 @@
     '<p class="okla-ty__paynote">QR kód pro platbu najdete i v potvrzovacím e-mailu.</p>'+
    '</div>';
   }
-  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.svg')+'" alt="Dodávka Okla.cz" loading="lazy" decoding="async"></figure>'+
+  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.webp')+'" width="1000" height="413" alt="Dodávka Okla.cz" loading="lazy" decoding="async"></figure>'+
    '</div>';
 
   /* the summary */
