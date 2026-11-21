@@ -87,7 +87,7 @@
   hero.appendChild(steps);
   var main=el('div','okla-cart-empty__main');
   var pic=el('div','okla-cart-empty__pic');pic.setAttribute('aria-hidden','true');
-  pic.innerHTML='<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="56" fill="#eaf1fd"/><path d="M28 38h9l8 36a5 5 0 0 0 5 4h30a5 5 0 0 0 5-4l6-25H41" stroke="#0859d8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="89" r="5" fill="#0859d8"/><circle cx="78" cy="89" r="5" fill="#0859d8"/><path d="M58 56h18" stroke="#9db9e8" stroke-width="5" stroke-linecap="round"/></svg>';
+  pic.innerHTML='<img src="'+(window.__oklaAssetBase||'')+'v91/img/okla-manul-empty-cart.webp" alt="" width="512" height="512" loading="eager" decoding="async">';
   main.appendChild(pic);
   main.appendChild(el('h1','okla-cart-empty__title','Váš košík je prázdný'));
   main.appendChild(el('p','okla-cart-empty__text','Vyberte si z naší nabídky – měřicí techniku, multitooly i chytrou elektroniku.'));

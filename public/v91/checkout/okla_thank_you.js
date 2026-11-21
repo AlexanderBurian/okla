@@ -124,14 +124,7 @@
      return '<li class="okla-ty__step is-done"><span class="okla-ty__dot">'+STEP(IC.check)+'</span><span class="okla-ty__sname"><span class="okla-ty__long">'+st[0]+'</span><span class="okla-ty__short">'+st[1]+'</span></span></li>'}).join('')+
    '</ol>'+
    '<div class="okla-ty__main">'+
-    '<div class="okla-ty__pic" aria-hidden="true"><svg viewBox="0 0 120 120" width="150" height="150" fill="none">'+
-     '<circle cx="60" cy="60" r="56" fill="#eaf1fd"/>'+
-     '<path d="M33 49h54v33a5 5 0 0 1-5 5H38a5 5 0 0 1-5-5z" fill="#fff" stroke="#0859d8" stroke-width="5" stroke-linejoin="round"/>'+
-     '<rect x="27" y="37" width="66" height="12" rx="3" fill="#fff" stroke="#0859d8" stroke-width="5" stroke-linejoin="round"/>'+
-     '<path d="M51 61h18" stroke="#9db9e8" stroke-width="5" stroke-linecap="round"/>'+
-     '<circle cx="86" cy="84" r="15" fill="#0859d8" stroke="#eaf1fd" stroke-width="4"/>'+
-     '<path d="m79.5 84.5 4.5 4.5 8.5-9.5" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'+
-    '</svg></div>'+
+    '<div class="okla-ty__pic" aria-hidden="true"><img src="'+(window.__oklaAssetBase||'')+'v91/img/okla-manul-order-complete.webp" alt="" width="512" height="512" loading="eager" decoding="async"></div>'+
     '<h1 id="okla-ty-title" class="okla-ty__title">Děkujeme za objednávku</h1>'+
     '<p class="okla-ty__lead">'+(number?'Objednávku č. <strong>'+esc(number)+'</strong> jsme přijali':'Objednávku jsme přijali')+' a už na ní pracujeme. Potvrzení jsme vám poslali e-mailem.</p>';
   if(ship||payName||total){
