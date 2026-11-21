@@ -124,7 +124,7 @@
      return '<li class="okla-ty__step is-done"><span class="okla-ty__dot">'+STEP(IC.check)+'</span><span class="okla-ty__sname"><span class="okla-ty__long">'+st[0]+'</span><span class="okla-ty__short">'+st[1]+'</span></span></li>'}).join('')+
    '</ol>'+
    '<div class="okla-ty__main">'+
-    '<div class="okla-ty__pic" aria-hidden="true"><svg class="okla-ty__success" viewBox="0 0 96 96"><circle class="okla-ty__success-ring" cx="48" cy="48" r="34"/><path class="okla-ty__success-check" d="M31 49.5 42.5 61 66 37.5"/></svg></div>'+
+    '<div class="okla-ty__pic" aria-hidden="true"><svg class="okla-ty__success" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid meet"><circle class="okla-ty__success-ring" cx="128" cy="128" r="92" pathLength="1"/><path class="okla-ty__success-check" d="M78 130 112 164 181 95" pathLength="1"/></svg></div>'+
     '<h1 id="okla-ty-title" class="okla-ty__title">Děkujeme za objednávku</h1>'+
     '<p class="okla-ty__lead">'+(number?'Objednávku č. <strong>'+esc(number)+'</strong> jsme přijali':'Objednávku jsme přijali')+' a už na ní pracujeme. Potvrzení jsme vám poslali e-mailem.</p>';
   if(ship||payName||total){
