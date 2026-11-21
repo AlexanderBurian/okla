@@ -6,8 +6,9 @@
 
    The numbers are Shoptet's own: the limit is the shop's "Doprava zdarma od" setting (dataLayer cartInfo.freeShippingFrom),
    the remaining amount is what Shoptet writes into its delivery note ("Nakupte ještě za 599 Kč a dopravu máte zdarma"), read
-   from the page or, in the popup, from the cart content Shoptet sends back. With no limit set in Shoptet (0 Kč) nothing
-   is shown - the shop then has no free delivery to promise. */
+   from the page or, in the popup, from the cart content Shoptet sends back. With no limit set in Shoptet (0 Kč) the bar
+   shows only when Shoptet's note says the delivery is free anyway ("Dopravu máte zdarma!"): then it is the full bar with
+   "Dopravu máte zdarma", on PC and on phones. */
 (function () {
   'use strict';
   if (window.__oklaFreeShippingV1) return;
@@ -52,7 +53,9 @@
     return /zdarma|zadarmo|free|ingyenes/i.test(text) ? 0 : null;
   }
 
-  var state = {limit: 0, left: null, currency: {}};
+  var state = {limit: 0, left: null, free: false, currency: {}};
+  /* something to show: a limit with a known remaining amount, or free delivery without a limit */
+  function showable() { return (state.limit > 0 && state.left !== null) || state.free; }
 
   function readPage() {
     var ci = cartInfo();
@@ -64,6 +67,7 @@
     var note = document.querySelector('.extras-wrapper .extra.delivery');
     var left = leftFromNote(note);
     if (left !== null) state.left = left;
+    state.free = !(state.limit > 0) && left === 0;
   }
 
   function build() {
@@ -80,7 +84,7 @@
   function paint(box) {
     var t = TEXT[lang()];
     var left = Math.max(0, state.left || 0);
-    var done = left <= 0;
+    var done = state.free || left <= 0;
     var share = done ? 1 : Math.min(1, Math.max(0, (state.limit - left) / state.limit));
     box.classList.toggle('is-done', done);
     box.querySelector('.okla-fship__ic').innerHTML = done ? TICK : TRUCK;
@@ -101,7 +105,7 @@
   function placeInCart() {
     var coupon = document.querySelector('.okla-coupon');
     var existing = document.querySelector('.okla-fship--cart');
-    if (!(state.limit > 0) || state.left === null || !coupon) { if (existing) existing.remove(); return; }
+    if (!showable() || !coupon) { if (existing) existing.remove(); return; }
     var box = existing || build();
     box.classList.add('okla-fship--cart');
     /* on phones the code field sits in a folded "Využít slevový / dárkový poukaz" box: the bar goes above that box, so it
@@ -118,7 +122,6 @@
     if (!modal || !modal.classList.contains('is-open')) return;
     var ci = cartInfo();
     if (ci) { state.limit = +(ci.info.freeShippingFrom || 0); state.currency = ci.currency; }
-    if (!(state.limit > 0)) return;
     var id = ++fetching;
     fetch('/action/Cart/GetCartContent/', {headers: {'X-Requested-With': 'XMLHttpRequest'}, credentials: 'same-origin'})
       .then(function (r) { return r.json(); })
@@ -128,6 +131,8 @@
         var left = leftFromNote(doc.querySelector('.extra.delivery'));
         if (left === null) return;
         state.left = left;
+        state.free = !(state.limit > 0) && left === 0;
+        if (!showable()) return;
         var items = modal.querySelector('.okla-cm__items');
         if (!items) return;
         var box = modal.querySelector('.okla-fship--popup');

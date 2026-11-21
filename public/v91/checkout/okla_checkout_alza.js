@@ -134,6 +134,37 @@
    var side=document.querySelector('#checkoutSidebar');if(side)side.appendChild(help);
   }
  }
+ /* Step 3 (PC): in the right column, in the help card's place, an ordering card - the "Objednat" button, the note on the
+    terms and "Zpět"; the bar at the bottom is not shown on PC (okla_cart_aside.css). The button presses Shoptet's own
+    order button, so the form is checked and sent exactly as before; the note and "Zpět" are copies of the bar's own.
+    Phones keep the help card and the bar. */
+ function orderCard(){
+  var b=document.body;if(!b.classList.contains('in-krok-2'))return;
+  var side=document.querySelector('#checkoutSidebar');
+  var nav=document.querySelector('.okla-step-nav');
+  var real=nav&&nav.querySelector('#orderFormButton,button.next-step-finish,.next-step-finish button,button[type="submit"]');
+  if(!side||!nav||!real)return;
+  var card=side.querySelector(':scope>.okla-step-order');
+  if(!card){
+   card=document.createElement('div');card.className='okla-cart-aside okla-step-order';
+   card.innerHTML='<section class="okla-cart-aside__card"><button type="button" class="okla-step-order__btn"><span>Objednat</span>'+ico('m9 5 7 7-7 7')+'</button>'+
+    '<p class="okla-step-order__terms"></p><a class="okla-step-order__back" href="/objednavka/krok-1/">'+ico('m15 5-7 7 7 7')+'<span>Zpět</span></a></section>';
+   card.querySelector('.okla-step-order__btn').addEventListener('click',function(){
+    var btn=document.querySelector('.okla-step-nav #orderFormButton,.okla-step-nav button.next-step-finish,.okla-step-nav .next-step-finish button,.okla-step-nav button[type="submit"]');
+    if(btn&&!btn.disabled)btn.click();
+   });
+   var help=side.querySelector(':scope>.okla-step-help');
+   if(help)side.insertBefore(card,help);else side.appendChild(card);
+  }
+  /* the note on the terms (with its links) and the address of "Zpět", as the bar has them */
+  var terms=[].slice.call(nav.querySelectorAll('p,div,span')).filter(function(e){var x=e.textContent||'';return /Odesláním objednávky/i.test(x)&&/podmínk/i.test(x)&&!e.querySelector('button')}).pop();
+  var t=card.querySelector('.okla-step-order__terms');
+  if(terms&&t.innerHTML!==terms.innerHTML)t.innerHTML=terms.innerHTML;
+  t.hidden=!terms;
+  var back=nav.querySelector('.next-step-back[href],.next-step-back a[href]');
+  if(back)card.querySelector('.okla-step-order__back').setAttribute('href',back.getAttribute('href'));
+  card.querySelector('.okla-step-order__btn').disabled=!!real.disabled;
+ }
  function pieces(){
   /* one quantity per item row (a row can hold more than one amount field) */
   var n=0,rows=new Set();
@@ -254,7 +285,7 @@
   }
  }
 
- function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();buildCartAside();buildCartSummary();stepIslands();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar()}
+ function run(){removeDecorations();simplifyCopy();syncCartTotal();buildCartSummary();buildCartAside();buildCartSummary();stepIslands();cartUnitPrices();polishRecap();polishRecapAlza();stickyOrderBar();orderCard()}
  function schedule(){
   clearTimeout(redrawTimer);
   redrawTimer=setTimeout(run,260);

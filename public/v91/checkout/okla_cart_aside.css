@@ -196,3 +196,24 @@ html body .okla-recap-card{display:contents}
   html body.ordering-process:not(.in-kosik) #content-wrapper#content-wrapper #checkoutSidebar .order-summary-item.price>:first-child:not(#ocs-a#ocs-b#ocs-c#ocs-d){color:#0b2540!important;font:700 15px/1.3 "Open Sans",Arial,sans-serif!important}
   html body.ordering-process:not(.in-kosik) #content-wrapper#content-wrapper #checkoutSidebar .order-summary-item.price>:last-child:not(#ocs-a#ocs-b#ocs-c#ocs-d){color:#0859d8!important;font:800 22px/1.2 "Open Sans",Arial,sans-serif!important}
 }
+
+/* Step 3 (PC): the ordering card in the right column instead of the help card - "Objednat" (the cart's button look:
+   44px, the shop blue, a chevron), the note on the terms under it and "Zpět"; the bar at the bottom of the page is not
+   shown. Phones keep the help card and the bar. (okla_checkout_alza.js, orderCard) */
+html body .okla-step-order:not(#oso-a#oso-b#oso-c#oso-d#oso-e){display:none!important}
+@media(min-width:992px){
+  html body.in-krok-2 #checkoutSidebar>.okla-step-help:not(#oso-a#oso-b#oso-c#oso-d#oso-e#oso-f#oso-g#oso-h#oso-i#oso-j#oso-k){display:none!important}
+  html body.in-krok-2 #content .okla-step-nav:not(#oso-a#oso-b#oso-c#oso-d#oso-e#oso-f#oso-g#oso-h#oso-i#oso-j#oso-k),
+  html body.in-krok-2 #content .okla-step-nav__sentinel:not(#oso-a#oso-b#oso-c#oso-d#oso-e#oso-f#oso-g#oso-h#oso-i#oso-j#oso-k){display:none!important}
+  html body.in-krok-2 #checkoutSidebar>.okla-step-order:not(#oso-a#oso-b#oso-c#oso-d#oso-e#oso-f){display:block!important;margin-top:16px!important}
+  html body.in-krok-2 .okla-step-order button.okla-step-order__btn:not(#oso-a#oso-b#oso-c#oso-d#oso-e){display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;position:relative!important;width:100%!important;height:44px!important;min-height:0!important;margin:0!important;padding:0 44px!important;border:0!important;border-radius:8px!important;background:#0859d8!important;box-shadow:none!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:700 15px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;cursor:pointer!important}
+  html body.in-krok-2 .okla-step-order button.okla-step-order__btn:not(#oso-a#oso-b#oso-c#oso-d#oso-e):is(:hover,:focus-visible){background:#0859d8!important}
+  html body.in-krok-2 .okla-step-order button.okla-step-order__btn:disabled:not(#oso-a#oso-b#oso-c#oso-d#oso-e){opacity:.55!important;cursor:default!important}
+  html body.in-krok-2 .okla-step-order button.okla-step-order__btn svg:not(#oso-a#oso-b#oso-c#oso-d#oso-e){position:absolute!important;right:16px!important;top:50%!important;width:18px!important;height:18px!important;margin-top:-9px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+  html body.in-krok-2 .okla-step-order .okla-step-order__terms:not(#oso-a#oso-b#oso-c#oso-d#oso-e){margin:12px 0 0!important;padding:0!important;font:400 12.5px/1.5 "Open Sans",Arial,sans-serif!important;color:#46556a!important;text-align:center!important}
+  html body.in-krok-2 .okla-step-order .okla-step-order__terms:not(#oso-a#oso-b#oso-c#oso-d#oso-e) *{font:inherit!important;color:inherit!important;text-align:inherit!important;margin:0!important;padding:0!important}
+  html body.in-krok-2 .okla-step-order .okla-step-order__terms:not(#oso-a#oso-b#oso-c#oso-d#oso-e) a{color:#0859d8!important;text-decoration:underline!important}
+  html body.in-krok-2 .okla-step-order a.okla-step-order__back:not(#oso-a#oso-b#oso-c#oso-d#oso-e){display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;margin:12px 0 0!important;font:600 14px/1.3 "Open Sans",Arial,sans-serif!important;color:#0859d8!important;text-decoration:none!important}
+  html body.in-krok-2 .okla-step-order a.okla-step-order__back:hover{text-decoration:underline!important}
+  html body.in-krok-2 .okla-step-order a.okla-step-order__back svg:not(#oso-a#oso-b#oso-c#oso-d#oso-e){width:16px!important;height:16px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+}
