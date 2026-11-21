@@ -67,9 +67,10 @@
  }
  function emptyCart(){
   [].slice.call(document.querySelectorAll('.cart-empty .empty-cart-boxes ul li a')).forEach(function(a){var t=niceCase(a.textContent);if(t!==a.textContent.trim())a.textContent=t});
-  /* phones: one calm block about the cart itself - a picture, the message and one way on (okla_empty_states.css shows it
-     instead of the heading, the category list and the search) */
+  /* one calm block about the cart itself - a picture, the message and one way on (okla_empty_states.css shows it instead
+     of the heading, the category list, the search and the recommendations, on phones and PC) */
   var box=document.querySelector('.cart-inner.cart-empty');
+  if(box)document.documentElement.classList.add('okla-cart-is-empty');
   if(!box||box.querySelector('.okla-cart-empty'))return;
   var hero=el('section','okla-cart-empty');
   var pic=el('div','okla-cart-empty__pic');pic.setAttribute('aria-hidden','true');

@@ -114,10 +114,10 @@ html body.type-search:not(#okla-sr-a#okla-sr-b) main#content{padding-bottom:64px
 }
 
 
-/* Empty cart on phones (okla_empty_states.js): a picture, "Váš košík je prázdný", one line and "Začít nakupovat" - no
-   category list, no search, no help box. PC keeps its page. */
+/* Empty cart (okla_empty_states.js), on phones and PC alike, as on Alza: a picture, "Váš košík je prázdný", one line and
+   "Začít nakupovat" - no category list, no search, no help box, no recommendations. */
 html body .okla-cart-empty{display:none}
-@media(max-width:767px){
+@media all{
   html body .cart-inner.cart-empty>:not(.okla-cart-empty):not(#okce-a#okce-b#okce-c#okce-d#okce-e#okce-f){display:none!important}
   html body.in-kosik #content :is(.okla-cart-recs,.okla-recs,.cart-recommendations):not(#okce-a#okce-b#okce-c#okce-d#okce-e#okce-f){display:none!important}
   html body .okla-cart-empty:not(#okce-a#okce-b#okce-c){display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 0 40px}
@@ -127,4 +127,12 @@ html body .okla-cart-empty{display:none}
   html body .okla-cart-empty__text:not(#okce-a#okce-b#okce-c){max-width:300px;margin:0 0 26px!important;color:#46556a!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important}
   html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c){display:inline-flex!important;align-items:center;justify-content:center;min-width:210px;height:50px;padding:0 28px!important;border-radius:8px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:700 16px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;box-shadow:none!important}
   html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c):is(:hover,:active){background:#0859d8!important}
+}
+/* no recommendations under an empty cart (they stand outside the content) */
+html.okla-cart-is-empty body.in-kosik #okla-cart-recs:not(#okce-a#okce-b#okce-c){display:none!important}
+/* PC: the empty cart is one white island across the content width, the block in its middle */
+@media(min-width:768px){
+  html body.in-kosik #content-wrapper#content-wrapper #content .cart-inner.cart-inner.cart-empty:not(#okce-a#okce-b#okce-c#okce-d#okce-e#okce-f#okce-g#okce-h#okce-i#okce-j){display:block!important;grid-template-columns:none!important;width:auto!important;max-width:none!important;margin:0!important;padding:64px 24px 72px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+  html body.in-kosik #content .cart-inner.cart-empty>.okla-cart-empty:not(#okce-a#okce-b#okce-c#okce-d){width:100%!important;max-width:none!important;margin:0 auto!important;padding:0!important}
+  html body .okla-cart-empty__text:not(#okce-a#okce-b#okce-c){max-width:420px!important}
 }
