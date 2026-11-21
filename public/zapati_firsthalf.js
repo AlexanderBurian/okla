@@ -295,8 +295,8 @@ var BUNDLES=[
  ['05-layout','all',['v91/core/okla_navigation.css','v91/core/okla_navigation.js','v91/core/okla_mobile_shell.css','v91/core/okla_mobile_shell.js','v91/core/okla_product_cards.css','v91/core/okla_native_pages.css','v91/core/okla_cards_everywhere.css','v91/core/okla_native_pages.js','v91/core/okla_sidebar.css','v91/core/okla_sidebar.js','v91/core/okla_cat_photos.css','v91/core/okla_cat_photos.js','v91/core/okla_subcats.css','v91/core/okla_cat_text.js','v91/core/okla_subcats.js']],
  /* Product page on phones */
  ['06-product-phone','product',['v91/product/okla_detail_mobile.css']],
- /* Cart and checkout */
- ['07-checkout','checkout',['v91/checkout/okla_checkout.css','v91/checkout/okla_cart.css','v91/checkout/okla_checkout_ui.css','v91/checkout/okla_parcel.css','v91/checkout/okla_cart_refine.css','v91/checkout/okla_checkout_layout.css','v91/checkout/okla_checkout_ui.js']],
+ /* Cart and checkout (and what is ordered, kept for the thank-you page) */
+ ['07-checkout','checkout',['v91/checkout/okla_order_snapshot.js','v91/checkout/okla_checkout.css','v91/checkout/okla_cart.css','v91/checkout/okla_checkout_ui.css','v91/checkout/okla_parcel.css','v91/checkout/okla_cart_refine.css','v91/checkout/okla_checkout_layout.css','v91/checkout/okla_checkout_ui.js']],
  /* Pages of their own */
  ['08-newsroom','newsroom',['v91/core/okla_articles.js','newsroom/okla_newsroom.js']],
  ['09-article','article',['v91/pages/okla_article_hero.js','v91/pages/okla_article_products.css','v91/pages/okla_article_products.js']],
