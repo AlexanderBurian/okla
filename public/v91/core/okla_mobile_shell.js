@@ -160,8 +160,13 @@
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
  var spacer = null, stuck = false, lastY = 0, ticking = false, stickyAfter = 80;
 
+ /* where the sticky header starts is read only when it is needed - on the first scroll (and again after a resize) -
+    not while the page is being built: reading a position then forced a full layout of the unfinished page (about half
+    a second on a slow phone) */
+ var measured = false;
  function measureStickyAfter() {
   if (stuck) return;
+  measured = true;
   var pageHeader = document.getElementById('header');
   if (!pageHeader) return;
   var rect = pageHeader.getBoundingClientRect();
@@ -198,6 +203,7 @@
  }
  function inCheckout() { return !!(document.body && document.body.classList.contains('ordering-process')); }
  function onScroll() {
+  if (!measured) measureStickyAfter();
   ticking = false;
   var y = window.pageYOffset || document.documentElement.scrollTop || 0;
   var dy = y - lastY;
@@ -304,8 +310,7 @@
   buildBuyBar();
   addShare();
   lastY = window.pageYOffset || 0;
-  measureStickyAfter();
-  window.addEventListener('resize', function () { placeBar(); measureStickyAfter(); });
+  window.addEventListener('resize', function () { placeBar(); measured = false; });
   narrow.addEventListener('change', function (e) {
    if (e.matches) return;
    closeSearch();
@@ -324,6 +329,5 @@
   addHeaderButton();
   buildBuyBar();
   addShare();
-  measureStickyAfter();
  });
 })();
