@@ -86,9 +86,12 @@
   html body .okla-side-art--left:not(#okis-a){overflow:hidden!important}
 
   /* Pages that intentionally hide their breadcrumb row keep the same menu-to-island distance. */
-  html:is(.okla-about-takeover,.okla-contact-takeover,.okla-rk-takeover,.okla-os-takeover) body #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c),
-  html body:is(.in-login,.in-registrace) #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:54px!important}
+  html:is(.okla-about-takeover,.okla-contact-takeover,.okla-rk-takeover,.okla-os-takeover) body #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:54px!important}
+  /* sign-in and registration have no menu, only the logo just above the card (okla_auth_pages.css): no gap above the card */
+  html:not(.okla-os-login-combo) body:is(.in-login,.in-registrace) #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important}
 }
+/* sign-in and registration: no breadcrumbs (phones and PC) - only the logo and the card, centred together */
+html:not(.okla-os-login-combo) body:is(.in-login,.in-registrace) .breadcrumbs-wrapper:not(#okis-a#okis-b#okis-c#okis-d){display:none!important}
 /* PC: the breadcrumbs row - small grey text, the home icon first, the product (last item) in the text colour; none on the
    homepage (it has no breadcrumbs of its own) */
 @media(min-width:992px){
