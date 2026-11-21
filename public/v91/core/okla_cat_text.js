@@ -49,22 +49,22 @@
   function path(href) { try { return new URL(href, location.origin).pathname.replace(/\/?$/, '/'); } catch (e) { return String(href || ''); } }
   /* a category name saved in capitals in Shoptet ("PŘÍSLUŠENSTVÍ") shows as "Příslušenství" wherever category names
      stand: the left column, the breadcrumbs, the phone menus, the subcategory tiles */
-  var NAMES = 'aside.sidebar .box-categories a, .breadcrumbs a, .breadcrumbs [itemprop="name"], #okla-v61-drawer a, ul.subcategories a, #navigation a, .okla-tb-panel a';
-  function nice(t) { return t.charAt(0) + t.slice(1).toLocaleLowerCase('cs'); }
-  function fixCaps() {
-    document.querySelectorAll(NAMES).forEach(function (el) {
-      var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
-      while ((n = w.nextNode())) {
-        var t = n.nodeValue.trim();
-        if (t.length >= 5 && /[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]{4}/.test(t) && t === t.toLocaleUpperCase('cs') && t !== t.toLocaleLowerCase('cs')) n.nodeValue = n.nodeValue.replace(t, nice(t));
-      }
-    });
+  /* Shoptet stores this one category in capitals and can render it in several
+     independent navigations.  Normalise the exact word in every visible text
+     node, including category pills added after the initial page load. */
+  function fixCaps(root) {
+    root=root||document.body;if(!root)return;
+    var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+      var p=n.parentNode&&n.parentNode.nodeName;
+      return /^(SCRIPT|STYLE|TEXTAREA|NOSCRIPT)$/.test(p)?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT;
+    }}),n;
+    while((n=w.nextNode()))if(n.nodeValue.indexOf('PŘÍSLUŠENSTVÍ')>=0)n.nodeValue=n.nodeValue.replace(/PŘÍSLUŠENSTVÍ/g,'Příslušenství');
   }
   var queued = false;
   function soon() { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; fixCaps(); }); } }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', soon, {once: true}); else soon();
   window.addEventListener('load', soon);
-  if (window.MutationObserver) new MutationObserver(function (r) { for (var i = 0; i < r.length; i++) if (r[i].addedNodes.length) { soon(); return; } }).observe(document.documentElement, {childList: true, subtree: true});
+  if (window.MutationObserver) new MutationObserver(function (r) { for (var i = 0; i < r.length; i++) if (r[i].addedNodes.length||r[i].type==='characterData') { soon(); return; } }).observe(document.documentElement, {childList: true, characterData:true, subtree: true});
 
   window.oklaCatText = function (href) {
     var row = T[path(href)];

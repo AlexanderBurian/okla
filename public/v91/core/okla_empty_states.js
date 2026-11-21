@@ -72,6 +72,19 @@
   var box=document.querySelector('.cart-inner.cart-empty');
   if(box)document.documentElement.classList.add('okla-cart-is-empty');
   if(!box||box.querySelector('.okla-cart-empty'))return;
+  /* Shoptet writes the checkout wrapper's 16 px top margin again after the
+     stylesheets have loaded.  Keep the same 54 px desktop rhythm as the
+     other first-page islands; an inline important value cannot be lost to
+     that late checkout rule. */
+  var wrapper=document.getElementById('content-wrapper');
+  function syncWrapperGap(){
+   if(!wrapper)return;
+   if(window.innerWidth>=992)wrapper.style.setProperty('margin-top','54px','important');
+   else wrapper.style.removeProperty('margin-top');
+  }
+  syncWrapperGap();
+  window.addEventListener('resize',syncWrapperGap,{passive:true});
+  setTimeout(syncWrapperGap,250);setTimeout(syncWrapperGap,1200);
   /* as on Alza: the order steps on top (the cart is the current one), the message in the middle, and at the bottom the
      discount code (it can be used once something is in the cart: a click says so) and "Zpět k nákupu" */
   var hero=el('section','okla-cart-empty');
