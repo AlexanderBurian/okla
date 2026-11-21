@@ -17,9 +17,9 @@ html body.ordering-process .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#o
 html body.ordering-process .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e):hover{text-decoration:underline}
 
 /* help card, Alza style (okla_checkout_alza.js, HELP_HTML): the heading and a short line across the top; under them,
-   on the left, one row per way to reach us - the icon on a light blue disc, the name in bold and one grey line, light
-   grey under the pointer - and the whole Okla manul (a cut-out, no disc or frame) standing in the bottom right corner,
-   his body fading into the card's white at its bottom edge */
+   on the left, one row per way to reach us - the icon (navy line drawing) on a light grey disc, the name in bold and one grey line, light
+   grey under the pointer - and the Okla manul (a cut-out, no disc or frame, both paws whole) standing on the card's
+   bottom edge in the bottom right corner */
 html body.ordering-process .okla-help:not(#oca-a#oca-b#oca-c#oca-d#oca-e){padding-bottom:0;overflow:hidden}
 html body.ordering-process .okla-help .okla-cart-aside__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0 0 4px;font-size:17px;font-weight:700}
 html body.ordering-process .okla-help .okla-help__lead:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0 0 12px;padding:0;color:#5b6b80;font:400 13px/1.45 "Open Sans",Arial,sans-serif}
@@ -29,13 +29,14 @@ html body.ordering-process .okla-help .okla-help__list li:not(#oca-a#oca-b#oca-c
 html body.ordering-process .okla-help .okla-help__list li::before{content:none!important}
 html body.ordering-process .okla-help a.okla-help__row:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;align-items:center;gap:10px;margin:0;padding:7px 8px;border-radius:8px;color:#0b2540;-webkit-text-fill-color:#0b2540;text-decoration:none;transition:background-color .15s ease}
 html body.ordering-process .okla-help a.okla-help__row:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#f5f7fa}
-html body.ordering-process .okla-help .okla-help__ic:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:#eaf1fd;color:#0859d8}
-html body.ordering-process .okla-help .okla-help__ic svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html body.ordering-process .okla-help .okla-help__ic:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:#f0f2f5;color:#0b2540;transition:background-color .15s ease,color .15s ease}
+html body.ordering-process .okla-help .okla-help__ic svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+html body.ordering-process .okla-help a.okla-help__row:is(:hover,:focus-visible) .okla-help__ic:not(#oca-a#oca-b#oca-c#oca-d#oca-e){background:#e6e9ee;color:#0859d8}
 html body.ordering-process .okla-help .okla-help__txt:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;min-width:0;gap:0}
 html body.ordering-process .okla-help .okla-help__txt strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){overflow:hidden;color:#0b2540;-webkit-text-fill-color:#0b2540;font:600 14px/1.35 "Open Sans",Arial,sans-serif;text-overflow:ellipsis;white-space:nowrap}
 html body.ordering-process .okla-help .okla-help__txt small:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#6b7a8f;-webkit-text-fill-color:#6b7a8f;font:400 12px/1.35 "Open Sans",Arial,sans-serif;white-space:nowrap}
 html body.ordering-process .okla-help a.okla-help__row:hover .okla-help__txt strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#0859d8;-webkit-text-fill-color:#0859d8}
-html body.ordering-process .okla-help img.okla-help__cat:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;flex:none;width:126px;max-width:42%;height:auto;margin:0 -8px 0 0;border:0;border-radius:0;background:none;object-fit:contain;pointer-events:none}
+html body.ordering-process .okla-help img.okla-help__cat:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;flex:none;align-self:flex-end;width:116px;max-width:39%;height:auto;margin:0 -10px 0 -4px;vertical-align:bottom;border:0;border-radius:0;background:none;object-fit:contain;pointer-events:none}
 
 /* the summary's own lines: goods (pieces), delivery, then the total under a thin line */
 html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>span:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#46556a!important;font:400 14px/1.35 "Open Sans",Arial,sans-serif!important;text-align:left!important}
