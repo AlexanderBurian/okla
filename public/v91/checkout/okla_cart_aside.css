@@ -74,6 +74,8 @@ html body .okla-recap-card{display:contents}
 @media(max-width:991px){
   html body.in-krok-1 #content .okla-recap-card:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f){display:none!important}
   html body.in-krok-2 #content .okla-recap-card>h2:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f){display:none!important}
+  /* a line between the products and the delivery / payment rows, as on PC */
+  html body.in-krok-2 #content#content #checkoutSidebar .okla-recap-card>.cart-items:not(.okla-goods-total-price):not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){margin-top:0!important;padding-top:14px!important;border-top:1px solid #e3e7ed!important}
   html body.ordering-process .okla-step-help:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:none!important}
 }
 
@@ -92,6 +94,9 @@ html body .okla-recap-card{display:contents}
   html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar .okla-recap-card>h2:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){display:block!important;margin:0 0 12px!important;padding:0!important;color:#0b2540!important;font:600 16px/1.3 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important}
   html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar .okla-recap-card>:is(.cart-items,.order-recapitulation):not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){display:block!important;visibility:inherit!important;margin:0!important;border:0!important}
   html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar .okla-recap-card>.order-recapitulation:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){margin-top:12px!important;padding-top:12px!important;border-top:1px solid #e3e7ed!important}
+  /* the same line between the products and the delivery / payment rows */
+  html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar .okla-recap-card>.cart-items.okla-goods-total-price>.cart-item:last-child:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){margin-bottom:0!important}
+  html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar .okla-recap-card>.cart-items:not(.okla-goods-total-price):not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){margin-top:0!important;padding-top:12px!important;border-top:1px solid #e3e7ed!important}
   /* island 2: the total (step 2: with "Pokračovat" under it, as one island) */
   html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar #summary-box>.order-summary-item.price:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){display:block!important;margin:0!important;padding:20px 22px!important;border:0!important;border-radius:8px!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
   html body:is(.in-krok-1,.in-krok-2) #content#content #checkoutSidebar #summary-box>.order-summary-item.price .price-wrapper:not(#oca-a#oca-b#oca-c#oca-d#oca-e#oca-f#oca-g#oca-h){margin:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
@@ -122,8 +127,8 @@ html body .okla-recap-card{display:contents}
   html body.ordering-process :is(.overall-wrapper,#content-wrapper,.content-wrapper-in,main#content,.content-inner,.cart-inner,.cart-row,.col-md-8,.cart-content):not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f){background:#fff!important;background-image:none!important;box-shadow:none!important}
   html body.ordering-process:not(.in-kosik) #content #checkoutSidebar:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){background:#fff!important;background-image:none!important;border:0!important;border-top:1px solid #e3e7ed!important;box-shadow:none!important}
   html body.ordering-process:not(.in-kosik) #content .okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){background:#fff!important}
-  /* steps 2 and 3: the button row on the same lines ("Zpět" and "Pokračovat" no longer touch the screen edges) */
-  html body.ordering-process:not(.in-kosik) #content#content .okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){width:auto!important;max-width:none!important;margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
+  /* steps 2 and 3: the bar white across the whole screen width (like the cart's), its buttons on the same lines as the rest */
+  html body.ordering-process:not(.in-kosik) #content#content .okla-step-nav:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f#okm-g#okm-h#okm-i#okm-j){width:auto!important;max-width:none!important;margin-left:-10px!important;margin-right:-10px!important;padding-left:10px!important;padding-right:10px!important}
 
   /* the summary block: a little air above it */
   html body.in-kosik #content .okla-cart-summary:not(#okm-a#okm-b#okm-c#okm-d#okm-e#okm-f){margin-top:18px!important;padding:0!important}
