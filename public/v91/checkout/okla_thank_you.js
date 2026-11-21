@@ -4,8 +4,9 @@
    - left: a check mark, "Už na vaší objednávce pracujeme" with the order number and one line, for a plain bank transfer
      ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount to pay
      and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and a
-     white delivery van with the Okla logo (v91/img/okla-van.webp) driving left to right: it reaches out to the page
-     panel's left edge (the screen's on phones), which cuts off a bit of its rear;
+     picture of the white Okla delivery van (v91/img/okla-van.webp) driving left to right - on PC smaller and whole, on
+     phones it drives in from the left when it comes into view and stops with its front cut off by the screen's right
+     edge;
    - right: the order summary - delivery (the method with the pickup point's name, then its address), the items with
      their photos, quantities and prices, then the subtotal, delivery, payment and the total - and a slider of other
      products (the ordered items' categories first, from the shop's live catalogue).
@@ -179,7 +180,7 @@
     '<p class="okla-ty__paynote">QR kód pro platbu najdete i v potvrzovacím e-mailu.</p>'+
    '</div>';
   }
-  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.webp')+'" width="1200" height="507" alt="Dodávka Okla.cz" loading="lazy" decoding="async"></figure>'+
+  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/okla-van.webp')+'" width="1200" height="507" alt="Dodávka Okla.cz" decoding="async"></figure>'+
    '</div>';
 
   /* the summary */
@@ -240,21 +241,23 @@
   if(pay)drawQr(sec.querySelector('.okla-ty__qr'));
   sec.addEventListener('click',copyClick);
   slider(sec.querySelector('.okla-ty__more'));
-  bleed(sec.querySelector('.okla-ty__photo'));
+  drive(sec.querySelector('.okla-ty__photo'));
  }
- /* the van runs out to the white page panel's left edge (on phones the screen's): the gap between the column and that
-    edge, in the page's own (zoomed) pixels, goes to --ty-bleed */
- function bleed(fig){
+ /* phones: the van waits off the screen's left edge and drives in once its picture is loaded and on screen (the CSS
+    does the movement; nothing moves on PC or with reduced motion) */
+ function drive(fig){
   if(!fig)return;
-  function measure(){
-   fig.style.removeProperty('--ty-bleed');
-   var panel=document.getElementById('content-wrapper'),z=fig.currentCSSZoom||1;
-   var edge=panel?Math.max(panel.getBoundingClientRect().left,0):0;
-   var d=Math.round((fig.getBoundingClientRect().left-edge)/z);
-   if(d>0&&d<200)fig.style.setProperty('--ty-bleed',d+'px');
+  var img=fig.querySelector('img');
+  function go(){
+   function on(){requestAnimationFrame(function(){fig.classList.add('is-in')})}
+   if(img&&img.decode)img.decode().then(on,on);else on();
   }
-  var t;window.addEventListener('resize',function(){cancelAnimationFrame(t);t=requestAnimationFrame(measure)});
-  measure();
+  function watch(){
+   if(!('IntersectionObserver' in window))return go();
+   var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){io.disconnect();go()}},{threshold:.35});
+   io.observe(fig);
+  }
+  if(!img||img.complete)watch();else{img.addEventListener('load',watch,{once:true});img.addEventListener('error',go,{once:true})}
  }
  /* the slider: the arrows move it by one card; each arrow is off at its end */
  function slider(more){
