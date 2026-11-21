@@ -5,8 +5,8 @@
      ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount to pay
      and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and a
      picture of the white Okla delivery van (v91/img/okla-van.webp) driving left to right - on PC smaller and whole, on
-     phones it drives in from the left when it comes into view and stops with its front cut off by the screen's right
-     edge;
+     phones it drives in from the left when it comes into view and stops with its rear still cut off by the screen's
+     left edge;
    - right: the order summary - delivery (the method with the pickup point's name, then its address), the items with
      their photos, quantities and prices, then the subtotal, delivery, payment and the total - and a slider of other
      products (the ordered items' categories first, from the shop's live catalogue).

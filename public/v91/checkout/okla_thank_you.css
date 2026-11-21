@@ -136,11 +136,11 @@ html.okla-ty-page body #content .okla-ty__pay{margin-top:22px!important;border-r
   html.okla-ty-page body #content .okla-ty__cimg{width:160px!important;height:160px!important}
 }
 /* phones: the van's picture spans the whole screen width (the column is centred, so 50% - 50vw reaches each screen
-   edge; the left padding brings its start back to the text), the van is larger than the column, and the screen's right
-   edge cuts off its front; it drives in from beyond the left edge (okla_thank_you.js adds .is-in when it is on screen) */
+   edge); the van drives in from beyond the left edge (okla_thank_you.js adds .is-in when it is on screen) and stops
+   with its rear still cut off by the screen's left edge, its front ending about at the text's right edge */
 @media(max-width:767px){
-  html.okla-ty-page body #content .okla-ty__photo{width:auto!important;max-width:none!important;margin:28px calc(50% - 50vw) 0!important;padding:0 0 0 calc(50vw - 50%)!important;overflow:hidden!important}
-  html.okla-ty-page body #content .okla-ty__photo img{width:118%!important;max-width:none!important}
+  html.okla-ty-page body #content .okla-ty__photo{width:auto!important;max-width:none!important;margin:28px calc(50% - 50vw) 0!important;padding:0!important;overflow:hidden!important}
+  html.okla-ty-page body #content .okla-ty__photo img{width:110%!important;max-width:none!important;margin:0 0 0 -16%!important}
 }
 @media(max-width:767px) and (prefers-reduced-motion:no-preference){
   html.okla-ty-page body #content .okla-ty__photo img{transform:translate3d(-140vw,0,0)!important;will-change:transform}
