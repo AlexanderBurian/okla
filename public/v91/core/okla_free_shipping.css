@@ -1,7 +1,6 @@
 /* Okla – free delivery progress (okla_free_shipping.js): a white box with the discount-code box's outline - a truck, "Do dopravy zdarma zbývá 599 Kč"
    with the amount in bold, a 10px bar in the shop blue that fills up, and "Doprava zdarma od 1 500 Kč" in small grey
-   under it. Reached: a tick and "Dopravu máte zdarma" over a full bar. Above the discount-code field in the cart, and
-   under the added item in the "added to cart" popup. */
+   under it. Reached: a tick and "Dopravu máte zdarma" over a full bar. Above the discount-code field in the cart. */
 html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c){
   display:block!important;box-sizing:border-box!important;width:100%!important;margin:0 0 14px!important;padding:12px 14px 11px!important;
   border:1px solid #cdd5df!important;border-radius:8px!important;background:#fff!important;box-shadow:none!important;
@@ -19,8 +18,6 @@ html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__from:empty{display
 /* reached: a tick, the text in bold */
 html body .okla-fship.is-done:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__text{font-weight:700!important}
 html body .okla-fship.is-done:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic svg{stroke-width:2.4!important}
-/* in the popup: a little air from the item above */
-html body .okla-fship--popup:not(#ofsh-a#ofsh-b#ofsh-c){margin:12px 0 0!important}
 @media (prefers-reduced-motion:reduce){
   html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__fill{transition:none!important}
 }
