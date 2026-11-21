@@ -144,10 +144,10 @@ html body .okla-cart-empty{display:none}
   html body a.okla-ce-back:not(#okce-a#okce-b#okce-c){display:inline-flex;align-items:center;gap:6px;height:44px;margin:0;padding:0 18px 0 14px;border:1px solid #d5dbe3;border-radius:8px;background:#fff;color:#0b2540;-webkit-text-fill-color:#0b2540;font:600 14px/1 "Open Sans",Arial,sans-serif;text-decoration:none}
   html body a.okla-ce-back:not(#okce-a#okce-b#okce-c):hover{border-color:#b9c3cf}
   html body a.okla-ce-back svg:not(#okce-a#okce-b#okce-c){display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  html body .okla-cart-empty__pic{display:flex;align-items:center;justify-content:center;width:170px;height:170px;margin:0 0 24px}
-  html body .okla-cart-empty__pic img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+  html body .okla-cart-empty__pic{display:flex;align-items:center;justify-content:center;width:150px;height:150px;margin:0 0 24px;overflow:hidden;border-radius:50%;background:#e9f2ff;box-shadow:0 1px 3px rgba(11,37,64,.10)}
+  html body .okla-cart-empty__pic img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;outline:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;object-fit:cover!important;object-position:center!important;transform:scale(1.05)}
   html body .okla-cart-empty__title:not(#okce-a#okce-b#okce-c){margin:0 0 10px!important;padding:0!important;color:#0b2540!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;text-align:center!important}
-  html body .okla-cart-empty__text:not(#okce-a#okce-b#okce-c){max-width:300px;margin:0 0 26px!important;color:#46556a!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important}
+  html body .okla-cart-empty__text:not(#okce-a#okce-b#okce-c){max-width:300px;margin:0 0 26px!important;color:#17212c!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important}
   html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c){display:inline-flex!important;align-items:center;justify-content:center;min-width:210px;height:50px;padding:0 28px!important;border-radius:8px!important;background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;font:700 16px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;box-shadow:none!important}
   html body .okla-cart-empty__btn:not(#okce-a#okce-b#okce-c):is(:hover,:active){background:#0859d8!important}
 }

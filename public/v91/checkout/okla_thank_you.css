@@ -31,8 +31,8 @@ html.okla-ty-page body #content .okla-ty__short{display:none!important}
 
 /* the message */
 html.okla-ty-page body #content .okla-ty__main{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;padding:40px 0 44px!important}
-html.okla-ty-page body #content .okla-ty__pic{display:flex!important;align-items:center!important;justify-content:center!important;width:170px!important;height:170px!important;margin:0 0 24px!important}
-html.okla-ty-page body #content .okla-ty__pic img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+html.okla-ty-page body #content .okla-ty__pic{display:flex!important;align-items:center!important;justify-content:center!important;width:150px!important;height:150px!important;margin:0 0 24px!important;overflow:hidden!important;border-radius:50%!important;background:#e9f2ff!important;box-shadow:0 1px 3px rgba(11,37,64,.10)!important}
+html.okla-ty-page body #content .okla-ty__pic img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important;padding:0!important;border:0!important;outline:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;object-fit:cover!important;object-position:center!important;transform:scale(1.05)!important}
 html.okla-ty-page body #content .okla-ty h1.okla-ty__title{margin:0 0 10px!important;border:0!important;background:none!important;box-shadow:none!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;-webkit-text-fill-color:var(--ty-ink)!important;text-transform:none!important;letter-spacing:0!important;text-align:center!important}
 html.okla-ty-page body #content .okla-ty__lead{max-width:440px!important;margin:0 0 22px!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important;color:var(--ty-text)!important}
 html.okla-ty-page body #content .okla-ty__lead strong{font-weight:700!important;color:var(--ty-ink)!important}

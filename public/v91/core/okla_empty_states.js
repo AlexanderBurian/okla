@@ -90,7 +90,7 @@
   pic.innerHTML='<img src="'+(window.__oklaAssetBase||'')+'v91/img/okla-manul-empty-cart.webp" alt="" width="512" height="512" loading="eager" decoding="async">';
   main.appendChild(pic);
   main.appendChild(el('h1','okla-cart-empty__title','Váš košík je prázdný'));
-  main.appendChild(el('p','okla-cart-empty__text','Vyberte si z naší nabídky – měřicí techniku, multitooly i chytrou elektroniku.'));
+  main.appendChild(el('p','okla-cart-empty__text','Udělejte si radost'));
   var go=el('a','okla-cart-empty__btn','Začít nakupovat');go.href='/';
   main.appendChild(go);
   hero.appendChild(main);
