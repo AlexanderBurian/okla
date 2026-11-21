@@ -25,7 +25,6 @@
     box-sizing:border-box!important;color:#0b2540!important;cursor:pointer!important;text-decoration:none!important;opacity:1!important;transition:color .15s ease!important
   }
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-support,.okla-header-locale):is(:hover,:focus-visible,.is-open){color:#0b2540!important}
-  
   /* no blue focus frame around the icons (the browser drew it after a click too, e.g. around the open cart) */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>:is(.okla-header-orders,.okla-header-locale,.okla-header-account,.okla-header-support,a.cart-count):is(:focus,:focus-visible){outline:0!important;box-shadow:none!important}
   /* the open support panel stays above the category bar under the header */
@@ -92,7 +91,7 @@
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-support .okla-support-arrow{display:block!important;flex:none!important;width:6px!important;height:10px!important;color:#9aa6b6!important}
 
   /* favourites: no function in the shop */
-  html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>.okla-header-favorites{display:none!important}
+  
 
   /* cart (its count's red badge is drawn in the shadow root) */
   html.okla-header-template103 body #header#header#header .header-top .navigation-buttons>.okla-exact-header:not(#ohp-a#ohp-b#ohp-c)>a.cart-count[data-action-face]{

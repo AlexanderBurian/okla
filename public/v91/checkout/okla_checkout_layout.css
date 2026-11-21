@@ -197,15 +197,12 @@ html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-fin
 html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{grid-column:2;grid-row:1/span 2;align-self:center}
 @media(max-width:767px){
  html body.ordering-process #content .okla-step-nav{margin:24px 0 8px;}
- 
  html body.ordering-process #content .okla-step-nav .next-step .btn{padding:0 16px!important;gap:10px!important}
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish{flex:1 1 auto!important;min-width:0!important}
- 
 }
 /* Checkout on phones: the form and the summary stack in one column, each the full width, with a 16 px side gutter. */
 @media(max-width:767px){
  html body.ordering-process:not(.in-kosik) .cart-row{margin-left:0!important;margin-right:0!important;box-sizing:border-box!important}
- 
 }/* Shoptet moves the checkout sidebar with the page through an inline top; it stays in place, so it never covers the button row. */
 html body.ordering-process:not(.in-kosik) #checkoutSidebar{top:auto!important;transform:none!important}
 /* Cart: the cards sit in the summary's container under the box and take its full width. */
@@ -230,7 +227,6 @@ html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>input[typ
 html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label{display:block!important;position:static!important;margin:0!important;padding:0!important;line-height:22px!important;min-height:0!important}
 html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::before,html body.in-krok-2 #order-form .form-group:has(>input[type=checkbox])>label::after{content:none!important;display:none!important}
 @media(max-width:767px){
- 
  html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-forward::after,html body.ordering-process #content .okla-step-nav .next-step .btn.next-step-finish::after{right:16px!important}
  html body.ordering-process #content .okla-step-nav .consents-first{max-width:none;text-align:center}
 }

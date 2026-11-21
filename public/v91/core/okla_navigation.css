@@ -15,9 +15,6 @@ html body .breadcrumbs::before{content:none!important;display:none!important}
  html body .breadcrumbs .navigation-bullet{position:static!important;vertical-align:middle!important;float:none!important;min-height:0!important;max-height:18px!important;background-image:none!important;clip-path:none!important;transform:none!important;overflow:visible!important;text-indent:0!important;}
  html body .breadcrumbs .navigation-bullet::before,html body .breadcrumbs .navigation-bullet::after{display:none!important;content:none!important;border:0!important;background:none!important;box-shadow:none!important;transform:none!important}
  html body .breadcrumbs .navigation-bullet .ok91-chevron{line-height:1!important;letter-spacing:0!important;transform:none!important}
- 
- 
- 
 /* Native or legacy second-home icon decoration is never displayed. */
 html body .breadcrumbs #navigation-first a.navigation-home-icon :is(i,img,.okla-home-icon,.navigation-home-icon)::before{display:none!important;content:none!important}
 html body .breadcrumbs #navigation-first a.navigation-home-icon :is(i,img,.okla-home-icon){display:none!important}

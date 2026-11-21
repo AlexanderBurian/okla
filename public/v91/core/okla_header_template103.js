@@ -116,6 +116,12 @@
   function support(row, words) {
     var lang = (window.oklaLang && window.oklaLang.current) || document.documentElement.getAttribute('data-okla-lang') || 'cs';
     var box = row.querySelector(':scope > .okla-header-support');
+    /* the phone layout empties the row into the header and a wider window builds a new row (okla_header_consistency.js)
+       without the headset: the one left in the header comes back here instead of a second one being made */
+    if (!box && row.parentNode) {
+      box = row.parentNode.querySelector(':scope > .okla-header-support');
+      if (box) row.insertBefore(box, row.querySelector(':scope > .okla-header-locale') || row.querySelector(':scope > a.cart-count'));
+    }
     if (box && box.getAttribute('data-lang') === lang) return;
     if (!box) {
       box = document.createElement('span');

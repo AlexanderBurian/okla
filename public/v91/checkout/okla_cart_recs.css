@@ -13,8 +13,6 @@
   /* the arrows as on the homepage sliders: blue tabs on the island's edges, 26px wide */
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-arrow{position:absolute!important;display:grid!important;place-items:center!important;color:#fff!important;cursor:pointer!important;z-index:2!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-arrow[hidden]{display:none!important}
-  
-  
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-arrow svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-card{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:8px!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-img{display:grid!important;place-items:center!important;width:100%!important;aspect-ratio:4/3!important}
@@ -44,7 +42,6 @@ html body.in-kosik #okla-cart-recs#okla-cart-recs .ocr-form .btn-cart svg:not(#o
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j){display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;height:35px!important;min-height:0!important;width:auto!important;padding:0 14px!important;border:1px solid #d9e4f9!important;border-radius:6px!important;background:#fff!important;background-color:#fff!important;background-image:none!important;color:#164194!important;-webkit-text-fill-color:#164194!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;box-shadow:none!important;cursor:pointer!important;transition:background-color .15s ease,border-color .15s ease!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j):not(:disabled):is(:hover,:focus-visible){background:#c8d2e5!important;background-color:#c8d2e5!important;border-color:#c8d2e5!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart:not(#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f#ocr-g#ocr-h#ocr-i#ocr-j) *{color:#164194!important;-webkit-text-fill-color:#164194!important}
-  
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::after{content:none!important;display:none!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-form .btn-cart::before{content:""!important;display:block!important;flex:0 0 19px!important;width:19px!important;height:19px!important;margin:0!important;background:currentColor!important;-webkit-mask:var(--okla-card-btn-cart) center/contain no-repeat!important;mask:var(--okla-card-btn-cart) center/contain no-repeat!important}
 }

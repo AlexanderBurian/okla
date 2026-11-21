@@ -25,7 +25,6 @@
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-li.is-open .okcb-link{background:transparent!important;color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
   /* the open panel continues the white bar: no line between them */
   html.okcb-open.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::before{border-bottom-color:transparent!important}
-  
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-link.is-current{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-link:focus-visible{outline:2px solid #0859d8!important;outline-offset:-2px!important}
   /* the panel */

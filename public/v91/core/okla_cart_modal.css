@@ -77,22 +77,14 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 /* phones: full screen; the product's stepper and price go on a second line; two cards in a row */
 @media(max-width:767px){
   #okla-cart-modal.is-open{align-items:stretch}
-  
   @keyframes okla-cm-up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
   #okla-cart-modal#okla-cart-modal .okla-cm__close:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j){top:12px;right:10px}
-  
   #okla-cart-modal#okla-cart-modal .okla-cm__title{font-size:18px}
   #okla-cart-modal .okla-cm__items{margin-top:20px}
-  
-  
   #okla-cart-modal .okla-cm__name{font-size:14px!important;line-height:1.45!important}
-  
-  
   #okla-cart-modal .okla-cm__qty-val{font-size:14px}
-  
   #okla-cart-modal .okla-cm__price-vat{font-size:19px}
   #okla-cart-modal .okla-cm__price-novat{margin-top:3px;font-size:11px}
-  
   #okla-cart-modal#okla-cart-modal .okla-cm__subtitle{margin-bottom:14px;font-size:18px}
   #okla-cart-modal .okla-cm__cards{gap:8px}
   #okla-cart-modal .okla-cm__card-pic{height:104px}

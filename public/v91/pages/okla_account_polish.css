@@ -79,8 +79,6 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav{
  padding:0 20px 0 0!important;
  box-sizing:border-box!important;
  border:0!important;
- 
- 
 }
 html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav::before,
 html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__nav::after,
@@ -113,7 +111,6 @@ html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__main{
  padding:4px 6px 20px 26px!important;
  box-sizing:border-box!important;
  border:0!important;
- 
  background:#fff!important;
 }
 html.okla-acc-polished body .okla-acc-shell>.okla-acc-shell__other{
@@ -168,7 +165,6 @@ html.okla-acc-polished body .okla-acc-nav__head{
  padding:4px 8px 12px!important;
  border:0!important;
  border-bottom:1px solid #e7eef6!important;
- 
  color:#193650!important;
  font:600 13.5px/1.35 "Open Sans",Arial,sans-serif!important;
  letter-spacing:0!important;
@@ -464,12 +460,8 @@ html body .okla-acc-confirm__logout:hover{background:#bd2f3e;border-color:#bd2f3
   display:flex!important;
   flex-direction:column!important;
   gap:18px!important;
-  
   min-height:0!important;
-  
-  
   border-top-width:1px!important;
-  
  }
  html.okla-acc-polished body #content-wrapper.okla-acc-shell::after,
  html.okla-acc-polished body #content-wrapper .okla-acc-shell::after{display:none!important;content:none!important}

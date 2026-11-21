@@ -1,20 +1,14 @@
 /* Okla languages: the switch under the header flag and the two choices in the footer. */
 html.okla-i18n-pending body{visibility:hidden!important}
-
 html body #header .okla-header-locale{position:relative!important;cursor:pointer!important}
 html body #header .okla-header-locale .okla-lang-flag{display:block;width:29px;height:29px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
-
 /* Phones: the flag sits in the top bar between the logo and the search button, the menu opens under it. */
-html body #header #okla-v61-header .okm61-top:has(.okla-lang-mobile){justify-content:flex-start!important}
-html body #header #okla-v61-header .okm61-top:has(.okla-lang-mobile) .okla-m-search-open{margin-left:4px!important}
-
 html body #okla-footer-links .okla-lang{display:flex!important;flex-wrap:wrap;gap:8px!important;align-items:center}
 html body #okla-footer-links .okla-lang-pill{display:inline-flex;align-items:center;gap:8px;height:36px;margin:0;padding:0 14px 0 8px;border:1px solid #cdd2da;border-radius:999px;background:#fff;font:500 14px/1 "Open Sans",Arial,sans-serif;color:#0b2540;cursor:pointer;transition:border-color .15s ease,background-color .15s ease}
 html body #okla-footer-links .okla-lang-pill:hover{border-color:#0b2540}
 html body #okla-footer-links .okla-lang-pill.is-current{border-color:#0859d8;background:#f5f7fa;font-weight:700}
 html body #okla-footer-links .okla-lang .okla-lang-pill span{font-size:14px!important;line-height:1!important}
 html body #okla-footer-links .okla-lang-pill .okla-lang-flag{flex:none;width:22px;height:22px;border:1px solid #e0e4ea;border-radius:50%;box-sizing:border-box}
-
 /* Layout safety net for the translated languages: a longer translated word can never push a box wider than its column
    and open a horizontal scrollbar. It only acts when a word would otherwise overflow, so Czech-length text is unchanged,
    and it has no effect on elements set not to wrap (the language switch keeps its one line). */

@@ -14,10 +14,6 @@
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .p-tools.p-tools {
     padding: 0 !important; margin: 0 !important; width: 100% !important; box-sizing: border-box !important; justify-content: center !important;
   }
-  
-  
-  
-  
 
   /* 3. Product page purchase button: green with black text, like the buy bar. Transitions are off, so the colour is not caught mid-change. */
   html body.ok89-detail.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary.ok99-native-primary {
@@ -46,7 +42,6 @@
   html body.ok89-detail #header#header #okla-v61-header#okla-v61-header::after { content: none !important; display: none !important; }
 
   /* 6. Purchase bar that appears after scrolling past the button: the same gradient as the header */
-  
 
   /* 7. Related cards: gold decorative stars (the homepage look) and a single cart icon */
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .product .okv73-rating-stars { display: inline-flex !important; gap: 1px !important; }
@@ -55,7 +50,6 @@
     width: 14px !important; height: 14px !important; flex: 0 0 14px !important;
   }
   html body.ok89-detail.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .product .okv73-rating-caption { color: #7d8998 !important; font-size: 10px !important; }
-  
 
   /* 8. Related cards: one pictogram, the same as on the homepage. The three older icon scripts and the detail icon are hidden,
         and the homepage icon (okv74) is styled the way the homepage styles it. */
@@ -72,7 +66,6 @@
   }
 
   /* 9. The whole header band, not only its inner part, uses the same gradient */
-  
 
   /* 10. The gradient stays only at the real top of the page. The bar that appears after scrolling (sticky header, shown or
          white states) and the purchase bar are plain white. */

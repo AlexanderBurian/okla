@@ -247,10 +247,7 @@ html body .okla-rk__choice label::after{
 }
 @media(hover:hover) and (pointer:fine){
   html body .okla-rk__choice label:hover{
-    
     outline-offset:2px!important;
-    
-    
   }
   html body .okla-rk__choice input:checked+label:hover{
     background:#f3faff!important;
@@ -329,16 +326,9 @@ html body #content .okla-slider-shell>.okla-slider-controls>button:is(.okla-slid
   background:#053A8D!important;
   color:#fff!important;
 }
-html body #content .ok97-related-prev:not(#okla_related_prev_a#okla_related_prev_b#okla_related_prev_c#okla_related_prev_d){
-  border-radius:0 6px 6px 0!important;
-}
-html body #content .ok97-related-next:not(#okla_related_next_a#okla_related_next_b#okla_related_next_c#okla_related_next_d){
-  border-radius:6px 0 0 6px!important;
-}
-html body #content button.ok97-related-arrow:not(#okla_related_hover_a#okla_related_hover_b#okla_related_hover_c#okla_related_hover_d):is(:hover,:focus){
-  background:#053A8D!important;
-  color:#fff!important;
-}
+
+
+
 
 /* Quantity steppers are neutral controls, not hover actions. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>button:is(.decrease,.increase):not(#okla_qty_hover_a#okla_qty_hover_b#okla_qty_hover_c#okla_qty_hover_d):hover{

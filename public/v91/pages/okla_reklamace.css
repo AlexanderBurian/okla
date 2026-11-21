@@ -8,7 +8,6 @@ html.okla-rk-takeover #content .content-inner > *:not(.okla-rk){display:none!imp
 html.okla-rk-takeover .breadcrumbs,
 html.okla-rk-takeover #navigation .breadcrumbs,
 html.okla-rk-takeover nav.breadcrumb,
-html.okla-rk-takeover .breadcrumb-nav,
 html.okla-rk-takeover .breadcrumbs-wrapper,
 html.okla-rk-takeover .breadcrumb{display:none!important}
 

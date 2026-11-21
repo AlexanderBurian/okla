@@ -167,8 +167,7 @@ html body .okla-os-lookup.is-invalid .okla-os-lookup__err{display:block}
 html.okla-os-takeover #content .content-inner > *:not(.okla-order-status){display:none!important}
 html.okla-os-takeover .breadcrumbs,
 html.okla-os-takeover #navigation .breadcrumbs,
-html.okla-os-takeover nav.breadcrumb,
-html.okla-os-takeover .breadcrumb-nav{display:none!important}
+html.okla-os-takeover nav.breadcrumb{display:none!important}
 
 /* ---- Lookup: package pictogram ---- */
 html body .okla-os-lookup__icon{
@@ -205,7 +204,6 @@ html body .okla-os-card--open .okla-os-field{text-align:left;flex:1 1 300px}
 html body .okla-os-card--open .okla-os-lookup__icon{
   width:auto!important;height:auto!important;border-radius:0!important;
   background:transparent!important;border:0!important;box-shadow:none!important;
-  
 }
 html body .okla-os-card--open .okla-os-lookup__icon svg{width:104px!important;height:104px!important;filter:drop-shadow(0 8px 14px rgba(120,80,30,.18))}
 

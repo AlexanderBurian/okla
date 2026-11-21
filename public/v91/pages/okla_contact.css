@@ -6,7 +6,6 @@
 html body .oka-contact{
   width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
   overflow-x:hidden;
-  
   color:#1a2330;background:#fff;
   --b:#0642A1;--bd:#0e2f66;--mut:#5a6676;--line:#e3e7ee;--grey:#f2f4f7;
 }
@@ -122,8 +121,7 @@ html.okla-contact-takeover .breadcrumbs,
 html.okla-contact-takeover .breadcrumbs-wrapper,
 html.okla-contact-takeover #navigation .breadcrumbs,
 html.okla-contact-takeover nav.breadcrumb,
-html.okla-contact-takeover .breadcrumb,
-html.okla-contact-takeover .breadcrumb-nav{display:none!important}
+html.okla-contact-takeover .breadcrumb{display:none!important}
 
 /* Contact page on phones/tablets: replace the general blue header gradient
    with the same calm grey used by the contact-page intro. */

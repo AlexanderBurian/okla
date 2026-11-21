@@ -5,11 +5,8 @@
 @media(max-width:767px){
   /* ---- the bar ---- */
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d){
-    
     justify-content:space-between!important;
-    
     border-top:1px solid #e3e8ef!important;
-    
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okla-tb-bg{display:none!important}
   /* ---- an item: a round button (48px) ---- */
@@ -46,7 +43,6 @@
   /* the cart's number, top right on its round button */
   /* the current item's name always whole: a little less room around it, and on the narrowest phones smaller round
      buttons ("Objednávky" was cut to "Objednáv" on a 375 px phone, "Košík" on a 320 px one) */
-  
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action>span{font-size:13px!important;text-overflow:ellipsis!important}
   html.okla-tb-on body #okla-v61-bottom:not(:has(.is-panel)):not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-active,
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.is-panel{padding-right:12px!important}
@@ -56,7 +52,6 @@
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d){padding-left:8px!important;padding-right:8px!important}
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action{flex-basis:42px!important;min-width:42px!important;height:42px!important;border-radius:21px!important}
     html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action svg{flex-basis:42px!important;width:42px!important;height:42px!important;padding:11px!important}
-    
   }
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart{overflow:visible!important}
   html.okla-tb-on body #okla-v61-bottom:not(#okpb-a#okpb-b#okpb-c#okpb-d) .okm61-bottom-action.okla-tb-cart .okla-tb-count{

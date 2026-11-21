@@ -68,9 +68,7 @@
   html.okla-desktop-sticky body #header .header-top>.site-name-wrapper {
     align-self:center!important;
     justify-self:start!important;
-    
     min-height:0!important;
-    
     margin-top:0!important;
     margin-bottom:0!important;
     padding:0!important;
@@ -78,7 +76,6 @@
   html.okla-desktop-sticky body #header .header-top>.site-name-wrapper img {
     width:auto!important;
     height:auto!important;
-    
     max-width:100%!important;
     object-fit:contain!important;
   }
@@ -86,9 +83,7 @@
     align-self:center!important;
     position:relative!important;
     z-index:1!important;
-    
     min-height:0!important;
-    
     margin-top:0!important;
     margin-bottom:0!important;
   }
@@ -104,38 +99,22 @@
     border-radius:7px!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form input.query-input {
-    
     min-height:0!important;
-    
-    
     padding-top:0!important;
     padding-bottom:0!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form button[type="submit"] {
     flex:0 0 37px!important;
-    
-    
-    
-    
-    
-    
     margin:0!important;
     padding:0!important;
   }
   html.okla-desktop-sticky body #header .header-top>.search form.search-form button[type="submit"]>svg.okla-search-vector {
-    
-    
-    
-    
     flex:0 0 21px!important;
   }
   html.okla-desktop-sticky body #header .header-top>.navigation-buttons.okla-header-ready {
     position:relative!important;
     z-index:1!important;
     align-self:center!important;
-    
-    
-    
     margin-top:0!important;
     margin-bottom:0!important;
     padding:0!important;
@@ -143,24 +122,17 @@
   html.okla-desktop-sticky body #header .header-top .navigation-buttons>.okla-exact-header {
     align-items:center!important;
     grid-template-columns:minmax(135px,max-content) max-content!important;
-    
-    
-    
     padding:0!important;
     margin:0!important;
   }
   /* Current site uses real links + a shadow-root graphic.
      Shrink the LINK hit areas here; JS scales its graphic only when pinned. */
   html.okla-desktop-sticky body #header#header .header-top .navigation-buttons>.okla-exact-header>:is(.okla-header-account,a.cart-count)[data-action-face] {
-    
-    
-    
     align-self:center!important;
     align-items:center!important;
     padding:0!important;
     margin:0!important;
   }
-  
 }
 @media(max-width:991px){
   .okla-desktop-sticky-space{display:none!important}
@@ -177,8 +149,6 @@
    -webkit-backdrop-filter:none!important;
  }
  html.okla-desktop-sticky body #header .header-top>.search{
-   
-   
    justify-self:start!important;
    filter:none!important;
    -webkit-filter:none!important;

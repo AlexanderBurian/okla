@@ -6,7 +6,6 @@ html body .okla-about{
   /* full-bleed out of Shoptet's content column */
   width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
   overflow-x:hidden;
-  
   color:#1a2330;background:#fff;
   --b:#0647ac;      /* the one brand colour */
   --bd:#053888;     /* darker (hover) */
@@ -142,7 +141,6 @@ html body .oka-art h3{font-size:20px;line-height:1.25;font-weight:700;color:#fff
   html body .oka-biz__img{position:static;width:100%;height:auto;aspect-ratio:16/9;object-position:center}
   html body .oka-biz__body{background:var(--b);max-width:none;padding:36px 24px}
   html body .oka-biz__inner{max-width:none}
-  
   html body .oka-car__btn{width:44px;height:44px}
   html body .oka-car__btn svg{width:20px;height:20px}
 }
@@ -166,8 +164,7 @@ html.okla-about-takeover .breadcrumbs,
 html.okla-about-takeover .breadcrumbs-wrapper,
 html.okla-about-takeover #navigation .breadcrumbs,
 html.okla-about-takeover nav.breadcrumb,
-html.okla-about-takeover .breadcrumb,
-html.okla-about-takeover .breadcrumb-nav{display:none!important}
+html.okla-about-takeover .breadcrumb{display:none!important}
 
 /* About hero desktop: ONE image, entire original width, natural aspect ratio.
    Keep the compact banner; crop only the top/bottom, never the image sides. */

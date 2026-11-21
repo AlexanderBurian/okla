@@ -56,7 +56,6 @@
   html body.type-index #content #okla-news-v55 .okn-heading:not(#okis-a#okis-b#okis-c){padding-left:20px!important}
   html body.type-index #content #okla-news-v55 .okn-heading:not(#okis-a#okis-b#okis-c){padding-left:0!important}
   /* the footer is an island too */
-  
   /* product cards without a frame (the white island is the frame), also on hover */
   html body #content .product>.p:not(#okis-a#okis-b#okis-c),
   html body #content .product:hover>.p:not(#okis-a#okis-b#okis-c){border-color:transparent!important;box-shadow:none!important}

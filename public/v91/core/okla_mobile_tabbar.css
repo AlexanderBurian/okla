@@ -11,7 +11,6 @@
    open the page underneath is pinned (okla_mobile_tabbar.js), so it cannot move or peek out, also on iPhones. */
 @media(max-width:767px){
   /* ---- bottom bar ---- */
-  
   html.okla-tb-on #okla-v61-bottom .okla-tb-bg{
     position:absolute!important;inset:0!important;z-index:0!important;pointer-events:none!important;display:block!important;filter:none!important;
   }
@@ -24,7 +23,6 @@
     -webkit-mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H18.05A5 5 0 0 1 23.04 5.73A32 32 0 0 0 86.96 5.73A5 5 0 0 1 91.95 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;mask:linear-gradient(#000,#000) left 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,linear-gradient(#000,#000) right 1px/calc(50% - 54px) calc(100% - 1px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 110 44'%3E%3Cpath d='M0 1H18.05A5 5 0 0 1 23.04 5.73A32 32 0 0 0 86.96 5.73A5 5 0 0 1 91.95 1H110V44H0Z'/%3E%3C/svg%3E") center top/110px 44px no-repeat,linear-gradient(#000,#000) center 43px/110px calc(100% - 43px) no-repeat;
   }
   /* the items: icons a little higher, labels low enough to stay clear of the notch's line */
-  
   /* the cart: a 50px round button low in the notch (its centre 4px under the bar's edge, 6px of air around it), the label in line with the others */
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart::before{
     content:""!important;position:absolute!important;left:50%!important;top:-21px!important;z-index:-1!important;display:block!important;
@@ -141,7 +139,6 @@
 }
 /* Phones: the breadcrumb on the same 14px rail as the logo */
 @media(max-width:767px){
-  
   html body:not(#okla-tb-a#okla-tb-b#okla-tb-c) .container.breadcrumbs-wrapper>.breadcrumbs{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
 }
 

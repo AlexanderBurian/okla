@@ -7,7 +7,6 @@
 /* ============ DESKTOP: bigger, more spaced, centered ============ */
 @media(min-width:768px){
   html.okla-acc-polished body .okla-acc-nav{
-    
     gap:10px!important;
     padding:10px 0!important;
   }

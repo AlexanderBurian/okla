@@ -1,6 +1,5 @@
 /* Okla V97 – desktop-only cart preview. Independent from add-to-cart drawer. */
 @media(min-width:992px){
-  
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account,
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
@@ -39,61 +38,21 @@
     transform:rotate(45deg)!important;
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
-    
-    
-    
     line-height:1!important;
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.cart-price{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     text-align:center!important;
-    
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol{
-    
-    
-    
     align-self:center!important;
-    
     min-height:32px!important;
     margin:0!important;
     padding:0!important;
-    
   }
   /* A true quantity total, not a hard-coded basket number. */
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     line-height:17px!important;
-    
-    
   }
-  
 }
 /* The hover cart (okla_cart_preview.js), PC only: a plain white panel with a soft shadow under the cart, square-ish
    corners and no pointer - the products (picture, blue name, amount, price) and the total. A click on the cart icon
@@ -127,7 +86,6 @@
  html.okla-header-reference body #header .header-top{
   grid-template-columns:minmax(142px,190px) minmax(260px,1fr) minmax(355px,390px)!important;
   column-gap:14px!important;
-  
  }
  html.okla-header-reference body #header .header-top>.search,
  html.okla-header-reference body #header .header-top>.search form.search-form,
@@ -142,30 +100,16 @@
   max-width:100%!important;
   min-width:0!important;
  }
- 
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale{
-  
-  
-  
   justify-content:center!important;
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
-  
-  
-  
   margin:0!important;
  }
- 
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol{
-  
   min-width:28px!important;
-  
-  
-  
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol svg{
-  
-  
   fill:#171717!important;
   stroke:none!important;
  }
@@ -176,25 +120,9 @@
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
   display:inline-flex!important;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   opacity:1!important;
   visibility:visible!important;
-  
-  
-  
-  
  }
- 
 }
 @media(min-width:992px) and (max-width:1160px){
  html.okla-header-reference body #header .header-top{
@@ -216,11 +144,8 @@
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header{
     display:flex!important;
     flex-direction:row!important;
-    
     justify-content:flex-end!important;
     gap:4px!important;
-    
-    
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale{
     order:0!important;
@@ -229,7 +154,6 @@
     min-width:38px!important;
     max-width:38px!important;
     margin:0 5px 0 auto!important;
-    
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-account{
     order:1!important;
@@ -239,26 +163,10 @@
     max-width:174px!important;
     padding:0 5px!important;
     gap:7px!important;
-    
-    
     justify-content:center!important;
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
     order:2!important;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
   }
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count .okla-cart-symbol{
     display:inline-flex!important;
@@ -276,32 +184,13 @@
     height:26px!important;
     display:block!important;
   }
-  
-  
   html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-reference-cart-badge{
-    
-    
-    
     width:auto!important;
-    
-    
     max-height:20px!important;
-    
-    
-    
-    
-    
-    
-    
     box-sizing:border-box!important;
     align-items:center!important;
     justify-content:center!important;
-    
-    
-    
-    
   }
-  
 }
 
 /* Shoptet's own hover cart (#cart-widget) opened together with the Okla preview, under it: with a few items it was

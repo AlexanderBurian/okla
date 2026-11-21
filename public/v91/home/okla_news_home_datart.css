@@ -13,7 +13,6 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{posit
 /* "Přejít do magazínu": a real button (ghost style) instead of a plain text link */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button{
   box-sizing:border-box!important;
-  
   text-transform:none!important;transition:border-color .15s ease,background-color .15s ease!important;
 }
 @media(hover:hover){html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button:hover{border-color:#0859d8!important;}}
@@ -64,14 +63,11 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-read svg{dis
 }
 /* phones: a list */
 @media(max-width:680px){
-  
   /* phones: the button drops under the heading (in flow), so nothing overlaps */
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{flex-direction:column!important;align-items:flex-start!important;padding-right:0!important;min-height:0!important;gap:10px!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{white-space:nowrap!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{top:auto!important;right:auto!important}
-  
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-button svg{width:16px!important;height:16px!important}
-  
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(3){display:flex!important}
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card,
   html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-card:nth-child(n){flex-direction:row!important;align-items:flex-start!important;gap:14px!important;padding:14px 0!important;border-bottom:1px solid #e6ebf2!important}

@@ -50,14 +50,6 @@
    orders.appendChild(svgPaths(['M6 8h12l1.3 12H4.7L6 8Z','M9 9V6a3 3 0 0 1 6 0v3','m8.8 14 2.3 2.3 4.2-4.2'],'okla-header-lineicon'));
    row.insertBefore(orders,cart);
   }
-  if(!row.querySelector('.okla-header-favorites')){
-   var fav=el('button','okla-header-favorites');
-   fav.type='button';
-   fav.title='Oblíbené produkty';
-   fav.setAttribute('aria-label','Oblíbené produkty');
-   fav.appendChild(svgPaths(['M20.6 8.7c0 4.1-8.6 10.4-8.6 10.4S3.4 12.8 3.4 8.7a4.6 4.6 0 0 1 8.6-2.1 4.6 4.6 0 0 1 8.6 2.1Z'],'okla-header-lineicon'));
-   row.insertBefore(fav,cart);
-  }
   if(!row.querySelector('.okla-header-locale')){
    var locale=el('span','okla-header-locale');
    locale.title='Čeština · CZK';

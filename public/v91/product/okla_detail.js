@@ -108,10 +108,8 @@
   if(anchor)anchor.after(list);
  }
  function knownUrl(p){return p.url||null}
- /* Buy-box links that work on this shop: print (window.print) and ask (native question page), share and rating are native Shoptet.
-    Favourites has no backend on this shop (the header heart is inert too), so its button is not shown. */
+ /* Buy-box links that work on this shop: print (window.print) and ask (native question page), share and rating are native Shoptet. */
  function wireBuyLinks(buy){
-  var fav=q('.okla-detail-favorite',buy);if(fav)fav.remove();
   var pr=q('.link-icon.print',buy);if(pr)pr.addEventListener('click',function(e){e.preventDefault();window.print()});
  }
  /* Switches the review panel in place without scrolling. Native Shoptet tab

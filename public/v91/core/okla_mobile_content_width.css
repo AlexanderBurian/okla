@@ -6,16 +6,12 @@
 
   html body #header #okla-v61-header{
     box-sizing:border-box!important;
-    
-    
   }
 
   html body #content-wrapper main#content{
     box-sizing:border-box!important;
     width:100%!important;max-width:100%!important;
     margin-left:0!important;margin-right:0!important;
-    
-    
   }
 
   /* Components on the common rail may fill it, but never bleed past it. */
@@ -39,7 +35,6 @@
 
   /* Products span the full navbar width: the content rail is the 14px navbar gutter and the product sliders add no
      gutter of their own, so the cards line up exactly with the navbar edges (they used to be inset by an extra 8px). */
-  
   html body #content#content .okla-slider-shell{padding-left:0!important;padding-right:0!important;margin-left:0!important;margin-right:0!important}
   html body #content#content .okla-slider-shell .products.okla-slider-track{padding-left:0!important;padding-right:0!important}
 }

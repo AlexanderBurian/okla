@@ -15,7 +15,6 @@ html body.ordering-process .okla-parcel{display:none!important;animation:none!im
 html body.ordering-process .cart-header::before{height:3px!important;background:#e1e6ed!important}
 html body.ordering-process .cart-header::after{height:3px!important;background:#074dbb!important;transition:none!important}
 html body.ordering-process .cart-header .step::before{
-  
   animation:none!important
 }
 html body.in-kosik .cart-header .step-1::before,
@@ -117,7 +116,6 @@ html body.ordering-process #content#content .okla-step-nav .next-step .btn:hover
 
 @media(max-width:767px){
   html body.ordering-process #content-wrapper{border-left:0!important;border-right:0!important;border-radius:0!important}
-  
   html body.in-kosik table.cart-table tr.removeable>td{border-bottom:0!important;}
   html body.in-kosik .cart-row>.col-md-8,
   html body.in-kosik .cart-row>.col-md-4{flex:0 0 100%!important;max-width:100%!important}
@@ -488,7 +486,6 @@ html body.in-kosik #content#content .cart-inner{overflow:visible!important}
 html body.in-kosik #content#content .cart-inner>.okla-step-nav{
   position:sticky!important;bottom:0!important;z-index:30!important;background:#fff!important;
   margin:0!important;padding:14px 24px!important;border-top:1px solid #e4e8ee!important;
-  
 }
 html body.in-kosik #content#content .cart-inner>.okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;border-top-color:#dfe4ea!important}
 html body.in-kosik #content#content .cart-inner>.okla-step-nav .okla-alza-total{display:none!important}
@@ -646,7 +643,6 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
     padding-bottom:14px!important;border-top-color:#dfe4ea!important;box-shadow:0 -6px 18px rgba(11,37,64,.10)!important;
   }
   /* steps 2 and 3: the grey recap reaches the right edge of the card */
-  
 }
 @media(min-width:768px){
   /* no second line under the last product - the summary line closes the list */
@@ -741,7 +737,6 @@ html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{b
   html body.ordering-process:not(.in-kosik) #content#content#content .okla-step-nav{width:auto!important;max-width:none!important;margin-left:-20px!important;margin-right:-20px!important;padding-left:24px!important;padding-right:24px!important}
 }
 @media(max-width:767px){
-  
   html body.ordering-process #content#content#content ol.cart-header{padding-left:0!important;padding-right:0!important}
   /* cart */
   html body.in-kosik #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
@@ -752,7 +747,6 @@ html body.ordering-process:not(.in-kosik) #content#content .cart-row>.col-md-4{b
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8{padding-left:0!important;padding-right:0!important}
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-8>.cart-content{padding-left:0!important;padding-right:0!important}
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4{border-left:0!important;border-right:0!important}
-  
   html body.ordering-process:not(.in-kosik) #content#content#content .cart-row>.col-md-4 :is(.cart-content,.order-summary,.order-summary-inner,.checkout-box,.cart-items){margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
   /* thank-you page */
   html.okla-ty-page body #content .okla-ty:not(#okla-ty-a#okla-ty-b#okla-ty-c){padding-left:0!important;padding-right:0!important}

@@ -338,10 +338,7 @@ html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__but
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child{background:#0859d8!important;color:#fff!important;border:1.5px solid #0859d8!important}
 html body .siteCookies.js-siteCookies .siteCookies__buttonWrap .siteCookies__button:last-child:hover{background:#0859d8!important;border-color:#0859d8!important}
 @media(max-width:720px){
-  
   html body .siteCookies.js-siteCookies .siteCookies__content{flex:1 1 auto!important;max-width:none!important}
-  
-  
 }
 
 /* ---------- AI assistant visibility ----------
@@ -682,7 +679,6 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
    visible, "Nastavení" stays under the text. */
 @media(max-width:720px){
   html body .siteCookies.js-siteCookies .siteCookies__form{
-    
     max-height:88dvh!important;height:auto!important;
     grid-template-rows:minmax(0,1fr) auto!important;grid-template-columns:minmax(0,1fr)!important;
   }
@@ -690,10 +686,8 @@ html body #colorbox #cboxContent.cookiesDialog #cboxClose{
     min-height:0!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;
   }
   html body .siteCookies.js-siteCookies .siteCookies__text{columns:auto!important;column-count:auto!important}
-  
   html body .siteCookies.js-siteCookies .siteCookies__text{font-size:13px!important;line-height:1.5!important}
   html body .siteCookies.js-siteCookies .siteCookies__text p{margin:0 0 8px!important}
-  
   html body .siteCookies.js-siteCookies .siteCookies__buttonWrap{
     flex:none!important;
   }

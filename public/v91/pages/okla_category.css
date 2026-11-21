@@ -31,7 +31,6 @@ html body.type-category #content .okla-cat-about p:not(#ocat-a#ocat-b#ocat-c){ma
 @media(max-width:767px){
   html body.type-category #content .okla-cat-intro:not(#ocat-a#ocat-b#ocat-c){font-size:14px;margin:4px 0 14px}
   html body.type-category #content .okla-cat-about:not(#ocat-a#ocat-b#ocat-c){margin-top:24px;padding-top:18px;font-size:14px}
-  
 }
 
 /* --- the title: larger and stronger --- */

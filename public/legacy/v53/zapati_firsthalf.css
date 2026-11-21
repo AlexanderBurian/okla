@@ -1,17 +1,13 @@
 /* OKLA legacy v53 storefront styles (formerly injected by legacy/v53/zapati_firsthalf.js as <style id="okla-zapati-firsthalf-styles">; now a stylesheet of its own, loaded with the others in the bundle 31-legacy-css right after the page's own bundles - the same place in the cascade) */
 @media(min-width:992px){#navigation .navigation-in>ul.menu-level-1{display:none!important}}
 /* OKLA V19 category styling */
-
 #content-wrapper aside.sidebar.sidebar-left .box-categories .pageElement__heading{background:#fff!important}
-
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon{display:flex!important;align-items:center!important;gap:10px!important;margin-left:14px!important;width:calc(100% - 14px)!important;padding:8px 4px 8px 0!important;min-height:43px!important;box-sizing:border-box!important;font-size:14px!important;line-height:1.4!important;font-weight:400!important;text-decoration:none!important}
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:hover{background:rgba(6,65,158,.045)!important;text-decoration:none!important}
-
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 21px!important;min-width:21px!important;width:21px!important;height:21px!important;color:#0644a6!important;line-height:0!important}
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-svg svg{display:block!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important;overflow:visible!important}
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a .okla-cat-label{flex:1 1 auto!important;line-height:1.4!important}
 @media(max-width:991px){#content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon{margin-left:9px!important;width:calc(100% - 9px)!important}}
-
 @media(min-width:992px){body{background-attachment:scroll!important}body::before{display:none!important}}@media(max-width:991px){html{background:#fff!important}body{background:#fff!important;background-attachment:scroll!important;background-image:none!important}html body::before{display:none!important}}
 @media(min-width:992px){#content-wrapper{position:relative!important;border-top:6px solid #063F99!important;border-radius:6px 6px 6px 6px!important;overflow:hidden!important;background:#fff!important;box-sizing:border-box!important;box-shadow:0 0 10px #0019411c!important}#content-wrapper::before{display:none!important}}
 @media(min-width:768px){#content .banners-row{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0 0 24px!important;padding:0!important;align-items:start!important}#content .banners-row>.col-sm-8,#content .banners-row>.col-sm-4{display:block!important;float:none!important;flex:none!important;flex-basis:auto!important;width:100%!important;max-width:100%!important;min-width:0!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important}#content .banners-row #carousel{display:block!important;position:relative!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;border-radius:8px!important;overflow:hidden!important}#content .banners-row #carousel .carousel-inner{width:100%!important;height:100%!important}#content .banners-row #carousel .carousel-inner>.item:not(.active){display:none!important}#content .banners-row #carousel .carousel-inner>.item.active{display:block!important;position:relative!important;left:0!important;transform:none!important;width:100%!important;height:100%!important}#content .banners-row #carousel .item>a{display:block!important;width:100%!important;height:100%!important}#content .banners-row #carousel .item img{display:block!important;width:100%!important;max-width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important}#content .banners-row #carousel .carousel-indicators,#content .banners-row #carousel .carousel-control{display:none!important}#content .next-to-carousel-banners{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important}#content .next-to-carousel-banners>.banner-wrapper{display:block!important;position:relative!important;float:none!important;flex:none!important;width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;padding:0!important;border-radius:8px!important;overflow:hidden!important}#content .next-to-carousel-banners>.banner-wrapper>a{display:block!important;width:100%!important;height:100%!important}#content .next-to-carousel-banners img{display:block!important;width:100%!important;max-width:100%!important;height:100%!important;object-fit:cover!important}}@media(max-width:767px){#content .banners-row>.col-sm-4,#content .next-to-carousel-banners{display:none!important}#content .banners-row>.col-sm-8{display:block!important;float:none!important;width:100%!important;max-width:100%!important;padding:0!important}#content .banners-row #carousel{width:100%!important;height:auto!important;aspect-ratio:auto!important}#content .banners-row #carousel img{display:block!important;width:100%!important;height:auto!important;aspect-ratio:auto!important;object-fit:contain!important}}
@@ -21,7 +17,6 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 /* OKLA v11 / homepage slider and Alza-inspired card system */
 #content .homepage-group-title.okla-slider-heading{clear:both!important;margin:30px 0 18px!important;font-size:24px!important;font-weight:700!important;letter-spacing:-.35px!important;color:#132c4a!important}
 #content .okla-slider-shell{display:block!important;width:100%!important;max-width:100%!important;margin:0 0 32px!important;padding:0!important;box-sizing:border-box!important}#content .okla-slider-viewport{position:relative!important;width:100%!important;max-width:100%!important;margin:0!important;padding:9px 7px 14px!important;box-sizing:border-box!important;overflow:hidden!important;touch-action:pan-y!important;contain:layout style!important;border-radius:10px!important}
-
 #content .okla-slider-controls button{display:inline-grid!important;place-items:center!important;flex:0 0 38px!important;width:38px!important;min-width:38px!important;height:74px!important;min-height:74px!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;background:#063f99!important;color:#fff!important;cursor:pointer!important;pointer-events:auto!important;box-shadow:0 1px 6px #152c4a24!important;transition:background-color .18s ease,opacity .18s ease!important}
 #content .okla-slider-controls button:hover{background:#0a2b68!important;color:#fff!important}#content .okla-slider-controls button:focus-visible{outline:3px solid #ffba13!important;outline-offset:-3px!important}#content .okla-slider-controls button svg{display:block!important;width:22px!important;height:22px!important;stroke:currentColor!important;fill:none!important;stroke-width:2.5!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 #content .okla-slider-controls .okla-slider-next{border-radius:6px 0 0 6px!important}
@@ -41,7 +36,6 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 #content .okla-slider-track .ratings-wrapper.okla-ratings{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:row!important;gap:5px!important;flex:none!important;width:100%!important;min-height:24px!important;margin:0 0 10px!important;padding:0!important;line-height:18px!important}
 #content .okla-slider-track .okla-empty-stars{display:inline-flex!important;align-items:center!important;gap:2px!important;color:#ffba00!important;white-space:nowrap!important}
 #content .okla-slider-track .okla-empty-stars svg{display:block;width:17px;height:17px;stroke:#ffba00;fill:#ffba00;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
-
 #content .okla-slider-track .okla-ratings .stars-placeholder{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;min-height:17px!important}
 #content .okla-slider-track .okla-ratings .stars{display:inline-block!important;min-height:16px!important}
 #content .okla-slider-track a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;width:100%!important;height:52px!important;min-height:52px!important;max-height:52px!important;margin:0 0 6px!important;padding:0!important;color:#0642a2!important;font-family:inherit!important;font-size:16px!important;font-weight:600!important;line-height:24px!important;text-align:center!important;text-decoration:none!important;word-break:normal!important}
@@ -68,7 +62,6 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 #content .okla-slider-shell{overflow:visible!important}
 #content .okla-slider-shell>.okla-slider-controls{left:-20px!important;right:-20px!important;max-width:none!important;gap:0!important;overflow:visible!important;float:none!important;box-sizing:border-box!important}
 #content .okla-slider-shell>.okla-slider-controls>button{float:none!important;box-sizing:border-box!important;opacity:1!important;visibility:visible!important;cursor:pointer!important}
-
 /* Mobil: slider pouze tahem prstu; bez sipek, kazda karta ma trvaly viditelny stin. */
 @media(max-width:767px){#content .okla-slider-viewport{padding:13px 9px 19px!important}#content .okla-slider-track>.product .p{border:1px solid #e1e5ec!important;border-radius:9px!important;box-shadow:0 2px 11px rgba(30,43,63,.18)!important;transform:none!important;transition:none!important}#content .okla-slider-track>.product .p:focus-within{box-shadow:0 2px 11px rgba(30,43,63,.18)!important}#content .okla-slider-track .ratings-wrapper.okla-ratings{min-height:38px!important;flex-direction:column!important;gap:2px!important;margin-bottom:7px!important}#content .okla-slider-track .okla-ratings .stars-placeholder{flex-direction:column!important;gap:2px!important}#content .okla-slider-track .okla-empty-stars{gap:1px!important}#content .okla-slider-track .okla-empty-stars svg{width:14px!important;height:14px!important}}
 /* V14 — Global desktop width identical across homepage, product details, categories and information pages. */
@@ -86,13 +79,11 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 /* OKLA V20: full-width white category surface covering Shoptet sidebar gutters; grey content below remains grey. */
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories{background-color:#fff!important;border-radius:0!important}
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories #categories,#content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories .pageElement__heading{background-color:#fff!important}
-
 /* V21: use a full-width white surface rather than side box-shadows (which miss the top gutter). */
 #content-wrapper aside.sidebar.sidebar-left{position:relative!important;border-right:1px solid #d4dce6!important;box-sizing:border-box!important}
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner{position:relative!important;z-index:1!important;min-height:100%!important}
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories{background:transparent!important;}
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories #categories,#content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories .pageElement__heading{background:transparent!important}
-
 #okla-sidebar-top-white{position:absolute!important;top:0!important;left:0!important;right:0!important;background:#fff!important;z-index:0!important;pointer-events:none!important}
 #okla-sidebar-horizontal{position:absolute!important;left:0!important;right:0!important;height:1px!important;background:#d4dce6!important;z-index:3!important;pointer-events:none!important}
 #content-wrapper>#okla-sidebar-vertical{position:absolute!important;top:0!important;bottom:0!important;width:1px!important;background:#d4dce6!important;z-index:7!important;pointer-events:none!important}
@@ -106,35 +97,26 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories::after,
 #content-wrapper aside.sidebar.sidebar-left .sidebar-inner>.box.box-categories #categories::after{border:0!important;box-shadow:none!important;background:none!important}
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon{isolation:isolate!important;transition:background-color .16s ease,color .16s ease!important}
-
 @media(hover:hover) and (pointer:fine){
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:hover{text-decoration:none!important}
-
 }
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:focus-visible{outline:2px solid #063F99!important;outline-offset:2px!important}
 /* OKLA V23 – five visible desktop product cards with balanced Alza-style proportions. */
 @media(min-width:992px){
 #content .products.products-block.okla-slider-track{gap:14px!important}
-
 #content .okla-slider-track>.product .p>a.image{height:clamp(142px,13.4vw,184px)!important;}
-
 #content .okla-slider-track .availability{font-size:11px!important;line-height:17px!important}
-
 #content .okla-slider-track .prices:before{height:22px!important;flex-basis:22px!important;font-size:10px!important;line-height:22px!important}
-
 #content .okla-slider-track .p-tools .btn-cart{padding-left:24px!important;background-size:17px 17px!important;background-position:10px center!important}
-
 }
 @media(min-width:992px) and (max-width:1199px){
 #content .okla-slider-track>.product .p{padding:9px 5px 14px!important}
-
 #content .okla-slider-track a.name{font-size:12px!important;line-height:18px!important;height:40px!important;min-height:40px!important;max-height:40px!important}
 #content .okla-slider-track .prices,#content .okla-slider-track .p-tools .btn-cart{width:114px!important}
 #content .okla-slider-track .price-final strong{font-size:17px!important}
 #content .okla-slider-track .p-tools .btn-cart{font-size:11px!important}
 }
 /* Reduce homepage hero height without impacting functioning mobile carousel. */
-
 /* Almost imperceptible cool-blue highlight, fading to white quickly. */
 body.type-index #content-wrapper main#content{background:linear-gradient(180deg,#fbfdff 0px,#fdfefe 110px,#fff 240px) 0 0/100% 240px no-repeat #fff!important}
 /* OKLA V24 – enlarge actual product images without moving cards; shorten desktop banners further. */
@@ -164,18 +146,13 @@ body #header .navigation-buttons .okla-header-account::before,body #header .navi
 body #header .navigation-buttons .okla-header-account .okla-header-icon{place-items:center!important;}
 body #header .navigation-buttons .okla-header-account .okla-header-icon svg{stroke-linecap:round!important;stroke-linejoin:round!important}
 body #header .navigation-buttons .okla-header-account .okla-header-copy{line-height:1.1!important}
-
 body #header .navigation-buttons .okla-header-support{text-decoration:none!important;white-space:nowrap!important;font-weight:500!important}
-
 body #header .navigation-buttons .cart-count{white-space:nowrap!important;float:none!important;text-decoration:none!important}
 body #header .navigation-buttons .cart-count .cart-price{margin-left:2px!important}
-
 body #header .navigation-buttons .okla-mobile-actions{display:none!important}
 }
-
 @media(max-width:991px){
 body .top-navigation-bar{display:none!important}
-
 body #header .navigation-buttons .okla-mobile-actions{display:flex!important;position:static!important;align-items:center!important;justify-content:center!important;gap:3px!important;width:auto!important;height:auto!important;margin:0 5px 0 0!important;padding:0!important;background:none!important;visibility:visible!important;float:none!important}
 body #header .navigation-buttons .okla-mobile-actions .toggle-window{display:inline-flex!important;position:relative!important;align-items:center!important;justify-content:center!important;min-width:32px!important;width:32px!important;height:39px!important;margin:0!important;padding:0!important;visibility:visible!important}
 body #header .header-top>.navigation-buttons.okla-header-ready{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:4px!important}
@@ -190,39 +167,29 @@ body #header .navigation-buttons .okla-mobile-actions .toggle-window{width:29px!
 body #header .header-top{gap:clamp(12px,1.8vw,30px)!important;}
 body #header .header-top>.navigation-buttons.okla-header-ready{grid-template-columns:minmax(145px,1.28fr) minmax(65px,.62fr) minmax(118px,1fr)!important;column-gap:clamp(7px,.8vw,13px)!important;}
 body #header .navigation-buttons .okla-header-account{box-sizing:border-box!important}
-
 body #header .navigation-buttons .okla-header-support{flex-direction:column!important;font-size:11px!important;line-height:15px!important;}
 body #header .navigation-buttons .okla-header-support::before,body #header .navigation-buttons .okla-header-support::after{content:none!important;display:none!important}
 body #header .navigation-buttons .okla-header-support svg{display:block!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 body #header .navigation-buttons .okla-header-support span{display:block!important;}
-
 body #header .navigation-buttons .cart-count::before{content:none!important;display:none!important}
-
 body #header .navigation-buttons .cart-count .okla-cart-symbol svg{display:block!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 body #header .navigation-buttons .cart-count .cart-price{min-width:0!important;}
-
 }
 @media(min-width:992px) and (max-width:1199px){
-
 body #header .header-top>.navigation-buttons.okla-header-ready{grid-template-columns:minmax(132px,1.2fr) minmax(57px,.5fr) minmax(106px,.85fr)!important;column-gap:5px!important}
-
 }
 @media(max-width:991px){
 body #header .navigation-buttons .okla-header-account,body #header .navigation-buttons .okla-header-support{display:none!important}
 body #header .navigation-buttons .cart-count .okla-cart-symbol{display:none!important}
 }
 /* V27 – informative warranty strip between the two product sliders. */
-
 /* V27 – tighter but balanced product typography / price and imagery proportions. */
 @media(min-width:992px){
-
 #content .okla-slider-track>.product .p>a.image{height:clamp(176px,14.5vw,205px)!important;margin-bottom:8px!important}
-
 #content .okla-slider-track .ratings-wrapper.okla-ratings{margin-bottom:7px!important;min-height:21px!important}
 #content .okla-slider-track a.name{font-size:14px!important;font-weight:600!important;line-height:21px!important;height:44px!important;min-height:44px!important;max-height:44px!important;margin-bottom:6px!important}
 #content .okla-slider-track .prices{min-height:68px!important;height:68px!important;margin-top:11px!important}
 #content .okla-slider-track .price-final strong{font-size:20px!important;line-height:28px!important}
-
 #content .okla-slider-track .p-tools .btn-cart{height:39px!important;min-height:39px!important;font-size:12px!important}
 }
 /* OKLA V28: final account prominence and alignment polish, no positional shifts. */
@@ -234,13 +201,10 @@ body #header .navigation-buttons .okla-header-account .okla-header-copy strong{f
 body #header .navigation-buttons .okla-header-account .okla-header-copy small{font-size:12.5px!important;line-height:16px!important}
 }
 @media(min-width:992px) and (max-width:1199px){
-
 body #header .navigation-buttons .okla-header-account .okla-header-copy strong{line-height:17px!important}
-
 }
 /* OKLA V29: crisp Alza-inspired utility row; native buttons, no hover backgrounds or animations. */
 @media(min-width:992px){
-
 body #header .navigation-buttons .okla-header-account{position:relative!important;display:flex!important;flex:0 0 auto!important;grid-column:auto!important;align-items:center!important;justify-content:flex-start!important;gap:9px!important;width:auto!important;max-width:none!important;min-width:0!important;height:49px!important;min-height:49px!important;margin:0!important;padding:0 15px 0 2px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#053c92!important;box-shadow:none!important;transform:none!important;transition:none!important;opacity:1!important;filter:none!important}
 body #header .navigation-buttons .okla-header-account .okla-header-icon{display:grid!important;flex:0 0 34px!important;width:34px!important;height:34px!important;min-width:34px!important;border-radius:50%!important;background:#edf1f5!important;color:#0d396c!important;box-shadow:none!important}
 body #header .navigation-buttons .okla-header-account .okla-header-icon svg{display:block!important;width:20px!important;height:20px!important;stroke:currentColor!important;stroke-width:1.85!important;fill:none!important}
@@ -279,7 +243,6 @@ body #header .navigation-buttons .cart-count .cart-price{font-size:11px!importan
 }
 /* OKLA V30 – true flat Alza-like header, no inherited Shoptet button hover surfaces. */
 @media(min-width:992px){
-
 body #header .header-top>.navigation-buttons.okla-header-ready>a,
 body #header .header-top>.navigation-buttons.okla-header-ready>button{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:none!important;margin:0!important;box-sizing:border-box!important;border-radius:0!important;border-top:0!important;border-right:0!important;border-bottom:0!important;outline-offset:3px!important;background:transparent!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;text-shadow:none!important;filter:none!important;transform:none!important;transition:none!important;opacity:1!important;text-decoration:none!important;vertical-align:middle!important;cursor:pointer!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>a:hover,
@@ -299,7 +262,6 @@ body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy strong{display:block!important;font-size:13px!important;font-weight:700!important;line-height:16px!important;color:#072e5f!important;white-space:nowrap!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy small{display:block!important;font-size:11px!important;font-weight:400!important;line-height:14px!important;color:#063f99!important;white-space:nowrap!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-chevron{display:block!important;width:8px!important;height:8px!important;flex:0 0 8px!important;margin:0 0 4px 4px!important;border-right:1.5px solid #95a2b3!important;border-bottom:1.5px solid #95a2b3!important;transform:rotate(45deg)!important;pointer-events:none!important}
-
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support{flex:0 0 42px!important;grid-column:auto!important;width:42px!important;min-width:42px!important;height:35px!important;min-height:35px!important;max-width:none!important;margin:0!important;padding:0!important;border-left:1px solid #dde1e7!important;border-radius:0!important;gap:0!important;color:#082e61!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support svg{display:block!important;width:23px!important;height:23px!important;stroke:#0c3369!important;fill:none!important;stroke-width:1.85!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support span{display:none!important}
@@ -310,20 +272,16 @@ body #header .header-top>.navigation-buttons.okla-header-ready .cart-count .okla
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count .cart-price{display:inline-block!important;position:static!important;float:none!important;min-width:0!important;margin:0!important;padding:0!important;font-size:12px!important;line-height:16px!important;font-weight:500!important;color:#0649b1!important;white-space:nowrap!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count:hover .okla-cart-symbol svg,
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count:hover .cart-price{color:inherit!important;filter:none!important;transform:none!important}
-
 }
 @media(min-width:992px) and (max-width:1199px){
-
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-account{gap:6px!important;padding-right:8px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy strong{font-size:12px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy small{font-size:10px!important}
-
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support{width:38px!important;min-width:38px!important;flex-basis:38px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count{min-width:98px!important;gap:3px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count .cart-price{font-size:11px!important}
 }
 @media(max-width:991px){
-
 body #header .header-top>.navigation-buttons .okla-header-chevron{display:none!important}
 }
 /* OKLA V31 – measured 1:1 Alza screenshot composition (account | order bag | heart | CZ flag | gray cart). */
@@ -341,14 +299,11 @@ body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-acco
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-account .okla-header-copy small{font-size:11px!important;font-weight:400!important;line-height:14px!important;color:#0c356a!important;white-space:nowrap!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-account .okla-header-chevron{display:block!important;flex:0 0 8px!important;width:8px!important;height:8px!important;margin:-4px 0 0 6px!important;border:0!important;border-right:1.5px solid #9a9fa5!important;border-bottom:1.5px solid #9a9fa5!important;background:transparent!important;box-shadow:none!important;transform:rotate(45deg)!important;pointer-events:none!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders,
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-locale{display:inline-flex!important;position:relative!important;flex:0 0 45px!important;align-items:center!important;justify-content:center!important;width:45px!important;min-width:45px!important;max-width:45px!important;height:35px!important;min-height:35px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;transition:none!important;transform:none!important;opacity:1!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders{border-left:1px solid #dfe2e7!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders svg{display:block!important;width:21px!important;height:24px!important;fill:none!important;stroke:none!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders svg .okla-bag-body{fill:#062b5e!important;stroke:none!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders svg .okla-bag-check{fill:none!important;stroke:#fff!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites svg{display:block!important;width:25px!important;height:25px!important;stroke:none!important}
-
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-locale{cursor:default!important;pointer-events:auto!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-locale svg{display:block!important;width:29px!important;height:29px!important;border:1px solid #e0e4ea!important;border-radius:50%!important;overflow:hidden!important;box-shadow:0 0 0 1px rgba(0,0,0,.018)!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count{display:inline-flex!important;position:relative!important;flex:0 0 45px!important;align-items:center!important;justify-content:center!important;gap:0!important;width:45px!important;min-width:45px!important;max-width:45px!important;height:35px!important;min-height:35px!important;margin:0!important;padding:0!important;border:0!important;border-left:1px solid #dfe2e7!important;border-radius:0!important;background:transparent!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;transform:none!important;transition:none!important;filter:none!important;opacity:1!important}
@@ -360,16 +315,13 @@ body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count .okla
 body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count .cart-price{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;clip-path:inset(50%)!important;white-space:nowrap!important;margin:0!important;padding:0!important;border:0!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-account:hover,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders:hover,
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites:hover,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-locale:hover,
 body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count:hover,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-account:active,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders:active,
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites:active,
 body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count:active,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-account:focus,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders:focus,
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites:focus,
 body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count:focus{background:transparent!important;background-color:transparent!important;background-image:none!important;box-shadow:none!important;filter:none!important;transform:none!important;opacity:1!important;text-decoration:none!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>*:focus-visible{outline:2px solid #074dbb!important;outline-offset:2px!important}
 }
@@ -377,7 +329,6 @@ body #header .header-top>.navigation-buttons.okla-header-ready>*:focus-visible{o
 body #header .header-top>.navigation-buttons.okla-header-ready{max-width:310px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-account{width:142px!important;min-width:142px!important;max-width:142px!important;flex-basis:142px!important;gap:6px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders,
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites,
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-locale,
 body #header .header-top>.navigation-buttons.okla-header-ready>.cart-count{width:42px!important;min-width:42px!important;max-width:42px!important;flex-basis:42px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-account .okla-header-copy strong{font-size:12px!important}
@@ -385,56 +336,31 @@ body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-acco
 }
 @media(max-width:991px){
 body #header .navigation-buttons .okla-header-orders,
-body #header .navigation-buttons .okla-header-favorites,
 body #header .navigation-buttons .okla-header-locale{display:none!important}
 }
-#okla-favorites-popover{position:fixed!important;inset:0!important;z-index:999999!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:16px!important;background:rgba(9,27,49,.38)!important}
-#okla-favorites-popover[hidden]{display:none!important}
-#okla-favorites-popover .okla-fav-window{width:min(480px,96vw)!important;max-height:78vh!important;overflow:auto!important;border-radius:12px!important;background:#fff!important;padding:20px!important;box-shadow:0 12px 40px rgba(4,20,45,.20)!important}
-#okla-favorites-popover .okla-fav-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;margin-bottom:15px!important}
-#okla-favorites-popover .okla-fav-head strong{font-size:20px!important;color:#092e60!important}
-#okla-favorites-popover .okla-fav-head button{border:0!important;background:none!important;font-size:23px!important;color:#283a52!important;cursor:pointer!important}
-#okla-favorites-popover .okla-fav-empty{font-size:14px!important;line-height:1.6!important;color:#47596c!important}
-#okla-favorites-popover .okla-fav-row{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;padding:13px 0!important;border-top:1px solid #edf0f4!important}
-#okla-favorites-popover .okla-fav-row a{font-size:14px!important;color:#0644a6!important;line-height:1.35!important}
-#okla-favorites-popover .okla-fav-row button{border:0!important;background:#eef3fa!important;border-radius:5px!important;color:#053a8d!important;font-size:12px!important;padding:6px 8px!important;cursor:pointer!important}
 #content .product .p{position:relative!important}
-#content .product .p .okla-fav-toggle{position:absolute!important;top:5px!important;right:6px!important;z-index:5!important;display:grid!important;place-items:center!important;width:29px!important;height:29px!important;margin:0!important;padding:0!important;border:1px solid #e0e8f1!important;border-radius:50%!important;background:#fff!important;box-shadow:0 1px 4px rgba(23,39,64,.08)!important;color:#053d96!important;cursor:pointer!important}
-#content .product .p .okla-fav-toggle svg{display:block!important;width:17px!important;height:17px!important;stroke:currentColor!important;stroke-width:1.8!important;fill:none!important}
-#content .product .p .okla-fav-toggle[aria-pressed=true] svg{fill:#053a8d!important;stroke:#053a8d!important}
 /* OKLA V32 – force solid reference fills over Shoptet icon reset; visible saved-state feedback. */
 @media(min-width:992px){
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders svg path.okla-bag-body{fill:#062b5e!important;stroke:none!important}
 body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-orders svg path.okla-bag-check{fill:none!important;stroke:#fff!important;stroke-width:1.7!important}
-body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favorites svg path{fill:#062b5e!important;stroke:none!important}
 }
-#content .product .p .okla-fav-toggle[aria-pressed=true] svg path{fill:#053a8d!important;stroke:#053a8d!important}
-#content .product .p .okla-fav-toggle[aria-pressed=false] svg path{fill:none!important;stroke:#053a8d!important}
 /* OKLA V33: Alza-style compact horizontal warranty showcase – real HTML and interactive carousel, not an image. */
 #content .okla-warranty-strip{position:relative!important;width:100%!important;min-width:0!important;margin:25px 0 28px!important;color:#102b56!important;box-shadow:none!important}
-
 /* OKLA V34 – edge-to-edge warranty band within main white content, CTA flush left; taller proportional cards. */
-
 /* OKLA V35: enforce exact edge-to-edge warranty panel in Shoptet 20px content gutters, flat-left CTA. */
 @media(min-width:768px){
 #content .okla-warranty-strip{margin-left:-20px!important;margin-right:-20px!important;width:calc(100% + 40px)!important;padding-left:0!important;padding-right:0!important;}
-
 }
 @media(max-width:767px){
 #content .okla-warranty-strip{margin-left:-15px!important;margin-right:-15px!important;width:calc(100% + 30px)!important;}
-
 }
 /* OKLA V36 – fully padded, premium two-year warranty band inspired by the visual layout, not Alza brands. */
 #content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(246px,30%) minmax(0,1fr)!important;gap:15px!important;box-sizing:border-box!important;max-width:none!important;margin-top:30px!important;margin-bottom:34px!important;padding:24px 0!important;border:0!important;border-radius:0!important;overflow:hidden!important;background:#eef3fd!important;background-image:linear-gradient(98deg,#eff5fe 0%,#edf3fd 62%,#edf2fc 100%)!important}
-
 @media(max-width:767px){
 #content .okla-warranty-strip{margin:24px 0 27px!important}
-
 }
 /* OKLA V37 — authentic transparent PNG icons, no background badge, wide landscape warranty tiles. */
-
 #content .okla-warranty-strip{align-items:center!important}
-
 /* V40: single measured horizontal header in place of conflicting Shoptet item styles */
 @media(min-width:992px){
 body #header .header-top>.navigation-buttons.okla-header-ready{align-items:center!important;gap:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
@@ -449,15 +375,11 @@ body #header .navigation-buttons .okla-exact-header .okla-header-copy{display:fl
 body #header .navigation-buttons .okla-exact-header .okla-header-copy strong{font:700 13px/16px Arial,sans-serif!important;color:#082d5d!important;white-space:nowrap!important}
 body #header .navigation-buttons .okla-exact-header .okla-header-copy small{font:400 11px/14px Arial,sans-serif!important;color:#053a8e!important;white-space:nowrap!important}
 body #header .navigation-buttons .okla-exact-header .okla-header-chevron{width:8px!important;height:8px!important;flex:0 0 8px!important;display:block!important;border:0!important;border-right:1.5px solid #9ba3ae!important;border-bottom:1.5px solid #9ba3ae!important;background:transparent!important;transform:rotate(45deg)!important;margin:-4px 0 0 4px!important}
-
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders svg{fill:#063068!important;stroke:none!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders svg path.okla-bag-body{fill:#063068!important;stroke:none!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders svg path.okla-bag-check{fill:none!important;stroke:#fff!important;stroke-width:1.7!important}
-body #header .navigation-buttons .okla-exact-header>.okla-header-favorites svg{fill:#062d63!important;stroke:none!important}
-body #header .navigation-buttons .okla-exact-header>.okla-header-favorites svg path{fill:#062d63!important;stroke:none!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-locale{cursor:default!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-locale svg{border:0!important;box-shadow:0 0 0 1px #e1e7ef!important}
-
 body #header .navigation-buttons .okla-exact-header>a.cart-count>*:not(.okla-cart-symbol){display:none!important;visibility:hidden!important}
 body #header .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol{color:#999da4!important}
 body #header .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg{display:block!important;stroke-width:1.75!important}
@@ -466,28 +388,22 @@ body #header .navigation-buttons .okla-exact-header>*:focus-visible{outline:2px 
 }
 @media(min-width:992px) and (max-width:1199px){
 body #header .header-top{grid-template-columns:minmax(145px,.7fr) minmax(290px,1.15fr) minmax(337px,1.15fr)!important;gap:10px!important}
-
 body #header .navigation-buttons .okla-exact-header>.okla-header-account{flex-basis:148px!important;gap:7px!important}
 }
 @media(max-width:991px){body #header .navigation-buttons .okla-exact-header{display:none!important}}
-
 /* OKLA V41: permanent two 1px separators immune to Shoptet button border resets. */
 @media(min-width:992px){
-
 body #header .navigation-buttons .okla-exact-header>.okla-exact-separator{all:unset!important;position:relative!important;box-sizing:border-box!important;max-width:1px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background-color:#d3d8e0!important;box-shadow:none!important;pointer-events:none!important;cursor:default!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders,body #header .navigation-buttons .okla-exact-header>a.cart-count{border-left:0!important}
 }
-
 /* OKLA V42: uniform Alza-like proportions across all right-side icon cells. */
 @media(min-width:992px){
 body #header .navigation-buttons .okla-exact-header{display:flex!important;align-items:center!important;justify-content:flex-start!important;width:342px!important;min-width:342px!important;max-width:342px!important;flex-basis:342px!important;height:54px!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-account{width:156px!important;min-width:156px!important;max-width:156px!important;flex:0 0 156px!important;height:46px!important;min-height:46px!important;align-self:center!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders,
-body #header .navigation-buttons .okla-exact-header>.okla-header-favorites,
 body #header .navigation-buttons .okla-exact-header>.okla-header-locale,
 body #header .navigation-buttons .okla-exact-header>a.cart-count{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;align-self:center!important;flex:0 0 46px!important;width:46px!important;min-width:46px!important;max-width:46px!important;height:42px!important;min-height:42px!important;max-height:42px!important;margin:0!important;padding:0!important;box-sizing:border-box!important;border:0!important;border-radius:0!important;background:transparent!important;background-image:none!important;box-shadow:none!important;filter:none!important;transform:none!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders svg{display:block!important;width:26px!important;min-width:26px!important;height:26px!important;min-height:26px!important;max-height:26px!important;flex:0 0 26px!important;margin:0!important}
-body #header .navigation-buttons .okla-exact-header>.okla-header-favorites svg{display:block!important;width:26px!important;min-width:26px!important;height:26px!important;min-height:26px!important;max-height:26px!important;flex:0 0 26px!important;margin:0!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-locale svg{display:block!important;width:28px!important;min-width:28px!important;height:28px!important;min-height:28px!important;max-height:28px!important;flex:0 0 28px!important;margin:0!important;border-radius:50%!important}
 body #header .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol{all:unset!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 30px!important;width:30px!important;min-width:30px!important;height:30px!important;margin:0!important}
 body #header .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg{width:29px!important;height:29px!important;min-width:29px!important;min-height:29px!important;max-height:29px!important;stroke:#a0a2a6!important;fill:none!important}
@@ -495,40 +411,25 @@ body #header .navigation-buttons .okla-exact-header>.okla-exact-separator{displa
 }
 @media(min-width:992px) and (max-width:1199px){body #header .navigation-buttons .okla-exact-header{width:334px!important;min-width:334px!important;max-width:334px!important;flex-basis:334px!important}body #header .navigation-buttons .okla-exact-header>.okla-header-account{flex:0 0 148px!important;width:148px!important;min-width:148px!important;max-width:148px!important}}
 /* Warranty support icon: embedded generated PNG, no external request, visible at large size. */
-
 /* OKLA V44 — only H1 on left; exactly identical image and icon-container dimensions on all five warranty tiles. */
-
 /* OKLA V45 center H1; compact cards, dedicated arrow column; prevent cropping/overlap. */
-
 #content .okla-slider-controls .okla-slider-prev svg,#content .okla-slider-controls .okla-slider-next svg{display:block!important;width:21px!important;height:21px!important;stroke:#fff!important;stroke-width:2.6!important;fill:none!important;opacity:1!important;visibility:visible!important}
 @media(min-width:1200px){#content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(265px,32%) minmax(0,1fr)!important;align-items:center!important;gap:12px!important;padding:18px 0!important}}
 @media(min-width:768px) and (max-width:1199px){#content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(205px,31%) minmax(0,1fr)!important;gap:10px!important;padding:15px 0!important}}
 @media(max-width:767px){#content .okla-warranty-strip{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:19px 0!important}}
-
 /* OKLA V46: restore original supporting warranty copy, aligned within the left text column. */
-
 #content .homepage-group-title.okla-slider-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;width:100%!important;min-width:0!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more{display:inline-flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;margin-left:auto!important;padding:4px 0 4px 12px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#0647ad!important;font:600 14px/20px 'Open Sans','Segoe UI',Arial,sans-serif!important;letter-spacing:0!important;text-align:right!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:none!important;transition:color .15s ease!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more:hover{color:#092e70!important;text-decoration:underline!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more svg{display:block!important;width:15px!important;height:15px!important;min-width:15px!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important;fill:none!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more:focus-visible{outline:2px solid #0645A8!important;outline-offset:4px!important}
-#content .product .okla-fav-toggle,#content .products .okla-fav-toggle{display:none!important;visibility:hidden!important}
-body.type-detail #content .okla-detail-favorite{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:auto!important;min-height:34px!important;margin:12px 0 0!important;padding:7px 12px!important;background:#fff!important;color:#0645A8!important;border:1px solid #c4d3e7!important;border-radius:6px!important;box-shadow:none!important;font-size:12px!important;font-weight:600!important;cursor:pointer!important}
-body.type-detail #content .okla-detail-favorite svg{display:block!important;width:17px!important;height:17px!important;stroke:#0645A8!important;stroke-width:1.8!important;fill:none!important}
-body.type-detail #content .okla-detail-favorite.is-active svg{fill:#0645A8!important}
-
 @media(max-width:767px){#content .homepage-group-title.okla-slider-heading .okla-section-more{font-size:12px!important;gap:3px!important;padding-left:8px!important}#content .homepage-group-title.okla-slider-heading .okla-section-more svg{width:13px!important;height:13px!important;min-width:13px!important}}
-
 /* OKLA V47 — two-line warranty message like the supplied reference; shared type style. */
 #content .okla-warranty-strip{min-height:178px!important}
-
 @media(max-width:767px){
  #content .okla-warranty-strip{min-height:0!important}
-
 }
-
 /* OKLA V48: compact responsive typography without a third wrapped line. CTA stays in the shared text group. */
-
 /* OKLA V49: one vertical-center control pair per product slider, consistent Alza-like navigation. */
 #content .okla-slider-shell{position:relative!important;isolation:isolate!important}
 #content .okla-slider-shell>.okla-slider-controls{
@@ -561,7 +462,6 @@ body.type-index #content-wrapper #content .okla-warranty-strip{
  padding:18px 0!important;border:0!important;border-radius:0!important;overflow:hidden!important;
  background:#eef3fd!important;background-image:linear-gradient(98deg,#eff5fe 0%,#edf3fd 62%,#edf2fc 100%)!important;
 }
-
 /* Stable product art box, uniform product information and quantity/product-name-safe proportions. */
 @media(min-width:992px){
 #content .okla-slider-track>.product .p{
@@ -603,20 +503,16 @@ body.type-index #content-wrapper #content .okla-warranty-strip{
 }
 @media(min-width:768px) and (max-width:991px){
 body.type-index #content-wrapper #content .okla-warranty-strip{grid-template-columns:minmax(205px,31%) minmax(0,1fr)!important}
-
 }
 @media(max-width:767px){
 body.type-index #content-wrapper #content .okla-warranty-strip{
  display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:18px 0!important;
 }
-
 #content .okla-slider-track>.product .p>a.image img{transform:none!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
 #content .okla-slider-shell>.okla-slider-controls{display:none!important}
 }
-
 /* OKLA V50 — no sidebar bleed for warranty; full right content column only. */
 body.type-index #content-wrapper main#content #okla-warranty-strip{position:relative!important}
-
 /* Product hover is distinct from cart-button hover: move pointer onto button to highlight button. */
 @media(hover:hover) and (pointer:fine){
  #content .okla-slider-track>.product:hover .p-tools .btn-cart:not(:hover):not(:focus-visible),
@@ -635,9 +531,8 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{position:rela
 @media(min-width:992px){
  
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale,
- body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count{
+body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale,
+body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count{
   position:relative!important;display:grid!important;place-items:center!important;
   flex:0 0 46px!important;width:46px!important;min-width:46px!important;max-width:46px!important;
   height:42px!important;min-height:42px!important;max-height:42px!important;
@@ -647,13 +542,11 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{position:rela
   background:transparent!important;box-shadow:none!important;filter:none!important;transform:none!important;
  }
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders::before,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders::after,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites::before,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites::after,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale::before,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale::after,
- body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count::before,
- body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count::after{
+body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders::after,
+body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale::before,
+body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale::after,
+body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count::before,
+body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count::after{
   content:none!important;display:none!important;
  }
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-separator{
@@ -666,8 +559,7 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{position:rela
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-separator::before,
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-separator::after{content:none!important;display:none!important}
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders svg.okla-header-lineicon,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites svg.okla-header-lineicon,
- body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg.okla-header-lineicon{
+body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg.okla-header-lineicon{
   display:block!important;position:static!important;flex:0 0 26px!important;
   width:26px!important;min-width:26px!important;max-width:26px!important;
   height:26px!important;min-height:26px!important;max-height:26px!important;
@@ -676,8 +568,7 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{position:rela
   fill:none!important;transform:none!important;opacity:1!important;filter:none!important;
  }
  body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders svg.okla-header-lineicon path,
- body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites svg.okla-header-lineicon path,
- body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg.okla-header-lineicon path{
+body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count .okla-cart-symbol svg.okla-header-lineicon path{
   stroke:#05398b!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important;
   fill:none!important;filter:none!important;
  }
@@ -703,13 +594,11 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{position:rela
   width:334px!important;min-width:334px!important;max-width:334px!important;flex:0 0 334px!important;
  }
 }
-
 /* OKLA V51: eliminate every additional header divider/ring; only the two explicit separators remain. */
 @media(min-width:992px){
 body #header .header-top .navigation-buttons .okla-exact-header::before,
 body #header .header-top .navigation-buttons .okla-exact-header::after{content:none!important;display:none!important}
 body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-orders,
-body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-favorites,
 body #header .header-top .navigation-buttons .okla-exact-header>.okla-header-locale,
 body #header .header-top .navigation-buttons .okla-exact-header>a.cart-count{
  border:0!important;border-left:0!important;border-right:0!important;
@@ -723,17 +612,14 @@ body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-sepa
  
 }
 }
-
 /* OKLA V52: warranty arrow fully inside RIGHT content corridor and exactly two header separators. */
 @media(min-width:768px){
 body.type-index #content-wrapper main#content #okla-warranty-strip{
  padding-top:18px!important;padding-bottom:18px!important;
 }
-
 }
 @media(max-width:767px){
 body.type-index #content-wrapper main#content #okla-warranty-strip{padding:18px 12px!important}
-
 }
 @media(min-width:992px){
 body #header .header-top .navigation-buttons .okla-exact-header,
@@ -744,7 +630,6 @@ body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-sepa
  border:0!important;background:#d3d8e0!important;box-shadow:none!important;
 }
 }
-
 /* OKLA V53 — no left gutter between the sidebar and warranty band; no right gutter behind the arrow. */
 body.type-index #content-wrapper main#content #okla-warranty-strip{
   box-sizing:border-box!important;
@@ -752,9 +637,6 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{
   border-left:0!important;border-right:0!important;
   border-radius:0!important;max-width:none!important;
 }
-
 @media(max-width:767px){
 body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:0!important;padding-right:0!important}
-
 }
-

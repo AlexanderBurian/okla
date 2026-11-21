@@ -100,24 +100,19 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-ratings .stars-placeholder{flex-direction:column!important;gap:2px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-empty-stars{gap:1px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .okla-empty-stars svg{width:14px!important;height:14px!important}
-  
 }
 @media(min-width:992px){
-  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(142px,13.4vw,184px)!important;}
 
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .availability{font-size:11px!important;line-height:17px!important}
-  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices:before{height:22px!important;flex-basis:22px!important;font-size:10px!important;line-height:22px!important}
 
 }
 @media(min-width:992px) and (max-width:1199px){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{padding:9px 5px 14px!important}
-  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:12px!important;line-height:18px!important;height:40px!important;min-height:40px!important;max-height:40px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{width:114px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .price-final strong{font-size:17px!important}
-  
 }
 @media(min-width:992px){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(182px,15.5vw,216px)!important;}
@@ -126,12 +121,9 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
 }
 @media(min-width:992px) and (max-width:1199px){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:177px!important;min-height:170px!important;max-height:177px!important}
-  
 }
 @media(min-width:992px){
-  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image{height:clamp(176px,14.5vw,205px)!important;margin-bottom:8px!important}
-  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings{margin-bottom:7px!important;min-height:21px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) a.name{font-size:14px!important;font-weight:600!important;line-height:21px!important;height:44px!important;min-height:44px!important;max-height:44px!important;margin-bottom:6px!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .prices{min-height:68px!important;height:68px!important;margin-top:11px!important}
@@ -148,16 +140,12 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
 @media(hover:hover) and (pointer:fine){
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product:hover .p,
   #content .okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p:hover{border-color:#e1e4eb!important;border-radius:9px!important;box-shadow:0 3px 14px rgba(18,36,56,.16)!important;transform:none!important}
-  
 }
 
 /* ===== from v91/okla_mobile_unified.css ===== */
 @media (max-width:767px){
-  
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p{box-sizing:border-box!important;}
-  
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>a.image img{margin:auto!important;padding:0!important;filter:none!important}
-  
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper.okla-ratings,
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:row!important;flex-wrap:nowrap!important;min-width:0!important;width:100%!important;min-height:19px!important;height:auto!important;gap:2px!important;margin:0 0 6px!important;padding:0!important;color:#708092!important;font-size:10px!important;line-height:15px!important;white-space:nowrap!important}
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b) .ratings-wrapper .stars-placeholder{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;gap:2px!important;white-space:nowrap!important;font-size:10px!important}
@@ -210,7 +198,6 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p-bottom>.p-tools{border-top:1px solid #edf0f3!important;margin:9px -9px -10px!important;padding:7px 7px 8px!important;width:calc(100% + 18px)!important;max-width:none!important;box-sizing:border-box!important;background:#fff!important}
 }
 @media(max-width:767px){
-  
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{display:flex!important;flex-direction:column!important;box-sizing:border-box!important;width:100%!important;min-width:0!important;max-width:100%!important;height:100%!important;margin:0!important;padding:9px 8px 0!important;border:1px solid #e0e6ed!important;border-radius:9px!important;background:#fff!important;box-shadow:0 1px 5px rgba(18,46,70,.05)!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;height:132px!important;min-height:132px!important;max-height:132px!important;margin:0 0 5px!important;overflow:hidden!important}
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image img{display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
@@ -228,7 +215,6 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;margin:0!important;padding:0!important;transform:none!important}
 }
 @media(max-width:767px){
-  
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p{float:none!important;min-height:0!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image{max-width:100%!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p>a.image img{float:none!important;}
@@ -240,14 +226,12 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-bottom{justify-content:flex-end!important;flex:0 0 auto!important;float:none!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-bottom>div{position:static!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;float:none!important;width:100%!important;min-width:0!important;max-width:100%!important;min-height:0!important;height:auto!important;margin:0!important;padding:0!important;transform:none!important}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .prices{float:none!important;}
-  
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final{float:none!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-final strong{font:800 20px/27px "Open Sans","Segoe UI",Arial,sans-serif!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools{float:none!important;top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;}
   body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .p-tools form{float:none!important;}
 }
 @media(max-width:767px){
-  
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-placeholder{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:100%!important;max-width:100%!important;min-width:0!important;color:#8a95a3!important;font:400 9px/15px "Open Sans",Arial,sans-serif!important;white-space:nowrap!important;overflow:hidden!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars svg{display:block!important;flex:0 0 13px!important;}
@@ -258,7 +242,6 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-stars{gap:1px!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-placeholder{gap:5px!important}
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv73-rating-caption{color:#7d8998!important;font-size:9px!important}
-  
   body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .okv74-hide-unavailable{display:none!important}
 }
 @media (max-width: 767px){
@@ -314,7 +297,6 @@ html body #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .price-f
 }
 @media(min-width:992px){
   html body:not(.okla-cards-none) #content .okla-cards.okla-cards:not(#okla-cards-a#okla-cards-b)>.product .p>*{position:relative!important;z-index:1!important}
-  
 }
 html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .ok89-decor-stars{display:inline-flex!important;align-items:center!important;gap:1px!important;color:#F4B526!important}
 html body:not(.okla-cards-none) #content .okla-cards:not(#okla-cards-a#okla-cards-b) .product .ratings-wrapper .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;fill:currentColor!important;stroke:currentColor!important}

@@ -39,21 +39,12 @@ html body.in-kosik .okla-goods-total-price *{
 html body.in-kosik .okla-coupon__row{
  display:flex!important;
  align-items:center!important;
- 
  box-sizing:border-box!important;
- 
 }
 html body.in-kosik input.okla-coupon__input{
  box-sizing:border-box!important;
- 
- 
- 
- 
- 
  outline:0!important;
- 
  background:#fff!important;
- 
 }
 html body.in-kosik input.okla-coupon__input:focus{
  border-color:#0859d8!important;
@@ -62,8 +53,6 @@ html body.in-kosik input.okla-coupon__input:focus{
 }
 html body.in-kosik .okla-coupon__btn{
  box-sizing:border-box!important;
- 
- 
  margin:0!important;
 }
 
@@ -73,10 +62,7 @@ html body.in-kosik .okla-coupon__btn{
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward,
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish{
  border-color:#0859d8!important;
- 
  background-color:#0859d8!important;
- 
- 
 }
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-forward:is(:hover,:focus,:focus-visible,:active),
 html body.ordering-process #content#content .okla-step-nav .next-step .btn.next-step-finish:is(:hover,:focus,:focus-visible,:active){

@@ -466,8 +466,9 @@ var cssCachedOk=false;  /* the device holds CSS for this exact release */
 try{
  var raw=localStorage.getItem(CSS_CACHE_KEY);
  if(raw){var parsed=JSON.parse(raw);if(parsed&&parsed.fp===base&&parsed.css){cssHave=parsed.css;cssCachedOk=true}}
- /* the store of the previous loader version is not read any more */
- localStorage.removeItem('okla.css.cache2');
+ /* what earlier versions kept on the device and nothing reads any more (old style stores, the dropped favourites
+    list, earlier dead-link and catalogue caches) is cleared */
+ ['okla.css.cache','okla.css.cache2','okla-local-favorites-v1','okla.deadlinks.v1','okla-live-catalog-v1'].forEach(function(k){localStorage.removeItem(k)});
 }catch(e){cssCachedOk=false;cssHave={}}
 var cssFresh={};        /* CSS text read during this visit, to store for next time */
 

@@ -18,24 +18,16 @@ html body.type-index #content #okla-news-v55 .okn-bottom{justify-content:center!
 
 html body.type-index #content #okla-news-v55 .okn-button:hover{background:#0859d8!important;color:#fff!important;text-decoration:none!important}
 @media(max-width:991px){
-  
-  
   html body.type-index #content #okla-news-v55 .okn-card:last-child{grid-column:1/-1!important;max-width:calc(50% - 9px)!important}
 }
 @media(max-width:680px){
-  
   html body.type-index #content #okla-news-v55 .okn-head{margin-bottom:18px!important}
-  
-  
   html body.type-index #content #okla-news-v55 .okn-card,
   html body.type-index #content #okla-news-v55 .okn-card:nth-child(n),
   html body.type-index #content #okla-news-v55 .okn-card:last-child{display:flex!important;grid-column:span 1!important;max-width:none!important;flex-direction:column!important;gap:0!important;padding:0!important;border:0!important}
-  
-  
   html body.type-index #content #okla-news-v55 .okn-title,
   html body.type-index #content #okla-news-v55 .okn-card:nth-child(n) .okn-title,
   html body.type-index #content #okla-news-v55 .okn-card:nth-child(-n+2) .okn-title{margin:0!important;font-size:18px!important;font-weight:500!important;line-height:1.5!important;-webkit-line-clamp:3!important}
-  
   html body.type-index #content #okla-news-v55 .okn-bottom{margin-top:28px!important}
 }
 

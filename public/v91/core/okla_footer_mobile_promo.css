@@ -5,42 +5,17 @@
 
 @media(max-width:767px){
  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
-   
-   
    float:none!important;
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    border:0!important;
-   
-   
-   
-   
    isolation:isolate!important;
-   background:linear-gradient(145deg,#0648AE 0%,#2757a3 48%,#7846a9 100%)!important;
+   background:#0648AE!important;
    color:#fff!important;
    box-shadow:0 5px 16px rgba(25,64,125,.09)!important;
  }
  /* The top content remains full-width; no invisible overlay or old flex order. */
  html body #okla-footer-shell #okla-footer-promo .okla-promo-text{
-   
    z-index:4!important;
    display:block!important;
-   
-   
-   
-   
-   
-   
-   
    opacity:1!important;
    visibility:visible!important;
    text-align:left!important;
@@ -59,7 +34,6 @@
    visibility:visible!important;
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-text>p{
-   
    max-width:100%!important;
    margin:0 0 14px!important;
    font:400 12.5px/1.5 "Open Sans",Arial,sans-serif!important;
@@ -75,10 +49,6 @@
    position:relative!important;
    z-index:5!important;
    width:max-content!important;
-   
-   
-   
-   
    margin:0!important;
    border:0!important;
    border-radius:9px!important;
@@ -87,7 +57,6 @@
    color:#0649B2!important;
    font:700 12.5px/1.2 "Open Sans",Arial,sans-serif!important;
    text-decoration:none!important;
-   
    opacity:1!important;
    visibility:visible!important;
  }
@@ -101,53 +70,11 @@
     element: do not size by height:auto plus a percentage max-width.
     This avoids the earlier tiny or effectively invisible rendering. */
  html body #okla-footer-shell #okla-footer-promo>img.okla-promo-img{
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    pointer-events:none!important;
  }
  /* Dedicated left column – no part of the hand or phone occupies this column. */
  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
-   
-   
-   
-   
-   
    flex-wrap:nowrap!important;
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    text-align:left!important;
    opacity:1!important;
    visibility:visible!important;
@@ -173,20 +100,15 @@
    color:#fff!important;
    font:750 12.5px/1.32 "Open Sans",Arial,sans-serif!important;
    text-align:left!important;
-   
-   
    opacity:1!important;
    visibility:visible!important;
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-text>p{
-   
    margin:0!important;
    padding:0!important;
    font:400 10.5px/1.42 "Open Sans",Arial,sans-serif!important;
    color:#e5ebff!important;
    text-align:left!important;
-   
-   
    opacity:1!important;
    visibility:visible!important;
  }
@@ -207,12 +129,9 @@
    display:none!important;
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-mobile-mail{
-   
    align-items:center!important;
    justify-content:center!important;
-   
    min-width:0!important;
-   
    height:38px!important;
    min-height:38px!important;
    padding:0 10px!important;
@@ -225,7 +144,6 @@
    font:700 11px/1.25 "Open Sans",Arial,sans-serif!important;
    text-align:center!important;
    text-decoration:none!important;
-   
    opacity:1!important;
    visibility:visible!important;
    -webkit-tap-highlight-color:transparent!important;
@@ -234,8 +152,6 @@
 @media(max-width:360px){
  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
    height:425px!important;
-   
-   
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-title{
    font-size:20px!important;
@@ -249,16 +165,11 @@
    right:-9px!important;
    width:47%!important;
    max-width:47%!important;
-   
-   
-   
  }
 }
 @media(min-width:541px) and (max-width:767px){
  html body #okla-footer-shell #okla-footer-content #okla-footer-promo{
    height:410px!important;
-   
-   
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-cta{
    left:26px!important;
@@ -269,9 +180,6 @@
    right:-7px!important;
    width:45%!important;
    max-width:45%!important;
-   
-   
-   
  }
  html body #okla-footer-shell #okla-footer-promo .okla-promo-side-title{
    font-size:14px!important;

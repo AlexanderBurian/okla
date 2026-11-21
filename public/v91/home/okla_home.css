@@ -24,7 +24,6 @@ html body.type-index #content .okla-slider-shell .okla-slider-track>.product:hov
 }
 html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p::after{
  content:''!important;display:block!important;position:absolute!important;
- 
  border:1px solid transparent!important;box-shadow:none!important;background:none!important;
  transition:border-color .16s ease,box-shadow .16s ease!important;z-index:3!important;
 }
@@ -120,13 +119,6 @@ html body.type-index #content .okla-slider-shell .product .ratings-wrapper .ok89
   html body.type-index #content .okla-slider-shell .product .p-tools form{
     width:100%!important;max-width:100%!important;margin:0!important;padding:0!important;display:flex!important;justify-content:center!important;align-items:center!important
   }
-  
-  
-  
-  
-  
-  
-  
   html body.type-index #content .okla-slider-shell .okla-slider-track>.product .p::after{
     inset:0 -5px -28px -5px!important;border-radius:9px!important;pointer-events:none!important
   }

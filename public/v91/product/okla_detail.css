@@ -1,4 +1,3 @@
-
 /* Okla V99 — one canonical product-detail stylesheet.
    Deliberately scoped: homepage and categories are never modified. */
 :root{
@@ -11,7 +10,6 @@
 }
 /* 1. White product sheet, no old navy border. */
 html body.ok89-detail #content-wrapper{box-sizing:border-box!important;max-width:var(--okd-width)!important;margin-inline:auto!important;border:0!important;background:#fff!important;}
-
 html body.ok89-detail #content,html body.ok89-detail #content .p-detail,html body.ok89-detail #content .p-detail-inner{box-sizing:border-box!important;width:100%!important;max-width:100%!important;min-width:0!important;background:#fff!important}
 html body.ok89-detail #content .p-detail{padding:24px 24px 32px!important;margin:0!important;border:0!important;box-shadow:none!important}
 html body.ok89-detail #content .p-detail *{box-sizing:border-box!important;font-family:var(--okd-font)!important}
@@ -38,7 +36,6 @@ html body.ok89-detail #content .p-detail .p-info-wrapper>.p-short-description{di
 html body.ok89-detail #content .p-detail .p-info-wrapper>.ok86-description-link{display:block!important;margin:0 0 16px!important}
 html body.ok89-detail #content .p-detail .ok86-description-link a{color:var(--okd-blue)!important;font-size:13px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{display:flex!important;align-items:center!important;flex-wrap:wrap!important;width:100%!important;margin:0 0 16px!important;border:0!important;}
-
 html body.ok89-detail #content .p-detail .p-final-price-wrapper{position:static!important;display:block!important;float:none!important;width:100%!important;margin:0 0 16px!important;padding:0!important;border:0!important;background:transparent!important}
 html body.ok89-detail #content .p-detail .price-final,html body.ok89-detail #content .p-detail .price-final *{font:800 32px/1.25 var(--okd-font)!important}
 html body.ok89-detail #content .p-detail .p-detail-inner-header .p-code{display:none!important}
@@ -73,7 +70,6 @@ html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary svg{display:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{flex:0 0 18px!important;width:18px!important;height:18px!important;align-items:center!important;justify-content:center!important;margin-right:9px!important;line-height:1!important;}
 /* 6. Favorites, secondary actions, native legal microcopy. */
-html body.ok89-detail #content .p-detail .p-info-wrapper :is(.add-to-favourites,.add-to-favorites,.favorite-link,.fav-link){display:inline-flex!important;align-items:center!important;gap:8px!important;min-height:20px!important;margin:0 0 12px!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important;color:var(--okd-blue)!important;font:400 14px/1.4 var(--okd-font)!important;text-transform:none!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper){display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:wrap!important;gap:20px!important;margin:0 0 16px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper :is(.link-icons,.social-buttons-wrapper) a{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;text-transform:none!important;font:400 13px/1.4 var(--okd-font)!important;color:var(--okd-muted)!important}
 html body.ok89-detail #content .p-detail .ok86-micro{display:flex!important;align-items:center!important;flex-wrap:wrap!important;gap:6px 16px!important;margin:0!important;border-top:1px solid #E5E5E5!important;color:var(--okd-muted)!important;font:400 12px/1.4 var(--okd-font)!important}
@@ -85,7 +81,6 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 /* 6g. Cart button in the product slider: same as homepage (icon comes from the button background; the inline SVG stays hidden). */
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .btn-cart svg.ok89-cart{display:none!important}
 /* 6f. Tabs: full-width baseline, inactive tabs light grey, active tab keeps its blue top bar aligned with the others. */
-
 html body.ok89-detail #content .shp-tabs-row{width:100%!important}
 /* 7. Actual Shoptet native tabs; the list itself is styled to avoid wrapper-name mismatch. */
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper){display:block!important;box-sizing:border-box!important;position:relative!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important}
@@ -98,16 +93,9 @@ html body.ok89-detail #content ul.p-detail-tabs>li>a{display:inline-flex!importa
 html body.ok89-detail #content ul.p-detail-tabs>li.active{z-index:2!important;border-bottom-color:white!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{padding-top:6px!important;}
 html body.ok89-detail #content ul.p-detail-tabs>li>a:hover{color:var(--okd-blue)!important}
-
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(#tab-content,.tab-content){float:none!important;display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:24px 0 0!important;background:#fff!important}
 /* 8. Content, params (35/65) and separators. */
 html body.ok89-detail #content .p-detail .description-inner,html body.ok89-detail #content .p-detail-tabs-wrapper .description-inner{color:#262626!important;font:400 15px/1.6 var(--okd-font)!important}
-html body.ok89-detail #content .ok86-compatibility{background:#F5F5F5!important;border-radius:6px!important;padding:20px!important;margin:16px 0 24px!important}
-html body.ok89-detail #content .ok86-params{width:100%!important;border-collapse:collapse!important;table-layout:fixed!important;font-size:14px!important}
-html body.ok89-detail #content .ok86-params tr:nth-child(even){background:#F7F9FC!important}
-html body.ok89-detail #content .ok86-params tr:nth-child(odd){background:#fff!important}
-html body.ok89-detail #content .ok86-params th{width:35%!important;padding:14px 16px!important;text-align:left!important;color:var(--okd-muted)!important;font-weight:500!important}
-html body.ok89-detail #content .ok86-params td{width:65%!important;padding:14px 16px!important;color:var(--okd-ink)!important;text-align:left!important}
 /* Reviews live only in their dedicated tab. The presentation borrows the
    clear summary/review split from large retailers while all values, forms and
    actions remain native Shoptet data. */
@@ -146,23 +134,6 @@ html body.ok89-detail #content .ok97-native-reviews :is(.star,.star::before){col
 /* 9. Related slider, same card geometry as homepage but isolated. */
 html body.ok89-detail #content .ok86-related{box-sizing:border-box!important;position:relative!important;width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:32px 0 20px!important;background:#fff!important}
 html body.ok89-detail #content .ok86-related h2{margin:0 0 20px!important;font:700 22px/1.4 var(--okd-font)!important}
-html body.ok89-detail #content .ok97-related-viewport{width:100%!important;min-width:0!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important;scroll-snap-type:x mandatory!important}
-html body.ok89-detail #content .ok97-related-viewport::-webkit-scrollbar{display:none!important}
-html body.ok89-detail #content .ok86-related-track{display:flex!important;align-items:stretch!important;flex-wrap:nowrap!important;gap:var(--okd-card-gap)!important;width:100%!important;min-width:0!important}
-html body.ok89-detail #content .ok86-related-card{box-sizing:border-box!important;position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;flex:0 0 calc((100% - 96px)/5)!important;min-width:0!important;width:calc((100% - 96px)/5)!important;padding:12px!important;border:0!important;border-radius:10px!important;background:#fff!important;box-shadow:none!important;scroll-snap-align:start!important;transition:box-shadow .16s ease!important;text-align:center!important}
-html body.ok89-detail #content .ok86-related-card:hover{box-shadow:none!important;transform:none!important}/* no whole-card hover, as on the homepage */
-html body.ok89-detail #content .ok86-related-card>img{display:block!important;width:100%!important;height:172px!important;object-fit:contain!important;background:#fff!important}
-html body.ok89-detail #content .ok86-related-title{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;height:40px!important;min-height:40px!important;margin:8px 0!important;color:#0642A1!important;font:600 14px/20px var(--okd-font)!important;text-decoration:none!important}
-html body.ok89-detail #content .ok86-related-price{display:flex!important;align-items:center!important;justify-content:center!important;flex:none!important;width:min(144px,100%)!important;height:68px!important;margin:auto 0 0!important;border-radius:5px!important;background:#EAF1F8!important;color:#102A54!important;font:800 20px/1.2 var(--okd-font)!important}
-html body.ok89-detail #content .ok86-related-link{display:inline-flex!important;align-items:center!important;justify-content:center!important;flex:none!important;width:min(144px,100%)!important;min-height:38px!important;margin:16px 0 0!important;padding:8px!important;border:1px solid #3E7A00!important;border-radius:7px!important;background:#fff!important;color:#3E7A00!important;font:600 14px/1.2 var(--okd-font)!important;cursor:pointer!important}
-html body.ok89-detail #content .ok86-related-link:hover:not(:disabled){border-color:#3E7A00!important;background:#3E7A00!important;color:#fff!important}
-html body.ok89-detail #content .ok86-related-link:disabled{border-color:#C8CDD3!important;background:#C8CDD3!important;color:#6B7280!important;cursor:not-allowed!important}
-html body.ok89-detail #content .ok86-related-link svg{display:none!important}
-html body.ok89-detail #content .ok97-category-link{display:block!important;margin:10px 0 0!important;color:#707070!important;font:400 13px/1.2 var(--okd-font)!important;text-decoration:underline!important}
-html body.ok89-detail #content .ok97-related-arrow{position:absolute!important;top:160px!important;z-index:5!important;display:grid!important;place-items:center!important;width:38px!important;height:74px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:#063F99!important;color:#fff!important;font:700 28px/1 var(--okd-font)!important;cursor:pointer!important}
-html body.ok89-detail #content .ok97-related-prev{left:-12px!important}
-html body.ok89-detail #content .ok97-related-next{right:-12px!important}
-html body.ok89-detail #content .ok97-related-arrow[hidden]{display:none!important}
 /* 10. Four documented trust facts only; exact original wording. */
 html body.ok89-detail #content .ok86-trust{box-sizing:border-box!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:16px!important;width:100%!important;max-width:100%!important;margin:40px 0 24px!important;padding:20px!important;border-radius:8px!important;background:#F5F5F5!important}
 html body.ok89-detail #content .ok86-trust>div{display:flex!important;align-items:center!important;gap:9px!important;color:#1A1A1A!important;font:500 12px/1.4 var(--okd-font)!important}
@@ -175,9 +146,6 @@ html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars:not(
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .star-off,
 html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-placeholder{display:none!important}
 /* Responsive: tablet displays 3 related cards, mobile 2; mobile CTA full width. */
-@media(max-width:1199px){
- html body.ok89-detail #content .ok86-related-card{flex-basis:calc((100% - 48px)/3)!important;width:calc((100% - 48px)/3)!important}
-}
 @media(max-width:991px){
  html body.ok89-detail #content .p-detail .row.product-top.ok86-grid{display:flex!important;flex-direction:column!important;gap:20px!important}
  html body.ok89-detail #content .p-detail .ok86-grid>.p-image-wrapper,html body.ok89-detail #content .p-detail .ok86-grid>.p-info-wrapper{width:100%!important}
@@ -193,19 +161,18 @@ html body.ok89-detail #content .p-detail .stars-wrapper.ok91-unrated .stars-plac
  html body.ok89-detail #content .p-detail .p-detail-inner-header .ok86-model{white-space:normal!important}
  html body.ok89-detail #content .shp-tabs-row{max-width:100%!important;overflow-x:auto!important;overflow-y:hidden!important;scrollbar-width:none!important}
  html body.ok89-detail #content ul.p-detail-tabs>li>a{font-size:13px!important;}
- html body.ok89-detail #content .ok86-related-track{--okd-card-gap:12px}
- html body.ok89-detail #content .ok86-related-card{flex-basis:calc((100% - 12px)/2)!important;width:calc((100% - 12px)/2)!important;padding:8px!important}
- html body.ok89-detail #content .ok86-related-card>img{height:140px!important}
+ 
+ 
+ 
  html body.ok89-detail #content .ok86-trust{grid-template-columns:repeat(2,minmax(0,1fr))!important}
 }
 @media(max-width:375px){
  html body.ok89-detail #content .p-detail{padding:12px!important}
  html body.ok89-detail #content .p-detail .p-detail-inner-header h1{font-size:21px!important}
- html body.ok89-detail #content .ok86-related-card{padding:5px!important}
- html body.ok89-detail #content .ok86-related-link{font-size:12px!important}
+ 
+ 
  html body.ok89-detail #content .ok86-trust{grid-template-columns:1fr!important}
 }
-
 /* V99 fixed-size graphic painted by CSS, never a DOM SVG with inherited huge dimensions. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.ok99-native-primary .ok99-cart-graphic{font-size:0!important;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M3%204h2.5l2%2010.6h10.1L21%207.5H6%20M10%2020h.01%20M18%2020h.01%27%20fill%3D%27none%27%20stroke%3D%27%23111%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%2F%3E%3C%2Fsvg%3E")!important;background-position:center!important;background-repeat:no-repeat!important;background-size:18px 18px!important}
 /* 8. Final overrides (appended last so they win over the sections above).
@@ -221,7 +188,6 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .btn-cart{font:600 14px/1.2 var(--okd-font)!important;color:#0642A1!important;border:1px solid #0859d8!important;border-radius:6px!important;padding:6px 12px!important;background-color:#fff!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product :is(.p-desc,.p-code){display:none!important}
 /* 8c. Cart button border and label colour exactly as the homepage button (#0642A1), stronger selector than the homepage hover/focus rules. */
-
 /* 8d. One separator between the rating block and the carousel: the review block no longer draws its own bottom line (the carousel draws its top line). */
 html body.ok89-detail #content .ok97-review-block{border-bottom:0!important}
 /* 8e. Tabs as on Alza: unselected tabs sit on a light grey box, the selected one stays white with the blue top bar. */
@@ -235,15 +201,11 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)>.product .ok89-decor-stars svg{display:block!important;width:13px!important;height:13px!important;fill:currentColor!important;stroke:none!important}
 /* 8h. Tabs: the blue bar is an inset shadow, not a border, so its ends are square (no mitred corners); unselected tabs have no top line. */
 html body.ok89-detail #content ul.p-detail-tabs>li.active{border-top:0!important;}
-
 /* 8i. Slider width as on homepage (its container is 1010 px on desktop, so the cards keep the homepage size). */
 html body.ok89-detail #content .ok86-related{max-width:1111px!important;margin-left:auto!important;margin-right:auto!important}
 /* 8j. Cart button hover exactly as homepage. */
-
 /* 8k. Desktop: five cards in a row, exactly as the homepage (the loader counts visible cards as items-1, which gives four for five records). */
-
 /* 8l. Less space above the product sheet: the breadcrumb row on product pages is 28 px high instead of 51 px. */
-
 /* 8m. Original breadcrumb arrows (1 px diagonal pseudo-lines on each link) are hidden on product pages; the single › separator stays. */
 html body.ok89-detail .breadcrumbs a::before,html body.ok89-detail .breadcrumbs a::after{display:none!important;content:none!important}
 /* 8n. Blue top bar of the product sheet: a flat 4 px bar drawn inside the rounded sheet, so its underside stays straight.
@@ -269,13 +231,11 @@ html body.ok89-detail #content .ok86-related{max-width:none!important}
 html body.ok89-detail #content .ok86-related .okla-slider-track{--okla-card-width:186px!important;justify-content:space-between!important}
 }
 /* 8s. Tabs as on Alza: 44 px tall, 15 px dark-grey labels with 16 px side padding, solid home icon, 4 px gaps. */
-
 html body.ok89-detail #content ul.p-detail-tabs>li>a{padding:0 16px!important;color:#333!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{padding:0 16px!important;color:#1A1A1A!important}
 html body.ok89-detail #content .ok99-tab-house{font-weight:700!important;color:#333!important}
 /* 8t. Blue top bar: drawn above the sheet with elliptical corners (14 px across, 4 px down), so its underside is flat and only the top corners round.
    The sheet no longer clips it; its content is clipped by its own rounded box instead. */
-
 html body.ok89-detail #content-wrapper .content-wrapper-in{border-radius:14px!important;overflow:hidden!important}
 html body.ok89-detail #content-wrapper::before{top:-4px!important;left:0!important;right:0!important;height:4px!important;border-radius:14px 14px 0 0 / 4px 4px 0 0!important}
 /* 8u. Tabs as on Alza: tab row starts 32 px inside the sheet, tabs have 4 px rounded top corners,
@@ -283,7 +243,6 @@ html body.ok89-detail #content-wrapper::before{top:-4px!important;left:0!importa
 @media(min-width:992px){
 html body.ok89-detail #content .p-detail-tabs-wrapper .shp-tabs-row{padding-left:32px!important}
 }
-
 html body.ok89-detail #content .ok99-tab-house{display:inline-block!important;width:18px!important;height:18px!important;font-size:0!important;line-height:0!important;vertical-align:middle!important;background-color:#4A4A4A!important;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active .ok99-tab-house{background-color:#1A1A1A!important}
 /* 8v. Alza comparison (1:1 measure): tabs have square corners, 41 px tall incl. the 3 px cap, 4-5 px between tabs. */
@@ -295,31 +254,20 @@ html body.ok89-detail #content ul.p-detail-tabs{gap:4px!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active{box-shadow:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{background:#fff!important;}
 /* 8y. Cart button hover in the product slider: background #DBE5F6, outline and text the same colour #053D96 (identical outline and content), label included. background-color only, so the cart icon image stays. */
-
 /* 8aa. Selected tab: blue cap 1 px wider on each side than the tab, shown at once (no transition). */
 html body.ok89-detail #content ul.p-detail-tabs>li,html body.ok89-detail #content ul.p-detail-tabs>li>a{transition:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active{position:relative!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active>a{box-shadow:none!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active::before{content:""!important;display:block!important;position:absolute!important;top:0!important;left:-1px!important;right:-1px!important;height:3px!important;background:#1D54AA!important;z-index:3!important}
-
 /* 8ab. Product slider cart button: icon and label centred together; the icon is a mask filled with the button text colour, so icon, label and outline share one colour on hover. */
-
 /* 8ac. Product slider cart button copied from the homepage: the same filled cart glyph (drawn as a mask in the button colour), 6 px from the label, whole group centred. Outline, glyph and label share the hover colour. */
-
 /* 8ad. Cart button: outline and content change together and at once. The homepage button animates border and background over 0.18 s (the text does not), and its keyboard focus state uses a lighter outline; both are overridden here. */
-
 /* 8ae. Cart button hover as in the reference screenshot: light blue fill, outline in the same light blue (no dark frame), label and cart glyph dark blue #0642A2. */
-
 /* 8af. Cart button hover is instant: no transition on the button, its label, its glyph, or the card that contains it. */
-
 /* 8ai. Cart button normal state: original dark outline #0642A1, label #0642A2. Card hover is left to the homepage rule (light blue, as on homepage). */
-
 /* 8ak. Hovering the product card does not change the cart button: it keeps its normal look. Only hovering the button itself changes it (8ae/8y). */
-
 /* 8am. Cart button transition as on homepage: background and outline fade over 0.18 s; the label and glyph change at once, as on homepage. */
-
 /* 8an. Buy box rhythm after Alza (more air between the blocks). Only the right-hand purchase column changes. */
-
 /* 8ao. Quantity stepper: the + and − signs are visible again (they were hidden by the native sign spans), same colour as the stepper arrows. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease) :is(.increase__sign,.decrease__sign){display:inline-block!important;font:400 22px/1 var(--okd-font)!important;color:#7B8191!important}
 /* 8ap. Mobile: the product content keeps the 16 px side gutters (the title and buy box were touching the screen edges). */
@@ -333,7 +281,6 @@ html body.ok89-detail #content .p-detail .row.product-top{margin-left:0!importan
 /* 8as. Product image field: no 446 px cap, the field takes the full gallery column and is about twice the previous area; the photo scales with it. */
 @media(min-width:992px){
 html body.ok89-detail #content .p-detail .p-image-wrapper .p-image{width:100%!important;max-width:none!important;}
-
 }
 /* 8at. Buy box: larger vertical gaps between the blocks. */
 html body.ok89-detail #content .p-detail .p-detail-inner-header{margin-bottom:24px!important}
@@ -384,7 +331,6 @@ html body.ok89-detail #content .ok86-related .okla-slider-track>.product{flex:0 
 html body.ok89-detail #content-wrapper{border-top:6px solid #063F99!important;border-radius:6px!important;overflow:hidden!important;background-color:#fff!important;background-image:none!important;box-shadow:rgba(0,25,65,.11) 0px 0px 10px 0px!important}
 html body.ok89-detail #content-wrapper::before{display:none!important}
 /* 8bd. The breadcrumb row has a 1 px grey bottom border that ran across the top of the sheet. The homepage has no breadcrumb, so the line goes on this page. */
-
 /* 8bd. Buy button: the shop's green with black text (like the other green buttons) and about 240 px wide instead of stretched across the buy box. */
 @media(min-width:992px){
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart button.add-to-cart-button.btn-conversion.ok99-native-primary{background:var(--okd-green)!important;border-color:var(--okd-green)!important;color:var(--okd-green-ink)!important;flex:0 0 240px!important;width:240px!important;max-width:100%!important}
@@ -401,7 +347,6 @@ html body.ok89-detail .okla-detail-favorite{display:none!important}
 /* 8bg. No rating row under the product title (stars, "Zatím bez hodnocení", "Podrobnosti hodnocení"). Reviews stay in their own tab.
    The row's only other item is "Značka: …", which repeats the "Vše od …" link above the title, so the whole row goes. */
 html body.ok89-detail #content .p-detail .p-info-wrapper>.p-detail-info{display:none!important}
-
 /* The native H1 must already be a real heading while the detail enhancement is
    settling. This fallback does not depend on the late ok89-detail body class. */
 html body.type-detail #content .p-detail .p-detail-inner-header h1,
@@ -421,7 +366,6 @@ html body.type-detail #content .p-detail .availability-value,
 html body.type-product #content .p-detail .availability-value{
  background:transparent!important;background-image:none!important;box-shadow:none!important;
 }
-
 /* Parametry tab: product data as a striped two-column table, label grey on the left, value dark on the right. */
 #ok86-parameters .ok86-params-title{font-size:28px;font-weight:500;line-height:1.25;color:#1d1d1d;margin:0 0 20px}
 #ok86-parameters table.detail-parameters{width:100%;border-collapse:collapse;margin:0}
@@ -430,7 +374,6 @@ html body.type-product #content .p-detail .availability-value{
 #ok86-parameters table.detail-parameters th{width:32%;color:#6b6b6b;font-weight:400}
 #ok86-parameters table.detail-parameters td{color:#1d1d1d;font-weight:400}
 #ok86-parameters table.detail-parameters .row-header-label-colon{display:none}
-
 /* "Mohlo by vás zajímat": two rows of products, tighter space above the heading and below the slider */
 html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c){margin-top:12px!important;padding-top:4px!important;padding-bottom:0!important}
 html body.ok89-detail #content#content .ok86-related:not(#okr-a#okr-b#okr-c)>.okla-slider-heading{margin-top:0!important;margin-bottom:10px!important}

@@ -24,8 +24,8 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__flipper-copy{position:absolute!important;z-index:4!important;left:7.2%!important;top:145px!important;width:34%!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;text-align:left!important}
 #okla-promo-deals .okla-campaign__brand{margin:0 0 7px!important;font-size:31px!important;font-weight:700!important;line-height:1!important;letter-spacing:-.035em!important;color:#fff!important}
 #okla-promo-deals .okla-campaign__kicker{margin:0!important;font-size:13px!important;font-weight:600!important;line-height:1.25!important;letter-spacing:.005em!important}
-#okla-promo-deals .okla-campaign__kicker-hot{background:linear-gradient(90deg,#eaff00,#ffdf00);-webkit-background-clip:text;background-clip:text;color:transparent!important}
-#okla-promo-deals .okla-campaign__kicker-cool{background:linear-gradient(90deg,#fff 0%,#d8e9ff 44%,#3a9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent!important}
+#okla-promo-deals .okla-campaign__kicker-hot{color:#ffdf00!important}
+#okla-promo-deals .okla-campaign__kicker-cool{color:#d8e9ff!important}
 #okla-promo-deals .okla-campaign__text{margin:18px 0 24px!important;font-size:17px!important;font-weight:400!important;line-height:1.32!important;letter-spacing:-.01em!important;color:#fff!important}
 #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta{height:41px!important;min-height:41px!important;padding:0 20px!important;border:1px solid rgba(255,255,255,.62)!important;border-radius:7px!important;background:rgba(0,0,0,.12)!important;color:#fff!important;font-size:12px!important;font-weight:600!important;letter-spacing:.025em!important;box-shadow:none!important;cursor:default!important;backdrop-filter:blur(2px)!important}
 #okla-promo-deals .okla-campaign__card--flipper .okla-campaign__cta:is(:hover,:focus-visible){border-color:rgba(255,255,255,.82)!important;background:rgba(255,255,255,.06)!important;color:#fff!important;outline:0!important}
@@ -38,7 +38,7 @@ html body.type-index #content #okla-promo-deals{
 #okla-promo-deals .okla-campaign__card--lilygo{background:#fff!important;color:#1d1d1f!important;box-shadow:0 3px 12px rgba(18,42,72,.16)!important}
 #okla-promo-deals .okla-campaign__lilygo-copy{position:relative!important;z-index:5!important;width:82%!important;margin:0 auto!important;padding-top:29px!important;text-align:center!important}
 #okla-promo-deals .okla-campaign__lilygo-brand{margin:0 0 5px!important;font-size:15px!important;font-weight:600!important;letter-spacing:-.01em!important;color:#1d1d1f!important}
-#okla-promo-deals .okla-campaign__lilygo-brand em{background:linear-gradient(95deg,#0071e3,#684dff 66%,#8d43e7);-webkit-background-clip:text;background-clip:text;color:transparent!important;font-style:italic!important;font-weight:700!important}
+#okla-promo-deals .okla-campaign__lilygo-brand em{color:#5b4dff!important;font-style:italic!important;font-weight:700!important}
 #okla-promo-deals .okla-campaign__lilygo-title{margin:0!important;overflow-wrap:anywhere!important;font-size:27px!important;font-weight:700!important;line-height:1.05!important;letter-spacing:-.03em!important;color:#07101c!important}
 #okla-promo-deals .okla-campaign__lilygo-text{margin:9px auto 13px!important;max-width:440px!important;font-size:13px!important;font-weight:400!important;line-height:1.35!important;color:#3a4652!important}
 #okla-promo-deals .okla-campaign__lilygo-hand{position:absolute!important;z-index:2!important;left:50%!important;bottom:-75px!important;width:235px!important;height:auto!important;max-width:none!important;transform:translateX(-50%)!important;filter:drop-shadow(0 14px 14px rgba(30,42,55,.08))!important;pointer-events:none!important;margin:0!important}
@@ -58,8 +58,6 @@ html body.type-index #content #okla-promo-deals{
   #okla-promo-deals .okla-campaign__flipper-copy{align-items:flex-start!important;text-align:left!important}
   #okla-promo-deals .okla-campaign__brand{font-weight:700!important}
   #okla-promo-deals .okla-campaign__text{font-weight:400!important}
-  
-  
   #okla-promo-deals .okla-campaign__card--lilygo{min-height:460px!important}
   #okla-promo-deals .okla-campaign__lilygo-copy{width:90%!important;padding-top:27px!important}
   #okla-promo-deals .okla-campaign__lilygo-title{max-width:300px!important;margin-inline:auto!important;font-size:23px!important}
@@ -78,7 +76,6 @@ html body.type-index #content #okla-promo-deals{
    kept faint behind it all. */
 @media(max-width:767px){
   #okla-promo-deals .okla-campaign__card--flipper{min-height:470px!important;}
-  
   #okla-promo-deals .okla-campaign__flipper-copy{left:22px!important;right:22px!important;top:28px!important;width:auto!important}
   #okla-promo-deals .okla-campaign__brand{margin-bottom:8px!important;font-size:28px!important}
   #okla-promo-deals .okla-campaign__kicker{font-size:12.5px!important}
@@ -138,9 +135,6 @@ html body.type-index #content #okla-promo-deals{
 
 /* the promo pictures cannot be picked up, dragged or selected */
 #okla-promo-deals :is(.okla-campaign__flipper-stage,.okla-campaign__flipper-stage img,.okla-campaign__lilygo-hand){pointer-events:none!important;-webkit-user-drag:none!important;user-select:none!important;-webkit-user-select:none!important;-webkit-touch-callout:none!important}
-/* italic gradient text: room for the slanted last letter, so the gradient (clipped to the text box) does not cut it */
-#okla-promo-deals .okla-campaign__lilygo-brand em,
-#okla-promo-deals :is(.okla-campaign__kicker-hot,.okla-campaign__kicker-cool){display:inline-block!important;padding-right:.14em!important;margin-right:-.14em!important}
 /* the Flipper ONE card's background pictures wait until the card comes near the screen (okla_home_promo.js) */
 #okla-promo-deals:not(.is-near) .okla-campaign__card--flipper,
 #okla-promo-deals:not(.is-near) .okla-campaign__card--flipper::after{background-image:none!important}

@@ -24,8 +24,6 @@
   padding:25px clamp(24px,3vw,42px)!important;
   box-sizing:border-box!important;
   border-radius:12px!important;
-  
-  
   zoom:1!important;
   transform:none!important;
  }
@@ -117,13 +115,10 @@
   max-width:100%!important;
   max-height:240px!important;
   min-height:0!important;
-  
   padding:0!important;
-  
   justify-self:center!important;
   object-fit:contain!important;
   object-position:center bottom!important;
-  
   opacity:1!important;
   visibility:visible!important;
  }
@@ -372,7 +367,6 @@
   object-fit:contain!important;
   object-position:right bottom!important;
   filter:none!important;
-  
   visibility:visible!important;
   opacity:1!important;
  }
