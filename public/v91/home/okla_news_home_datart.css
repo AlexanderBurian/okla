@@ -7,7 +7,7 @@ html body.type-index #content #okla-news-v55:not(#okn-a#okn-b){border:0!importan
 /* heading row */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-head{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:6px 16px!important;margin:0 0 20px!important;padding-right:220px!important;min-height:40px!important}
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-heading{margin:0!important;padding:0!important;color:#081d3a!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:-.3px!important;text-transform:none!important}
-html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-go{display:none!important}
+
 /* "Přejít do magazínu": a text link on the heading's line, right */
 html body.type-index #content #okla-news-v55:not(#okn-a#okn-b) .okn-bottom{position:absolute!important;top:-4px!important;right:0!important;display:block!important;margin:0!important;padding:0!important}
 /* "Přejít do magazínu": a real button (ghost style) instead of a plain text link */

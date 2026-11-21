@@ -575,9 +575,12 @@ function settle(){if(--pending<=0){if(oneGo)runScripts();finalize()}}
 /* The page waits for these files (under the curtain): they are fetched before images and other page content. */
 function loadOne(file,attempt){
  var src=url(file,attempt);
- /* a stylesheet already in the page's head: switched on in place, done once it has arrived (a failed one is added again) */
+ /* a stylesheet already in the page's head: switched on in place, done once it has arrived (a failed one is added again).
+    The header tag writes the stylesheets this address cannot need as disabled (not downloaded): one of those that the
+    page needs after all is enabled here, and the browser downloads it now. */
  var hl=!attempt&&headLink(file);
  if(hl){
+  if(hl.disabled)hl.disabled=false;
   if(hl.media!=='all')hl.media='all';
   if(hl.getAttribute('data-okla-e')){loadOne(file,1);return}
   if(hl.sheet||hl.getAttribute('data-okla-l')){settle();return}

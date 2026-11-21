@@ -2,8 +2,6 @@
 @media(min-width:992px){#navigation .navigation-in>ul.menu-level-1{display:none!important}}
 /* OKLA V19 category styling */
 
-
-
 #content-wrapper aside.sidebar.sidebar-left .box-categories .pageElement__heading{background:#fff!important}
 
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon{display:flex!important;align-items:center!important;gap:10px!important;margin-left:14px!important;width:calc(100% - 14px)!important;padding:8px 4px 8px 0!important;min-height:43px!important;box-sizing:border-box!important;font-size:14px!important;line-height:1.4!important;font-weight:400!important;text-decoration:none!important}
@@ -43,7 +41,7 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 #content .okla-slider-track .ratings-wrapper.okla-ratings{display:flex!important;align-items:center!important;justify-content:center!important;flex-direction:row!important;gap:5px!important;flex:none!important;width:100%!important;min-height:24px!important;margin:0 0 10px!important;padding:0!important;line-height:18px!important}
 #content .okla-slider-track .okla-empty-stars{display:inline-flex!important;align-items:center!important;gap:2px!important;color:#ffba00!important;white-space:nowrap!important}
 #content .okla-slider-track .okla-empty-stars svg{display:block;width:17px;height:17px;stroke:#ffba00;fill:#ffba00;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
-#content .okla-slider-track .okla-rating-caption{display:inline-block!important;color:#738294!important;font-size:11px!important;line-height:16px!important;white-space:nowrap!important}
+
 #content .okla-slider-track .okla-ratings .stars-placeholder{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;min-height:17px!important}
 #content .okla-slider-track .okla-ratings .stars{display:inline-block!important;min-height:16px!important}
 #content .okla-slider-track a.name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;width:100%!important;height:52px!important;min-height:52px!important;max-height:52px!important;margin:0 0 6px!important;padding:0!important;color:#0642a2!important;font-family:inherit!important;font-size:16px!important;font-weight:600!important;line-height:24px!important;text-align:center!important;text-decoration:none!important;word-break:normal!important}
@@ -71,11 +69,8 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 #content .okla-slider-shell>.okla-slider-controls{left:-20px!important;right:-20px!important;max-width:none!important;gap:0!important;overflow:visible!important;float:none!important;box-sizing:border-box!important}
 #content .okla-slider-shell>.okla-slider-controls>button{float:none!important;box-sizing:border-box!important;opacity:1!important;visibility:visible!important;cursor:pointer!important}
 
-
-
-
 /* Mobil: slider pouze tahem prstu; bez sipek, kazda karta ma trvaly viditelny stin. */
-@media(max-width:767px){#content .okla-slider-viewport{padding:13px 9px 19px!important}#content .okla-slider-track>.product .p{border:1px solid #e1e5ec!important;border-radius:9px!important;box-shadow:0 2px 11px rgba(30,43,63,.18)!important;transform:none!important;transition:none!important}#content .okla-slider-track>.product .p:focus-within{box-shadow:0 2px 11px rgba(30,43,63,.18)!important}#content .okla-slider-track .ratings-wrapper.okla-ratings{min-height:38px!important;flex-direction:column!important;gap:2px!important;margin-bottom:7px!important}#content .okla-slider-track .okla-ratings .stars-placeholder{flex-direction:column!important;gap:2px!important}#content .okla-slider-track .okla-empty-stars{gap:1px!important}#content .okla-slider-track .okla-empty-stars svg{width:14px!important;height:14px!important}#content .okla-slider-track .okla-rating-caption{font-size:10px!important;line-height:13px!important}}
+@media(max-width:767px){#content .okla-slider-viewport{padding:13px 9px 19px!important}#content .okla-slider-track>.product .p{border:1px solid #e1e5ec!important;border-radius:9px!important;box-shadow:0 2px 11px rgba(30,43,63,.18)!important;transform:none!important;transition:none!important}#content .okla-slider-track>.product .p:focus-within{box-shadow:0 2px 11px rgba(30,43,63,.18)!important}#content .okla-slider-track .ratings-wrapper.okla-ratings{min-height:38px!important;flex-direction:column!important;gap:2px!important;margin-bottom:7px!important}#content .okla-slider-track .okla-ratings .stars-placeholder{flex-direction:column!important;gap:2px!important}#content .okla-slider-track .okla-empty-stars{gap:1px!important}#content .okla-slider-track .okla-empty-stars svg{width:14px!important;height:14px!important}}
 /* V14 — Global desktop width identical across homepage, product details, categories and information pages. */
 :root{--okla-site-width:1384px;--okla-site-gutter:40px}
 @media(min-width:992px){body .overall-wrapper>.container,body .overall-wrapper>#header>.container.navigation-wrapper,body .overall-wrapper>.top-navigation-bar>.container,body #footer>.container{width:calc(100% - 80px)!important;max-width:var(--okla-site-width)!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}body .overall-wrapper>#content-wrapper.container{width:calc(100% - 80px)!important;max-width:var(--okla-site-width)!important;min-width:0!important;margin-left:auto!important;margin-right:auto!important;box-sizing:border-box!important}}
@@ -115,7 +110,6 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 @media(hover:hover) and (pointer:fine){
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:hover{text-decoration:none!important}
 
-
 }
 #content-wrapper aside.sidebar.sidebar-left #categories .topic>a.okla-category-with-icon:focus-visible{outline:2px solid #063F99!important;outline-offset:2px!important}
 /* OKLA V23 – five visible desktop product cards with balanced Alza-style proportions. */
@@ -124,14 +118,11 @@ body,body button,body input,body select,body textarea,#header,#navigation,#conte
 
 #content .okla-slider-track>.product .p>a.image{height:clamp(142px,13.4vw,184px)!important;}
 
-
 #content .okla-slider-track .availability{font-size:11px!important;line-height:17px!important}
 
 #content .okla-slider-track .prices:before{height:22px!important;flex-basis:22px!important;font-size:10px!important;line-height:22px!important}
 
-
 #content .okla-slider-track .p-tools .btn-cart{padding-left:24px!important;background-size:17px 17px!important;background-position:10px center!important}
-
 
 }
 @media(min-width:992px) and (max-width:1199px){
@@ -174,7 +165,6 @@ body #header .navigation-buttons .okla-header-account .okla-header-icon{place-it
 body #header .navigation-buttons .okla-header-account .okla-header-icon svg{stroke-linecap:round!important;stroke-linejoin:round!important}
 body #header .navigation-buttons .okla-header-account .okla-header-copy{line-height:1.1!important}
 
-
 body #header .navigation-buttons .okla-header-support{text-decoration:none!important;white-space:nowrap!important;font-weight:500!important}
 
 body #header .navigation-buttons .cart-count{white-space:nowrap!important;float:none!important;text-decoration:none!important}
@@ -201,10 +191,6 @@ body #header .header-top{gap:clamp(12px,1.8vw,30px)!important;}
 body #header .header-top>.navigation-buttons.okla-header-ready{grid-template-columns:minmax(145px,1.28fr) minmax(65px,.62fr) minmax(118px,1fr)!important;column-gap:clamp(7px,.8vw,13px)!important;}
 body #header .navigation-buttons .okla-header-account{box-sizing:border-box!important}
 
-
-
-
-
 body #header .navigation-buttons .okla-header-support{flex-direction:column!important;font-size:11px!important;line-height:15px!important;}
 body #header .navigation-buttons .okla-header-support::before,body #header .navigation-buttons .okla-header-support::after{content:none!important;display:none!important}
 body #header .navigation-buttons .okla-header-support svg{display:block!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important}
@@ -220,9 +206,6 @@ body #header .navigation-buttons .cart-count .cart-price{min-width:0!important;}
 
 body #header .header-top>.navigation-buttons.okla-header-ready{grid-template-columns:minmax(132px,1.2fr) minmax(57px,.5fr) minmax(106px,.85fr)!important;column-gap:5px!important}
 
-
-
-
 }
 @media(max-width:991px){
 body #header .navigation-buttons .okla-header-account,body #header .navigation-buttons .okla-header-support{display:none!important}
@@ -230,22 +213,6 @@ body #header .navigation-buttons .cart-count .okla-cart-symbol{display:none!impo
 }
 /* V27 – informative warranty strip between the two product sliders. */
 
-
-#content .okla-warranty-main-icon{place-items:center!important;flex:0 0 49px!important;width:49px!important;height:49px!important;color:#0647AC!important;background:#dce9fa!important;border-radius:12px!important}
-#content .okla-warranty-main-icon svg{width:29px!important;height:29px!important;stroke:currentColor!important;fill:none!important;stroke-width:1.8!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-
-#content .okla-warranty-copy strong{font-size:21px!important;}
-#content .okla-warranty-copy span{font-size:12px!important;font-weight:400!important;line-height:1.45!important;color:#546985!important}
-
-
-
-
-
-#content .okla-warranty-more:hover{border-color:#5e93e6!important;}
-
-#content .okla-warranty-more svg{width:15px!important;height:15px!important;stroke:currentColor!important;fill:none!important;stroke-width:2!important}
-@media(min-width:768px) and (max-width:1199px){#content .okla-warranty-feature:nth-of-type(4){display:none!important}}
-@media(max-width:767px){#content .okla-warranty-intro{grid-column:1/-1!important;}#content .okla-warranty-main-icon{width:40px!important;height:40px!important;flex-basis:40px!important}#content .okla-warranty-main-icon svg{width:24px!important;height:24px!important}#content .okla-warranty-feature:nth-of-type(4){grid-column:1/-1!important;min-height:70px!important}}
 /* V27 – tighter but balanced product typography / price and imagery proportions. */
 @media(min-width:992px){
 
@@ -332,11 +299,7 @@ body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy strong{display:block!important;font-size:13px!important;font-weight:700!important;line-height:16px!important;color:#072e5f!important;white-space:nowrap!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy small{display:block!important;font-size:11px!important;font-weight:400!important;line-height:14px!important;color:#063f99!important;white-space:nowrap!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-chevron{display:block!important;width:8px!important;height:8px!important;flex:0 0 8px!important;margin:0 0 4px 4px!important;border-right:1.5px solid #95a2b3!important;border-bottom:1.5px solid #95a2b3!important;transform:rotate(45deg)!important;pointer-events:none!important}
-body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-shortcut{display:flex!important;flex:0 0 41px!important;width:41px!important;min-width:41px!important;height:35px!important;min-height:35px!important;margin:0!important;padding:0!important;border-left:1px solid #dde1e7!important;color:#082e61!important}
-body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-shortcut svg{display:block!important;width:21px!important;height:21px!important;stroke:#0c3369!important;fill:none!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-shortcut:hover,
-body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-shortcut:active,
-body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-shortcut:focus{color:#082e61!important;background:transparent!important}
+
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support{flex:0 0 42px!important;grid-column:auto!important;width:42px!important;min-width:42px!important;height:35px!important;min-height:35px!important;max-width:none!important;margin:0!important;padding:0!important;border-left:1px solid #dde1e7!important;border-radius:0!important;gap:0!important;color:#082e61!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support svg{display:block!important;width:23px!important;height:23px!important;stroke:#0c3369!important;fill:none!important;stroke-width:1.85!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support span{display:none!important}
@@ -354,13 +317,13 @@ body #header .header-top>.navigation-buttons.okla-header-ready .cart-count:hover
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-account{gap:6px!important;padding-right:8px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy strong{font-size:12px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-copy small{font-size:10px!important}
-body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-shortcut{width:37px!important;min-width:37px!important;flex-basis:37px!important}
+
 body #header .header-top>.navigation-buttons.okla-header-ready .okla-header-support{width:38px!important;min-width:38px!important;flex-basis:38px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count{min-width:98px!important;gap:3px!important}
 body #header .header-top>.navigation-buttons.okla-header-ready .cart-count .cart-price{font-size:11px!important}
 }
 @media(max-width:991px){
-body #header .header-top>.navigation-buttons .okla-header-shortcut{display:none!important}
+
 body #header .header-top>.navigation-buttons .okla-header-chevron{display:none!important}
 }
 /* OKLA V31 – measured 1:1 Alza screenshot composition (account | order bag | heart | CZ flag | gray cart). */
@@ -449,155 +412,29 @@ body #header .header-top>.navigation-buttons.okla-header-ready>.okla-header-favo
 #content .product .p .okla-fav-toggle[aria-pressed=false] svg path{fill:none!important;stroke:#053a8d!important}
 /* OKLA V33: Alza-style compact horizontal warranty showcase – real HTML and interactive carousel, not an image. */
 #content .okla-warranty-strip{position:relative!important;width:100%!important;min-width:0!important;margin:25px 0 28px!important;color:#102b56!important;box-shadow:none!important}
-#content .okla-warranty-intro{background:transparent!important}
-#content .okla-warranty-main-icon{display:none!important}
 
-#content .okla-warranty-copy strong{display:block!important;font-family:'Open Sans',Arial,sans-serif!important;font-size:clamp(18px,1.52vw,22px)!important;}
-#content .okla-warranty-copy .okla-warranty-subtitle{font-size:clamp(15px,1.22vw,19px)!important;}
-#content .okla-warranty-copy .okla-warranty-legal{font-weight:400!important;}
-#content .okla-warranty-more{align-items:center!important;justify-content:center!important;font-family:'Open Sans',Arial,sans-serif!important;line-height:1.15!important;white-space:nowrap!important;}
-#content .okla-warranty-more:hover,#content .okla-warranty-more:focus{filter:none!important}
-#content .okla-warranty-more:focus-visible{outline:2px solid #063f99!important;outline-offset:2px!important}
-
-#content .okla-warranty-cards{overflow-x:auto!important;overflow-y:hidden!important;-ms-overflow-style:none!important;}
-#content .okla-warranty-cards::-webkit-scrollbar{display:none!important}
-
-#content .okla-warranty-feature svg{display:block!important;flex:0 0 30px!important;margin:0!important;stroke:#0648ae!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-#content .okla-warranty-feature strong{font-family:'Open Sans',Arial,sans-serif!important;}
-#content .okla-warranty-feature small{font-family:'Open Sans',Arial,sans-serif!important;}
-#content .okla-warranty-arrow{align-items:center!important;justify-content:center!important;}
-#content .okla-warranty-arrow svg{stroke-linecap:round!important;stroke-linejoin:round!important}
-
-#content .okla-warranty-arrow:focus-visible{outline:2px solid #0b366d!important;outline-offset:-3px!important}
-
-@media(max-width:767px){
-
-
-
-
-#content .okla-warranty-carousel{grid-column:auto!important;}
-
-#content .okla-warranty-feature{grid-column:auto!important}
-
-#content .okla-warranty-more{grid-column:auto!important;}
-}
 /* OKLA V34 – edge-to-edge warranty band within main white content, CTA flush left; taller proportional cards. */
 
-
-
-#content .okla-warranty-copy strong{font-size:clamp(21px,1.85vw,26px)!important;}
-#content .okla-warranty-copy .okla-warranty-subtitle{font-size:clamp(17px,1.45vw,21px)!important;}
-
-
-
-
-#content .okla-warranty-feature{flex-basis:calc((100% - 48px)/4)!important;}
-#content .okla-warranty-feature svg{width:37px!important;height:37px!important;flex-basis:37px!important;stroke-width:1.8!important}
-
-
-
-
-@media(min-width:768px) and (max-width:1199px){
-
-
-#content .okla-warranty-feature svg{width:32px!important;height:32px!important;flex-basis:32px!important}
-
-
-
-}
-@media(max-width:767px){
-
-
-
-
-
-
-#content .okla-warranty-feature{flex-basis:calc((100% - 12px)/2)!important;}
-#content .okla-warranty-feature svg{height:33px!important;width:33px!important;flex-basis:33px!important}
-
-
-
-}
 /* OKLA V35: enforce exact edge-to-edge warranty panel in Shoptet 20px content gutters, flat-left CTA. */
 @media(min-width:768px){
 #content .okla-warranty-strip{margin-left:-20px!important;margin-right:-20px!important;width:calc(100% + 40px)!important;padding-left:0!important;padding-right:0!important;}
-#content .okla-warranty-intro{padding-left:0!important;margin-left:0!important;}
-#content .okla-warranty-more{margin-left:0!important;transform:none!important}
+
 }
 @media(max-width:767px){
 #content .okla-warranty-strip{margin-left:-15px!important;margin-right:-15px!important;width:calc(100% + 30px)!important;}
-#content .okla-warranty-intro{margin-left:0!important}
-#content .okla-warranty-more{margin-left:0!important}
+
 }
 /* OKLA V36 – fully padded, premium two-year warranty band inspired by the visual layout, not Alza brands. */
 #content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(246px,30%) minmax(0,1fr)!important;gap:15px!important;box-sizing:border-box!important;max-width:none!important;margin-top:30px!important;margin-bottom:34px!important;padding:24px 0!important;border:0!important;border-radius:0!important;overflow:hidden!important;background:#eef3fd!important;background-image:linear-gradient(98deg,#eff5fe 0%,#edf3fd 62%,#edf2fc 100%)!important}
 
-
-#content .okla-warranty-copy strong{font-size:clamp(22px,1.9vw,27px)!important;line-height:1.15!important;font-weight:800!important;letter-spacing:-.3px!important;color:#071b38!important}
-#content .okla-warranty-copy .okla-warranty-subtitle{font-size:clamp(17px,1.43vw,20px)!important;}
-#content .okla-warranty-copy .okla-warranty-legal{margin-top:5px!important}
-#content .okla-warranty-more{display:inline-flex!important;align-self:flex-start!important;justify-self:start!important;flex:0 0 auto!important;gap:4px!important;min-width:0!important;max-width:100%!important;width:auto!important;height:39px!important;min-height:39px!important;margin:2px 0 0 0!important;padding:0 17px!important;border:0!important;border-radius:5px!important;background:#0648b0!important;color:#fff!important;font-size:13px!important;font-weight:700!important;text-decoration:none!important;box-shadow:none!important}
-#content .okla-warranty-more:hover,#content .okla-warranty-more:active,#content .okla-warranty-more:focus{background:#0648b0!important;color:#fff!important;text-decoration:none!important;box-shadow:none!important}
-
-#content .okla-warranty-cards{justify-content:flex-start!important;scroll-behavior:auto!important;scroll-snap-type:none!important;scrollbar-width:none!important;will-change:transform!important}
-#content .okla-warranty-feature{border:1px solid #dfe6f1!important;background:#fff!important;box-shadow:0 1px 4px rgba(14,41,84,.11)!important;scroll-snap-align:none!important}
-#content .okla-warranty-icon{place-items:center!important;box-sizing:border-box!important;}
-#content .okla-warranty-icon svg{display:block!important;width:37px!important;height:37px!important;min-width:37px!important;flex:0 0 37px!important;overflow:visible!important;fill:none!important;stroke-width:0!important}
-#content .okla-warranty-feature[data-tone="indigo"] .okla-warranty-icon{background:#eef0ff!important}
-#content .okla-warranty-feature[data-tone="green"] .okla-warranty-icon{background:#e9f8ee!important}
-
-#content .okla-warranty-feature[data-tone="violet"] .okla-warranty-icon{background:#f3edff!important}
-#content .okla-warranty-feature strong{display:block!important;font-size:14px!important;font-weight:750!important;line-height:1.2!important;color:#112f68!important;white-space:normal!important}
-#content .okla-warranty-feature small{display:block!important;font-size:11px!important;font-weight:400!important;line-height:1.32!important;color:#52627d!important;white-space:normal!important}
-
-
-#content .okla-warranty-arrow:hover,#content .okla-warranty-arrow:active,#content .okla-warranty-arrow:focus{background:#0645A8!important;box-shadow:none!important;color:#fff!important}
-@media(min-width:768px) and (max-width:1199px){
-
-#content .okla-warranty-intro{padding-left:22px!important;}
-#content .okla-warranty-copy strong{font-size:22px!important}
-
-#content .okla-warranty-feature{flex-basis:calc((100% - 22px)/3)!important}
-}
 @media(max-width:767px){
 #content .okla-warranty-strip{margin:24px 0 27px!important}
-
-#content .okla-warranty-copy strong{font-size:22px!important}
-
-#content .okla-warranty-more{height:38px!important;min-height:38px!important}
-
-
-
-
-#content .okla-warranty-icon svg{width:32px!important;height:32px!important;min-width:32px!important}
-#content .okla-warranty-feature strong{font-size:12px!important}
-#content .okla-warranty-feature small{font-size:10px!important}
 
 }
 /* OKLA V37 — authentic transparent PNG icons, no background badge, wide landscape warranty tiles. */
 
 #content .okla-warranty-strip{align-items:center!important}
-#content .okla-warranty-feature{flex-direction:row!important;justify-content:flex-start!important;align-items:center!important;text-align:left!important;overflow:hidden!important;border-radius:8px!important}
-#content .okla-warranty-icon{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 59px!important;width:59px!important;height:67px!important;margin:0!important;padding:0!important;}
 
-#content .okla-warranty-png{display:block!important;width:58px!important;height:58px!important;min-width:58px!important;max-width:58px!important;object-fit:contain!important;image-rendering:auto!important;filter:none!important;background:transparent!important}
-#content .okla-warranty-card-copy{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:5px!important;min-width:0!important;max-width:100%!important;flex:1 1 0!important;text-align:left!important}
-#content .okla-warranty-card-copy strong{display:block!important;margin:0!important;font-size:13.5px!important;line-height:1.22!important;font-weight:750!important;color:#05398a!important;white-space:normal!important}
-#content .okla-warranty-card-copy small{display:block!important;margin:0!important;font-size:11.5px!important;line-height:1.28!important;color:#627084!important;white-space:normal!important}
-@media(min-width:768px) and (max-width:1199px){
-
-
-
-#content .okla-warranty-icon{flex-basis:53px!important;width:53px!important}
-#content .okla-warranty-png{width:52px!important;height:52px!important;min-width:52px!important;max-width:52px!important}
-}
-@media(max-width:767px){
-
-
-
-#content .okla-warranty-icon{flex-basis:61px!important;width:61px!important;height:62px!important}
-#content .okla-warranty-png{width:58px!important;height:58px!important}
-}
 /* V40: single measured horizontal header in place of conflicting Shoptet item styles */
 @media(min-width:992px){
 body #header .header-top>.navigation-buttons.okla-header-ready{align-items:center!important;gap:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
@@ -612,7 +449,6 @@ body #header .navigation-buttons .okla-exact-header .okla-header-copy{display:fl
 body #header .navigation-buttons .okla-exact-header .okla-header-copy strong{font:700 13px/16px Arial,sans-serif!important;color:#082d5d!important;white-space:nowrap!important}
 body #header .navigation-buttons .okla-exact-header .okla-header-copy small{font:400 11px/14px Arial,sans-serif!important;color:#053a8e!important;white-space:nowrap!important}
 body #header .navigation-buttons .okla-exact-header .okla-header-chevron{width:8px!important;height:8px!important;flex:0 0 8px!important;display:block!important;border:0!important;border-right:1.5px solid #9ba3ae!important;border-bottom:1.5px solid #9ba3ae!important;background:transparent!important;transform:rotate(45deg)!important;margin:-4px 0 0 4px!important}
-
 
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders svg{fill:#063068!important;stroke:none!important}
 body #header .navigation-buttons .okla-exact-header>.okla-header-orders svg path.okla-bag-body{fill:#063068!important;stroke:none!important}
@@ -634,8 +470,7 @@ body #header .header-top{grid-template-columns:minmax(145px,.7fr) minmax(290px,1
 body #header .navigation-buttons .okla-exact-header>.okla-header-account{flex-basis:148px!important;gap:7px!important}
 }
 @media(max-width:991px){body #header .navigation-buttons .okla-exact-header{display:none!important}}
-#content .okla-warranty-icon,#content .okla-warranty-feature[data-tone] .okla-warranty-icon{background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
-#content img.okla-warranty-png{display:block!important;width:60px!important;height:60px!important;min-width:60px!important;max-width:60px!important;object-fit:contain!important;background:transparent!important;filter:none!important}
+
 /* OKLA V41: permanent two 1px separators immune to Shoptet button border resets. */
 @media(min-width:992px){
 
@@ -660,45 +495,18 @@ body #header .navigation-buttons .okla-exact-header>.okla-exact-separator{displa
 }
 @media(min-width:992px) and (max-width:1199px){body #header .navigation-buttons .okla-exact-header{width:334px!important;min-width:334px!important;max-width:334px!important;flex-basis:334px!important}body #header .navigation-buttons .okla-exact-header>.okla-header-account{flex:0 0 148px!important;width:148px!important;min-width:148px!important;max-width:148px!important}}
 /* Warranty support icon: embedded generated PNG, no external request, visible at large size. */
-#content .okla-warranty-feature[data-tone="orange"] .okla-warranty-icon{display:flex!important;align-items:center!important;justify-content:center!important;width:72px!important;min-width:72px!important;flex-basis:72px!important;height:78px!important;min-height:78px!important;background:transparent!important;visibility:visible!important;opacity:1!important;filter:none!important}
-#content .okla-warranty-feature[data-tone="orange"] img.okla-warranty-png{display:block!important;width:72px!important;height:72px!important;min-width:72px!important;max-width:72px!important;max-height:72px!important;object-fit:contain!important;visibility:visible!important;opacity:1!important;filter:none!important;mix-blend-mode:normal!important}
-@media(max-width:767px){#content .okla-warranty-feature[data-tone="orange"] img.okla-warranty-png{width:64px!important;height:64px!important;min-width:64px!important}}
 
 /* OKLA V44 — only H1 on left; exactly identical image and icon-container dimensions on all five warranty tiles. */
 
-
-#content .okla-warranty-copy .okla-warranty-heading{border:0!important;}
-
-#content .okla-warranty-feature .okla-warranty-icon,#content .okla-warranty-feature[data-tone] .okla-warranty-icon{display:flex!important;justify-content:center!important;align-items:center!important;flex:0 0 66px!important;width:66px!important;min-width:66px!important;max-width:66px!important;height:66px!important;min-height:66px!important;max-height:66px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;opacity:1!important;visibility:visible!important;filter:none!important}
-#content .okla-warranty-feature img.okla-warranty-png,#content .okla-warranty-feature[data-tone] img.okla-warranty-png{display:block!important;position:static!important;flex:0 0 62px!important;width:62px!important;min-width:62px!important;max-width:62px!important;height:62px!important;min-height:62px!important;max-height:62px!important;margin:0!important;padding:0!important;object-fit:contain!important;object-position:center center!important;opacity:1!important;visibility:visible!important;mix-blend-mode:normal!important;filter:none!important;transform:none!important;background:transparent!important}
-@media(max-width:767px){#content .okla-warranty-intro{padding-left:20px!important}#content .okla-warranty-feature .okla-warranty-icon,#content .okla-warranty-feature[data-tone] .okla-warranty-icon{flex-basis:60px!important;width:60px!important;min-width:60px!important;max-width:60px!important;height:60px!important;min-height:60px!important;max-height:60px!important}#content .okla-warranty-feature img.okla-warranty-png,#content .okla-warranty-feature[data-tone] img.okla-warranty-png{flex-basis:56px!important;width:56px!important;min-width:56px!important;max-width:56px!important;height:56px!important;min-height:56px!important;max-height:56px!important}}
-
-
 /* OKLA V45 center H1; compact cards, dedicated arrow column; prevent cropping/overlap. */
 
-
-
-#content .okla-warranty-carousel{position:relative!important;}
-#content .okla-warranty-viewport{position:relative!important;height:120px!important;margin:0!important;padding:0!important;box-sizing:border-box!important;border-radius:8px!important}
-#content .okla-warranty-cards{display:flex!important;align-items:stretch!important;flex-wrap:nowrap!important;gap:11px!important;position:relative!important;width:100%!important;min-width:0!important;height:120px!important;margin:0!important;padding:0!important;overflow:visible!important;box-sizing:border-box!important}
-#content .okla-warranty-feature{display:flex!important;flex:0 0 calc((100% - 22px)/3)!important;width:calc((100% - 22px)/3)!important;min-width:0!important;max-width:none!important;height:118px!important;min-height:118px!important;max-height:118px!important;margin:0!important;padding:10px 11px!important;gap:8px!important;box-sizing:border-box!important}
-#content .okla-warranty-arrow{z-index:2!important;cursor:pointer!important}
-#content .okla-warranty-arrow svg{opacity:1!important;visibility:visible!important}
 #content .okla-slider-controls .okla-slider-prev svg,#content .okla-slider-controls .okla-slider-next svg{display:block!important;width:21px!important;height:21px!important;stroke:#fff!important;stroke-width:2.6!important;fill:none!important;opacity:1!important;visibility:visible!important}
 @media(min-width:1200px){#content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(265px,32%) minmax(0,1fr)!important;align-items:center!important;gap:12px!important;padding:18px 0!important}}
-@media(min-width:768px) and (max-width:1199px){#content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(205px,31%) minmax(0,1fr)!important;gap:10px!important;padding:15px 0!important}#content .okla-warranty-carousel{padding-right:10px!important}#content .okla-warranty-viewport,#content .okla-warranty-cards{height:117px!important}#content .okla-warranty-feature{flex:0 0 calc((100% - 11px)/2)!important;width:calc((100% - 11px)/2)!important;height:115px!important;min-height:115px!important;max-height:115px!important;padding:9px!important}}
-@media(max-width:767px){#content .okla-warranty-strip{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:19px 0!important}#content .okla-warranty-viewport,#content .okla-warranty-cards{height:116px!important}#content .okla-warranty-feature{flex:0 0 100%!important;width:100%!important;height:113px!important;min-height:113px!important;max-height:113px!important;padding:10px 12px!important}}
-
+@media(min-width:768px) and (max-width:1199px){#content .okla-warranty-strip{display:grid!important;grid-template-columns:minmax(205px,31%) minmax(0,1fr)!important;gap:10px!important;padding:15px 0!important}}
+@media(max-width:767px){#content .okla-warranty-strip{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:19px 0!important}}
 
 /* OKLA V46: restore original supporting warranty copy, aligned within the left text column. */
 
-
-
-#content .okla-warranty-copy .okla-warranty-heading{font-size:clamp(22px,1.9vw,27px)!important;}
-#content .okla-warranty-copy .okla-warranty-subtitle{font-size:15px!important;}
-#content .okla-warranty-copy .okla-warranty-legal{max-width:290px!important;font-size:11px!important;line-height:1.38!important;color:#5a6e85!important;text-align:center!important}
-
-#content .okla-warranty-intro .okla-warranty-more:hover{text-decoration:none!important}
 #content .homepage-group-title.okla-slider-heading{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;width:100%!important;min-width:0!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more{display:inline-flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;margin-left:auto!important;padding:4px 0 4px 12px!important;border:0!important;border-radius:0!important;background:transparent!important;color:#0647ad!important;font:600 14px/20px 'Open Sans','Segoe UI',Arial,sans-serif!important;letter-spacing:0!important;text-align:right!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:none!important;transition:color .15s ease!important}
 #content .homepage-group-title.okla-slider-heading .okla-section-more:hover{color:#092e70!important;text-decoration:underline!important}
@@ -708,64 +516,18 @@ body #header .navigation-buttons .okla-exact-header>.okla-exact-separator{displa
 body.type-detail #content .okla-detail-favorite{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:auto!important;min-height:34px!important;margin:12px 0 0!important;padding:7px 12px!important;background:#fff!important;color:#0645A8!important;border:1px solid #c4d3e7!important;border-radius:6px!important;box-shadow:none!important;font-size:12px!important;font-weight:600!important;cursor:pointer!important}
 body.type-detail #content .okla-detail-favorite svg{display:block!important;width:17px!important;height:17px!important;stroke:#0645A8!important;stroke-width:1.8!important;fill:none!important}
 body.type-detail #content .okla-detail-favorite.is-active svg{fill:#0645A8!important}
-@media(min-width:768px) and (max-width:1199px){#content .okla-warranty-copy .okla-warranty-legal{font-size:10px!important}}
-@media(max-width:767px){#content .okla-warranty-copy .okla-warranty-heading{font-size:22px!important}#content .okla-warranty-copy .okla-warranty-subtitle{font-size:14px!important}#content .okla-warranty-copy .okla-warranty-legal{font-size:11px!important}#content .homepage-group-title.okla-slider-heading .okla-section-more{font-size:12px!important;gap:3px!important;padding-left:8px!important}#content .homepage-group-title.okla-slider-heading .okla-section-more svg{width:13px!important;height:13px!important;min-width:13px!important}}
 
+@media(max-width:767px){#content .homepage-group-title.okla-slider-heading .okla-section-more{font-size:12px!important;gap:3px!important;padding-left:8px!important}#content .homepage-group-title.okla-slider-heading .okla-section-more svg{width:13px!important;height:13px!important;min-width:13px!important}}
 
 /* OKLA V47 — two-line warranty message like the supplied reference; shared type style. */
 #content .okla-warranty-strip{min-height:178px!important}
-#content .okla-warranty-intro{
- display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
- gap:0!important;min-width:0!important;min-height:0!important;margin:0!important;padding:14px 18px!important;text-align:left!important;
-}
-#content .okla-warranty-copy{
- display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;
- width:max-content!important;max-width:100%!important;min-width:0!important;gap:3px!important;margin:0 auto!important;
- padding:0!important;text-align:left!important;
-}
-#content .okla-warranty-copy .okla-warranty-heading,
-#content .okla-warranty-copy .okla-warranty-subtitle{
- display:block!important;position:static!important;align-self:flex-start!important;
- width:auto!important;max-width:100%!important;height:auto!important;min-height:0!important;
- margin:0!important;padding:0!important;
- font-family:'Open Sans','Segoe UI',Arial,sans-serif!important;
- font-size:clamp(20px,1.9vw,27px)!important;font-weight:800!important;line-height:1.19!important;
- letter-spacing:-.35px!important;color:#071b38!important;text-align:left!important;text-transform:none!important;
-}
-#content .okla-warranty-copy .okla-warranty-subtitle{white-space:nowrap!important}
-#content .okla-warranty-copy .okla-warranty-legal{display:none!important}
-#content .okla-warranty-intro .okla-warranty-more{
- display:inline-flex!important;position:static!important;align-items:center!important;justify-content:center!important;
- align-self:flex-start!important;width:auto!important;max-width:100%!important;min-width:0!important;height:33px!important;min-height:33px!important;
- margin:11px 0 0!important;padding:0 14px!important;background:#0645A9!important;border:1px solid #0645A9!important;
- border-radius:7px!important;color:#fff!important;font-family:'Open Sans',Arial,sans-serif!important;font-size:12px!important;
- font-weight:700!important;line-height:1!important;text-decoration:none!important;box-shadow:none!important;white-space:nowrap!important;
-}
-#content .okla-warranty-intro .okla-warranty-more:hover,#content .okla-warranty-intro .okla-warranty-more:focus{
- background:#053a8d!important;border-color:#053a8d!important;color:#fff!important;
-}
-@media(min-width:768px) and (max-width:1199px){
- #content .okla-warranty-intro{padding:12px 10px!important}
- #content .okla-warranty-copy .okla-warranty-heading,#content .okla-warranty-copy .okla-warranty-subtitle{
-  font-size:clamp(18px,1.9vw,23px)!important;
- }
-}
+
 @media(max-width:767px){
  #content .okla-warranty-strip{min-height:0!important}
- #content .okla-warranty-intro{padding:16px 18px 12px!important}
- #content .okla-warranty-copy .okla-warranty-heading,#content .okla-warranty-copy .okla-warranty-subtitle{
-  font-size:clamp(19px,5vw,22px)!important;line-height:1.2!important;
- }
- #content .okla-warranty-intro .okla-warranty-more{height:32px!important;min-height:32px!important;margin-top:10px!important}
-}
 
+}
 
 /* OKLA V48: compact responsive typography without a third wrapped line. CTA stays in the shared text group. */
-@media(min-width:768px) and (max-width:1199px){
- #content .okla-warranty-copy .okla-warranty-heading,
- #content .okla-warranty-copy .okla-warranty-subtitle{font-size:clamp(16px,1.95vw,23px)!important}
-}
-
 
 /* OKLA V49: one vertical-center control pair per product slider, consistent Alza-like navigation. */
 #content .okla-slider-shell{position:relative!important;isolation:isolate!important}
@@ -799,22 +561,7 @@ body.type-index #content-wrapper #content .okla-warranty-strip{
  padding:18px 0!important;border:0!important;border-radius:0!important;overflow:hidden!important;
  background:#eef3fd!important;background-image:linear-gradient(98deg,#eff5fe 0%,#edf3fd 62%,#edf2fc 100%)!important;
 }
-#content .okla-warranty-carousel{
- 
- align-items:center!important;gap:11px!important;
- overflow:visible!important;
-}
-#content .okla-warranty-viewport{display:block!important;min-width:0!important;max-width:100%!important;width:100%!important;overflow:hidden!important}
-#content .okla-warranty-arrow{
- 
- 
- flex:0 0 34px!important;
- 
- 
- background:#0645A8!important;color:#fff!important;box-shadow:0 1px 4px rgba(16,43,84,.16)!important;
-}
-#content .okla-warranty-arrow svg{display:block!important;width:20px!important;height:20px!important;stroke:#fff!important;stroke-width:2.5!important;fill:none!important}
-#content .okla-warranty-arrow:hover{background:#053A8D!important}
+
 /* Stable product art box, uniform product information and quantity/product-name-safe proportions. */
 @media(min-width:992px){
 #content .okla-slider-track>.product .p{
@@ -856,22 +603,20 @@ body.type-index #content-wrapper #content .okla-warranty-strip{
 }
 @media(min-width:768px) and (max-width:991px){
 body.type-index #content-wrapper #content .okla-warranty-strip{grid-template-columns:minmax(205px,31%) minmax(0,1fr)!important}
-#content .okla-warranty-carousel{gap:8px!important}
+
 }
 @media(max-width:767px){
 body.type-index #content-wrapper #content .okla-warranty-strip{
  display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:14px!important;padding:18px 0!important;
 }
-#content .okla-warranty-carousel{gap:8px!important;}
 
 #content .okla-slider-track>.product .p>a.image img{transform:none!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important}
 #content .okla-slider-shell>.okla-slider-controls{display:none!important}
 }
 
-
 /* OKLA V50 — no sidebar bleed for warranty; full right content column only. */
 body.type-index #content-wrapper main#content #okla-warranty-strip{position:relative!important}
-body.type-index #content-wrapper main#content #okla-warranty-strip .okla-warranty-more{background:#0645A9!important;color:#fff!important}
+
 /* Product hover is distinct from cart-button hover: move pointer onto button to highlight button. */
 @media(hover:hover) and (pointer:fine){
  #content .okla-slider-track>.product:hover .p-tools .btn-cart:not(:hover):not(:focus-visible),
@@ -959,8 +704,6 @@ body.type-index #content-wrapper main#content #okla-warranty-strip .okla-warrant
  }
 }
 
-
-
 /* OKLA V51: eliminate every additional header divider/ring; only the two explicit separators remain. */
 @media(min-width:992px){
 body #header .header-top .navigation-buttons .okla-exact-header::before,
@@ -981,19 +724,15 @@ body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-sepa
 }
 }
 
-
-
 /* OKLA V52: warranty arrow fully inside RIGHT content corridor and exactly two header separators. */
 @media(min-width:768px){
 body.type-index #content-wrapper main#content #okla-warranty-strip{
  padding-top:18px!important;padding-bottom:18px!important;
 }
 
-
 }
 @media(max-width:767px){
 body.type-index #content-wrapper main#content #okla-warranty-strip{padding:18px 12px!important}
-
 
 }
 @media(min-width:992px){
@@ -1006,7 +745,6 @@ body #header .header-top .navigation-buttons .okla-exact-header>.okla-exact-sepa
 }
 }
 
-
 /* OKLA V53 — no left gutter between the sidebar and warranty band; no right gutter behind the arrow. */
 body.type-index #content-wrapper main#content #okla-warranty-strip{
   box-sizing:border-box!important;
@@ -1014,23 +752,9 @@ body.type-index #content-wrapper main#content #okla-warranty-strip{
   border-left:0!important;border-right:0!important;
   border-radius:0!important;max-width:none!important;
 }
-#content .okla-warranty-carousel{
- display:grid!important;grid-template-columns:minmax(0,1fr) 34px!important;
- column-gap:10px!important;box-sizing:border-box!important;
- width:100%!important;min-width:0!important;max-width:100%!important;
- margin:0!important;padding:0!important;
-}
-#content .okla-warranty-arrow{
- display:grid!important;place-items:center!important;
- position:relative!important;right:0!important;left:auto!important;
- top:auto!important;bottom:auto!important;align-self:center!important;justify-self:end!important;
- width:34px!important;min-width:34px!important;max-width:34px!important;
- height:64px!important;min-height:64px!important;max-height:64px!important;
- margin:0!important;padding:0!important;border:0!important;border-radius:6px 0 0 6px!important;
- transform:none!important;
-}
+
 @media(max-width:767px){
 body.type-index #content-wrapper main#content #okla-warranty-strip{padding-left:0!important;padding-right:0!important}
-#content .okla-warranty-carousel{padding:0!important}
+
 }
 

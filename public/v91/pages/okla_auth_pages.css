@@ -6,14 +6,18 @@
    already creates the account, so a separate social sign-up is redundant. */
 
 /* Hide the shop chrome. */
-:where(html:not(.okla-os-login-combo)) body.in-login #header,body.in-registrace #header,
-:where(html:not(.okla-os-login-combo)) body.in-login #footer,body.in-registrace #footer,
-:where(html:not(.okla-os-login-combo)) body.in-login .breadcrumbs-wrapper,body.in-registrace .breadcrumbs-wrapper,
-:where(html:not(.okla-os-login-combo)) body.in-login .breadcrumbs,body.in-registrace .breadcrumbs,
-:where(html:not(.okla-os-login-combo)) body.in-login .navigation-in,body.in-registrace .navigation-in,
-:where(html:not(.okla-os-login-combo)) body.in-login #okla-v61-bottom,body.in-registrace #okla-v61-bottom,
-:where(html:not(.okla-os-login-combo)) body.in-login .okla-m-bottomnav,body.in-registrace .okla-m-bottomnav,
-:where(html:not(.okla-os-login-combo)) body.in-login .okla-footer-mobile-promo,body.in-registrace .okla-footer-mobile-promo{display:none!important}
+:where(html:not(.okla-os-login-combo)) body.in-login #header,
+body.in-registrace #header,
+:where(html:not(.okla-os-login-combo)) body.in-login #footer,
+body.in-registrace #footer,
+:where(html:not(.okla-os-login-combo)) body.in-login .breadcrumbs-wrapper,
+body.in-registrace .breadcrumbs-wrapper,
+:where(html:not(.okla-os-login-combo)) body.in-login .breadcrumbs,
+body.in-registrace .breadcrumbs,
+:where(html:not(.okla-os-login-combo)) body.in-login .navigation-in,
+body.in-registrace .navigation-in,
+:where(html:not(.okla-os-login-combo)) body.in-login #okla-v61-bottom,
+body.in-registrace #okla-v61-bottom{display:none!important}
 
 /* Registration: no social sign-up buttons (social login already creates the
    account), no wholesale/customer-type choice, and no optional company billing

@@ -7,14 +7,6 @@ html body.ordering-process .okla-cart-aside__card:not(#oca-a#oca-b#oca-c#oca-d#o
 html body.ordering-process .okla-cart-aside__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e),
 html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0 0 12px;padding:0;border:0;color:#0b2540;font:600 16px/1.3 "Open Sans",Arial,sans-serif;letter-spacing:0;text-transform:none}
 html body.in-kosik .okla-cart-summary__title:not(#oca-a#oca-b#oca-c#oca-d#oca-e){margin:0;font-size:18px}
-html body.ordering-process .okla-cart-aside__list:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
-html body.ordering-process .okla-cart-aside__list li:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:grid;grid-template-columns:24px minmax(0,1fr);column-gap:12px;align-items:start;margin:0;padding:0;color:#46556a;font:400 13px/1.45 "Open Sans",Arial,sans-serif}
-html body.ordering-process .okla-cart-aside__list li::before{content:none!important}
-html body.ordering-process .okla-cart-aside__list svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){width:22px;height:22px;margin-top:1px;fill:none;stroke:#164194;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-html body.ordering-process .okla-cart-aside__list strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;color:#0b2540;font:600 14px/1.35 "Open Sans",Arial,sans-serif}
-html body.ordering-process .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:inline-block;margin-top:14px;color:#0859d8;font:600 14px/1.3 "Open Sans",Arial,sans-serif;text-decoration:none}
-html body.ordering-process .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e)::after{content:" ›"}
-html body.ordering-process .okla-cart-aside__more:not(#oca-a#oca-b#oca-c#oca-d#oca-e):hover{text-decoration:underline}
 
 /* help card, Alza style (okla_checkout_alza.js, HELP_HTML): the heading and a short line across the top; under them,
    on the left, one row per way to reach us - the icon (a blue line drawing) on a light grey disc, the name in bold and one grey line; under

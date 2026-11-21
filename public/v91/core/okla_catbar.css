@@ -83,11 +83,7 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__img img.is-photo{opacity:1!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__body{min-width:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__title{display:block!important;margin:0!important;color:#081d3a!important;-webkit-text-fill-color:#081d3a!important;font:600 15px/1.3 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links{margin:0!important;padding:0!important;list-style:none!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links li{margin:0!important;padding:0!important;list-style:none!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links li::before{content:none!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links a{display:block!important;overflow:hidden!important;padding:2px 0!important;color:#2b3a4e!important;-webkit-text-fill-color:#2b3a4e!important;font:400 13.5px/1.45 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;text-overflow:ellipsis!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__more a{color:#2b3a4e!important;-webkit-text-fill-color:#2b3a4e!important}
+
 }
 /* one short line about the subcategory under its name, and the category's own line beside its name (okla_cat_text.js) */
 @media(min-width:992px){
@@ -97,8 +93,7 @@ html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b)::after{content
 /* hover, the same as the category page's tiles: the tile a shade darker and the name in the shop blue, never underlined
    (the line under it stays grey) */
 @media(min-width:992px) and (hover:hover){
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub:hover .okcb-sub__title,
-  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub__links a:hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;text-decoration:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#okcb-a#okcb-b) .okcb-sub:hover .okcb-sub__title{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;text-decoration:none!important}
 }
 /* the whole tile opens the subcategory */
 @media(min-width:992px){

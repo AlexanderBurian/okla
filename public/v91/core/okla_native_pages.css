@@ -547,41 +547,41 @@ html body #content-wrapper aside.sidebar.sidebar-left .box-onlinePayments img{
 }
 
 /* ---------- Empty category ("Produkty teprve připravujeme") ----------
-   Same language as the Okla 404 page: one centred white card, the checkout parcel
-   pictogram instead of Shoptet's grey icon-font box, dark
-   headline, grey help text and the green checkout button with dark text. */
+   The same look as the empty cart (okla_empty_states.css): a blue line drawing of a parcel on a light blue circle
+   instead of Shoptet's grey icon-font box, the dark headline, one grey line and the blue button, in the page's own
+   white island (no card of its own). */
 html body #content .empty-content-category{
-  max-width:560px!important;margin:32px auto 56px!important;padding:40px 36px 36px!important;box-sizing:border-box!important;
-  background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;
+  max-width:560px!important;margin:24px auto 40px!important;padding:24px 20px 8px!important;box-sizing:border-box!important;
+  background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;
   text-align:center!important;font-family:"Open Sans",Arial,sans-serif!important;
 }
 html body #content .empty-content-category::before{
-  content:""!important;display:block!important;width:72px!important;height:72px!important;margin:0 auto 16px!important;
-  /* the same cardboard parcel pictogram as the checkout steps (okla_checkout_ui.js) */
-  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Cpath%20d%3D%22M24%205%2042%2014%2024%2023%206%2014Z%22%20fill%3D%22%23ebc996%22%2F%3E%3Cpath%20d%3D%22M6%2014%2024%2023V43L6%2034Z%22%20fill%3D%22%23cf9a5f%22%2F%3E%3Cpath%20d%3D%22M42%2014%2024%2023V43L42%2034Z%22%20fill%3D%22%23b8814a%22%2F%3E%3Cpath%20d%3D%22M17.2%208.4%2035.2%2017.4%2030.8%2019.6%2012.8%2010.6Z%22%20fill%3D%22%23f6e6c6%22%2F%3E%3Cpath%20d%3D%22M30.8%2019.6%2035.2%2017.4V24.4L30.8%2026.6Z%22%20fill%3D%22%23e3c99d%22%2F%3E%3Cpath%20d%3D%22M10%2027.5%2017%2031V35.2L10%2031.7Z%22%20fill%3D%22%23fbf3e3%22%2F%3E%3Cpath%20d%3D%22M6%2014%2024%2023%2042%2014%22%20fill%3D%22none%22%20stroke%3D%22%23f4dcb2%22%20stroke-width%3D%22.8%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M24%2023V43%22%20stroke%3D%22%239a6a38%22%20stroke-width%3D%22.8%22%2F%3E%3C%2Fsvg%3E") center/72px 72px no-repeat!important;
+  content:""!important;display:block!important;width:150px!important;height:150px!important;margin:0 auto 26px!important;
+  /* the same picture style as the empty cart: a blue line drawing (a parcel) on a light blue circle */
+  background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20120%20120%22%20fill%3D%22none%22%3E%3Ccircle%20cx%3D%2260%22%20cy%3D%2260%22%20r%3D%2256%22%20fill%3D%22%23eaf1fd%22%2F%3E%3Cpath%20d%3D%22M36%2045%2060%2033l24%2012v30L60%2087%2036%2075z%22%20stroke%3D%22%230859d8%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M36%2045l24%2012%2024-12M60%2057v30%22%20stroke%3D%22%230859d8%22%20stroke-width%3D%225%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22%2F%3E%3Cpath%20d%3D%22m48%2039%2024%2012%22%20stroke%3D%22%23a9c4ef%22%20stroke-width%3D%225%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;
 }
 html body #content .empty-content-category h2{
   margin:0 0 8px!important;padding:0!important;border:0!important;background:none!important;
-  font:700 22px/1.3 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#0b2540!important;
+  font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#0b2540!important;
 }
 html body #content .empty-content-category h2::before,
 html body #content .empty-content-category h2::after{content:none!important;display:none!important}
 html body #content .empty-content-category p{
-  margin:0 0 24px!important;padding:0!important;font:400 16px/1.5 "Open Sans",Arial,sans-serif!important;color:#6b7280!important;
+  margin:0 0 26px!important;padding:0!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important;color:#46556a!important;
 }
 html body #content .empty-content-category p:last-child{margin:0!important}
 html body #content .empty-content-category .btn{
   display:inline-flex!important;align-items:center!important;justify-content:center!important;
-  min-width:240px!important;height:52px!important;margin:0!important;padding:0 32px!important;box-sizing:border-box!important;
-  border:1px solid #0859d8!important;border-radius:10px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
+  min-width:210px!important;height:50px!important;margin:0!important;padding:0 28px!important;box-sizing:border-box!important;
+  border:1px solid #0859d8!important;border-radius:8px!important;background:#0859d8!important;background-image:none!important;box-shadow:none!important;
   font:700 15px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;text-transform:none!important;color:#fff!important;text-decoration:none!important;
   transition:background-color .15s ease,border-color .15s ease!important;
 }
 /* hover: the shared subtle darkening of the green (8% towards black), never Shoptet's purple default */
 html body #content .empty-content-category .btn:not(#okla-ec-a#okla-ec-b#okla-ec-c#okla-ec-d#okla-ec-e#okla-ec-f):is(:hover,:focus,:focus-visible,:active){background:#0859d8!important;background-color:#0859d8!important;background-image:none!important;border-color:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important;filter:none!important;box-shadow:none!important}
 @media(max-width:767px){
-  html body #content .empty-content-category{margin:16px 0 32px!important;padding:32px 20px 28px!important}
-  html body #content .empty-content-category::before{width:64px!important;height:64px!important;background-size:64px 64px!important}
+  html body #content .empty-content-category{margin:16px 0 32px!important;padding:16px 0 8px!important}
+  html body #content .empty-content-category::before{width:120px!important;height:120px!important}
   html body #content .empty-content-category h2{font-size:20px!important}
   html body #content .empty-content-category .btn{width:100%!important;min-width:0!important}
 }

@@ -29,7 +29,7 @@
   brands.forEach(function(entry){
    var brand=entry[0],file=entry[1];
    var link=document.createElement('a');link.className='okla-brands__item';link.href='/vyhledavani/?string='+encodeURIComponent(brand);link.setAttribute('data-brand',brand);link.setAttribute('aria-label','Produkty značky '+brand);
-   var logo=document.createElement('img');logo.className='okla-brands__logo';logo.src=base+'v91/img/brands/'+file;logo.alt=brand;logo.decoding='async';logo.draggable=false;link.appendChild(logo);track.appendChild(link);
+   var logo=document.createElement('img');logo.className='okla-brands__logo';logo.loading='lazy';logo.src=base+'v91/img/brands/'+file;logo.alt=brand;logo.decoding='async';logo.draggable=false;link.appendChild(logo);track.appendChild(link);
   });
   var controls=document.createElement('span');controls.className='okla-slider-controls';
   var left=document.createElement('button'),right=document.createElement('button');left.type=right.type='button';

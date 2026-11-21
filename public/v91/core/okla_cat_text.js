@@ -47,6 +47,25 @@
   };
   var LANGS = ['cs', 'sk', 'en', 'hu'];
   function path(href) { try { return new URL(href, location.origin).pathname.replace(/\/?$/, '/'); } catch (e) { return String(href || ''); } }
+  /* a category name saved in capitals in Shoptet ("PŘÍSLUŠENSTVÍ") shows as "Příslušenství" wherever category names
+     stand: the left column, the breadcrumbs, the phone menus, the subcategory tiles */
+  var NAMES = 'aside.sidebar .box-categories a, .breadcrumbs a, .breadcrumbs [itemprop="name"], #okla-v61-drawer a, ul.subcategories a, #navigation a, .okla-tb-panel a';
+  function nice(t) { return t.charAt(0) + t.slice(1).toLocaleLowerCase('cs'); }
+  function fixCaps() {
+    document.querySelectorAll(NAMES).forEach(function (el) {
+      var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n;
+      while ((n = w.nextNode())) {
+        var t = n.nodeValue.trim();
+        if (t.length >= 5 && /[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]{4}/.test(t) && t === t.toLocaleUpperCase('cs') && t !== t.toLocaleLowerCase('cs')) n.nodeValue = n.nodeValue.replace(t, nice(t));
+      }
+    });
+  }
+  var queued = false;
+  function soon() { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; fixCaps(); }); } }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', soon, {once: true}); else soon();
+  window.addEventListener('load', soon);
+  if (window.MutationObserver) new MutationObserver(function (r) { for (var i = 0; i < r.length; i++) if (r[i].addedNodes.length) { soon(); return; } }).observe(document.documentElement, {childList: true, subtree: true});
+
   window.oklaCatText = function (href) {
     var row = T[path(href)];
     if (!row) return '';

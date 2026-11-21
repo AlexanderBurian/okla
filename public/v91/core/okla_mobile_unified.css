@@ -53,7 +53,6 @@ body.type-index #content-wrapper main#content{display:block!important;position:r
 #okla-v61-categories:not(.is-expanded) .okm61-category:nth-child(n+9){display:none!important}
 #content .homepage-group-title.okla-slider-heading{line-height:1.3!important;}
 
-
 #content .okla-slider-shell>.okla-slider-controls,#content .okla-slider-controls{display:none!important}
 #content .okla-slider-shell .okla-slider-viewport{min-height:0!important;touch-action:pan-y!important}
 #content .okla-slider-shell .products.products-block.okla-slider-track{position:relative!important;will-change:auto!important;}
@@ -78,7 +77,7 @@ body.type-index #content-wrapper main#content{display:block!important;position:r
 #content .okm61-product-more{display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;min-height:38px!important;padding:4px!important;border:0!important;border-bottom:1px solid #e2e8f1!important;border-radius:0!important;background:#fff!important;color:#074ab5!important;font:700 12px "Open Sans",Arial,sans-serif!important;cursor:pointer!important}
 #content .okm61-product-more svg{width:16px!important;height:16px!important;stroke:currentColor!important;stroke-width:2!important;fill:none!important}
 #content #okla-warranty-strip{position:relative!important;left:auto!important;right:auto!important;flex-direction:column!important;align-items:stretch!important;gap:12px!important;width:calc(100% + 28px)!important;min-width:0!important;max-width:none!important;min-height:0!important;margin:23px -14px 25px!important;padding:20px 10px!important}
-#content #okla-warranty-strip .okla-warranty-intro{padding:0 10px!important}
+
 #content #okla-news-v55{margin-top:26px!important}
 #content #okla-news-v55 .okn-grid{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:24px!important}
 #content #okla-news-v55 .okn-card,#content #okla-news-v55 .okn-card:nth-child(-n+2){grid-column:1/-1!important}
@@ -164,20 +163,15 @@ body.type-index #content-wrapper main#content{width:100%!important;max-width:100
 #content .okla-slider-shell .okla-slider-track>.product .p{transform:none!important}
 #content .okla-slider-shell .okla-slider-track>.product .p>a.image{max-width:none!important;}
 
-
 #content .okla-slider-shell .okla-slider-track>.product .ratings-wrapper,#content .okla-slider-shell .okla-slider-track>.product .ratings-wrapper.okla-ratings{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:center!important;min-height:18px!important;height:18px!important;max-height:18px!important;width:100%!important;margin:1px 0 5px!important;padding:0!important;overflow:hidden!important;white-space:nowrap!important;line-height:16px!important;font-size:10px!important}
 #content .okla-slider-shell .okla-slider-track>.product a.name{max-width:100%!important;font-weight:650!important;}
 #content .okla-slider-shell .okla-slider-track>.product .availability{max-width:100%!important;}
 #content .okla-slider-shell .okla-slider-track>.product .p-bottom{margin-top:auto!important;}
 
-
 #content .okla-slider-shell .okla-slider-track>.product .prices:before{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 19px!important;width:100%!important;height:19px!important;min-height:19px!important;line-height:19px!important;font-size:9px!important}
-
-
 
 /* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed *//* obsolete pre-V77 cart style removed */
 #content .okm61-product-more{width:100%!important;margin:8px 0 23px!important}
-
 
 }
 @media(min-width:768px){
@@ -188,8 +182,6 @@ body.type-index #content-wrapper main#content{width:100%!important;max-width:100
 
 @media(max-width:767px){
 /* Scroll-direction header: displayed at page top, hidden on downward scroll, white on upward scroll */
-
-
 
 body:not(.okla-v66-show-header):not(.okla-v66-hide-header) #header #okla-v61-header{background:linear-gradient(180deg,#e5f5ff,#eef8ff 68%,#fff)!important;box-shadow:none!important}
 
@@ -243,7 +235,6 @@ html body #header #okla-v61-header .okm61-logo img{max-width:148px!important;max
 @media(max-width:767px){
 html,body{margin-top:0!important;padding-top:0!important}
 body #header,body.okla-v65-white-header #header,body.okla-v66-hide-header #header,body.okla-v66-show-header #header{position:relative!important;top:auto!important;transform:none!important;transition:none!important;will-change:auto!important;pointer-events:auto!important;margin-top:0!important;padding-top:0!important}
-
 
 body #header #okla-v61-header .okm61-logo img{transform:none!important}
 #okla-v69-floating .okm69-search button svg{display:block!important;position:static!important;width:21px!important;height:21px!important;stroke:#0646AB!important;stroke-width:2.1!important;fill:none!important;stroke-linecap:round!important;stroke-linejoin:round!important;transform:none!important}
@@ -303,12 +294,10 @@ body.type-index #content .okla-slider-shell .product .p-tools form{float:none!im
 /* okla_mobile_v73.js */
 
 /* V73 — keep warranty hidden on all breakpoints, all other content intact */
-#content #okla-warranty-strip,#content .okla-warranty-strip,
-#content .okla-warranty-carousel,#content .okla-warranty-intro,
-#content .okla-warranty-cards{display:none!important}
+#content #okla-warranty-strip,
+#content .okla-warranty-strip{display:none!important}
 @media(max-width:767px){
 /* wide, very soft background that gently reaches the first rows of categories */
-
 
 #content #okla-v61-dots,#content #okla-v61-categories{background:transparent!important}
 /* Ratings sit consistently above product title, without inventing genuine reviews */
@@ -385,8 +374,7 @@ html body.type-index #content-wrapper main#content {
   box-shadow:none!important;
 }
 /* Keep true white floating bar on upward scrolling, not part of page gradient. */
-html body #okla-v69-floating,
-html body #okla-v70-floating {background:#fff!important;}
+html body #okla-v69-floating{background:#fff!important;}
 /* Remove needless vertical strip beneath bottom menu content.
    Stay above the OS gesture bar via safe-area padding. */
 html body #okla-v61-bottom {
@@ -746,12 +734,8 @@ html body #okla-v61-bottom .okm61-bottom-action span {
   }
 
   /* D — green centred native Shoptet action + outline cart glyph */
-  
-  
-  
-  
-}
 
+}
 
 /* All devices: the site's pictures cannot be dragged out of the page (okla_behavior.js stops it in every browser) */
 html body img{-webkit-user-drag:none;user-drag:none}

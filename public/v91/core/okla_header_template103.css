@@ -1,7 +1,6 @@
 /* Header language controls are replaced by the footer switch at every width. */
 html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
-html body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale,
-html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
+html body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale{display:none!important}
 /* Desktop account and cart artwork. Badge is the only overlapping element. */
 @media (min-width:992px){
   html.okla-header-template103 body #header .header-top{
@@ -70,10 +69,7 @@ html body #okla-v61-header .okm61-top .okla-lang-mobile{display:none!important}
        group; the grid is right-aligned, so this moves the login to the right. */
     
     position:relative!important;
-    
-    
-    
-    
+
     min-width:0!important;
     max-width:none!important;
     

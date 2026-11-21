@@ -12,6 +12,8 @@
 
  function build(){
   var sec=el('section');sec.id='okla-promo-deals';sec.className='okla-campaign';
+  /* the card's background pictures load only once it comes near the screen (okla_home_promo.css, .is-near) */
+  if('IntersectionObserver' in window){var near=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){sec.classList.add('is-near');near.disconnect()}},{rootMargin:'700px 0px'});near.observe(sec)}else sec.classList.add('is-near');
   sec.setAttribute('aria-label','Flipper ONE a LILYGO T-Embed');
   var grid=el('div','okla-campaign__grid');
 

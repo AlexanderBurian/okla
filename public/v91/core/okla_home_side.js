@@ -103,10 +103,14 @@
   return /(^|\s)in-klient/.test(document.body.className);
  }
 
+ /* the art (its pictures and the live price, which reads a whole product page) is made only where it can be shown: a
+    wide enough window on a page that has it - never on phones */
+ function wanted(){return window.matchMedia('(min-width:768px)').matches&&!offPage()}
  function layout(){
   var left=document.getElementById('okla-side-left');
   var right=document.getElementById('okla-side-right');
   var card=document.querySelector('#content-wrapper');
+  if((!left||!right)&&wanted()){build();left=document.getElementById('okla-side-left');right=document.getElementById('okla-side-right')}
   if(!left||!right)return;
   /* Everything is computed in the units of the proportionally zoomed page
      (window.__oklaDZ); the art itself is zoomed the same way in CSS. */
@@ -162,7 +166,6 @@
 
  function start(){
   if(!document.body)return;
-  build();
   layout();
   window.addEventListener('resize',schedule);
   /* The card moves when the header grows (the category bar is added after this script) or anything above it changes

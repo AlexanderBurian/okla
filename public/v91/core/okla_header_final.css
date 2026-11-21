@@ -126,26 +126,16 @@
   transform:none!important;
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{
-  
-  
-  
+
   padding-top:0!important;
   padding-bottom:0!important;
  }
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count>.okla-cart-symbol{
-  
-  
-  
-  
+
   min-width:28px!important;
-  
-  
+
   align-self:center!important;
-  
-  
-  
-  
-  
+
  }
  /* Price and icon: both have the same 30px-high center aligned box.
     The quantity badge alone is allowed to sit higher than this axis. */
@@ -153,20 +143,9 @@
   position:relative!important;
   
   align-self:center!important;
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
   bottom:auto!important;
-  
-  
-  
-  
+
   vertical-align:middle!important;
  }
  
@@ -179,7 +158,6 @@
   transform:none!important;
  }
 }
-
 
 /* Okla V102: top flag blue rim and basket badge to the LEFT of icon. */
 @media(min-width:992px){
@@ -201,11 +179,7 @@
    filter:none!important;
  }
  /* Only selected/trigger flag carries the outline: dropdown choices do not. */
- html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>.okla-header-locale .okla-lang-menu svg.okla-lang-flag{
-   border:0!important;
-   outline:0!important;
-   box-shadow:none!important;
- }
+ 
  /* Allow price to grow naturally, keeping the down-chevron as a visible,
     separate control. 14px left inset reserves a dedicated badge area. */
  html.okla-header-reference body #header .header-top .navigation-buttons>.okla-exact-header>a.cart-count{

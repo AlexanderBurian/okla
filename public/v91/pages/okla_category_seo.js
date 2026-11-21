@@ -187,7 +187,8 @@
   var p=location.pathname;if(p.charAt(p.length-1)!=='/')p+='/';
   var t=T[p];if(!t||!/^cs/.test(lang()))return true;
   var h1=document.querySelector('#content h1');if(!h1)return false;
-  var perex=document.querySelector('#content .category-perex');
+  /* (Shoptet's "no products yet" box carries the same class: it is not a description) */
+  var perex=document.querySelector('#content .category-perex:not(.empty-content)');
   var hasOwn=perex&&(perex.textContent||'').replace(/\s+/g,'').length>20;
   if(!hasOwn&&!document.querySelector('.okla-cat-intro')){
    var intro=document.createElement('p');intro.className='okla-cat-intro';intro.textContent=t.intro;

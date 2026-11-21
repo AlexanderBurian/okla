@@ -37,8 +37,7 @@
   }
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart.is-active svg{color:#0646ab!important}
   /* the number of items, top right on the round button (the PC badge's blue) */
-  
-  
+
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:active::before{transform:scale(.95)!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible{outline:0!important}
   html.okla-tb-on body #okla-v61-bottom .okm61-bottom-action.okla-tb-cart:focus-visible::before{border-color:#0857d3!important}
@@ -111,8 +110,7 @@
   /* Menu: the sign-in card keeps the same side margins as the cards under it */
   html.okla-tb-on body #okla-v61-drawer .okla-mm-account-card{box-sizing:border-box!important;width:auto!important;max-width:none!important;}
   /* menu icons are drawn as outlines: their inner marks (the "i", the tick, the dots) take the icon's colour */
-  html.okla-tb-on body #okla-v61-drawer .okla-mm-row .okla-mm-svg .okla-mm-cut{stroke:currentColor!important}
-  html.okla-tb-on body #okla-v61-drawer .okla-mm-row .okla-mm-svg .okla-mm-dot{fill:currentColor!important}
+
   @media(prefers-reduced-motion:reduce){
     html.okla-tb-on body #okla-v61-drawer:not(#okla-tb-a#okla-tb-b) .okm61-drawer-body{transition:none!important}
   }

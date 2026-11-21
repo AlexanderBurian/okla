@@ -39,7 +39,6 @@ html body.ok89-detail #content .p-detail .p-info-wrapper>.ok86-description-link{
 html body.ok89-detail #content .p-detail .ok86-description-link a{color:var(--okd-blue)!important;font-size:13px!important}
 html body.ok89-detail #content .p-detail .p-info-wrapper>.availability-value{display:flex!important;align-items:center!important;flex-wrap:wrap!important;width:100%!important;margin:0 0 16px!important;border:0!important;}
 
-
 html body.ok89-detail #content .p-detail .p-final-price-wrapper{position:static!important;display:block!important;float:none!important;width:100%!important;margin:0 0 16px!important;padding:0!important;border:0!important;background:transparent!important}
 html body.ok89-detail #content .p-detail .price-final,html body.ok89-detail #content .p-detail .price-final *{font:800 32px/1.25 var(--okd-font)!important}
 html body.ok89-detail #content .p-detail .p-detail-inner-header .p-code{display:none!important}
@@ -87,7 +86,6 @@ html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards)
 html body.ok89-detail #content .ok86-related .okla-slider-track:not(.okla-cards) .btn-cart svg.ok89-cart{display:none!important}
 /* 6f. Tabs: full-width baseline, inactive tabs light grey, active tab keeps its blue top bar aligned with the others. */
 
-
 html body.ok89-detail #content .shp-tabs-row{width:100%!important}
 /* 7. Actual Shoptet native tabs; the list itself is styled to avoid wrapper-name mismatch. */
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper){display:block!important;box-sizing:border-box!important;position:relative!important;float:none!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:40px 0 0!important;padding:0!important;background:#fff!important;border:0!important;box-shadow:none!important}
@@ -104,7 +102,7 @@ html body.ok89-detail #content ul.p-detail-tabs>li>a:hover{color:var(--okd-blue)
 html body.ok89-detail #content :is(.p-detail-tabs-wrapper,.p-details-tabs-wrapper) :is(#tab-content,.tab-content){float:none!important;display:block!important;width:100%!important;max-width:100%!important;min-width:0!important;margin:0!important;padding:24px 0 0!important;background:#fff!important}
 /* 8. Content, params (35/65) and separators. */
 html body.ok89-detail #content .p-detail .description-inner,html body.ok89-detail #content .p-detail-tabs-wrapper .description-inner{color:#262626!important;font:400 15px/1.6 var(--okd-font)!important}
-html body.ok89-detail #content .okla-key-features,html body.ok89-detail #content .ok86-compatibility{background:#F5F5F5!important;border-radius:6px!important;padding:20px!important;margin:16px 0 24px!important}
+html body.ok89-detail #content .ok86-compatibility{background:#F5F5F5!important;border-radius:6px!important;padding:20px!important;margin:16px 0 24px!important}
 html body.ok89-detail #content .ok86-params{width:100%!important;border-collapse:collapse!important;table-layout:fixed!important;font-size:14px!important}
 html body.ok89-detail #content .ok86-params tr:nth-child(even){background:#F7F9FC!important}
 html body.ok89-detail #content .ok86-params tr:nth-child(odd){background:#fff!important}
@@ -286,7 +284,6 @@ html body.ok89-detail #content-wrapper::before{top:-4px!important;left:0!importa
 html body.ok89-detail #content .p-detail-tabs-wrapper .shp-tabs-row{padding-left:32px!important}
 }
 
-
 html body.ok89-detail #content .ok99-tab-house{display:inline-block!important;width:18px!important;height:18px!important;font-size:0!important;line-height:0!important;vertical-align:middle!important;background-color:#4A4A4A!important;-webkit-mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%203%202%2012h3v9h6v-6h2v6h6v-9h3z%27%2F%3E%3C%2Fsvg%3E") center/contain no-repeat!important}
 html body.ok89-detail #content ul.p-detail-tabs>li.active .ok99-tab-house{background-color:#1A1A1A!important}
 /* 8v. Alza comparison (1:1 measure): tabs have square corners, 41 px tall incl. the 3 px cap, 4-5 px between tabs. */
@@ -322,13 +319,6 @@ html body.ok89-detail #content ul.p-detail-tabs>li.active::before{content:""!imp
 /* 8am. Cart button transition as on homepage: background and outline fade over 0.18 s; the label and glyph change at once, as on homepage. */
 
 /* 8an. Buy box rhythm after Alza (more air between the blocks). Only the right-hand purchase column changes. */
-
-
-
-
-
-
-
 
 /* 8ao. Quantity stepper: the + and − signs are visible again (they were hidden by the native sign spans), same colour as the stepper arrows. */
 html body.ok89-detail #content .p-detail .p-info-wrapper .add-to-cart .quantity>:is(button.increase,button.decrease) :is(.increase__sign,.decrease__sign){display:inline-block!important;font:400 22px/1 var(--okd-font)!important;color:#7B8191!important}

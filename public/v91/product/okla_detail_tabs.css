@@ -84,7 +84,7 @@ html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .hidden-links
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:is(:hover,:focus){background:#f3f5f8!important;box-shadow:none!important;outline:0!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:active{background:#eceff4!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-head:focus-visible{outline:2px solid #0859d8!important;outline-offset:2px!important}
-  html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-house{display:none!important}
+  
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-title{flex:1 1 auto!important;min-width:0!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev{display:grid!important;place-items:center!important;flex:0 0 32px!important;width:32px!important;height:32px!important;border-radius:50%!important;background:#fff!important;color:#0b2540!important;transition:transform .2s ease,color .2s ease!important}
   html body #content .okla-ptabs:not(#okla-pt-a#okla-pt-b#okla-pt-c) .okla-ptab-chev svg{width:18px!important;height:18px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
