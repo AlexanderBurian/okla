@@ -31,14 +31,14 @@ html.okla-ty-page body #content .okla-ty__short{display:none!important}
 
 /* the message */
 html.okla-ty-page body #content .okla-ty__main{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;padding:40px 0 44px!important}
-html.okla-ty-page body #content .okla-ty__pic{display:flex!important;align-items:flex-end!important;justify-content:center!important;width:184px!important;height:184px!important;margin:0 0 24px!important;padding:8px 8px 0!important;box-sizing:border-box!important;overflow:hidden!important;border:0!important;border-radius:50%!important;background:#edf0f3!important;box-shadow:none!important}
+html.okla-ty-page body #content .okla-ty__pic{display:flex!important;align-items:flex-end!important;justify-content:center!important;width:184px!important;height:184px!important;margin:0 0 30px!important;padding:8px 8px 0!important;box-sizing:border-box!important;overflow:hidden!important;border:0!important;border-radius:50%!important;background:#edf0f3!important;box-shadow:none!important}
 html.okla-ty-page body #content .okla-ty__pic img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;outline:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;object-fit:contain!important;object-position:center bottom!important;transform:translateY(10px) scale(1.08)!important;transform-origin:center bottom!important;filter:none!important}
-html.okla-ty-page body #content .okla-ty h1.okla-ty__title{margin:0 0 10px!important;border:0!important;background:none!important;box-shadow:none!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;-webkit-text-fill-color:var(--ty-ink)!important;text-transform:none!important;letter-spacing:0!important;text-align:center!important}
-html.okla-ty-page body #content .okla-ty__lead{max-width:440px!important;margin:0 0 22px!important;font:400 15px/1.5 "Open Sans",Arial,sans-serif!important;color:var(--ty-text)!important}
+html.okla-ty-page body #content .okla-ty h1.okla-ty__title{margin:0 0 14px!important;border:0!important;background:none!important;box-shadow:none!important;font:800 26px/1.2 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;-webkit-text-fill-color:var(--ty-ink)!important;text-transform:none!important;letter-spacing:0!important;text-align:center!important}
+html.okla-ty-page body #content .okla-ty__lead{max-width:440px!important;margin:0 0 28px!important;font:400 15px/1.55 "Open Sans",Arial,sans-serif!important;color:var(--ty-text)!important}
 html.okla-ty-page body #content .okla-ty__lead strong{font-weight:700!important;color:var(--ty-ink)!important}
 /* the small extra info: delivery, payment, total */
-html.okla-ty-page body #content .okla-ty__facts{display:flex!important;flex-direction:column!important;width:100%!important;max-width:600px!important;margin:0 0 28px!important;padding:4px 18px!important;border-radius:10px!important;background:var(--ty-grey)!important;text-align:left!important}
-html.okla-ty-page body #content .okla-ty__fact{display:flex!important;justify-content:space-between!important;align-items:baseline!important;gap:16px!important;min-width:0!important;padding:10px 0!important}
+html.okla-ty-page body #content .okla-ty__facts{display:flex!important;flex-direction:column!important;width:100%!important;max-width:600px!important;margin:0 0 34px!important;padding:6px 18px!important;border-radius:10px!important;background:var(--ty-grey)!important;text-align:left!important}
+html.okla-ty-page body #content .okla-ty__fact{display:flex!important;justify-content:space-between!important;align-items:baseline!important;gap:16px!important;min-width:0!important;padding:12px 0!important}
 html.okla-ty-page body #content .okla-ty__fact+.okla-ty__fact{border-top:1px solid #dde2e8!important}
 html.okla-ty-page body #content .okla-ty__fact dt{flex:none!important;font:400 13px/1.35 "Open Sans",Arial,sans-serif!important;color:var(--ty-mute)!important}
 html.okla-ty-page body #content .okla-ty__fact dd{min-width:0!important;font:600 13.5px/1.4 "Open Sans",Arial,sans-serif!important;color:var(--ty-ink)!important;text-align:right!important}
@@ -46,9 +46,9 @@ html.okla-ty-page body #content a.okla-ty__btn{display:inline-flex!important;ali
 html.okla-ty-page body #content a.okla-ty__btn:is(:hover,:active,:focus){background:var(--ty-blue)!important;color:#fff!important}
 /* the bottom: the way to support */
 html.okla-ty-page body #content .okla-ty__foot{display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:14px!important}
-html.okla-ty-page body #content a.okla-ty__help{display:inline-flex!important;align-items:center!important;gap:7px!important;color:var(--ty-blue)!important;-webkit-text-fill-color:var(--ty-blue)!important;font:600 14px/1.3 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
+html.okla-ty-page body #content a.okla-ty__help{display:inline-flex!important;align-items:center!important;gap:6px!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;font:400 12px/1.35 "Open Sans",Arial,sans-serif!important;text-decoration:none!important}
 html.okla-ty-page body #content a.okla-ty__help:hover span{text-decoration:underline!important}
-html.okla-ty-page body #content a.okla-ty__help svg.okla-ty-ic{width:18px!important;height:18px!important;stroke-width:1.8!important}
+html.okla-ty-page body #content a.okla-ty__help svg.okla-ty-ic{width:15px!important;height:15px!important;stroke-width:1.7!important}
 
 /* payment card (bank transfer only) */
 html.okla-ty-page body #content .okla-ty__pay{margin:36px 0 0!important;border:1px solid var(--ty-line)!important;border-radius:20px!important;background:#fff!important;overflow:hidden!important;box-shadow:none!important}
