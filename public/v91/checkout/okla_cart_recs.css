@@ -2,7 +2,7 @@
    products as a second island under it (okla_cart_recs.js) */
 #okla-cart-recs{display:none}
 @media(min-width:992px){
-  html body.in-kosik #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d){margin-top:16px!important;border-radius:8px!important;clip-path:none!important;}
+  html body.in-kosik #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d){margin-top:54px!important;border-radius:8px!important;clip-path:none!important;}
   html body.in-kosik #okla-cart-recs:not(#ocr-a){display:block!important;margin:16px auto 24px!important;padding:22px 20px 26px!important;background:#fff!important;border-radius:8px!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;box-sizing:border-box!important}
   html body.in-kosik #okla-cart-recs:not(#ocr-a) .ocr-title{margin:0 0 18px!important;color:#081d3a!important;font:700 22px/1.2 "Open Sans",Arial,sans-serif!important}
   /* the slider: five cards in view, the row scrolls sideways */
@@ -30,7 +30,7 @@
 /* PC cart and checkout steps: the same island on every step (16px of grey under the header, rounded, soft shadow),
    the step bar at the same place on every step, and the summary column white (a thin line divides it) */
 @media(min-width:992px){
-  html body.ordering-process #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d#ocr-e){margin-top:16px!important;border-radius:8px!important;clip-path:none!important;overflow:hidden!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
+  html body.ordering-process #content-wrapper.content-wrapper:not(#ocr-a#ocr-b#ocr-c#ocr-d#ocr-e){margin-top:54px!important;border-radius:8px!important;clip-path:none!important;overflow:hidden!important;background:#fff!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important}
   html body.ordering-process #content-wrapper#content-wrapper .cart-inner.cart-inner:not(#ocr-a#ocr-b#ocr-c#ocr-d#ocr-e#ocr-f){background-image:linear-gradient(to right,transparent calc(100% - 340px),#e6ebf2 calc(100% - 340px),#e6ebf2 calc(100% - 339px),transparent calc(100% - 339px))!important}
   /* the step bar: 20px from the island's top on every step */
   html body.ordering-process #content-wrapper .cart-row>.col-md-8:not(#ocr-a#ocr-b){padding-top:0!important}
