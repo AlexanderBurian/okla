@@ -1,12 +1,13 @@
-/* Okla – the thank-you page after an order is sent (/objednavka/dekujeme/).
+/* Okla – the thank-you page after an order is sent (/objednavka/dekujeme/), laid out as Decathlon's.
    Shoptet prints a heading, the order number, a "Platba a doručení" table and an "Obsah objednávky" table. Neither
    table is shown; the page is two columns (one on phones):
-   - left: a check mark, "Už na vaší objednávce pracujeme" with the order number, for a plain bank transfer
+   - left: a check mark, "Už na vaší objednávce pracujeme" with the order number and one line, for a plain bank transfer
      ("Převodem") a payment card with a QR payment (Czech "QR Platba", SPAYD) for the shop's account, the amount to pay
-     and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, the
-     order-tracking / continue-shopping buttons and a photo of the warehouse;
-   - right: the order summary - delivery (with the pickup point or the address), payment, the items with their photos,
-     quantities and prices, the subtotal, delivery and the total - and links to the order status, returns and help.
+     and the variable symbol (the order number, as Shoptet uses it) plus the same details to type in by hand, and a
+     photo of the warehouse;
+   - right: the order summary - delivery (the method with the pickup point's name, then its address), the items with
+     their photos, quantities and prices, then the subtotal, delivery, payment and the total - and a slider of other
+     products (the ordered items' categories first, from the shop's live catalogue).
    The items, the delivery and its pickup point come from what the checkout showed (okla_order_snapshot.js, kept in
    this browser tab); the payment method and the amount to pay are read from Shoptet's own table, and when nothing was
    kept the items come from Shoptet's table. Nothing is invented. Cash on delivery, card / Apple Pay / Google Pay and
@@ -24,10 +25,6 @@
   d.split('|').map(function(p){return '<path d="'+p+'"/>'}).join('')+'</svg>'}
  var IC={
   check:'M5 12.5l4.5 4.5L19 7',
-  box:'M3.5 7.5 12 3.5l8.5 4v9L12 20.5l-8.5-4z|M3.5 7.5 12 11.5l8.5-4|M12 11.5v9',
-  back:'M9 14 4 9l5-5|M4 9h10.5a5.5 5.5 0 0 1 0 11H11',
-  chat:'M4 5h16v11H9l-5 4z|M8 9.5h8|M8 12.5h5',
-  next:'m9 5 7 7-7 7',
   copy:'M9 9h10a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V10a1 1 0 0 1 1-1z|M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1'
  };
  /* the shop's bank account for payments by bank transfer */
@@ -102,6 +99,29 @@
  function nice(s){s=String(s||'').trim();return /^zdarma$/i.test(s)?'Zdarma':s}
  function factValue(rows,re){var r=(rows||[]).filter(function(x){return re.test(norm(x.label))})[0];return r?r.value:''}
 
+ /* the pickup point as Shoptet writes it ("2317 | Name, Street 1, Town, 123 45"): the place's name and its address lines */
+ function pointParts(p){
+  var s=String(p||'').replace(/^\s*\d+\s*\|\s*/,'');var parts=s.split(/\s*,\s*/).filter(Boolean);
+  if(parts.length<2)return {name:s,lines:[]};
+  var name=parts.shift(),zip=parts.length&&/^\d{3}\s?\d{2}$/.test(parts[parts.length-1])?parts.pop():'';
+  var town=parts.length>1?parts.pop():'';
+  var lines=parts.slice();if(town||zip)lines.push((zip+' '+town).trim());
+  return {name:name,lines:lines};
+ }
+ /* products for the slider: the shop's catalogue (okla_live_catalog.js keeps it current), those of the ordered items'
+    categories first, never an ordered one, only what is in stock */
+ function suggestions(items){
+  var cat=window.OKLA_V86_CATALOG||{},all=Object.keys(cat).map(function(k){return cat[k]}).filter(function(p){return p&&p.url&&p.image&&p.name&&p.available!==false});
+  function path(u){try{return new URL(u,location.origin).pathname}catch(e){return ''}}
+  var ordered={};items.forEach(function(i){ordered[path(i.href)]=1});
+  var cats={};all.forEach(function(p){if(ordered[path(p.url)])cats[p.defaultCategory]=1});
+  var rest=all.filter(function(p){return !ordered[path(p.url)]});
+  var same=rest.filter(function(p){return cats[p.defaultCategory]}),other=rest.filter(function(p){return !cats[p.defaultCategory]});
+  same.sort(function(a,b){return (b.price||0)-(a.price||0)});other.sort(function(a,b){return (b.price||0)-(a.price||0)});
+  return same.concat(other).slice(0,10);
+ }
+ function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
+
  function build(){
   var main=document.querySelector('main#content')||document.getElementById('content');
   if(!main||main.querySelector('.okla-ty'))return;
@@ -115,7 +135,6 @@
   var hFacts=short(main,/^platba a doruceni$/,tables),hItems=short(main,/^obsah objednavky$/,tables);
   var mailEl=short(main,/^rekapitulaci .*e-?mail/,tables),thanksEl=short(main,/^dekujeme[!.]?$/,tables);
   var sentEl=short(main,/^objednavka (byla )?odeslana[!.]?$/,tables),backEl=short(main,/^zpet do obchodu$/,tables);
-  var mailLine=(mailEl&&txt(mailEl).match(/rekapitulaci[^.!]*[.!]/i)||['Rekapitulaci vám zašleme i e-mailem.'])[0].replace(/Vám/g,'vám');
   var pay=facts&&payment(facts.rows,number);
 
   /* the order: what the checkout kept, Shoptet's own tables otherwise; the payment method and the amount to pay are
@@ -127,13 +146,16 @@
   var payName=factValue(rows,/^platb|zpusob platby/)||(s.payment&&s.payment.name)||'';
   var total=factValue(rows,/uhrad|celkem/)||s.total||'';
   var count=items.reduce(function(n,i){return n+(parseInt(i.qty,10)||1)},0);
-  var where=s.point?[s.point]:(s.address||[]);
+  var place=s.point?pointParts(s.point):null;
+  var addr=place?place.lines:(s.address||[]);
 
+  /* as on Decathlon: on the left the check mark, the heading, one line, (the payment card for a bank transfer) and the
+     photo; on the right the summary - delivery with its address, the items, the totals - and a product slider */
   var html='<section class="okla-ty'+(pay?' okla-ty--pay':'')+'" aria-labelledby="okla-ty-title">'+
    '<div class="okla-ty__main">'+
-    '<span class="okla-ty__ok">'+svg(IC.check)+'</span>'+
+    '<span class="okla-ty__ok"><svg viewBox="0 0 40 40" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M33.5 18.6V20A13.5 13.5 0 1 1 25.5 7.7"/><path d="m14.5 19.5 4.8 4.8L34 9.6"/></svg></span>'+
     '<h1 id="okla-ty-title" class="okla-ty__title">Už na vaší objednávce pracujeme</h1>'+
-    '<p class="okla-ty__lead">'+(number?'Vaši objednávku č. <strong>'+esc(number)+'</strong> jsme přijali ke zpracování. ':'Vaši objednávku jsme přijali ke zpracování. ')+esc(mailLine)+'</p>';
+    '<p class="okla-ty__lead">'+(number?'Vaši objednávku č. '+esc(number)+' jsme přijali ke zpracování. ':'Vaši objednávku jsme přijali ke zpracování. ')+'Vyřídíme ji v co nejkratším možném termínu.</p>';
   if(pay){
    var row=function(label,value,copy,big){return '<div class="okla-ty__prow'+(big?' okla-ty__prow--big':'')+'"><dt>'+label+'</dt><dd><span class="okla-ty__pval">'+esc(value)+'</span>'+
     '<button type="button" class="okla-ty__copy" data-copy="'+esc(copy)+'" aria-label="Zkopírovat: '+label+'" title="Zkopírovat">'+svg(IC.copy,'okla-ty__cp')+svg(IC.check,'okla-ty__copied')+'</button></dd></div>'};
@@ -156,21 +178,17 @@
     '<p class="okla-ty__paynote">QR kód pro platbu najdete i v potvrzovacím e-mailu.</p>'+
    '</div>';
   }
-  html+='<div class="okla-ty__actions">'+
-     '<a class="okla-ty__btn okla-ty__btn--primary" href="/stav-objednavky/">Sledovat objednávku</a>'+
-     '<a class="okla-ty__btn okla-ty__btn--ghost" href="/">Pokračovat v nákupu</a>'+
-    '</div>'+
-    '<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/about/sklad.webp')+'" alt="" loading="lazy" decoding="async"></figure>'+
+  html+='<figure class="okla-ty__photo"><img src="'+esc((window.__oklaAssetBase||'')+'v91/img/about/sklad.webp')+'" alt="" loading="lazy" decoding="async"></figure>'+
    '</div>';
 
-  /* the order summary */
+  /* the summary */
   html+='<aside class="okla-ty__side" aria-label="Shrnutí objednávky">'+
    '<h2 class="okla-ty__sh">Shrnutí objednávky</h2>';
-  if(shipName||where.length){
-   html+='<div class="okla-ty__blk"><h3>Doručení</h3>'+(shipName?'<p class="okla-ty__strong">'+esc(shipName)+'</p>':'')+
-    (where.length?'<p class="okla-ty__addr">'+where.map(esc).join('<br>')+'</p>':'')+'</div>';
+  if(shipName||place||addr.length){
+   html+='<div class="okla-ty__blk"><h3>Doručení</h3>'+
+    '<p class="okla-ty__strong">'+esc([shipName,place&&place.name].filter(Boolean).join(' – '))+'</p>'+
+    (addr.length?'<p class="okla-ty__lbl">Adresa:</p><p class="okla-ty__addr">'+addr.map(esc).join('<br>')+'</p>':'')+'</div>';
   }
-  if(payName)html+='<div class="okla-ty__blk"><h3>Platba</h3><p class="okla-ty__strong">'+esc(payName)+'</p></div>';
   if(items.length){
    html+='<ul class="okla-ty__items">'+items.map(function(i){
     var link=i.href?' href="'+esc(i.href)+'"':'';
@@ -184,19 +202,24 @@
      '</div></li>';
    }).join('')+'</ul>';
   }
-  html+='<dl class="okla-ty__sum">';
-  if(s.goods&&count)html+='<div><dt>Mezisoučet '+count+' ks</dt><dd>'+esc(s.goods)+'</dd></div>';
-  if(s.shipping&&s.shipping.price)html+='<div><dt>Doprava</dt><dd>'+esc(nice(s.shipping.price))+'</dd></div>';
-  if(s.payment&&s.payment.price&&!/^zdarma$/i.test(s.payment.price))html+='<div><dt>Platba</dt><dd>'+esc(nice(s.payment.price))+'</dd></div>';
-  if(total)html+='<div class="okla-ty__total"><dt>Celkem</dt><dd>'+esc(total)+'</dd></div>';
-  html+='</dl>'+
-   '<div class="okla-ty__svc"><h2 class="okla-ty__sh">S čím vám ještě pomůžeme</h2>'+
-    '<a class="okla-ty__svcrow" href="/stav-objednavky/">'+svg(IC.box)+'<span><strong>Stav objednávky</strong><small>Kde je vaše zásilka a kdy dorazí</small></span>'+svg(IC.next,'okla-ty__chev')+'</a>'+
-    '<a class="okla-ty__svcrow" href="/vraceni-zbozi-a-odstoupeni/">'+svg(IC.back)+'<span><strong>Vrácení do 14 dnů</strong><small>Bez udání důvodu, jednoduše online</small></span>'+svg(IC.next,'okla-ty__chev')+'</a>'+
-    '<a class="okla-ty__svcrow" href="/kontakt/">'+svg(IC.chat)+'<span><strong>Poradíme vám</strong><small>S objednávkou, výrobkem i reklamací</small></span>'+svg(IC.next,'okla-ty__chev')+'</a>'+
-   '</div>'+
-  '</aside>'+
-  '</section>';
+  html+='<div class="okla-ty__sum">';
+  if(s.goods&&count)html+='<div class="okla-ty__srow"><span>Mezisoučet '+count+' ks</span><span>'+esc(s.goods)+'</span></div>';
+  if(s.shipping&&s.shipping.name)html+='<div class="okla-ty__srow okla-ty__srow--sub"><span><strong>Doručení</strong><small>'+esc(s.shipping.name)+'</small></span><span>'+esc(nice(s.shipping.price))+'</span></div>';
+  if(payName)html+='<div class="okla-ty__srow okla-ty__srow--sub"><span><strong>Platba</strong><small>'+esc(payName)+'</small></span><span>'+esc(nice(s.payment&&s.payment.price||''))+'</span></div>';
+  if(total)html+='<div class="okla-ty__srow okla-ty__srow--total"><span>Celkem</span><span>'+esc(total)+'</span></div>';
+  html+='</div>';
+  var picks=suggestions(items);
+  if(picks.length){
+   html+='<div class="okla-ty__more">'+
+    '<div class="okla-ty__morehead"><div><h2 class="okla-ty__sh">Mohlo by se vám hodit</h2><p class="okla-ty__morelead">Další užitečné vychytávky z naší nabídky.</p></div>'+
+    '<div class="okla-ty__arrows"><button type="button" class="okla-ty__arrow" data-dir="-1" aria-label="Předchozí" disabled>'+svg('m14.5 6-6 6 6 6')+'</button>'+
+    '<button type="button" class="okla-ty__arrow" data-dir="1" aria-label="Další">'+svg('m9.5 6 6 6-6 6')+'</button></div></div>'+
+    '<div class="okla-ty__track">'+picks.map(function(p){var u;try{u=new URL(p.url,location.origin).pathname}catch(e){u=p.url}
+     return '<a class="okla-ty__card" href="'+esc(u)+'"><span class="okla-ty__cimg"><img src="'+esc(p.image)+'" alt="" loading="lazy" decoding="async"></span>'+
+      '<span class="okla-ty__cname">'+esc(p.name)+'</span>'+(p.price?'<span class="okla-ty__cprice">'+kc(p.price)+'</span>':'')+'</a>'}).join('')+'</div>'+
+   '</div>';
+  }
+  html+='</aside></section>';
 
   var box=document.createElement('div');box.innerHTML=html;var sec=box.firstChild;
   var anchor=h1||numEl||tables[0];
@@ -215,7 +238,19 @@
   document.documentElement.classList.add('okla-ty-page');
   if(pay)drawQr(sec.querySelector('.okla-ty__qr'));
   sec.addEventListener('click',copyClick);
+  slider(sec.querySelector('.okla-ty__more'));
  }
+ /* the slider: the arrows move it by one card; each arrow is off at its end */
+ function slider(more){
+  if(!more)return;
+  var track=more.querySelector('.okla-ty__track'),btns=more.querySelectorAll('.okla-ty__arrow');
+  function step(){var c=track.querySelector('.okla-ty__card');if(!c)return 200;var g=parseFloat(getComputedStyle(track).columnGap)||0;return c.getBoundingClientRect().width/(c.currentCSSZoom||1)+g}
+  function sync(){var max=track.scrollWidth-track.clientWidth-2;btns[0].disabled=track.scrollLeft<=2;btns[1].disabled=track.scrollLeft>=max}
+  [].forEach.call(btns,function(b){b.addEventListener('click',function(){track.scrollBy({left:step()*(+b.getAttribute('data-dir')),behavior:'smooth'})})});
+  track.addEventListener('scroll',function(){requestAnimationFrame(sync)},{passive:true});
+  window.addEventListener('resize',sync);setTimeout(sync,300);sync();
+ }
+
  /* The QR code as crisp squares: whole-pixel modules, one path, black on white, no smoothing between modules. */
  function drawQr(box){
   if(!box)return;
