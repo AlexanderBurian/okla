@@ -22,11 +22,17 @@ html body.ordering-process .okla-help .okla-help__list li::before{content:none!i
 html body.ordering-process .okla-help a.okla-help__row:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;align-items:center;gap:10px;margin:0;padding:7px 8px;border-radius:8px;color:#0b2540;-webkit-text-fill-color:#0b2540;text-decoration:none;transition:background-color .15s ease}
 html body.ordering-process .okla-help a.okla-help__row:not(#oca-a#oca-b#oca-c#oca-d#oca-e):is(:hover,:focus-visible){background:#f5f7fa}
 html body.ordering-process .okla-help .okla-help__ic:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:#f0f2f5;color:#0859d8}
-html body.ordering-process .okla-help .okla-help__ic svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+html body.ordering-process .okla-help .okla-help__ic svg:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;shape-rendering:geometricPrecision}
+/* the icons' light fill (class f) and the question mark's dot (class d) */
+html body.ordering-process .okla-help .okla-help__ic svg .f:not(#oca-a#oca-b#oca-c#oca-d#oca-e){fill:currentColor;fill-opacity:.16;stroke:none}
+html body.ordering-process .okla-help .okla-help__ic svg .d:not(#oca-a#oca-b#oca-c#oca-d#oca-e){stroke-width:2.2}
 html body.ordering-process .okla-help .okla-help__txt:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:flex;flex-direction:column;min-width:0;gap:0}
 html body.ordering-process .okla-help .okla-help__txt strong:not(#oca-a#oca-b#oca-c#oca-d#oca-e){overflow:hidden;color:#0b2540;-webkit-text-fill-color:#0b2540;font:600 14px/1.35 "Open Sans",Arial,sans-serif;text-overflow:ellipsis;white-space:nowrap}
 html body.ordering-process .okla-help .okla-help__txt small:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#6b7a8f;-webkit-text-fill-color:#6b7a8f;font:400 12px/1.35 "Open Sans",Arial,sans-serif;white-space:nowrap}
-html body.ordering-process .okla-help img.okla-help__cat:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;flex:none;align-self:flex-end;width:116px;max-width:39%;height:auto;margin:0 -10px 0 -4px;vertical-align:bottom;border:0;border-radius:0;background:none;object-fit:contain;pointer-events:none}
+html body.ordering-process .okla-help img.okla-help__cat:not(#oca-a#oca-b#oca-c#oca-d#oca-e){display:block;flex:none;align-self:flex-end;width:116px;max-width:39%;height:auto;margin:0 -10px 0 -4px;vertical-align:bottom;border:0;border-radius:0;background:none;object-fit:contain;pointer-events:none;-webkit-user-select:none;user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none}
+/* the manul is a picture, not content: never selected (Ctrl+A, dragging across the box) */
+html body.ordering-process .okla-help .okla-help__body:not(#oca-a#oca-b#oca-c#oca-d#oca-e){-webkit-user-select:none;user-select:none}
+html body.ordering-process .okla-help .okla-help img.okla-help__cat::selection{background:transparent}
 
 /* the summary's own lines: goods (pieces), delivery, then the total under a thin line */
 html body.in-kosik #content .okla-cart-summary__row:is(.okla-cart-summary__row--goods,.okla-cart-summary__row--ship)>span:not(#oca-a#oca-b#oca-c#oca-d#oca-e){color:#46556a!important;font:400 14px/1.35 "Open Sans",Arial,sans-serif!important;text-align:left!important}

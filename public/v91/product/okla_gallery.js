@@ -143,9 +143,46 @@
  document.addEventListener('click',function(e){
   var t=e.target;
   if(!t||!t.closest)return;
+  if(t.closest('.okla-pnav'))return;
   var hit=t.closest('#content .p-detail .p-image, #content .p-detail a.cbox-gal');
   if(!hit||(box&&box.contains(t)))return;
+  /* the tap that ended a swipe on the main picture opens nothing */
+  if(Date.now()-swipedAt<450&&hit.matches('.p-image')){e.preventDefault();e.stopImmediatePropagation();return}
   var i=hit.matches('a.cbox-gal')?(function(){var k=key(hit.href),l=pictures();for(var j=0;j<l.length;j++)if(key(l[j].src)===k)return j;return 0})():currentIndex();
   if(show(i)){e.preventDefault();e.stopImmediatePropagation();}
  },true);
+
+ /* Phones: arrows at the sides of the main picture, always shown, and swiping on it go to the previous / next picture.
+    They step through Shoptet's own thumbnails (a click on one), so the main picture, its link and the framed
+    thumbnail stay Shoptet's; from the last picture they go round to the first. Only with two or more pictures; hidden
+    on PC (okla_gallery.css). A tap on the picture still opens the viewer above. */
+ var swipedAt=0;
+ function thumbLinks(){return [].slice.call(document.querySelectorAll('#content .p-detail a.p-thumbnail[href]'))}
+ function step(d){
+  var t=thumbLinks();if(t.length<2)return;
+  var i=-1;for(var j=0;j<t.length;j++)if(t[j].classList.contains('highlighted')){i=j;break}
+  if(i<0){var k=key((document.querySelector('#content .p-detail a.p-main-image[href]')||{}).href||'');for(j=0;j<t.length;j++)if(key(t[j].href)===k){i=j;break}}
+  if(i<0)i=0;
+  t[(i+d+t.length)%t.length].click();
+ }
+ function inlineNav(){
+  var pi=document.querySelector('#content .p-detail .p-image');
+  if(!pi||pi.querySelector('.okla-pnav')||thumbLinks().length<2)return;
+  [['prev','Předchozí obrázek','m14.5 6-6 6 6 6',-1],['next','Další obrázek','m9.5 6 6 6-6 6',1]].forEach(function(b){
+   var btn=el('button','okla-pnav okla-pnav--'+b[0]);btn.type='button';btn.setAttribute('aria-label',b[1]);
+   btn.appendChild(icon(b[2]));
+   btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();step(b[3])});
+   pi.appendChild(btn);
+  });
+  var x0=null,y0=0;
+  pi.addEventListener('touchstart',function(e){
+   if(e.touches.length===1&&!e.target.closest('.okla-pnav')){x0=e.touches[0].clientX;y0=e.touches[0].clientY}else x0=null;
+  },{passive:true});
+  pi.addEventListener('touchend',function(e){
+   if(x0===null)return;var t=e.changedTouches[0],dx=t.clientX-x0,dy=t.clientY-y0;x0=null;
+   if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.3){swipedAt=Date.now();step(dx<0?1:-1)}
+  },{passive:true});
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',inlineNav,{once:true});else inlineNav();
+ window.addEventListener('load',inlineNav);
 })();

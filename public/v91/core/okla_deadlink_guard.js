@@ -41,6 +41,9 @@
     if(!sameOrigin(h))return;
     var u;try{u=new URL(h,location.href);}catch(e){return;}
     if(/\/action\//.test(u.pathname))return;                 /* Shoptet actions   */
+    /* never the customer's own links: requesting the footer's "Odhlásit se" (/logout/) signed a signed-in customer
+       out on every page; sign-in, account, cart and checkout addresses are not content either */
+    if(/logout|odhlas/i.test(h)||/^\/(login|prihlaseni|registrace|klient|zapomenute-heslo|kosik|objednavka)(\/|$)/i.test(u.pathname))return;
     if(u.pathname===location.pathname)return;                /* link to self      */
     if(u.pathname==='/'||u.pathname==='')return;             /* homepage ≠ dead    */
     var key=u.origin+u.pathname;

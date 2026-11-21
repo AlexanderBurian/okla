@@ -104,14 +104,16 @@
     number of pieces, delivery chosen in the next step, the total), and under it boxes of their own - the discount code
     (open) and help. PC only: phones keep the cart as it was. */
  var DESK=window.matchMedia('(min-width:992px)');
- function ico(d){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>'}
+ /* a path, or the inner markup of a whole icon (its light fill shapes carry class f) */
+ function ico(d){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+(d.charAt(0)==='<'?d:'<path d="'+d+'"/>')+'</svg>'}
+ /* one set: rounded outlines on a 24px grid with a light fill of the same blue inside */
  var ICON={
-  /* a speech bubble with three round dots */
-  chat:'M7 4.5h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-5l-4.5 3.5v-3.5H7a3 3 0 0 1-3-3v-6a3 3 0 0 1 3-3zM9.1 10.5a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0zM12.6 10.5a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0zM16.1 10.5a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0z',
-  /* an envelope with rounded corners and a soft flap */
-  mail:'M5.5 5.5h13a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2zM4.3 7.6l6.5 4.8a2 2 0 0 0 2.4 0l6.5-4.8',
+  /* a speech bubble with two lines of text */
+  chat:'<path class="f" d="M6.5 4h11A2.5 2.5 0 0 1 20 6.5v7.5a2.5 2.5 0 0 1-2.5 2.5H12.3l-4.1 3.2c-.33.26-.8.02-.8-.4v-2.8h-.9A2.5 2.5 0 0 1 4 14V6.5A2.5 2.5 0 0 1 6.5 4z"/><path d="M6.5 4h11A2.5 2.5 0 0 1 20 6.5v7.5a2.5 2.5 0 0 1-2.5 2.5H12.3l-4.1 3.2c-.33.26-.8.02-.8-.4v-2.8h-.9A2.5 2.5 0 0 1 4 14V6.5A2.5 2.5 0 0 1 6.5 4z"/><path d="M8.5 9h7M8.5 12h4.5"/>',
+  /* an envelope */
+  mail:'<rect class="f" x="3" y="5.5" width="18" height="13" rx="2.5"/><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="m3.9 7.4 6.9 5.1a2 2 0 0 0 2.4 0l6.9-5.1"/>',
   /* a question mark in a circle */
-  help:'M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zM9.8 9.6a2.3 2.3 0 1 1 3.3 2.1c-.65.32-1.1.9-1.1 1.6v.4M12.6 16.6a.6.6 0 1 1-1.2 0 .6.6 0 0 1 1.2 0z'
+  help:'<circle class="f" cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="9"/><path d="M9.7 9.6a2.4 2.4 0 0 1 4.65.8c0 1.6-2.35 2.05-2.35 3.6"/><path class="d" d="M12 17.1v.01"/>'
  };
  function HELP_HTML(){
   /* Alza style: the heading and a short line across the top; under them the ways to reach us on the left - an icon on a

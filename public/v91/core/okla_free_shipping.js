@@ -21,7 +21,8 @@
     en: {left: 'Left to free delivery:', done: 'Your delivery is free', from: 'Free delivery from'},
     hu: {left: 'Az ingyenes szállításig még', done: 'A szállítás ingyenes', from: 'Ingyenes szállítás ettől:'}
   };
-  var TRUCK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3.2v2.8h-7"/><circle cx="6.5" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg>';
+  /* a delivery truck: rounded outline, a light fill of the same blue in the box and the window, white wheels */
+  var TRUCK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="f" d="M4.5 5h8A1.5 1.5 0 0 1 14 6.5V16H4.5A1.5 1.5 0 0 1 3 14.5v-8A1.5 1.5 0 0 1 4.5 5z"/><path d="M4.5 5h8A1.5 1.5 0 0 1 14 6.5V16H4.5A1.5 1.5 0 0 1 3 14.5v-8A1.5 1.5 0 0 1 4.5 5z"/><path d="M14 9h3.4c.47 0 .91.22 1.2.6l2.1 2.8c.19.26.3.58.3.9V15a1 1 0 0 1-1 1h-.4M14 16h1"/><path class="f" d="M15.6 10.6h1.7l1.3 1.8h-3z"/><circle class="w" cx="7.5" cy="17" r="2"/><circle class="w" cx="17.2" cy="17" r="2"/></svg>';
   var TICK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>';
 
   function lang() {

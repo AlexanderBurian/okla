@@ -52,3 +52,16 @@ html body #content .p-detail .p-image{cursor:zoom-in}
   .okla-gal__thumbs{gap:8px;padding:10px 12px calc(14px + env(safe-area-inset-bottom))}
   .okla-gal .okla-gal__thumb{width:84px;height:72px}
 }
+
+/* Phones: the previous / next arrows over the main picture on the product page (okla_gallery.js), white discs at the
+   sides, always shown when there are two or more pictures; the picture takes sideways swipes */
+html body #content .p-detail .p-image button.okla-pnav{display:none!important}
+@media(max-width:767px){
+  html body #content .p-detail .p-image:not(#okla-pn-a#okla-pn-b){position:relative!important;touch-action:pan-y pinch-zoom}
+  html body #content .p-detail .p-image button.okla-pnav:not(#okla-pn-a#okla-pn-b){position:absolute!important;top:50%!important;z-index:5!important;display:grid!important;place-items:center!important;width:38px!important;height:38px!important;min-width:0!important;min-height:0!important;margin:-19px 0 0!important;padding:0!important;border:1px solid #dfe3e8!important;border-radius:50%!important;background:rgba(255,255,255,.95)!important;box-shadow:0 1px 4px rgba(16,24,40,.12)!important;color:#0b2540!important;-webkit-tap-highlight-color:transparent;cursor:pointer}
+  html body #content .p-detail .p-image button.okla-pnav--prev:not(#okla-pn-a#okla-pn-b){left:2px!important;right:auto!important}
+  html body #content .p-detail .p-image button.okla-pnav--next:not(#okla-pn-a#okla-pn-b){right:2px!important;left:auto!important}
+  html body #content .p-detail .p-image button.okla-pnav:not(#okla-pn-a#okla-pn-b):active{background:#f1f4f8!important}
+  html body #content .p-detail .p-image button.okla-pnav svg:not(#okla-pn-a#okla-pn-b){display:block!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2.2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
+  html body #content .p-detail .p-image button.okla-pnav svg path{fill:none!important;stroke:currentColor!important}
+}

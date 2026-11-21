@@ -15,6 +15,9 @@ html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__track{display:bloc
 html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__fill{display:block!important;height:100%!important;min-width:10px!important;border-radius:5px!important;background:#0859d8!important;transition:width .45s cubic-bezier(.22,1,.36,1)!important}
 html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__from{display:block!important;margin:7px 0 0!important;font:400 12px/1.3 "Open Sans",Arial,sans-serif!important;color:#5b6b80!important}
 html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__from:empty{display:none!important}
+/* the truck's light fill (class f) and white wheels (class w) */
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic svg .f{fill:currentColor!important;fill-opacity:.16!important;stroke:none!important}
+html body .okla-fship:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic svg .w{fill:#fff!important}
 /* reached: a tick, the text in bold */
 html body .okla-fship.is-done:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__text{font-weight:700!important}
 html body .okla-fship.is-done:not(#ofsh-a#ofsh-b#ofsh-c) .okla-fship__ic svg{stroke-width:2.4!important}
