@@ -72,14 +72,37 @@
   var box=document.querySelector('.cart-inner.cart-empty');
   if(box)document.documentElement.classList.add('okla-cart-is-empty');
   if(!box||box.querySelector('.okla-cart-empty'))return;
+  /* as on Alza: the order steps on top (the cart is the current one), the message in the middle, and at the bottom the
+     discount code (it can be used once something is in the cart: a click says so) and "Zpět k nákupu" */
   var hero=el('section','okla-cart-empty');
+  var SVG=function(d){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>'};
+  var steps=el('ol','okla-ce-steps');steps.setAttribute('aria-label','Kroky objednávky');
+  [['Košík','Košík','M3 4.5h2.2l2.1 10.2a1.6 1.6 0 0 0 1.6 1.3h8.3a1.6 1.6 0 0 0 1.6-1.2L20.5 8H6.1M9.5 20h.01M17 20h.01'],
+   ['Doprava a platba','Doprava','M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3.2v2.8h-7M6.5 17a1.8 1.8 0 1 0 0 .01M17 17a1.8 1.8 0 1 0 0 .01'],
+   ['Dodací údaje','Údaje','M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20.5a7.5 7.5 0 0 1 15 0']].forEach(function(st,i){
+   var li=el('li','okla-ce-step'+(i===0?' is-current':''));if(i===0)li.setAttribute('aria-current','step');
+   li.innerHTML='<span class="okla-ce-step__dot">'+SVG(st[2])+'</span><span class="okla-ce-step__name"><span class="okla-ce-long">'+st[0]+'</span><span class="okla-ce-short">'+st[1]+'</span></span>';
+   steps.appendChild(li);
+  });
+  hero.appendChild(steps);
+  var main=el('div','okla-cart-empty__main');
   var pic=el('div','okla-cart-empty__pic');pic.setAttribute('aria-hidden','true');
   pic.innerHTML='<svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="60" r="56" fill="#eaf1fd"/><path d="M28 38h9l8 36a5 5 0 0 0 5 4h30a5 5 0 0 0 5-4l6-25H41" stroke="#0859d8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="52" cy="89" r="5" fill="#0859d8"/><circle cx="78" cy="89" r="5" fill="#0859d8"/><path d="M58 56h18" stroke="#9db9e8" stroke-width="5" stroke-linecap="round"/></svg>';
-  hero.appendChild(pic);
-  hero.appendChild(el('h1','okla-cart-empty__title','Váš košík je prázdný'));
-  hero.appendChild(el('p','okla-cart-empty__text','Vyberte si z naší nabídky – měřicí techniku, multitooly i chytrou elektroniku.'));
+  main.appendChild(pic);
+  main.appendChild(el('h1','okla-cart-empty__title','Váš košík je prázdný'));
+  main.appendChild(el('p','okla-cart-empty__text','Vyberte si z naší nabídky – měřicí techniku, multitooly i chytrou elektroniku.'));
   var go=el('a','okla-cart-empty__btn','Začít nakupovat');go.href='/';
-  hero.appendChild(go);
+  main.appendChild(go);
+  hero.appendChild(main);
+  var foot=el('div','okla-cart-empty__foot');
+  var coupon=el('button','okla-ce-coupon');coupon.type='button';coupon.setAttribute('aria-expanded','false');
+  coupon.innerHTML=SVG('M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zM10.5 8.5 14 12l-3.5 3.5')+'<span>Využít slevový / dárkový poukaz</span>';
+  var note=el('p','okla-ce-note','Slevový nebo dárkový kód zadáte v košíku, jakmile do něj vložíte zboží.');note.hidden=true;
+  coupon.addEventListener('click',function(){var open=note.hidden;note.hidden=!open;coupon.setAttribute('aria-expanded',open?'true':'false');coupon.classList.toggle('is-open',open)});
+  var back=el('a','okla-ce-back');back.href='/';
+  back.innerHTML=SVG('m14.5 6-6 6 6 6')+'<span>Zpět k nákupu</span>';
+  foot.append(coupon,note,back);
+  hero.appendChild(foot);
   box.insertBefore(hero,box.firstChild);
  }
  function run(){page404();pageSearch();emptyCart()}
