@@ -409,8 +409,10 @@ function warmNext(){
   if(!window.HTMLScriptElement||!HTMLScriptElement.supports||!HTMLScriptElement.supports('speculationrules'))return;
   var rules=document.createElement('script');rules.type='speculationrules';
   rules.textContent=JSON.stringify({prerender:[{source:'document',where:{and:[{href_matches:'/*'},
-   {not:{href_matches:['/action/*','/kosik*','/objednavka*','/login*','/registrace*','/klient*','/odhlasit*','/zapomenute-heslo*']}},
-   {not:{selector_matches:'[rel~=nofollow],[target=_blank],[download]'}}]},eagerness:'moderate'}]});
+   /* never the sign-out: preparing /logout/ in the background (the pointer resting on "Odhlásit" in the account menu)
+      signed the customer out without a click */
+   {not:{href_matches:['/action/*','/kosik*','/objednavka*','/login*','/logout*','/registrace*','/klient*','/odhlasit*','/zapomenute-heslo*','/stav-objednavky*']}},
+   {not:{selector_matches:'[rel~=nofollow],[target=_blank],[download],[href*=logout],[href*=Logout],[href*=odhlas]'}}]},eagerness:'moderate'}]});
   head.appendChild(rules);
  }catch(e){}
 }
