@@ -1,0 +1,15 @@
+/* Okla – the registered customer's price line under the product page price (okla_member_price.js): one quiet line,
+   a small person-with-tick icon in the shop's blue, the usual price struck through after it. */
+html body #content .p-detail .okla-member-price:not(#omp-a#omp-b#omp-c){display:flex;align-items:center;flex-wrap:wrap;gap:4px 7px;margin:8px 0 0!important;padding:0!important;
+ font:400 14px/1.4 "Open Sans",Arial,sans-serif!important;color:#0b2540!important}
+html body #content .p-detail .okla-member-price svg{flex:none;width:18px;height:18px;fill:none;stroke:#0859d8;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+html body #content .p-detail .okla-member-price__usual:not(#omp-a#omp-b#omp-c){color:#66758a!important}
+html body #content .p-detail .okla-member-price__usual s{color:#66758a!important}
+html body #content .p-detail .okla-member-price__usual::before{content:"·";margin:0 6px 0 0;color:#9aa6b5}
+/* Shoptet's own usual price and "−5 %" beside the price only repeat the line */
+html body #content .p-detail .p-final-price-wrapper.okla-member-priced :is(.price-standard,.price-save):not(#omp-a#omp-b#omp-c){display:none!important}
+/* phones: the usual price on its own line under the text (no separator dot at the start of a line) */
+@media (max-width:767px){
+  html body #content .p-detail .okla-member-price__usual:not(#omp-a#omp-b#omp-c){flex-basis:100%;padding-left:25px}
+  html body #content .p-detail .okla-member-price__usual::before{content:none}
+}
