@@ -85,9 +85,10 @@
   var priceBox=el('div','okla-cm__price');
   var withVat=el('div','okla-cm__price-vat'),noVat=el('div','okla-cm__price-novat');
   priceBox.append(withVat,noVat);
+  /* exact: haléře kept when the price has them (the real cart's total replaces it as soon as it is read) */
   function paint(n){
-   withVat.textContent=unit?money(unit*n):(p.priceText||'');
-   
+   var v=Math.round(unit*n*100)/100;
+   withVat.textContent=!unit?(p.priceText||''):v%1?v.toLocaleString('cs-CZ',{minimumFractionDigits:2,maximumFractionDigits:2})+' Kč':money(v);
   }
   if(withStepper){
    var minus=el('button','okla-cm__step okla-cm__step--minus');minus.type='button';minus.setAttribute('aria-label','Ubrat kus');minus.appendChild(icon(MINUS));
@@ -100,13 +101,24 @@
    var change=function(delta){
     if(busy||!state)return;var target=state.amount+delta;if(target<1)return;
     busy=true;qty.classList.add('is-busy');setVal(target);
-    setCartAmount(p,target).then(function(real){state.amount=real||target;setVal(state.amount)},function(){setVal(state.amount)}).then(function(){busy=false;qty.classList.remove('is-busy')});
+    setCartAmount(p,target).then(function(real){state.amount=real||target;setVal(state.amount)},function(){setVal(state.amount)}).then(function(){busy=false;qty.classList.remove('is-busy');
+     /* the line total as the real cart counts it after the change */
+     if(p.url)cartLine(p).then(function(line){if(line&&state&&line.amount===state.amount&&row._real)row._real(line)},function(){});
+    });
    };
    minus.addEventListener('click',function(){change(-1)});plus.addEventListener('click',function(){change(1)});
    row._sync=function(n){if(!busy&&n>0){state.amount=n;setVal(n)}};
   }else{
+   row._sync=function(){};
    qty.append(el('span','okla-cm__qty-val',(amount||1)+' ks'));paint(amount||1);
   }
+  /* the price as the real cart counts it (a signed-in customer's discount included): the unit price for later steps,
+     the line total shown at once - the catalogue's price is only the first guess */
+  row._real=function(line){
+   if(!line)return;
+   var u=num(line.unitText);if(u>0)unit=u;
+   if(line.totalText)withVat.textContent=line.totalText.replace(/\s+/g,' ').trim();
+  };
   row.append(pic,name,qty,priceBox);
   return row;
  }
@@ -124,7 +136,9 @@
     row.querySelectorAll('a[href]').forEach(function(a){if(pathOf(a.getAttribute('href'))===path)hit=true});
     if(!hit)return;
     var fields=new URLSearchParams();form.querySelectorAll('input[name]').forEach(function(i){if(i.type!=='submit'&&i.type!=='button')fields.set(i.name,i.value)});
-    found={action:form.getAttribute('action')||'/action/Cart/setCartItemAmount/',fields:fields,amount:parseInt(inp.value,10)||1};
+    var unitEl=row.querySelector('[data-testid="cartItemPrice"],.p-price .price-final'),totalEl=row.querySelector('[data-testid="cartPrice"],.p-total .price-final');
+    found={action:form.getAttribute('action')||'/action/Cart/setCartItemAmount/',fields:fields,amount:parseInt(inp.value,10)||1,
+     unitText:unitEl?unitEl.textContent:'',totalText:totalEl?totalEl.textContent:''};
    });
    return found;
   });
@@ -200,7 +214,7 @@
   /* focus for keyboards only: a tap-opened panel shows no ring around the cross */
   var c=root.querySelector('.okla-cm__close');if(c)c.focus({preventScroll:true,focusVisible:false});
   /* the real amount in the cart (the product may have been there already) */
-  if(main.url&&row._sync)cartLine(main).then(function(line){if(line&&state&&state.product===main)row._sync(line.amount)},function(){});
+  if(main.url&&row._sync)cartLine(main).then(function(line){if(line&&state&&state.product===main){row._sync(line.amount);row._real(line)}},function(){});
  }
  function hide(){
   if(!root)return;
