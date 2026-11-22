@@ -1,0 +1,5 @@
+/* Okla – no discount badges on the product pictures. A signed-in customer with a customer discount got a round
+   "−5 %" badge from Shoptet on every product card (and the product page); the discount is applied in the price and
+   the cart, the pictures stay clean. okla_no_discount_flags.js hides any such badge Shoptet draws under another name. */
+html body :is(.flag-discount,.flag.flag-discount,.flags-extra .flag-discount,.extra-flags .flag-discount,.flags .price-save,.extra-flags .price-save,.p-image .price-save,.image .price-save):not(#ondf-a#ondf-b#ondf-c#ondf-d){display:none!important}
+html body .okla-no-discount-flag:not(#ondf-a#ondf-b#ondf-c#ondf-d){display:none!important}
