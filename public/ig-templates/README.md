@@ -17,7 +17,7 @@ Sada obsahuje 12 jednoduchých kompozic inspirovaných čistým produktovým sty
 3. `03-anketa-abc.html` – otázka A–D
 4. `04-novinka-white.html` – čistá produktová novinka
 5. `05-toto-nebo-tamto.html` – post k přeposlání
-6. `06-rychly-tip.html` – tři hlavní vlastnosti
+6. `06-rychly-tip.html` – pět číslovaných měřáků
 7. `07-uhadni-detail.html` – hádání produktu podle detailu
 8. `08-pet-duvodu.html` – otázka A–D
 9. `09-vyber-si-merak.html` – mýtus, nebo fakt
