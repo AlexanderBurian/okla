@@ -29,8 +29,10 @@ Sada obsahuje 12 jednoduchých kompozic inspirovaných čistým produktovým sty
 
 | Role | Barva | Použití |
 |---|---|---|
-| Modrá | `#284398` | začátek modrofialového pozadí |
-| Fialová | `#5B2687` | konec modrofialového pozadí |
+| Hluboká modrá | `#123A8F` | základ vlastního modrofialového pozadí |
+| Elektrická indigová | `#303AA5` | střed přechodu |
+| Tlumená švestková | `#70276F` | konec přechodu |
+| Studené světlo | `#5684FF` při 26 % | jemná radiální záře v pravém horním rohu |
 | Zelená | `#43DB15` | soutěže a výzvy |
 | Tmavší zelená | `#28C51D` | jemná hloubka zelené plochy |
 | Bílá | `#FFFFFF` | produktové a edukativní posty |
