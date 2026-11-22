@@ -2,7 +2,7 @@
    site style: rounded fields, the green button of the checkout and centred links. Loaded only on these pages. */
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content{float:none!important;width:100%!important;max-width:none!important;margin:0 auto!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .content-inner{float:none!important;width:auto!important;max-width:480px!important;margin:32px auto 56px!important;padding:36px 36px 32px!important;background:#fff!important;border:1px solid #e6ebf2!important;border-radius:20px!important;box-shadow:none!important;box-sizing:border-box!important}
-html body.in-registrace #content .content-inner{max-width:760px!important}
+html body.in-registrace #content .content-inner{max-width:620px!important}
 html body[class*="in-klient"]:not(.in-zapomenute-heslo) #content .content-inner{max-width:960px!important}
 
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content h1{margin:0 0 24px!important;padding:0!important;border:0!important;text-align:center!important;font-family:"Open Sans",sans-serif!important;font-size:28px!important;font-weight:700!important;line-height:1.2!important;text-transform:none!important;color:#0b2540!important}
@@ -32,8 +32,8 @@ html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"])
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .alternative-links a{display:inline-block!important;font-size:14px!important;font-weight:600!important;color:#0859d9!important;text-decoration:none!important}
 html body:is(.in-login,.in-registrace,.in-zapomenute-heslo,[class*="in-klient"]) #content .alternative-links a:hover{text-decoration:underline!important}
 
-/* Registration: two fields side by side, as in the checkout; the hidden company fields stay hidden until asked for. */
-html body.in-registrace #content .co-registration>fieldset{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:20px!important;align-items:start!important}
+/* Registration: a compact single column; hidden company fields stay hidden until asked for. */
+html body.in-registrace #content .co-registration>fieldset{display:grid!important;grid-template-columns:minmax(0,1fr)!important;column-gap:0!important;align-items:start!important}
 html body.in-registrace #content .co-registration>fieldset>*{grid-column:1/-1}
 html body.in-registrace #content .co-registration>fieldset>.form-group.smart-label-wrapper{grid-column:auto!important}
 html body.in-registrace #content .co-registration>fieldset>input[type=hidden]{display:none!important}
