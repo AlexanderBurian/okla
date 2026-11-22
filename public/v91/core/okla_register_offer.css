@@ -14,7 +14,7 @@ html.okla-ro-open,html.okla-ro-open body{overflow:hidden!important}
 .okla-ro__title{margin:0 0 10px;font-size:26px;line-height:1.2;font-weight:800;color:#0b2540;letter-spacing:-.01em;text-transform:none}
 .okla-ro__title em{font-style:normal;color:#0859d8}
 .okla-ro__text{margin:0 auto 22px;max-width:320px;font-size:16px;line-height:1.5;color:#33465c}
-.okla-ro__text b{color:#0b2540;white-space:nowrap}
+.okla-ro__text b{color:#0b2540}
 .okla-ro__cta{display:flex;align-items:center;justify-content:center;height:52px;margin:0 0 12px;border-radius:8px;background:#0859d8;color:#fff!important;-webkit-text-fill-color:#fff;
  font-size:17px;font-weight:700;text-decoration:none!important;transition:background-color .15s ease}
 .okla-ro__cta:hover,.okla-ro__cta:focus-visible{background:#0646ab;color:#fff!important}

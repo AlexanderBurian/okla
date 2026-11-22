@@ -1,6 +1,6 @@
 /* Okla – the registration offer: a visitor who is not signed in sees, shortly after the page is shown, one calm window
    in the middle of the screen (the page dimmed behind it) - the blue Okla gift on top, "Máme pro vás dárek!", that
-   a registered customer has 5 % off every purchase, "Chci slevu 5 %" (to the registration) and "Už mám účet"
+   a registered customer has 5 % off all purchases, for good, "Chci slevu 5 %" (to the registration) and "Už mám účet"
    (to the sign-in). On phones and PC alike (okla_register_offer.css).
    - once, then again two days later at the earliest (kept on the device; a signed-in customer never sees it);
    - not in the cart, the order process, on the sign-in / registration / password pages or in the customer centre;
@@ -11,10 +11,10 @@
  if(window.__oklaRegisterOffer)return;window.__oklaRegisterOffer=true;
  var KEY='okla-register-offer',EVERY=2*24*3600*1000;
  var TEXT={
-  cs:{title:'Máme pro vás <em>dárek</em>!',text:'Zaregistrujte se a jako registrovaný zákazník budete mít na nákupy slevu&nbsp;<b>5&nbsp;%</b>.',cta:'Chci slevu 5 %',login:'Už mám účet – přihlásit se',close:'Zavřít'},
-  sk:{title:'Máme pre vás <em>darček</em>!',text:'Zaregistrujte sa a ako registrovaný zákazník budete mať na nákupy zľavu&nbsp;<b>5&nbsp;%</b>.',cta:'Chcem zľavu 5 %',login:'Už mám účet – prihlásiť sa',close:'Zavrieť'},
-  en:{title:'We have a <em>gift</em> for you!',text:'Register and as a registered customer you get&nbsp;<b>5&nbsp;%</b> off your purchases.',cta:'I want 5 % off',login:'I already have an account – sign in',close:'Close'},
-  hu:{title:'<em>Ajándékunk</em> van az Ön számára!',text:'Regisztráljon, és regisztrált vásárlóként&nbsp;<b>5&nbsp;%</b> kedvezményt kap a vásárlásaiból.',cta:'Kérem az 5 % kedvezményt',login:'Már van fiókom – bejelentkezés',close:'Bezárás'}
+  cs:{title:'Máme pro vás <em>dárek</em>!',text:'Zaregistrujte se a jako registrovaný zákazník budete mít slevu <b>5&nbsp;% na všechny nákupy navždy</b>.',cta:'Chci slevu 5 %',login:'Už mám účet – přihlásit se',close:'Zavřít'},
+  sk:{title:'Máme pre vás <em>darček</em>!',text:'Zaregistrujte sa a ako registrovaný zákazník budete mať zľavu <b>5&nbsp;% na všetky nákupy navždy</b>.',cta:'Chcem zľavu 5 %',login:'Už mám účet – prihlásiť sa',close:'Zavrieť'},
+  en:{title:'We have a <em>gift</em> for you!',text:'Register and as a registered customer you get <b>5&nbsp;% off all your purchases, for good</b>.',cta:'I want 5 % off',login:'I already have an account – sign in',close:'Close'},
+  hu:{title:'<em>Ajándékunk</em> van az Ön számára!',text:'Regisztráljon, és regisztrált vásárlóként <b>örökre 5&nbsp;% kedvezményt kap minden vásárlásából</b>.',cta:'Kérem az 5 % kedvezményt',login:'Már van fiókom – bejelentkezés',close:'Bezárás'}
  };
  function words(){var l=window.OKLA_LANG||document.documentElement.getAttribute('data-okla-lang')||'cs';return TEXT[l]||TEXT.cs}
  function signedIn(){return !document.querySelector('#navigation a[data-testid="signin"],.top-navigation-bar .top-nav-button-login')}
