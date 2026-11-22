@@ -124,7 +124,9 @@
   var x=build(list);header.appendChild(x.bar);document.body.appendChild(x.dim);
   document.documentElement.classList.add('okla-catbar-on');
   /* exactly as wide as the header's own row (the content column) */
-  function sync(){var n=header.querySelector('.navigation-wrapper');if(n&&n.offsetWidth)x.bar.style.setProperty('width',n.offsetWidth+'px','important');
+  /* PC only (the bar is not shown below 992 px): on a phone its measuring forced whole-page layouts for nothing */
+  var pcWide=window.matchMedia('(min-width:992px)');
+  function sync(){if(!pcWide.matches)return;var n=header.querySelector('.navigation-wrapper');if(n&&n.offsetWidth)x.bar.style.setProperty('width',n.offsetWidth+'px','important');
    /* the items themselves run exactly from the logo's left edge to the cart's right edge (the header row) */
    var row=header.querySelector('.header-top'),inner=x.bar.querySelector('.okcb-inner');
    if(row&&inner&&row.offsetWidth){var dz0=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--okla-dz'))||1,br=x.bar.getBoundingClientRect(),rr=row.getBoundingClientRect();

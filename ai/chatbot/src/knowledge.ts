@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
-import { cleanPageText, crawlShop, formatPrice, liveShopNotes } from "./liveCatalog.js";
+import { cleanPageText, crawlShop, crawlStoreIndex, formatPrice, liveShopNotes, type IndexItem } from "./liveCatalog.js";
 import type { KnowledgeItem } from "./types.js";
 
 const STOP_WORDS = new Set([
@@ -272,8 +272,11 @@ export class KnowledgeStore {
   private csvItems: KnowledgeItem[] = [];
   private feedItems: KnowledgeItem[] = [];
   private liveItems: KnowledgeItem[] = [];
+  /* the storefront's product index (GET /api/catalog), read with the same crawl */
+  private storeIndex: { t: number; items: IndexItem[] } = { t: 0, items: [] };
   private refreshTimer?: NodeJS.Timeout;
   private crawlTimer?: NodeJS.Timeout;
+  private indexTimer?: NodeJS.Timeout;
 
   constructor(
     private readonly filePath: string,
@@ -303,6 +306,9 @@ export class KnowledgeStore {
       void this.refreshLive();
       this.crawlTimer = setInterval(() => void this.refreshLive(), this.crawlMinutes * 60_000);
       this.crawlTimer.unref();
+      void this.refreshIndex();
+      this.indexTimer = setInterval(() => void this.refreshIndex(), 30 * 60_000);
+      this.indexTimer.unref();
     }
     if (this.feedUrl) {
       await this.refreshFeed().catch(() => undefined);
@@ -350,6 +356,23 @@ export class KnowledgeStore {
   close(): void {
     if (this.refreshTimer) clearInterval(this.refreshTimer);
     if (this.crawlTimer) clearInterval(this.crawlTimer);
+    if (this.indexTimer) clearInterval(this.indexTimer);
+  }
+
+  /* the storefront's index, every 30 minutes (prices and stock in search and the cart drawer stay current); a
+     complete index only - one failing listing keeps the last good one */
+  async refreshIndex(): Promise<void> {
+    if (!this.shopBaseUrl) return;
+    try {
+      const items = await crawlStoreIndex(this.shopBaseUrl);
+      if (items.length >= 10) this.storeIndex = { t: Date.now(), items };
+    } catch {
+      /* the storefront falls back to reading the listings itself */
+    }
+  }
+
+  index(): { t: number; items: IndexItem[] } {
+    return this.storeIndex;
   }
 
   /* exposed for tests and for a manual refresh */
@@ -366,6 +389,7 @@ export class KnowledgeStore {
         }
       }
       this.liveItems = [...products, ...pages, ...liveShopNotes(result, products, this.shopBaseUrl), ...categoryOverviews(products, this.shopBaseUrl)];
+
     } catch {
       /* keep the last good catalogue */
     }

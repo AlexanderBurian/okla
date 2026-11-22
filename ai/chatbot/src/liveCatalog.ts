@@ -346,6 +346,89 @@ export async function crawlShop(base: string, maxPages = 400, concurrency = 4): 
   return { products, pages, shipping: [...shipping.values()], groups };
 }
 
+/* ---------- the storefront's product index (GET /api/catalog) ----------
+   The shop's search, cart drawer and suggestions (okla_live_catalog.js) need every product with its listing picture,
+   price, stock and add-to-cart ids. Each visitor's browser used to read all category listings for it (well over a
+   megabyte of HTML on a phone's first visit); the service reads them here with its regular crawl and hands the
+   result over as one small JSON, in exactly the shape the storefront builds itself. */
+export interface IndexItem {
+  pid: string; prc: string; code: string; name: string; url: string; image: string;
+  price: number | null; available: boolean | null; shortDescription: string; defaultCategory: string; brand: string; live: true;
+}
+
+const attr = (html: string, re: RegExp): string => decodeEntities(html.match(re)?.[1] ?? "").trim();
+
+export function parseListingCards(html: string, origin: string, categoryName: string): IndexItem[] {
+  const out: IndexItem[] = [];
+  const parts = html.split(/(?=<div class="p"[^>]*data-micro="product")/);
+  for (const card of parts.filter((part) => /^<div class="p"[^>]*data-micro="product"/.test(part))) {
+    const href = card.match(/<a[^>]*href="([^"]+)"[^>]*class="(?:image|name)"|<a\s+href="([^"]+)"\s+class="(?:image|name)"/);
+    const raw = href?.[1] ?? href?.[2] ?? card.match(/href="([^"]+)"/)?.[1];
+    if (!raw) continue;
+    let path: string;
+    try { path = new URL(decodeEntities(raw), origin).pathname; } catch { continue; }
+    let image = attr(card, /<img[^>]*data-src="([^"]+)"/) || attr(card, /<img[^>]*src="(?!data:)([^"]+)"/);
+    if (/^data:/.test(image)) image = "";
+    const priceRaw = card.match(/data-micro-price="([^"]+)"/)?.[1];
+    const availability = card.match(/data-micro-availability="([^"]*)"/)?.[1];
+    const name = htmlToText(card.match(/data-micro="name"[^>]*>([\s\S]*?)<\/span>/)?.[1] ?? "");
+    const sku = attr(card, /data-micro="sku"[^>]*>([^<]*)</);
+    const price = priceRaw ? Number(priceRaw) : NaN;
+    out.push({
+      pid: attr(card, /name="productId"\s+value="([^"]*)"/),
+      prc: attr(card, /name="priceId"\s+value="([^"]*)"/),
+      code: sku || `URL:${path}`,
+      name,
+      url: origin + path,
+      image,
+      price: Number.isFinite(price) ? price : null,
+      available: priceRaw ? !/OutOfStock|SoldOut|Discontinued/i.test(availability ?? "") : null,
+      shortDescription: htmlToText(card.match(/class="p-desc"[^>]*>([\s\S]*?)<\/(?:div|p)>/)?.[1] ?? ""),
+      defaultCategory: categoryName,
+      brand: "",
+      live: true
+    });
+  }
+  return out.filter((item) => item.name);
+}
+
+/* the top categories of the shop's main menu (the first link of every first-level item) */
+export function menuCategories(homeHtml: string): string[] {
+  const menu = homeHtml.slice(Math.max(0, homeHtml.indexOf('class="menu-level-1"')));
+  const out = [...menu.matchAll(/<li class="menu-item-\d+[^"]*"[^>]*><a href="(\/[^"/]+\/)"[^>]*role="menuitem"/g)].map((m) => m[1] as string);
+  return [...new Set(out)];
+}
+
+export async function crawlStoreIndex(base: string): Promise<IndexItem[]> {
+  const origin = new URL(base).origin;
+  const home = await (await get(new URL("/", base).toString())).text();
+  const categories = menuCategories(home);
+  if (categories.length < 3) return [];
+  const items: IndexItem[] = [];
+  for (const href of categories) {
+    const first = await get(origin + href);
+    if (!first.ok) throw new Error(`category ${href}: ${first.status}`);
+    const html = await first.text();
+    const name = htmlToText(html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] ?? "") || href;
+    items.push(...parseListingCards(html, origin, name));
+    const pages = [...new Set([...html.matchAll(new RegExp(`href="(${href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}strana-\\d+/)"`, "g"))].map((m) => m[1] as string))];
+    for (const page of pages) {
+      const res = await get(origin + page);
+      if (!res.ok) throw new Error(`category page ${page}: ${res.status}`);
+      items.push(...parseListingCards(await res.text(), origin, name));
+    }
+  }
+  /* a product also appears in the pages' small sliders (no cart ids, a 100 px picture): one entry per product, the
+     listing's card first */
+  const score = (item: IndexItem) => (item.pid ? 2 : 0) + (/\/related\//.test(item.image) ? 0 : 1);
+  const byUrl = new Map<string, IndexItem>();
+  for (const item of items) {
+    const known = byUrl.get(item.url);
+    if (!known || score(item) > score(known)) byUrl.set(item.url, item);
+  }
+  return [...byUrl.values()];
+}
+
 const COUNTRY: Record<string, string> = { CZ: "Česko", SK: "Slovensko", HU: "Maďarsko" };
 
 /* "Doprava a platba" written from the crawl: the delivery methods with their current prices, the homepage groups

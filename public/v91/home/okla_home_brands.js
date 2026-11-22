@@ -56,8 +56,11 @@
   viewport.addEventListener('touchstart',function(e){if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY}},{passive:true});
   viewport.addEventListener('touchend',function(e){if(phone.matches||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){swipedAt=Date.now();move(dx<0?'next':'prev')}},{passive:true});
   viewport.addEventListener('click',function(e){if(Date.now()-swipedAt<450){e.preventDefault();e.stopPropagation()}},true);
-  size();addEventListener('resize',size,{passive:true});
+  /* nothing is measured while the page is being built (the strip is far down the homepage): the arrows are placed by
+     the ResizeObserver's first call, the step is measured on the first arrow click (move) */
+  addEventListener('resize',size,{passive:true});
   if(window.ResizeObserver){var ro=new ResizeObserver(function(){requestAnimationFrame(positionControls)});ro.observe(viewport);ro.observe(host)}
+  else requestAnimationFrame(positionControls);
   return true;
  }
  var tries=0;function retry(){if(mount())return;if(++tries<80)setTimeout(retry,125)}
@@ -85,7 +88,9 @@
   function setWidth(){return items[0].offsetLeft-track.firstElementChild.offsetLeft}
   var w=0;
   function centre(){w=setWidth();if(w>0)viewport.scrollLeft=w}
-  requestAnimationFrame(centre);
+  /* centred once the row comes near the screen, not while the page is being built (reading its place forced a layout) */
+  if(window.IntersectionObserver){var io=new IntersectionObserver(function(en){if(en.some(function(e){return e.isIntersecting})){io.disconnect();centre()}},{rootMargin:'800px 0px'});io.observe(viewport)}
+  else requestAnimationFrame(centre);
   var t=0;
   function settle(){
    if(!w)w=setWidth();if(!w)return;

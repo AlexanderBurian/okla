@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { liveShopNotes, parseHomepageGroups, parseShipping } from "./liveCatalog.js";
+import { liveShopNotes, menuCategories, parseHomepageGroups, parseListingCards, parseShipping } from "./liveCatalog.js";
 import { keyProperties } from "./prompt.js";
 import type { KnowledgeItem } from "./types.js";
 
@@ -27,6 +27,13 @@ describe("live shop notes", () => {
     expect(notes.map((n) => n.id)).toEqual(["live-shipping", "live-homepage-groups"]);
     expect(notes[0]?.content).toContain("Zásilkovna (Česko): zdarma");
     expect(notes[1]?.content).toContain("Novinky: Produkt B");
+  });
+
+  it("reads the menu's top categories and a listing's product cards for the storefront index", () => {
+    const menu = `<ul class="menu-level-1"><li class="menu-item-721 ext" role="none"><a href="/multitooly/" data-testid="headerMenuItem" role="menuitem"><b>Multitooly</b></a><ul class="menu-level-2"><li class="menu-item-773" role="none"><a href="/kapesni/" class="menu-image" tabindex="-1"></a><div><a href="/kapesni/" role="menuitem">Kapesní</a></div></li></ul></li><li class="menu-item-722" role="none"><a href="/mereni/" role="menuitem">Měření</a></li></ul>`;
+    expect(menuCategories(menu)).toEqual(["/multitooly/", "/mereni/"]);
+    const card = `<div class="p" data-micro="product" data-micro-product-id="178"><a href="/g50/" class="image"><img src="data:image/svg+xml,x" data-src="https://cdn.example/detail/178.jpg"></a><a href="/g50/" class="name" data-micro="url"><span data-micro="name">ANENG G50</span></a><span data-micro="sku">TVC-1</span><div class="p-desc">Zelený paprsek.</div><div class="offers" data-micro="offer" data-micro-price="789.00" data-micro-availability="https://schema.org/InStock"></div><input type="hidden" name="productId" value="178" /><input type="hidden" name="priceId" value="181" /></div>`;
+    expect(parseListingCards(card, "https://www.okla.cz", "Měření")).toEqual([{ pid: "178", prc: "181", code: "TVC-1", name: "ANENG G50", url: "https://www.okla.cz/g50/", image: "https://cdn.example/detail/178.jpg", price: 789, available: true, shortDescription: "Zelený paprsek.", defaultCategory: "Měření", brand: "", live: true }]);
   });
 
   it("keeps a product's key properties", () => {

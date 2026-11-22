@@ -7,13 +7,14 @@
    - label: the article's own kicker (e.g. "Návod"), or the label kept for the first articles;
    - minutes: the reading time worked out from the article's length.
    window.oklaArticles.cached() gives what was read last time on this device (or null), .load(done) reads the list
-   again when the last reading is older than 5 minutes and calls done(list or null), .parse(html) reads a list page. */
+   again when the last reading is older than 2 hours and calls done(list or null), .parse(html) reads a list page. */
 (function () {
   'use strict';
   if (window.oklaArticles) return;
 
   var LIST = '/nase-novinky/';
-  var CACHE_KEY = 'okla-articles-v1', FRESH = 5 * 60 * 1000;
+  /* articles change a few times a month: the list (177 kB of HTML) is read again after 2 hours, not after 5 minutes */
+  var CACHE_KEY = 'okla-articles-v1', FRESH = 2 * 60 * 60 * 1000;
   /* labels of the first articles, which have no kicker of their own */
   var LABEL = {
     '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/': 'Multitool a RF',

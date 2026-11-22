@@ -136,7 +136,9 @@
  }
  function start(){
   if(!locate())return;
-  geometry();
+  /* measured on PC only (the bar exists there only): on a phone the measuring forced a whole-page layout before the
+     page was shown; resize() measures when the window becomes PC-wide */
+  if(desktop.matches)geometry();
   schedule();
   window.addEventListener('scroll',schedule,{passive:true});
   window.addEventListener('resize',resize,{passive:true});

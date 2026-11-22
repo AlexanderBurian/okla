@@ -309,7 +309,8 @@
   addHeaderButton();
   buildBuyBar();
   addShare();
-  lastY = window.pageYOffset || 0;
+  /* the scroll position is first read on the first scroll (lastY starts at 0): reading it here, while the page was
+     still being built, forced a whole-page layout */
   window.addEventListener('resize', function () { placeBar(); measured = false; });
   narrow.addEventListener('change', function (e) {
    if (e.matches) return;

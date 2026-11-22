@@ -132,7 +132,28 @@
   try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&c.items&&c.items.length)return c}catch(e){}
   return null;
  }
+ /* the index the Okla service builds from the same listings every 30 minutes (one small JSON, ~8 kB): a phone no
+    longer downloads and parses every category page itself; when the service does not answer within 5 s (asleep,
+    unreachable) the listings are read here as before */
+ function fromService(){
+  var api=window.__oklaApiUrl;
+  if(!api||!window.fetch)return Promise.reject(new Error('no service'));
+  var ctl=window.AbortController?new AbortController():null,timer=setTimeout(function(){if(ctl)ctl.abort()},5000);
+  return fetch(api+'/api/catalog',{mode:'cors',credentials:'omit',signal:ctl?ctl.signal:undefined}).then(function(r){
+   clearTimeout(timer);if(!r.ok)throw new Error(r.status);return r.json();
+  }).then(function(d){
+   var items=d&&d.items;
+   if(!items||items.length<10||!(d.t>Date.now()-TTL))throw new Error('stale');
+   items.forEach(function(it){it.url=location.origin+path(it.url)});
+   merge(items,true);
+   try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),items:items}))}catch(e){}
+   return items;
+  },function(e){clearTimeout(timer);throw e});
+ }
  function refresh(){
+  return fromService().catch(refreshFromListings);
+ }
+ function refreshFromListings(){
   if(!window.fetch||!window.DOMParser)return Promise.resolve(null);
   var cats=categories(),ok=true;
   /* one category after another, each when the browser is idle: reading them all at once stacked a dozen page parses

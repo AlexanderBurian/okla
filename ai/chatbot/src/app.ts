@@ -105,6 +105,14 @@ export async function buildApp(options: BuildOptions): Promise<FastifyInstance> 
     providerErrors
   }));
 
+  /* the storefront's product index (okla_live_catalog.js): every product with its listing picture, price, stock and
+     cart ids, from the service's regular crawl - one small JSON instead of every category page read by each visitor */
+  app.get("/api/catalog", async (_request, reply) => {
+    const index = knowledge.index();
+    if (!index.items.length) return reply.code(503).header("cache-control", "no-store").send({ error: "not ready" });
+    return reply.header("cache-control", "public, max-age=600").send({ t: index.t, items: index.items });
+  });
+
   app.get("/widget.js", async (_request, reply) => {
     const widgetPath = path.resolve(process.cwd(), "public/widget.js");
     const source = await readFile(widgetPath, "utf8");
