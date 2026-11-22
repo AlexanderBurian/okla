@@ -92,16 +92,18 @@
  }
 
  function csrf(){try{return (window.shoptet&&shoptet.csrf&&shoptet.csrf.token)||''}catch(e){return ''}}
- function fmt(n){try{return n.toLocaleString('cs-CZ')+' Kč'}catch(e){return n+' Kč'}}
+ function fmt(n){n=Math.round(n);try{return n.toLocaleString('cs-CZ')+' Kč'}catch(e){return n+' Kč'}}
  function refreshCart(){try{if(window.shoptet&&shoptet.cart&&shoptet.cart.getCartContent)shoptet.cart.getCartContent()}catch(e){}}
 
  /* The large product price, desktop sticky price and mobile buy-bar price all
     represent the total purchase triggered by the main CTA. Keep that total in
     step with the successfully selected companion products. */
  var mainPrice=null;
+ /* "2 460,50 Kč" -> 2461: the whole amount with its haléře (reading digits only made 369,55 Kč into 36955), rounded
+    to whole crowns like every price on the shop (okla_price_rounding.js) */
  function numberFromPrice(text){
-  var digits=String(text||'').replace(/[^0-9]/g,'');
-  return digits?parseInt(digits,10):0;
+  var m=String(text||'').replace(/[\s  ]/g,'').match(/(\d+)(?:[.,](\d{1,2}))?/);
+  return m?Math.round(Number(m[1]+'.'+(m[2]||'0'))):0;
  }
  function priceView(){
   if(mainPrice&&mainPrice.target&&document.documentElement.contains(mainPrice.target))return mainPrice;
@@ -123,7 +125,7 @@
   var extra=0,selected=0;
   list.forEach(function(it,i){
    var row=sec.querySelector('.okla-xsell__item[data-i="'+i+'"]');
-   if(row&&row.classList.contains('is-added')){extra+=it.price;selected++;}
+   if(row&&row.classList.contains('is-added')){extra+=Math.round(it.price);selected++;}
   });
   var total=view.base+extra,formatted=mainFmt(view,total);
   /* the product's own price stays its price; only the buy bars (sticky / phone) show the total of the purchase, and

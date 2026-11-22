@@ -318,7 +318,7 @@ var BUNDLES=[
  /* Product page: tabs, tools (print, ask, watch, share), buy bar, the picture viewer */
  ['22-product-extras','product',['v91/product/okla_detail_tabs.css','v91/product/okla_detail_tabs.js','v91/product/okla_product_tools.css','v91/product/okla_product_tools.js','v91/product/okla_desktop_buybar.css','v91/product/okla_desktop_buybar.js','v91/product/okla_detail_alza.css','v91/product/okla_detail_alza.js','v91/product/okla_bought_together.css','v91/product/okla_bought_together.js','v91/product/okla_gallery.css','v91/product/okla_gallery.js','v91/product/okla_member_price.css','v91/product/okla_member_price.js']],
  /* Typeface, text contrast, dead links, product prices and buttons */
- ['23-finish','all',['v91/core/okla_global_typography.css','v91/core/okla_text_contrast.js','v91/core/okla_deadlink_guard.js','v91/core/okla_product_commerce.css','v91/core/okla_no_discount_flags.css','v91/core/okla_no_discount_flags.js']],
+ ['23-finish','all',['v91/core/okla_global_typography.css','v91/core/okla_text_contrast.js','v91/core/okla_deadlink_guard.js','v91/core/okla_product_commerce.css','v91/core/okla_no_discount_flags.css','v91/core/okla_no_discount_flags.js','v91/core/okla_price_rounding.js']],
  ['24-checkout-fix','checkout',['v91/checkout/okla_checkout_final.css','v91/checkout/okla_cart_recs.css','v91/checkout/okla_cart_recs.js']],
  /* Call-to-action buttons: colour and shape */
  ['25-buttons','all',['v91/core/okla_green_buttons.js','v91/core/okla_all_cta_blue.css','v91/core/okla_cta_shape.js']],

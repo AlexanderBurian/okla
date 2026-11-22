@@ -167,15 +167,13 @@
   tabs.dataset.ok97Formatted='1';
  }
  /* Display only a real Shoptet native price; do not overwrite variant prices or add fabricated discounts. */
- /* the whole amount Shoptet shows: whole crowns as "889,-"; with haléře (a customer discount, "940,50 Kč") exactly as
-    Shoptet counts it, so it is the same amount as in the cart (it used to be cut to "50,-") */
+ /* the whole amount Shoptet shows, rounded to the nearest whole crown like every price on the shop
+    (okla_price_rounding.js): "889 Kč" -> "889,-", a customer discount's "369,55 Kč" -> "370,-" (it used to be cut to "55,-") */
  function formattedPrice(raw){
   var match=String(raw||'').replace(/[  ]/g,' ').match(/(\d{1,3}(?:\s\d{3})*|\d+)(?:[.,](\d{1,2}))?\s*Kč/i);
   if(!match)return null;
-  var whole=Number(match[1].replace(/\s/g,'')),dec=match[2]?Number((match[2]+'0').slice(0,2)):0;
-  if(!Number.isFinite(whole)||whole<0)return null;
-  if(!dec)return whole.toLocaleString('cs-CZ')+',-';
-  return whole.toLocaleString('cs-CZ')+','+String(dec).padStart(2,'0')+' Kč';
+  var num=Math.round(Number(match[1].replace(/\s/g,'')+'.'+(match[2]||'0')));
+  return Number.isFinite(num)&&num>=0?num.toLocaleString('cs-CZ')+',-':null;
  }
  function formatDetailPrice(buy){
   /* Shoptet wraps the amount in .price-final-holder; the holder is the text node to reformat. */
