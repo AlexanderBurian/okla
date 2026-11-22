@@ -306,7 +306,7 @@ var BUNDLES=[
  ['13-about','about',['v91/pages/okla_about.css','v91/pages/okla_about.js']],
  ['14-how-to-buy','howToBuy',['v91/pages/okla_how_to_buy.css','v91/pages/okla_how_to_buy.js']],
  ['15-contact','contact',['v91/pages/okla_contact.css','v91/pages/okla_contact.js']],
- ['16-account','account',['v91/pages/okla_account.css','v91/pages/okla_account.js','v91/pages/okla_account_polish.css','v91/pages/okla_account_polish.js','v91/pages/okla_account_nav.css','v91/pages/okla_account_nav.js']],
+ ['16-account','account',['v91/pages/okla_account.css','v91/pages/okla_account.js','v91/pages/okla_account_polish.css','v91/pages/okla_account_polish.js','v91/pages/okla_account_nav.css','v91/pages/okla_account_nav.js','v91/pages/okla_account_discounts.css','v91/pages/okla_account_discounts.js']],
  /* Login and registration: social sign-in row, isolated page (logo + card) */
  ['17-sign-in','signIn',['v91/pages/okla_login_social.css','v91/pages/okla_login_social.js','v91/pages/okla_auth_pages.css','v91/pages/okla_auth_pages.js']],
  ['18-not-found','notFound',['v91/pages/okla_404.css']],

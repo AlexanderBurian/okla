@@ -1,0 +1,6 @@
+/* Okla – "Moje slevy": the total discount row set off by a thicker, darker line above it, its name and value in the
+   shop's navy (okla_account_discounts.js marks the row). */
+html body #content tr.okla-disc-total:not(#oad-a#oad-b#oad-c)>*{border-top:3px solid #0b2540!important;color:#0b2540!important}
+html body #content .okla-disc-total:not(tr):not(#oad-a#oad-b#oad-c){border-top:3px solid #0b2540!important}
+html body #content .okla-disc-total:not(#oad-a#oad-b#oad-c) .okla-disc-total__label{font-weight:700!important;color:#0b2540!important}
+html body #content .okla-disc-total__label.okla-disc-total__label:not(#oad-a#oad-b#oad-c){font-weight:700!important;color:#0b2540!important}
