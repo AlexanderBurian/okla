@@ -56,6 +56,55 @@
   viewport.addEventListener('touchstart',function(e){if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY}},{passive:true});
   viewport.addEventListener('touchend',function(e){if(phone.matches||!e.changedTouches.length)return;var dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.2){swipedAt=Date.now();move(dx<0?'next':'prev')}},{passive:true});
   viewport.addEventListener('click',function(e){if(Date.now()-swipedAt<450){e.preventDefault();e.stopPropagation()}},true);
+  /* the mouse drags the row too (held button, moved sideways), on PC and in a narrow window; on release it settles on
+     the nearest logo. PC: the row follows the cursor and goes round endlessly; narrow (phone) layout: the native
+     scrolling row is moved, its one-logo snapping is switched off while dragging. A drag never opens a logo's link. */
+  var drag=null;
+  function zoomOf(){return track.currentCSSZoom||1}
+  function itemStarts(){var base=track.firstElementChild?track.firstElementChild.offsetLeft:0;return [].map.call(track.children,function(it){return it.offsetLeft-base})}
+  viewport.addEventListener('pointerdown',function(e){
+   if(e.pointerType!=='mouse'||e.button!==0)return;
+   if(busy)finish();size();if(!step)return;
+   drag={x:e.clientX,id:e.pointerId,moved:false,offset:0,scroll:viewport.scrollLeft};
+  });
+  viewport.addEventListener('pointermove',function(e){
+   if(!drag||e.pointerId!==drag.id)return;
+   var dx=(e.clientX-drag.x)/zoomOf();
+   if(!drag.moved){
+    if(Math.abs(dx)<6)return;
+    drag.moved=true;try{viewport.setPointerCapture(drag.id)}catch(err){}
+    viewport.classList.add('is-dragging');track.style.transition='none';
+   }
+   e.preventDefault();
+   if(phone.matches){viewport.scrollLeft=drag.scroll-dx;return}
+   /* endless: a logo is moved from one end to the other as soon as the row has been pulled past it */
+   var off=dx+drag.offset;
+   while(off>0){track.prepend(track.lastElementChild);drag.offset-=step;off-=step}
+   while(off<-step){track.appendChild(track.firstElementChild);drag.offset+=step;off+=step}
+   track.style.transform='translate3d('+off+'px,0,0)';
+  });
+  function endDrag(e){
+   if(!drag||(e&&e.pointerId!==drag.id))return;
+   var d=drag;drag=null;
+   if(!d.moved)return;
+   swipedAt=Date.now();
+   try{viewport.releasePointerCapture(d.id)}catch(err){}
+   if(phone.matches){
+    var x=viewport.scrollLeft,best=x,dist=Infinity;
+    itemStarts().forEach(function(s){if(Math.abs(s-x)<dist){dist=Math.abs(s-x);best=s}});
+    viewport.scrollTo({left:best,behavior:reduced?'auto':'smooth'});
+    setTimeout(function(){viewport.classList.remove('is-dragging')},450);
+    return;
+   }
+   viewport.classList.remove('is-dragging');
+   var m=Number((track.style.transform.match(/\(\s*(-?[\d.]+)/)||[0,0])[1])||0,duration=reduced?0:320;
+   busy=true;track.style.transition='transform '+duration+'ms cubic-bezier(.22,.61,.36,1)';
+   if(m<-step/2){dir='next';track.style.transform='translate3d('+(-step)+'px,0,0)'}
+   else{dir='';track.style.transform='translate3d(0,0,0)'}
+   fallback=setTimeout(finish,duration+110);
+  }
+  viewport.addEventListener('pointerup',endDrag);viewport.addEventListener('pointercancel',endDrag);
+  viewport.addEventListener('dragstart',function(e){e.preventDefault()});
   /* nothing is measured while the page is being built (the strip is far down the homepage): the arrows are placed by
      the ResizeObserver's first call, the step is measured on the first arrow click (move) */
   addEventListener('resize',size,{passive:true});
