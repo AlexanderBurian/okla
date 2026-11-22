@@ -30,7 +30,8 @@ PŘESNOST A BEZPEČNOST
 
 O Okla
 - Český kurátorský e-shop s elektronikou (multitooly, vývojové desky ESP32, měřicí přístroje, endoskopy, chytrá elektronika, vychytávky), založený 2019 v Ostravě, protože zajímavé gadgety se u nás nedaly sehnat nebo k nim nikdo neuměl poradit. Raději méně produktů, za kterými si stojíme; každý před zařazením vyzkouší technik a popisy píšeme sami.
-- Sklad a expedice v Ostravě, odesíláme zpravidla do 24 h v pracovní dny (to není doba doručení). Doručujeme do Česka, na Slovensko (od 2022) a do Maďarska (od 2024), jinam ne. Dopravce, platbu a ceny zákazník vidí v košíku (mj. Zásilkovna, převod).
+- Sklad a expedice v Ostravě, odesíláme zpravidla do 24 h v pracovní dny (to není doba doručení). Doručujeme do Česka, na Slovensko (od 2022) a do Maďarska (od 2024), jinam ne. Způsoby dopravy a jejich aktuální ceny ber z podkladu „Doprava – aktuální způsoby a ceny z e-shopu“; platí se převodem nebo na dobírku, konečnou cenu zákazník vidí v košíku. Jiné dopravce ani způsoby platby (karta, PayPal, Apple Pay…) nejmenuj.
+- Co je nového, v akci nebo co doporučujeme: vycházej z podkladu „Novinky, akce a doporučené zboží“ a z poznámek novinka / akce / doporučujeme v přehledu sortimentu.
 - Nákup bez registrace, vrácení do 14 dnů bez udání důvodu, odpovědnost za vady 24 měsíců, reklamace i vrácení e-mailem. Velkoobchod pro e-shopy a prodejny. Podpora podpora@okla.cz, Po–Pá 9–17; telefon ani prodejnu nemáme. Provozovatel Kratas Pro s.r.o., IČO 23695340, Praha 5. Web česky, slovensky, maďarsky a anglicky.
 - Stránky: [O nás](https://www.okla.cz/o-nas/), [Jak nakupovat](https://www.okla.cz/jak-nakupovat/), [Doprava a platba](https://www.okla.cz/doprava-a-platba/), [Vrácení zboží](https://www.okla.cz/vraceni-zbozi-a-odstoupeni/), [Reklamační řád](https://www.okla.cz/reklamacni-rad/), [Obchodní podmínky](https://www.okla.cz/obchodni-podminky/), [Stav objednávky](https://www.okla.cz/stav-objednavky/), [Kontakt](https://www.okla.cz/kontakt/).`;
 
@@ -69,9 +70,15 @@ export function brandsOf(catalog: KnowledgeItem[]): string[] {
   return [...counts].sort((a, b) => b[1] - a[1]).map(([word]) => word);
 }
 
+/* the homepage groups as one short note ("novinka", "akce", "doporučujeme") */
+function tagNote(item: KnowledgeItem): string | undefined {
+  const notes = new Set((item.tags ?? []).map((tag) => (/novink/i.test(tag) ? "novinka" : /akč|akce|sleva|výprodej/i.test(tag) ? "akce" : "doporučujeme")));
+  return notes.size ? [...notes].join(", ") : undefined;
+}
+
 function catalogLine(item: KnowledgeItem, key: string, withBrief: boolean): string {
   const title = item.title.length > 70 ? `${item.title.slice(0, 68).replace(/\s+\S*$/, "")}…` : item.title;
-  const facts = [priceOf(item), item.inStock === false ? "není skladem" : undefined, withBrief ? brief(item) : undefined].filter(Boolean);
+  const facts = [priceOf(item), item.inStock === false ? "není skladem" : undefined, tagNote(item), withBrief ? brief(item) : undefined].filter(Boolean);
   return `${key} ${title}${facts.length ? ` | ${facts.join(" | ")}` : ""}`;
 }
 
@@ -87,7 +94,7 @@ export function catalogBlock(catalog: KnowledgeItem[], withBriefs: boolean | Set
   const brands = brandsOf(catalog);
   const sections = [...groups].map(([name, lines]) => `${name} (${lines.length}) – stránka kategorie ${new URL(`/${categorySlug(name)}/`, base)}:\n${lines.join("\n")}`);
   return [
-    `PŘEHLED SORTIMENTU – všech ${catalog.length} produktů, které Okla nabízí (klíč název | cena${withBriefs ? " | u produktů k dotazu i o čem jsou" : ""}); nic jiného neprodáváme. Ceny a dostupnost jsou aktuální z e-shopu.`,
+    `PŘEHLED SORTIMENTU – všech ${catalog.length} produktů, které Okla nabízí (klíč název | cena | novinka / akce / doporučujeme podle hlavní stránky${withBriefs ? " | u produktů k dotazu i o čem jsou" : ""}); nic jiného neprodáváme. Ceny a dostupnost jsou aktuální z e-shopu.`,
     brands.length ? `Značky: ${brands.join(", ")}.` : "",
     ...sections
   ].filter(Boolean).join("\n\n");
@@ -112,11 +119,26 @@ function boilerplateOf(catalog: KnowledgeItem[]): Set<string> {
   return common;
 }
 
+/* the description's "Doplňkové parametry" (Klíčová vlastnost 1 : Dosah 60 m . Model : C0014109B . ...) as one short
+   sentence: the product's own key facts, which the rest of its text often does not repeat */
+export function keyProperties(content: string): string | undefined {
+  const tail = content.match(/Doplňkové parametry\.([\s\S]*)$/)?.[1] ?? "";
+  const pairs = [...tail.matchAll(/([^.:;]{2,40}?)\s?:\s?([^:]{1,140}?)\s?\.(?=\s|$)/g)]
+    .map((m) => [(m[1] ?? "").trim(), (m[2] ?? "").trim()] as const)
+    .filter(([name, value]) => value && !/^(Kategorie|Výrobce|Značka)$/i.test(name));
+  const keys = pairs.filter(([name]) => /vlastnost/i.test(name)).map(([, value]) => value);
+  const other = pairs.filter(([name]) => !/vlastnost/i.test(name)).map(([name, value]) => `${name} ${value}`);
+  const all = [...new Set([...keys, ...other])];
+  return all.length ? `Hlavní vlastnosti: ${all.join("; ")}.` : undefined;
+}
+
 export function productText(item: KnowledgeItem, catalog: KnowledgeItem[], max: number): string {
   const common = boilerplateOf(catalog);
   const seen = new Set<string>();
   const out: string[] = [];
   let length = 0;
+  const key = keyProperties(item.content);
+  if (key) { out.push(key); length += key.length + 1; }
   for (const sentence of splitSentences(item.content.replace(/\s*Doplňkové parametry\.[\s\S]*$/, "").replace(/^Popis:\s*/i, ""))) {
     const key = sentenceKey(sentence);
     if (common.has(key) || seen.has(key) || /^Popis:/i.test(sentence) || key === sentenceKey(`${item.title}.`)) continue;

@@ -90,6 +90,44 @@ export interface LiveProduct {
   short?: string;
   description?: string;
   parameters?: string[];
+  /* the shop's delivery methods for this product, from its microdata (name, price, country) */
+  shipping?: ShippingOption[];
+  /* the customers' rating (schema.org AggregateRating), when the product has one */
+  rating?: { value: number; count: number };
+}
+
+export interface ShippingOption { label: string; price?: number; country?: string }
+
+/* every schema.org OfferShippingDetails block of a product page: Shoptet lists there the delivery methods the product
+   can be sent with, each with its price and country - the only machine-readable, always current delivery data */
+export function parseShipping(html: string): ShippingOption[] {
+  const out: ShippingOption[] = [];
+  for (const m of html.matchAll(/itemprop="shippingDetails"[\s\S]*?itemprop="addressCountry"[^>]*content="([^"]*)"/gi)) {
+    const block = m[0];
+    const label = block.match(/itemprop="shippingLabel"[^>]*content="([^"]*)"/i)?.[1];
+    const value = block.match(/itemprop="shippingRate"[\s\S]*?itemprop="value"[^>]*content="([^"]*)"/i)?.[1];
+    if (!label) continue;
+    const price = value === undefined ? undefined : Number(value.replace(",", "."));
+    out.push({ label: decodeEntities(label).trim(), price: Number.isFinite(price) ? price : undefined, country: m[1] || undefined });
+  }
+  return out;
+}
+
+/* the homepage's product groups ("Akční zboží", "Novinky", "To nejlepší od nás", ...): group name -> product paths in
+   the shop's order, so the adviser knows what is new, on offer or recommended right now */
+export function parseHomepageGroups(html: string): Array<{ name: string; paths: string[] }> {
+  const heads = [...html.matchAll(/<(?:div|h2|h3)[^>]*class="[^"]*homepage-group-title[^"]*"[^>]*>([\s\S]*?)<\/(?:div|h2|h3)>/gi)];
+  const groups = new Map<string, string[]>();
+  heads.forEach((head, index) => {
+    const name = htmlToText(head[1] ?? "").replace(/\.$/, "").trim();
+    if (!name) return;
+    const section = html.slice((head.index ?? 0) + head[0].length, heads[index + 1]?.index ?? html.length);
+    const paths = [...section.matchAll(/<a[^>]*href="([^"]+)"[^>]*class="[^"]*\bname\b[^"]*"/gi)]
+      .map((a) => { try { return new URL(decodeEntities(a[1] ?? ""), "https://www.okla.cz").pathname; } catch { return ""; } })
+      .filter(Boolean);
+    if (paths.length) groups.set(name, [...new Set([...(groups.get(name) ?? []), ...paths])]);
+  });
+  return [...groups].map(([name, paths]) => ({ name, paths }));
 }
 
 export function parseProductPage(html: string, url: string): LiveProduct | undefined {
@@ -123,7 +161,13 @@ export function parseProductPage(html: string, url: string): LiveProduct | undef
     category: category ? decodeEntities(category).split(">").map((part) => part.trim()).filter((part) => part && !/úvodní stránka/i.test(part)).slice(0, -1).join(" > ") || undefined : undefined,
     short: shortBlock ? htmlToText(shortBlock) : meta(html, "description"),
     description,
-    parameters: parameters.length ? parameters : undefined
+    parameters: parameters.length ? parameters : undefined,
+    shipping: parseShipping(scope),
+    rating: (() => {
+      const value = Number((meta(scope, "ratingValue") ?? "").replace(",", "."));
+      const count = Number(meta(scope, "reviewCount") ?? meta(scope, "ratingCount") ?? "");
+      return Number.isFinite(value) && value > 0 && Number.isFinite(count) && count > 0 ? { value, count } : undefined;
+    })()
   };
 }
 
@@ -150,6 +194,7 @@ export function productToItem(p: LiveProduct): KnowledgeItem {
     stock && `Dostupnost: ${stock}.`,
     p.category && `Kategorie: ${p.category}.`,
     p.brand && `Značka: ${p.brand}.`,
+    p.rating && `Hodnocení zákazníků: ${String(p.rating.value).replace(".", ",")} z 5 (${p.rating.count}×).`,
     p.parameters?.length ? `Parametry: ${p.parameters.join("; ")}.` : undefined,
     p.description && p.description !== p.short ? `Popis: ${p.description}` : undefined
   ].filter(Boolean);
@@ -236,13 +281,35 @@ async function sitemapUrls(base: string): Promise<string[]> {
   return [...new Set(out)];
 }
 
-export interface CrawlResult { products: KnowledgeItem[]; pages: KnowledgeItem[] }
+export interface CrawlResult {
+  products: KnowledgeItem[];
+  pages: KnowledgeItem[];
+  /* the delivery methods found on the product pages (each once per country, with its lowest and highest price) */
+  shipping: Array<ShippingOption & { maxPrice?: number }>;
+  /* the homepage's product groups (name -> product paths) */
+  groups: Array<{ name: string; paths: string[] }>;
+}
+
+/* an information page whose text is about something else than its title (e.g. "Doprava a platba" filled with the
+   returns policy) would make the adviser answer the wrong thing: such a page is left out */
+function pageMatchesTitle(slug: string, text: string): boolean {
+  if (slug === "doprava-a-platba") return /zásilkovn|dopravc|poštovn|ppl|dpd|gls|balíkovn|osobní odběr|cena dopravy|doručení zdarma/i.test(text);
+  return true;
+}
 
 export async function crawlShop(base: string, maxPages = 400, concurrency = 4): Promise<CrawlResult> {
   const origin = new URL(base).origin;
   const urls = (await sitemapUrls(base)).filter((u) => u.startsWith(origin)).slice(0, maxPages);
   const products: KnowledgeItem[] = [];
   const pages: KnowledgeItem[] = [];
+  const shipping = new Map<string, ShippingOption & { maxPrice?: number }>();
+  let groups: CrawlResult["groups"] = [];
+  try {
+    const home = await get(new URL("/", base).toString());
+    if (home.ok) groups = parseHomepageGroups(await home.text());
+  } catch {
+    /* without the homepage the groups are simply unknown */
+  }
   let cursor = 0;
   async function worker() {
     while (cursor < urls.length) {
@@ -254,9 +321,21 @@ export async function crawlShop(base: string, maxPages = 400, concurrency = 4): 
         if (!res.ok) continue;
         const html = await res.text();
         const product = parseProductPage(html, url);
-        if (product) { products.push(productToItem(product)); continue; }
+        if (product) {
+          products.push(productToItem(product));
+          for (const option of product.shipping ?? []) {
+            const key = `${option.label}|${option.country ?? ""}`;
+            const known = shipping.get(key);
+            if (!known) shipping.set(key, { ...option, maxPrice: option.price });
+            else if (option.price !== undefined) {
+              known.price = known.price === undefined ? option.price : Math.min(known.price, option.price);
+              known.maxPrice = known.maxPrice === undefined ? option.price : Math.max(known.maxPrice, option.price);
+            }
+          }
+          continue;
+        }
         const title = INFO_PAGES[slug];
-        if (title) { const page = parseInfoPage(html, url, title); if (page) pages.push(page); }
+        if (title) { const page = parseInfoPage(html, url, title); if (page && pageMatchesTitle(slug, page.content)) pages.push(page); }
         else if (/^nase-novinky\/[^/]+$/.test(slug)) { const article = parseArticlePage(html, url); if (article) pages.push(article); }
       } catch {
         /* one failing page never stops the crawl */
@@ -264,5 +343,46 @@ export async function crawlShop(base: string, maxPages = 400, concurrency = 4): 
     }
   }
   await Promise.all(Array.from({ length: concurrency }, worker));
-  return { products, pages };
+  return { products, pages, shipping: [...shipping.values()], groups };
+}
+
+const COUNTRY: Record<string, string> = { CZ: "Česko", SK: "Slovensko", HU: "Maďarsko" };
+
+/* "Doprava a platba" written from the crawl: the delivery methods with their current prices, the homepage groups
+   (what is new, on offer, recommended) - two small knowledge items the search finds for such questions */
+export function liveShopNotes(result: Pick<CrawlResult, "shipping" | "groups">, products: KnowledgeItem[], base = "https://www.okla.cz"): KnowledgeItem[] {
+  const notes: KnowledgeItem[] = [];
+  if (result.shipping.length) {
+    const lines = result.shipping.map((s) => {
+      const price = s.price === undefined ? "cena v košíku"
+        : s.price === 0 && !s.maxPrice ? "zdarma"
+          : s.maxPrice && s.maxPrice !== s.price ? `${formatPrice(s.price)} až ${formatPrice(s.maxPrice)} podle zboží` : formatPrice(s.price);
+      return `${s.label}${s.country ? ` (${COUNTRY[s.country] ?? s.country})` : ""}: ${price}`;
+    });
+    notes.push({
+      id: "live-shipping",
+      type: "faq",
+      title: "Doprava – aktuální způsoby a ceny z e-shopu",
+      content: `Způsoby dopravy, které e-shop u zboží právě nabízí, a jejich ceny: ${lines.join("; ")}. Výdejní místo nebo box si zákazník vybere v košíku na mapě. Způsob platby se volí v košíku podle zvolené dopravy (převodem na účet, nebo na dobírku); jiné způsoby platby nejsou v podkladech uvedené. Konečnou cenu dopravy i platby zákazník vidí v košíku před odesláním objednávky.`,
+      url: new URL("/doprava-a-platba/", base).toString(),
+      keywords: ["doprava", "doručení", "dopravce", "zásilkovna", "výdejní místo", "box", "z-box", "poštovné", "cena dopravy", "kolik stojí doprava", "doprava zdarma", "platba", "zaplatit", "dobírka", "převod", "kartou"]
+    });
+  }
+  if (result.groups.length) {
+    const byPath = new Map(products.filter((p) => p.url).map((p) => [new URL(p.url as string).pathname, p]));
+    const parts = result.groups.map((group) => {
+      const names = group.paths.map((path) => byPath.get(path)).filter((p): p is KnowledgeItem => Boolean(p))
+        .slice(0, 8).map((p) => `${p.title}${p.price ? ` (${formatPrice(p.price)})` : ""}`);
+      return names.length ? `${group.name}: ${names.join(", ")}` : "";
+    }).filter(Boolean);
+    if (parts.length) notes.push({
+      id: "live-homepage-groups",
+      type: "faq",
+      title: "Novinky, akce a doporučené zboží – aktuálně na hlavní stránce",
+      content: `Co e-shop právě ukazuje na hlavní stránce: ${parts.join(". ")}.`,
+      url: new URL("/", base).toString(),
+      keywords: ["novinky", "nové", "nového", "nejnovější", "akce", "akční", "sleva", "slevy", "výprodej", "doporučujete", "nejlepší", "nejoblíbenější", "nejprodávanější", "tip", "dárek"]
+    });
+  }
+  return notes;
 }

@@ -16,6 +16,8 @@ export interface KnowledgeItem {
   price?: number;
   inStock?: boolean;
   category?: string;
+  /* the homepage groups the product is in right now ("Novinky", "Akční zboží", ...) */
+  tags?: string[];
 }
 
 export interface ChatContext {

@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { XMLParser } from "fast-xml-parser";
-import { cleanPageText, crawlShop, formatPrice } from "./liveCatalog.js";
+import { cleanPageText, crawlShop, formatPrice, liveShopNotes } from "./liveCatalog.js";
 import type { KnowledgeItem } from "./types.js";
 
 const STOP_WORDS = new Set([
@@ -356,8 +356,16 @@ export class KnowledgeStore {
   async refreshLive(): Promise<void> {
     if (!this.shopBaseUrl) return;
     try {
-      const { products, pages } = await crawlShop(this.shopBaseUrl);
-      if (products.length) this.liveItems = [...products, ...pages, ...categoryOverviews(products, this.shopBaseUrl)];
+      const result = await crawlShop(this.shopBaseUrl);
+      const { products, pages } = result;
+      if (!products.length) return;
+      /* each product learns the homepage groups it is in (new, on offer, recommended) */
+      for (const group of result.groups) {
+        for (const item of products) {
+          if (item.url && group.paths.includes(new URL(item.url).pathname)) item.tags = [...new Set([...(item.tags ?? []), group.name])];
+        }
+      }
+      this.liveItems = [...products, ...pages, ...liveShopNotes(result, products, this.shopBaseUrl), ...categoryOverviews(products, this.shopBaseUrl)];
     } catch {
       /* keep the last good catalogue */
     }

@@ -1,4 +1,5 @@
 {
+ "generatedAt": "2026-11-22T11:36:14.784Z",
  "products": [
   {
    "id": "live-OKL-001",
@@ -13,7 +14,10 @@
    ],
    "price": 5690,
    "inStock": true,
-   "category": "Elektronické multitooly"
+   "category": "Elektronické multitooly",
+   "tags": [
+    "Novinky"
+   ]
   },
   {
    "id": "live-OKL-002",
@@ -28,7 +32,11 @@
    ],
    "price": 2590,
    "inStock": true,
-   "category": "Elektronické multitooly"
+   "category": "Elektronické multitooly",
+   "tags": [
+    "Akční zboží",
+    "Vychytávky"
+   ]
   },
   {
    "id": "live-OKL-003",
@@ -43,7 +51,10 @@
    ],
    "price": 2890,
    "inStock": true,
-   "category": "Elektronické multitooly"
+   "category": "Elektronické multitooly",
+   "tags": [
+    "Novinky"
+   ]
   },
   {
    "id": "live-OKL-004",
@@ -58,22 +69,10 @@
    ],
    "price": 990,
    "inStock": true,
-   "category": "Elektronické multitooly"
-  },
-  {
-   "id": "live-TVC-6401002881A",
-   "type": "product",
-   "title": "ANENG GN702 LCR měřicí pinzeta",
-   "content": "Digitální LCR pinzeta pro měření odporu, kapacity a indukčnosti přímo na drobných součástkách. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 1 089 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: ANENG. Popis: ANENG GN702 LCR měřicí pinzeta. Digitální LCR pinzeta pro měření odporu, kapacity a indukčnosti přímo na drobných součástkách. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6401002881A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : ANENG . Kategorie : Měřicí technika a nářadí . Model : 6401002881A . Klíčová vlastnost 1 : OLED displej . Klíčová vlastnost 2 : Testovací frekvence 100 Hz, 1 kHz a 10 kHz . Klíčová vlastnost 3 : Automatický rozsah a Li-ion akumulátor.",
-   "url": "https://www.okla.cz/aneng-gn702-lcr-merici-pinzeta/",
-   "keywords": [
-    "TVC-6401002881A",
-    "ANENG",
-    "Měřicí technika a nářadí"
-   ],
-   "price": 1089,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Elektronické multitooly",
+   "tags": [
+    "Akční zboží"
+   ]
   },
   {
    "id": "live-TVC-C0014109B",
@@ -89,6 +88,24 @@
    "price": 889,
    "inStock": true,
    "category": "Měřicí technika a nářadí"
+  },
+  {
+   "id": "live-TVC-6401002881A",
+   "type": "product",
+   "title": "ANENG GN702 LCR měřicí pinzeta",
+   "content": "Digitální LCR pinzeta pro měření odporu, kapacity a indukčnosti přímo na drobných součástkách. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 1 089 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: ANENG. Popis: ANENG GN702 LCR měřicí pinzeta. Digitální LCR pinzeta pro měření odporu, kapacity a indukčnosti přímo na drobných součástkách. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6401002881A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : ANENG . Kategorie : Měřicí technika a nářadí . Model : 6401002881A . Klíčová vlastnost 1 : OLED displej . Klíčová vlastnost 2 : Testovací frekvence 100 Hz, 1 kHz a 10 kHz . Klíčová vlastnost 3 : Automatický rozsah a Li-ion akumulátor.",
+   "url": "https://www.okla.cz/aneng-gn702-lcr-merici-pinzeta/",
+   "keywords": [
+    "TVC-6401002881A",
+    "ANENG",
+    "Měřicí technika a nářadí"
+   ],
+   "price": 1089,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "Novinky"
+   ]
   },
   {
    "id": "live-TVC-640800164A",
@@ -118,7 +135,10 @@
    ],
    "price": 589,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "To nejlepší od nás"
+   ]
   },
   {
    "id": "live-TVC-6401002610A",
@@ -133,7 +153,10 @@
    ],
    "price": 789,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "Novinky"
+   ]
   },
   {
    "id": "live-TVC-6899003236A",
@@ -148,7 +171,10 @@
    ],
    "price": 1289,
    "inStock": true,
-   "category": "Endoskopy a inspekční kamery"
+   "category": "Endoskopy a inspekční kamery",
+   "tags": [
+    "Vychytávky"
+   ]
   },
   {
    "id": "live-TVC-6899004738A",
@@ -181,6 +207,21 @@
    "category": "Endoskopy a inspekční kamery"
   },
   {
+   "id": "live-TVC-6401003425A",
+   "type": "product",
+   "title": "MF-X41 tester kvality vody 4v1",
+   "content": "Ruční přístroj pro měření pH, TDS, elektrické vodivosti a teploty vody v bazénu nebo akváriu. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: N/A. Popis: MF-X41 tester kvality vody 4v1. Ruční přístroj pro měření pH, TDS, elektrické vodivosti a teploty vody v bazénu nebo akváriu. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Měření teploty. Teplotní údaj doplňuje kontrolu prostředí nebo povrchu. Odolnost proti vodě. Určené části výrobku zvládají práci ve vlhkém prostředí. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6401003425A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : N/A . Kategorie : Měřicí technika a nářadí . Model : 6401003425A . Klíčová vlastnost 1 : pH, TDS, EC a teplota . Klíčová vlastnost 2 : Digitální displej . Klíčová vlastnost 3 : Automatická teplotní kompenzace.",
+   "url": "https://www.okla.cz/mf-x41-tester-kvality-vody-4v1/",
+   "keywords": [
+    "TVC-6401003425A",
+    "N/A",
+    "Měřicí technika a nářadí"
+   ],
+   "price": 589,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí"
+  },
+  {
    "id": "live-TVC-689902144A",
    "type": "product",
    "title": "NK-5001 Pro 3v1 endoskop 5,5 mm",
@@ -196,19 +237,22 @@
    "category": "Endoskopy a inspekční kamery"
   },
   {
-   "id": "live-TVC-6401003425A",
+   "id": "live-TVC-640100456A",
    "type": "product",
-   "title": "MF-X41 tester kvality vody 4v1",
-   "content": "Ruční přístroj pro měření pH, TDS, elektrické vodivosti a teploty vody v bazénu nebo akváriu. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: N/A. Popis: MF-X41 tester kvality vody 4v1. Ruční přístroj pro měření pH, TDS, elektrické vodivosti a teploty vody v bazénu nebo akváriu. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Měření teploty. Teplotní údaj doplňuje kontrolu prostředí nebo povrchu. Odolnost proti vodě. Určené části výrobku zvládají práci ve vlhkém prostředí. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6401003425A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : N/A . Kategorie : Měřicí technika a nářadí . Model : 6401003425A . Klíčová vlastnost 1 : pH, TDS, EC a teplota . Klíčová vlastnost 2 : Digitální displej . Klíčová vlastnost 3 : Automatická teplotní kompenzace.",
-   "url": "https://www.okla.cz/mf-x41-tester-kvality-vody-4v1/",
+   "title": "TASI TA8151 digitální hlukoměr",
+   "content": "Přenosný měřič hladiny zvuku pro orientační kontrolu hluku v provozu, dílně nebo domácnosti. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: TASi. Popis: TASI TA8151 digitální hlukoměr. Přenosný měřič hladiny zvuku pro orientační kontrolu hluku v provozu, dílně nebo domácnosti. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 640100456A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : TASi . Kategorie : Měřicí technika a nářadí . Model : 640100456A . Klíčová vlastnost 1 : Digitální měření hluku . Klíčová vlastnost 2 : LCD displej . Klíčová vlastnost 3 : Kompaktní ruční provedení.",
+   "url": "https://www.okla.cz/tasi-ta8151-digitalni-hlukomer/",
    "keywords": [
-    "TVC-6401003425A",
-    "N/A",
+    "TVC-640100456A",
+    "TASi",
     "Měřicí technika a nářadí"
    ],
    "price": 589,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "Vychytávky"
+   ]
   },
   {
    "id": "live-TVC-6408000746A",
@@ -226,19 +270,19 @@
    "category": "Měřicí technika a nářadí"
   },
   {
-   "id": "live-TVC-640100456A",
+   "id": "live-TVC-6899003775A",
    "type": "product",
-   "title": "TASI TA8151 digitální hlukoměr",
-   "content": "Přenosný měřič hladiny zvuku pro orientační kontrolu hluku v provozu, dílně nebo domácnosti. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: TASi. Popis: TASI TA8151 digitální hlukoměr. Přenosný měřič hladiny zvuku pro orientační kontrolu hluku v provozu, dílně nebo domácnosti. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 640100456A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : TASi . Kategorie : Měřicí technika a nářadí . Model : 640100456A . Klíčová vlastnost 1 : Digitální měření hluku . Klíčová vlastnost 2 : LCD displej . Klíčová vlastnost 3 : Kompaktní ruční provedení.",
-   "url": "https://www.okla.cz/tasi-ta8151-digitalni-hlukomer/",
+   "title": "X18 kapesní termotiskárna – bílá",
+   "content": "Přenosná bezinkoustová tiskárna s rozlišením 200 dpi a Bluetooth pro poznámky, štítky a drobnou grafiku. Kompaktní provedení usnadňuje běžné používání doma, v kanceláři i na cestách. Cena: 389 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Praktické vychytávky. Značka: N/A. Popis: X18 kapesní termotiskárna – bílá. Přenosná bezinkoustová tiskárna s rozlišením 200 dpi a Bluetooth pro poznámky, štítky a drobnou grafiku. Kompaktní provedení usnadňuje běžné používání doma, v kanceláři i na cestách. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Použití v praxi. Před použitím připravte kompatibilní telefon, počítač nebo zobrazovací zařízení a ověřte požadovaný typ připojení. Tím předejdete problémům při prvním spuštění. Pracovní postup. Zařízení zapojujte v doporučeném pořadí a po připojení zkontrolujte nastavení zdroje i cílového zařízení. Při přenášení chraňte konektory před mechanickým namáháním. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6899003775A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Praktické vychytávky . Výrobce : N/A . Kategorie : Praktické vychytávky . Model : 6899003775A . Klíčová vlastnost 1 : Termotisk 200 dpi . Klíčová vlastnost 2 : Bluetooth připojení . Klíčová vlastnost 3 : Kapesní bezinkoustové provedení.",
+   "url": "https://www.okla.cz/x18-kapesni-termotiskarna-bila/",
    "keywords": [
-    "TVC-640100456A",
-    "TASi",
-    "Měřicí technika a nářadí"
+    "TVC-6899003775A",
+    "N/A",
+    "Praktické vychytávky"
    ],
-   "price": 589,
+   "price": 389,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Praktické vychytávky"
   },
   {
    "id": "live-TVC-6441000080A",
@@ -268,22 +312,10 @@
    ],
    "price": 589,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
-  },
-  {
-   "id": "live-TVC-6899003775A",
-   "type": "product",
-   "title": "X18 kapesní termotiskárna – bílá",
-   "content": "Přenosná bezinkoustová tiskárna s rozlišením 200 dpi a Bluetooth pro poznámky, štítky a drobnou grafiku. Kompaktní provedení usnadňuje běžné používání doma, v kanceláři i na cestách. Cena: 389 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Praktické vychytávky. Značka: N/A. Popis: X18 kapesní termotiskárna – bílá. Přenosná bezinkoustová tiskárna s rozlišením 200 dpi a Bluetooth pro poznámky, štítky a drobnou grafiku. Kompaktní provedení usnadňuje běžné používání doma, v kanceláři i na cestách. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Použití v praxi. Před použitím připravte kompatibilní telefon, počítač nebo zobrazovací zařízení a ověřte požadovaný typ připojení. Tím předejdete problémům při prvním spuštění. Pracovní postup. Zařízení zapojujte v doporučeném pořadí a po připojení zkontrolujte nastavení zdroje i cílového zařízení. Při přenášení chraňte konektory před mechanickým namáháním. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6899003775A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Praktické vychytávky . Výrobce : N/A . Kategorie : Praktické vychytávky . Model : 6899003775A . Klíčová vlastnost 1 : Termotisk 200 dpi . Klíčová vlastnost 2 : Bluetooth připojení . Klíčová vlastnost 3 : Kapesní bezinkoustové provedení.",
-   "url": "https://www.okla.cz/x18-kapesni-termotiskarna-bila/",
-   "keywords": [
-    "TVC-6899003775A",
-    "N/A",
-    "Praktické vychytávky"
-   ],
-   "price": 389,
-   "inStock": true,
-   "category": "Praktické vychytávky"
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "Nejlepší nářadí"
+   ]
   },
   {
    "id": "live-TVC-640102439A",
@@ -301,21 +333,6 @@
    "category": "Elektronické multitooly"
   },
   {
-   "id": "live-TVC-6899004805A",
-   "type": "product",
-   "title": "HM020 digitální mikroskop s 2″ displejem",
-   "content": "Přenosný mikroskop s vlastním 2″ IPS displejem, bílým i UV osvětlením a USB-C připojením. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: N/A. Popis: HM020 digitální mikroskop s 2″ displejem. Přenosný mikroskop s vlastním 2″ IPS displejem, bílým i UV osvětlením a USB-C připojením. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. HD kamera. Kamera zachycuje obraz vhodný pro kontrolu detailů. LED osvětlení. Integrované světlo zlepšuje viditelnost pracovního místa. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Paměťová karta. Rozšiřitelné úložiště pojme záznamy nebo další soubory. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Snadné zprovoznění. Základní zapojení zvládnete bez složité montáže. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6899004805A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : N/A . Kategorie : Měřicí technika a nářadí . Model : 6899004805A . Klíčová vlastnost 1 : 2″ IPS displej . Klíčová vlastnost 2 : 4 bílé a 4 UV LED . Klíčová vlastnost 3 : USB-C a ukládání snímků.",
-   "url": "https://www.okla.cz/hm020-digitalni-mikroskop-s-2-displejem/",
-   "keywords": [
-    "TVC-6899004805A",
-    "N/A",
-    "Měřicí technika a nářadí"
-   ],
-   "price": 789,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí"
-  },
-  {
    "id": "live-TVC-640700390A",
    "type": "product",
    "title": "ID32 pixelový displej a stolní budík",
@@ -328,7 +345,30 @@
    ],
    "price": 1089,
    "inStock": true,
-   "category": "Designové gadgety"
+   "category": "Designové gadgety",
+   "tags": [
+    "Novinky",
+    "Nejlepší nářadí"
+   ]
+  },
+  {
+   "id": "live-TVC-6899004805A",
+   "type": "product",
+   "title": "HM020 digitální mikroskop s 2″ displejem",
+   "content": "Přenosný mikroskop s vlastním 2″ IPS displejem, bílým i UV osvětlením a USB-C připojením. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: N/A. Popis: HM020 digitální mikroskop s 2″ displejem. Přenosný mikroskop s vlastním 2″ IPS displejem, bílým i UV osvětlením a USB-C připojením. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. HD kamera. Kamera zachycuje obraz vhodný pro kontrolu detailů. LED osvětlení. Integrované světlo zlepšuje viditelnost pracovního místa. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Paměťová karta. Rozšiřitelné úložiště pojme záznamy nebo další soubory. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Snadné zprovoznění. Základní zapojení zvládnete bez složité montáže. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6899004805A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : N/A . Kategorie : Měřicí technika a nářadí . Model : 6899004805A . Klíčová vlastnost 1 : 2″ IPS displej . Klíčová vlastnost 2 : 4 bílé a 4 UV LED . Klíčová vlastnost 3 : USB-C a ukládání snímků.",
+   "url": "https://www.okla.cz/hm020-digitalni-mikroskop-s-2-displejem/",
+   "keywords": [
+    "TVC-6899004805A",
+    "N/A",
+    "Měřicí technika a nářadí"
+   ],
+   "price": 789,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "Akční zboží",
+    "Nejlepší nářadí"
+   ]
   },
   {
    "id": "live-TVC-6128000038A",
@@ -349,7 +389,7 @@
    "id": "live-TVC-6803000664A",
    "type": "product",
    "title": "A2 chytré brýle s kamerou a AI překladem",
-   "content": "Chytré brýle s kamerou, záznamem videa, Bluetooth hovory a podporou překladu v mobilní aplikaci. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Cena: 2 089 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Chytrá elektronika. Značka: N/A. Popis: A2 chytré brýle s kamerou a AI překladem. Chytré brýle s kamerou, záznamem videa, Bluetooth hovory a podporou překladu v mobilní aplikaci. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. HD kamera. Kamera zachycuje obraz vhodný pro kontrolu detailů. Paměťová karta. Rozšiřitelné úložiště pojme záznamy nebo další soubory. Hlasové funkce. Mikrofon podporuje hlasové ovládání nebo záznam zvuku. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Potlačení hluku. Zpracování zvuku omezuje rušivé okolní zvuky. Použití v praxi. A2 chytré brýle s kamerou a AI překladem je navržený pro každodenní mobilní použití. Před prvním spuštěním zařízení nabijte a zkontrolujte, které funkce vyžadují doprovodnou aplikaci. Pracovní postup. Při párování povolte pouze nezbytná oprávnění a dokončete případnou aktualizaci firmwaru. Pro stabilní provoz udržujte zařízení i aplikaci na podporované verzi. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6803000664A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Chytrá elektronika . Výrobce : N/A . Kategorie : Chytrá elektronika . Model : 6803000664A . Klíčová vlastnost 1 : Kamera a 16GB úložiště . Klíčová vlastnost 2 : Bluetooth hovory . Klíčová vlastnost 3 : AI překlad v aplikaci.",
+   "content": "Chytré brýle s kamerou, záznamem videa, Bluetooth hovory a podporou překladu v mobilní aplikaci. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Cena: 2 089 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Chytrá elektronika. Značka: N/A. Hodnocení zákazníků: 4 z 5 (1×). Popis: A2 chytré brýle s kamerou a AI překladem. Chytré brýle s kamerou, záznamem videa, Bluetooth hovory a podporou překladu v mobilní aplikaci. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. HD kamera. Kamera zachycuje obraz vhodný pro kontrolu detailů. Paměťová karta. Rozšiřitelné úložiště pojme záznamy nebo další soubory. Hlasové funkce. Mikrofon podporuje hlasové ovládání nebo záznam zvuku. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Potlačení hluku. Zpracování zvuku omezuje rušivé okolní zvuky. Použití v praxi. A2 chytré brýle s kamerou a AI překladem je navržený pro každodenní mobilní použití. Před prvním spuštěním zařízení nabijte a zkontrolujte, které funkce vyžadují doprovodnou aplikaci. Pracovní postup. Při párování povolte pouze nezbytná oprávnění a dokončete případnou aktualizaci firmwaru. Pro stabilní provoz udržujte zařízení i aplikaci na podporované verzi. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6803000664A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Chytrá elektronika . Výrobce : N/A . Kategorie : Chytrá elektronika . Model : 6803000664A . Klíčová vlastnost 1 : Kamera a 16GB úložiště . Klíčová vlastnost 2 : Bluetooth hovory . Klíčová vlastnost 3 : AI překlad v aplikaci.",
    "url": "https://www.okla.cz/a2-chytre-bryle-s-kamerou-a-ai-prekladem/",
    "keywords": [
     "TVC-6803000664A",
@@ -358,37 +398,10 @@
    ],
    "price": 2089,
    "inStock": true,
-   "category": "Chytrá elektronika"
-  },
-  {
-   "id": "live-TVC-6812002998A",
-   "type": "product",
-   "title": "F62 překladové chytré brýle – černé",
-   "content": "Lehké Bluetooth brýle pro poslech, hovory a překlad v mobilní aplikaci bez vestavěné kamery. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Chytrá elektronika. Značka: N/A. Popis: F62 překladové chytré brýle – černé. Lehké Bluetooth brýle pro poslech, hovory a překlad v mobilní aplikaci bez vestavěné kamery. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. Hlasové funkce. Mikrofon podporuje hlasové ovládání nebo záznam zvuku. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Použití v praxi. F62 překladové chytré brýle – černé je navržený pro každodenní mobilní použití. Před prvním spuštěním zařízení nabijte a zkontrolujte, které funkce vyžadují doprovodnou aplikaci. Pracovní postup. Při párování povolte pouze nezbytná oprávnění a dokončete případnou aktualizaci firmwaru. Pro stabilní provoz udržujte zařízení i aplikaci na podporované verzi. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6812002998A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Chytrá elektronika . Výrobce : N/A . Kategorie : Chytrá elektronika . Model : 6812002998A . Klíčová vlastnost 1 : Bluetooth audio a hovory . Klíčová vlastnost 2 : Překlad v aplikaci . Klíčová vlastnost 3 : Otevřené reproduktory v nožičkách.",
-   "url": "https://www.okla.cz/f62-prekladove-chytre-bryle-cerne/",
-   "keywords": [
-    "TVC-6812002998A",
-    "N/A",
-    "Chytrá elektronika"
-   ],
-   "price": 589,
-   "inStock": true,
-   "category": "Chytrá elektronika"
-  },
-  {
-   "id": "live-PI1-GM200A",
-   "type": "product",
-   "title": "Benetech GM200A tloušťkoměr laku",
-   "content": "Přenosný měřič nemagnetických povlaků na oceli a hliníku pro rychlou kontrolu lakovaných dílů. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 489 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: Benetech. Popis: Benetech GM200A tloušťkoměr laku. Přenosný měřič nemagnetických povlaků na oceli a hliníku pro rychlou kontrolu lakovaných dílů. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Měření tloušťky. Snímač umožňuje kontrolu tloušťky vrstvy nebo materiálu. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model GM200A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : Benetech . Kategorie : Měřicí technika a nářadí . Model : GM200A . Klíčová vlastnost 1 : Rozsah 0–1,80 mm . Klíčová vlastnost 2 : Rozlišení 0,01 mm . Klíčová vlastnost 3 : Jednobodová i dvoubodová kalibrace.",
-   "url": "https://www.okla.cz/benetech-gm200a-tloustkomer-laku/",
-   "keywords": [
-    "PI1-GM200A",
-    "Benetech",
-    "Měřicí technika a nářadí"
-   ],
-   "price": 489,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Chytrá elektronika",
+   "tags": [
+    "Nejlepší nářadí"
+   ]
   },
   {
    "id": "live-PI1-WT87A",
@@ -406,17 +419,35 @@
    "category": "Měřicí technika a nářadí"
   },
   {
-   "id": "live-PI1-GM1010",
+   "id": "live-TVC-6812002998A",
    "type": "product",
-   "title": "Benetech GM1010 digitální luxmetr",
-   "content": "Měřič intenzity osvětlení s odděleným snímačem pro pracoviště, pěstování a kontrolu světelných podmínek. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 389 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: Benetech. Popis: Benetech GM1010 digitální luxmetr. Měřič intenzity osvětlení s odděleným snímačem pro pracoviště, pěstování a kontrolu světelných podmínek. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model GM1010. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : Benetech . Kategorie : Měřicí technika a nářadí . Model : GM1010 . Klíčová vlastnost 1 : Rozsah 0–200 000 lx . Klíčová vlastnost 2 : Jednotky lux a foot-candle . Klíčová vlastnost 3 : MIN, MAX, rozdíl a HOLD.",
-   "url": "https://www.okla.cz/benetech-gm1010-digitalni-luxmetr/",
+   "title": "F62 překladové chytré brýle – černé",
+   "content": "Lehké Bluetooth brýle pro poslech, hovory a překlad v mobilní aplikaci bez vestavěné kamery. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Chytrá elektronika. Značka: N/A. Popis: F62 překladové chytré brýle – černé. Lehké Bluetooth brýle pro poslech, hovory a překlad v mobilní aplikaci bez vestavěné kamery. Praktické využití nabízí při každodenním mobilním používání a propojení s kompatibilní aplikací. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. Hlasové funkce. Mikrofon podporuje hlasové ovládání nebo záznam zvuku. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Použití v praxi. F62 překladové chytré brýle – černé je navržený pro každodenní mobilní použití. Před prvním spuštěním zařízení nabijte a zkontrolujte, které funkce vyžadují doprovodnou aplikaci. Pracovní postup. Při párování povolte pouze nezbytná oprávnění a dokončete případnou aktualizaci firmwaru. Pro stabilní provoz udržujte zařízení i aplikaci na podporované verzi. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model 6812002998A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Chytrá elektronika . Výrobce : N/A . Kategorie : Chytrá elektronika . Model : 6812002998A . Klíčová vlastnost 1 : Bluetooth audio a hovory . Klíčová vlastnost 2 : Překlad v aplikaci . Klíčová vlastnost 3 : Otevřené reproduktory v nožičkách.",
+   "url": "https://www.okla.cz/f62-prekladove-chytre-bryle-cerne/",
    "keywords": [
-    "PI1-GM1010",
+    "TVC-6812002998A",
+    "N/A",
+    "Chytrá elektronika"
+   ],
+   "price": 589,
+   "inStock": true,
+   "category": "Chytrá elektronika",
+   "tags": [
+    "Vychytávky"
+   ]
+  },
+  {
+   "id": "live-PI1-GM200A",
+   "type": "product",
+   "title": "Benetech GM200A tloušťkoměr laku",
+   "content": "Přenosný měřič nemagnetických povlaků na oceli a hliníku pro rychlou kontrolu lakovaných dílů. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 489 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: Benetech. Popis: Benetech GM200A tloušťkoměr laku. Přenosný měřič nemagnetických povlaků na oceli a hliníku pro rychlou kontrolu lakovaných dílů. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Měření tloušťky. Snímač umožňuje kontrolu tloušťky vrstvy nebo materiálu. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model GM200A. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : Benetech . Kategorie : Měřicí technika a nářadí . Model : GM200A . Klíčová vlastnost 1 : Rozsah 0–1,80 mm . Klíčová vlastnost 2 : Rozlišení 0,01 mm . Klíčová vlastnost 3 : Jednobodová i dvoubodová kalibrace.",
+   "url": "https://www.okla.cz/benetech-gm200a-tloustkomer-laku/",
+   "keywords": [
+    "PI1-GM200A",
     "Benetech",
     "Měřicí technika a nářadí"
    ],
-   "price": 389,
+   "price": 489,
    "inStock": true,
    "category": "Měřicí technika a nářadí"
   },
@@ -433,7 +464,10 @@
    ],
    "price": 389,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "To nejlepší od nás"
+   ]
   },
   {
    "id": "live-PI1-GM610",
@@ -448,7 +482,43 @@
    ],
    "price": 589,
    "inStock": true,
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "Akční zboží"
+   ]
+  },
+  {
+   "id": "live-PI1-GM1010",
+   "type": "product",
+   "title": "Benetech GM1010 digitální luxmetr",
+   "content": "Měřič intenzity osvětlení s odděleným snímačem pro pracoviště, pěstování a kontrolu světelných podmínek. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 389 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: Benetech. Popis: Benetech GM1010 digitální luxmetr. Měřič intenzity osvětlení s odděleným snímačem pro pracoviště, pěstování a kontrolu světelných podmínek. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model GM1010. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : Benetech . Kategorie : Měřicí technika a nářadí . Model : GM1010 . Klíčová vlastnost 1 : Rozsah 0–200 000 lx . Klíčová vlastnost 2 : Jednotky lux a foot-candle . Klíčová vlastnost 3 : MIN, MAX, rozdíl a HOLD.",
+   "url": "https://www.okla.cz/benetech-gm1010-digitalni-luxmetr/",
+   "keywords": [
+    "PI1-GM1010",
+    "Benetech",
+    "Měřicí technika a nářadí"
+   ],
+   "price": 389,
+   "inStock": true,
    "category": "Měřicí technika a nářadí"
+  },
+  {
+   "id": "live-PI1-GM620",
+   "type": "product",
+   "title": "Benetech GM620 vlhkoměr s externí sondou",
+   "content": "Měřič vlhkosti dřeva s integrovanými hroty i připojitelnou externí sondou pro hůře dostupná místa. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 989 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: Benetech. Popis: Benetech GM620 vlhkoměr s externí sondou. Měřič vlhkosti dřeva s integrovanými hroty i připojitelnou externí sondou pro hůře dostupná místa. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Měření vlhkosti. Přístroj pomáhá určit vlhkost vzduchu nebo materiálu. Měření teploty. Teplotní údaj doplňuje kontrolu prostředí nebo povrchu. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model GM620. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : Benetech . Kategorie : Měřicí technika a nářadí . Model : GM620 . Klíčová vlastnost 1 : Vlhkost 2–70 % . Klíčová vlastnost 2 : Teplota −10 až 60 °C . Klíčová vlastnost 3 : Externí sonda v balení.",
+   "url": "https://www.okla.cz/benetech-gm620-vlhkomer-s-externi-sondou/",
+   "keywords": [
+    "PI1-GM620",
+    "Benetech",
+    "Měřicí technika a nářadí"
+   ],
+   "price": 989,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "To nejlepší od nás"
+   ]
   },
   {
    "id": "live-PI1-GM605",
@@ -481,21 +551,6 @@
    "category": "Měřicí technika a nářadí"
   },
   {
-   "id": "live-PI1-GM620",
-   "type": "product",
-   "title": "Benetech GM620 vlhkoměr s externí sondou",
-   "content": "Měřič vlhkosti dřeva s integrovanými hroty i připojitelnou externí sondou pro hůře dostupná místa. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Cena: 989 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí. Značka: Benetech. Popis: Benetech GM620 vlhkoměr s externí sondou. Měřič vlhkosti dřeva s integrovanými hroty i připojitelnou externí sondou pro hůře dostupná místa. Praktické využití nabízí při rychlé kontrole v dílně, servisu i při domácí údržbě. Měření vlhkosti. Přístroj pomáhá určit vlhkost vzduchu nebo materiálu. Měření teploty. Teplotní údaj doplňuje kontrolu prostředí nebo povrchu. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Použití v praxi. Před měřením připravte čisté pracovní místo a zvolte rozsah odpovídající očekávané hodnotě. Výsledek posuzujte až po ustálení údaje na displeji. Pracovní postup. Snímač nebo měřicí hroty přikládejte rovnoměrně a bez nadměrného tlaku. Pro lepší kontrolu proveďte několik odečtů na různých místech a porovnejte je. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model GM620. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Měřicí technika a nářadí . Výrobce : Benetech . Kategorie : Měřicí technika a nářadí . Model : GM620 . Klíčová vlastnost 1 : Vlhkost 2–70 % . Klíčová vlastnost 2 : Teplota −10 až 60 °C . Klíčová vlastnost 3 : Externí sonda v balení.",
-   "url": "https://www.okla.cz/benetech-gm620-vlhkomer-s-externi-sondou/",
-   "keywords": [
-    "PI1-GM620",
-    "Benetech",
-    "Měřicí technika a nářadí"
-   ],
-   "price": 989,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí"
-  },
-  {
    "id": "live-PI1-GM8902",
    "type": "product",
    "title": "Benetech GM8902 anemometr s oddělenou sondou",
@@ -508,7 +563,10 @@
    ],
    "price": 1189,
    "inStock": true,
-   "category": "Měřicí technika a nářadí"
+   "category": "Měřicí technika a nářadí",
+   "tags": [
+    "To nejlepší od nás"
+   ]
   },
   {
    "id": "live-PI2-ESP32S3-KIT",
@@ -522,21 +580,6 @@
     "Elektronické multitooly"
    ],
    "price": 1489,
-   "inStock": true,
-   "category": "Elektronické multitooly"
-  },
-  {
-   "id": "live-PI2-ESP32C3-071",
-   "type": "product",
-   "title": "Waveshare ESP32-C3 s 0,71″ kulatým displejem",
-   "content": "Miniaturní vývojová deska s procesorem ESP32-C3 a kulatým IPS displejem pro nositelnou elektroniku a malé HMI. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Elektronické multitooly. Značka: Waveshare. Popis: Waveshare ESP32-C3 s 0,71″ kulatým displejem. Miniaturní vývojová deska s procesorem ESP32-C3 a kulatým IPS displejem pro nositelnou elektroniku a malé HMI. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Wi-Fi. Bezdrátová síť umožňuje komunikaci a přenos dat. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Snadné zprovoznění. Základní zapojení zvládnete bez složité montáže. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Použití v praxi. Zařízení Waveshare ESP32-C3 s 0,71″ kulatým displejem je určené pro vývoj, diagnostiku a vlastní projekty s podporovanými rozhraními. Před zapojením si určete potřebné vstupy, výstupy a způsob napájení. Pracovní postup. Nejprve připravte odpovídající firmware a ovladače, potom připojujte rozšiřující moduly. Změny zapojení provádějte při vypnutém napájení a dodržujte povolené úrovně signálů. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model PI2-ESP32C3-071. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Elektronické multitooly . Výrobce : Waveshare . Kategorie : Elektronické multitooly . Model : PI2-ESP32C3-071 . Klíčová vlastnost 1 : 0,71″ IPS, 160 × 160 px . Klíčová vlastnost 2 : ESP32-C3FH4 RISC-V 160 MHz . Klíčová vlastnost 3 : Wi-Fi, Bluetooth 5 LE a nabíjení Li-ion.",
-   "url": "https://www.okla.cz/waveshare-esp32-c3-s-0-71-kulatym-displejem/",
-   "keywords": [
-    "PI2-ESP32C3-071",
-    "Waveshare",
-    "Elektronické multitooly"
-   ],
-   "price": 789,
    "inStock": true,
    "category": "Elektronické multitooly"
   },
@@ -556,21 +599,6 @@
    "category": "Elektronické multitooly"
   },
   {
-   "id": "live-PI2-VGA32",
-   "type": "product",
-   "title": "LILYGO FabGL VGA32 Q127",
-   "content": "Vývojová deska ESP32 pro VGA obraz, PS/2 klávesnici a myš, retro počítačové projekty a terminály. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Elektronické multitooly. Značka: LILYGO. Popis: LILYGO FabGL VGA32 Q127. Vývojová deska ESP32 pro VGA obraz, PS/2 klávesnici a myš, retro počítačové projekty a terminály. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. Použití v praxi. Zařízení LILYGO FabGL VGA32 Q127 je určené pro vývoj, diagnostiku a vlastní projekty s podporovanými rozhraními. Před zapojením si určete potřebné vstupy, výstupy a způsob napájení. Pracovní postup. Nejprve připravte odpovídající firmware a ovladače, potom připojujte rozšiřující moduly. Změny zapojení provádějte při vypnutém napájení a dodržujte povolené úrovně signálů. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model PI2-VGA32. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Elektronické multitooly . Výrobce : LILYGO . Kategorie : Elektronické multitooly . Model : PI2-VGA32 . Klíčová vlastnost 1 : ESP32 s PSRAM . Klíčová vlastnost 2 : VGA výstup . Klíčová vlastnost 3 : PS/2 rozhraní a knihovna FabGL.",
-   "url": "https://www.okla.cz/lilygo-fabgl-vga32-q127/",
-   "keywords": [
-    "PI2-VGA32",
-    "LILYGO",
-    "Elektronické multitooly"
-   ],
-   "price": 789,
-   "inStock": true,
-   "category": "Elektronické multitooly"
-  },
-  {
    "id": "live-PI2-TENCODER",
    "type": "product",
    "title": "LILYGO T-Encoder Pro AMOLED",
@@ -582,6 +610,42 @@
     "Elektronické multitooly"
    ],
    "price": 1989,
+   "inStock": true,
+   "category": "Elektronické multitooly",
+   "tags": [
+    "To nejlepší od nás"
+   ]
+  },
+  {
+   "id": "live-PI2-ESP32C3-071",
+   "type": "product",
+   "title": "Waveshare ESP32-C3 s 0,71″ kulatým displejem",
+   "content": "Miniaturní vývojová deska s procesorem ESP32-C3 a kulatým IPS displejem pro nositelnou elektroniku a malé HMI. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Elektronické multitooly. Značka: Waveshare. Popis: Waveshare ESP32-C3 s 0,71″ kulatým displejem. Miniaturní vývojová deska s procesorem ESP32-C3 a kulatým IPS displejem pro nositelnou elektroniku a malé HMI. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. USB-C. Moderní konektor usnadňuje napájení a přenos dat. Wi-Fi. Bezdrátová síť umožňuje komunikaci a přenos dat. Bluetooth. Bezdrátové propojení s kompatibilními zařízeními. Přenosné provedení. Kompaktní konstrukce se snadno přenáší a skladuje. Nastavení jasu. Zobrazení nebo přísvit lze přizpůsobit okolním podmínkám. Dlouhá výdrž. Bateriové napájení podporuje práci bez stálého připojení. Snadné zprovoznění. Základní zapojení zvládnete bez složité montáže. Úsporný režim. Automatické vypnutí pomáhá šetřit energii při nečinnosti. Použití v praxi. Zařízení Waveshare ESP32-C3 s 0,71″ kulatým displejem je určené pro vývoj, diagnostiku a vlastní projekty s podporovanými rozhraními. Před zapojením si určete potřebné vstupy, výstupy a způsob napájení. Pracovní postup. Nejprve připravte odpovídající firmware a ovladače, potom připojujte rozšiřující moduly. Změny zapojení provádějte při vypnutém napájení a dodržujte povolené úrovně signálů. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model PI2-ESP32C3-071. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Elektronické multitooly . Výrobce : Waveshare . Kategorie : Elektronické multitooly . Model : PI2-ESP32C3-071 . Klíčová vlastnost 1 : 0,71″ IPS, 160 × 160 px . Klíčová vlastnost 2 : ESP32-C3FH4 RISC-V 160 MHz . Klíčová vlastnost 3 : Wi-Fi, Bluetooth 5 LE a nabíjení Li-ion.",
+   "url": "https://www.okla.cz/waveshare-esp32-c3-s-0-71-kulatym-displejem/",
+   "keywords": [
+    "PI2-ESP32C3-071",
+    "Waveshare",
+    "Elektronické multitooly"
+   ],
+   "price": 789,
+   "inStock": true,
+   "category": "Elektronické multitooly",
+   "tags": [
+    "Vychytávky"
+   ]
+  },
+  {
+   "id": "live-PI2-VGA32",
+   "type": "product",
+   "title": "LILYGO FabGL VGA32 Q127",
+   "content": "Vývojová deska ESP32 pro VGA obraz, PS/2 klávesnici a myš, retro počítačové projekty a terminály. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Elektronické multitooly. Značka: LILYGO. Hodnocení zákazníků: 5 z 5 (1×). Popis: LILYGO FabGL VGA32 Q127. Vývojová deska ESP32 pro VGA obraz, PS/2 klávesnici a myš, retro počítačové projekty a terminály. Praktické využití nabízí při vývoji, diagnostice a vlastních elektronických projektech. Použití v praxi. Zařízení LILYGO FabGL VGA32 Q127 je určené pro vývoj, diagnostiku a vlastní projekty s podporovanými rozhraními. Před zapojením si určete potřebné vstupy, výstupy a způsob napájení. Pracovní postup. Nejprve připravte odpovídající firmware a ovladače, potom připojujte rozšiřující moduly. Změny zapojení provádějte při vypnutém napájení a dodržujte povolené úrovně signálů. Před prvním použitím. Před objednáním ověřte obsah balení, kompatibilitu příslušenství a pracovní limity uvedené výrobcem pro model PI2-VGA32. Návod si ponechte pro pozdější nastavení, údržbu a bezpečné skladování. Doplňkové parametry. Kategorie : Elektronické multitooly . Výrobce : LILYGO . Kategorie : Elektronické multitooly . Model : PI2-VGA32 . Klíčová vlastnost 1 : ESP32 s PSRAM . Klíčová vlastnost 2 : VGA výstup . Klíčová vlastnost 3 : PS/2 rozhraní a knihovna FabGL.",
+   "url": "https://www.okla.cz/lilygo-fabgl-vga32-q127/",
+   "keywords": [
+    "PI2-VGA32",
+    "LILYGO",
+    "Elektronické multitooly"
+   ],
+   "price": 789,
    "inStock": true,
    "category": "Elektronické multitooly"
   },
@@ -597,21 +661,6 @@
     "Praktické vychytávky > USB rozbočovače a adaptéry"
    ],
    "price": 389,
-   "inStock": true,
-   "category": "Praktické vychytávky > USB rozbočovače a adaptéry"
-  },
-  {
-   "id": "live-TVC-6608000689A",
-   "type": "product",
-   "title": "ONTEN 8108 USB 3.0 hub se 7 porty",
-   "content": "Hliníkový rozbočovač ONTEN 8108 se sedmi porty USB 3.0, připojením kabelem USB-A a konektorem pro samostatné napájení 5 V. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Praktické vychytávky > USB rozbočovače a adaptéry. Značka: ONTEN. Popis: ONTEN 8108 USB 3.0 hub se 7 porty. ONTEN 8108 (OTN-8108) je stolní rozbočovač USB 3.0, který z jednoho portu USB-A počítače vytvoří sedm portů USB 3.0. Šest portů je na horní straně a jeden na čelní hraně, takže lze připojit flash disky, klávesnici, myš i externí disk najednou. Tělo z hliníkové slitiny v barvě vesmírně šedé dobře odvádí teplo a díky čtvercovému tvaru zabere na stole málo místa. Rozbočovač je plug and play bez ovladačů a pro náročnější zařízení má konektor DC 5 V pro samostatné napájení. Plug and play. Funguje ihned po připojení, bez instalace ovladačů. Kompaktní tělo. Měří 95 × 45 × 15 mm a zabere málo místa. Hliníkové tělo. Odolná hliníková slitina, která dobře odvádí teplo. Napájení 5 V. Konektor pro samostatný napájecí zdroj 5 V. Sedm portů USB 3.0. Rozbočovač nabízí sedm portů USB 3.0: šest na horní ploše a jeden na čelní straně. K počítači nebo notebooku se připojuje krátkým pevným kabelem s konektorem USB-A. Dodavatel uvádí, že porty lze používat současně, takže k jednomu portu počítače připojíte flash disky, klávesnici, myš i pevný disk a nemusíte zařízení neustále přepojovat. Hodí se ke stolním počítačům i notebookům s málo porty. Samostatné napájení. Na čelní straně vedle vývodu kabelu je konektor DC 5 V označený jako samostatné napájecí rozhraní. Při připojení více zařízení s vyšším odběrem, například externích pevných disků, lze rozbočovač napájet z vlastního zdroje a neodebírat veškerý proud z portu počítače. Napájecí adaptér podle obsahu balení není součástí dodávky, při běžném použití rozbočovač funguje z portu USB počítače. Hliník a malé rozměry. Tělo z hliníkové slitiny v barvě vesmírně šedé má podle dodavatele dobrý odvod tepla a moderní vzhled, který se hodí k notebooku i monitoru. Čtvercový tvar o rozměrech 95 × 45 × 15 mm šetří místo na stole. Kabel s konektorem USB-A je dlouhý přibližně 80 mm, takže rozbočovač leží těsně u počítače. V balení je rozbočovač a anglický návod. Doplňkové parametry. Kategorie : USB rozbočovače a adaptéry . Výrobce : ONTEN . Kategorie : Praktické vychytávky . Model : OTN-8108 . Počet portů : 7× USB 3.0 (USB-A) . Připojení k počítači : pevný kabel s konektorem USB-A . Délka kabelu : cca 80 mm (dle obrázku dodavatele) . Přídavné napájení : konektor DC 5 V (zdroj není součástí) . Materiál : hliníková slitina . Barva : vesmírně šedá . Rozměry : 95 × 45 × 15 mm . Obsah balení : 1× USB hub, 1× návod v angličtině.",
-   "url": "https://www.okla.cz/onten-8108-usb-3-0-hub-se-7-porty/",
-   "keywords": [
-    "TVC-6608000689A",
-    "ONTEN",
-    "Praktické vychytávky > USB rozbočovače a adaptéry"
-   ],
-   "price": 589,
    "inStock": true,
    "category": "Praktické vychytávky > USB rozbočovače a adaptéry"
   },
@@ -646,6 +695,21 @@
    "category": "Praktické vychytávky > USB rozbočovače a adaptéry"
   },
   {
+   "id": "live-TVC-6608000689A",
+   "type": "product",
+   "title": "ONTEN 8108 USB 3.0 hub se 7 porty",
+   "content": "Hliníkový rozbočovač ONTEN 8108 se sedmi porty USB 3.0, připojením kabelem USB-A a konektorem pro samostatné napájení 5 V. Cena: 589 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Praktické vychytávky > USB rozbočovače a adaptéry. Značka: ONTEN. Popis: ONTEN 8108 USB 3.0 hub se 7 porty. ONTEN 8108 (OTN-8108) je stolní rozbočovač USB 3.0, který z jednoho portu USB-A počítače vytvoří sedm portů USB 3.0. Šest portů je na horní straně a jeden na čelní hraně, takže lze připojit flash disky, klávesnici, myš i externí disk najednou. Tělo z hliníkové slitiny v barvě vesmírně šedé dobře odvádí teplo a díky čtvercovému tvaru zabere na stole málo místa. Rozbočovač je plug and play bez ovladačů a pro náročnější zařízení má konektor DC 5 V pro samostatné napájení. Plug and play. Funguje ihned po připojení, bez instalace ovladačů. Kompaktní tělo. Měří 95 × 45 × 15 mm a zabere málo místa. Hliníkové tělo. Odolná hliníková slitina, která dobře odvádí teplo. Napájení 5 V. Konektor pro samostatný napájecí zdroj 5 V. Sedm portů USB 3.0. Rozbočovač nabízí sedm portů USB 3.0: šest na horní ploše a jeden na čelní straně. K počítači nebo notebooku se připojuje krátkým pevným kabelem s konektorem USB-A. Dodavatel uvádí, že porty lze používat současně, takže k jednomu portu počítače připojíte flash disky, klávesnici, myš i pevný disk a nemusíte zařízení neustále přepojovat. Hodí se ke stolním počítačům i notebookům s málo porty. Samostatné napájení. Na čelní straně vedle vývodu kabelu je konektor DC 5 V označený jako samostatné napájecí rozhraní. Při připojení více zařízení s vyšším odběrem, například externích pevných disků, lze rozbočovač napájet z vlastního zdroje a neodebírat veškerý proud z portu počítače. Napájecí adaptér podle obsahu balení není součástí dodávky, při běžném použití rozbočovač funguje z portu USB počítače. Hliník a malé rozměry. Tělo z hliníkové slitiny v barvě vesmírně šedé má podle dodavatele dobrý odvod tepla a moderní vzhled, který se hodí k notebooku i monitoru. Čtvercový tvar o rozměrech 95 × 45 × 15 mm šetří místo na stole. Kabel s konektorem USB-A je dlouhý přibližně 80 mm, takže rozbočovač leží těsně u počítače. V balení je rozbočovač a anglický návod. Doplňkové parametry. Kategorie : USB rozbočovače a adaptéry . Výrobce : ONTEN . Kategorie : Praktické vychytávky . Model : OTN-8108 . Počet portů : 7× USB 3.0 (USB-A) . Připojení k počítači : pevný kabel s konektorem USB-A . Délka kabelu : cca 80 mm (dle obrázku dodavatele) . Přídavné napájení : konektor DC 5 V (zdroj není součástí) . Materiál : hliníková slitina . Barva : vesmírně šedá . Rozměry : 95 × 45 × 15 mm . Obsah balení : 1× USB hub, 1× návod v angličtině.",
+   "url": "https://www.okla.cz/onten-8108-usb-3-0-hub-se-7-porty/",
+   "keywords": [
+    "TVC-6608000689A",
+    "ONTEN",
+    "Praktické vychytávky > USB rozbočovače a adaptéry"
+   ],
+   "price": 589,
+   "inStock": true,
+   "category": "Praktické vychytávky > USB rozbočovače a adaptéry"
+  },
+  {
    "id": "live-TVC-6743000091A",
    "type": "product",
    "title": "KINGBOLEN Ediag Bluetooth OBD2 diagnostika pro Android a iOS",
@@ -659,21 +723,6 @@
    "price": 3789,
    "inStock": true,
    "category": "Praktické vychytávky > Auto diagnostika"
-  },
-  {
-   "id": "live-TVC-678000172B",
-   "type": "product",
-   "title": "HW-300 digitální tloušťkoměr laku a povlaků (0–2000 µm, Fe/NFe)",
-   "content": "Digitální tloušťkoměr HW-300 měří vrstvu laku a povlaků na oceli i neželezných kovech v rozsahu 0–2000 µm s přesností ±(3 % + 1 µm). Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Dílenské nářadí. Značka: N/A. Popis: HW-300 digitální tloušťkoměr laku a povlaků (0–2000 µm, Fe/NFe). HW-300 je kapesní digitální tloušťkoměr pro nedestruktivní měření tloušťky laku a povlaků na kovových podkladech. Integrovaná sonda pracuje na principu magnetické indukce (ocel) i vířivých proudů (hliník, měď) a podklad rozpozná automaticky, případně lze režim zvolit ručně. Měří v rozsahu 0–2000 µm s přesností ±(3 % + 1 µm), zobrazuje maximum, minimum a průměr a má automatickou teplotní kompenzaci. Hodí se pro kontrolu ojetých vozů, lakovny, galvanovny i kontrolu kvality ve výrobě. 0–2000 µm. Měří tloušťku laku s přesností ±(3 % + 1 µm). Snadná kalibrace. Jednoduché a spolehlivé nulování přístroje. Kapesní tělo. Rozměry 103 × 52 × 25 mm, do jedné ruky. Automatické vypnutí. Přístroj se při nečinnosti sám vypne. Kontrola laku na autě. Tloušťkoměr se přiloží sondou kolmo k lakovanému povrchu a za okamžik zobrazí tloušťku vrstvy. Při prohlídce ojetého vozu tak rychle odhalíte místa s výrazně silnější vrstvou, která mohou znamenat opravu nebo přelakování. Měření je nedestruktivní, lak se nepoškodí. Jednotky lze přepínat mezi µm a mil a displej s podsvícením je dobře čitelný i v dílně nebo venku. Ocel i neželezné kovy. Sonda využívá dva principy: magnetickou indukci pro povlaky na oceli (Fe) a vířivé proudy pro povlaky na hliníku a mědi (NFe). V režimu AUTO přístroj podklad rozpozná sám, režim lze ale přepnout i ručně. Měří lak a chrom na oceli, lak a eloxovanou vrstvu na hliníku nebo mědi. Uplatní se v autoservisech, lakovnách, galvanovnách i při kontrole antikorozních nátěrů potrubí. Statistika a teplotní kompenzace. Algoritmus automatické teplotní kompenzace zlepšuje přesnost měření při různých teplotách. Přístroj zobrazuje maximum, minimum, průměr a počet měření, takže snadno porovnáte jednotlivé díly karoserie. Pracuje při teplotách -10 až 50 °C a napájí se dvěma bateriemi AAA 1,5 V, které nejsou součástí balení. Tělo z plastu ABS měří 103 × 52 × 25 mm a pohodlně se drží v jedné ruce. Doplňkové parametry. Kategorie : Dílenské nářadí . Výrobce : N/A . Kategorie : Měřicí technika a nářadí . Model : HW-300 . Rozsah měření : 0–2000 µm . Přesnost : ±(3 % + 1 µm) . Rozlišení : 0,01 mm / 1 mil (dle dodavatele) . Princip měření : magnetická indukce (Fe) a vířivé proudy (NFe), režim AUTO . Jednotky : µm / mil . Displej : LCD s podsvícením . Napájení : 2× baterie AAA 1,5 V (nejsou součástí) . Provozní teplota : -10 až 50 °C . Materiál : plast ABS . Rozměry : 103 × 52 × 25 mm . Obsah balení : 1× tloušťkoměr, 1× návod v angličtině a čínštině.",
-   "url": "https://www.okla.cz/hw-300-digitalni-tloustkomer-laku-a-povlaku-0-2000-m-fe-nfe/",
-   "keywords": [
-    "TVC-678000172B",
-    "N/A",
-    "Měřicí technika a nářadí > Dílenské nářadí"
-   ],
-   "price": 789,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí > Dílenské nářadí"
   },
   {
    "id": "live-TVC-6816000739A",
@@ -691,21 +740,6 @@
    "category": "Měřicí technika a nářadí > Mikroskopy"
   },
   {
-   "id": "live-TVC-640102126A",
-   "type": "product",
-   "title": "MESTEK AM10 digitální anemometr",
-   "content": "Ruční lopatkový anemometr MESTEK AM10 měří rychlost a teplotu proudícího vzduchu, má podsvícený LCD displej a jednotky m/s, MPH, FPM, KNT a KPH. Cena: 649 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Proudění vzduchu. Značka: MESTEK. Popis: MESTEK AM10 digitální anemometr. MESTEK AM10 je kapesní digitální anemometr s vrtulkovým čidlem pro měření rychlosti proudění vzduchu a jeho teploty. Hodí se pro kontrolu ventilátorů, klimatizace a vzduchotechniky, pro modeláře, rybáře i pobyt venku. Vrtulku lze natočit o 180° podle směru proudění, takže se měří pohodlně i v hůře přístupných místech. Podsvícený LCD displej zobrazuje rychlost v jednotkách m/s, MPH, FPM, KNT nebo KPH, maximální hodnotu i stupeň síly větru. Přístroj napájejí dvě baterie AAA a po zhruba 10 minutách se sám vypne. Teplota vzduchu. Kromě rychlosti měří i teplotu proudu v °C nebo °F. Podsvícený displej. Automatické podsvícení LCD umožňuje měřit i potmě. Automatické vypnutí. Po zhruba 10 minutách se přístroj sám vypne. Kapesní velikost. Rozměry 170 × 47 × 24 mm, pohodlně se drží v ruce. Vrtulka otočná o 180°. Lopatkové čidlo je uložené v otočné hlavě, kterou lze natočit o 180° podle směru proudění vzduchu. Není tak nutné přizpůsobovat polohu celého přístroje a měřit lze například u výdechu klimatizace, u mřížky větrání, u ventilátoru nebo venku ve větru. Vzorkovací frekvence je přibližně 0,4 sekundy, takže displej sleduje změny proudění téměř okamžitě. Podsvícený LCD displej. LCD displej s maximálním zobrazením 9999 se při měření automaticky podsvítí, takže hodnoty jsou čitelné i ve tmavé místnosti, ve strojovně nebo za soumraku. Kromě aktuální rychlosti větru ukazuje displej i teplotu vzduchu, maximální naměřenou hodnotu a stupeň síly větru (LEVEL). Jednotky rychlosti lze přepnout mezi m/s, MPH, FPM, KNT a KPH. Ovládání dvěma tlačítky. Krátký stisk tlačítka UNITS přepíná režim měření a jednotky, tlačítko MAX/LEVEL přepíná mezi rychlostí a teplotou vzduchu. Volba stupnice °C nebo °F se provádí kombinací tlačítek ve vypnutém stavu. Napájení zajišťují dvě baterie 1,5 V AAA, které nejsou součástí balení, a odběr proudu při měření je pouze 5 mA. Součástí balení je i malý šroubovák k otevření krytu baterií. Doplňkové parametry. Kategorie : Proudění vzduchu . Výrobce : MESTEK . Kategorie : Měřicí technika a nářadí . Model : MESTEK AM10 . Měřené veličiny : rychlost proudění vzduchu, teplota vzduchu . Jednotky rychlosti : m/s, MPH, FPM, KNT, KPH . Snímač : lopatkový (vrtulka), otočný o 180° . Displej : LCD s automatickým podsvícením, max. zobrazení 9999 . Vzorkování : cca 0,4 s . Automatické vypnutí : po cca 10 minutách . Napájení : 2 × 1,5 V AAA (nejsou součástí balení), odběr 5 mA . Provozní podmínky : 0–50 °C, 0–85 % RV, do 2000 m n. m. Skladovací podmínky : -10–60 °C, 0–80 % RV . Rozměry : 170 × 47 × 24 mm . Obsah balení : anemometr, šroubovák, návod v angličtině.",
-   "url": "https://www.okla.cz/mestek-am10-digitalni-anemometr/",
-   "keywords": [
-    "TVC-640102126A",
-    "MESTEK",
-    "Měřicí technika a nářadí > Proudění vzduchu"
-   ],
-   "price": 649,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí > Proudění vzduchu"
-  },
-  {
    "id": "live-TVC-C0011615A",
    "type": "product",
    "title": "MT10 digitální hrotový vlhkoměr dřeva a papíru",
@@ -721,17 +755,32 @@
    "category": "Měřicí technika a nářadí > Vlhkost a kvalita vody"
   },
   {
-   "id": "live-TVC-142300148A",
+   "id": "live-TVC-640102126A",
    "type": "product",
-   "title": "QST EXPRESS digitální posuvné měřítko 150 mm z kompozitu s uhlíkovými vlákny",
-   "content": "Lehké digitální posuvné měřítko s rozsahem 0–150 mm a rozlišením 0,1 mm. Měří vnější a vnitřní rozměry, hloubku i osazení, přepíná mm a palce. Cena: 189 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Dílenské nářadí. Značka: QST EXPRESS. Popis: QST EXPRESS digitální posuvné měřítko 150 mm z kompozitu s uhlíkovými vlákny. Digitální posuvné měřítko QST EXPRESS je vyrobené z plastového kompozitu s uhlíkovými vlákny, takže je lehké a přitom pevné. Měří v rozsahu 0–150 mm (0–6 palců) s rozlišením 0,1 mm a čtyřmi způsoby: vnější průměr, vnitřní průměr, hloubku a osazení. Výsledek se zobrazuje na velkém LCD displeji, jednotky lze přepnout mezi milimetry a palci a nulu nastavit v libovolné poloze. Hodí se pro dílnu, autoservis, modelářství i domácí opravy. Napájí ho knoflíková baterie LR44, která je součástí balení. Čtyři způsoby měření. Vnější a vnitřní průměr, hloubka i osazení. Pevný kompozit. Tělo z kompozitu s uhlíkovými vlákny je odolné. Lehké měřítko. Včetně obalu váží jen 104 g. Baterie v balení. Knoflíková baterie LR44 je přiložena k měřítku. Velký LCD displej. Naměřená hodnota se zobrazuje na velkém LCD displeji s rozlišením 0,1 mm nebo 0,01 palce. Tlačítkem mm/inch se přepíná mezi metrickými a palcovými jednotkami, tlačítkem ZERO se nastaví nula v libovolné poloze čelistí. Díky tomu lze snadno měřit rozdíly rozměrů, například vůli mezi dvěma díly nebo úbytek materiálu po broušení, bez přepočítávání. Měření v dílně i doma. Vnější čelisti změří průměr hřídele, šroubu nebo trubky, vnitřní čelisti průměr otvoru a hloubkoměr na konci posuvné části hloubku drážky či díry. Měřítko s rozsahem 150 mm pokryje většinu běžných úloh v dílně, v autoservisu, při 3D tisku i v modelářství. Lehké tělo z kompozitu s uhlíkovými vlákny se pohodlně drží v ruce i při delší práci. Napájení knoflíkovou baterií. Elektroniku napájí jedna knoflíková baterie LR44/SR44 1,5 V, která je součástí balení a vkládá se pod kryt vedle displeje. Pokud začne displej ukazovat nesmyslné hodnoty, dodavatel doporučuje vyměnit baterii za novou – měřítko pak opět funguje normálně. Celková délka měřítka je 238 mm, takže se vejde do zásuvky i brašny s nářadím. Doplňkové parametry. Kategorie : Dílenské nářadí . Výrobce : QST EXPRESS . Kategorie : Měřicí technika a nářadí . Model : digitální posuvné měřítko 150 mm (karbonový kompozit) . Rozsah měření : 0–150 mm (0–6″) . Rozlišení : 0,1 mm / 0,01″ . Přesnost : 0,1 mm . Jednotky : mm / palce . Způsoby měření : vnější, vnitřní, hloubka, osazení . Materiál : plastový kompozit s uhlíkovými vlákny . Displej : LCD . Napájení : 1 × LR44/SR44 1,5 V (součástí balení) . Celková délka : 238 mm . Hmotnost s obalem : 104 g . Obsah balení : posuvné měřítko v plastové krabičce.",
-   "url": "https://www.okla.cz/qst-express-digitalni-posuvne-meritko-150-mm-z-kompozitu-s-uhlikovymi-vlakny/",
+   "title": "MESTEK AM10 digitální anemometr",
+   "content": "Ruční lopatkový anemometr MESTEK AM10 měří rychlost a teplotu proudícího vzduchu, má podsvícený LCD displej a jednotky m/s, MPH, FPM, KNT a KPH. Cena: 649 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Proudění vzduchu. Značka: MESTEK. Popis: MESTEK AM10 digitální anemometr. MESTEK AM10 je kapesní digitální anemometr s vrtulkovým čidlem pro měření rychlosti proudění vzduchu a jeho teploty. Hodí se pro kontrolu ventilátorů, klimatizace a vzduchotechniky, pro modeláře, rybáře i pobyt venku. Vrtulku lze natočit o 180° podle směru proudění, takže se měří pohodlně i v hůře přístupných místech. Podsvícený LCD displej zobrazuje rychlost v jednotkách m/s, MPH, FPM, KNT nebo KPH, maximální hodnotu i stupeň síly větru. Přístroj napájejí dvě baterie AAA a po zhruba 10 minutách se sám vypne. Teplota vzduchu. Kromě rychlosti měří i teplotu proudu v °C nebo °F. Podsvícený displej. Automatické podsvícení LCD umožňuje měřit i potmě. Automatické vypnutí. Po zhruba 10 minutách se přístroj sám vypne. Kapesní velikost. Rozměry 170 × 47 × 24 mm, pohodlně se drží v ruce. Vrtulka otočná o 180°. Lopatkové čidlo je uložené v otočné hlavě, kterou lze natočit o 180° podle směru proudění vzduchu. Není tak nutné přizpůsobovat polohu celého přístroje a měřit lze například u výdechu klimatizace, u mřížky větrání, u ventilátoru nebo venku ve větru. Vzorkovací frekvence je přibližně 0,4 sekundy, takže displej sleduje změny proudění téměř okamžitě. Podsvícený LCD displej. LCD displej s maximálním zobrazením 9999 se při měření automaticky podsvítí, takže hodnoty jsou čitelné i ve tmavé místnosti, ve strojovně nebo za soumraku. Kromě aktuální rychlosti větru ukazuje displej i teplotu vzduchu, maximální naměřenou hodnotu a stupeň síly větru (LEVEL). Jednotky rychlosti lze přepnout mezi m/s, MPH, FPM, KNT a KPH. Ovládání dvěma tlačítky. Krátký stisk tlačítka UNITS přepíná režim měření a jednotky, tlačítko MAX/LEVEL přepíná mezi rychlostí a teplotou vzduchu. Volba stupnice °C nebo °F se provádí kombinací tlačítek ve vypnutém stavu. Napájení zajišťují dvě baterie 1,5 V AAA, které nejsou součástí balení, a odběr proudu při měření je pouze 5 mA. Součástí balení je i malý šroubovák k otevření krytu baterií. Doplňkové parametry. Kategorie : Proudění vzduchu . Výrobce : MESTEK . Kategorie : Měřicí technika a nářadí . Model : MESTEK AM10 . Měřené veličiny : rychlost proudění vzduchu, teplota vzduchu . Jednotky rychlosti : m/s, MPH, FPM, KNT, KPH . Snímač : lopatkový (vrtulka), otočný o 180° . Displej : LCD s automatickým podsvícením, max. zobrazení 9999 . Vzorkování : cca 0,4 s . Automatické vypnutí : po cca 10 minutách . Napájení : 2 × 1,5 V AAA (nejsou součástí balení), odběr 5 mA . Provozní podmínky : 0–50 °C, 0–85 % RV, do 2000 m n. m. Skladovací podmínky : -10–60 °C, 0–80 % RV . Rozměry : 170 × 47 × 24 mm . Obsah balení : anemometr, šroubovák, návod v angličtině.",
+   "url": "https://www.okla.cz/mestek-am10-digitalni-anemometr/",
    "keywords": [
-    "TVC-142300148A",
-    "QST EXPRESS",
+    "TVC-640102126A",
+    "MESTEK",
+    "Měřicí technika a nářadí > Proudění vzduchu"
+   ],
+   "price": 649,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí > Proudění vzduchu"
+  },
+  {
+   "id": "live-TVC-678000172B",
+   "type": "product",
+   "title": "HW-300 digitální tloušťkoměr laku a povlaků (0–2000 µm, Fe/NFe)",
+   "content": "Digitální tloušťkoměr HW-300 měří vrstvu laku a povlaků na oceli i neželezných kovech v rozsahu 0–2000 µm s přesností ±(3 % + 1 µm). Cena: 789 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Dílenské nářadí. Značka: N/A. Popis: HW-300 digitální tloušťkoměr laku a povlaků (0–2000 µm, Fe/NFe). HW-300 je kapesní digitální tloušťkoměr pro nedestruktivní měření tloušťky laku a povlaků na kovových podkladech. Integrovaná sonda pracuje na principu magnetické indukce (ocel) i vířivých proudů (hliník, měď) a podklad rozpozná automaticky, případně lze režim zvolit ručně. Měří v rozsahu 0–2000 µm s přesností ±(3 % + 1 µm), zobrazuje maximum, minimum a průměr a má automatickou teplotní kompenzaci. Hodí se pro kontrolu ojetých vozů, lakovny, galvanovny i kontrolu kvality ve výrobě. 0–2000 µm. Měří tloušťku laku s přesností ±(3 % + 1 µm). Snadná kalibrace. Jednoduché a spolehlivé nulování přístroje. Kapesní tělo. Rozměry 103 × 52 × 25 mm, do jedné ruky. Automatické vypnutí. Přístroj se při nečinnosti sám vypne. Kontrola laku na autě. Tloušťkoměr se přiloží sondou kolmo k lakovanému povrchu a za okamžik zobrazí tloušťku vrstvy. Při prohlídce ojetého vozu tak rychle odhalíte místa s výrazně silnější vrstvou, která mohou znamenat opravu nebo přelakování. Měření je nedestruktivní, lak se nepoškodí. Jednotky lze přepínat mezi µm a mil a displej s podsvícením je dobře čitelný i v dílně nebo venku. Ocel i neželezné kovy. Sonda využívá dva principy: magnetickou indukci pro povlaky na oceli (Fe) a vířivé proudy pro povlaky na hliníku a mědi (NFe). V režimu AUTO přístroj podklad rozpozná sám, režim lze ale přepnout i ručně. Měří lak a chrom na oceli, lak a eloxovanou vrstvu na hliníku nebo mědi. Uplatní se v autoservisech, lakovnách, galvanovnách i při kontrole antikorozních nátěrů potrubí. Statistika a teplotní kompenzace. Algoritmus automatické teplotní kompenzace zlepšuje přesnost měření při různých teplotách. Přístroj zobrazuje maximum, minimum, průměr a počet měření, takže snadno porovnáte jednotlivé díly karoserie. Pracuje při teplotách -10 až 50 °C a napájí se dvěma bateriemi AAA 1,5 V, které nejsou součástí balení. Tělo z plastu ABS měří 103 × 52 × 25 mm a pohodlně se drží v jedné ruce. Doplňkové parametry. Kategorie : Dílenské nářadí . Výrobce : N/A . Kategorie : Měřicí technika a nářadí . Model : HW-300 . Rozsah měření : 0–2000 µm . Přesnost : ±(3 % + 1 µm) . Rozlišení : 0,01 mm / 1 mil (dle dodavatele) . Princip měření : magnetická indukce (Fe) a vířivé proudy (NFe), režim AUTO . Jednotky : µm / mil . Displej : LCD s podsvícením . Napájení : 2× baterie AAA 1,5 V (nejsou součástí) . Provozní teplota : -10 až 50 °C . Materiál : plast ABS . Rozměry : 103 × 52 × 25 mm . Obsah balení : 1× tloušťkoměr, 1× návod v angličtině a čínštině.",
+   "url": "https://www.okla.cz/hw-300-digitalni-tloustkomer-laku-a-povlaku-0-2000-m-fe-nfe/",
+   "keywords": [
+    "TVC-678000172B",
+    "N/A",
     "Měřicí technika a nářadí > Dílenské nářadí"
    ],
-   "price": 189,
+   "price": 789,
    "inStock": true,
    "category": "Měřicí technika a nářadí > Dílenské nářadí"
   },
@@ -781,6 +830,36 @@
    "category": "Měřicí technika a nářadí > Elektrická měření"
   },
   {
+   "id": "live-TVC-142300148A",
+   "type": "product",
+   "title": "QST EXPRESS digitální posuvné měřítko 150 mm z kompozitu s uhlíkovými vlákny",
+   "content": "Lehké digitální posuvné měřítko s rozsahem 0–150 mm a rozlišením 0,1 mm. Měří vnější a vnitřní rozměry, hloubku i osazení, přepíná mm a palce. Cena: 189 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Dílenské nářadí. Značka: QST EXPRESS. Popis: QST EXPRESS digitální posuvné měřítko 150 mm z kompozitu s uhlíkovými vlákny. Digitální posuvné měřítko QST EXPRESS je vyrobené z plastového kompozitu s uhlíkovými vlákny, takže je lehké a přitom pevné. Měří v rozsahu 0–150 mm (0–6 palců) s rozlišením 0,1 mm a čtyřmi způsoby: vnější průměr, vnitřní průměr, hloubku a osazení. Výsledek se zobrazuje na velkém LCD displeji, jednotky lze přepnout mezi milimetry a palci a nulu nastavit v libovolné poloze. Hodí se pro dílnu, autoservis, modelářství i domácí opravy. Napájí ho knoflíková baterie LR44, která je součástí balení. Čtyři způsoby měření. Vnější a vnitřní průměr, hloubka i osazení. Pevný kompozit. Tělo z kompozitu s uhlíkovými vlákny je odolné. Lehké měřítko. Včetně obalu váží jen 104 g. Baterie v balení. Knoflíková baterie LR44 je přiložena k měřítku. Velký LCD displej. Naměřená hodnota se zobrazuje na velkém LCD displeji s rozlišením 0,1 mm nebo 0,01 palce. Tlačítkem mm/inch se přepíná mezi metrickými a palcovými jednotkami, tlačítkem ZERO se nastaví nula v libovolné poloze čelistí. Díky tomu lze snadno měřit rozdíly rozměrů, například vůli mezi dvěma díly nebo úbytek materiálu po broušení, bez přepočítávání. Měření v dílně i doma. Vnější čelisti změří průměr hřídele, šroubu nebo trubky, vnitřní čelisti průměr otvoru a hloubkoměr na konci posuvné části hloubku drážky či díry. Měřítko s rozsahem 150 mm pokryje většinu běžných úloh v dílně, v autoservisu, při 3D tisku i v modelářství. Lehké tělo z kompozitu s uhlíkovými vlákny se pohodlně drží v ruce i při delší práci. Napájení knoflíkovou baterií. Elektroniku napájí jedna knoflíková baterie LR44/SR44 1,5 V, která je součástí balení a vkládá se pod kryt vedle displeje. Pokud začne displej ukazovat nesmyslné hodnoty, dodavatel doporučuje vyměnit baterii za novou – měřítko pak opět funguje normálně. Celková délka měřítka je 238 mm, takže se vejde do zásuvky i brašny s nářadím. Doplňkové parametry. Kategorie : Dílenské nářadí . Výrobce : QST EXPRESS . Kategorie : Měřicí technika a nářadí . Model : digitální posuvné měřítko 150 mm (karbonový kompozit) . Rozsah měření : 0–150 mm (0–6″) . Rozlišení : 0,1 mm / 0,01″ . Přesnost : 0,1 mm . Jednotky : mm / palce . Způsoby měření : vnější, vnitřní, hloubka, osazení . Materiál : plastový kompozit s uhlíkovými vlákny . Displej : LCD . Napájení : 1 × LR44/SR44 1,5 V (součástí balení) . Celková délka : 238 mm . Hmotnost s obalem : 104 g . Obsah balení : posuvné měřítko v plastové krabičce.",
+   "url": "https://www.okla.cz/qst-express-digitalni-posuvne-meritko-150-mm-z-kompozitu-s-uhlikovymi-vlakny/",
+   "keywords": [
+    "TVC-142300148A",
+    "QST EXPRESS",
+    "Měřicí technika a nářadí > Dílenské nářadí"
+   ],
+   "price": 189,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí > Dílenské nářadí"
+  },
+  {
+   "id": "live-PI2-FNIRSI-WMT-10",
+   "type": "product",
+   "title": "FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva",
+   "content": "Indukční vlhkoměr, který bez propichování měří vlhkost dřeva, omítky a zdiva do hloubky až 17 mm a výsledek ukáže na 2,4″ barevném displeji. Cena: 1 189 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Vlhkost a kvalita vody. Značka: FNIRSI. Popis: FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva. FNIRSI WMT-10 je bezkontaktní indukční vlhkoměr pro truhláře, stavebníky, řemeslníky i majitele domů. Místo hrotů používá elektromagnetický snímač o rozměrech 40,5 × 40,5 mm, který stačí přiložit k povrchu, takže materiál zůstane nepoškozený. Má čtyři režimy pro měkké a tvrdé dřevo, omítku a cihlové zdivo, měří v rozsahu 0–75 % s rozlišením 0,1 % do hloubky až 17 mm. Výsledek zobrazí na 2,4″ barevném displeji, při vysoké vlhkosti upozorní zvukem i barvou a uloží až 30 měření. Vlhkost 0–75 %. Měří vlhkost dřeva a zdiva s rozlišením 0,1 %. Zobrazení teploty. Displej ukazuje kromě vlhkosti i teplotu. Svítilna. Vestavěná svítilna pomáhá při práci ve tmě. Akumulátor 1000 mAh. Napájí ho dobíjecí lithiový akumulátor 1000 mAh. Automatické vypnutí. Vypnutí po 5, 10 nebo 15 minutách šetří baterii. Nastavení jasu. Jas displeje i hlasitost zvuku lze upravit. Nabíjení USB-C. Přístroj se nabíjí přes konektor USB-C. Do ruky. Kompaktní tělo s protiskluzovou texturou na bocích. Čtyři režimy pro různé materiály. WMT-10 rozlišuje měkké dřevo, tvrdé dřevo, omítku a cihlové zdivo. Pro dřevo měří v rozsahu 0–75 %, pro zdivo 0–43 % a pro omítku 0–25 %, vždy s rozlišením 0,1 % a uváděnou chybou ±1,5 %. Volbou správného režimu dostanete hodnotu odpovídající danému materiálu, ať kontrolujete řezivo před zpracováním, palivové dřevo nebo vysychání zdi. Měření bez poškození povrchu. Indukční snímač o ploše 40,5 × 40,5 mm pracuje bez kontaktních hrotů, takže na nábytku, podlaze ani omítce nezůstanou vpichy. Stačí přístroj přiložit k povrchu a během okamžiku zjistíte vlhkost až do hloubky 17 mm. Měřená plocha by podle výrobce měla být větší než snímač. Tlačítkem HOLD podržíte aktuální hodnotu na displeji. Alarm a záznam měření. Když naměřená vlhkost překročí bezpečnou mez, vlhkoměr vás upozorní zvukem a barevným označením na displeji, které rozlišuje stav suchý, střední a mokrý. Až 30 sad naměřených hodnot můžete uložit a později si je projít přímo v přístroji. Displej s podsvícením je dobře čitelný i v tmavém prostředí, kde pomůže také vestavěná svítilna. Doplňkové parametry. Kategorie : Vlhkost a kvalita vody . Výrobce : FNIRSI . Kategorie : Měřicí technika a nářadí . Model : WMT-10 . Princip měření : indukční, bezkontaktní (bez hrotů) . Rozsah měření : 0–75 % (měkké a tvrdé dřevo 0–75 %, cihlové zdivo 0–43 %, omítka 0–25 %) . Rozlišení : 0,1 % . Přesnost : ±1,5 % . Max. hloubka měření : 17 mm . Velikost snímače : 40,5 × 40,5 mm . Displej : 2,4″ barevný TFT . Paměť : až 30 sad měření . Alarm vlhkosti : zvukový a barevný . Automatické vypnutí : 5 / 10 / 15 min . Napájení : dobíjecí lithiový akumulátor 1000 mAh, nabíjení USB-C . Provozní teplota : 0–40 °C.",
+   "url": "https://www.okla.cz/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/",
+   "keywords": [
+    "PI2-FNIRSI-WMT-10",
+    "FNIRSI",
+    "Měřicí technika a nářadí > Vlhkost a kvalita vody"
+   ],
+   "price": 1189,
+   "inStock": true,
+   "category": "Měřicí technika a nářadí > Vlhkost a kvalita vody"
+  },
+  {
    "id": "live-PI2-FNIRSI-2C23T",
    "type": "product",
    "title": "FNIRSI 2C23T osciloskop, multimetr a generátor 3v1",
@@ -809,21 +888,6 @@
    "price": 3189,
    "inStock": true,
    "category": "Elektronické multitooly > Kapesní platformy"
-  },
-  {
-   "id": "live-PI2-FNIRSI-WMT-10",
-   "type": "product",
-   "title": "FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva",
-   "content": "Indukční vlhkoměr, který bez propichování měří vlhkost dřeva, omítky a zdiva do hloubky až 17 mm a výsledek ukáže na 2,4″ barevném displeji. Cena: 1 189 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Měřicí technika a nářadí > Vlhkost a kvalita vody. Značka: FNIRSI. Popis: FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva. FNIRSI WMT-10 je bezkontaktní indukční vlhkoměr pro truhláře, stavebníky, řemeslníky i majitele domů. Místo hrotů používá elektromagnetický snímač o rozměrech 40,5 × 40,5 mm, který stačí přiložit k povrchu, takže materiál zůstane nepoškozený. Má čtyři režimy pro měkké a tvrdé dřevo, omítku a cihlové zdivo, měří v rozsahu 0–75 % s rozlišením 0,1 % do hloubky až 17 mm. Výsledek zobrazí na 2,4″ barevném displeji, při vysoké vlhkosti upozorní zvukem i barvou a uloží až 30 měření. Vlhkost 0–75 %. Měří vlhkost dřeva a zdiva s rozlišením 0,1 %. Zobrazení teploty. Displej ukazuje kromě vlhkosti i teplotu. Svítilna. Vestavěná svítilna pomáhá při práci ve tmě. Akumulátor 1000 mAh. Napájí ho dobíjecí lithiový akumulátor 1000 mAh. Automatické vypnutí. Vypnutí po 5, 10 nebo 15 minutách šetří baterii. Nastavení jasu. Jas displeje i hlasitost zvuku lze upravit. Nabíjení USB-C. Přístroj se nabíjí přes konektor USB-C. Do ruky. Kompaktní tělo s protiskluzovou texturou na bocích. Čtyři režimy pro různé materiály. WMT-10 rozlišuje měkké dřevo, tvrdé dřevo, omítku a cihlové zdivo. Pro dřevo měří v rozsahu 0–75 %, pro zdivo 0–43 % a pro omítku 0–25 %, vždy s rozlišením 0,1 % a uváděnou chybou ±1,5 %. Volbou správného režimu dostanete hodnotu odpovídající danému materiálu, ať kontrolujete řezivo před zpracováním, palivové dřevo nebo vysychání zdi. Měření bez poškození povrchu. Indukční snímač o ploše 40,5 × 40,5 mm pracuje bez kontaktních hrotů, takže na nábytku, podlaze ani omítce nezůstanou vpichy. Stačí přístroj přiložit k povrchu a během okamžiku zjistíte vlhkost až do hloubky 17 mm. Měřená plocha by podle výrobce měla být větší než snímač. Tlačítkem HOLD podržíte aktuální hodnotu na displeji. Alarm a záznam měření. Když naměřená vlhkost překročí bezpečnou mez, vlhkoměr vás upozorní zvukem a barevným označením na displeji, které rozlišuje stav suchý, střední a mokrý. Až 30 sad naměřených hodnot můžete uložit a později si je projít přímo v přístroji. Displej s podsvícením je dobře čitelný i v tmavém prostředí, kde pomůže také vestavěná svítilna. Doplňkové parametry. Kategorie : Vlhkost a kvalita vody . Výrobce : FNIRSI . Kategorie : Měřicí technika a nářadí . Model : WMT-10 . Princip měření : indukční, bezkontaktní (bez hrotů) . Rozsah měření : 0–75 % (měkké a tvrdé dřevo 0–75 %, cihlové zdivo 0–43 %, omítka 0–25 %) . Rozlišení : 0,1 % . Přesnost : ±1,5 % . Max. hloubka měření : 17 mm . Velikost snímače : 40,5 × 40,5 mm . Displej : 2,4″ barevný TFT . Paměť : až 30 sad měření . Alarm vlhkosti : zvukový a barevný . Automatické vypnutí : 5 / 10 / 15 min . Napájení : dobíjecí lithiový akumulátor 1000 mAh, nabíjení USB-C . Provozní teplota : 0–40 °C.",
-   "url": "https://www.okla.cz/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/",
-   "keywords": [
-    "PI2-FNIRSI-WMT-10",
-    "FNIRSI",
-    "Měřicí technika a nářadí > Vlhkost a kvalita vody"
-   ],
-   "price": 1189,
-   "inStock": true,
-   "category": "Měřicí technika a nářadí > Vlhkost a kvalita vody"
   },
   {
    "id": "live-PI2-FNIRSI-FNB58",
@@ -856,21 +920,6 @@
    "category": "Elektronické multitooly > Rádiové a IoT moduly"
   },
   {
-   "id": "live-PI2-TEMBED-PLUS",
-   "type": "product",
-   "title": "LILYGO T-Embed CC1101 Plus s externími anténami, průhledný",
-   "content": "Kapesní rádiový multitool s ESP32-S3, 1,9″ displejem a otočným ovladačem; obsahuje Sub-GHz CC1101, 2,4GHz nRF24L01, NFC PN532 a IR, verze s externími anténami. Cena: 3 289 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Elektronické multitooly > Kapesní platformy. Značka: LILYGO. Popis: LILYGO T-Embed CC1101 Plus s externími anténami, průhledný. LILYGO T-Embed CC1101 Plus je kapesní vývojové zařízení v průhledném krytu, určené pro experimenty s rádiovými a bezkontaktními technologiemi. Vychází z modelu T-Embed CC1101 a navíc obsahuje 2,4GHz modul nRF24L01. Kromě Sub-GHz transceiveru CC1101 má čtečku NFC PN532 pro karty 13,56 MHz, infračervený vysílač a přijímač, mikrofon a slot microSD. Ovládá se otočným enkodérem s tlačítkem a 1,9″ barevným displejem. Tato verze má konektory pro externí antény. Zařízení podporuje open-source firmware Bruce či Launcher a vlastní programy v Arduino IDE nebo ESP-IDF. Wi-Fi 2,4 GHz. Čip ESP32-S3 podporuje Wi-Fi 802.11 b/g/n. Bluetooth 5 LE. Bezdrátové spojení s dalšími zařízeními přes BLE. Otočný enkodér. Otočný ovladač s tlačítkem pro pohyb v nabídkách. Vestavěná baterie. Li-Pol akumulátor s nabíjecím obvodem BQ25896. Slot microSD. Na kartu microSD lze ukládat záznamy a soubory. USB-C. Nabíjení i programování přes konektor USB-C. Externí antény. Tři antény se jednoduše našroubují na konektory. Kapesní provedení. Kompaktní tělo 98 × 39 × 31 mm v průhledném krytu. Sub-GHz, 2,4 GHz a NFC v jednom. Uvnitř průhledného krytu je transceiver CC1101, který podle výrobce pracuje v pásmech 300–348 MHz, 387–464 MHz a 779–928 MHz. Verze Plus přidává modul nRF24L01 pro 2,4GHz pásmo ISM. Čtečka PN532 pracuje s kartami 13,56 MHz, například Mifare Classic a NTAG, nepodporuje však karty 125 kHz. Doplňuje je infračervený vysílač a přijímač pro práci s dálkovými ovladači. Externí antény pro lepší dosah. Tato varianta má na horní hraně konektory pro externí antény a v balení jsou tři prutové antény. Podle pinmapy výrobce patří konektory Wi-Fi a Bluetooth, Sub-GHz modulu CC1101 a 2,4GHz modulu nRF24L01. Oproti verzi s interními anténami tak lze použít větší antény a dosáhnout delšího dosahu při příjmu i vysílání. Výrobce nedoporučuje měnit kryt, protože tím hrozí poškození a ovlivnění funkce IR. Balení a otevřený firmware. Balení verze s externími anténami obsahuje zařízení T-Embed CC1101 Plus, NFC štítek pro vyzkoušení čtečky, čtyři šroubky a tři antény. Zařízení je určeno pro vývojáře a nadšence do bezpečnosti a rádiové techniky. Na GitHubu LILYGO jsou příklady pro jednotlivé moduly a seznam podporovaných open-source projektů, například Bruce, Launcher nebo CapibaraZero. Vlastní programy lze psát v Arduino IDE, PlatformIO nebo ESP-IDF. Doplňkové parametry. Kategorie : Kapesní platformy . Výrobce : LILYGO . Kategorie : Elektronické multitooly . Model : T-Embed CC1101 Plus (External Antenna, K268-01, Transparent Black) . Procesor : ESP32-S3, dvoujádrový Xtensa LX7, 240 MHz . Paměť : 16 MB Flash, 8 MB PSRAM . Displej : 1,9″ IPS TFT, ST7789V, 170 × 320 px . Sub-GHz : CC1101; 300–348 MHz, 387–464 MHz, 779–928 MHz . 2,4 GHz : nRF24L01 . NFC : PN532, 13,56 MHz . Další funkce : IR vysílač a přijímač, mikrofon, 8× RGB LED WS2812, slot microSD . Bezdrátové rozhraní : Wi-Fi 802.11 b/g/n, Bluetooth 5 LE . Ovládání : Otočný enkodér s tlačítkem, tlačítka Reset a Boot . Baterie : Li-Pol 3,7 V, 1300 mAh . Rozměry : 98 × 39 × 31 mm . Obsah balení : T-Embed CC1101 Plus, NFC štítek, 4× šroubek, 3× anténa.",
-   "url": "https://www.okla.cz/lilygo-t-embed-cc1101-plus-s-externimi-antenami-pruhledny/",
-   "keywords": [
-    "PI2-TEMBED-PLUS",
-    "LILYGO",
-    "Elektronické multitooly > Kapesní platformy"
-   ],
-   "price": 3289,
-   "inStock": true,
-   "category": "Elektronické multitooly > Kapesní platformy"
-  },
-  {
    "id": "live-PI2-TDONGLE-PLUS",
    "type": "product",
    "title": "LILYGO T-Dongle S3 Plus",
@@ -901,6 +950,21 @@
    "category": "PŘÍSLUŠENSTVÍ > Moduly a adaptéry"
   },
   {
+   "id": "live-PI2-TEMBED-PLUS",
+   "type": "product",
+   "title": "LILYGO T-Embed CC1101 Plus s externími anténami, průhledný",
+   "content": "Kapesní rádiový multitool s ESP32-S3, 1,9″ displejem a otočným ovladačem; obsahuje Sub-GHz CC1101, 2,4GHz nRF24L01, NFC PN532 a IR, verze s externími anténami. Cena: 3 289 Kč (aktuálně na e-shopu). Dostupnost: skladem. Kategorie: Elektronické multitooly > Kapesní platformy. Značka: LILYGO. Popis: LILYGO T-Embed CC1101 Plus s externími anténami, průhledný. LILYGO T-Embed CC1101 Plus je kapesní vývojové zařízení v průhledném krytu, určené pro experimenty s rádiovými a bezkontaktními technologiemi. Vychází z modelu T-Embed CC1101 a navíc obsahuje 2,4GHz modul nRF24L01. Kromě Sub-GHz transceiveru CC1101 má čtečku NFC PN532 pro karty 13,56 MHz, infračervený vysílač a přijímač, mikrofon a slot microSD. Ovládá se otočným enkodérem s tlačítkem a 1,9″ barevným displejem. Tato verze má konektory pro externí antény. Zařízení podporuje open-source firmware Bruce či Launcher a vlastní programy v Arduino IDE nebo ESP-IDF. Wi-Fi 2,4 GHz. Čip ESP32-S3 podporuje Wi-Fi 802.11 b/g/n. Bluetooth 5 LE. Bezdrátové spojení s dalšími zařízeními přes BLE. Otočný enkodér. Otočný ovladač s tlačítkem pro pohyb v nabídkách. Vestavěná baterie. Li-Pol akumulátor s nabíjecím obvodem BQ25896. Slot microSD. Na kartu microSD lze ukládat záznamy a soubory. USB-C. Nabíjení i programování přes konektor USB-C. Externí antény. Tři antény se jednoduše našroubují na konektory. Kapesní provedení. Kompaktní tělo 98 × 39 × 31 mm v průhledném krytu. Sub-GHz, 2,4 GHz a NFC v jednom. Uvnitř průhledného krytu je transceiver CC1101, který podle výrobce pracuje v pásmech 300–348 MHz, 387–464 MHz a 779–928 MHz. Verze Plus přidává modul nRF24L01 pro 2,4GHz pásmo ISM. Čtečka PN532 pracuje s kartami 13,56 MHz, například Mifare Classic a NTAG, nepodporuje však karty 125 kHz. Doplňuje je infračervený vysílač a přijímač pro práci s dálkovými ovladači. Externí antény pro lepší dosah. Tato varianta má na horní hraně konektory pro externí antény a v balení jsou tři prutové antény. Podle pinmapy výrobce patří konektory Wi-Fi a Bluetooth, Sub-GHz modulu CC1101 a 2,4GHz modulu nRF24L01. Oproti verzi s interními anténami tak lze použít větší antény a dosáhnout delšího dosahu při příjmu i vysílání. Výrobce nedoporučuje měnit kryt, protože tím hrozí poškození a ovlivnění funkce IR. Balení a otevřený firmware. Balení verze s externími anténami obsahuje zařízení T-Embed CC1101 Plus, NFC štítek pro vyzkoušení čtečky, čtyři šroubky a tři antény. Zařízení je určeno pro vývojáře a nadšence do bezpečnosti a rádiové techniky. Na GitHubu LILYGO jsou příklady pro jednotlivé moduly a seznam podporovaných open-source projektů, například Bruce, Launcher nebo CapibaraZero. Vlastní programy lze psát v Arduino IDE, PlatformIO nebo ESP-IDF. Doplňkové parametry. Kategorie : Kapesní platformy . Výrobce : LILYGO . Kategorie : Elektronické multitooly . Model : T-Embed CC1101 Plus (External Antenna, K268-01, Transparent Black) . Procesor : ESP32-S3, dvoujádrový Xtensa LX7, 240 MHz . Paměť : 16 MB Flash, 8 MB PSRAM . Displej : 1,9″ IPS TFT, ST7789V, 170 × 320 px . Sub-GHz : CC1101; 300–348 MHz, 387–464 MHz, 779–928 MHz . 2,4 GHz : nRF24L01 . NFC : PN532, 13,56 MHz . Další funkce : IR vysílač a přijímač, mikrofon, 8× RGB LED WS2812, slot microSD . Bezdrátové rozhraní : Wi-Fi 802.11 b/g/n, Bluetooth 5 LE . Ovládání : Otočný enkodér s tlačítkem, tlačítka Reset a Boot . Baterie : Li-Pol 3,7 V, 1300 mAh . Rozměry : 98 × 39 × 31 mm . Obsah balení : T-Embed CC1101 Plus, NFC štítek, 4× šroubek, 3× anténa.",
+   "url": "https://www.okla.cz/lilygo-t-embed-cc1101-plus-s-externimi-antenami-pruhledny/",
+   "keywords": [
+    "PI2-TEMBED-PLUS",
+    "LILYGO",
+    "Elektronické multitooly > Kapesní platformy"
+   ],
+   "price": 3289,
+   "inStock": true,
+   "category": "Elektronické multitooly > Kapesní platformy"
+  },
+  {
    "id": "live-FLP-ONE",
    "type": "product",
    "title": "Flipper ONE – otevřený linuxový síťový multitool",
@@ -917,10 +981,24 @@
  ],
  "pages": [
   {
+   "id": "page-https://www.okla.cz/podminky-ochrany-osobnich-udaju/",
+   "type": "faq",
+   "title": "Ochrana osobních údajů",
+   "content": "Podmínky ochrany osobních údajů. Správce a kontakty. Správcem osobních údajů je provozovatel Okla.cz uvedený v úvodu. Dotazy, žádosti o přístup, opravu nebo výmaz zasílejte na podpora@okla.cz. Zpracování probíhá podle nařízení (EU) 2016/679 (GDPR) a českých právních předpisů. Osobní údaje neposkytujeme k volnému prodeji ani je nezveřejňujeme pro marketing třetích stran. Objednávky, účty a reklamace. Při objednávce pracujeme zejména se jménem a příjmením, fakturační a doručovací adresou, e-mailovou adresou, identifikačními údaji podnikatele, položkami objednávky, cenou, zvolenou dopravou, platebním stavem a související komunikací. Údaje používáme k uzavření a splnění kupní smlouvy, dodání zboží, vystavení zákonných dokladů, vyřízení vratek a reklamací. Právním základem je čl. 6 odst. 1 písm. b) GDPR; v zákonem vyžadovaném rozsahu také písm. c). Související doklady uchováváme po dobu určenou účetními a daňovými předpisy; relevantní daňové doklady se v zákonných případech uchovávají až 10 let. Údaje nutné pro případné právní nároky můžeme uchovat po příslušnou promlčecí dobu na základě oprávněného zájmu. Vytvoříte-li si zákaznický účet, uchováváme údaje nezbytné pro jeho provoz a historii nákupů. O zrušení účtu lze požádat e-mailem; zrušení účtu neznamená výmaz údajů, které musíme uchovávat ze zákona. Dotazy a kontaktování podpory. Pokud nám napíšete, zpracujeme e-mailovou adresu, obsah zprávy a údaje, které nám dobrovolně sdělíte. Pro odpověď na předsmluvní dotazy je základem čl. 6 odst. 1 písm. b) GDPR, u ostatních zákaznických dotazů oprávněný zájem podle čl. 6 odst. 1 písm. f). Běžnou komunikaci, která nevede k objednávce, standardně uchováváme nejvýše 12 měsíců od posledního kontaktu; pokud je potřebná k obraně právních nároků, může být uložena déle. Newslettery a nabídky. Stávajícím zákazníkům můžeme za podmínek § 7 odst. 3 zákona č. 480/2004 Sb. zasílat nabídky vlastních obdobných výrobků a služeb, pokud tuto možnost při získání e-mailu neodmítli. V ostatních případech potřebujeme odpovídající souhlas. Každý obchodní e-mail obsahuje možnost jednoduchého a bezplatného odhlášení. Odhlásit se můžete také zprávou na podpora@okla.cz . Odhlášení se netýká nezbytných zpráv o objednávce. Pro marketingovou komunikaci stávajícím zákazníkům běžně používáme e-mail nejdéle 3 roky od posledního nákupu, nejvýše však do odmítnutí dalších sdělení. U komunikace na základě souhlasu zpracování končí jeho odvoláním nebo uplynutím doby určené při udělení souhlasu. Komu se údaje předávají. Osobní údaje zpracovává provozovatel e-shopu a v nezbytném rozsahu jeho smluvní zpracovatelé. Technický provoz zajišťuje zejména Shoptet a.s. ; podle konkrétní objednávky mohou mít nezbytné údaje dopravci, výdejní místa, poskytovatelé platebních služeb, účetní nebo poskytovatelé e-mailových služeb. Analytickým a reklamním službám poskytujeme údaje pouze tehdy, jsou-li skutečně zapojeny a je-li zajištěn odpovídající právní základ. Aktuální volby souhlasu se spravují prostřednictvím cookie lišty. Předání mimo Evropský hospodářský prostor může nastat u některých externích služeb. V takovém případě musí být podloženo zákonným mechanismem, například rozhodnutím o odpovídající ochraně nebo standardními smluvními doložkami. Informaci o konkrétních příjemcích a zárukách poskytneme na žádost. Údaje mohou být předány úřadům nebo soudu, pokud to ukládá právní předpis. Cookies. Nezbytné cookies umožňují provoz košíku, a zabezpečení webu. Jsou používány pouze v rozsahu nutném k poskytnutí požadované služby. Analytické cookies pomáhají měřit návštěvnost a používání webu. Nejsou-li technicky nezbytné, spouštějí se až po předchozím souhlasu. Reklamní cookies slouží k měření kampaní a případnému remarketingu. Používají se jen s předchozím souhlasem. Souhlas s nepovinnými cookies lze odmítnout nebo odvolat v nastavení cookie lišty; pokud tento ovládací prvek není právě dostupný, nastavení cookies lze spravovat také v prohlížeči a se žádostí o pomoc se obrátit na podpora@okla.cz . Konkrétní názvy a životnost cookies se odvíjejí od skutečně zapojených modulů a jsou zjišťovány podle jejich aktuální konfigurace. Vaše práva. Máte právo na informace o zpracování, přístup k údajům, opravu, za zákonných podmínek výmaz, omezení zpracování a přenositelnost. Proti zpracování na základě oprávněného zájmu můžete vznést námitku; námitku proti přímému marketingu lze uplatnit kdykoliv. Souhlas lze kdykoliv odvolat. Odvoláním není dotčena zákonnost zpracování před odvoláním. Na žádost odpovíme zpravidla do jednoho měsíce v souladu s GDPR. Můžeme přiměřeně ověřit totožnost žadatele, pokud je to nezbytné pro ochranu údajů. Stížnost můžete podat u Úřadu pro ochranu osobních údajů . Podmínky nákupu upravují Obchodní podmínky.",
+   "url": "https://www.okla.cz/podminky-ochrany-osobnich-udaju/",
+   "keywords": [
+    "osobní údaje",
+    "gdpr",
+    "soukromí",
+    "cookies",
+    "ochrana údajů"
+   ]
+  },
+  {
    "id": "page-https://www.okla.cz/vraceni-zbozi-a-odstoupeni/",
    "type": "faq",
    "title": "Vrácení zboží a odstoupení od smlouvy",
-   "content": "Vrácení zboží a odstoupení. DIČ: CZ23695340 | IČO: 23695340 | Okla.cz – Kratas Pro s.r.o. | E-mail: podpora@okla.cz . Vrácení do 14 dnů. Spotřebitel, který koupil zboží na Okla.cz na dálku, může zpravidla do 14 dnů od převzetí odstoupit bez uvedení důvodu. U jedné objednávky dodávané po částech běží lhůta podle zákona od převzetí poslední části. Ve lhůtě stačí odeslat jednoznačné oznámení o odstoupení na podpora@okla.cz nebo na sídlo prodávajícího. Uveďte ideálně číslo objednávky, své jméno a zboží, kterého se odstoupení týká. Nemusíte vysvětlovat důvod ani čekat na naše schválení. Při nákupu mimo rámec podnikání můžete použít i vzorový formulář, který je součástí obchodních podmínek . Použití formuláře je dobrovolné. Postup vrácení zboží. Po oznámení odstoupení nám výrobek odešlete bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení . Přímé náklady zpětné dopravy při odstoupení bez důvodu obvykle hradí spotřebitel. Na podpora@okla.cz můžete požádat o instrukce pro bezpečné zaslání a aktuální příjmové místo. Písemné odstoupení lze doručit na sídlo prodávajícího; samotné právo odstoupit není podmíněno předchozí domluvou. Výrobek zabalte tak, aby nedošlo k poškození během přepravy. Doporučujeme přiložit identifikaci objednávky a uschovat doklad o odeslání. Vrátit lze i výrobek bez originálního obalu; je však důležité zabezpečit ho proti poškození. Elektronická zařízení doporučujeme odhlásit od uživatelských účtů a odstranit osobní data. U zařízení s poškozenou lithium-iontovou baterií se předem domluvte na bezpečném způsobu předání. Rozbalené a vyzkoušené výrobky. Zboží můžete rozbalit a přiměřeně vyzkoušet v rozsahu nutném k seznámení se s jeho povahou, vlastnostmi a funkčností, podobně jako v kamenné prodejně. Otevřená krabice nebo krátké vyzkoušení samo o sobě neznamená ztrátu práva odstoupit. Za snížení hodnoty odpovídáte jen tehdy, pokud vzniklo nakládáním nad uvedený nezbytný rozsah. Může jít například o poškozené zařízení, výrazné stopy užívání, chybějící příslušenství nebo zásahy do hardwaru. Případné snížení hodnoty se posuzuje individuálně a musí být přiměřené skutečnému stavu. Zboží neposílejte na dobírku; zákonné peněžní vypořádání probíhá způsobem uvedeným níže. Kdy odstoupit nelze. Právo na 14denní odstoupení se neuplatní v případech uvedených v § 1837 občanského zákoníku, například u zboží upraveného podle individuálních požadavků spotřebitele nebo u zapečetěného zboží nevhodného k vrácení z hygienických důvodů po porušení obalu. Výjimky se uplatní jen při splnění zákonných podmínek. Běžná elektronika se nestává nevratitelnou jen tím, že byla rozbalena nebo aktivována. U digitálního obsahu nedodaného na hmotném nosiči může právo na odstoupení zaniknout při splnění zvláštních podmínek, zejména s předchozím výslovným souhlasem a příslušným poučením. Pokud takový obsah neprodáváme, tato výjimka se neuplatní. Vrácení peněz. Nejpozději do 14 dnů od obdržení oznámení o odstoupení vrátíme přijaté peníze, včetně původních nákladů na dodání do výše nejlevnějšího nabízeného standardního způsobu dopravy. Peníze můžeme zadržet do převzetí vráceného zboží nebo do doložení jeho odeslání, podle toho, co nastane dříve. Vrácení proběhne stejným způsobem, jaký byl použit při platbě, pokud se výslovně nedohodneme na jiném způsobu bez dalších nákladů pro spotřebitele. Při vrácení části objednávky posoudíme původní náklady na dopravu a případná zvýhodnění podle konkrétní objednávky, zákona a pravidel akce. Bez předem oznámených a platných podmínek nepřipočítáváme dodatečné sankce. Slevový kód nepřevádíme na hotovost. Pokud u vráceného zboží došlo k objektivnímu snížení hodnoty podle pravidel výše, můžeme uplatnit odpovídající zákonný nárok. Dárky a balíčky. Pokud k nákupu náležel dárek nebo zvýhodněný balíček, řídí se vypořádání jasně sdělenými podmínkami konkrétní nabídky. Práva spotřebitele tím nesmí být nepřípustně omezena. Při vrácení části výhodného setu může dojít k přepočtu slevy jen za předpokladu, že takový mechanismus byl předem srozumitelně sjednán a odpovídá zákonu. Podrobnosti jsou v podmínkách reklamních akcí. Nákup na IČO a reklamace. Jestliže jste při uzavření smlouvy jednali jako podnikatel, zákonné 14denní odstoupení bez uvedení důvodu se na tento nákup zpravidla nevztahuje. Individuální výjimku lze sjednat písemně. Pokud výrobek nefunguje nebo neodpovídá kupní smlouvě, nejde o běžnou vratku; uplatněte práva z vadného plnění podle reklamačního řádu. Změny od 1. ledna 2027. Od 1. 1. 2027 zákon č. 159/2026 Sb. zavádí u příslušných smluv uzavíraných online také možnost odstoupit prostřednictvím zřetelného ovládacího prvku na webu. Tato možnost musí být zajištěna v rozsahu stanoveném zákonem; do té doby lze odstoupit zejména e-mailem nebo písemně.",
+   "content": "Vrácení zboží a odstoupení. Vrácení do 14 dnů. Spotřebitel, který koupil zboží na Okla.cz na dálku, může zpravidla do 14 dnů od převzetí odstoupit bez uvedení důvodu. U jedné objednávky dodávané po částech běží lhůta podle zákona od převzetí poslední části. Ve lhůtě stačí odeslat jednoznačné oznámení o odstoupení na podpora@okla.cz nebo na sídlo prodávajícího. Uveďte ideálně číslo objednávky, své jméno a zboží, kterého se odstoupení týká. Nemusíte vysvětlovat důvod ani čekat na naše schválení. Při nákupu mimo rámec podnikání můžete použít i vzorový formulář, který je součástí obchodních podmínek . Použití formuláře je dobrovolné. Postup vrácení zboží. Po oznámení odstoupení nám výrobek odešlete bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení . Přímé náklady zpětné dopravy při odstoupení bez důvodu obvykle hradí spotřebitel. Na podpora@okla.cz můžete požádat o instrukce pro bezpečné zaslání a aktuální příjmové místo. Písemné odstoupení lze doručit na sídlo prodávajícího; samotné právo odstoupit není podmíněno předchozí domluvou. Výrobek zabalte tak, aby nedošlo k poškození během přepravy. Doporučujeme přiložit identifikaci objednávky a uschovat doklad o odeslání. Vrátit lze i výrobek bez originálního obalu; je však důležité zabezpečit ho proti poškození. Elektronická zařízení doporučujeme odhlásit od uživatelských účtů a odstranit osobní data. U zařízení s poškozenou lithium-iontovou baterií se předem domluvte na bezpečném způsobu předání. Rozbalené a vyzkoušené výrobky. Zboží můžete rozbalit a přiměřeně vyzkoušet v rozsahu nutném k seznámení se s jeho povahou, vlastnostmi a funkčností, podobně jako v kamenné prodejně. Otevřená krabice nebo krátké vyzkoušení samo o sobě neznamená ztrátu práva odstoupit. Za snížení hodnoty odpovídáte jen tehdy, pokud vzniklo nakládáním nad uvedený nezbytný rozsah. Může jít například o poškozené zařízení, výrazné stopy užívání, chybějící příslušenství nebo zásahy do hardwaru. Případné snížení hodnoty se posuzuje individuálně a musí být přiměřené skutečnému stavu. Zboží neposílejte na dobírku; zákonné peněžní vypořádání probíhá způsobem uvedeným níže. Kdy odstoupit nelze. Právo na 14denní odstoupení se neuplatní v případech uvedených v § 1837 občanského zákoníku, například u zboží upraveného podle individuálních požadavků spotřebitele nebo u zapečetěného zboží nevhodného k vrácení z hygienických důvodů po porušení obalu. Výjimky se uplatní jen při splnění zákonných podmínek. Běžná elektronika se nestává nevratitelnou jen tím, že byla rozbalena nebo aktivována. U digitálního obsahu nedodaného na hmotném nosiči může právo na odstoupení zaniknout při splnění zvláštních podmínek, zejména s předchozím výslovným souhlasem a příslušným poučením. Pokud takový obsah neprodáváme, tato výjimka se neuplatní. Vrácení peněz. Nejpozději do 14 dnů od obdržení oznámení o odstoupení vrátíme přijaté peníze, včetně původních nákladů na dodání do výše nejlevnějšího nabízeného standardního způsobu dopravy. Peníze můžeme zadržet do převzetí vráceného zboží nebo do doložení jeho odeslání, podle toho, co nastane dříve. Vrácení proběhne stejným způsobem, jaký byl použit při platbě, pokud se výslovně nedohodneme na jiném způsobu bez dalších nákladů pro spotřebitele. Při vrácení části objednávky posoudíme původní náklady na dopravu a případná zvýhodnění podle konkrétní objednávky, zákona a pravidel akce. Bez předem oznámených a platných podmínek nepřipočítáváme dodatečné sankce. Slevový kód nepřevádíme na hotovost. Pokud u vráceného zboží došlo k objektivnímu snížení hodnoty podle pravidel výše, můžeme uplatnit odpovídající zákonný nárok. Dárky a balíčky. Pokud k nákupu náležel dárek nebo zvýhodněný balíček, řídí se vypořádání jasně sdělenými podmínkami konkrétní nabídky. Práva spotřebitele tím nesmí být nepřípustně omezena. Při vrácení části výhodného setu může dojít k přepočtu slevy jen za předpokladu, že takový mechanismus byl předem srozumitelně sjednán a odpovídá zákonu. Podrobnosti jsou v podmínkách reklamních akcí. Nákup na IČO a reklamace. Jestliže jste při uzavření smlouvy jednali jako podnikatel, zákonné 14denní odstoupení bez uvedení důvodu se na tento nákup zpravidla nevztahuje. Individuální výjimku lze sjednat písemně. Pokud výrobek nefunguje nebo neodpovídá kupní smlouvě, nejde o běžnou vratku; uplatněte práva z vadného plnění podle reklamačního řádu. Změny od 1. ledna 2027. Od 1. 1. 2027 zákon č. 159/2026 Sb. zavádí u příslušných smluv uzavíraných online také možnost odstoupit prostřednictvím zřetelného ovládacího prvku na webu. Tato možnost musí být zajištěna v rozsahu stanoveném zákonem; do té doby lze odstoupit zejména e-mailem nebo písemně.",
    "url": "https://www.okla.cz/vraceni-zbozi-a-odstoupeni/",
    "keywords": [
     "vrácení",
@@ -932,24 +1010,10 @@
    ]
   },
   {
-   "id": "page-https://www.okla.cz/podminky-ochrany-osobnich-udaju/",
-   "type": "faq",
-   "title": "Ochrana osobních údajů",
-   "content": "Podmínky ochrany osobních údajů. DIČ: CZ23695340 | IČO: 23695340 | Okla.cz – Kratas Pro s.r.o. | E-mail: podpora@okla.cz . Správce a kontakty. Správcem osobních údajů je provozovatel Okla.cz uvedený v úvodu. Dotazy, žádosti o přístup, opravu nebo výmaz zasílejte na podpora@okla.cz. Zpracování probíhá podle nařízení (EU) 2016/679 (GDPR) a českých právních předpisů. Osobní údaje neposkytujeme k volnému prodeji ani je nezveřejňujeme pro marketing třetích stran. Objednávky, účty a reklamace. Při objednávce pracujeme zejména se jménem a příjmením, fakturační a doručovací adresou, e-mailovou adresou, identifikačními údaji podnikatele, položkami objednávky, cenou, zvolenou dopravou, platebním stavem a související komunikací. Údaje používáme k uzavření a splnění kupní smlouvy, dodání zboží, vystavení zákonných dokladů, vyřízení vratek a reklamací. Právním základem je čl. 6 odst. 1 písm. b) GDPR; v zákonem vyžadovaném rozsahu také písm. c). Související doklady uchováváme po dobu určenou účetními a daňovými předpisy; relevantní daňové doklady se v zákonných případech uchovávají až 10 let. Údaje nutné pro případné právní nároky můžeme uchovat po příslušnou promlčecí dobu na základě oprávněného zájmu. Vytvoříte-li si zákaznický účet, uchováváme údaje nezbytné pro jeho provoz a historii nákupů. O zrušení účtu lze požádat e-mailem; zrušení účtu neznamená výmaz údajů, které musíme uchovávat ze zákona. Dotazy a kontaktování podpory. Pokud nám napíšete, zpracujeme e-mailovou adresu, obsah zprávy a údaje, které nám dobrovolně sdělíte. Pro odpověď na předsmluvní dotazy je základem čl. 6 odst. 1 písm. b) GDPR, u ostatních zákaznických dotazů oprávněný zájem podle čl. 6 odst. 1 písm. f). Běžnou komunikaci, která nevede k objednávce, standardně uchováváme nejvýše 12 měsíců od posledního kontaktu; pokud je potřebná k obraně právních nároků, může být uložena déle. Newslettery a nabídky. Stávajícím zákazníkům můžeme za podmínek § 7 odst. 3 zákona č. 480/2004 Sb. zasílat nabídky vlastních obdobných výrobků a služeb, pokud tuto možnost při získání e-mailu neodmítli. V ostatních případech potřebujeme odpovídající souhlas. Každý obchodní e-mail obsahuje možnost jednoduchého a bezplatného odhlášení. Odhlásit se můžete také zprávou na podpora@okla.cz . Odhlášení se netýká nezbytných zpráv o objednávce. Pro marketingovou komunikaci stávajícím zákazníkům běžně používáme e-mail nejdéle 3 roky od posledního nákupu, nejvýše však do odmítnutí dalších sdělení. U komunikace na základě souhlasu zpracování končí jeho odvoláním nebo uplynutím doby určené při udělení souhlasu. Komu se údaje předávají. Osobní údaje zpracovává provozovatel e-shopu a v nezbytném rozsahu jeho smluvní zpracovatelé. Technický provoz zajišťuje zejména Shoptet a.s. ; podle konkrétní objednávky mohou mít nezbytné údaje dopravci, výdejní místa, poskytovatelé platebních služeb, účetní nebo poskytovatelé e-mailových služeb. Analytickým a reklamním službám poskytujeme údaje pouze tehdy, jsou-li skutečně zapojeny a je-li zajištěn odpovídající právní základ. Aktuální volby souhlasu se spravují prostřednictvím cookie lišty. Předání mimo Evropský hospodářský prostor může nastat u některých externích služeb. V takovém případě musí být podloženo zákonným mechanismem, například rozhodnutím o odpovídající ochraně nebo standardními smluvními doložkami. Informaci o konkrétních příjemcích a zárukách poskytneme na žádost. Údaje mohou být předány úřadům nebo soudu, pokud to ukládá právní předpis. Cookies. Nezbytné cookies umožňují provoz košíku, a zabezpečení webu. Jsou používány pouze v rozsahu nutném k poskytnutí požadované služby. Analytické cookies pomáhají měřit návštěvnost a používání webu. Nejsou-li technicky nezbytné, spouštějí se až po předchozím souhlasu. Reklamní cookies slouží k měření kampaní a případnému remarketingu. Používají se jen s předchozím souhlasem. Souhlas s nepovinnými cookies lze odmítnout nebo odvolat v nastavení cookie lišty; pokud tento ovládací prvek není právě dostupný, nastavení cookies lze spravovat také v prohlížeči a se žádostí o pomoc se obrátit na podpora@okla.cz . Konkrétní názvy a životnost cookies se odvíjejí od skutečně zapojených modulů a jsou zjišťovány podle jejich aktuální konfigurace. Vaše práva. Máte právo na informace o zpracování, přístup k údajům, opravu, za zákonných podmínek výmaz, omezení zpracování a přenositelnost. Proti zpracování na základě oprávněného zájmu můžete vznést námitku; námitku proti přímému marketingu lze uplatnit kdykoliv. Souhlas lze kdykoliv odvolat. Odvoláním není dotčena zákonnost zpracování před odvoláním. Na žádost odpovíme zpravidla do jednoho měsíce v souladu s GDPR. Můžeme přiměřeně ověřit totožnost žadatele, pokud je to nezbytné pro ochranu údajů. Stížnost můžete podat u Úřadu pro ochranu osobních údajů . Podmínky nákupu upravují Obchodní podmínky.",
-   "url": "https://www.okla.cz/podminky-ochrany-osobnich-udaju/",
-   "keywords": [
-    "osobní údaje",
-    "gdpr",
-    "soukromí",
-    "cookies",
-    "ochrana údajů"
-   ]
-  },
-  {
    "id": "page-https://www.okla.cz/reklamacni-rad/",
    "type": "faq",
    "title": "Reklamační řád",
-   "content": "Reklamační-řád. DIČ: CZ23695340 | IČO: 23695340 | Okla.cz – Kratas Pro s.r.o. | E-mail: podpora@okla.cz . Základní pravidla. Reklamaci vyřizuje prodávající Okla.cz. Tento postup se vztahuje na zboží zakoupené v našem e-shopu a doplňuje obchodní podmínky. Spotřebitel může vytknout vadu, která se projeví během 24 měsíců od převzetí . Pokud se vada projeví v prvních 12 měsících, předpokládá se za zákonných podmínek, že zboží bylo vadné již při převzetí. Jde o zákonnou odpovědnost za vady, nikoli o automaticky poskytovanou obchodní záruku na bezporuchový provoz. Reklamovat lze zejména nefunkčnost, nesoulad s popisem, chybějící sjednanou funkci, nekompletní obsah balení či vadnou součástku. U zařízení s digitálními funkcemi se posuzují také odpovídající požadavky na aktualizace. Jak reklamaci uplatnit. Napište na podpora@okla.cz . Uveďte číslo objednávky, označení výrobku, popis závady a požadovaný způsob řešení. Pro rychlejší diagnostiku můžete přiložit fotografii nebo krátké video vady, není to však podmínkou samotného uplatnění reklamace. Potvrzení nákupu můžete prokázat i jinak než originálem faktury. Originální obal se pro přijetí reklamace nevyžaduje. Je-li potřeba výrobek fyzicky posoudit, sdělíme vám pokyny k jeho odeslání. Reklamaci lze uplatnit také písemně na sídlo prodávajícího uvedené v úvodu. Pokud je fyzické předání nezbytné, poskytněte přiměřenou součinnost; uplatnění reklamace tím nepodmiňujeme získáním předchozího schválení. V případě zjevného poškození při přepravě doporučujeme zaslat fotografie zásilky a obalu. Reklamaci lze uplatnit i tehdy, když jste zásilku již převzali. Příprava elektroniky k reklamaci. Před odesláním zařízení doporučujeme zálohovat data a odhlásit soukromé účty, pokud je to možné bez zhoršení vady. Pokud zařízení vyžaduje přístupový kód k diagnostice, dohodneme bezpečný postup; hesla k osobním účtům neposílejte volně e-mailem. Přiložte příslušenství nutné k vyzkoušení uvedené vady, například kabel nebo adaptér, pokud se reklamace týká nabíjení. Není nutné zasílat nesouvisející příslušenství. Zařízení s akumulátorem bezpečně zabalte. Zjevně poškozené, nafouklé nebo přehřáté lithium-iontové baterie neposílejte běžnou balíkovou přepravou bez domluvy o bezpečném předání. Při servisním zásahu může podle povahy vady dojít ke změně či ztrátě uložených dat. Přiměřenou ochranu dat a osobních údajů zajistíme podle právních předpisů; doporučení k záloze neomezuje odpovědnost prodávajícího tam, kde ji stanoví zákon. Způsob vyřízení. Při oprávněné reklamaci můžete zásadně požadovat opravu nebo výměnu , není-li zvolený způsob nemožný nebo ve srovnání s druhým nepřiměřeně nákladný. Přiměřenou slevu nebo odstoupení od kupní smlouvy lze požadovat za podmínek občanského zákoníku, zejména když prodávající vadu odmítne odstranit, neodstraní ji řádně, vada se opakuje nebo jde o podstatné porušení smlouvy. Pro nevýznamnou vadu nelze od smlouvy odstoupit. O uplatnění reklamace vám vydáme potvrzení s datem, popisem vady, požadovaným řešením a kontaktem pro informování. Po vyřízení dostanete potvrzení o výsledku, případně odůvodnění zamítnutí. Lhůta a doprava. Spotřebitelskou reklamaci vyřídíme včetně odstranění vady a informování o výsledku nejpozději do 30 dnů od jejího uplatnění, pokud se individuálně nedohodneme na delší lhůtě. K posouzení může být nutné předání výrobku; lhůta se posuzuje s ohledem na skutečně potřebnou součinnost. Uznaná reklamace se vyřizuje bezplatně. Máte právo na náhradu účelně vynaložených nákladů spojených s oprávněnou reklamací, například přiměřeného dopravného. Před odesláním dražšího nebo objemného výrobku je praktické domluvit způsob přepravy. Nevyřídíme-li reklamaci v zákonné lhůtě, můžete podle zákona odstoupit od smlouvy nebo požadovat přiměřenou slevu. Co se za vadu nepovažuje. Běžné opotřebení odpovídající způsobu používání, přirozené stárnutí spotřebního materiálu nebo poškození vzniklé po převzetí nesprávným zacházením nejsou samy o sobě vadným plněním. U baterií se odlišuje běžný pokles kapacity od předčasné vady nebo nesouladu s ujednanými vlastnostmi. Odmítnutí reklamace musí vycházet ze skutečně zjištěných okolností. Rozbalení zařízení, instalace aplikace ani použití neoriginálního příslušenství automaticky neznamenají ztrátu zákonných práv; rozhodující je příčina konkrétní vady. Nákup v rámci podnikání. U kupujících, kteří pořizují zboží při podnikatelské činnosti, platí obecná ustanovení občanského zákoníku. Zvláštní spotřebitelská dvouletá lhůta pro vytknutí vady ani 30denní reklamační lhůta se na takový nákup nepoužijí automaticky. Podnikatel by měl věc prohlédnout co nejdříve po převzetí a vady oznámit bez zbytečného odkladu poté, co je mohl při včasné prohlídce a dostatečné péči zjistit. Kontakt a další postup. Reklamační žádosti zasílejte na podpora@okla.cz . Je-li důvodem vrácení pouze změna rozhodnutí o nákupu, použijte postup pro odstoupení do 14 dnů ; nejde o reklamaci vady. Při sporu se spotřebitel může obrátit na Českou obchodní inspekci jako subjekt mimosoudního řešení spotřebitelských sporů.",
+   "content": "Reklamační-řád. Základní pravidla. Reklamaci vyřizuje prodávající Okla.cz. Tento postup se vztahuje na zboží zakoupené v našem e-shopu a doplňuje obchodní podmínky. Spotřebitel může vytknout vadu, která se projeví během 24 měsíců od převzetí . Pokud se vada projeví v prvních 12 měsících, předpokládá se za zákonných podmínek, že zboží bylo vadné již při převzetí. Jde o zákonnou odpovědnost za vady, nikoli o automaticky poskytovanou obchodní záruku na bezporuchový provoz. Reklamovat lze zejména nefunkčnost, nesoulad s popisem, chybějící sjednanou funkci, nekompletní obsah balení či vadnou součástku. U zařízení s digitálními funkcemi se posuzují také odpovídající požadavky na aktualizace. Jak reklamaci uplatnit. Napište na podpora@okla.cz . Uveďte číslo objednávky, označení výrobku, popis závady a požadovaný způsob řešení. Pro rychlejší diagnostiku můžete přiložit fotografii nebo krátké video vady, není to však podmínkou samotného uplatnění reklamace. Potvrzení nákupu můžete prokázat i jinak než originálem faktury. Originální obal se pro přijetí reklamace nevyžaduje. Je-li potřeba výrobek fyzicky posoudit, sdělíme vám pokyny k jeho odeslání. Reklamaci lze uplatnit také písemně na sídlo prodávajícího uvedené v úvodu. Pokud je fyzické předání nezbytné, poskytněte přiměřenou součinnost; uplatnění reklamace tím nepodmiňujeme získáním předchozího schválení. V případě zjevného poškození při přepravě doporučujeme zaslat fotografie zásilky a obalu. Reklamaci lze uplatnit i tehdy, když jste zásilku již převzali. Příprava elektroniky k reklamaci. Před odesláním zařízení doporučujeme zálohovat data a odhlásit soukromé účty, pokud je to možné bez zhoršení vady. Pokud zařízení vyžaduje přístupový kód k diagnostice, dohodneme bezpečný postup; hesla k osobním účtům neposílejte volně e-mailem. Přiložte příslušenství nutné k vyzkoušení uvedené vady, například kabel nebo adaptér, pokud se reklamace týká nabíjení. Není nutné zasílat nesouvisející příslušenství. Zařízení s akumulátorem bezpečně zabalte. Zjevně poškozené, nafouklé nebo přehřáté lithium-iontové baterie neposílejte běžnou balíkovou přepravou bez domluvy o bezpečném předání. Při servisním zásahu může podle povahy vady dojít ke změně či ztrátě uložených dat. Přiměřenou ochranu dat a osobních údajů zajistíme podle právních předpisů; doporučení k záloze neomezuje odpovědnost prodávajícího tam, kde ji stanoví zákon. Způsob vyřízení. Při oprávněné reklamaci můžete zásadně požadovat opravu nebo výměnu , není-li zvolený způsob nemožný nebo ve srovnání s druhým nepřiměřeně nákladný. Přiměřenou slevu nebo odstoupení od kupní smlouvy lze požadovat za podmínek občanského zákoníku, zejména když prodávající vadu odmítne odstranit, neodstraní ji řádně, vada se opakuje nebo jde o podstatné porušení smlouvy. Pro nevýznamnou vadu nelze od smlouvy odstoupit. O uplatnění reklamace vám vydáme potvrzení s datem, popisem vady, požadovaným řešením a kontaktem pro informování. Po vyřízení dostanete potvrzení o výsledku, případně odůvodnění zamítnutí. Lhůta a doprava. Spotřebitelskou reklamaci vyřídíme včetně odstranění vady a informování o výsledku nejpozději do 30 dnů od jejího uplatnění, pokud se individuálně nedohodneme na delší lhůtě. K posouzení může být nutné předání výrobku; lhůta se posuzuje s ohledem na skutečně potřebnou součinnost. Uznaná reklamace se vyřizuje bezplatně. Máte právo na náhradu účelně vynaložených nákladů spojených s oprávněnou reklamací, například přiměřeného dopravného. Před odesláním dražšího nebo objemného výrobku je praktické domluvit způsob přepravy. Nevyřídíme-li reklamaci v zákonné lhůtě, můžete podle zákona odstoupit od smlouvy nebo požadovat přiměřenou slevu. Co se za vadu nepovažuje. Běžné opotřebení odpovídající způsobu používání, přirozené stárnutí spotřebního materiálu nebo poškození vzniklé po převzetí nesprávným zacházením nejsou samy o sobě vadným plněním. U baterií se odlišuje běžný pokles kapacity od předčasné vady nebo nesouladu s ujednanými vlastnostmi. Odmítnutí reklamace musí vycházet ze skutečně zjištěných okolností. Rozbalení zařízení, instalace aplikace ani použití neoriginálního příslušenství automaticky neznamenají ztrátu zákonných práv; rozhodující je příčina konkrétní vady. Nákup v rámci podnikání. U kupujících, kteří pořizují zboží při podnikatelské činnosti, platí obecná ustanovení občanského zákoníku. Zvláštní spotřebitelská dvouletá lhůta pro vytknutí vady ani 30denní reklamační lhůta se na takový nákup nepoužijí automaticky. Podnikatel by měl věc prohlédnout co nejdříve po převzetí a vady oznámit bez zbytečného odkladu poté, co je mohl při včasné prohlídce a dostatečné péči zjistit. Kontakt a další postup. Reklamační žádosti zasílejte na podpora@okla.cz . Je-li důvodem vrácení pouze změna rozhodnutí o nákupu, použijte postup pro odstoupení do 14 dnů ; nejde o reklamaci vady. Při sporu se spotřebitel může obrátit na Českou obchodní inspekci jako subjekt mimosoudního řešení spotřebitelských sporů.",
    "url": "https://www.okla.cz/reklamacni-rad/",
    "keywords": [
     "reklamace",
@@ -962,30 +1026,10 @@
    ]
   },
   {
-   "id": "page-https://www.okla.cz/doprava-a-platba/",
-   "type": "faq",
-   "title": "Doprava a platba",
-   "content": "Doprava a platba. DIČ: CZ23695340 | IČO: 23695340 | Okla.cz – Kratas Pro s.r.o. | E-mail: podpora@okla.cz . Vrácení do 14 dnů. Spotřebitel, který koupil zboží na Okla.cz na dálku, může zpravidla do 14 dnů od převzetí odstoupit bez uvedení důvodu. U jedné objednávky dodávané po částech běží lhůta podle zákona od převzetí poslední části. Ve lhůtě stačí odeslat jednoznačné oznámení o odstoupení na podpora@okla.cz nebo na sídlo prodávajícího. Uveďte ideálně číslo objednávky, své jméno a zboží, kterého se odstoupení týká. Nemusíte vysvětlovat důvod ani čekat na naše schválení. Při nákupu mimo rámec podnikání můžete použít i vzorový formulář, který je součástí obchodních podmínek . Použití formuláře je dobrovolné. Postup vrácení zboží. Po oznámení odstoupení nám výrobek odešlete bez zbytečného odkladu, nejpozději do 14 dnů od odstoupení . Přímé náklady zpětné dopravy při odstoupení bez důvodu obvykle hradí spotřebitel. Na podpora@okla.cz můžete požádat o instrukce pro bezpečné zaslání a aktuální příjmové místo. Písemné odstoupení lze doručit na sídlo prodávajícího; samotné právo odstoupit není podmíněno předchozí domluvou. Výrobek zabalte tak, aby nedošlo k poškození během přepravy. Doporučujeme přiložit identifikaci objednávky a uschovat doklad o odeslání. Vrátit lze i výrobek bez originálního obalu; je však důležité zabezpečit ho proti poškození. Elektronická zařízení doporučujeme odhlásit od uživatelských účtů a odstranit osobní data. U zařízení s poškozenou lithium-iontovou baterií se předem domluvte na bezpečném způsobu předání. Rozbalené a vyzkoušené výrobky. Zboží můžete rozbalit a přiměřeně vyzkoušet v rozsahu nutném k seznámení se s jeho povahou, vlastnostmi a funkčností, podobně jako v kamenné prodejně. Otevřená krabice nebo krátké vyzkoušení samo o sobě neznamená ztrátu práva odstoupit. Za snížení hodnoty odpovídáte jen tehdy, pokud vzniklo nakládáním nad uvedený nezbytný rozsah. Může jít například o poškozené zařízení, výrazné stopy užívání, chybějící příslušenství nebo zásahy do hardwaru. Případné snížení hodnoty se posuzuje individuálně a musí být přiměřené skutečnému stavu. Zboží neposílejte na dobírku; zákonné peněžní vypořádání probíhá způsobem uvedeným níže. Kdy odstoupit nelze. Právo na 14denní odstoupení se neuplatní v případech uvedených v § 1837 občanského zákoníku, například u zboží upraveného podle individuálních požadavků spotřebitele nebo u zapečetěného zboží nevhodného k vrácení z hygienických důvodů po porušení obalu. Výjimky se uplatní jen při splnění zákonných podmínek. Běžná elektronika se nestává nevratitelnou jen tím, že byla rozbalena nebo aktivována. U digitálního obsahu nedodaného na hmotném nosiči může právo na odstoupení zaniknout při splnění zvláštních podmínek, zejména s předchozím výslovným souhlasem a příslušným poučením. Pokud takový obsah neprodáváme, tato výjimka se neuplatní. Vrácení peněz. Nejpozději do 14 dnů od obdržení oznámení o odstoupení vrátíme přijaté peníze, včetně původních nákladů na dodání do výše nejlevnějšího nabízeného standardního způsobu dopravy. Peníze můžeme zadržet do převzetí vráceného zboží nebo do doložení jeho odeslání, podle toho, co nastane dříve. Vrácení proběhne stejným způsobem, jaký byl použit při platbě, pokud se výslovně nedohodneme na jiném způsobu bez dalších nákladů pro spotřebitele. Při vrácení části objednávky posoudíme původní náklady na dopravu a případná zvýhodnění podle konkrétní objednávky, zákona a pravidel akce. Bez předem oznámených a platných podmínek nepřipočítáváme dodatečné sankce. Slevový kód nepřevádíme na hotovost. Pokud u vráceného zboží došlo k objektivnímu snížení hodnoty podle pravidel výše, můžeme uplatnit odpovídající zákonný nárok. Dárky a balíčky. Pokud k nákupu náležel dárek nebo zvýhodněný balíček, řídí se vypořádání jasně sdělenými podmínkami konkrétní nabídky. Práva spotřebitele tím nesmí být nepřípustně omezena. Při vrácení části výhodného setu může dojít k přepočtu slevy jen za předpokladu, že takový mechanismus byl předem srozumitelně sjednán a odpovídá zákonu. Podrobnosti jsou v podmínkách reklamních akcí. Nákup na IČO a reklamace. Jestliže jste při uzavření smlouvy jednali jako podnikatel, zákonné 14denní odstoupení bez uvedení důvodu se na tento nákup zpravidla nevztahuje. Individuální výjimku lze sjednat písemně. Pokud výrobek nefunguje nebo neodpovídá kupní smlouvě, nejde o běžnou vratku; uplatněte práva z vadného plnění podle reklamačního řádu. Změny od 1. ledna 2027. Od 1. 1. 2027 zákon č. 159/2026 Sb. zavádí u příslušných smluv uzavíraných online také možnost odstoupit prostřednictvím zřetelného ovládacího prvku na webu. Tato možnost musí být zajištěna v rozsahu stanoveném zákonem; do té doby lze odstoupit zejména e-mailem nebo písemně.",
-   "url": "https://www.okla.cz/doprava-a-platba/",
-   "keywords": [
-    "doprava",
-    "doručení",
-    "dopravce",
-    "zásilkovna",
-    "výdejní místo",
-    "platba",
-    "dobírka",
-    "převod",
-    "kartou",
-    "poštovné",
-    "cena dopravy"
-   ]
-  },
-  {
    "id": "page-https://www.okla.cz/podminky-reklamnich-akci/",
    "type": "faq",
    "title": "Podmínky reklamních akcí",
-   "content": "Podmínky reklamních akcí. DIČ: CZ23695340 | IČO: 23695340 | Okla.cz – Kratas Pro s.r.o. | E-mail: podpora@okla.cz . Obecně. Akce zveřejněné na Okla.cz platí pouze po dobu a v rozsahu uvedeném u konkrétní nabídky. Závazné informace o ceně a podmínkách nákupu najdete v detailu produktu a v košíku před odesláním objednávky, s výhradou řešení zjevných chyb podle práva. Zvýhodněné nabídky mohou být omezené časem, množstvím, kategorií produktů nebo konkrétní skupinou zákazníků. Pokud je počet kusů omezen, může být nabídka ukončena vyprodáním vyhrazených zásob. Reklamní materiál mimo e-shop může být z technických důvodů aktualizován se zpožděním. Tím není dotčena odpovědnost za pravdivost reklamy ani práva zákazníka při klamavé obchodní praktice. Slevový kód. Slevový kód zadejte do příslušného pole v košíku před dokončením objednávky. Neuplatněný kód nelze automaticky přiznat zpětně po uzavření smlouvy; výjimku můžeme individuálně schválit. Každý kód může mít vlastní platnost, výši slevy, minimální hodnotu nákupu, omezení na produkty nebo maximální počet použití. Tato omezení musí být zákazníkovi sdělena v příslušné nabídce. Pokud je pro slevu stanovena minimální hodnota zboží, cena dopravy se do ní nezapočítává, není-li u konkrétní akce jasně uvedeno jinak. Slevový kód nemá peněžní hodnotu, nevyměňuje se za hotovost a není určen k dalšímu prodeji, pokud akce výslovně nestanoví něco jiného. Kódy nelze kombinovat navzájem nebo s jinými akcemi, pokud to není výslovně povoleno. O případné možnosti kombinace rozhoduje pravidlo oznámené před objednáním , nikoli dodatečné jednostranné rozhodnutí. Při zneužití technické chyby nebo neautorizovaném získání kódu můžeme takové použití odmítnout, odpovídá-li to právním předpisům a nebyla-li již platně sjednána jiná dohoda. Pokud na kód nemáte nárok, košík zobrazí standardní cenu. Nelze garantovat použitelnost kódu po uplynutí jeho platnosti nebo po dosažení předem oznámeného limitu. Slevy a uvádění původní ceny. Při oznámení slevy na výrobek uvádíme v případech stanovených zákonem také nejnižší cenu, za kterou byl výrobek nabízen během 30 dnů před začátkem slevy . Výši slevy odvozujeme podle použitelných pravidel z této referenční ceny. U výrobku nabízeného kratší dobu se postupuje podle zákonné výjimky pro kratší období. Zvláštní pravidla platí rovněž pro zákonem vymezené postupně zvyšované slevy. Ne každé individuální zvýhodnění, věrnostní odměna či množstevní nabídka podléhá stejnému režimu jako veřejně oznámené zlevnění konkrétního výrobku. Způsob zveřejnění ceny vždy volíme podle skutečné povahy akce. Bannery, reklamní sdělení a sociální sítě. Bannery, příspěvky a další reklamy mohou zobrazovat vybrané varianty výrobků. Rozhodující konkrétní parametry, barvu, kapacitu, verzi, obsah balení a aktuální cenu jsou uvedeny u prodávaného produktu na Okla.cz. V případě chybného přepisu ceny či parametru reklamní sdělení opravíme. Zjevná chyba není automatickým příslibem dodání za nesprávnou cenu; konkrétní práva se vždy posuzují podle uzavřené smlouvy a zákona. Zobrazené dekorace nebo zařízení doplňující reklamní fotografii nejsou součástí balení, pokud nejsou jako součást výrobku výslovně uvedeny v jeho popisu. Srovnávače cen a externí katalogy. Ceny na externích srovnávačích, reklamních sítích a katalogových portálech se mohou aktualizovat se zpožděním. Pro konečné rozhodnutí o nákupu vždy zkontrolujte cenu a dostupnost v nákupním košíku Okla.cz. Pokud naleznete rozdíl mezi externí inzercí a e-shopem, můžete jej nahlásit na podpora@okla.cz . Případná klamavá reklama nebo závazná individuální nabídka se posuzuje podle práva, nikoli automaticky podle tohoto upozornění. Akce s dárkem a zvýhodněné balíčky. Dárek či zvýhodněná součást balíčku je poskytována pouze při splnění podmínek uvedených u konkrétní akce. Dárky nelze bez dohody automaticky zaměňovat za hotovost. Je-li množství dárků omezené, uvedeme omezení přiměřeně jasně předem. Pokud sjednaný dárek nelze dodat, nabídneme řešení odpovídající kupní smlouvě a zákonným právům. Při vrácení části zvýhodněného setu se případný přepočet ceny řídí podmínkami jasně sdělenými před nákupem a zákonem. Samotná existence slevy neomezuje právo spotřebitele odstoupit od smlouvy nebo reklamovat vadu. Vrácení zboží a změny akce. Pravidla pro reklamace upravuje reklamační řád a pro odstoupení vrácení zboží do 14 dnů . Akční nebo zlevněné zboží má stejná zákonná práva z vadného plnění jako běžně prodávané zboží. Marketingovou akci můžeme změnit nebo ukončit pro budoucí objednávky, pokud to odpovídá jejím předem sděleným podmínkám. Již uzavřené kupní smlouvy tím nelze jednostranně měnit. Pro dotazy k promo akci napište na podpora@okla.cz a uveďte název akce či text kupónu. Obecné smluvní otázky upravují obchodní podmínky.",
+   "content": "Podmínky reklamních akcí. Obecně. Akce zveřejněné na Okla.cz platí pouze po dobu a v rozsahu uvedeném u konkrétní nabídky. Závazné informace o ceně a podmínkách nákupu najdete v detailu produktu a v košíku před odesláním objednávky, s výhradou řešení zjevných chyb podle práva. Zvýhodněné nabídky mohou být omezené časem, množstvím, kategorií produktů nebo konkrétní skupinou zákazníků. Pokud je počet kusů omezen, může být nabídka ukončena vyprodáním vyhrazených zásob. Reklamní materiál mimo e-shop může být z technických důvodů aktualizován se zpožděním. Tím není dotčena odpovědnost za pravdivost reklamy ani práva zákazníka při klamavé obchodní praktice. Slevový kód. Slevový kód zadejte do příslušného pole v košíku před dokončením objednávky. Neuplatněný kód nelze automaticky přiznat zpětně po uzavření smlouvy; výjimku můžeme individuálně schválit. Každý kód může mít vlastní platnost, výši slevy, minimální hodnotu nákupu, omezení na produkty nebo maximální počet použití. Tato omezení musí být zákazníkovi sdělena v příslušné nabídce. Pokud je pro slevu stanovena minimální hodnota zboží, cena dopravy se do ní nezapočítává, není-li u konkrétní akce jasně uvedeno jinak. Slevový kód nemá peněžní hodnotu, nevyměňuje se za hotovost a není určen k dalšímu prodeji, pokud akce výslovně nestanoví něco jiného. Kódy nelze kombinovat navzájem nebo s jinými akcemi, pokud to není výslovně povoleno. O případné možnosti kombinace rozhoduje pravidlo oznámené před objednáním , nikoli dodatečné jednostranné rozhodnutí. Při zneužití technické chyby nebo neautorizovaném získání kódu můžeme takové použití odmítnout, odpovídá-li to právním předpisům a nebyla-li již platně sjednána jiná dohoda. Pokud na kód nemáte nárok, košík zobrazí standardní cenu. Nelze garantovat použitelnost kódu po uplynutí jeho platnosti nebo po dosažení předem oznámeného limitu. Slevy a uvádění původní ceny. Při oznámení slevy na výrobek uvádíme v případech stanovených zákonem také nejnižší cenu, za kterou byl výrobek nabízen během 30 dnů před začátkem slevy . Výši slevy odvozujeme podle použitelných pravidel z této referenční ceny. U výrobku nabízeného kratší dobu se postupuje podle zákonné výjimky pro kratší období. Zvláštní pravidla platí rovněž pro zákonem vymezené postupně zvyšované slevy. Ne každé individuální zvýhodnění, věrnostní odměna či množstevní nabídka podléhá stejnému režimu jako veřejně oznámené zlevnění konkrétního výrobku. Způsob zveřejnění ceny vždy volíme podle skutečné povahy akce. Bannery, reklamní sdělení a sociální sítě. Bannery, příspěvky a další reklamy mohou zobrazovat vybrané varianty výrobků. Rozhodující konkrétní parametry, barvu, kapacitu, verzi, obsah balení a aktuální cenu jsou uvedeny u prodávaného produktu na Okla.cz. V případě chybného přepisu ceny či parametru reklamní sdělení opravíme. Zjevná chyba není automatickým příslibem dodání za nesprávnou cenu; konkrétní práva se vždy posuzují podle uzavřené smlouvy a zákona. Zobrazené dekorace nebo zařízení doplňující reklamní fotografii nejsou součástí balení, pokud nejsou jako součást výrobku výslovně uvedeny v jeho popisu. Srovnávače cen a externí katalogy. Ceny na externích srovnávačích, reklamních sítích a katalogových portálech se mohou aktualizovat se zpožděním. Pro konečné rozhodnutí o nákupu vždy zkontrolujte cenu a dostupnost v nákupním košíku Okla.cz. Pokud naleznete rozdíl mezi externí inzercí a e-shopem, můžete jej nahlásit na podpora@okla.cz . Případná klamavá reklama nebo závazná individuální nabídka se posuzuje podle práva, nikoli automaticky podle tohoto upozornění. Akce s dárkem a zvýhodněné balíčky. Dárek či zvýhodněná součást balíčku je poskytována pouze při splnění podmínek uvedených u konkrétní akce. Dárky nelze bez dohody automaticky zaměňovat za hotovost. Je-li množství dárků omezené, uvedeme omezení přiměřeně jasně předem. Pokud sjednaný dárek nelze dodat, nabídneme řešení odpovídající kupní smlouvě a zákonným právům. Při vrácení části zvýhodněného setu se případný přepočet ceny řídí podmínkami jasně sdělenými před nákupem a zákonem. Samotná existence slevy neomezuje právo spotřebitele odstoupit od smlouvy nebo reklamovat vadu. Vrácení zboží a změny akce. Pravidla pro reklamace upravuje reklamační řád a pro odstoupení vrácení zboží do 14 dnů . Akční nebo zlevněné zboží má stejná zákonná práva z vadného plnění jako běžně prodávané zboží. Marketingovou akci můžeme změnit nebo ukončit pro budoucí objednávky, pokud to odpovídá jejím předem sděleným podmínkám. Již uzavřené kupní smlouvy tím nelze jednostranně měnit. Pro dotazy k promo akci napište na podpora@okla.cz a uveďte název akce či text kupónu. Obecné smluvní otázky upravují obchodní podmínky.",
    "url": "https://www.okla.cz/podminky-reklamnich-akci/",
    "keywords": [
     "akce",
@@ -994,21 +1038,6 @@
     "kupón",
     "soutěž",
     "dárek"
-   ]
-  },
-  {
-   "id": "page-https://www.okla.cz/obchodni-podminky/",
-   "type": "faq",
-   "title": "Obchodní podmínky",
-   "content": "Obchodní podmínky. DIČ: CZ23695340 | IČO: 23695340 | Okla.cz – Kratas Pro s.r.o. | E-mail: podpora@okla.cz . Prodej a smluvní strany. Prodávajícím je společnost Kratas Pro s.r.o., Petržílkova 2583/15, Stodůlky, 158 00 Praha 5, zapsaná u Městského soudu v Praze pod sp. zn. C 431005, provozující internetový obchod Okla.cz na adrese https://okla.cz. Kupujícím je osoba, která na e-shopu objedná zboží. Spotřebitelem je fyzická osoba, která nenakupuje v rámci podnikání nebo výkonu povolání. Pro nákupy v rámci podnikání se použijí obecná pravidla občanského zákoníku; zvláštní spotřebitelská práva se na ně automaticky nevztahují. Tyto podmínky platí pro objednávky uzavřené prostřednictvím Okla.cz. Individuálně sjednané podmínky mají přednost. Kupní smlouva a tyto podmínky se uzavírají v českém jazyce. Zboží, ceny a dostupnost. U každého produktu uvádíme jeho cenu, základní vlastnosti a stav dostupnosti. U elektroniky se řiďte zejména popisem kompatibility, verzí zařízení a uvedeným obsahem balení. Fotografie jsou ilustrativní jen tam, kde to vyplývá z jejich povahy; podstatné vlastnosti zboží musí odpovídat popisu. Rozhodující je konečná cena zobrazená před odesláním objednávky , včetně případných zákonných poplatků. Doprava a případný příplatek za způsob úhrady jsou uvedeny zvlášť před objednáním. Je-li uvedena sleva, řídí se pravidly jejího uvádění a podmínkami konkrétní akce. Cenu a dostupnost můžeme pro budoucí nákupy měnit. U již uzavřené smlouvy nelze cenu jednostranně zvýšit. V případě zjevné cenové chyby, například chybějící číslice či zcela zjevného omylu, postupujeme podle pravidel občanského zákoníku; nejde o obecné právo rušit objednávky jen proto, že je prodej nevýhodný. Nabídka platí do vyprodání zásob nebo do skončení uvedené akce, pokud je takové omezení uvedeno předem. Nedostupné zboží nenahrazujeme jiným modelem bez souhlasu kupujícího. Objednávka a uzavření smlouvy. Vyberete zboží, vložíte jej do košíku, zvolíte dostupnou dopravu a platbu a vyplníte údaje pro doručení. Před odesláním lze zkontrolovat množství, cenu, doručovací adresu i další údaje a případné chyby opravit. Objednávka se odesílá tlačítkem jednoznačně označujícím povinnost platby, například „Objednat s povinností platby“. Odesláním činíte závazný návrh na uzavření kupní smlouvy. Potvrzení o přijetí objednávky zaslané automaticky e-mailem může být pouze potvrzením jejího doručení. Kupní smlouva vzniká přijetím objednávky ze strany prodávajícího, které je zákazníkovi oznámeno e-mailem. V potvrzení obdržíte údaje o nákupu a znění podmínek v podobě umožňující jejich uložení. Pokud požadovaný výrobek nemůžeme dodat, upozorníme vás a případnou změnu zboží, ceny nebo termínu nabídneme k odsouhlasení. Bez vašeho souhlasu nedojde k nahrazení předmětu již uzavřené smlouvy. Zadané údaje musí být úplné a pravdivé. Je možné objednat bez registrace, pokud to umožňuje aktuální rozhraní obchodu. Platba a doklady. Zaplatit lze pouze metodami zobrazenými v košíku. Podrobnosti o platebních metodách, doručení a dostupných přepravcích najdete na stránce Doprava a platba. Při bankovním převodu postupujte podle platebních instrukcí z objednávky; při online platbě se transakce řídí také technickými podmínkami příslušného poskytovatele. Při dobírce se platí při převzetí, je-li tento způsob v košíku dostupný. Kupní cena je uhrazena po připsání peněz na účet prodávajícího nebo po potvrzení přijaté transakce poskytovatelem platby podle zvolené metody. Zákazníkovi poskytujeme doklad o nákupu a doklady vyžadované právními předpisy. Vlastnické právo ke zboží přechází na kupujícího jeho převzetím a úplným zaplacením kupní ceny. Doručení a převzetí. Způsoby a ceny dopravy, dostupné země doručení a předpokládaný termín se zobrazují při objednávce. Pokud není dodací termín sjednán, dodáme zboží bez zbytečného odkladu, nejpozději do 30 dnů od uzavření smlouvy, nestanoví-li právní předpis nebo dohoda jinak. Při převzetí doporučujeme ověřit, zda zásilka nenese známky poškození. Poškození nám prosím oznamte a pořiďte fotografie, pokud je to možné. Neprovedení kontroly ani převzetí poškozeného balíku nezbavuje spotřebitele zákonných práv z vadného plnění. Při dodání prostřednictvím dopravce zvoleného z naší nabídky přechází na spotřebitele nebezpečí škody při převzetí zboží jím nebo jím určenou osobou. Zákonné výjimky pro dopravce samostatně zvoleného spotřebitelem zůstávají zachovány. Nepřevzetí zásilky samo o sobě neznamená odstoupení od smlouvy. V případě bezdůvodného nepřevzetí můžeme požadovat prokázané, účelně vzniklé náklady, na které máme podle zákona nárok; nikoli automatickou paušální pokutu. Při prodlení s dodáním se uplatní práva kupujícího podle občanského zákoníku, zejména právo poskytnout přiměřenou dodatečnou lhůtu a za zákonných podmínek odstoupit. Reklamace a odpovědnost za vady. Zboží musí odpovídat sjednaným vlastnostem a zákonným požadavkům na jakost, funkčnost, bezpečnost, kompatibilitu a příslušenství. Spotřebitel může vytknout vadu, která se projeví do dvou let od převzetí ; projeví-li se v prvním roce, předpokládá se za zákonných podmínek, že existovala již při převzetí. Spotřebitel může zpravidla požadovat opravu nebo výměnu, pokud zvolený způsob není nemožný či nepřiměřeně nákladný. Při splnění zákonných podmínek lze požadovat slevu nebo odstoupit od smlouvy. Obvyklé opotřebení a vada způsobená kupujícím nepředstavují samy o sobě odpovědnost prodávajícího. Reklamaci uplatníte na podpora@okla.cz . Uveďte výrobek, popis vady a požadované řešení. Reklamaci spotřebitele vyřídíme včetně informování o výsledku nejpozději do 30 dnů, pokud se výslovně nedohodneme na delší lhůtě a jsou poskytnuty nezbytné podklady k posouzení. Celý postup, pravidla pro elektroniku a náhradu nákladů uvádí Reklamační řád . Reklamaci nelze automaticky odmítnout jen kvůli chybějící původní krabici. Odstoupení a vrácení zboží. Spotřebitel může od smlouvy uzavřené na dálku zpravidla odstoupit bez uvedení důvodu do 14 dnů od převzetí zboží ; při dodání více",
-   "url": "https://www.okla.cz/obchodni-podminky/",
-   "keywords": [
-    "obchodní podmínky",
-    "smlouva",
-    "prodávající",
-    "cena",
-    "objednávka",
-    "kupní smlouva"
    ]
   },
   {
@@ -1028,17 +1057,18 @@
    ]
   },
   {
-   "id": "article-https://www.okla.cz/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/",
+   "id": "page-https://www.okla.cz/obchodni-podminky/",
    "type": "faq",
-   "title": "Článek: Flipper Zero: co všechno zvládne kapesní multitool?",
-   "content": "Co je uvnitř a jak se zařízení ovládá. Flipper Zero měří přibližně 10 × 4 × 2,5 cm a váží asi 104 gramů, takže se vejde do kapsy bundy i do malé brašny. Jádrem je mikrokontrolér STM32WB55 od STMicroelectronics, který zvládá rádio, Bluetooth i řízení displeje. Ovládání zajišťuje malý podsvícený displej, čtyřsměrný ovladač s tlačítkem uprostřed a tlačítko zpět. Nabíjí se přes USB‑C, které zároveň slouží k připojení k počítači. Baterie má kapacitu 2000 mAh a výdrž se liší podle toho, co zařízení dělá. Při trvalém skenování rádia nebo při zapnutém podsvícení se energie spotřebuje výrazně rychleji než v pohotovostním režimu. Na boku je slot pro microSD kartu, na kterou se ukládají zachycené záznamy a signály. Bez paměťové karty se záznamy neuloží, takže ji při prvním použití doporučujeme zkontrolovat jako první. Software je open source a aktualizuje se přes počítačovou aplikaci qFlipper. Oficiální firmware nabízí hlavní nabídku s moduly pro rádio, RFID, NFC, infračervený vysílač a piny GPIO. Komunita k němu vytváří další aplikace, jejich kvalitu a bezpečnost ale musíte ověřit sami, protože je výrobce neschvaluje. Sub-GHz rádio: příjem, záznam a opakované vysílání. Čip CC1101 pracuje na pásmech, která se podle regionu liší. Výrobce uvádí kmitočty 315, 433, 868 a 915 MHz. Na nich běží většina jednoduchých dálkových ovladačů garážových vrat, závor, bezdrátových zásuvek a spínačů v domácnosti. Flipper signál přijme, zobrazí jeho parametry a uloží ho jako záznam. Uložený záznam lze později vyslat stejným kmitočtem a stejnou modulací. U moderních systémů tohle ale nefunguje. Většina dnešních ovladačů používá proměnný kód (rolling code), takže každý stisk vygeneruje jiný řetězec a zkopírovaný záznam přijímač odmítne. Flipper se proto v praxi používá hlavně k analýze, tedy k zjištění, na jakém kmitočtu a s jakou modulací zařízení vysílá. Pro vlastní zařízení je to užitečná diagnostika, když ovladač přestane fungovat a nevíte, jestli je vadný vysílač, nebo přijímač. RFID 125 kHz a NFC 13,56 MHz: co se z karty přečte. Na frekvenci 125 kHz pracují starší přístupové karty a přívěsky. Flipper čte a emuluje formáty EM4100 a EM410x, HID Prox a Indala. Tyto karty mají v paměti pevný identifikátor, který přístupový systém může považovat za platný klíč. Proto bezpečnostní specialisté u starších vrátných a docházkových systémů doporučují přejít na šifrované čipy. NFC čtečka na 13,56 MHz podporuje protokoly ISO 14443A a B, FeliCa a čipy MIFARE Classic, MIFARE Ultralight a DESFire. Flipper z karty přečte identifikátor UID a u podporovaných čipů i data v paměti. U MIFARE Classic k nim bez klíčů nedosáhnete, a u šifrovaných čipů se dostanete jen k identifikátoru. Výsledkem je přehled o tom, jak je karta nastavená, nikoli univerzální klíč ke všemu. Infračervený vysílač a učení ovladačů. Flipper má infračervený přijímač a vysílač. Ovladač namíříte na zařízení, stisknete tlačítko a Flipper signál uloží do knihovny. Spotřebiče s běžnými protokoly pak ovládá samostatně. U výrobců, kteří používají netypický protokol, se stává, že signál nelze přehrát, protože přijímač ho nerozpozná. Tyto případy se řeší ručním nastavením nebo jiným ovladačem. Praktická výhoda je v tom, že jeden přístroj nahradí několik ovladačů v domácnosti. Infračervený paprsek ale potřebuje přímou viditelnost, takže přes zeď nebo za dveřmi spotřebič neovládnete. Dosah je omezený na několik metrů a závisí na intenzitě světla v místnosti. Piny GPIO, iButton, USB a Bluetooth. Pinový konektor GPIO umožňuje připojit senzory, Arduino, Raspberry Pi nebo vlastní obvody. Flipper na těchto pinech může číst nebo řídit logické úrovně, takže jeho displej a tlačítka slouží jako jednoduché rozhraní pro projekt. Pro začátečníka je to nejrychlejší způsob, jak si ověřit komunikaci s mikrokontrolérem bez pájení vlastní desky. Pro iButton (1-Wire) slouží tři kontakty, na které se přiloží klíčenka. Flipper přečte sériové číslo starších elektronických klíčů. Přes USB‑C se může připojit k počítači jako klávesnice a provést předem připravené příkazy. Tuto funkci používají testeři zabezpečení na vlastních počítačích. Bluetooth LE slouží k párování s mobilní aplikací a k ovládání některých funkcí na dálku. Kdy se jednotlivé moduly skutečně hodí. Nejčastější praktický případ je diagnostika vlastního zařízení. Když přestane fungovat ovladač od vlastní garážové brány, Flipper ukáže, zda ovladač vysílá a na jakém kmitočtu. Podobně lze zjistit, zda je problém v přijímači, nebo ve vysílači. Stejný postup se hodí u bezdrátových zásuvek a spínačů, u kterých výrobce nedodal dokumentaci k frekvenci. Druhou skupinou jsou studenti a elektronici, kteří se učí bezdrátové protokoly. Flipper poskytuje jednu fyzickou platformu pro rádio, RFID, NFC i infračervený signál, takže rozdíly mezi frekvencemi a kódováním lze ukázat na konkrétním zařízení. Bezpečnostní specialisté jej používají při auditech vlastních prostor a v zadaných testech, kde mají písemný souhlas zadavatele. Co Flipper nedokáže. Neotevře běžné moder",
-   "url": "https://www.okla.cz/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/",
+   "title": "Obchodní podmínky",
+   "content": "Obchodní podmínky. Prodej a smluvní strany. Prodávajícím je společnost Kratas Pro s.r.o., Petržílkova 2583/15, Stodůlky, 158 00 Praha 5, zapsaná u Městského soudu v Praze pod sp. zn. C 431005, provozující internetový obchod Okla.cz na adrese https://okla.cz. Kupujícím je osoba, která na e-shopu objedná zboží. Spotřebitelem je fyzická osoba, která nenakupuje v rámci podnikání nebo výkonu povolání. Pro nákupy v rámci podnikání se použijí obecná pravidla občanského zákoníku; zvláštní spotřebitelská práva se na ně automaticky nevztahují. Tyto podmínky platí pro objednávky uzavřené prostřednictvím Okla.cz. Individuálně sjednané podmínky mají přednost. Kupní smlouva a tyto podmínky se uzavírají v českém jazyce. Zboží, ceny a dostupnost. U každého produktu uvádíme jeho cenu, základní vlastnosti a stav dostupnosti. U elektroniky se řiďte zejména popisem kompatibility, verzí zařízení a uvedeným obsahem balení. Fotografie jsou ilustrativní jen tam, kde to vyplývá z jejich povahy; podstatné vlastnosti zboží musí odpovídat popisu. Rozhodující je konečná cena zobrazená před odesláním objednávky , včetně případných zákonných poplatků. Doprava a případný příplatek za způsob úhrady jsou uvedeny zvlášť před objednáním. Je-li uvedena sleva, řídí se pravidly jejího uvádění a podmínkami konkrétní akce. Cenu a dostupnost můžeme pro budoucí nákupy měnit. U již uzavřené smlouvy nelze cenu jednostranně zvýšit. V případě zjevné cenové chyby, například chybějící číslice či zcela zjevného omylu, postupujeme podle pravidel občanského zákoníku; nejde o obecné právo rušit objednávky jen proto, že je prodej nevýhodný. Nabídka platí do vyprodání zásob nebo do skončení uvedené akce, pokud je takové omezení uvedeno předem. Nedostupné zboží nenahrazujeme jiným modelem bez souhlasu kupujícího. Objednávka a uzavření smlouvy. Vyberete zboží, vložíte jej do košíku, zvolíte dostupnou dopravu a platbu a vyplníte údaje pro doručení. Před odesláním lze zkontrolovat množství, cenu, doručovací adresu i další údaje a případné chyby opravit. Objednávka se odesílá tlačítkem jednoznačně označujícím povinnost platby, například „Objednat s povinností platby“. Odesláním činíte závazný návrh na uzavření kupní smlouvy. Potvrzení o přijetí objednávky zaslané automaticky e-mailem může být pouze potvrzením jejího doručení. Kupní smlouva vzniká přijetím objednávky ze strany prodávajícího, které je zákazníkovi oznámeno e-mailem. V potvrzení obdržíte údaje o nákupu a znění podmínek v podobě umožňující jejich uložení. Pokud požadovaný výrobek nemůžeme dodat, upozorníme vás a případnou změnu zboží, ceny nebo termínu nabídneme k odsouhlasení. Bez vašeho souhlasu nedojde k nahrazení předmětu již uzavřené smlouvy. Zadané údaje musí být úplné a pravdivé. Je možné objednat bez registrace, pokud to umožňuje aktuální rozhraní obchodu. Platba a doklady. Zaplatit lze pouze metodami zobrazenými v košíku. Podrobnosti o platebních metodách, doručení a dostupných přepravcích najdete na stránce Doprava a platba. Při bankovním převodu postupujte podle platebních instrukcí z objednávky; při online platbě se transakce řídí také technickými podmínkami příslušného poskytovatele. Při dobírce se platí při převzetí, je-li tento způsob v košíku dostupný. Kupní cena je uhrazena po připsání peněz na účet prodávajícího nebo po potvrzení přijaté transakce poskytovatelem platby podle zvolené metody. Zákazníkovi poskytujeme doklad o nákupu a doklady vyžadované právními předpisy. Vlastnické právo ke zboží přechází na kupujícího jeho převzetím a úplným zaplacením kupní ceny. Doručení a převzetí. Způsoby a ceny dopravy, dostupné země doručení a předpokládaný termín se zobrazují při objednávce. Pokud není dodací termín sjednán, dodáme zboží bez zbytečného odkladu, nejpozději do 30 dnů od uzavření smlouvy, nestanoví-li právní předpis nebo dohoda jinak. Při převzetí doporučujeme ověřit, zda zásilka nenese známky poškození. Poškození nám prosím oznamte a pořiďte fotografie, pokud je to možné. Neprovedení kontroly ani převzetí poškozeného balíku nezbavuje spotřebitele zákonných práv z vadného plnění. Při dodání prostřednictvím dopravce zvoleného z naší nabídky přechází na spotřebitele nebezpečí škody při převzetí zboží jím nebo jím určenou osobou. Zákonné výjimky pro dopravce samostatně zvoleného spotřebitelem zůstávají zachovány. Nepřevzetí zásilky samo o sobě neznamená odstoupení od smlouvy. V případě bezdůvodného nepřevzetí můžeme požadovat prokázané, účelně vzniklé náklady, na které máme podle zákona nárok; nikoli automatickou paušální pokutu. Při prodlení s dodáním se uplatní práva kupujícího podle občanského zákoníku, zejména právo poskytnout přiměřenou dodatečnou lhůtu a za zákonných podmínek odstoupit. Reklamace a odpovědnost za vady. Zboží musí odpovídat sjednaným vlastnostem a zákonným požadavkům na jakost, funkčnost, bezpečnost, kompatibilitu a příslušenství. Spotřebitel může vytknout vadu, která se projeví do dvou let od převzetí ; projeví-li se v prvním roce, předpokládá se za zákonných podmínek, že existovala již při převzetí. Spotřebitel může zpravidla požadovat opravu nebo výměnu, pokud zvolený způsob není nemožný či nepřiměřeně nákladný. Při splnění zákonných podmínek lze požadovat slevu nebo odstoupit od smlouvy. Obvyklé opotřebení a vada způsobená kupujícím nepředstavují samy o sobě odpovědnost prodávajícího. Reklamaci uplatníte na podpora@okla.cz . Uveďte výrobek, popis vady a požadované řešení. Reklamaci spotřebitele vyřídíme včetně informování o výsledku nejpozději do 30 dnů, pokud se výslovně nedohodneme na delší lhůtě a jsou poskytnuty nezbytné podklady k posouzení. Celý postup, pravidla pro elektroniku a náhradu nákladů uvádí Reklamační řád . Reklamaci nelze automaticky odmítnout jen kvůli chybějící původní krabici. Odstoupení a vrácení zboží. Spotřebitel může od smlouvy uzavřené na dálku zpravidla odstoupit bez uvedení důvodu do 14 dnů od převzetí zboží ; při dodání více částí se lhůta počítá od převzetí poslední části podle zákonných pravidel. Odstoupení ode",
+   "url": "https://www.okla.cz/obchodni-podminky/",
    "keywords": [
-    "článek",
-    "návod",
-    "rada",
-    "jak vybrat",
-    "magazín"
+    "obchodní podmínky",
+    "smlouva",
+    "prodávající",
+    "cena",
+    "objednávka",
+    "kupní smlouva"
    ]
   },
   {
@@ -1061,6 +1091,20 @@
    "title": "Článek: Měřidla: Druhy, použití a jak správně měřit",
    "content": "Laserový dálkoměr: přesnost, dosah a odrazivost. Laserový dálkoměr nahradí metr v situacích, kdy by natahování trvalo déle než samotné měření. Výrobci uvádějí přesnost zpravidla v řádu jednoho až dvou milimetrů a dosah od desítek metrů. Obě čísla ale platí za ideálních podmínek. Laser se musí odrazit od tmavého nebo matného povrchu kolmo na přístroj, jinak zařízení neudrží stabilní odečet. Na slunci dosah klesá, protože světlo přebije odražený paprsek. Pro dlouhé vzdálenosti proto pomáhá cílová destička nebo měření večer. Před koupí se podívejte, jaké režimy přístroj nabízí. Plocha, objem i nepřímé měření přes trojúhelník se hodí při plánování interiéru nebo stavby. Přístroj se hodí i pro rychlé kontroly výšky nebo šířky místnosti. Bez zdlouhavého natahování metru dostanete výsledek za několik sekund. Pro jednorázové měření není nutné nic složitého, stačí namířit přístroj na protější stěnu, stisknout tlačítko a odečíst výsledek. Digitální váha 0,01 g: kdy na tom záleží. Rozlišení 0,01 gramu znamená, že váha zobrazí rozdíl setiny gramu. Takovou přesnost oceníte u drobných předmětů, u vážení šperků, mincí, kapslí nebo součástek, kde rozdíl několika desetin gramu něco mění. U běžných domácích vah bývá rozlišení 1 g nebo 0,1 g a pro kuchyňské účely je to dostatečné. Při výběru ale sledujte maximální zatížení. Váha pro setiny gramů obvykle měří do několika set gramů, takže těžší předměty ji mohou poškodit. Před každým měřením ji vynulujte tlačítkem tare a nechte ji ustálit, protože průvan, teplota a vibrace z okolí se na výsledku projeví. Pokud váhu potřebujete pro prodej zákazníkům, je to jiná kategorie. Obchodní váhy musí být úředně ověřené a kalibrované, a proto se pro běžné vážení v domácnosti nehodí. Pro běžné domácí účely je důležitější, aby váha byla stabilní a její rozlišení odpovídalo úkolu, který chcete řešit. Tloušťkoměr: rychlé měření bez rozebírání. Digitální tloušťkoměr odečte hodnotu z displeje místo stupnice, takže se snadno kontroluje tloušťka plechu, desky nebo drobného dílu. Rozhodující jsou dva údaje: rozsah a rozlišení. Přístroj, který měří do několika milimetrů s krokem 0,01 mm, je jiný nástroj než zařízení určené na silnější materiály. Před nákupem si zjistěte, pro jaké materiály je přístroj kalibrovaný, protože některé principy měření fungují jen na kovech nebo jen na plastech. Při měření dbejte na rovnou plochu a stejný tlak, jinak se výsledky budou lišit. Mikroskop a osciloskop: když nestačí oko a multimetr. USB digitální mikroskop s displejem slouží k tomu, co se jinak dělá lupou. Hodí se na kontrolu pájených spojů, poškozených kontaktů, otisků nebo jemné mechaniky. Obraz jde ukládat a porovnávat, takže se dá sledovat, jak se závada vyvíjí. U levných modelů bývá zoom omezený a ostrost závisí na vzdálenosti od předmětu, proto zkontrolujte, na jakou vzdálenost je zaostřeno. Kapesní osciloskop ukáže průběh napětí v čase. Na základní diagnostiku a výuku bohatě stačí. U levných přístrojů jde obvykle o jednotky až desítky MHz šířky pásma, což nestačí na rychlé digitální signály, ale postačí na sledování PWM, senzorů a jednoduchých obvodů. Pro práci s rychlou elektronikou je potřeba výkonnější přístroj. Kdy se vyplatí specializovaný přístroj. Specializovaný nástroj má smysl tam, kde se měření opakuje, kde záleží na přesnosti nebo kde je potřeba doložit výsledek. Jednou za rok se vyplatí spíš půjčit nebo použít univerzální zařízení. Dálkoměr se vyplatí v dílně nebo při přestavbě bytu, kde se měří dokola. Váha na setiny gramu se hodí do šperkařství nebo ke sběratelství. Osciloskop má smysl tam, kde denně ladíte obvody. Pokud měříte jen příležitostně, vystačí si většina lidí s jednodušším přístrojem, a rozdíl se projeví až ve chvíli, kdy ho potřebujete rychle. Co zkontrolovat před nákupem. Než přístroj vložíte do košíku, ověřte napájení, čitelnost displeje a automatické vypnutí. Baterie vydrží déle, pokud je vestavěná a nabíjí se přes USB‑C, stejně jako u většiny nových modelů. Zkontrolujte jednotky, v jakých přístroj měří, a zda je možné je přepnout. Zjistěte také, jestli je součástí návod v jazyce, kterému rozumíte, protože u některých měřicích přístrojů se jednotlivé režimy liší jen jedním tlačítkem a špatná volba vede k chybnému výsledku. Jak měřit s jistotou: postupy, které se vyplatí. U dálkoměru měřte vždy ze stejného místa a stejnou rukou, protože i malé natočení změní výsledek na velké vzdálenosti. Pro vodorovné měření přidržte přístroj k rovné hraně nebo ke stativu, pokud ho máte. Výsledek si zapište s jednotkou a datem, abyste se při dalším měření mohli vrátit ke stejnému bodu. U váhy vážte předměty ve stejném pořadí a na stejném podkladě. Měření dvakrát za sebou a porovnání výsledků ukáže, jestli je přístroj stabilní. Pokud se odečty liší víc, než je rozlišení přístroje, nastala chyba v postupu, ne v přístroji. U tloušťkoměru měřte na více místech a výsledky průměrujte. Jeden odečet na okraji materiálu může být zkreslený. Zapište si průměr i nejmenší a největší hodnotu, protože rozpt",
    "url": "https://www.okla.cz/nase-novinky/meridlo/",
+   "keywords": [
+    "článek",
+    "návod",
+    "rada",
+    "jak vybrat",
+    "magazín"
+   ]
+  },
+  {
+   "id": "article-https://www.okla.cz/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/",
+   "type": "faq",
+   "title": "Článek: Flipper Zero: co všechno zvládne kapesní multitool?",
+   "content": "Co je uvnitř a jak se zařízení ovládá. Flipper Zero měří přibližně 10 × 4 × 2,5 cm a váží asi 104 gramů, takže se vejde do kapsy bundy i do malé brašny. Jádrem je mikrokontrolér STM32WB55 od STMicroelectronics, který zvládá rádio, Bluetooth i řízení displeje. Ovládání zajišťuje malý podsvícený displej, čtyřsměrný ovladač s tlačítkem uprostřed a tlačítko zpět. Nabíjí se přes USB‑C, které zároveň slouží k připojení k počítači. Baterie má kapacitu 2000 mAh a výdrž se liší podle toho, co zařízení dělá. Při trvalém skenování rádia nebo při zapnutém podsvícení se energie spotřebuje výrazně rychleji než v pohotovostním režimu. Na boku je slot pro microSD kartu, na kterou se ukládají zachycené záznamy a signály. Bez paměťové karty se záznamy neuloží, takže ji při prvním použití doporučujeme zkontrolovat jako první. Software je open source a aktualizuje se přes počítačovou aplikaci qFlipper. Oficiální firmware nabízí hlavní nabídku s moduly pro rádio, RFID, NFC, infračervený vysílač a piny GPIO. Komunita k němu vytváří další aplikace, jejich kvalitu a bezpečnost ale musíte ověřit sami, protože je výrobce neschvaluje. Sub-GHz rádio: příjem, záznam a opakované vysílání. Čip CC1101 pracuje na pásmech, která se podle regionu liší. Výrobce uvádí kmitočty 315, 433, 868 a 915 MHz. Na nich běží většina jednoduchých dálkových ovladačů garážových vrat, závor, bezdrátových zásuvek a spínačů v domácnosti. Flipper signál přijme, zobrazí jeho parametry a uloží ho jako záznam. Uložený záznam lze později vyslat stejným kmitočtem a stejnou modulací. U moderních systémů tohle ale nefunguje. Většina dnešních ovladačů používá proměnný kód (rolling code), takže každý stisk vygeneruje jiný řetězec a zkopírovaný záznam přijímač odmítne. Flipper se proto v praxi používá hlavně k analýze, tedy k zjištění, na jakém kmitočtu a s jakou modulací zařízení vysílá. Pro vlastní zařízení je to užitečná diagnostika, když ovladač přestane fungovat a nevíte, jestli je vadný vysílač, nebo přijímač. RFID 125 kHz a NFC 13,56 MHz: co se z karty přečte. Na frekvenci 125 kHz pracují starší přístupové karty a přívěsky. Flipper čte a emuluje formáty EM4100 a EM410x, HID Prox a Indala. Tyto karty mají v paměti pevný identifikátor, který přístupový systém může považovat za platný klíč. Proto bezpečnostní specialisté u starších vrátných a docházkových systémů doporučují přejít na šifrované čipy. NFC čtečka na 13,56 MHz podporuje protokoly ISO 14443A a B, FeliCa a čipy MIFARE Classic, MIFARE Ultralight a DESFire. Flipper z karty přečte identifikátor UID a u podporovaných čipů i data v paměti. U MIFARE Classic k nim bez klíčů nedosáhnete, a u šifrovaných čipů se dostanete jen k identifikátoru. Výsledkem je přehled o tom, jak je karta nastavená, nikoli univerzální klíč ke všemu. Infračervený vysílač a učení ovladačů. Flipper má infračervený přijímač a vysílač. Ovladač namíříte na zařízení, stisknete tlačítko a Flipper signál uloží do knihovny. Spotřebiče s běžnými protokoly pak ovládá samostatně. U výrobců, kteří používají netypický protokol, se stává, že signál nelze přehrát, protože přijímač ho nerozpozná. Tyto případy se řeší ručním nastavením nebo jiným ovladačem. Praktická výhoda je v tom, že jeden přístroj nahradí několik ovladačů v domácnosti. Infračervený paprsek ale potřebuje přímou viditelnost, takže přes zeď nebo za dveřmi spotřebič neovládnete. Dosah je omezený na několik metrů a závisí na intenzitě světla v místnosti. Piny GPIO, iButton, USB a Bluetooth. Pinový konektor GPIO umožňuje připojit senzory, Arduino, Raspberry Pi nebo vlastní obvody. Flipper na těchto pinech může číst nebo řídit logické úrovně, takže jeho displej a tlačítka slouží jako jednoduché rozhraní pro projekt. Pro začátečníka je to nejrychlejší způsob, jak si ověřit komunikaci s mikrokontrolérem bez pájení vlastní desky. Pro iButton (1-Wire) slouží tři kontakty, na které se přiloží klíčenka. Flipper přečte sériové číslo starších elektronických klíčů. Přes USB‑C se může připojit k počítači jako klávesnice a provést předem připravené příkazy. Tuto funkci používají testeři zabezpečení na vlastních počítačích. Bluetooth LE slouží k párování s mobilní aplikací a k ovládání některých funkcí na dálku. Kdy se jednotlivé moduly skutečně hodí. Nejčastější praktický případ je diagnostika vlastního zařízení. Když přestane fungovat ovladač od vlastní garážové brány, Flipper ukáže, zda ovladač vysílá a na jakém kmitočtu. Podobně lze zjistit, zda je problém v přijímači, nebo ve vysílači. Stejný postup se hodí u bezdrátových zásuvek a spínačů, u kterých výrobce nedodal dokumentaci k frekvenci. Druhou skupinou jsou studenti a elektronici, kteří se učí bezdrátové protokoly. Flipper poskytuje jednu fyzickou platformu pro rádio, RFID, NFC i infračervený signál, takže rozdíly mezi frekvencemi a kódováním lze ukázat na konkrétním zařízení. Bezpečnostní specialisté jej používají při auditech vlastních prostor a v zadaných testech, kde mají písemný souhlas zadavatele. Co Flipper nedokáže. Neotevře běžné moder",
+   "url": "https://www.okla.cz/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/",
    "keywords": [
     "článek",
     "návod",
@@ -1095,6 +1139,55 @@
     "rada",
     "jak vybrat",
     "magazín"
+   ]
+  },
+  {
+   "id": "live-shipping",
+   "type": "faq",
+   "title": "Doprava – aktuální způsoby a ceny z e-shopu",
+   "content": "Způsoby dopravy, které e-shop u zboží právě nabízí, a jejich ceny: Zásilkovna výdejní místa a boxy (Česko): zdarma. Výdejní místo nebo box si zákazník vybere v košíku na mapě. Způsob platby se volí v košíku podle zvolené dopravy (převodem na účet, nebo na dobírku); jiné způsoby platby nejsou v podkladech uvedené. Konečnou cenu dopravy i platby zákazník vidí v košíku před odesláním objednávky.",
+   "url": "https://www.okla.cz/doprava-a-platba/",
+   "keywords": [
+    "doprava",
+    "doručení",
+    "dopravce",
+    "zásilkovna",
+    "výdejní místo",
+    "box",
+    "z-box",
+    "poštovné",
+    "cena dopravy",
+    "kolik stojí doprava",
+    "doprava zdarma",
+    "platba",
+    "zaplatit",
+    "dobírka",
+    "převod",
+    "kartou"
+   ]
+  },
+  {
+   "id": "live-homepage-groups",
+   "type": "faq",
+   "title": "Novinky, akce a doporučené zboží – aktuálně na hlavní stránce",
+   "content": "Co e-shop právě ukazuje na hlavní stránce: Akční zboží: M5Stack Cardputer ADV – mini počítač s klávesnicí (990 Kč), LILYGO T-Embed CC1101 – ESP32-S3 multitool (2 590 Kč), Benetech GM610 vlhkoměr dřeva (589 Kč), HM020 digitální mikroskop s 2″ displejem (789 Kč). To nejlepší od nás: Benetech GM620 vlhkoměr s externí sondou (989 Kč), Benetech GM1351 digitální hlukoměr (389 Kč), LILYGO T-Encoder Pro AMOLED (1 989 Kč), Benetech GM8902 anemometr s oddělenou sondou (1 189 Kč), ANENG 616 digitální multimetr 6000 counts (589 Kč). Novinky: ANENG G50 zelený laserový dálkoměr 50 m (789 Kč), ID32 pixelový displej a stolní budík (1 089 Kč), ANENG GN702 LCR měřicí pinzeta (1 089 Kč), Flipper Zero – kapesní multitool pro digitální protokoly (5 690 Kč), LILYGO T-Deck Plus – kapesní komunikátor ESP32 (2 890 Kč). Vychytávky: LILYGO T-Embed CC1101 – ESP32-S3 multitool (2 590 Kč), B313 inspekční kamera se dvěma objektivy 5 m (1 289 Kč), TASI TA8151 digitální hlukoměr (589 Kč), F62 překladové chytré brýle – černé (589 Kč), Waveshare ESP32-C3 s 0,71″ kulatým displejem (789 Kč). Nejlepší nářadí: USB digitální mikroskop 50–1000× (589 Kč), ID32 pixelový displej a stolní budík (1 089 Kč), A2 chytré brýle s kamerou a AI překladem (2 089 Kč), HM020 digitální mikroskop s 2″ displejem (789 Kč).",
+   "url": "https://www.okla.cz/",
+   "keywords": [
+    "novinky",
+    "nové",
+    "nového",
+    "nejnovější",
+    "akce",
+    "akční",
+    "sleva",
+    "slevy",
+    "výprodej",
+    "doporučujete",
+    "nejlepší",
+    "nejoblíbenější",
+    "nejprodávanější",
+    "tip",
+    "dárek"
    ]
   }
  ]
