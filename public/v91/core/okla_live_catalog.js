@@ -135,6 +135,34 @@
  /* the index the Okla service builds from the same listings every 30 minutes (one small JSON, ~8 kB): a phone no
     longer downloads and parses every category page itself; when the service does not answer within 5 s (asleep,
     unreachable) the listings are read here as before */
+ /* ---- a registered customer's prices ----
+    The service reads the shop as a guest, so its index has the guest prices. A signed-in customer with a customer
+    discount gets the same rule Shoptet applies: the price lowered by the percentage and rounded to a whole crown
+    (Shoptet: CZK rounded to 0 decimal places, mathematically) - so search, the cart drawer, "Doporučujeme" and the
+    recommendations show the customer's price. The percentage is read from what Shoptet shows this customer on the
+    page ("−5 %" on its products, okla_no_discount_flags.js hides those badges), kept for pages without products and
+    forgotten when the visitor is signed out. The listings read below by the browser already carry the customer's own
+    prices (Shoptet renders them for this visitor) and are never lowered twice. */
+ var DKEY='okla-customer-discount';
+ function signedIn(){return !document.querySelector('#navigation a[data-testid="signin"],.top-navigation-bar .top-nav-button-login')}
+ function seenPct(){
+  var found=null;
+  [].some.call(document.querySelectorAll('.flag-discount,.price-save,.okla-no-discount-flag'),function(el){
+   var m=(el.textContent||'').match(/[−–‐-]\s*(\d{1,2})\s*%/);if(m){found=+m[1];return true}return false;
+  });
+  return found;
+ }
+ function customerPct(){
+  if(!signedIn()){try{localStorage.removeItem(DKEY)}catch(e){}return 0}
+  var p=seenPct();
+  if(p!=null){try{localStorage.setItem(DKEY,String(p))}catch(e){}return p}
+  try{return +localStorage.getItem(DKEY)||0}catch(e){return 0}
+ }
+ function forCustomer(items,pct){
+  if(!pct)return items;
+  return items.map(function(it){var o={};for(var k in it)o[k]=it[k];if(typeof it.price==='number')o.price=Math.round(it.price*(100-pct)/100);return o});
+ }
+ var pct=customerPct();
  function fromService(){
   var api=window.__oklaApiUrl;
   if(!api||!window.fetch)return Promise.reject(new Error('no service'));
@@ -145,9 +173,10 @@
    var items=d&&d.items;
    if(!items||items.length<10||!(d.t>Date.now()-TTL))throw new Error('stale');
    items.forEach(function(it){it.url=location.origin+path(it.url)});
-   merge(items,true);
-   try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),items:items}))}catch(e){}
-   return items;
+   /* kept as the guest prices; the customer's are worked out on every page */
+   var mine=forCustomer(items,pct);merge(mine,true);
+   try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),items:items,src:'service'}))}catch(e){}
+   return mine;
   },function(e){clearTimeout(timer);throw e});
  }
  function refresh(){
@@ -165,14 +194,18 @@
    var items=[];lists.forEach(function(l){items=items.concat(l)});
    if(!items.length)return null;
    merge(items,ok);
-   if(ok){try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),items:items}))}catch(e){}}
+   /* these prices are already this visitor's own: kept with the discount they were read with */
+   if(ok){try{localStorage.setItem(KEY,JSON.stringify({t:Date.now(),items:items,src:'listing',pct:pct}))}catch(e){}}
    return items;
   });
  }
  var cached=load();
- if(cached)merge(cached.items,true);
- var fresh=cached&&cached.t>Date.now()-TTL;
- window.oklaLiveCatalog={ready:fresh?Promise.resolve(cached.items):new Promise(function(res){
+ /* listings read with another discount (signed in / out since) are read again rather than shown with wrong prices */
+ var usable=cached&&(cached.src==='service'||(cached.pct||0)===pct);
+ var shown=usable?(cached.src==='service'?forCustomer(cached.items,pct):cached.items):null;
+ if(shown)merge(shown,true);
+ var fresh=usable&&cached.t>Date.now()-TTL;
+ window.oklaLiveCatalog={ready:fresh?Promise.resolve(shown):new Promise(function(res){
   var run=function(){refresh().then(res,function(){res(null)})};
   if(window.requestIdleCallback)requestIdleCallback(run,{timeout:3000});else setTimeout(run,1500);
  })};

@@ -100,7 +100,7 @@
     step with the successfully selected companion products. */
  var mainPrice=null;
  /* "2 460,50 Kč" -> 2461: the whole amount with its haléře (reading digits only made 369,55 Kč into 36955), rounded
-    to whole crowns like every price on the shop (okla_price_rounding.js) */
+    to whole crowns, as Shoptet rounds them (CZK: 0 decimal places) */
  function numberFromPrice(text){
   var m=String(text||'').replace(/[\s  ]/g,'').match(/(\d+)(?:[.,](\d{1,2}))?/);
   return m?Math.round(Number(m[1]+'.'+(m[2]||'0'))):0;

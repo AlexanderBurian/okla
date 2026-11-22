@@ -168,7 +168,7 @@
  }
  /* Display only a real Shoptet native price; do not overwrite variant prices or add fabricated discounts. */
  /* the whole amount Shoptet shows, rounded to the nearest whole crown like every price on the shop
-    (okla_price_rounding.js): "889 Kč" -> "889,-", a customer discount's "369,55 Kč" -> "370,-" (it used to be cut to "55,-") */
+    (as Shoptet rounds CZK: 0 decimal places): "889 Kč" -> "889,-", a customer discount's "369,55 Kč" -> "370,-" (it used to be cut to "55,-") */
  function formattedPrice(raw){
   var match=String(raw||'').replace(/[  ]/g,' ').match(/(\d{1,3}(?:\s\d{3})*|\d+)(?:[.,](\d{1,2}))?\s*Kč/i);
   if(!match)return null;
