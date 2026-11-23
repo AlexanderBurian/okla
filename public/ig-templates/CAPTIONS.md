@@ -123,3 +123,33 @@ Kdybys mohl navrhnout vlastní multitool, kterou jedinou funkci by rozhodně mus
 Napiš ji do komentáře jednou větou. Ty nejzajímavější nápady rádi rozebereme v dalším příspěvku.
 
 #oklacz #multitool #komunita #napady
+
+### 13 · Flipper Zero
+
+Jeden přístroj a tolik možností, že je těžké vybrat, kde začít. 🐬
+
+Flipper Zero spojuje NFC, RFID, Sub-GHz, infračervený přenos i GPIO v jednom kapesním zařízení. Hodí se pro zkoumání elektroniky, vlastní experimenty i rychlé ověření nápadu.
+
+Co bys s ním otestoval jako první? Napiš nám do komentáře. 👇
+
+#oklacz #flipperzero #multitool #elektronika
+
+### 14 · LILYGO T-Embed
+
+Malé tělo, ale prostoru pro vlastní nápady má dost. 💙
+
+LILYGO T-Embed spojuje ESP32-S3, barevný displej a otočný enkodér. Může se proměnit ve vlastní ovladač, přenosný nástroj nebo základ úplně nového projektu.
+
+Co bys na něj naprogramoval ty?
+
+#oklacz #lilygo #esp32 #maker
+
+### 15 · M5Stack Cardputer
+
+Počítač, který se vejde do kapsy? Tady je. ⌨️
+
+M5Stack Cardputer kombinuje klávesnici, barevný displej a ESP32-S3 v jednom kompaktním zařízení. Stačí přidat vlastní kód a rozhodnout, jestli z něj bude terminál, ovladač, nebo něco úplně jiného.
+
+Co by na něm běželo jako první u tebe?
+
+#oklacz #m5stack #cardputer #programovani
