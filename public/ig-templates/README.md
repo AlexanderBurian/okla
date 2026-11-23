@@ -2,6 +2,8 @@
 
 Sada obsahuje 12 jednoduchých kompozic inspirovaných čistým produktovým stylem Alzy. Neobsahuje cizí ani vlastní logo, horní štítky ani dekorativní UI. Každý post stojí na krátkém nadpisu, velké produktové fotografii a výrazné jednobarevné ploše.
 
+Textový tón, struktura popisků a připravené ukázky jsou v souboru [CAPTIONS.md](CAPTIONS.md).
+
 ## Formát
 
 - Poměr stran: **4:5**
