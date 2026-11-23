@@ -1,12 +1,12 @@
-/* Okla – product prices in whole crowns. A registered customer's percentage discount can make Shoptet render
-   halere ("2 460,50 Kc", "559,55 Kc"). Everywhere outside the cart and order flow these displayed amounts are
-   rounded to the nearest whole crown. This changes text only; native prices submitted to Shoptet stay untouched. */
+/* Okla – prices in whole crowns. A registered customer's percentage discount can make Shoptet render halere
+   ("2 460,50 Kc", "559,55 Kc"). Every displayed amount, including cart rows and dynamically inserted product
+   recommendations, is rounded to the nearest whole crown. This changes text only; native prices and values
+   submitted to Shoptet stay untouched. */
 (function(){
  'use strict';
  if(window.__oklaPriceRounding)return;window.__oklaPriceRounding=true;
  /* 2 460,50 Kč | 559,55 Kč | 844,55,- | 1 089,5 CZK */
  var PRICE=/(\d{1,3}(?:[   ]\d{3})+|\d+),(\d{1,2})(?=[   ]*(?:Kč|,-|CZK))/g;
- function skipPage(){return !!(document.body&&document.body.classList.contains('ordering-process'))}
  function round(text){
   return text.replace(PRICE,function(all,whole,dec){
    var sep=(whole.match(/[   ]/)||[' '])[0];
@@ -29,7 +29,6 @@
  }
  window.oklaRoundPrice=round;
  function start(){
-  if(skipPage())return;
   sweep(document.body);
   if(!window.MutationObserver)return;
   var queue=[],pending=false;
