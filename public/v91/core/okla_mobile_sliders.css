@@ -4,7 +4,7 @@
 @media(max-width:767px){
   html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-viewport{
     display:block!important;overflow-x:auto!important;overflow-y:hidden!important;-webkit-overflow-scrolling:touch!important;
-    scroll-snap-type:x proximity!important;overscroll-behavior-x:contain!important;scrollbar-width:none!important;
+    scroll-snap-type:x proximity!important;overscroll-behavior-x:contain!important;overflow-anchor:none!important;scrollbar-width:none!important;
     width:100%!important;max-width:100%!important;margin:0!important;padding:2px 0 6px!important;touch-action:pan-x pan-y!important
   }
   html body #content .okla-slider-shell:not(.okla-brands__shell) .okla-slider-viewport::-webkit-scrollbar{display:none!important}
