@@ -34,10 +34,9 @@ Textový tón, struktura popisků a připravené ukázky jsou v souboru [CAPTION
 
 | Role | Barva | Použití |
 |---|---|---|
-| Hluboká modrá | `#123A8F` | základ vlastního modrofialového pozadí |
-| Elektrická indigová | `#303AA5` | střed přechodu |
-| Tlumená švestková | `#70276F` | konec přechodu |
-| Studené světlo | `#5684FF` při 26 % | jemná radiální záře v pravém horním rohu |
+| Hluboká Okla modrá | `#063DA8` | začátek vlastního přechodu |
+| Okla modrá | `#075FE6` | dominantní střed přechodu |
+| Studená tyrkysová | `#00A8B8` | odlišující konec přechodu bez fialové |
 | Zelená | `#43DB15` | soutěže a výzvy |
 | Tmavší zelená | `#28C51D` | jemná hloubka zelené plochy |
 | Bílá | `#FFFFFF` | produktové a edukativní posty |
@@ -50,8 +49,10 @@ Textový tón, struktura popisků a připravené ukázky jsou v souboru [CAPTION
 - Nadpis ideálně 3 až 8 slov.
 - Jeden dominantní produkt; výjimkou je čistě textové BINGO.
 - Produkt musí být ostrý a velký, ne malá dekorace.
+- Kompozice je pouze vystředěný text a velký produktový PNG výřez s transparentním pozadím.
+- Nepřidávat kruhy, piktogramy, karty ani jiné vlastní grafické dekorace.
 - Bez karet, falešných tlačítek, ikonových panelů a dalších webových UI prvků.
-- Zelené, bílé a modrofialové varianty střídat; každý post má jednu hlavní barvu.
+- Zelené, bílé a modro-tyrkysové varianty střídat; každý post má jednu hlavní barvu.
 
 ## Export
 
