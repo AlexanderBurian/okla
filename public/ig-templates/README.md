@@ -1,6 +1,6 @@
 # Instagram HTML šablony
 
-Sada obsahuje 12 jednoduchých kompozic inspirovaných čistým produktovým stylem Alzy. Neobsahuje cizí ani vlastní logo, horní štítky ani dekorativní UI. Každý post stojí na krátkém nadpisu, velké produktové fotografii a výrazné jednobarevné ploše.
+Sada obsahuje 15 jednoduchých kompozic inspirovaných čistým produktovým stylem Alzy. Neobsahuje cizí ani vlastní logo, horní štítky ani dekorativní UI. Každý post stojí na krátkém nadpisu, velké produktové fotografii a výrazné jednobarevné ploše.
 
 Textový tón, struktura popisků a připravené ukázky jsou v souboru [CAPTIONS.md](CAPTIONS.md).
 
@@ -26,6 +26,9 @@ Textový tón, struktura popisků a připravené ukázky jsou v souboru [CAPTION
 10. `10-balicek-soutez.html` – jednoduchý produktový claim
 11. `11-mytus-fakt.html` – víkendová výzva
 12. `12-komunitni-vyzva.html` – komunitní otázka
+13. `13-flipper-zero-editorial.html` – produktový editoriál Flipper Zero
+14. `14-lilygo-t-embed-editorial.html` – produktový editoriál LILYGO T-Embed
+15. `15-m5stack-cardputer-editorial.html` – produktový editoriál M5Stack Cardputer
 
 ## Barevný manuál
 
