@@ -9,6 +9,7 @@ Textový tón, struktura popisků a připravené ukázky jsou v souboru [CAPTION
 - Poměr stran: **4:5**
 - Export: **1080 × 1350 px**
 - Export vyplňuje celý obraz bez vnějšího rámu, odsazení a zaoblených rohů.
+- Ke každému postu vzniká také story varianta **9:16 / 1080 × 1920 px**: původní 4:5 obraz zůstává beze změny uprostřed a barva jeho horního a dolního okraje se pouze protáhne o 285 px na každou stranu.
 - Bezpečná zóna: nejméně 78 px od hran
 - Zdrojová produktová fotografie: 1600 × 1600 px; průhledný export: 1254 × 1254 px
 - Písmo: Open Sans Variable
