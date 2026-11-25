@@ -1,6 +1,6 @@
 /* Okla – PC category menu (okla_catbar.js), as on the reference shop: one row of short category names in bold (the site has no capitals anywhere),
    each with a small chevron; pointing at one turns it Okla blue (never green) and opens the white panel with its
-   subcategories (photo and name, no grey tiles) and a last "Zobrazit vše" tile; the page behind stays dimmed. Phones
+   subcategories (photo and name, no grey tiles; pointing at one only turns its name blue) and a last "Zobrazit vše" tile; the page behind stays dimmed. Phones
    never see the bar. */
 @media(min-width:992px){
   /* the row: white, a fine line under it, no dividers */
@@ -25,9 +25,9 @@
   }
 
   /* the panel: white, the subcategories as plain rows - photo and name - in four columns, no heading over them */
-  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in{padding-top:26px!important;padding-bottom:30px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in{padding-top:34px!important;padding-bottom:40px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in:has(.okcb-grid--subs) .okcb-head{display:none!important}
-  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:20px!important;row-gap:18px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:24px!important;row-gap:44px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub{grid-template-columns:64px minmax(0,1fr)!important;column-gap:14px!important;padding:6px 10px 6px 6px!important;border-radius:12px!important;background:transparent!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__img{width:64px!important;height:64px!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__title{font:700 15px/1.3 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
@@ -36,7 +36,7 @@
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__img--all{display:grid!important;place-items:center!important;border-radius:12px!important;background:#eef0f3!important;color:#46556a!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__img--all svg{display:block!important;width:28px!important;height:28px!important}
   @media(hover:hover){
-    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub:hover{background:#f4f7fc!important}
+    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub:hover{background:transparent!important}
     html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub:hover .okcb-sub__title{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
     html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub--all:hover .okcb-sub__img--all{color:#0859d8!important}
   }
@@ -49,4 +49,13 @@
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel::before{border:0!important;box-shadow:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel,html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in{border:0!important;box-shadow:none!important}
   html.okla-catbar-on .okcb-dim:not([hidden]):not(#opm-a#opm-b){background:rgba(8,29,58,.55)!important}
+}
+
+/* more air: the menu row taller and a little further from the header row (as on the reference shop); "Zobrazit vše"
+   always starts a row of its own */
+@media(min-width:992px){
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-inner{padding-top:12px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link,
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li:is(:first-child,:last-child) .okcb-link{min-height:58px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub--all{grid-column:1 / 2!important}
 }

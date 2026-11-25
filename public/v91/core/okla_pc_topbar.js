@@ -11,13 +11,16 @@
  var LINKS=[
   ['Jak nakupovat','/jak-nakupovat/'],
   ['Doprava a platba','/doprava-a-platba/'],
+  ['Stav objednávky','/stav-objednavky/'],
   ['Vrácení zboží','/vraceni-zbozi-a-odstoupeni/'],
   ['Reklamace','/reklamace/'],
+  ['O nás','/o-nas/'],
+  ['Newsroom','/nase-novinky/'],
   ['Kontakt','/kontakty/']
  ];
  var ICON={
-  phone:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8h2.6l1.4 3.9-1.9 1.3a11 11 0 0 0 6.3 6.3l1.3-1.9 3.9 1.4v2.6a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.6 6a2 2 0 0 1 2-2.2Z"/></svg>',
-  mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4.5 7 7.5 6 7.5-6"/></svg>'
+  phone:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>',
+  mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>'
  };
  function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
 
