@@ -81,11 +81,12 @@
      one keeps its slider layout; only the card look is unified). */
   function grids(){
     var out=[];
-    document.querySelectorAll('#content .products').forEach(function(g){
+    document.querySelectorAll('#content .products,#content #products,#content .products-block').forEach(function(g){
+      if(out.indexOf(g)!==-1)return;
       if(/(^|\s)homepage-products-\d/.test(g.className))return;
       /* Only real card grids: Shoptet's inline lists (e.g. the hidden
          #productsTop "top products" strip) keep their own layout/visibility. */
-      if(!g.classList.contains('products-block')||g.classList.contains('products-inline')||g.id==='productsTop')return;
+      if(g.classList.contains('products-inline')||g.id==='productsTop')return;
       if(!g.querySelector(':scope > .product'))return;
       out.push(g);
     });

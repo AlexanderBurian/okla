@@ -17,6 +17,8 @@
   window.__oklaNewsNativeImages = true;
 
   var MAX = 5;
+  var PHONE = window.matchMedia('(max-width:767px)');
+  var loopGrid = null, loopTimer = 0, loopJumping = false;
   /* always the first card (top left), wherever it is in Shoptet's list */
   var PINNED = '/nase-novinky/flipper-zero-co-vsechno-zvladne-kapesni-multitool/';
 
@@ -65,6 +67,70 @@
     }
   }
 
+  function realNewsCards(grid) {
+    return [].slice.call(grid.querySelectorAll(':scope > .okn-card:not([data-okla-news-clone])')).filter(function (card) { return !card.hidden; });
+  }
+
+  function removeNewsLoop() {
+    clearTimeout(loopTimer);
+    if (!loopGrid) return;
+    loopGrid.removeEventListener('scroll', newsScrolled);
+    if ('onscrollend' in window) loopGrid.removeEventListener('scrollend', normalizeNewsLoop);
+    loopGrid.querySelectorAll('[data-okla-news-clone]').forEach(function (node) { node.remove(); });
+    loopGrid.style.removeProperty('scroll-snap-type');
+    loopGrid.style.removeProperty('scroll-behavior');
+    loopGrid = null;
+    loopJumping = false;
+  }
+
+  function newsJump(grid, left) {
+    loopJumping = true;
+    grid.style.setProperty('scroll-snap-type', 'none', 'important');
+    grid.style.setProperty('scroll-behavior', 'auto', 'important');
+    grid.scrollLeft = Math.max(0, left);
+    requestAnimationFrame(function () { requestAnimationFrame(function () {
+      grid.style.removeProperty('scroll-snap-type');
+      grid.style.removeProperty('scroll-behavior');
+      loopJumping = false;
+    }); });
+  }
+
+  function normalizeNewsLoop() {
+    var grid = loopGrid;
+    if (!grid || loopJumping || !PHONE.matches) return;
+    var real = realNewsCards(grid), before = grid.querySelector(':scope > [data-okla-news-clone="before"]'), after = grid.querySelector(':scope > [data-okla-news-clone="after"]');
+    if (real.length < 2 || !before || !after) return;
+    var x = grid.scrollLeft;
+    if (x <= (before.offsetLeft + real[0].offsetLeft) / 2) newsJump(grid, real[real.length - 1].offsetLeft);
+    else if (x >= (real[real.length - 1].offsetLeft + after.offsetLeft) / 2) newsJump(grid, real[0].offsetLeft);
+  }
+
+  function newsScrolled() {
+    if (loopJumping || 'onscrollend' in window) return;
+    clearTimeout(loopTimer);
+    loopTimer = setTimeout(normalizeNewsLoop, 120);
+  }
+
+  function setupNewsLoop(section) {
+    var grid = section && section.querySelector('.okn-grid');
+    if (!PHONE.matches || !grid) { removeNewsLoop(); return; }
+    if (loopGrid === grid && grid.querySelector('[data-okla-news-clone]')) return;
+    removeNewsLoop();
+    var real = realNewsCards(grid);
+    if (real.length < 2) return;
+    var before = real[real.length - 1].cloneNode(true), after = real[0].cloneNode(true);
+    before.dataset.oklaNewsClone = 'before'; after.dataset.oklaNewsClone = 'after';
+    [before, after].forEach(function (clone) {
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a,button,input,select,textarea').forEach(function (node) { node.setAttribute('tabindex', '-1'); });
+    });
+    grid.insertBefore(before, real[0]); grid.appendChild(after);
+    loopGrid = grid;
+    grid.addEventListener('scroll', newsScrolled, {passive:true});
+    if ('onscrollend' in window) grid.addEventListener('scrollend', normalizeNewsLoop, {passive:true});
+    requestAnimationFrame(function () { requestAnimationFrame(function () { if (loopGrid === grid) newsJump(grid, real[0].offsetLeft); }); });
+  }
+
   function paint() {
     var section = document.getElementById('okla-news-v55');
     if (!section) return;
@@ -72,11 +138,12 @@
     /* no articles known: the block is not shown at all */
     if (!list) { section.style.setProperty('display', 'none', 'important'); return; }
     section.style.removeProperty('display');
-    var els = section.querySelectorAll('.okn-card');
+    var els = section.querySelectorAll('.okn-card:not([data-okla-news-clone])');
     for (var i = 0; i < els.length; i++) {
       if (list[i]) fill(els[i], list[i]);
       else els[i].hidden = true;
     }
+    setupNewsLoop(section);
   }
 
   function start() {
@@ -100,4 +167,6 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
   else start();
+  if (PHONE.addEventListener) PHONE.addEventListener('change', function () { var section=document.getElementById('okla-news-v55'); if(section)setupNewsLoop(section); });
+  else if (PHONE.addListener) PHONE.addListener(function () { var section=document.getElementById('okla-news-v55'); if(section)setupNewsLoop(section); });
 })();

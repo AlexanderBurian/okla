@@ -15,6 +15,7 @@
   }
   html body.type-index #content #okla-news-v55 .okn-grid::-webkit-scrollbar{display:none!important}
   html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-card{flex:0 0 78%!important;width:78%!important;min-width:0!important;margin:0!important;scroll-snap-align:start!important}
+  html body.type-index #content #okla-news-v55 .okn-card[data-okla-news-clone]{user-select:none!important}
   html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-body{padding-left:0!important;padding-right:0!important}
   html body.type-index #content #okla-news-v55:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okn-desc{display:none!important}
   /* the section itself on the rail (its own side padding gone); the heading where the other section headings are */
@@ -28,6 +29,8 @@
     border-radius:0!important;box-sizing:border-box!important
   }
   html body.type-index #content #okla-warranty:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okla-warranty-inner{padding-left:0!important;padding-right:0!important;margin:0!important;max-width:none!important}
+  html body.type-index #content #okla-warranty .okla-warranty-content{display:flex!important;flex-direction:column!important;align-items:flex-start!important;min-width:0!important;width:100%!important}
+  html body.type-index #content #okla-warranty :is(.okla-warranty-title,.okla-warranty-subtitle){display:block!important;width:max-content!important;max-width:none!important;white-space:nowrap!important;word-break:normal!important;overflow-wrap:normal!important}
 
   /* the banner */
   html body.type-index #content .okla-hero:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okla-hero__slide--storewide .okla-hero__text{padding-left:4%!important}

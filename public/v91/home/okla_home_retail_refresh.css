@@ -31,6 +31,20 @@ html body.type-index #content .okla-tile__cta{border-radius:4px!important;box-sh
  html body.type-index #content .okla-slider-shell .product .p-tools{padding-top:10px!important;min-height:50px!important}
 }
 
+/* White homepage islands must read as real cards on the grey page.  Keep the
+   background continuous: these are shadows on existing UI only, never extra
+   white separator bands.  The upper edge is deliberately the strongest one. */
+html body.type-index #content#content>.homepage-group-title:not(#okr-a#okr-b#okr-c#okr-d){
+  box-shadow:0 -6px 14px -5px rgba(9,38,68,.24),4px 0 10px -8px rgba(9,38,68,.18),-4px 0 10px -8px rgba(9,38,68,.18)!important
+}
+html body.type-index #content#content>.homepage-group-title+.okla-slider-shell:not(#okr-a#okr-b#okr-c#okr-d){
+  box-shadow:0 6px 13px -7px rgba(9,38,68,.22),4px 0 10px -8px rgba(9,38,68,.18),-4px 0 10px -8px rgba(9,38,68,.18)!important
+}
+html body.type-index #content#content>:is(#okla-signin-strip,#okla-brands-v1,#okla-warranty):not(#okr-a#okr-b#okr-c#okr-d),
+html body.type-index #content #okla-promo-deals .okla-campaign__card--lilygo:not(#okr-a#okr-b#okr-c#okr-d){
+  box-shadow:0 -5px 13px -5px rgba(9,38,68,.23),0 5px 12px -7px rgba(9,38,68,.18),0 1px 3px rgba(16,24,40,.10)!important
+}
+
 @media(max-width:767px){
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e),
  html.okla-home-retail:not(#okla-hr-a#okla-hr-b#okla-hr-c#okla-hr-d#okla-hr-e) body.type-index{background-color:#fcfcfc!important}
