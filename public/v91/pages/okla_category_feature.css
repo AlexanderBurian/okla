@@ -1,18 +1,50 @@
 /* OKLA – the best sellers band of a big category (okla_category_feature.js): a flat dark navy band across the content,
-   in it the homepage's own product slider (its cards and arrows unchanged); no heading shown, no gradients. */
+   in it the tile "Nejprodávanější" (flat blue, no gradient) and the homepage's own product slider. Only whole cards are
+   ever seen (each place exactly one slider step wide); the arrows sit inside the band, at its edges. */
 #okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d){
-  display:block;margin:18px -20px 24px;padding:20px;background:#0b2540;box-sizing:border-box
+  position:relative;display:block;margin:32px -20px 28px;padding:20px;background:#0b2540;box-sizing:border-box
 }
 #okla-cat-feature .okla-catfeat__heading:not(#ocf-a#ocf-b#ocf-c#ocf-d){
   position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;
   clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important
 }
 #okla-cat-feature.is-loading:not(#ocf-a#ocf-b#ocf-c#ocf-d){min-height:470px}
-/* the slider inside the band: no frame of its own, white cards on the navy */
-#okla-cat-feature .okla-slider-shell:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e){margin:0!important;background:transparent!important;box-shadow:none!important}
-#okla-cat-feature .okla-slider-viewport:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e){padding-top:0!important;padding-bottom:0!important;background:transparent!important}
-#okla-cat-feature .okla-slider-track>.product:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e){background:#fff!important;border-radius:8px!important}
-@media(max-width:767px){
-  #okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d){margin:14px -10px 20px;padding:14px 10px}
-  #okla-cat-feature.is-loading:not(#ocf-a#ocf-b#ocf-c#ocf-d){min-height:395px}
+
+/* the tile */
+#okla-cat-feature .okla-catfeat__promo:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){
+  display:flex!important;flex-direction:column;justify-content:center;gap:12px;min-width:0;padding:26px 22px;border-radius:8px;
+  background:#0859d8!important;background-image:none!important;color:#fff;box-sizing:border-box;scroll-snap-align:none
 }
+#okla-cat-feature .okla-catfeat__kicker{align-self:flex-start;padding:5px 10px;border-radius:6px;background:#ffd800;color:#0b2540;-webkit-text-fill-color:#0b2540;font:800 12.5px/1 "Open Sans",Arial,sans-serif}
+#okla-cat-feature .okla-catfeat__title:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){margin:0;color:#fff;-webkit-text-fill-color:#fff;font:800 26px/1.15 "Open Sans",Arial,sans-serif;letter-spacing:-.01em;text-transform:none}
+#okla-cat-feature .okla-catfeat__text:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){margin:0;color:#e3ecfc;-webkit-text-fill-color:#e3ecfc;font:400 14.5px/1.45 "Open Sans",Arial,sans-serif}
+#okla-cat-feature .okla-catfeat__btn:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){display:inline-flex;align-self:flex-start;align-items:center;height:42px;margin-top:6px;padding:0 20px;border-radius:8px;background:#fff;color:#0859d8;-webkit-text-fill-color:#0859d8;font:700 14.5px/1 "Open Sans",Arial,sans-serif;text-decoration:none;transition:background-color .15s ease}
+#okla-cat-feature .okla-catfeat__btn:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j):hover{background:#eaf1fd}
+
+/* the slider inside the band: no frame of its own, white cards on the navy */
+#okla-cat-feature .okla-slider-shell:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:relative!important;margin:0!important;background:transparent!important;box-shadow:none!important}
+#okla-cat-feature .okla-slider-viewport:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){padding-top:0!important;padding-bottom:0!important;background:transparent!important}
+#okla-cat-feature .okla-slider-track>.product:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){background:#fff!important;border-radius:8px!important}
+@media(min-width:768px){
+  /* every place (tile or card) exactly as wide as the slider counts with: whole cards only, no fifth peeking in */
+  #okla-cat-feature .okla-slider-track>:is(.product,.okla-catfeat__promo):not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){flex:0 0 var(--okla-card-width)!important;width:var(--okla-card-width)!important;min-width:0!important;max-width:none!important;margin:0!important}
+  /* the arrows inside the band, at its very edges (never over its border); none to the left while the tile is first */
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:static!important;display:block!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:absolute!important;top:50%!important;bottom:auto!important;margin:-32px 0 0!important;transform:none!important;z-index:3!important;pointer-events:auto!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){left:-20px!important;right:auto!important;border-radius:0 6px 6px 0!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){right:-20px!important;left:auto!important;border-radius:6px 0 0 6px!important}
+  #okla-cat-feature.has-tile .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){display:none!important}
+}
+@media(max-width:767px){
+  #okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d){margin:22px -10px 20px;padding:14px 10px}
+  #okla-cat-feature.is-loading:not(#ocf-a#ocf-b#ocf-c#ocf-d){min-height:395px}
+  #okla-cat-feature .okla-catfeat__promo:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){margin:0 0 12px;padding:18px 16px;gap:8px}
+  #okla-cat-feature .okla-catfeat__title:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){font-size:22px}
+  #okla-cat-feature .okla-catfeat__text:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){font-size:13.5px}
+  #okla-cat-feature .okla-catfeat__btn:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){height:38px;margin-top:2px}
+}
+
+/* the card width the slider counts its step with (5 places on PC, 3 on a tablet): the site-wide card rule
+   (okla_cards_everywhere.css: four in a row) would leave a fifth card peeking in and the step out of line */
+@media(min-width:992px){html body #okla-cat-feature .okla-slider-track.okla-slider-track:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){--okla-card-width:calc((100% - 56px) / 5)!important;column-gap:14px!important;gap:14px!important}}
+@media(min-width:768px) and (max-width:991px){html body #okla-cat-feature .okla-slider-track.okla-slider-track:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){--okla-card-width:calc((100% - 28px) / 3)!important;column-gap:14px!important;gap:14px!important}}
