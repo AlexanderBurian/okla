@@ -9,11 +9,11 @@ html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagina
 html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagination__link:is(:active,:focus-visible){background:#0751c6!important;border-color:#0751c6!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
 
 /* the paging built by okla_listing_ui.js ("‹ 1 2 3 … 9 ›") and the row under the products as on the big shops:
-   "Nahoru" on the left, the pages on the right, "Načíst další" centred under them */
+   "Nahoru" on the left, the pages on the right; no "Načíst další" button; the numbers have no hover */
 html body #content .listingControls:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f){display:grid!important;grid-template-columns:auto 1fr!important;align-items:center!important;column-gap:16px!important;row-gap:18px!important}
 html body #content .listingControls:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f)>.goToTop{grid-column:1!important;grid-row:1!important;justify-self:start!important;position:static!important;margin:0!important;float:none!important}
 html body #content .listingControls:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f)>.pagination{grid-column:2!important;grid-row:1!important;justify-self:end!important;margin:0!important;float:none!important}
-html body #content .listingControls:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f)>.loadMore{grid-column:1/-1!important;grid-row:2!important;justify-self:center!important;margin:0!important;float:none!important}
+html body #content .listingControls:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f)>.loadMore{display:none!important}
 html body #content .goToTop:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .goToTop__button{display:inline-flex!important;align-items:center!important;gap:7px!important;width:auto!important;height:auto!important;min-height:0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:600 14px/1.2 "Open Sans",Arial,sans-serif!important;text-decoration:underline!important;text-underline-offset:3px!important}
 html body #content .goToTop:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .goToTop__button::before{content:""!important;display:block!important;position:static!important;width:0!important;height:0!important;margin:0!important;border-style:solid!important;border-color:transparent transparent currentColor!important;border-width:0 5px 6px!important;background:none!important;transform:none!important}
 html body #content .goToTop:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .goToTop__button::after{content:none!important}
@@ -25,4 +25,3 @@ html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) :is(.okla-
 html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .okla-pg__gap{min-width:20px!important;padding:0!important;color:#5a6473!important;-webkit-text-fill-color:#5a6473!important}
 html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .okla-pg__num.is-current{background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
 html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .okla-pg__arrow svg{display:block!important;width:9px!important;height:15px!important}
-@media(hover:hover){html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) a:is(.okla-pg__num,.okla-pg__arrow):hover{background:#eef3fc!important}}

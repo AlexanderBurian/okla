@@ -48,3 +48,24 @@
    (okla_cards_everywhere.css: four in a row) would leave a fifth card peeking in and the step out of line */
 @media(min-width:992px){html body #okla-cat-feature .okla-slider-track.okla-slider-track:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){--okla-card-width:calc((100% - 56px) / 5)!important;column-gap:14px!important;gap:14px!important}}
 @media(min-width:768px) and (max-width:991px){html body #okla-cat-feature .okla-slider-track.okla-slider-track:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){--okla-card-width:calc((100% - 28px) / 3)!important;column-gap:14px!important;gap:14px!important}}
+
+/* PC: exactly four places in view (the tile and three cards, then four cards) - the row is made a quarter wider than
+   what is seen, so the slider's own step (it counts five places in the row) is exactly one of the four; the same space
+   above and under the cards; the arrows larger, in the band's side margins, clear of the cards */
+@media(min-width:992px){
+  #okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){padding:24px 64px!important}
+  #okla-cat-feature .okla-slider-viewport:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){padding:0!important}
+  html body #okla-cat-feature .okla-slider-track.okla-slider-track:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){width:calc(125% + 3.5px)!important;max-width:none!important;min-width:0!important;padding:0!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){width:40px!important;min-width:40px!important;max-width:40px!important;flex:0 0 40px!important;height:76px!important;min-height:76px!important;max-height:76px!important;margin:-38px 0 0!important;border-radius:8px!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){left:-52px!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){right:-52px!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button svg:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){width:22px!important;height:22px!important}
+}
+
+/* the tile's name never broken inside a word: a little smaller, the tile a little less padded */
+#okla-cat-feature .okla-catfeat__title:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){overflow-wrap:normal!important;word-break:normal!important;hyphens:manual!important}
+@media(min-width:992px){
+  #okla-cat-feature .okla-catfeat__promo:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){padding:24px 18px!important}
+  #okla-cat-feature .okla-catfeat__title:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){font-size:21px!important;line-height:1.2!important}
+  #okla-cat-feature .okla-catfeat__text:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){font-size:14px!important}
+}
