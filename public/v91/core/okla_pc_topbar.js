@@ -51,17 +51,17 @@
    btn.addEventListener('click',function(e){e.stopPropagation();set(menu.hidden)});
    wrap.append(btn,menu);return wrap;
   }
-  function option(text,current,extra){var o=el('button','okla-topbar__opt'+(current?' is-current':''));o.type='button';o.setAttribute('role','menuitemradio');o.setAttribute('aria-checked',current?'true':'false');var s=el('span');s.textContent=text;o.appendChild(s);if(extra){var x=el('small');x.textContent=extra;o.appendChild(x)}o.insertAdjacentHTML('beforeend',CHECK);return o}
+  function option(text,current,extra,icon){var o=el('button','okla-topbar__opt'+(current?' is-current':''));o.type='button';o.setAttribute('role','menuitemradio');o.setAttribute('aria-checked',current?'true':'false');if(icon)o.insertAdjacentHTML('beforeend',icon);var s=el('span');s.textContent=text;o.appendChild(s);if(extra){var x=el('small');x.textContent=extra;o.appendChild(x)}o.insertAdjacentHTML('beforeend',CHECK);return o}
   document.addEventListener('click',function(e){if(open&&!bar.contains(e.target))open(false)});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)open(false)});
   /* the currency: the shop sells in Czech crowns; the euro is announced, not yet selectable */
   tools.appendChild(dropdown(ICON.cash,'CZK','Měna: česká koruna',function(menu){
-   menu.appendChild(option('CZK – česká koruna',true));
-   var eur=option('EUR – euro',false,'připravujeme');eur.disabled=true;eur.setAttribute('aria-disabled','true');menu.appendChild(eur);
+   menu.appendChild(option('CZK',true,'',ICON.cash));
+   var eur=option('EUR',false,'připravujeme',ICON.cash);eur.disabled=true;eur.setAttribute('aria-disabled','true');menu.appendChild(eur);
   }));
   /* prices with or without VAT: for now only the choice itself - the prices stay as the shop counts them */
   tools.appendChild(dropdown(ICON.receipt,'s DPH','Ceny s DPH nebo bez DPH',function(menu,setLabel,close){
-   var gross=option('Ceny s DPH',true),net=option('Ceny bez DPH',false);
+   var gross=option('s DPH',true,'',ICON.receipt),net=option('bez DPH',false,'',ICON.receipt);
    function pick(isNet){gross.classList.toggle('is-current',!isNet);net.classList.toggle('is-current',isNet);gross.setAttribute('aria-checked',String(!isNet));net.setAttribute('aria-checked',String(isNet));setLabel(isNet?'bez DPH':'s DPH');close()}
    gross.addEventListener('click',function(){pick(false)});net.addEventListener('click',function(){pick(true)});
    menu.append(gross,net);

@@ -1,0 +1,53 @@
+/* OKLA – the best sellers band of a big category (okla_category_feature.js): a dark navy band across the content card,
+   a blue tile on the left, white product cards in a row on the right with blue arrows at its edges. */
+#okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d){
+  display:grid;grid-template-columns:240px minmax(0,1fr);gap:14px;align-items:stretch;
+  margin:18px -20px 24px;padding:20px;background:#0b2540;box-sizing:border-box
+}
+#okla-cat-feature .okla-catfeat__promo{
+  display:flex;flex-direction:column;justify-content:center;gap:12px;min-width:0;padding:28px 26px;border-radius:10px;
+  background:linear-gradient(150deg,#0859d8 0%,#0751c6 38%,#0b2540 100%);color:#fff;box-sizing:border-box
+}
+#okla-cat-feature .okla-catfeat__kicker{align-self:flex-start;padding:5px 10px;border-radius:6px;background:#ffd800;color:#0b2540;-webkit-text-fill-color:#0b2540;font:800 12.5px/1 "Open Sans",Arial,sans-serif;letter-spacing:.01em}
+#okla-cat-feature .okla-catfeat__title{margin:0;color:#fff;-webkit-text-fill-color:#fff;font:800 28px/1.12 "Open Sans",Arial,sans-serif;letter-spacing:-.015em}
+#okla-cat-feature .okla-catfeat__text{margin:0;color:#dbe7ff;-webkit-text-fill-color:#dbe7ff;font:400 14.5px/1.45 "Open Sans",Arial,sans-serif}
+#okla-cat-feature .okla-catfeat__btn:not(#ocf-a#ocf-b){display:inline-flex;align-self:flex-start;align-items:center;height:42px;margin-top:6px;padding:0 20px;border-radius:8px;background:#fff;color:#0859d8;-webkit-text-fill-color:#0859d8;font:700 14.5px/1 "Open Sans",Arial,sans-serif;text-decoration:none;transition:background-color .15s ease}
+#okla-cat-feature .okla-catfeat__btn:hover{background:#eaf1fd}
+
+#okla-cat-feature .okla-catfeat__rail{position:relative;min-width:0}
+#okla-cat-feature .okla-catfeat__track:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f){
+  display:flex!important;flex-wrap:nowrap!important;gap:12px!important;width:100%!important;height:100%;margin:0!important;padding:0!important;
+  overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x proximity;transform:none!important;
+  scrollbar-width:none;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;grid-template-columns:none!important
+}
+#okla-cat-feature .okla-catfeat__track::-webkit-scrollbar{display:none}
+#okla-cat-feature .okla-catfeat__track>.product:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f){
+  display:block!important;flex:0 0 calc((100% - 24px) / 3)!important;width:calc((100% - 24px) / 3)!important;max-width:none!important;min-width:0!important;margin:0!important;scroll-snap-align:start;
+  border-radius:8px;overflow:hidden;background:#fff
+}
+#okla-cat-feature .okla-catfeat__track>.product>.p:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f){height:100%;border:0;border-radius:8px;box-shadow:none;background:#fff;box-sizing:border-box}
+
+#okla-cat-feature .okla-catfeat__arrow:not(#ocf-a#ocf-b#ocf-c){
+  position:absolute;top:50%;z-index:2;display:grid;place-items:center;width:34px;height:56px;margin:-28px 0 0;padding:0;border:0;border-radius:6px;
+  background:#0859d8;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25);cursor:pointer;transition:opacity .15s ease,background-color .15s ease
+}
+#okla-cat-feature .okla-catfeat__arrow--prev{left:-8px}
+#okla-cat-feature .okla-catfeat__arrow--next{right:-8px}
+#okla-cat-feature .okla-catfeat__arrow svg{display:block;width:10px;height:16px}
+#okla-cat-feature .okla-catfeat__arrow:hover{background:#0751c6!important}
+/* while the best sellers load, the band already holds its place (the listing under it does not jump) */
+#okla-cat-feature.is-loading .okla-catfeat__rail{min-height:440px}
+#okla-cat-feature .okla-catfeat__arrow:disabled{opacity:0;pointer-events:none}
+
+/* phones: the tile over the row, the row moved by the finger (two cards and the edge of the third), no arrows; the band
+   from screen edge to screen edge, its content on the 10 px lines */
+@media(max-width:767px){
+  #okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d){grid-template-columns:minmax(0,1fr);gap:12px;margin:14px -10px 20px;padding:16px 10px}
+  #okla-cat-feature .okla-catfeat__promo{padding:18px 16px;gap:8px}
+  #okla-cat-feature .okla-catfeat__title{font-size:22px}
+  #okla-cat-feature .okla-catfeat__text{font-size:13.5px}
+  #okla-cat-feature .okla-catfeat__btn:not(#ocf-a#ocf-b){height:38px;margin-top:2px}
+  #okla-cat-feature .okla-catfeat__track>.product:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f){flex:0 0 calc((100vw - 32px) / 2.2)!important;width:calc((100vw - 32px) / 2.2)!important}
+  #okla-cat-feature .okla-catfeat__arrow:not(#ocf-a#ocf-b#ocf-c){display:none}
+  #okla-cat-feature.is-loading .okla-catfeat__rail{min-height:367px}
+}

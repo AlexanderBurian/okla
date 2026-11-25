@@ -1,0 +1,9 @@
+/* Listings (categories, search): the paging in Okla blue - the current page a solid #0859d8 square with a white number,
+   the other numbers turn the same blue (white number) when pointed at, the arrows outlined in the same blue */
+html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagination__currentPage{background:#0859d8!important;border-color:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagination__link:is(.pagination__link--first,.pagination__link--last,:not([class*="--"])){color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;transition:background-color .15s ease,color .15s ease!important}
+html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagination__link:is(.pagination__link--prev,.pagination__link--next){border-color:#0859d8!important;color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+@media(hover:hover){
+  html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagination__link:hover{background:#0859d8!important;border-color:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
+}
+html body #content .pagination:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .pagination__link:is(:active,:focus-visible){background:#0751c6!important;border-color:#0751c6!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
