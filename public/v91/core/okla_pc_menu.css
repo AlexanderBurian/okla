@@ -11,10 +11,10 @@
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link,
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li:is(:first-child,:last-child) .okcb-link{
     display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important;width:auto!important;min-height:50px!important;padding:0!important;
-    color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;
+    color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:700 16.5px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:-.005em!important;
     text-align:left!important;white-space:nowrap!important;background:transparent!important;transition:color .15s ease!important
   }
-  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-chev{display:block!important;flex:none!important;width:11px!important;height:7px!important;margin:1px 0 0!important;color:#6b7686!important;transition:transform .2s ease,color .15s ease!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-chev{display:block!important;flex:none!important;width:12px!important;height:8px!important;margin:2px 0 0 1px!important;color:#6b7686!important;transition:transform .2s ease,color .15s ease!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li.is-open .okcb-link,
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link.is-current{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li.is-open .okcb-chev{color:#0859d8!important;transform:rotate(180deg)!important}
