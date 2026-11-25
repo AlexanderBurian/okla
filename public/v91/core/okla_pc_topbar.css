@@ -47,4 +47,17 @@
   }
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tab::before{left:-18px!important;--okla-tb-cx:0%}
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tab::after{right:-18px!important;--okla-tb-cx:100%}
+  /* the right end of the band */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tools{display:flex!important;align-items:center!important;gap:28px!important;margin:0 0 0 auto!important;padding:0!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool{
+    display:inline-flex!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;
+    font:500 14px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;transition:color .15s ease!important
+  }
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool svg{
+    display:block!important;flex:none!important;width:19px!important;height:19px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important
+  }
+  @media(hover:hover){
+    html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool:hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+  }
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important;border-radius:3px!important}
 }

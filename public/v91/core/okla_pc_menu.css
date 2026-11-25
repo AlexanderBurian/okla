@@ -48,7 +48,7 @@
   html.okcb-open.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d)::before{border-bottom-color:transparent!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel::before{border:0!important;box-shadow:none!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel,html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in{border:0!important;box-shadow:none!important}
-  html.okla-catbar-on .okcb-dim:not([hidden]):not(#opm-a#opm-b){background:rgba(8,29,58,.55)!important}
+  html.okla-catbar-on .okcb-dim:not([hidden]):not(#opm-a#opm-b){background:rgba(6,14,28,.72)!important}
 }
 
 /* more air: the menu row taller and a little further from the header row (as on the reference shop); "Zobrazit vše"
