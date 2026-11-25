@@ -4,7 +4,7 @@
    never see the bar. */
 @media(min-width:992px){
   /* the row: white, a fine line under it, no dividers */
-  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d)::before{background:#fff!important;border-top:0!important;border-bottom:1px solid #e3e7ed!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d)::before{background:#fff!important;border-top:0!important;border-bottom:0!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-list{justify-content:space-between!important;align-items:center!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li{flex:0 0 auto!important}
   html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li::after{content:none!important;display:none!important}

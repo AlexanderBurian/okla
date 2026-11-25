@@ -39,3 +39,15 @@ html.okla-search-open .okla-search-panel{display:block}
 @media(max-width:991px){
  .okla-search-overlay,.okla-search-panel{display:none!important}
 }
+
+/* PC search, final: one light, even veil - no blur - over the whole page and the header alike (both drawn with the
+   same colour, so the header and the page beneath it are dimmed exactly the same); only the field and its suggestions
+   stay bright above it. While searching, the category menu does not open and its panel / its own veil are hidden. */
+@media(min-width:992px){
+  html.okla-search-open .okla-search-overlay:not(#osr-a#osr-b){background:rgba(6,14,28,.32)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html.okla-search-open body #header#header:not(#osr-a#osr-b)::after{background:rgba(6,14,28,.32)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html.okla-search-open body #header #okla-catbar:not(#osr-a#osr-b) .okcb-list{pointer-events:none!important}
+  html.okla-search-open body #header #okla-catbar:not(#osr-a#osr-b) .okcb-panel{display:none!important}
+  html.okla-search-open body .okcb-dim:not(#osr-a#osr-b){display:none!important}
+  html.okla-search-open body #header #okla-catbar:not(#osr-a#osr-b) :is(.okcb-link,.okcb-chev){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
+}

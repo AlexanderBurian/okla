@@ -104,6 +104,8 @@
    });
   }
   function open(i){
+   /* not while the search is open (its suggestions are what the visitor is looking at) */
+   if(document.documentElement.classList.contains('okla-search-open'))return;
    clearTimeout(tClose);if(openIdx===i)return;openIdx=i;
    [].forEach.call(ul.children,function(li,k){li.firstChild.setAttribute('aria-expanded',k===i?'true':'false');li.classList.toggle('is-open',k===i)});
    render(i);panel.hidden=false;dim.hidden=false;document.documentElement.classList.add('okcb-open');
