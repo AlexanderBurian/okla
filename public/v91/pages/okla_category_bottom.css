@@ -38,11 +38,9 @@
   #okla-cat-more .okla-slider-shell:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){position:relative!important}
   #okla-cat-more .okla-slider-shell>.okla-slider-controls:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){position:static!important;display:block!important}
   #okla-cat-more .okla-slider-shell>.okla-slider-controls>button:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){position:absolute!important;top:50%!important;bottom:auto!important;margin:-32px 0 0!important;transform:none!important;z-index:3!important;pointer-events:auto!important}
-  #okla-cat-more .okla-slider-shell:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){padding:0 52px!important}
-  #okla-cat-more .okla-slider-shell>.okla-slider-controls>button:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){width:40px!important;min-width:40px!important;max-width:40px!important;flex:0 0 40px!important;height:76px!important;min-height:76px!important;max-height:76px!important;margin:-38px 0 0!important;border-radius:8px!important}
-  #okla-cat-more .okla-slider-shell>.okla-slider-controls>button svg:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){width:22px!important;height:22px!important}
-  #okla-cat-more .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){left:0!important;right:auto!important}
-  #okla-cat-more .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){right:0!important;left:auto!important}
+  #okla-cat-more .okla-slider-shell:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){padding:0 32px!important}
+  #okla-cat-more .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){left:-20px!important;right:auto!important}
+  #okla-cat-more .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#oci-a#oci-b#oci-c#oci-d#oci-e#oci-f#oci-g#oci-h#oci-i#oci-j#oci-k#oci-l){right:-20px!important;left:auto!important}
 }
 
 /* PC: the category's head with more air - the title, its text and the subcategory tiles further apart */

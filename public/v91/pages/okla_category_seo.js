@@ -185,8 +185,13 @@
  function run(){
   if(!document.body.classList.contains('type-category'))return true;
   var p=location.pathname;if(p.charAt(p.length-1)!=='/')p+='/';
-  var t=T[p];if(!t||!/^cs/.test(lang()))return true;
+  /* the listing's further pages (/strana-N/) have the same head as the first one: the same intro, and the title
+     without the shop's ", Strana N" (the page's own <title> keeps it) */
+  p=p.replace(/strana-\d+\/$/,'');
   var h1=document.querySelector('#content h1');if(!h1)return false;
+  [].forEach.call(h1.childNodes,function(n){if(n.nodeType===3&&/,\s*Strana\s+\d+/i.test(n.nodeValue))n.nodeValue=n.nodeValue.replace(/,\s*Strana\s+\d+\s*/i,'')});
+  [].forEach.call(h1.querySelectorAll('*'),function(e){if(e.children.length===0&&/,\s*Strana\s+\d+/i.test(e.textContent))e.textContent=e.textContent.replace(/,\s*Strana\s+\d+\s*/i,'')});
+  var t=T[p];if(!t||!/^cs/.test(lang()))return true;
   /* (Shoptet's "no products yet" box carries the same class: it is not a description) */
   var perex=document.querySelector('#content .category-perex:not(.empty-content)');
   var hasOwn=perex&&(perex.textContent||'').replace(/\s+/g,'').length>20;
