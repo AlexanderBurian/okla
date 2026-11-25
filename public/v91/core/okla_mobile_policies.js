@@ -6,7 +6,7 @@
  window.__oklaMobilePolishV113=true;
  var mobile=window.matchMedia('(max-width:767px)');
  var root=document.documentElement;
- var THEME='#ffffff'; // the top colour of every phone page (plain white)
+ var THEME=document.body&&document.body.classList.contains('type-index')?'#eef0f3':'#ffffff'; // the top colour of a phone page: the homepage's grey, elsewhere white
 
  function isCartOrCheckout(){
   var path=location.pathname.replace(/\/+/g,'/');
