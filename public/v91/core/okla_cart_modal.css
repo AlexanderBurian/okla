@@ -163,3 +163,10 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
 
 /* the cross scrolls with the content (okla_cart_modal.js puts it into the top part); no focus ring after a tap */
 #okla-cart-modal#okla-cart-modal .okla-cm__close:not(#cm-a#cm-b#cm-c#cm-d#cm-e#cm-f#cm-g#cm-h#cm-i#cm-j):focus:not(:focus-visible){outline:none!important;box-shadow:none!important}
+
+/* phones: the panel always reaches the very bottom of the screen - its height follows the visible screen (iPhone
+   Safari's moving bars), the button row keeps clear of the home indicator, and a white fill under it closes any gap */
+@media(max-width:767px){
+  #okla-cart-modal#okla-cart-modal .okla-cm__box:not(#cm-a#cm-b#cm-c){top:0!important;bottom:0!important;height:100%!important;height:100dvh!important;max-height:none!important}
+  #okla-cart-modal#okla-cart-modal .okla-cm__foot:not(#cm-a#cm-b#cm-c){padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;box-shadow:0 120px 0 0 #fff!important}
+}

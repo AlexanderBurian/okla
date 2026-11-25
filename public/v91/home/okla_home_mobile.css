@@ -1,16 +1,13 @@
 /* Homepage on phones:
-   - one grey page down to the footer (the footer white);
+   - the page white from the top to the footer;
    - "Novinky" as one row the finger moves (a card and the edge of the next), on the 10 px rail;
    - "2 roky záruka" as a light blue band across the whole screen, its text and button on the 10 px rail;
    - the banner's text a little more to the left, the gift a little more to the right. */
 @media(max-width:767px){
-  /* one grey page (the PC's grey) from the top to the footer; the footer white. Headings and product rows sit right on
-     it (no white bands, no shadows, no gaps between white blocks); the product cards, category circles and deal cards white */
-  html.okla-home-retail:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i),html body.type-index:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background-color:#eef0f3!important;background-image:none!important}
-  html body.type-index #header #okla-v61-header:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background:#eef0f3!important;box-shadow:none!important}
+  /* a white page from the top to the footer; headings and product rows sit right on it (no bands, no shadows) */
+  html.okla-home-retail:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i),html body.type-index:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background-color:#fff!important;background-image:none!important}
+  html body.type-index #header #okla-v61-header:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background:#fff!important;box-shadow:none!important}
   html body.type-index #content#content>:is(.homepage-group-title,.okla-slider-shell):not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background:transparent!important;box-shadow:none!important;border:0!important}
-  html body.type-index #content #okla-cat-circles:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okcc-circle{background-color:#fff!important}
-  html body.type-index #content #okla-deals:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i) .okd-card{background-color:#fff!important}
   html body.type-index #footer:not(#ohm-a#ohm-b#ohm-c#ohm-d#ohm-e#ohm-f#ohm-g#ohm-h#ohm-i){background:#fff!important}
 
   /* Novinky: one row */
