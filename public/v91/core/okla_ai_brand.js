@@ -21,7 +21,8 @@ function patch(host){
   +'.welcome-input{margin-top:0!important}'
   +'.assistant-avatar{overflow:visible!important;border-radius:0!important;background:transparent!important}'
   +'.assistant-avatar img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}'
-  +'textarea{font-size:16px!important}';
+  +'textarea{font-size:16px!important}'
+  +'@media(max-width:767px){.panel:not(.open)+.launcher{bottom:calc(var(--okla-mobile-bottom-clearance,68px) + 8px)!important}.panel.open{max-height:var(--okla-vv-height,100dvh)!important}}';
  root.appendChild(style);
 
  function apply(){

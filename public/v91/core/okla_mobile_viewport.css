@@ -1,0 +1,47 @@
+/* The last mobile viewport layer. It uses the live visual-viewport height published by okla_mobile_viewport.js, so
+   browser chrome in private mode and Instagram/Facebook WebViews cannot leave full-screen layers too tall or put the
+   fixed navigation over their final content. */
+@media(max-width:767px){
+ :root{
+  --okla-vv-height:100dvh;
+  --okla-mobile-bar-height:calc(56px + env(safe-area-inset-bottom,0px));
+  --okla-mobile-bottom-clearance:calc(var(--okla-mobile-bar-height) + 12px);
+ }
+
+ /* The final page content can always scroll completely above the persistent navigation. */
+ html.okla-tb-on body{box-sizing:border-box!important;padding-bottom:var(--okla-mobile-bar-height)!important}
+
+ /* A browser toolbar may expand/collapse without a layout-viewport resize. The bar remains attached to the currently
+    visible bottom edge; while a software keyboard is open it steps out instead of covering the focused control. */
+ html.okla-tb-on body #okla-v61-bottom{
+  height:var(--okla-mobile-bar-height)!important;
+  padding-bottom:env(safe-area-inset-bottom,0px)!important;
+  transform:translate3d(0,0,0)!important;
+  transition:transform .18s ease,visibility 0s linear 0s!important;
+ }
+ html.okla-vv-keyboard body #okla-v61-bottom{
+  transform:translate3d(0,110%,0)!important;visibility:hidden!important;pointer-events:none!important;
+  transition:transform .18s ease,visibility 0s linear .18s!important;
+ }
+
+ /* Full-screen UI follows the visible viewport, not the often stale 100vh reported by embedded browsers. */
+ html.okla-vv-ready body :is(#okla-v61-drawer,.okla-m-search,.okla-gal,#okla-cart-modal,.okla-ro,.okla-langdlg,.okla-search-overlay){
+  box-sizing:border-box!important;height:var(--okla-vv-height)!important;min-height:0!important;max-height:var(--okla-vv-height)!important;
+ }
+ html.okla-vv-ready body #okla-v61-drawer .okm61-drawer-panel{
+  box-sizing:border-box!important;height:100%!important;min-height:0!important;max-height:100%!important;
+ }
+ html.okla-vv-ready body #okla-v61-drawer .okm61-drawer-body{
+  box-sizing:border-box!important;padding-bottom:var(--okla-mobile-bottom-clearance)!important;
+ }
+ html.okla-vv-ready body .okla-m-search__body{box-sizing:border-box!important;padding-bottom:var(--okla-mobile-bottom-clearance)!important}
+
+ /* Bottom sheets and centred dialogs stay inside the same visible rectangle. */
+ html.okla-vv-ready body :is(#colorbox .okla-tool-dialog,#colorbox #dialogFormRating,.okla-cm__box,.okla-ro__card,.okla-langdlg__card){
+  max-height:calc(var(--okla-vv-height) - 24px)!important;overflow:auto!important;overscroll-behavior:contain!important;
+ }
+
+ /* A full-screen surface owns the bottom edge. Do not leave the site navigation between it and the browser UI. */
+ html:is(.okla-m-lock,.okla-gal-open,.okla-cm-lock,.okla-search-open,.okla-ai-open) body #okla-v61-bottom,
+ body.login-window-visible #okla-v61-bottom{visibility:hidden!important;pointer-events:none!important}
+}
