@@ -60,4 +60,18 @@
     html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool:hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
   }
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool:focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important;border-radius:3px!important}
+  /* the drop-downs */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__dd{position:relative!important;display:flex!important;align-items:center!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) button.okla-topbar__tool{height:auto!important;min-height:0!important;margin:0!important;padding:4px 0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;cursor:pointer!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool .okla-topbar__chev{display:block!important;flex:none!important;width:11px!important;height:7px!important;margin-left:2px!important;transition:transform .2s ease!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__dd.is-open .okla-topbar__chev{transform:rotate(180deg)!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__dd.is-open .okla-topbar__tool{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__menu{position:absolute!important;top:calc(100% + 10px)!important;right:0!important;z-index:9600!important;display:block!important;min-width:190px!important;margin:0!important;padding:6px!important;background:#fff!important;border:1px solid #e3e8ef!important;border-radius:12px!important;box-shadow:0 8px 22px rgba(11,37,64,.12)!important;box-sizing:border-box!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__menu[hidden]{display:none!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__opt{display:flex!important;align-items:center!important;gap:10px!important;width:100%!important;height:auto!important;min-height:0!important;margin:0!important;padding:9px 12px!important;border:0!important;border-radius:8px!important;background:none!important;box-shadow:none!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:500 14px/1.2 "Open Sans",Arial,sans-serif!important;text-align:left!important;text-decoration:none!important;white-space:nowrap!important;cursor:pointer!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__opt.is-current{font-weight:700!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__opt svg{display:block!important;flex:none!important;width:20px!important;height:20px!important;border:1px solid #e0e4ea!important;border-radius:50%!important;box-sizing:border-box!important}
+  @media(hover:hover){html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__opt:hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}}
+  /* the language lives in the band now: not in the header row as well */
+  html.okla-topbar-lang.okla-topbar-on body #header .header-top .navigation-buttons>.okla-exact-header:not(#otb-a#otb-b#otb-c#otb-d#otb-e#otb-f#otb-g)>.okla-header-locale{display:none!important}
 }

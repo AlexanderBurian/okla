@@ -18,7 +18,7 @@
   ['Kontakt','/kontakty/']
  ];
  var ICON={
-  gift:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M5 12v7.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V12M12 8v12.5M12 8c-1.2-2.8-4.6-4-5.8-2.4C5.1 7.1 7.7 8 12 8Zm0 0c1.2-2.8 4.6-4 5.8-2.4C18.9 7.1 16.3 8 12 8Z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg>',
   case:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18M11 12.5v1.5h2v-1.5"/></svg>',
   phone:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>',
   mail:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>'
@@ -36,15 +36,38 @@
   var tel=el('a','okla-topbar__contact',ICON.phone+'<span></span>');tel.href='tel:'+PHONE.replace(/\s+/g,'');tel.lastChild.textContent=PHONE;
   var mail=el('a','okla-topbar__contact',ICON.mail+'<span></span>');mail.href='mailto:'+MAIL;mail.lastChild.textContent=MAIL;
   tab.append(tel,mail);
+  /* the right end of the band: two drop-downs, as on the reference shop - the language (moved here from the header, so it
+     is not there twice) and "Pro firmy" (wholesale and advice, straight into the contact form with that subject) */
   var tools=el('div','okla-topbar__tools');
-  var signedIn=!document.querySelector('#navigation a[data-testid="signin"],.top-navigation-bar .top-nav-button-login');
-  if(!signedIn){
-   var gift=el('a','okla-topbar__tool',ICON.gift+'<span>5 % sleva po registraci</span>');gift.href='/registrace/';
-   gift.addEventListener('click',function(e){if(window.oklaRegisterOffer&&window.oklaRegisterOffer.show){e.preventDefault();window.oklaRegisterOffer.show()}});
-   tools.appendChild(gift);
+  var CHEV='<svg class="okla-topbar__chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 1.75 6 6.25l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var open=null;
+  function dropdown(icon,label,aria,fill){
+   var wrap=el('div','okla-topbar__dd');
+   var btn=el('button','okla-topbar__tool',icon+'<span></span>'+CHEV);btn.type='button';btn.querySelector('span').textContent=label;
+   btn.setAttribute('aria-haspopup','true');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label',aria);
+   var menu=el('div','okla-topbar__menu');menu.setAttribute('role','menu');menu.hidden=true;fill(menu);
+   function set(on){menu.hidden=!on;btn.setAttribute('aria-expanded',on?'true':'false');wrap.classList.toggle('is-open',on);if(on){if(open&&open!==set)open(false);open=set}else if(open===set)open=null}
+   btn.addEventListener('click',function(e){e.stopPropagation();set(menu.hidden)});
+   wrap.append(btn,menu);return wrap;
   }
-  var b2b=el('a','okla-topbar__tool',ICON.case+'<span>Velkoobchod</span>');b2b.href='/kontakt/?tema=velkoobchod#okla-contact-form';
-  tools.appendChild(b2b);
+  document.addEventListener('click',function(e){if(open&&!bar.contains(e.target))open(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&open)open(false)});
+  var L=window.oklaLang;
+  if(L){
+   tools.appendChild(dropdown(ICON.globe,({cs:'CZ',en:'EN',sk:'SK',hu:'HU'})[L.current]||L.current.toUpperCase(),'Jazyk webu: '+L.label[L.current],function(menu){
+    L.langs.forEach(function(code){
+     var o=el('button','okla-topbar__opt'+(code===L.current?' is-current':''));o.type='button';o.setAttribute('role','menuitem');o.setAttribute('lang',code);
+     o.appendChild(L.flag(code));var s=el('span');s.textContent=L.label[code];o.appendChild(s);
+     o.addEventListener('click',function(){L.choose(code)});menu.appendChild(o);
+    });
+   }));
+   document.documentElement.classList.add('okla-topbar-lang');
+  }
+  tools.appendChild(dropdown(ICON.case,'Pro firmy','Pro firmy',function(menu){
+   [['Velkoobchod a spolupráce','velkoobchod'],['Poradenství s výběrem','poradenstvi']].forEach(function(x){
+    var o=el('a','okla-topbar__opt');o.setAttribute('role','menuitem');o.href='/kontakt/?tema='+x[1]+'#okla-contact-form';o.textContent=x[0];menu.appendChild(o);
+   });
+  }));
   inner.append(nav,tools,tab);bar.appendChild(inner);
   header.insertBefore(bar,header.firstChild);
   document.documentElement.classList.add('okla-topbar-on');

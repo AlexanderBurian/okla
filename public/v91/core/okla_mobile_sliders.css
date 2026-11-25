@@ -28,3 +28,12 @@
   html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product .ratings-wrapper{margin-top:6px!important;margin-bottom:2px!important}
   html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f#oms-g#oms-h#oms-i#oms-j#oms-k#oms-l#oms-m#oms-n) .okla-slider-track>.product .availability{height:22px!important;min-height:22px!important;max-height:22px!important;margin-bottom:2px!important}
 }
+/* the endless row's copies (okla_v53 slider) are ordinary cards to look at */
+@media(max-width:767px){
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track>.product[data-okla-loop]{display:block!important;flex:0 0 calc((100vw - 30px) / 2.08)!important;width:calc((100vw - 30px) / 2.08)!important;margin:0!important;scroll-snap-align:start!important}
+}
+@media(min-width:768px){.okla-slider-track>.product[data-okla-loop]{display:none!important}}
+/* every card of a row is in the strip (the grid's "first four, the rest behind Zobrazit více" no longer applies) */
+@media(max-width:767px){
+  html body #content .okla-slider-shell:not(.okla-brands__shell):not(#oms-a#oms-b#oms-c#oms-d#oms-e#oms-f) .okla-slider-track>.product:not([data-okla-clone]){display:block!important}
+}
