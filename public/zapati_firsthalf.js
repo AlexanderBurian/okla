@@ -334,7 +334,7 @@ var BUNDLES=[
  /* The original storefront's own stylesheet (legacy v53): after every page's own bundles, where its <style> used to be added */
  ['31-legacy-css','all',['legacy/v53/zapati_firsthalf.css']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */
- ['99-later','all',['v91/core/okla_search.css','v91/core/okla_search.js','v91/core/okla_login_popup.css','v91/core/okla_login_popup.js','v91/core/okla_cart_modal.css','v91/core/okla_cart_modal.js','okla_footer.js','v91/core/okla_register_offer.css','v91/core/okla_register_offer.js']]
+ ['99-later','all',['v91/core/okla_photo2_map.js','v91/core/okla_photo2.js','v91/core/okla_search.css','v91/core/okla_search.js','v91/core/okla_login_popup.css','v91/core/okla_login_popup.js','v91/core/okla_cart_modal.css','v91/core/okla_cart_modal.js','okla_footer.js','v91/core/okla_register_offer.css','v91/core/okla_register_offer.js']]
 ];
 /*@end*/
 
