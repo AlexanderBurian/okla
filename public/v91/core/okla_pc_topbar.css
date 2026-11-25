@@ -90,3 +90,11 @@
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__opt:disabled{cursor:default!important;color:#8593a6!important;-webkit-text-fill-color:#8593a6!important}
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__opt svg.okla-topbar__check{border-radius:0!important}
 }
+@media(min-width:992px){
+  /* the drop-downs a size larger, as on the reference: 15 px text, 26 px icons, a wider gap */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tools{gap:44px!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) button.okla-topbar__tool{gap:10px!important;font:400 15px/1 "Open Sans",Arial,sans-serif!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool>svg:first-child{width:26px!important;height:18px!important;stroke-width:1.3!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool>svg:first-child[viewBox="0 0 24 24"]{width:21px!important;height:21px!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tool .okla-topbar__chev{width:14px!important;height:8px!important;margin-left:0!important}
+}
