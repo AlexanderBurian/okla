@@ -1,77 +1,63 @@
-/* OKLA – a category with many products (15 and more) opens with a dark band of its best sellers, as on the big shops:
-   on the left a tile "Nejprodávanější – <category>" with "Zobrazit vše" (down to the listing), on the right a row of the
-   category's ten best-selling products (the shop's own cards from the category sorted by "Nejprodávanější", so
-   "Do košíku" works as everywhere), moved by arrows on PC and by the finger on phones. First page of the category only. */
+/* OKLA – a category with many products (15 and more) opens with a dark band of its ten best sellers, as on the big shops:
+   only the cards, no tile or text around them. The cards are the shop's own (the category sorted by "Nejprodávanější",
+   so "Do košíku" works as everywhere) and the row is the homepage's own endless slider (window.__oklaSliderFor from the
+   loader: the same cards, arrows at the band's edges on PC, the finger on phones). First page of the category only.
+   window.oklaCatCards(url) is shared with okla_category_bottom.js: a page's product cards, ready to be put in a row. */
 (function(){
  'use strict';
  if(window.__oklaCatFeature)return;window.__oklaCatFeature=true;
  var b=document.body;
  if(!b||!/(^|\s)type-category(\s|$)/.test(b.className))return;
- if(/\/strana-\d+\/?$/.test(location.pathname))return;
  var MIN=15,COUNT=10;
  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
  function total(){var t=document.querySelector('#content .listItemsTotal');var m=t&&t.textContent.replace(/\s+/g,'').match(/\d+/);return m?Number(m[0]):0}
- var CHEV_L='<svg viewBox="0 0 10 16" aria-hidden="true"><path d="M8 2 2 8l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
- var CHEV_R='<svg viewBox="0 0 10 16" aria-hidden="true"><path d="m2 2 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
- /* the band goes in at once (its place held while the best sellers load), the cards come in when they are there */
- function build(title,top,wrap){
+ /* a page's product cards (parsed from its HTML, ids dropped, lazily loaded pictures given their real address) */
+ window.oklaCatCards=function(url){
+  return fetch(url,{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(html){
+   if(!html)return [];
+   var doc=new DOMParser().parseFromString(html,'text/html');
+   return [].slice.call(doc.querySelectorAll('#products > .product')).map(function(c){
+    var n=document.importNode(c,true);
+    n.querySelectorAll('[id]').forEach(function(x){x.removeAttribute('id')});n.removeAttribute('id');
+    n.querySelectorAll('img').forEach(function(im){var d=im.getAttribute('data-src')||im.getAttribute('data-lazy-src');if(d&&(!im.getAttribute('src')||/^data:/.test(im.getAttribute('src'))))im.setAttribute('src',d)});
+    return n;
+   });
+  }).catch(function(){return []});
+ };
+
+ function run(){
+  var top=document.querySelector('#content .category-top'),wrap=document.querySelector('#content .category-content-wrapper');
+  if(!top||!wrap||typeof window.__oklaSliderFor!=='function')return false;
+  if(/\/strana-\d+\/?$/.test(location.pathname))return true;
+  if(document.getElementById('okla-cat-feature'))return true;
+  if(!document.querySelector('#content .listItemsTotal'))return false;
+  if(total()<MIN)return true;
+  var title=((top.querySelector('.category-title')||{}).textContent||'').replace(/\s+/g,' ').trim();
+  /* the band holds its place while the cards load (the listing under it does not jump) */
   var sec=el('section','okla-catfeat is-loading');sec.id='okla-cat-feature';sec.setAttribute('aria-label','Nejprodávanější: '+title);
-  var promo=el('div','okla-catfeat__promo');
-  promo.appendChild(el('span','okla-catfeat__kicker','Nejprodávanější'));
-  promo.appendChild(el('h2','okla-catfeat__title',title));
-  promo.appendChild(el('p','okla-catfeat__text','Co si zákazníci v této kategorii kupují nejčastěji.'));
-  var go=el('a','okla-catfeat__btn','Zobrazit vše');go.href='#category-header';
-  go.addEventListener('click',function(e){var t=document.getElementById('category-header')||wrap;if(!t)return;e.preventDefault();var y=t.getBoundingClientRect().top+window.scrollY-120;window.scrollTo({top:Math.max(0,y),behavior:'smooth'})});
-  promo.appendChild(go);
-  var rail=el('div','okla-catfeat__rail');
-  var track=el('div','products products-block okla-catfeat__track');
-  function fill(cards){cards.forEach(function(c){
-   var n=document.importNode(c,true);
-   n.querySelectorAll('[id]').forEach(function(x){x.removeAttribute('id')});n.removeAttribute('id');
-   /* lazily loaded pictures of the fetched page: their real address */
-   n.querySelectorAll('img').forEach(function(im){var d=im.getAttribute('data-src')||im.getAttribute('data-lazy-src');if(d&&(!im.getAttribute('src')||/^data:/.test(im.getAttribute('src'))))im.setAttribute('src',d)});
-   track.appendChild(n);
-  });sec.classList.remove('is-loading');requestAnimationFrame(ends)}
-  var prev=el('button','okla-catfeat__arrow okla-catfeat__arrow--prev');prev.type='button';prev.setAttribute('aria-label','Předchozí produkty');prev.innerHTML=CHEV_L;
-  var next=el('button','okla-catfeat__arrow okla-catfeat__arrow--next');next.type='button';next.setAttribute('aria-label','Další produkty');next.innerHTML=CHEV_R;
-  function step(){var f=track.querySelector('.product');return f?(f.offsetWidth+12)*2:track.clientWidth*0.8}
-  prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'})});
-  next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'})});
-  function ends(){var x=track.scrollLeft,max=track.scrollWidth-track.clientWidth-2;prev.disabled=x<=2;next.disabled=x>=max}
-  track.addEventListener('scroll',ends,{passive:true});
-  rail.append(track,prev,next);
-  sec.append(promo,rail);
+  var heading=el('div','homepage-group-title h4 okla-catfeat__heading','Nejprodávanější');
+  sec.appendChild(heading);
   top.parentNode.insertBefore(sec,top.nextSibling);
-  /* the shop now and then writes the whole content anew (jQuery .html() on #content, e.g. after the filters wake up):
-     the band then goes back under the new category head - the same band, its cards already there. Not on the
-     listing's further pages (the shop's own paging changes the address). */
-  var dropped=false,mo=new MutationObserver(function(){
-   if(dropped||sec.isConnected)return;
+  /* the shop now and then writes the whole content anew (jQuery .html() on #content): the band then goes back under
+     the new category head - the same band, its slider already built */
+  var mo=new MutationObserver(function(){
+   if(sec.isConnected)return;
    if(/\/strana-\d+\/?$/.test(location.pathname)){mo.disconnect();return}
    var t=document.querySelector('#content .category-top');if(t)t.parentNode.insertBefore(sec,t.nextSibling);
   });
   var content=document.getElementById('content');
   if(content){mo.observe(content,{childList:true});if(content.parentNode)mo.observe(content.parentNode,{childList:true})}
-  return {fill:fill,drop:function(){dropped=true;mo.disconnect();if(sec.parentNode)sec.parentNode.removeChild(sec)}};
- }
-
- function run(){
-  var top=document.querySelector('#content .category-top'),wrap=document.querySelector('#content .category-content-wrapper');
-  if(!top||!wrap)return false;
-  if(document.getElementById('okla-cat-feature'))return true;
-  if(!document.querySelector('#content .listItemsTotal'))return false;
-  if(total()<MIN)return true;
-  var title=((top.querySelector('.category-title')||{}).textContent||'').replace(/\s+/g,' ').trim();
-  var band=build(title,top,wrap);
-  var url=location.pathname+'?order=bestseller';
-  fetch(url,{credentials:'same-origin'}).then(function(r){return r.ok?r.text():''}).then(function(html){
-   var doc=html&&new DOMParser().parseFromString(html,'text/html');
-   var cards=doc?[].slice.call(doc.querySelectorAll('#products > .product')).slice(0,COUNT):[];
-   if(cards.length<4)return band.drop();
-   band.fill(cards);
-  }).catch(function(){band.drop()});
+  window.oklaCatCards(location.pathname+'?order=bestseller').then(function(cards){
+   cards=cards.slice(0,COUNT);
+   if(cards.length<4){mo.disconnect();sec.remove();return}
+   var group=el('div','products products-block');
+   cards.forEach(function(c){group.appendChild(c)});
+   sec.appendChild(group);
+   window.__oklaSliderFor(group,heading);
+   sec.classList.remove('is-loading');
+  });
   return true;
  }
- var n=0;(function tick(){if(run())return;if(++n<40)setTimeout(tick,150)})();
+ var n=0;(function tick(){if(run())return;if(++n<60)setTimeout(tick,150)})();
 })();
