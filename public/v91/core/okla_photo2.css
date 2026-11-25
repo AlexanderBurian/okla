@@ -1,0 +1,7 @@
+/* PC product cards (okla_photo2.js): a product with one photo - the photo comes a little closer while the card is
+   pointed at, inside its own frame */
+@media(min-width:992px) and (hover:hover){
+  html body #content .product:not(#oph-a#oph-b#oph-c#oph-d#oph-e) a.image{overflow:hidden!important}
+  html body #content .product:not(#oph-a#oph-b#oph-c#oph-d#oph-e) a.image img{transition:scale .35s ease!important}
+  html body #content .product.okla-photo-zoom:not(#oph-a#oph-b#oph-c#oph-d#oph-e) a.image img{scale:1.06!important}
+}

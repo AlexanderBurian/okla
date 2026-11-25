@@ -285,3 +285,11 @@ html.okla-os-login-combo body #content#content .content-inner h1{font-size:24px!
    with Shoptet's form) and has no footer, on every screen size. */
 html.okla-os-pure-login #footer,
 html.okla-os-pure-login #okla-footer-shell{display:none!important}
+
+/* PC: the order-status page (with the sign-in under it) sits on a white island like every other page's content, not
+   straight on the grey page */
+@media(min-width:992px){
+  html body #content-wrapper main#content:has(.okla-order-status):not(#oos-a#oos-b#oos-c#oos-d#oos-e){
+    background:#fff!important;border-radius:14px!important;padding:44px 20px 56px!important;box-sizing:border-box!important;box-shadow:none!important
+  }
+}
