@@ -11,11 +11,23 @@
  var SKIP=/obchodni-podminky|kontakt|blog|clanky|newsroom/i;
  function nice(t){t=t.replace(/\s+/g,' ').trim();if(t===t.toUpperCase())t=t.charAt(0)+t.slice(1).toLowerCase();return t.replace(/ a nářadí$/i,'')}
  function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+ /* the menu's short names (one row, as on the reference shops); the full name stays as the link's label and tooltip */
+ var SHORT={'/elektronicke-multitooly/':'Multitooly','/chytra-elektronika/':'Chytrá elektronika','/merici-technika-a-naradi/':'Měřicí technika','/endoskopy-a-inspekcni-kamery/':'Endoskopy','/prakticke-vychytavky/':'Vychytávky','/designove-gadgety/':'Gadgety','/projektory-a-obraz/':'Projektory','/prislusenstvi/':'Příslušenství'};
+ function path(h){try{return new URL(h,location.href).pathname}catch(e){return h}}
+ var CHEV='<svg class="okcb-chev" viewBox="0 0 12 8" aria-hidden="true"><path d="M1.5 1.75 6 6.25l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+ var ALL_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+ /* the last tile of every panel: the whole category */
+ function allTile(c){
+  var box=el('div','okcb-sub okcb-sub--all');
+  var pic=el('span','okcb-sub__img okcb-sub__img--all');pic.innerHTML=ALL_ICON;
+  var body=el('div','okcb-sub__body');var t=el('a','okcb-sub__title','Zobrazit vše');t.href=c.href;t.setAttribute('aria-label','Zobrazit vše: '+c.label);body.appendChild(t);
+  box.append(pic,body);return box;
+ }
  function cats(){
   var out=[],seen={};
   [].forEach.call(document.querySelectorAll('#navigation .menu-level-1>li>a[href]'),function(a){
    var href=a.getAttribute('href'),t=nice(a.textContent||'');
-   if(!t||!href||href==='#'||SKIP.test(href)||seen[href])return;seen[href]=1;out.push({href:href,label:t});
+   if(!t||!href||href==='#'||SKIP.test(href)||seen[href])return;seen[href]=1;out.push({href:href,label:t,short:SHORT[path(href)]||t});
   });
   return out.slice(0,9);
  }
@@ -71,6 +83,7 @@
      if(line){var d=el('span','okcb-sub__desc',line);d.setAttribute('data-okla-i18n-skip','');body.appendChild(d)}
      box.append(pic,body);grid.appendChild(box);imgs[sc.href]={pic:pic,im:im};
     });
+    grid.appendChild(allTile(c));
     /* one photo per subcategory, never the same product twice (okla_subcats.js) */
     window.oklaSubcats.images(c.href,subs).then(function(map){
      Object.keys(imgs).forEach(function(h){var x=imgs[h];if(map[h]){x.im.src=map[h];x.im.classList.add('is-photo')}else x.pic.classList.add('is-empty')});
@@ -100,7 +113,7 @@
    [].forEach.call(ul.children,function(li){li.firstChild.setAttribute('aria-expanded','false');li.classList.remove('is-open')});
   }
   list.forEach(function(c,i){
-   var li=el('li','okcb-li'),a=el('a','okcb-link',c.label);a.href=c.href;a.setAttribute('aria-expanded','false');a.setAttribute('aria-controls','okla-catbar-panel');
+   var li=el('li','okcb-li'),a=el('a','okcb-link');a.innerHTML='<span class="okcb-label"></span>'+CHEV;a.firstChild.textContent=c.short;if(c.short!==c.label){a.setAttribute('aria-label',c.label);a.title=c.label}a.href=c.href;a.setAttribute('aria-expanded','false');a.setAttribute('aria-controls','okla-catbar-panel');
    li.appendChild(a);ul.appendChild(li);
    li.addEventListener('mouseenter',function(){clearTimeout(tClose);clearTimeout(tOpen);open(i)});
    a.addEventListener('focus',function(){open(i)});

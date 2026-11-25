@@ -1,0 +1,43 @@
+/* Okla – PC category menu (okla_catbar.js), as on the reference shop: one row of short category names in bold (the site has no capitals anywhere),
+   each with a small chevron; pointing at one turns it Okla blue (never green) and opens the white panel with its
+   subcategories (photo and name, no grey tiles) and a last "Zobrazit vše" tile; the page behind stays dimmed. Phones
+   never see the bar. */
+@media(min-width:992px){
+  /* the row: white, a fine line under it, no dividers */
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d)::before{background:#fff!important;border-top:0!important;border-bottom:1px solid #e3e7ed!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-list{justify-content:space-between!important;align-items:center!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li{flex:0 0 auto!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li::after{content:none!important;display:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link,
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li:is(:first-child,:last-child) .okcb-link{
+    display:inline-flex!important;align-items:center!important;justify-content:flex-start!important;gap:6px!important;width:auto!important;min-height:50px!important;padding:0!important;
+    color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:700 14px/1 "Open Sans",Arial,sans-serif!important;letter-spacing:0!important;
+    text-align:left!important;white-space:nowrap!important;background:transparent!important;transition:color .15s ease!important
+  }
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-chev{display:block!important;flex:none!important;width:11px!important;height:7px!important;margin:1px 0 0!important;color:#6b7686!important;transition:transform .2s ease,color .15s ease!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li.is-open .okcb-link,
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link.is-current{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-li.is-open .okcb-chev{color:#0859d8!important;transform:rotate(180deg)!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link.is-current .okcb-chev{color:#0859d8!important}
+  @media(hover:hover){
+    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link:hover,
+    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-link:hover .okcb-chev{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+  }
+
+  /* the panel: white, the subcategories as plain rows - photo and name - in four columns, no heading over them */
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in{padding-top:26px!important;padding-bottom:30px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-panel-in:has(.okcb-grid--subs) .okcb-head{display:none!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-grid--subs{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:20px!important;row-gap:18px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub{grid-template-columns:64px minmax(0,1fr)!important;column-gap:14px!important;padding:6px 10px 6px 6px!important;border-radius:12px!important;background:transparent!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__img{width:64px!important;height:64px!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__title{font:700 15px/1.3 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__desc{font-size:12.5px!important}
+  /* "Zobrazit vše": a light grey rounded square with three lines */
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__img--all{display:grid!important;place-items:center!important;border-radius:12px!important;background:#eef0f3!important;color:#46556a!important}
+  html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub__img--all svg{display:block!important;width:28px!important;height:28px!important}
+  @media(hover:hover){
+    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub:hover{background:#f4f7fc!important}
+    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub:hover .okcb-sub__title{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+    html.okla-catbar-on body #header #okla-catbar:not(#opm-a#opm-b#opm-c#opm-d) .okcb-sub--all:hover .okcb-sub__img--all{color:#0859d8!important}
+  }
+}

@@ -1,0 +1,43 @@
+/* Okla – PC only: the grey bar above the header and its rounded tab with the phone and e-mail (okla_pc_topbar.js).
+   Phones: never shown. */
+#okla-topbar{display:none!important}
+@media(min-width:992px){
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d){
+    display:block!important;position:relative!important;z-index:6!important;width:auto!important;margin:0!important;padding:0 0 24px!important;
+    background:transparent!important;border:0!important;box-sizing:border-box!important
+  }
+  /* the grey band across the whole window */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d)::before{
+    content:""!important;position:absolute!important;left:0!important;right:0!important;top:0!important;height:36px!important;background:#eef0f3!important;pointer-events:none!important
+  }
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__in{
+    position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;height:36px!important;margin:0!important;box-sizing:border-box!important
+  }
+  /* help links: small grey, a dot between them */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__links{display:flex!important;align-items:center!important;gap:0!important;margin:0!important;padding:0!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__link{
+    display:inline-flex!important;align-items:center!important;margin:0!important;padding:0!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;
+    font:400 13px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;transition:color .15s ease!important
+  }
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__link+.okla-topbar__link::before{
+    content:""!important;display:inline-block!important;width:3px!important;height:3px!important;margin:0 12px!important;border-radius:50%!important;background:#8593a6!important
+  }
+  /* the tab: hangs from the band at its right end, rounded at the bottom */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__tab{
+    position:absolute!important;right:0!important;top:36px!important;display:flex!important;align-items:center!important;gap:20px!important;height:30px!important;
+    margin:0!important;padding:0 16px 2px!important;background:#eef0f3!important;border-radius:0 0 12px 12px!important;box-sizing:border-box!important
+  }
+  /* the tab sits under the band's right end: the padding of the inner row is its right edge */
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__in>.okla-topbar__tab{right:var(--okla-topbar-r,0px)!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__contact{
+    display:inline-flex!important;align-items:center!important;gap:7px!important;margin:0!important;padding:0!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;
+    font:400 13px/1 "Open Sans",Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;transition:color .15s ease!important
+  }
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) .okla-topbar__contact svg{
+    display:block!important;flex:none!important;width:16px!important;height:16px!important;fill:none!important;stroke:#0859d8!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important
+  }
+  @media(hover:hover){
+    html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) :is(.okla-topbar__link,.okla-topbar__contact):hover{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
+  }
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d) :is(.okla-topbar__link,.okla-topbar__contact):focus-visible{outline:2px solid #0859d8!important;outline-offset:3px!important;border-radius:3px!important}
+}
