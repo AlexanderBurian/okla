@@ -37,7 +37,7 @@
   var base=window.__oklaAssetBase||'';
   var d=block(id,side,
    '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
-   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
+   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="1411" height="1671" decoding="async">'+
    '<span class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
    '<span class="okla-side-pod__sub">'+sub+'</span><span class="okla-side-pod__btn">Kup teď</span></span>'+
    '</a>');
@@ -50,15 +50,17 @@
  function podBackground(el){
   var r=el.getBoundingClientRect(),top=r.top+window.pageYOffset,k=r.height/1671;
   if(!(k>0))return;
-  var stops=['#0055d1 0px','#0055d1 '+Math.round(top)+'px'];
-  POD_BG.forEach(function(p){stops.push(p[1]+' '+Math.round(top+p[0]*k)+'px')});
+  var hd=document.getElementById('header'),hb=hd?hd.getBoundingClientRect().bottom+window.pageYOffset:0;
+  /* white under the header, turning into the stage's deep blue just as the picture begins */
+  var stops=['#ffffff 0px','#ffffff '+Math.round(hb)+'px','#cfe0fb '+Math.round(hb+(top-hb)*0.35)+'px','#0055d1 '+Math.round(top+40*k)+'px'];
+  POD_BG.forEach(function(p){if(p[0]>40)stops.push(p[1]+' '+Math.round(top+p[0]*k)+'px')});
   stops.push('#e6ecf6 '+Math.round(top+r.height+360)+'px');
   document.documentElement.style.setProperty('--okla-pod-bg','linear-gradient(180deg,'+stops.join(',')+')');
  }
  function buildPod(){
   document.documentElement.classList.add('okla-measure-pod');
   podBlock('okla-side-left','left','okla-measure-left.webp','FNIRSI · ANENG','Přesné měření pro dílnu i domov','Teploměry, vlhkoměry a testery');
-  podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte vzdálenost, vítr i lak','Dálkoměry, anemometry, tloušťkoměry');
+  podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte vzdálenost i vítr','Dálkoměry a anemometry');
  }
 
  function build(){
@@ -185,11 +187,12 @@
   right.classList.add('is-on');
   /* the podium stage: level with the content's top, its cut side under the content's edge, its own height */
   if(left.classList.contains('okla-side-art--pod')){
-   /* the picture fills the whole margin, from the window's edge to the content; the side where it cuts its podium
-      goes under the content (16 px), so the cut never shows */
-   var UNDER=16,pw=Math.ceil(space+UNDER);
+   /* the picture fills the margin: the supplied stage (two thirds, by the content - its cut podium side 16 px under the
+      content) and an outer third composed in the same style (one more floating podium with an instrument); it starts
+      140 px under the content's top, so the page above it can turn from the header's white into the blue smoothly */
+   var UNDER=16,DROP=140,pw=Math.ceil(space+UNDER);
    left.style.width=pw+'px';right.style.width=pw+'px';
-   left.style.top=right.style.top=(c.top+sy)+'px';
+   left.style.top=right.style.top=(c.top+sy+DROP)+'px';
    left.style.left=(c.left+sx-pw+UNDER)+'px';
    right.style.left=(c.right+sx-UNDER)+'px';
    card.style.minHeight='';
