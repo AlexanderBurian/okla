@@ -316,4 +316,22 @@
  ['ShoptetDataLayerUpdated','ShoptetCartUpdated','ShoptetDOMCartCountUpdated','ShoptetDOMCartContentLoaded'].forEach(function(eventName){
   document.addEventListener(eventName,schedule);
  });
+ /* the shop answers a removed or changed product by putting in a whole new cart (#cart-wrapper): everything of ours is
+    applied to it at once - in the same moment, before the page is painted - so the cart's top and its parts never
+    blink back to the shop's raw cart (the delayed passes above stay as a safety net) */
+ (window.__oklaCartRefresh=window.__oklaCartRefresh||[]).push(run);
+ if(window.MutationObserver&&document.body&&/(^|\s)in-kosik(\s|$)/.test(document.body.className)){
+  new MutationObserver(function(records){
+   for(var i=0;i<records.length;i++){
+    var added=records[i].addedNodes;
+    for(var j=0;j<added.length;j++){
+     var n=added[j];
+     if(n.nodeType===1&&(n.id==='cart-wrapper'||(n.querySelector&&n.querySelector('#cart-wrapper')))){
+      (window.__oklaCartRefresh||[]).forEach(function(fn){try{fn()}catch(e){}});
+      return;
+     }
+    }
+   }
+  }).observe(document.getElementById('content')||document.body,{childList:true,subtree:true});
+ }
 })();

@@ -129,7 +129,6 @@
   html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon{width:100%!important;max-width:none!important;align-self:stretch!important}
   html.okla-tb-on body.in-kosik #content .okla-cart-summary__coupon :is(.okla-cart-summary__coupon-body,.okla-coupon){width:100%!important;max-width:none!important}
   html.okla-tb-on body.in-kosik #content .okla-coupon__row{width:100%!important;max-width:none!important}
-  html.okla-tb-on body.in-kosik #content .okla-coupon__row .okla-coupon__input{flex:1 1 auto!important;width:auto!important;min-width:0!important;max-width:none!important}
 }
 /* Phones: articles keep the same 14px rail as the top bar and every other page (the article box adds no side padding
    of its own: title, text, pictures and products start where the logo starts) */

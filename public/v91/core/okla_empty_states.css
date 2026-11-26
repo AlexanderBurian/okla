@@ -170,3 +170,11 @@ html.okla-cart-is-empty body.in-kosik #okla-cart-recs:not(#okce-a#okce-b#okce-c)
   html body .okla-ce-step__dot:not(#okce-a#okce-b#okce-c#okce-d){width:30px;height:30px}
   html body .okla-cart-empty__main:not(#okce-a#okce-b#okce-c#okce-d){padding:36px 0 40px}
 }
+
+/* the empty cart with more air between its parts (the steps, the picture, the message, the button, the code) */
+html body .okla-cart-empty__main:not(#okce-a#okce-b#okce-c#okce-d#okce-e){padding-top:56px!important;padding-bottom:56px!important}
+html body .okla-cart-empty__pic:not(#okce-a#okce-b#okce-c#okce-d#okce-e){margin-bottom:32px!important}
+html body .okla-cart-empty__title:not(#okce-a#okce-b#okce-c#okce-d#okce-e){margin-bottom:24px!important}
+@media(min-width:768px){
+  html body .okla-cart-empty__main:not(#okce-a#okce-b#okce-c#okce-d#okce-e){padding-top:80px!important;padding-bottom:84px!important}
+}

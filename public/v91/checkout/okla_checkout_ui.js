@@ -537,6 +537,9 @@
  }
 
  /* When a product is added or removed the summary and the bar change: they are followed here. Changes inside the cards are ignored, so nothing loops. */
+ /* called at once (before the page is painted) when the shop puts in a new cart (okla_checkout_alza.js) */
+ (window.__oklaCartRefresh=window.__oklaCartRefresh||[]).push(refreshCart);
+
  function followCart(){
    if(window.__oklaCheckoutCartEvents)return;
    window.__oklaCheckoutCartEvents=true;

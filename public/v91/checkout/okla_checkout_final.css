@@ -51,10 +51,6 @@ html body.in-kosik input.okla-coupon__input:focus{
  outline:0!important;
  box-shadow:none!important;
 }
-html body.in-kosik .okla-coupon__btn{
- box-sizing:border-box!important;
- margin:0!important;
-}
 
 /* Centre the truck and message as one group inside the whole blue card. */
 

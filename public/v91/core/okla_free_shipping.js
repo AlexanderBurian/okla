@@ -141,6 +141,8 @@
     placeInCart();
   }
   function soon() { if (!queued) { queued = true; requestAnimationFrame(update); } }
+  /* also at once when the shop puts in a new cart (okla_checkout_alza.js), so the bar never blinks */
+  (window.__oklaCartRefresh = window.__oklaCartRefresh || []).push(function () { if (document.body && /(^|\s)in-kosik(\s|$)/.test(document.body.className)) update(); });
 
   function start() {
     if (!document.body || !/(^|\s)in-kosik(\s|$)/.test(document.body.className)) return;

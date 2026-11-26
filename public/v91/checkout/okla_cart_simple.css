@@ -59,18 +59,10 @@ html body.in-kosik .okla-coupon{
   border:1px solid #e1e6ed!important;border-radius:6px!important;background:#fff!important;
   box-shadow:none!important
 }
-html body.in-kosik .okla-coupon{
-  min-height:0!important;padding:18px!important
-}
 html body.in-kosik .okla-coupon__title{margin-bottom:10px!important;font-size:15px!important;text-align:left!important}
-html body.in-kosik .okla-coupon__title strong{color:#0b2540!important}
-html body.in-kosik .okla-coupon__row{padding-left:0!important;gap:8px!important}
 html body.in-kosik input.okla-coupon__input{
   height:42px!important;min-height:42px!important;padding:0 12px!important;line-height:40px!important;
   border:1px solid #cbd3dd!important;border-radius:5px!important;box-shadow:none!important
-}
-html body.in-kosik .okla-coupon__btn{
-  height:42px!important;min-height:42px!important;border-radius:5px!important;box-shadow:none!important
 }
 
 /* Delivery, payment and customer-data steps: flat selectable rows and a plain recap. */
@@ -466,7 +458,6 @@ html body.in-kosik #content#content .okla-cart-summary.is-coupon-open .okla-cart
 html body.in-kosik #content#content .okla-cart-summary__toggle:hover{text-decoration:underline!important;background:none!important}
 html body.in-kosik #content#content .okla-cart-summary__coupon-body{margin-top:12px!important;max-width:420px!important}
 html body.in-kosik #content#content .okla-cart-summary__coupon-body[hidden]{display:none!important}
-html body.in-kosik #content#content .okla-cart-summary__coupon-body .okla-coupon{margin:0!important;padding:0!important;background:none!important;border:0!important;box-shadow:none!important}
 html body.in-kosik #content#content .okla-cart-summary__coupon-body .okla-coupon__title{display:none!important}
 html body.in-kosik #content#content .okla-cart-summary__totals{display:grid!important;grid-template-columns:auto auto!important;column-gap:40px!important;row-gap:8px!important;align-items:baseline!important;margin-left:auto!important}
 html body.in-kosik #content#content .okla-cart-summary__row{display:contents!important}

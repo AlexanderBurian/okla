@@ -11,7 +11,6 @@ html body.in-kosik .okla-coupon__title strong{font-weight:800}
 
 html body.in-kosik .okla-coupon__input{height:44px;border:0;border-radius:999px;background:#fff;color:#0b2540;}
 html body.in-kosik .okla-coupon__input::placeholder{color:#6b7280}
-html body.in-kosik .okla-coupon__btn{border:0;background:#fff;color:#0b2540;font-size:14px;font-weight:600;cursor:pointer}
 html body.ordering-process .cart-header::before{top:65px;border-radius:3px;background-image:none;}
 html body.ordering-process .cart-header::after{top:65px;border-radius:3px;background-image:none;}
 html body.ordering-process .cart-header .step::before{border-width:4px;border-style:solid;}

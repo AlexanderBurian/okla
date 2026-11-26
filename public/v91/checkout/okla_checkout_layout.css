@@ -47,10 +47,8 @@ html body.in-kosik .okla-coupon__btn,
 html body.ordering-process .next-step-back{box-shadow:none!important}
 /* The coupon and delivery cards are the same size, and their text is centred at the same size. */
 html body.in-kosik .extras-wrapper{align-items:stretch}
-html body.in-kosik .extras-wrapper>.extras-col{display:flex;flex-direction:column}
 html body.in-kosik .extras-wrapper>.extras-col>*{flex:1 1 auto;display:flex;flex-direction:column}
 html body.in-kosik .okla-coupon{align-items:center;justify-content:center;text-align:center;box-sizing:border-box}
-html body.in-kosik .okla-coupon__title{margin:0 0 14px}
 html body.in-kosik .okla-coupon__row{justify-content:center}
 /* Each summary product: the name runs along the full width on its own line (not squeezed into a narrow column where it
    broke one word per line), with the picture to its left and the quantity and price together on a compact second line. */
@@ -92,7 +90,6 @@ html body.in-kosik .quantity-form .quantity label{padding:0 6px!important}
 
 /* The coupon row fits inside the card: the input takes the space the button leaves. */
 html body.in-kosik .okla-coupon__row{width:100%!important;max-width:100%!important;}
-html body.in-kosik .okla-coupon__input{flex:1 1 0!important;width:0!important;min-width:0!important}
 html body.in-kosik .okla-coupon__btn{flex:0 0 auto!important;white-space:nowrap}
 /* Round 8: straight row lines; the cart block sits 24 px to the right; the checkout buttons and the order button fit; form rows keep a gap; the step pictogram is not repeated in the heading. */
 
@@ -105,24 +102,11 @@ html body.in-krok-1 .cart-header .step-2::after,html body.in-krok-2 .cart-header
 html body.in-kosik table.cart-table tr>*:nth-child(1){padding-right:8px!important}
 html body.in-kosik table.cart-table tr>*:nth-child(2){padding-left:8px!important;padding-right:8px!important}
 html body.in-kosik table.cart-table tr>*:nth-child(6){padding-left:14px!important}
-html body.in-kosik .okla-coupon__input{font-size:13px!important;padding:0 10px!important}
-html body.in-kosik .okla-coupon__btn{padding:0 12px!important}
-/* The form column can shrink, so the form stays left of the sidebar; the sidebar keeps its width. */
-
 /* The quantity control has one outline: the form's. The inner span drew a second one, so it has no border. */
 html body.in-kosik .quantity-form .quantity{border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important}
-/* The checkout card is the cart's summary card: white with a thin border. The green free-shipping note is not shown; the recap below is unchanged. */
-
-/* No frame around the summary. */
-
 /* Cart: the coupon and delivery cards stack under the summary box at the top right, the same width and height; one colour for the delivery message. */
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper{display:flex!important;flex-direction:column!important;gap:16px!important;max-width:none!important;margin-top:16px!important;margin-bottom:24px!important;padding:0!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrap{margin:0!important;width:100%!important}
-/* The coupon row fits the narrower card: the placeholder is not cut off. */
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon{padding:20px 16px!important}
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon__row{gap:8px!important}
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon__input{font-size:12px!important;padding:0 8px!important}
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon__btn{padding:0 10px!important}
 /* Delivery and payment, as in the reference: sentence case, regular labels, green prices, no pictograms, no radio dot. */
 html body.ordering-process:not(.in-kosik) .co-delivery-method>h2,html body.ordering-process:not(.in-kosik) .co-payment-method>h2{text-transform:none!important;font-size:24px!important;font-weight:700!important;letter-spacing:0!important}
 html body.ordering-process:not(.in-kosik) .okla-pay-icon{display:none!important}
@@ -141,8 +125,6 @@ html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper labe
 html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper .payment-info{flex:1 1 auto!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;min-width:0!important}
 html body.ordering-process:not(.in-kosik) .co-payment-method .radio-wrapper .payment-shipping-price{margin-left:auto!important;white-space:nowrap!important}
 html body.in-kosik .cart-row>.col-md-4 .extras-wrapper>.extras-col{width:100%!important;min-width:0!important;display:flex!important;flex-direction:column!important}
-html body.in-kosik .cart-row>.col-md-4 .extras-wrap{display:flex!important;flex-direction:column!important;flex:1 1 auto!important}
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon{width:100%!important;min-height:150px!important;box-sizing:border-box!important;flex:1 1 auto!important}
 /* Cart: the remove button is a round target, and its cross is centred in it; the button sits further right. */
 html body.in-kosik tr.removeable .remove-item{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;width:32px!important;height:32px!important;padding:0!important;border:0!important;border-radius:50%!important;background:#f5f7fa!important;font-size:0!important}
 html body.in-kosik tr.removeable .remove-item::after{content:none!important}
@@ -158,8 +140,6 @@ html body.ordering-process .cart-header .step::before{left:50%!important;top:0!i
 html body.ordering-process .cart-header .step::after{mask-size:22px 22px!important;-webkit-mask-size:22px 22px!important}
 /* The parcel and the blue track are moved frame by frame from one position, so the CSS transitions are off. */
 html body.ordering-process .cart-header::after,html body.ordering-process .okla-parcel{transition:none!important}
-/* The delivery card is one loading bar: a blue fill grows from the left with the goods total towards 5 000 Kč; no outline. */
-html body.in-kosik .cart-row>.col-md-4 .okla-coupon{margin:0!important}
 /* Checkout: the summary column does not move while the page scrolls. */
 html body.ordering-process:not(.in-kosik) .order-summary .checkout-box{top:auto!important}
 /* Headings with our pictogram do not also show Shoptet's font icon. */
@@ -296,7 +276,6 @@ html body.in-krok-2 #order-form .co-billing-address>.form-group{margin-top:16px!
 /* Focus: a thin blue outline, the same on every field (the coupon field included), no glow. */
 html body.ordering-process input:focus,html body.ordering-process select:focus,html body.ordering-process textarea:focus,html body.ordering-process input:focus-visible,html body.ordering-process textarea:focus-visible{outline:0!important}
 html body.ordering-process .form-control:focus,html body.ordering-process textarea:focus,html body.in-kosik .okla-coupon .okla-coupon__input:focus{border-color:#0859d8!important;box-shadow:inset 0 0 0 1px #0859d8!important}
-html body.in-kosik .okla-coupon .okla-coupon__input{border:1px solid transparent!important;box-sizing:border-box!important}
 /* The note field has no resize grip. */
 html body.ordering-process textarea{resize:none!important}
 /* The coupon card's answer from Shoptet. */

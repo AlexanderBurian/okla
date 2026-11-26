@@ -70,7 +70,7 @@
   /* one calm block about the cart itself - a picture, the message and one way on (okla_empty_states.css shows it instead
      of the heading, the category list, the search and the recommendations, on phones and PC) */
   var box=document.querySelector('.cart-inner.cart-empty');
-  if(box)document.documentElement.classList.add('okla-cart-is-empty');
+  document.documentElement.classList.toggle('okla-cart-is-empty',!!box);
   if(!box||box.querySelector('.okla-cart-empty'))return;
   /* Shoptet writes the checkout wrapper's 16 px top margin again after the
      stylesheets have loaded.  Keep the same 54 px desktop rhythm as the
@@ -86,7 +86,7 @@
   window.addEventListener('resize',syncWrapperGap,{passive:true});
   setTimeout(syncWrapperGap,250);setTimeout(syncWrapperGap,1200);
   /* as on Alza: the order steps on top (the cart is the current one), the message in the middle, and at the bottom the
-     discount code (it can be used once something is in the cart: a click says so) and "Zpět k nákupu" */
+     discount code (it can be used once something is in the cart: a click says so); "Začít nakupovat" is the one way on */
   var hero=el('section','okla-cart-empty');
   var SVG=function(d){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+d+'"/></svg>'};
   var steps=el('ol','okla-ce-steps');steps.setAttribute('aria-label','Kroky objednávky');
@@ -111,13 +111,13 @@
   coupon.innerHTML=SVG('M12 3.5a8.5 8.5 0 1 1 0 17 8.5 8.5 0 0 1 0-17zM10.5 8.5 14 12l-3.5 3.5')+'<span>Využít slevový / dárkový poukaz</span>';
   var note=el('p','okla-ce-note','Slevový nebo dárkový kód zadáte v košíku, jakmile do něj vložíte zboží.');note.hidden=true;
   coupon.addEventListener('click',function(){var open=note.hidden;note.hidden=!open;coupon.setAttribute('aria-expanded',open?'true':'false');coupon.classList.toggle('is-open',open)});
-  var back=el('a','okla-ce-back');back.href='/';
-  back.innerHTML=SVG('m14.5 6-6 6 6 6')+'<span>Zpět k nákupu</span>';
-  foot.append(coupon,note,back);
+  foot.append(coupon,note);
   hero.appendChild(foot);
   box.insertBefore(hero,box.firstChild);
  }
  function run(){page404();pageSearch();emptyCart()}
+ /* the last product removed: the shop puts in an empty cart without a reload - the empty cart is built at once */
+ (window.__oklaCartRefresh=window.__oklaCartRefresh||[]).push(emptyCart);
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
  window.addEventListener('load',run);
 })();
