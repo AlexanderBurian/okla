@@ -68,8 +68,9 @@
   var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/1671;
   if(!(k>0))return;
   var end=top+h+900,stops=[];
-  ease(stops,'#ffffff','#0055d1',0,Math.max(160,at-hb+40),24);
-  stops.push('#0055d1 '+(top-hb+150*k).toFixed(1)+'px');
+  /* white -> the stage's deep blue over the whole way from the header down to where the picture's backdrop is fully
+     there (the text stands on its darker half) */
+  ease(stops,'#ffffff','#0055d1',0,Math.max(320,top-hb+150*k),40);
   POD_BG.forEach(function(p){if(p[0]>150)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
   ease(stops,'#e6eefe','#dbe5f4',top-hb+h,end-hb,16);
   var bg=document.getElementById('okla-pod-backdrop');
@@ -208,9 +209,9 @@
   /* the podium stage: level with the content's top, its cut side under the content's edge, its own height */
   if(left.classList.contains('okla-side-art--pod')){
    /* the picture takes two thirds of the margin, by the content (its cut podium side 16 px under the content; the
-      outer third is the page's backdrop, into which its outer edge fades); it starts 210 px under the content's top,
+      outer third is the page's backdrop, into which its outer edge fades); it starts 260 px under the content's top,
       so the page above it can turn from the header's white into the blue slowly */
-   var UNDER=16,DROP=210,pw=Math.ceil(space*2/3+UNDER);
+   var UNDER=16,DROP=260,pw=Math.ceil(space*2/3+UNDER);
    left.style.width=pw+'px';right.style.width=pw+'px';
    left.style.top=right.style.top=(c.top+sy+DROP)+'px';
    left.style.left=(c.left+sx-pw+UNDER)+'px';
