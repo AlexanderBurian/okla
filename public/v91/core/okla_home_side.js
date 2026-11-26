@@ -38,7 +38,7 @@
   var d=block(id,side,
    '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
    '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
-   '<span class="okla-side-pod__text"><span class="okla-side-pod__kicker">'+kicker+'</span><strong class="okla-side-pod__title">'+title+'</strong>'+
+   '<span class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
    '<span class="okla-side-pod__sub">'+sub+'</span></span>'+
    '<span class="okla-side-pod__btn">Kup teď</span>'+
    '</a>');
@@ -184,13 +184,15 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
-  /* the podium stage: level with the content's top, 24 px from it on both sides, its own height */
+  /* the podium stage: level with the content's top, its cut side under the content's edge, its own height */
   if(left.classList.contains('okla-side-art--pod')){
-   var pw=Math.min(MAX_WIDTH,Math.floor(space-SIDE_GUTTER*2));
+   /* the picture fills the whole margin, from the window's edge to the content; the side where it cuts its podium
+      goes under the content (16 px), so the cut never shows */
+   var UNDER=16,pw=Math.ceil(space+UNDER);
    left.style.width=pw+'px';right.style.width=pw+'px';
    left.style.top=right.style.top=(c.top+sy)+'px';
-   left.style.left=(c.left+sx-pw-SIDE_GUTTER)+'px';
-   right.style.left=(c.right+sx+SIDE_GUTTER)+'px';
+   left.style.left=(c.left+sx-pw+UNDER)+'px';
+   right.style.left=(c.right+sx-UNDER)+'px';
    card.style.minHeight='';
    podBackground(left);
    return;
