@@ -1,7 +1,7 @@
 /* Okla – the registration offer window (okla_register_offer.js): the page dimmed, a white card in the middle with the
    blue gift rising above it, the Okla navy text, the shop's blue button. Open Sans, no capitals, no gradients. */
 html.okla-ro-open,html.okla-ro-open body{overflow:hidden!important}
-.okla-ro{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;padding:16px;box-sizing:border-box;font-family:"Open Sans",Arial,sans-serif}
+.okla-ro{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;place-items:safe center;padding:16px;box-sizing:border-box;font-family:"Open Sans",Arial,sans-serif}
 .okla-ro__dim{position:absolute;inset:0;background:rgba(6,18,38,.6);opacity:0;transition:opacity .2s ease}
 .okla-ro__card{position:relative;box-sizing:border-box;width:100%;max-width:400px;margin-top:96px;padding:118px 28px 22px;border-radius:16px;background:#fff;
  color:#0b2540;text-align:center;box-shadow:0 18px 50px rgba(6,18,38,.28);outline:0;opacity:0;transform:translateY(14px) scale(.98);transition:opacity .2s ease,transform .25s cubic-bezier(.22,.61,.36,1)}

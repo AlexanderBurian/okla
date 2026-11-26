@@ -37,11 +37,17 @@
  html.okla-vv-ready body .okla-m-search__body{box-sizing:border-box!important;padding-bottom:var(--okla-mobile-bottom-clearance)!important}
 
  /* Bottom sheets and centred dialogs stay inside the same visible rectangle. */
- html.okla-vv-ready body :is(#colorbox .okla-tool-dialog,#colorbox #dialogFormRating,.okla-cm__box,.okla-ro__card,.okla-langdlg__card){
+ html.okla-vv-ready body :is(#colorbox .okla-tool-dialog,#colorbox #dialogFormRating,.okla-cm__box,.okla-langdlg__card){
   max-height:calc(var(--okla-vv-height) - 24px)!important;overflow:auto!important;overscroll-behavior:contain!important;
  }
+ /* the 5 % offer: its gift rises above the card, so the card itself must not cut (a scrolling card did); the whole
+    layer scrolls instead when a very short screen cannot hold it */
+ html.okla-vv-ready body .okla-ro{overflow-y:auto!important;overscroll-behavior:contain!important}
 
  /* A full-screen surface owns the bottom edge. Do not leave the site navigation between it and the browser UI. */
- html:is(.okla-m-lock,.okla-gal-open,.okla-cm-lock,.okla-search-open,.okla-ai-open) body #okla-v61-bottom,
+ html:is(.okla-m-lock,.okla-gal-open,.okla-cm-lock,.okla-search-open,.okla-ai-open,.okla-ro-open) body #okla-v61-bottom,
  body.login-window-visible #okla-v61-bottom{visibility:hidden!important;pointer-events:none!important}
+ /* its labels are made visible by a rule of their own: they go too (they showed through the 5 % offer's dimming) */
+ html:is(.okla-m-lock,.okla-gal-open,.okla-cm-lock,.okla-search-open,.okla-ai-open,.okla-ro-open) body #okla-v61-bottom *:not(#okv-a#okv-b#okv-c#okv-d#okv-e#okv-f#okv-g#okv-h#okv-i#okv-j#okv-k#okv-l),
+ body.login-window-visible #okla-v61-bottom *:not(#okv-a#okv-b#okv-c#okv-d#okv-e#okv-f#okv-g#okv-h#okv-i#okv-j#okv-k#okv-l){visibility:hidden!important}
 }
