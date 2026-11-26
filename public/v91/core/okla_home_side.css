@@ -76,7 +76,7 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
    deep blue, the picture's own colours, then a light blue-grey for the rest of the page. The picture takes two thirds
    of the margin by the content; its top, bottom and outer side fade into the backdrop. Above it, by the content, the
    heading, a line and a real "Kup teď" button; the text can be selected. Sizes in cqw (with the stage), capped. */
-html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:#c8dcfd!important;background-image:none!important}
+html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:var(--okla-pod-page,#c8dcfd)!important;background-image:none!important}
 html.okla-measure-pod body:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body .overall-wrapper:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:transparent!important;background-image:none!important}
 #okla-pod-backdrop{position:absolute;left:0;right:0;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:100% 100%}
 html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!important;clip-path:none!important;pointer-events:none}
@@ -105,3 +105,15 @@ html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!impor
 }
 #okla-page-fade:not(#osp-a){display:none}
 @media(min-width:992px){#okla-page-fade:not(#osp-a){display:block}}
+
+/* the stages of the other categories (Elektronické multitooly - orange, Praktické vychytávky - terracotta): dark text on
+   their light warm tops (white would not read there) and "Kup teď" in our blue; their pictures are less tall
+   (1024 x 1536), so they hang a little lower under the text - the products keep the same distance from "Kup teď" */
+.okla-side-art--pod.okla-side-art--pod-dark .okla-side-pod{color:#0b2540}
+.okla-side-art--pod.okla-side-art--pod-dark .okla-side-pod__title{color:#0b2540;text-shadow:0 1px 10px rgba(255,255,255,.25)}
+.okla-side-art--pod.okla-side-art--pod-dark .okla-side-pod__sub{color:#3b2a1a}
+.okla-side-art--pod.okla-side-art--pod-dark a.okla-side-pod__btn{background:#0859d8;color:#fff;-webkit-text-fill-color:#fff;box-shadow:0 6px 18px rgba(60,30,0,.22)}
+.okla-side-art--pod.okla-side-art--pod-dark a.okla-side-pod__btn:hover{background:#0751c6;box-shadow:0 8px 22px rgba(60,30,0,.28)}
+.okla-side-art--pod.okla-side-art--pod-dark a.okla-side-pod__btn:active{box-shadow:0 3px 10px rgba(60,30,0,.24)}
+.okla-side-art--pod.okla-side-art--pod-dark a.okla-side-pod__btn:focus-visible{outline-color:#0b2540}
+.okla-side-art--pod.okla-side-art--pod-short .okla-side-pod__pic{margin-top:-32cqw}

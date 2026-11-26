@@ -27,28 +27,43 @@
  /* Měřicí technika (the category and its subcategories): both margins are a blue stage with podiums (the right one
     mirrored), the best measuring instruments standing on them (pictures composed with their shadows and reflections),
     a short heading, a line and "Kup teď" on top, as on the big shops; the page under them a light blue-grey */
- var MEASURE='/merici-technika-a-naradi/';
- function measurePage(){
-  if(!document.body||!/(^|\s)type-category(\s|$)/.test(document.body.className))return false;
-  if(location.pathname.indexOf(MEASURE)===0)return true;
-  return !!document.querySelector('.breadcrumbs a[href$="'+MEASURE+'"],.breadcrumbs a[href*="'+MEASURE+'"],#navigation-breadcrumbs a[href*="'+MEASURE+'"]');
+ var STAGE=null; /* the stage of this page (STAGES below), found by measurePage() */
+ function stageFor(){
+  if(!document.body||!/(^|\s)type-category(\s|$)/.test(document.body.className))return null;
+  for(var i=0;i<STAGES.length;i++){var p=STAGES[i].path;
+   if(location.pathname.indexOf(p)===0||document.querySelector('.breadcrumbs a[href*="'+p+'"],#navigation-breadcrumbs a[href*="'+p+'"]'))return STAGES[i]}
+  return null;
  }
+ function measurePage(){STAGE=stageFor();return !!STAGE}
  function podBlock(id,side,img,kicker,title,sub){
-  var base=window.__oklaAssetBase||'',href=MEASURE+'?order=bestseller';
+  var base=window.__oklaAssetBase||'',href=STAGE.path+'?order=bestseller';
   var d=block(id,side,
    '<div class="okla-side-pod">'+
    '<div class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
    '<span class="okla-side-pod__sub">'+sub+'</span>'+
    '<a class="okla-side-pod__btn" href="'+href+'">Kup teď</a></div>'+
    '<a class="okla-side-pod__pic" href="'+href+'" tabindex="-1" aria-hidden="true">'+
-   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async"></a>'+
+   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="'+STAGE.w+'" height="'+STAGE.h+'" decoding="async"></a>'+
    '</div>');
   d.classList.add('okla-side-art--pod');return d;
  }
  /* the page's background is the picture's own backdrop: its colour at the picture's edge, row by row (941 x 1671 px),
     laid behind the page at the picture's place and scale - deep blue above, a light blue under it - so the stages are
     part of the background, with no edge anywhere */
- var POD_BG=[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']];
+ /* the stages: per category its pictures (941 x 1671 or 1024 x 1536 px, the right one mirrored), the picture's backdrop
+    colour at its edge row by row, the row where the picture starts to show (its mask: 24 %), the page's colour under the
+    stages (a light tint of the stage's own colour), dark text where white would not read, the texts */
+ var STAGES=[
+  {path:'/merici-technika-a-naradi/',img:['okla-measure-left.webp','okla-measure-right.webp'],w:941,h:1671,from:401,page:'#c8dcfd',
+   bg:[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']],
+   text:[['Přesné měření pro dílnu i domov','Teploměry, vlhkoměry a testery'],['Změřte vzdálenost i vítr','Dálkoměry a anemometry']]},
+  {path:'/elektronicke-multitooly/',img:['okla-multi-left.webp','okla-multi-right.webp'],w:1024,h:1536,from:369,page:'#f1d4ae',dark:true,
+   bg:[[0,"#efa02b"],[64,"#f1a22f"],[128,"#f3a633"],[192,"#f2a836"],[256,"#f5ad3d"],[320,"#f7b142"],[384,"#f6b145"],[448,"#fab650"],[512,"#f9ba56"],[576,"#fbbf5f"],[640,"#fbc369"],[704,"#fbc772"],[768,"#fdcb7a"],[832,"#fdd086"],[896,"#fdd492"],[960,"#fdda9d"],[1024,"#fedca3"],[1088,"#fee1b0"],[1152,"#fce6bb"],[1216,"#fceacc"],[1280,"#fdf1dc"],[1344,"#fdefd9"],[1400,"#feefd9"],[1470,"#fff2df"],[1535,"#fdf1dc"]],
+   text:[['Kapesní multitooly pro hackery i tvůrce','Flipper Zero, T-Deck a T-Embed'],['Celý počítač v jedné dlani','Flipper ONE, Cardputer a ESP32']]},
+  {path:'/prakticke-vychytavky/',img:['okla-gadget-left.webp','okla-gadget-right.webp'],w:1024,h:1536,from:369,page:'#f6d0be',dark:true,
+   bg:[[0,"#c87350"],[64,"#c97451"],[128,"#cc7653"],[192,"#cf7a57"],[256,"#d27f5b"],[320,"#d4845d"],[384,"#d6865f"],[448,"#d98c64"],[512,"#dc9067"],[576,"#df946a"],[640,"#e49d73"],[704,"#e9a57a"],[768,"#edad83"],[832,"#f1b58c"],[896,"#f5c099"],[960,"#facaa3"],[1024,"#fbd1ad"],[1088,"#fddab8"],[1152,"#fde1c6"],[1216,"#fce9d4"],[1280,"#fdefe6"],[1344,"#fdece2"],[1400,"#faebe3"],[1470,"#faefec"],[1535,"#f8ebe7"]],
+   text:[['Chytré drobnosti pro každý den','Termotiskárna, USB hub a diagnostika'],['Do auta, k televizi i k notebooku','CarPlay, HDMI a USB-C hub']]}
+ ];
  /* a long turn from one colour to another, mixed in OKLab (a perceptually even colour space: the lightness changes at
     the same pace all the way, so no step or band shows), many stops on a smootherstep curve: it leaves the first colour and arrives at the second with no slope at all, so where
     it meets the picture's own (lighter-going) colours there is no crease */
@@ -70,36 +85,38 @@
     (so its colours meet the picture's own backdrop exactly at any window size): white under the header, turning
     slowly into the stage's deep blue by the text, the picture's own colours row by row, then a long, slow turn into a
     light blue (#c8dcfd) that stays for the rest of the page */
- var POD_FROM=401; /* the row (of 1671) where the picture starts to show - its mask, okla_home_side.css: 24 % (above the products) */
  function podColour(row){
-  for(var i=1;i<POD_BG.length;i++){if(row<=POD_BG[i][0]){var a=POD_BG[i-1],b=POD_BG[i],t=(row-a[0])/(b[0]-a[0]),A=hex(a[1]),B=hex(b[1]);
+  var BG=STAGE.bg;
+  for(var i=1;i<BG.length;i++){if(row<=BG[i][0]){var a=BG[i-1],b=BG[i],t=(row-a[0])/(b[0]-a[0]),A=hex(a[1]),B=hex(b[1]);
    return '#'+A.map(function(v,j){return ('0'+Math.round(v+(B[j]-v)*t).toString(16)).slice(-2)}).join('')}}
-  return POD_BG[POD_BG.length-1][1];
+  return BG[BG.length-1][1];
  }
  function podBackground(el){
   var z=window.__oklaDZ||1,sy=window.pageYOffset;
   var img=el.querySelector('.okla-side-pod__img');if(!img)return;
   var ir=img.getBoundingClientRect(),ar=el.getBoundingClientRect();
   var hd=document.getElementById('header'),hb=hd?(hd.getBoundingClientRect().bottom+sy)/z:0;
-  var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/1671;
+  var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/STAGE.h,BG=STAGE.bg;
   if(!(k>0))return;
   var end=top+h+1400,stops=[];
   /* the header's white turns, slowly and evenly, into exactly the picture's own colour at the row where the picture starts
      to show (its darker top rows stay transparent, okla_home_side.css), then the picture's own colours follow - no
      darker band anywhere */
-  var R=POD_FROM,from=podColour(R);
+  var R=STAGE.from,from=podColour(R);
   ease(stops,'#ffffff',from,0,Math.max(320,top-hb+R*k),48);
-  POD_BG.forEach(function(p){if(p[0]>R)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
-  ease(stops,'#e6eefe','#c8dcfd',top-hb+h,end-hb,40);
+  BG.forEach(function(p){if(p[0]>R)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
+  ease(stops,BG[BG.length-1][1],STAGE.page,top-hb+h,end-hb,40);
   var bg=document.getElementById('okla-pod-backdrop');
   if(!bg){bg=document.createElement('div');bg.id='okla-pod-backdrop';bg.setAttribute('aria-hidden','true');document.body.insertBefore(bg,document.body.firstChild)}
   bg.style.top=hb+'px';bg.style.height=(end-hb)+'px';
   bg.style.backgroundImage='linear-gradient(180deg,'+stops.join(',')+')';
  }
  function buildPod(){
-  document.documentElement.classList.add('okla-measure-pod');
-  podBlock('okla-side-left','left','okla-measure-left.webp','FNIRSI · ANENG','Přesné měření pro dílnu i domov','Teploměry, vlhkoměry a testery');
-  podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte vzdálenost i vítr','Dálkoměry a anemometry');
+  var root=document.documentElement;
+  root.classList.add('okla-measure-pod');root.style.setProperty('--okla-pod-page',STAGE.page);
+  var l=podBlock('okla-side-left','left',STAGE.img[0],'',STAGE.text[0][0],STAGE.text[0][1]);
+  var r=podBlock('okla-side-right','right',STAGE.img[1],'',STAGE.text[1][0],STAGE.text[1][1]);
+  [l,r].forEach(function(d){if(STAGE.dark)d.classList.add('okla-side-art--pod-dark');if(STAGE.w/STAGE.h>0.6)d.classList.add('okla-side-art--pod-short')});
  }
 
  /* every other page in our grey (PC): under the header the page starts white and turns, slowly and evenly, into the grey -
