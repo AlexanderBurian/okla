@@ -5,7 +5,7 @@
   html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h){
     position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;z-index:1000!important;
     display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;align-items:stretch!important;gap:0!important;
-    width:100%!important;height:calc(58px + env(safe-area-inset-bottom,0px))!important;min-height:0!important;max-height:none!important;
+    width:100%!important;height:calc(64px + env(safe-area-inset-bottom,0px))!important;min-height:0!important;max-height:none!important;
     margin:0!important;padding:0 4px env(safe-area-inset-bottom,0px)!important;box-sizing:border-box!important;
     border:0!important;border-radius:0!important;background:#fff!important;box-shadow:none!important;outline:none!important;overflow:visible!important
   }
@@ -13,7 +13,7 @@
   html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action,
   html.okla-tb-on body #okla-v61-bottom:not(#obb-a#obb-b#obb-c#obb-d#obb-e#obb-f#obb-g#obb-h)>.okm61-bottom-action:is(:hover,:focus,:active,.is-active){
     position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;
-    width:auto!important;min-width:0!important;height:58px!important;min-height:0!important;margin:0!important;padding:0!important;
+    width:auto!important;min-width:0!important;height:64px!important;min-height:0!important;margin:0!important;padding:0!important;
     border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;transform:none!important;
     color:#5b6779!important;-webkit-text-fill-color:#5b6779!important;text-decoration:none!important;cursor:pointer!important;
     -webkit-tap-highlight-color:transparent!important;outline:none!important;transition:color .15s ease!important
@@ -44,7 +44,7 @@
 /* The cart's and step 3's button panel sits right on the bar (it waited 62 px above the edge - the old bar's height -
    leaving a 4 px gap); a white fill under it closes any gap for a moment while the phone's own bars move. */
 @media(max-width:767px){
-  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav{bottom:calc(58px + env(safe-area-inset-bottom,0px))!important}
+  html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav{bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
   html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.08),0 24px 0 0 #fff!important}
   /* the cart (step 1): only "Pokračovat", across the row */
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step>.next-step-back{display:none!important}
@@ -60,21 +60,22 @@
   html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h#obn-i) #content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.08),0 90px 0 0 #fff!important}
 }
 
-/* The bar as on the big shops' apps: solid pictograms (okla_mobile_downbar.js) 26 px with nothing behind them, the
-   names 12.5 px dark under them; the current item (and the one pointed at or pressed) turns Okla blue - pictogram and
-   name */
+/* The bar as on Alza's app (measured on its screenshot): 64 px, a hairline on top; the pictograms (okla_mobile_downbar.js)
+   about 20 px in a 22 px box, #505050, 11 px under the bar's top edge, nothing behind them; the names 12 px, a shade
+   darker, 7 px under the pictogram; the current item (and the one pressed or pointed at) turns Okla blue, its name bold */
 @media(max-width:767px){
-  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action{gap:5px!important;color:#30353d!important;-webkit-text-fill-color:#30353d!important}
-  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>svg{box-sizing:border-box!important;width:26px!important;height:26px!important;padding:0!important;border-radius:0!important;
-    fill:currentColor!important;stroke:none!important;color:#30353d!important;background:none!important;transition:color .15s ease!important}
-  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>span{font:500 12.5px/1.2 "Open Sans",Arial,sans-serif!important;color:#30353d!important;-webkit-text-fill-color:#30353d!important;transition:color .15s ease!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l){border-top:1px solid #e6e6e6!important;box-shadow:0 -2px 6px rgba(0,0,0,.035)!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action{justify-content:flex-start!important;gap:7px!important;padding:11px 0 0!important;color:#505050!important;-webkit-text-fill-color:#505050!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>svg{box-sizing:border-box!important;width:22px!important;height:22px!important;padding:0!important;border-radius:0!important;
+    fill:currentColor!important;stroke:none!important;color:#505050!important;background:none!important;transition:color .15s ease!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>span{font:500 12px/15px "Open Sans",Arial,sans-serif!important;color:#454545!important;-webkit-text-fill-color:#454545!important;transition:color .15s ease!important}
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel,:hover,:active,:focus-visible)>svg{color:#0859d8!important;background:none!important}
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel,:hover,:active,:focus-visible)>span{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel)>span{font-weight:700!important}
-  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>.okla-tb-count{top:3px!important;left:calc(50% + 6px)!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>.okla-tb-count{top:5px!important;left:calc(50% + 4px)!important}
 }
 /* the narrowest phones: the names a pixel smaller, so "Objednávky" stays whole */
 @media(max-width:360px){
-  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>span{font-size:11.5px!important;letter-spacing:-.01em!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>span{font-size:11px!important;letter-spacing:-.01em!important}
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l){padding-left:0!important;padding-right:0!important}
 }

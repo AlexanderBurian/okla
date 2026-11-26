@@ -1,6 +1,6 @@
 /* Okla mobile customer centre: full-width, retail-style account hub. */
 #okla-v61-drawer.okla-mm-open{
-  z-index:399!important;bottom:calc(56px + env(safe-area-inset-bottom,0px))!important;
+  z-index:399!important;bottom:var(--okla-mobile-bar-height,calc(64px + env(safe-area-inset-bottom,0px)))!important;
   background:#fff!important;
 }
 #okla-v61-drawer.okla-mm-open .okm61-drawer-panel{

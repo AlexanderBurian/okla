@@ -73,7 +73,7 @@
   html body:not(#okpb-a){padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))!important}
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav,
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav,
-  html.okla-tb-on body.in-krok-2:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav{bottom:calc(62px + env(safe-area-inset-bottom,0px))!important;padding-bottom:12px!important}
+  html.okla-tb-on body.in-krok-2:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav{bottom:var(--okla-mobile-bar-height,calc(64px + env(safe-area-inset-bottom,0px)))!important;padding-bottom:12px!important}
   html.okla-tb-on body.in-kosik:not(#okpb-a#okpb-b#okpb-c#okpb-d) #content .cart-inner>.okla-step-nav.is-stuck::after{display:none!important}
   html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#okpb-a#okpb-b#okpb-c#okpb-d) #content#content .okla-step-nav.is-stuck{border-radius:14px 14px 0 0!important}
   /* the Katalog / Menu panels end above the pill */

@@ -4,7 +4,7 @@
 @media(max-width:767px){
  :root{
   --okla-vv-height:100dvh;
-  --okla-mobile-bar-height:calc(56px + env(safe-area-inset-bottom,0px));
+  --okla-mobile-bar-height:calc(64px + env(safe-area-inset-bottom,0px));
   --okla-mobile-bottom-clearance:calc(var(--okla-mobile-bar-height) + 12px);
  }
 
