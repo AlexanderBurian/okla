@@ -1,6 +1,6 @@
-/* OKLA – the best sellers band of a big category (okla_category_feature.js): a yellow band across the content, in it only the shop's cards in the homepage's own slider. PC: exactly four whole cards in view, the
+/* OKLA – the best sellers band of a big category (okla_category_feature.js): a band in our page grey across the content, in it only the shop's cards in the homepage's own slider. PC: exactly four whole cards in view, the
    same space above and under them, the homepage's arrows at the band's edges, clear of the cards. */
-#okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:relative;display:block;margin:32px -20px 0;padding:20px;background:#ffd400;box-sizing:border-box}
+#okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:relative;display:block;margin:32px -20px 0;padding:20px;background:#eef0f3;box-sizing:border-box}
 #okla-cat-feature .okla-catfeat__heading:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){
   position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;
   clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important
@@ -17,7 +17,7 @@
   #okla-cat-feature .okla-slider-shell>.okla-slider-controls:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:static!important;display:block!important}
   #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:absolute!important;top:50%!important;bottom:auto!important;margin:-32px 0 0!important;transform:none!important;z-index:3!important;pointer-events:auto!important}
   #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-prev:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){left:-40px!important;right:auto!important}
-  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){right:-40px!important;left:auto!important}
+  #okla-cat-feature .okla-slider-shell>.okla-slider-controls>button.okla-slider-next:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){right:-41px!important;left:auto!important}
 }
 /* PC: four places in view - the row is a quarter wider than what is seen, so the slider's own step (it counts five
    places in the row) is exactly one of the four */

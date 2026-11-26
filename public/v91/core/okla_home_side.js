@@ -39,8 +39,7 @@
    '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
    '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
    '<span class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
-   '<span class="okla-side-pod__sub">'+sub+'</span></span>'+
-   '<span class="okla-side-pod__btn">Kup teď</span>'+
+   '<span class="okla-side-pod__sub">'+sub+'</span><span class="okla-side-pod__btn">Kup teď</span></span>'+
    '</a>');
   d.classList.add('okla-side-art--pod');return d;
  }
