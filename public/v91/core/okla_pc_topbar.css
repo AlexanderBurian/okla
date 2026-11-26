@@ -141,10 +141,10 @@
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__dd.is-open button.okla-topbar__tool{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
 }
 @media(min-width:992px){
-  /* for now the band holds only the pages: spread across its whole width (from the logo's left edge to the cart's right
-     edge), a dot in the middle of every gap; the phone and the e-mail stay in the tab under it */
-  html.okla-topbar-on body #header #okla-topbar.okla-topbar--pages:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__links{flex:1 1 auto!important;justify-content:space-between!important;min-width:0!important}
+  /* for now the band holds only the pages: as many as the band's width takes, in the usual small gaps (a dot in the
+     middle of each), from the logo's left edge; the phone and the e-mail stay in the tab under it */
+  html.okla-topbar-on body #header #okla-topbar.okla-topbar--pages:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__links{flex:1 1 auto!important;justify-content:flex-start!important;min-width:0!important;overflow:hidden!important}
   html.okla-topbar-on body #header #okla-topbar.okla-topbar--pages:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__link+.okla-topbar__link::before,
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__dot+.okla-topbar__link::before{content:none!important;display:none!important}
-  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__dot{display:block!important;flex:none!important;width:3px!important;height:3px!important;margin:0 8px!important;border-radius:50%!important;background:#5a6473!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e) .okla-topbar__dot{display:block!important;flex:none!important;width:3px!important;height:3px!important;margin:0 11px!important;border-radius:50%!important;background:#5a6473!important}
 }

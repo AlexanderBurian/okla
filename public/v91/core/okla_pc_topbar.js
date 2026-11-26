@@ -13,12 +13,14 @@
  var LINKS=[
   ['Jak nakupovat','/jak-nakupovat/'],
   ['Doprava a platba','/doprava-a-platba/'],
+  ['Stav objednávky','/stav-objednavky/'],
   ['Vrácení zboží','/vraceni-zbozi-a-odstoupeni/'],
   ['Reklamace','/reklamace/'],
+  ['Reklamační řád','/reklamacni-rad/'],
+  ['Obchodní podmínky','/obchodni-podminky/'],
+  ['Ochrana osobních údajů','/podminky-ochrany-osobnich-udaju/'],
   ['O nás','/o-nas/'],
   ['Newsroom','/nase-novinky/'],
-  ['Stav objednávky','/stav-objednavky/'],
-  ['Obchodní podmínky','/obchodni-podminky/'],
   ['Kontakt','/kontakty/']
  ];
  var ICON={
