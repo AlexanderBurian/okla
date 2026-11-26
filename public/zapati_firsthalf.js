@@ -330,7 +330,7 @@ var BUNDLES=[
  /* Homepage editorial blocks, the search field typing example searches */
  ['29-home-magazine','home',['v91/home/okla_news_home_datart.css','v91/home/okla_news_home_alza.css','v91/home/okla_home_brands.css','v91/home/okla_home_brands.js','v91/home/okla_home_retail_refresh.css','v91/home/okla_home_retail_refresh.js','v91/home/okla_search_typing.js','v91/home/okla_home_mobile.css']],
  /* Category pages: sorting as round chips, the category's definition and its about text */
- ['30-category','category',['v91/pages/okla_category.css','v91/pages/okla_category_seo.js','v91/core/okla_articles.js','v91/pages/okla_category_feature.css','v91/pages/okla_category_feature.js','v91/pages/okla_category_bottom.css','v91/pages/okla_category_bottom.js']],
+ ['30-category','category',['v91/pages/okla_category.css','v91/pages/okla_category_seo.js','v91/core/okla_articles.js','v91/pages/okla_category_feature.css','v91/pages/okla_category_feature.js','v91/pages/okla_category_bottom.css','v91/pages/okla_category_bottom.js','v91/pages/okla_cat_facets.css','v91/pages/okla_cat_facets.js']],
  /* The original storefront's own stylesheet (legacy v53): after every page's own bundles, where its <style> used to be added */
  ['31-legacy-css','all',['legacy/v53/zapati_firsthalf.css']],
  /* Not needed for the first view: search, login popup, cart drawer, footer (loaded after the page is shown) */
