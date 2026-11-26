@@ -1,7 +1,7 @@
 /* OKLA – the best sellers band of a big category (okla_category_feature.js): an orange band across the content (as
    on Allegro), in it only the shop's cards in the homepage's own slider. PC: exactly four whole cards in view, the
    same space above and under them, the homepage's arrows at the band's edges, clear of the cards. */
-#okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:relative;display:block;margin:32px -20px 28px;padding:20px;background:#ff5a00;box-sizing:border-box}
+#okla-cat-feature:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){position:relative;display:block;margin:32px -20px 0;padding:20px;background:#ff5a00;box-sizing:border-box}
 #okla-cat-feature .okla-catfeat__heading:not(#ocf-a#ocf-b#ocf-c#ocf-d#ocf-e#ocf-f#ocf-g#ocf-h#ocf-i#ocf-j){
   position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;
   clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important
