@@ -37,7 +37,7 @@
   var base=window.__oklaAssetBase||'';
   var d=block(id,side,
    '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
-   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="1411" height="1671" decoding="async">'+
+   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
    '<span class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
    '<span class="okla-side-pod__sub">'+sub+'</span><span class="okla-side-pod__btn">Kup teď</span></span>'+
    '</a>');
@@ -47,14 +47,27 @@
     laid behind the page at the picture's place and scale - deep blue above, a light blue under it - so the stages are
     part of the background, with no edge anywhere */
  var POD_BG=[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']];
+ /* a long, eased turn from one colour to another (many stops on a smoothstep curve, so no band shows) */
+ function hex(c){return [1,3,5].map(function(i){return parseInt(c.substr(i,2),16)})}
+ function ease(stops,a,b,y0,y1,n){
+  var A=hex(a),B=hex(b);
+  for(var i=0;i<=n;i++){var t=i/n,e=t*t*(3-2*t);
+   stops.push('rgb('+A.map(function(v,j){return Math.round(v+(B[j]-v)*e)}).join(',')+') '+Math.round(y0+(y1-y0)*t)+'px')}
+ }
  function podBackground(el){
-  var r=el.getBoundingClientRect(),top=r.top+window.pageYOffset,k=r.height/1671;
+  var img=el.querySelector('.okla-side-pod__img')||el;
+  var at=el.getBoundingClientRect().top+window.pageYOffset;
+  var r=img.getBoundingClientRect(),top=r.top+window.pageYOffset,k=r.height/1671;
   if(!(k>0))return;
   var hd=document.getElementById('header'),hb=hd?hd.getBoundingClientRect().bottom+window.pageYOffset:0;
-  /* white under the header, turning into the stage's deep blue just as the picture begins */
-  var stops=['#ffffff 0px','#ffffff '+Math.round(hb)+'px','#cfe0fb '+Math.round(hb+(top-hb)*0.35)+'px','#0055d1 '+Math.round(top+40*k)+'px'];
-  POD_BG.forEach(function(p){if(p[0]>40)stops.push(p[1]+' '+Math.round(top+p[0]*k)+'px')});
-  stops.push('#e6ecf6 '+Math.round(top+r.height+360)+'px');
+  var stops=['#ffffff 0px','#ffffff '+Math.round(hb)+'px'];
+  /* the header's white turns into the stage's deep blue slowly, reaching it where the text begins; the deep blue
+     stays behind the text down into the picture's faded top */
+  ease(stops,'#ffffff','#0055d1',hb,Math.max(hb+120,at),16);
+  stops.push('#0055d1 '+Math.round(top+150*k)+'px');
+  POD_BG.forEach(function(p){if(p[0]>150)stops.push(p[1]+' '+Math.round(top+p[0]*k)+'px')});
+  /* under the picture: its light floor turns slowly into a light blue-grey for the rest of the page */
+  ease(stops,'#e6eefe','#dbe5f4',top+r.height,top+r.height+700,12);
   document.documentElement.style.setProperty('--okla-pod-bg','linear-gradient(180deg,'+stops.join(',')+')');
  }
  function buildPod(){
@@ -187,10 +200,10 @@
   right.classList.add('is-on');
   /* the podium stage: level with the content's top, its cut side under the content's edge, its own height */
   if(left.classList.contains('okla-side-art--pod')){
-   /* the picture fills the margin: the supplied stage (two thirds, by the content - its cut podium side 16 px under the
-      content) and an outer third composed in the same style (one more floating podium with an instrument); it starts
-      140 px under the content's top, so the page above it can turn from the header's white into the blue smoothly */
-   var UNDER=16,DROP=140,pw=Math.ceil(space+UNDER);
+   /* the picture takes two thirds of the margin, by the content (its cut podium side 16 px under the content; the
+      outer third is the page's backdrop, into which its outer edge fades); it starts 210 px under the content's top,
+      so the page above it can turn from the header's white into the blue slowly */
+   var UNDER=16,DROP=210,pw=Math.ceil(space*2/3+UNDER);
    left.style.width=pw+'px';right.style.width=pw+'px';
    left.style.top=right.style.top=(c.top+sy+DROP)+'px';
    left.style.left=(c.left+sx-pw+UNDER)+'px';

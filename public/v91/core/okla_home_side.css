@@ -75,19 +75,21 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
    the picture's own backdrop (deep blue at the top, a light blue under it, --okla-pod-bg set by the script), so there
    is no frame or edge. On the deep blue top a label, a large heading and one line; "Kup teď" on the floating podium's
    blue front (centre at 64 % / 53.6 % of the left picture, mirrored on the right). Sizes in cqw (with the stage). */
-html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:var(--okla-pod-bg,#0055d1) no-repeat,#e6ecf6!important;background-color:#e6ecf6!important}
+html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:var(--okla-pod-bg,#0055d1) no-repeat,#dbe5f4!important;background-color:#dbe5f4!important}
 html.okla-measure-pod body:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body .overall-wrapper:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:transparent!important;background-image:none!important}
 html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!important;clip-path:none!important;pointer-events:none}
-.okla-side-art--pod .okla-side-pod{position:relative;display:block;color:#fff;text-decoration:none;pointer-events:auto;cursor:pointer}
+.okla-side-art--pod .okla-side-pod{position:relative;display:flex;flex-direction:column;color:#fff;text-decoration:none;pointer-events:auto;cursor:pointer}
 .okla-side-art--pod .okla-side-pod:focus-visible{outline:2px solid #fff;outline-offset:4px}
-.okla-side-art--pod .okla-side-pod__img{display:block;width:100%;height:auto}
-/* the picture fills the margin; its top and its bottom fade into the page's backdrop */
-.okla-side-art--pod .okla-side-pod__img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 6%,#000 88%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 6%,#000 88%,transparent 100%)}
-.okla-side-art--pod .okla-side-pod__text{position:absolute;top:0;z-index:1;display:flex;flex-direction:column;gap:min(2.4cqw,10px);max-width:min(72%,340px);padding-top:min(9cqw,40px);box-sizing:border-box}
+.okla-side-art--pod .okla-side-pod__img{order:1;display:block;width:100%;height:auto;margin-top:-22cqw}
+/* the picture takes two thirds of the margin by the content; its top, its bottom (both over a long stretch) and its
+   outer side fade into the page's backdrop */
+.okla-side-art--pod.okla-side-art--left .okla-side-pod__img{-webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 5%,#000 12%,#000 76%,rgba(0,0,0,.45) 90%,transparent 100%),linear-gradient(90deg,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 5%,#000 12%,#000 76%,rgba(0,0,0,.45) 90%,transparent 100%),linear-gradient(90deg,transparent 0,#000 14%);mask-composite:intersect}
+.okla-side-art--pod.okla-side-art--right .okla-side-pod__img{-webkit-mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 5%,#000 12%,#000 76%,rgba(0,0,0,.45) 90%,transparent 100%),linear-gradient(270deg,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,rgba(0,0,0,.35) 5%,#000 12%,#000 76%,rgba(0,0,0,.45) 90%,transparent 100%),linear-gradient(270deg,transparent 0,#000 14%);mask-composite:intersect}
+.okla-side-art--pod .okla-side-pod__text{position:relative;order:0;z-index:1;display:flex;flex-direction:column;gap:min(2.4cqw,10px);max-width:min(72%,340px);padding-top:min(9cqw,40px);box-sizing:border-box}
 /* the text stands by the content: on the left stage aligned right (it ends 7cqw before the content's edge, which
    covers the picture's last 16 px), on the right stage aligned left */
-.okla-side-art--pod.okla-side-art--left .okla-side-pod__text{right:calc(16px + 7cqw);align-items:flex-end;text-align:right}
-.okla-side-art--pod.okla-side-art--right .okla-side-pod__text{left:calc(16px + 7cqw);align-items:flex-start;text-align:left}
+.okla-side-art--pod.okla-side-art--left .okla-side-pod__text{align-self:flex-end;margin-right:calc(16px + 7cqw);align-items:flex-end;text-align:right}
+.okla-side-art--pod.okla-side-art--right .okla-side-pod__text{align-self:flex-start;margin-left:calc(16px + 7cqw);align-items:flex-start;text-align:left}
 .okla-side-art--pod .okla-side-pod__title{display:block;color:#fff;font:800 min(8cqw,30px)/1.15 "Open Sans",Arial,sans-serif;letter-spacing:-.01em;text-wrap:balance;text-shadow:0 2px 14px rgba(0,30,90,.25)}
 .okla-side-art--pod .okla-side-pod__sub{display:block;color:#e2ecff;font:400 min(4.4cqw,17px)/1.35 "Open Sans",Arial,sans-serif;text-wrap:balance}
 /* "Kup teď": yellow (the logo's yellow), under the text, by the content - clear of the products */

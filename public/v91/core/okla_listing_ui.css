@@ -25,3 +25,8 @@ html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) :is(.okla-
 html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .okla-pg__gap{min-width:20px!important;padding:0!important;color:#5a6473!important;-webkit-text-fill-color:#5a6473!important}
 html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .okla-pg__num.is-current{background:#0859d8!important;color:#fff!important;-webkit-text-fill-color:#fff!important}
 html body #content .okla-pg:not(#olu-a#olu-b#olu-c#olu-d#olu-e#olu-f) .okla-pg__arrow svg{display:block!important;width:9px!important;height:15px!important}
+
+/* Breadcrumbs: the home link's fallback icon (the shop's ::before, absolutely placed with right:0) belongs to the link
+   itself - it flew to the far end of the breadcrumbs row (the link was not its containing block), leaving no house
+   on the left */
+html body .breadcrumbs-wrapper a.navigation-home-icon:not(#olu-a#olu-b#olu-c#olu-d){position:relative!important}
