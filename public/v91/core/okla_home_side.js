@@ -49,17 +49,32 @@
     laid behind the page at the picture's place and scale - deep blue above, a light blue under it - so the stages are
     part of the background, with no edge anywhere */
  var POD_BG=[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']];
- /* a long, eased turn from one colour to another (many stops on a smootherstep curve, so no band shows) */
+ /* a long turn from one colour to another, mixed in OKLab (a perceptually even colour space: the lightness changes at
+    the same pace all the way, so no step or band shows), many stops; 'curve' only softens the two ends a little */
  function hex(c){return [1,3,5].map(function(i){return parseInt(c.substr(i,2),16)})}
+ function toLin(v){v/=255;return v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4)}
+ function toSrgb(v){v=v<=0.0031308?12.92*v:1.055*Math.pow(v,1/2.4)-0.055;return Math.max(0,Math.min(255,Math.round(v*255)))}
+ function oklab(c){var r=toLin(c[0]),g=toLin(c[1]),b=toLin(c[2]);
+  var l=Math.cbrt(0.4122214708*r+0.5363325363*g+0.0514459929*b),m=Math.cbrt(0.2119034982*r+0.6806995451*g+0.1073969566*b),s=Math.cbrt(0.0883024619*r+0.2817188376*g+0.6299787005*b);
+  return [0.2104542553*l+0.7936177850*m-0.0040720468*s,1.9779984951*l-2.4285922050*m+0.4505937099*s,0.0259040371*l+0.7827717662*m-0.8086757660*s]}
+ function rgb(L){var l=Math.pow(L[0]+0.3963377774*L[1]+0.2158037573*L[2],3),m=Math.pow(L[0]-0.1055613458*L[1]-0.0638541728*L[2],3),s=Math.pow(L[0]-0.0894841775*L[1]-1.2914855480*L[2],3);
+  return [toSrgb(4.0767416621*l-3.3077115913*m+0.2309699292*s),toSrgb(-1.2684380046*l+2.6097574011*m-0.3413193965*s),toSrgb(-0.0041960863*l-0.7034186147*m+1.7076147010*s)]}
  function ease(stops,a,b,y0,y1,n){
-  var A=hex(a),B=hex(b);
-  for(var i=0;i<=n;i++){var t=i/n,e=t*t*t*(t*(t*6-15)+10);
-   stops.push('rgb('+A.map(function(v,j){return Math.round(v+(B[j]-v)*e)}).join(',')+') '+(y0+(y1-y0)*t).toFixed(1)+'px')}
+  var A=oklab(hex(a)),B=oklab(hex(b));
+  for(var i=0;i<=n;i++){var t=i/n,e=t-0.12*Math.sin(2*Math.PI*t)/(2*Math.PI)*2;
+   var c=rgb(A.map(function(v,j){return v+(B[j]-v)*e}));
+   stops.push('rgb('+c.join(',')+') '+(y0+(y1-y0)*t).toFixed(1)+'px')}
  }
  /* the backdrop is a layer of its own across the whole page width, placed in the same coordinates as the pictures
-    (so its colours meet the picture's own backdrop exactly at any window size): white under the header, turning
+    (so its colours meet the picture's own backdrop exactly at any window size): our page grey under the header, turning
     slowly into the stage's deep blue by the text, the picture's own colours row by row, then a slow turn into a light
     blue-grey that stays for the rest of the page */
+ var POD_FROM=234; /* the row (of 1671) where the picture starts to show - its mask, okla_home_side.css: 14 % */
+ function podColour(row){
+  for(var i=1;i<POD_BG.length;i++){if(row<=POD_BG[i][0]){var a=POD_BG[i-1],b=POD_BG[i],t=(row-a[0])/(b[0]-a[0]),A=hex(a[1]),B=hex(b[1]);
+   return '#'+A.map(function(v,j){return ('0'+Math.round(v+(B[j]-v)*t).toString(16)).slice(-2)}).join('')}}
+  return POD_BG[POD_BG.length-1][1];
+ }
  function podBackground(el){
   var z=window.__oklaDZ||1,sy=window.pageYOffset;
   var img=el.querySelector('.okla-side-pod__img');if(!img)return;
@@ -68,11 +83,13 @@
   var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/1671;
   if(!(k>0))return;
   var end=top+h+900,stops=[];
-  /* white -> the stage's deep blue over the whole way from the header down to where the picture's backdrop is fully
-     there (the text stands on its darker half) */
-  ease(stops,'#ffffff','#0055d1',0,Math.max(320,top-hb+150*k),40);
-  POD_BG.forEach(function(p){if(p[0]>150)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
-  ease(stops,'#e6eefe','#dbe5f4',top-hb+h,end-hb,16);
+  /* our page grey turns, slowly and evenly, into exactly the picture's own colour at the row where the picture starts
+     to show (its darker top rows stay transparent, okla_home_side.css), then the picture's own colours follow - no
+     darker band anywhere */
+  var R=POD_FROM,from=podColour(R);
+  ease(stops,'#eef0f3',from,0,Math.max(320,top-hb+R*k),48);
+  POD_BG.forEach(function(p){if(p[0]>R)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
+  ease(stops,'#e6eefe','#dbe5f4',top-hb+h,end-hb,24);
   var bg=document.getElementById('okla-pod-backdrop');
   if(!bg){bg=document.createElement('div');bg.id='okla-pod-backdrop';bg.setAttribute('aria-hidden','true');document.body.insertBefore(bg,document.body.firstChild)}
   bg.style.top=hb+'px';bg.style.height=(end-hb)+'px';
