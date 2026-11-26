@@ -37,16 +37,29 @@
   var base=window.__oklaAssetBase||'';
   var d=block(id,side,
    '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
-   '<span class="okla-side-pod__text"><span class="okla-side-pod__kicker">'+kicker+'</span><strong class="okla-side-pod__title">'+title+'</strong>'+
-   '<span class="okla-side-pod__sub">'+sub+'</span><span class="okla-side-pod__btn">Kup teď</span></span>'+
    '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
+   '<span class="okla-side-pod__text"><span class="okla-side-pod__kicker">'+kicker+'</span><strong class="okla-side-pod__title">'+title+'</strong>'+
+   '<span class="okla-side-pod__sub">'+sub+'</span></span>'+
+   '<span class="okla-side-pod__btn">Kup teď</span>'+
    '</a>');
   d.classList.add('okla-side-art--pod');return d;
  }
+ /* the page's background is the picture's own backdrop: its colour at the picture's edge, row by row (941 x 1671 px),
+    laid behind the page at the picture's place and scale - deep blue above, a light blue under it - so the stages are
+    part of the background, with no edge anywhere */
+ var POD_BG=[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']];
+ function podBackground(el){
+  var r=el.getBoundingClientRect(),top=r.top+window.pageYOffset,k=r.height/1671;
+  if(!(k>0))return;
+  var stops=['#0055d1 0px','#0055d1 '+Math.round(top)+'px'];
+  POD_BG.forEach(function(p){stops.push(p[1]+' '+Math.round(top+p[0]*k)+'px')});
+  stops.push('#e6ecf6 '+Math.round(top+r.height+360)+'px');
+  document.documentElement.style.setProperty('--okla-pod-bg','linear-gradient(180deg,'+stops.join(',')+')');
+ }
  function buildPod(){
   document.documentElement.classList.add('okla-measure-pod');
-  podBlock('okla-side-left','left','okla-measure-left.webp','Měřicí technika','Měřte přesně','Teploměry, vlhkoměry, testery');
-  podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte cokoli','Anemometry a dálkoměry');
+  podBlock('okla-side-left','left','okla-measure-left.webp','FNIRSI · ANENG','Přesné měření pro dílnu i domov','Teploměry, vlhkoměry a testery');
+  podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte vzdálenost, vítr i lak','Dálkoměry, anemometry, tloušťkoměry');
  }
 
  function build(){
@@ -179,6 +192,7 @@
    left.style.left=(c.left+sx-pw-SIDE_GUTTER)+'px';
    right.style.left=(c.right+sx+SIDE_GUTTER)+'px';
    card.style.minHeight='';
+   podBackground(left);
    return;
   }
   card.style.minHeight=Math.ceil(ART_TOP_OFFSET+HAND_BOTTOM*width)+'px';

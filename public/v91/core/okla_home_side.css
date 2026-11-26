@@ -71,17 +71,25 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
   html body .okla-side-art--right:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
 }
 
-/* Měřicí technika: the podium stages (okla_home_side.js). The picture runs from the content's top; its bottom fades
-   into the page, which is a light blue-grey there (as the picture's own floor) instead of the usual grey. Heading,
-   line and button on the picture's deep blue top, sized with the stage (cqw). */
-html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body .overall-wrapper:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:#e6ecf6!important;background-image:none!important}
+/* Měřicí technika: the podium stages (okla_home_side.js) are part of the page's background - the page behind them is
+   the picture's own backdrop (deep blue at the top, a light blue under it, --okla-pod-bg set by the script), so there
+   is no frame or edge. On the deep blue top a label, a large heading and one line; "Kup teď" on the floating podium's
+   blue front (centre at 64 % / 53.6 % of the left picture, mirrored on the right). Sizes in cqw (with the stage). */
+html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:var(--okla-pod-bg,#0055d1) no-repeat,#e6ecf6!important;background-color:#e6ecf6!important}
+html.okla-measure-pod body:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body .overall-wrapper:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:transparent!important;background-image:none!important}
 html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!important;clip-path:none!important;pointer-events:none}
-.okla-side-art--pod .okla-side-pod{position:relative;display:block;color:#fff;text-decoration:none;pointer-events:auto;cursor:pointer;border-radius:14px 14px 0 0;overflow:hidden}
-.okla-side-art--pod .okla-side-pod:focus-visible{outline:2px solid #0859d8;outline-offset:4px}
-.okla-side-art--pod .okla-side-pod__img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(#000 84%,transparent 100%);mask-image:linear-gradient(#000 84%,transparent 100%)}
-.okla-side-art--pod .okla-side-pod__text{position:absolute;left:0;right:0;top:0;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.8cqw;padding:7cqw 6cqw 0;text-align:center}
-.okla-side-art--pod .okla-side-pod__kicker{padding:1.2cqw 3cqw;border-radius:1.6cqw;background:rgba(255,255,255,.16);color:#fff;font:700 3.9cqw/1.2 "Open Sans",Arial,sans-serif;letter-spacing:.01em}
-.okla-side-art--pod .okla-side-pod__title{display:block;margin-top:.6cqw;color:#fff;font:800 8.2cqw/1.1 "Open Sans",Arial,sans-serif;letter-spacing:-.015em;text-shadow:0 2px 12px rgba(0,30,90,.25)}
-.okla-side-art--pod .okla-side-pod__sub{display:block;max-width:86cqw;color:#e2ecff;font:500 4.4cqw/1.35;white-space:nowrap "Open Sans",Arial,sans-serif}
-.okla-side-art--pod .okla-side-pod__btn{display:inline-flex;align-items:center;justify-content:center;margin-top:2cqw;height:10.6cqw;padding:0 7cqw;border-radius:2.2cqw;background:#fff;color:#0859d8;font:700 4.6cqw/1 "Open Sans",Arial,sans-serif;box-shadow:0 6px 18px rgba(0,30,90,.22);transition:background-color .15s ease}
+.okla-side-art--pod .okla-side-pod{position:relative;display:block;color:#fff;text-decoration:none;pointer-events:auto;cursor:pointer}
+.okla-side-art--pod .okla-side-pod:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.okla-side-art--pod .okla-side-pod__img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(#000 91%,transparent);mask-image:linear-gradient(#000 91%,transparent)}
+.okla-side-art--pod .okla-side-pod__text{position:absolute;left:0;right:0;top:0;z-index:1;display:flex;flex-direction:column;align-items:center;gap:2.2cqw;padding:8cqw 7cqw 0;text-align:center}
+.okla-side-art--pod .okla-side-pod__kicker{color:rgba(255,255,255,.78);font:700 3.8cqw/1.2 "Open Sans",Arial,sans-serif;letter-spacing:.06em}
+.okla-side-art--pod .okla-side-pod__title{display:block;color:#fff;font:800 7.6cqw/1.16 "Open Sans",Arial,sans-serif;letter-spacing:-.01em;text-wrap:balance;text-shadow:0 2px 14px rgba(0,30,90,.25)}
+.okla-side-art--pod .okla-side-pod__sub{display:block;color:#e2ecff;font:400 4.4cqw/1.35 "Open Sans",Arial,sans-serif;text-wrap:balance}
+.okla-side-art--pod .okla-side-pod__btn{position:absolute;z-index:2;top:53.6%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;justify-content:center;height:10.6cqw;padding:0 6.4cqw;border-radius:1.8cqw;background:#fff;color:#0859d8;font:700 4.6cqw/1 "Open Sans",Arial,sans-serif;white-space:nowrap;box-shadow:0 6px 18px rgba(0,30,90,.28);transition:background-color .15s ease}
+.okla-side-art--pod.okla-side-art--left .okla-side-pod__btn{left:64%}
+.okla-side-art--pod.okla-side-art--right .okla-side-pod__btn{left:36%}
 .okla-side-art--pod .okla-side-pod:hover .okla-side-pod__btn{background:#eaf1fd}
+/* the breadcrumbs above the content stand on the deep blue: white */
+html.okla-measure-pod body .breadcrumbs-wrapper:not(#osp-a#osp-b#osp-c#osp-d) :is(a,span,li,strong,div){color:#fff!important;-webkit-text-fill-color:#fff!important}
+html.okla-measure-pod body .breadcrumbs-wrapper:not(#osp-a#osp-b#osp-c#osp-d) svg{fill:#fff!important;color:#fff!important}
+html.okla-measure-pod body .breadcrumbs-wrapper:not(#osp-a#osp-b#osp-c#osp-d) :is(a,span)::before{color:#fff!important;-webkit-text-fill-color:#fff!important;border-color:#fff!important}
