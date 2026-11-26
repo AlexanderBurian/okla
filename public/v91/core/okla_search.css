@@ -51,3 +51,9 @@ html.okla-search-open .okla-search-panel{display:block}
   html.okla-search-open body .okcb-dim:not(#osr-a#osr-b){display:none!important}
   html.okla-search-open body #header #okla-catbar:not(#osr-a#osr-b) :is(.okcb-link,.okcb-chev){color:#0b2540!important;-webkit-text-fill-color:#0b2540!important}
 }
+
+/* the field's own shape is the bright cut-out: the form under the rounded field had a square background of the same
+   grey, whose corners showed bright outside the field's rounded corners on the veil */
+@media(min-width:992px){
+  html body #header .search .search-form:not(#osr-a#osr-b){border-radius:8px!important;background-clip:padding-box!important}
+}
