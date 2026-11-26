@@ -76,7 +76,7 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
    deep blue, the picture's own colours, then a light blue-grey for the rest of the page. The picture takes two thirds
    of the margin by the content; its top, bottom and outer side fade into the backdrop. Above it, by the content, the
    heading, a line and a real "Kup teď" button; the text can be selected. Sizes in cqw (with the stage), capped. */
-html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:#dbe5f4!important;background-image:none!important}
+html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:#d2dff6!important;background-image:none!important}
 html.okla-measure-pod body:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body .overall-wrapper:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:transparent!important;background-image:none!important}
 #okla-pod-backdrop{position:absolute;left:0;right:0;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:100% 100%}
 html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!important;clip-path:none!important;pointer-events:none}
@@ -91,7 +91,7 @@ html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!impor
 .okla-side-art--pod a.okla-side-pod__btn:hover{background:#ffe033;box-shadow:0 8px 22px rgba(0,30,90,.36)}
 .okla-side-art--pod a.okla-side-pod__btn:active{transform:translateY(1px);box-shadow:0 3px 10px rgba(0,30,90,.3)}
 .okla-side-art--pod a.okla-side-pod__btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
-.okla-side-art--pod .okla-side-pod__pic{display:block;margin-top:-32cqw;pointer-events:auto;cursor:pointer}
+.okla-side-art--pod .okla-side-pod__pic{display:block;margin-top:-40cqw;pointer-events:auto;cursor:pointer}
 .okla-side-art--pod .okla-side-pod__img{display:block;width:100%;height:auto}
 .okla-side-art--pod.okla-side-art--left .okla-side-pod__img{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 24%,#000 32%,#000 95%,transparent 100%),linear-gradient(90deg,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,transparent 24%,#000 32%,#000 95%,transparent 100%),linear-gradient(90deg,transparent 0,#000 14%);mask-composite:intersect}
 .okla-side-art--pod.okla-side-art--right .okla-side-pod__img{-webkit-mask-image:linear-gradient(180deg,transparent 0,transparent 24%,#000 32%,#000 95%,transparent 100%),linear-gradient(270deg,transparent 0,#000 14%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,transparent 24%,#000 32%,#000 95%,transparent 100%),linear-gradient(270deg,transparent 0,#000 14%);mask-composite:intersect}

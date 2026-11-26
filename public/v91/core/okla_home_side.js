@@ -68,8 +68,8 @@
  }
  /* the backdrop is a layer of its own across the whole page width, placed in the same coordinates as the pictures
     (so its colours meet the picture's own backdrop exactly at any window size): white under the header, turning
-    slowly into the stage's deep blue by the text, the picture's own colours row by row, then a slow turn into a light
-    blue-grey that stays for the rest of the page */
+    slowly into the stage's deep blue by the text, the picture's own colours row by row, then a long, slow turn into a
+    light blue-grey (#d2dff6) that stays for the rest of the page */
  var POD_FROM=401; /* the row (of 1671) where the picture starts to show - its mask, okla_home_side.css: 24 % (above the products) */
  function podColour(row){
   for(var i=1;i<POD_BG.length;i++){if(row<=POD_BG[i][0]){var a=POD_BG[i-1],b=POD_BG[i],t=(row-a[0])/(b[0]-a[0]),A=hex(a[1]),B=hex(b[1]);
@@ -83,14 +83,14 @@
   var hd=document.getElementById('header'),hb=hd?(hd.getBoundingClientRect().bottom+sy)/z:0;
   var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/1671;
   if(!(k>0))return;
-  var end=top+h+900,stops=[];
+  var end=top+h+1400,stops=[];
   /* the header's white turns, slowly and evenly, into exactly the picture's own colour at the row where the picture starts
      to show (its darker top rows stay transparent, okla_home_side.css), then the picture's own colours follow - no
      darker band anywhere */
   var R=POD_FROM,from=podColour(R);
   ease(stops,'#ffffff',from,0,Math.max(320,top-hb+R*k),48);
   POD_BG.forEach(function(p){if(p[0]>R)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
-  ease(stops,'#e6eefe','#dbe5f4',top-hb+h,end-hb,24);
+  ease(stops,'#e6eefe','#d2dff6',top-hb+h,end-hb,40);
   var bg=document.getElementById('okla-pod-backdrop');
   if(!bg){bg=document.createElement('div');bg.id='okla-pod-backdrop';bg.setAttribute('aria-hidden','true');document.body.insertBefore(bg,document.body.firstChild)}
   bg.style.top=hb+'px';bg.style.height=(end-hb)+'px';
