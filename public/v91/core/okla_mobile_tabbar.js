@@ -20,8 +20,8 @@
    cart.classList.add('okla-tb-cart');
    if(/^\/(kosik|objednavka)(\/|$)/.test(location.pathname)){
     cart.classList.add('is-active');
-    /* the label is blue like the other active items (and is left alone by the text-contrast pass) */
-    var lab=cart.querySelector('span');if(lab){lab.__oktc=1;lab.style.setProperty('color','#0646ab','important')}
+    /* the label is left alone by the text-contrast pass; its blue comes from okla_mobile_bottombar.css (so it can turn plain while a panel is open) */
+    var lab=cart.querySelector('span');if(lab)lab.__oktc=1;
    }
   }
   /* "Objednávky" is the current item on the order-status page (/stav-objednavky/, served by

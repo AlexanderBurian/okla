@@ -1,0 +1,13 @@
+/* Okla – phones: the Katalog panel's subcategory view (okla_mobile_catdrill.js) - the same rows as the categories */
+@media(max-width:767px){
+  #okla-v61-drawer .okm61-drawer-body.okla-cd-on>:not(.okla-cd){display:none!important}
+  #okla-v61-drawer .okla-cd .okla-cd__back{display:flex!important;align-items:center!important;gap:6px!important;width:auto!important;height:auto!important;min-height:44px!important;margin:4px 0 0!important;padding:0 10px!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font:600 14.5px/1.2 "Open Sans",Arial,sans-serif!important;cursor:pointer!important}
+  #okla-v61-drawer .okla-cd .okla-cd__back svg{width:20px!important;height:20px!important;flex:none!important}
+  #okla-v61-drawer .okla-cd .okla-cd__title{margin-top:2px!important}
+  #okla-v61-drawer .okla-cd .okla-cd__all .okm61-cat-row-label{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font-weight:700!important}
+  #okla-v61-drawer .okla-cd .okla-cd__icon img{display:block!important;width:100%!important;height:100%!important;object-fit:contain!important}
+  #okla-v61-drawer .okla-cd .okla-cd__icon img:not([src]){visibility:hidden!important}
+  /* the arrow: a larger target (it opens the subcategories, the name goes to the category) */
+  #okla-v61-drawer .okm61-drawer-body>.okm61-drawer-list .okm61-cat-row-chevron{position:relative!important}
+  #okla-v61-drawer .okm61-drawer-body>.okm61-drawer-list .okm61-cat-row-chevron::after{content:""!important;position:absolute!important;inset:-14px -16px!important}
+}

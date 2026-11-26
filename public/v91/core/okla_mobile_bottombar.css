@@ -46,12 +46,12 @@
 @media(max-width:767px){
   html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav{bottom:calc(64px + env(safe-area-inset-bottom,0px))!important}
   html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.08),0 24px 0 0 #fff!important}
-  /* the cart (step 1): the price to pay on the left (its label over the amount), "Pokračovat" on the right */
+  /* the cart (step 1): the price to pay on the left (its label over the amount, in its own blue and size), "Pokračovat" on the right */
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step>.next-step-back{display:none!important}
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important}
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step>.okla-alza-total{display:grid!important;grid-template-columns:auto!important;grid-template-rows:auto auto!important;grid-auto-flow:row!important;justify-content:start!important;justify-items:start!important;align-content:center!important;row-gap:2px!important;flex:1 1 auto!important;min-width:0!important;margin:0!important;padding:0!important;text-align:left!important;order:0!important}
-  html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .okla-alza-total__label{grid-column:1!important;grid-row:1!important;margin:0!important;padding:0!important;font:400 12.5px/1.2 "Open Sans",Arial,sans-serif!important;color:#46556a!important;-webkit-text-fill-color:#46556a!important;white-space:nowrap!important}
-  html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .okla-alza-total__value{grid-column:1!important;grid-row:2!important;margin:0!important;padding:0!important;font:800 21px/1.1 "Open Sans",Arial,sans-serif!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;white-space:nowrap!important}
+  html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .okla-alza-total__label{grid-column:1!important;grid-row:1!important;margin:0!important;padding:0!important;white-space:nowrap!important}
+  html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .okla-alza-total__value{grid-column:1!important;grid-row:2!important;margin:0!important;padding:0!important;white-space:nowrap!important}
   html body.in-kosik:not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h) #content .okla-step-nav .next-step>:is(#continue-order-button,.next-step-forward,.btn-conversion){flex:0 0 auto!important;width:auto!important;min-width:52%!important;max-width:none!important;margin:0!important;order:1!important}
 }
 
@@ -77,6 +77,11 @@
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel,:hover,:active,:focus-visible)>span{color:#0859d8!important;-webkit-text-fill-color:#0859d8!important}
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel)>span{font-weight:700!important}
   html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>.okla-tb-count{top:5px!important;left:calc(50% + 4px)!important}
+}
+/* while a panel (Katalog / Menu) is open only its item is blue: the page's own item goes back to the plain colours */
+@media(max-width:767px){
+  html.okla-tb-on body #okla-v61-bottom:has(>.okm61-bottom-action.is-panel):not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l#obd-m)>.okm61-bottom-action.is-active:not(.is-panel)>svg{color:#505050!important}
+  html.okla-tb-on body #okla-v61-bottom:has(>.okm61-bottom-action.is-panel):not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l#obd-m)>.okm61-bottom-action.is-active:not(.is-panel)>span{color:#454545!important;-webkit-text-fill-color:#454545!important;font-weight:500!important}
 }
 /* the narrowest phones: the names a pixel smaller, so "Objednávky" stays whole */
 @media(max-width:360px){
