@@ -8,6 +8,8 @@
 
  var PHONE='+420 123 456 789';             /* placeholder */
  var MAIL='podpora@okla.cz';
+ /* the currency and the prices with / without VAT are off for now (the band holds the pages only); true brings them back */
+ var TOOLS=false;
  var LINKS=[
   ['Jak nakupovat','/jak-nakupovat/'],
   ['Doprava a platba','/doprava-a-platba/'],
@@ -15,6 +17,8 @@
   ['Reklamace','/reklamace/'],
   ['O nás','/o-nas/'],
   ['Newsroom','/nase-novinky/'],
+  ['Stav objednávky','/stav-objednavky/'],
+  ['Obchodní podmínky','/obchodni-podminky/'],
   ['Kontakt','/kontakty/']
  ];
  var ICON={
@@ -31,7 +35,8 @@
   var bar=el('div','okla-topbar');bar.id='okla-topbar';
   var inner=el('div','okla-topbar__in');
   var nav=el('nav','okla-topbar__links');nav.setAttribute('aria-label','Nákup a pomoc');
-  LINKS.forEach(function(l){var a=el('a','okla-topbar__link');a.href=l[1];a.textContent=l[0];nav.appendChild(a)});
+  /* a dot of its own between the links, so the links spread across the band with each dot in the middle of its gap */
+  LINKS.forEach(function(l,i){if(i){var d=el('span','okla-topbar__dot');d.setAttribute('aria-hidden','true');nav.appendChild(d)}var a=el('a','okla-topbar__link');a.href=l[1];a.textContent=l[0];nav.appendChild(a)});
   var tab=el('div','okla-topbar__tab');
   var tel=el('a','okla-topbar__contact',ICON.phone+'<span></span>');tel.href='tel:'+PHONE.replace(/\s+/g,'');tel.lastChild.textContent=PHONE;
   var mail=el('a','okla-topbar__contact',ICON.mail+'<span></span>');mail.href='mailto:'+MAIL;mail.lastChild.textContent=MAIL;
@@ -66,7 +71,7 @@
    gross.addEventListener('click',function(){pick(false)});net.addEventListener('click',function(){pick(true)});
    menu.append(gross,net);
   }));
-  inner.append(nav,tools,tab);bar.appendChild(inner);
+  if(TOOLS)inner.append(nav,tools,tab);else{inner.append(nav,tab);bar.classList.add('okla-topbar--pages')}bar.appendChild(inner);
   header.insertBefore(bar,header.firstChild);
   document.documentElement.classList.add('okla-topbar-on');
 
