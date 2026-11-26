@@ -59,3 +59,32 @@
   /* the cart's button panel: a longer white fill under it (iPhone Safari's bars moving never open a gap) */
   html.okla-tb-on body:is(.in-kosik,.in-krok-2):not(#obn-a#obn-b#obn-c#obn-d#obn-e#obn-f#obn-g#obn-h#obn-i) #content .okla-step-nav.is-stuck{box-shadow:0 -6px 18px rgba(11,37,64,.08),0 90px 0 0 #fff!important}
 }
+
+/* The bar as on the big shops' apps: solid pictograms (okla_mobile_downbar.js) 26 px in a 36 px circle, the names
+   12 px, dark and clear; the current item: its pictogram in a light grey circle, its name in Okla blue */
+@media(max-width:767px){
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action{
+    gap:1px!important;color:#2b313b!important;-webkit-text-fill-color:#2b313b!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>svg{
+    box-sizing:border-box!important;width:36px!important;height:36px!important;padding:5px!important;border-radius:50%!important;
+    fill:currentColor!important;stroke:none!important;color:#2b313b!important;background:transparent!important;transition:background-color .15s ease!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>span{
+    font:600 12px/1.2 "Open Sans",Arial,sans-serif!important;color:#2b313b!important;-webkit-text-fill-color:#2b313b!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel)>svg{
+    background:#e6eaf0!important;color:#2b313b!important;stroke:none!important
+  }
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel)>span{
+    color:#0859d8!important;-webkit-text-fill-color:#0859d8!important;font-weight:700!important
+  }
+  /* the orders' tick is cut out of the clipboard: it takes the field's colour */
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action:is(.is-active,.is-panel)>svg [stroke="#fff"]{stroke:#e6eaf0!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>.okla-tb-count{top:2px!important;left:calc(50% + 7px)!important}
+}
+/* the narrowest phones: the names a pixel smaller, so "Objednávky" stays whole */
+@media(max-width:360px){
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l)>.okm61-bottom-action>span{font-size:11px!important;letter-spacing:-.01em!important}
+  html.okla-tb-on body #okla-v61-bottom:not(#obd-a#obd-b#obd-c#obd-d#obd-e#obd-f#obd-g#obd-h#obd-i#obd-j#obd-k#obd-l){padding-left:0!important;padding-right:0!important}
+}
