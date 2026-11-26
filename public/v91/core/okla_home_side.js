@@ -50,7 +50,8 @@
     part of the background, with no edge anywhere */
  var POD_BG=[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']];
  /* a long turn from one colour to another, mixed in OKLab (a perceptually even colour space: the lightness changes at
-    the same pace all the way, so no step or band shows), many stops; 'curve' only softens the two ends a little */
+    the same pace all the way, so no step or band shows), many stops on a smootherstep curve: it leaves the first colour and arrives at the second with no slope at all, so where
+    it meets the picture's own (lighter-going) colours there is no crease */
  function hex(c){return [1,3,5].map(function(i){return parseInt(c.substr(i,2),16)})}
  function toLin(v){v/=255;return v<=0.04045?v/12.92:Math.pow((v+0.055)/1.055,2.4)}
  function toSrgb(v){v=v<=0.0031308?12.92*v:1.055*Math.pow(v,1/2.4)-0.055;return Math.max(0,Math.min(255,Math.round(v*255)))}
@@ -61,15 +62,15 @@
   return [toSrgb(4.0767416621*l-3.3077115913*m+0.2309699292*s),toSrgb(-1.2684380046*l+2.6097574011*m-0.3413193965*s),toSrgb(-0.0041960863*l-0.7034186147*m+1.7076147010*s)]}
  function ease(stops,a,b,y0,y1,n){
   var A=oklab(hex(a)),B=oklab(hex(b));
-  for(var i=0;i<=n;i++){var t=i/n,e=t-0.12*Math.sin(2*Math.PI*t)/(2*Math.PI)*2;
+  for(var i=0;i<=n;i++){var t=i/n,e=t*t*t*(t*(t*6-15)+10);
    var c=rgb(A.map(function(v,j){return v+(B[j]-v)*e}));
    stops.push('rgb('+c.join(',')+') '+(y0+(y1-y0)*t).toFixed(1)+'px')}
  }
  /* the backdrop is a layer of its own across the whole page width, placed in the same coordinates as the pictures
-    (so its colours meet the picture's own backdrop exactly at any window size): our page grey under the header, turning
+    (so its colours meet the picture's own backdrop exactly at any window size): white under the header, turning
     slowly into the stage's deep blue by the text, the picture's own colours row by row, then a slow turn into a light
     blue-grey that stays for the rest of the page */
- var POD_FROM=234; /* the row (of 1671) where the picture starts to show - its mask, okla_home_side.css: 14 % */
+ var POD_FROM=401; /* the row (of 1671) where the picture starts to show - its mask, okla_home_side.css: 24 % (above the products) */
  function podColour(row){
   for(var i=1;i<POD_BG.length;i++){if(row<=POD_BG[i][0]){var a=POD_BG[i-1],b=POD_BG[i],t=(row-a[0])/(b[0]-a[0]),A=hex(a[1]),B=hex(b[1]);
    return '#'+A.map(function(v,j){return ('0'+Math.round(v+(B[j]-v)*t).toString(16)).slice(-2)}).join('')}}
@@ -83,11 +84,11 @@
   var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/1671;
   if(!(k>0))return;
   var end=top+h+900,stops=[];
-  /* our page grey turns, slowly and evenly, into exactly the picture's own colour at the row where the picture starts
+  /* the header's white turns, slowly and evenly, into exactly the picture's own colour at the row where the picture starts
      to show (its darker top rows stay transparent, okla_home_side.css), then the picture's own colours follow - no
      darker band anywhere */
   var R=POD_FROM,from=podColour(R);
-  ease(stops,'#eef0f3',from,0,Math.max(320,top-hb+R*k),48);
+  ease(stops,'#ffffff',from,0,Math.max(320,top-hb+R*k),48);
   POD_BG.forEach(function(p){if(p[0]>R)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
   ease(stops,'#e6eefe','#dbe5f4',top-hb+h,end-hb,24);
   var bg=document.getElementById('okla-pod-backdrop');
