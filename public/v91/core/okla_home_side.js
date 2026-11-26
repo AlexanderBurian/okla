@@ -24,8 +24,34 @@
   return d;
  }
 
+ /* Měřicí technika (the category and its subcategories): both margins are a blue stage with podiums (the right one
+    mirrored), the best measuring instruments standing on them (pictures composed with their shadows and reflections),
+    a short heading, a line and "Kup teď" on top, as on the big shops; the page under them a light blue-grey */
+ var MEASURE='/merici-technika-a-naradi/';
+ function measurePage(){
+  if(!document.body||!/(^|\s)type-category(\s|$)/.test(document.body.className))return false;
+  if(location.pathname.indexOf(MEASURE)===0)return true;
+  return !!document.querySelector('.breadcrumbs a[href$="'+MEASURE+'"],.breadcrumbs a[href*="'+MEASURE+'"],#navigation-breadcrumbs a[href*="'+MEASURE+'"]');
+ }
+ function podBlock(id,side,img,kicker,title,sub){
+  var base=window.__oklaAssetBase||'';
+  var d=block(id,side,
+   '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
+   '<span class="okla-side-pod__text"><span class="okla-side-pod__kicker">'+kicker+'</span><strong class="okla-side-pod__title">'+title+'</strong>'+
+   '<span class="okla-side-pod__sub">'+sub+'</span><span class="okla-side-pod__btn">Kup teď</span></span>'+
+   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
+   '</a>');
+  d.classList.add('okla-side-art--pod');return d;
+ }
+ function buildPod(){
+  document.documentElement.classList.add('okla-measure-pod');
+  podBlock('okla-side-left','left','okla-measure-left.webp','Měřicí technika','Měřte přesně','Teploměry, vlhkoměry, testery');
+  podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte cokoli','Anemometry a dálkoměry');
+ }
+
  function build(){
   if(document.getElementById('okla-side-left'))return;
+  if(measurePage()){buildPod();return}
   block('okla-side-left','left',
    '<a class="okla-side-art__link" href="/obchodni-podminky/">'+
    '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem Okla"></div>'+
@@ -145,6 +171,16 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
+  /* the podium stage: level with the content's top, 24 px from it on both sides, its own height */
+  if(left.classList.contains('okla-side-art--pod')){
+   var pw=Math.min(MAX_WIDTH,Math.floor(space-SIDE_GUTTER*2));
+   left.style.width=pw+'px';right.style.width=pw+'px';
+   left.style.top=right.style.top=(c.top+sy)+'px';
+   left.style.left=(c.left+sx-pw-SIDE_GUTTER)+'px';
+   right.style.left=(c.right+sx+SIDE_GUTTER)+'px';
+   card.style.minHeight='';
+   return;
+  }
   card.style.minHeight=Math.ceil(ART_TOP_OFFSET+HAND_BOTTOM*width)+'px';
   /* Category pages: the sidebar is a column of separate boxes, so the hand may run under the "Kategorie" box only.
      Both pictures start level with the boxes' top, and are made smaller (never larger than 0.9) until the hand's arm

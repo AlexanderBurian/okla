@@ -70,3 +70,18 @@ body.in-vyhledavani .okla-side-art,body.in-kontakty .okla-side-art,body.ordering
   html body .okla-side-art--left:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
   html body .okla-side-art--right:not(#oksa-x){transform:scale(.84)!important;transform-origin:top right!important}
 }
+
+/* Měřicí technika: the podium stages (okla_home_side.js). The picture runs from the content's top; its bottom fades
+   into the page, which is a light blue-grey there (as the picture's own floor) instead of the usual grey. Heading,
+   line and button on the picture's deep blue top, sized with the stage (cqw). */
+html.okla-measure-pod:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f),html.okla-measure-pod body .overall-wrapper:not(#osp-a#osp-b#osp-c#osp-d#osp-e#osp-f){background:#e6ecf6!important;background-image:none!important}
+html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!important;clip-path:none!important;pointer-events:none}
+.okla-side-art--pod .okla-side-pod{position:relative;display:block;color:#fff;text-decoration:none;pointer-events:auto;cursor:pointer;border-radius:14px 14px 0 0;overflow:hidden}
+.okla-side-art--pod .okla-side-pod:focus-visible{outline:2px solid #0859d8;outline-offset:4px}
+.okla-side-art--pod .okla-side-pod__img{display:block;width:100%;height:auto;-webkit-mask-image:linear-gradient(#000 84%,transparent 100%);mask-image:linear-gradient(#000 84%,transparent 100%)}
+.okla-side-art--pod .okla-side-pod__text{position:absolute;left:0;right:0;top:0;z-index:1;display:flex;flex-direction:column;align-items:center;gap:1.8cqw;padding:7cqw 6cqw 0;text-align:center}
+.okla-side-art--pod .okla-side-pod__kicker{padding:1.2cqw 3cqw;border-radius:1.6cqw;background:rgba(255,255,255,.16);color:#fff;font:700 3.9cqw/1.2 "Open Sans",Arial,sans-serif;letter-spacing:.01em}
+.okla-side-art--pod .okla-side-pod__title{display:block;margin-top:.6cqw;color:#fff;font:800 8.2cqw/1.1 "Open Sans",Arial,sans-serif;letter-spacing:-.015em;text-shadow:0 2px 12px rgba(0,30,90,.25)}
+.okla-side-art--pod .okla-side-pod__sub{display:block;max-width:86cqw;color:#e2ecff;font:500 4.4cqw/1.35;white-space:nowrap "Open Sans",Arial,sans-serif}
+.okla-side-art--pod .okla-side-pod__btn{display:inline-flex;align-items:center;justify-content:center;margin-top:2cqw;height:10.6cqw;padding:0 7cqw;border-radius:2.2cqw;background:#fff;color:#0859d8;font:700 4.6cqw/1 "Open Sans",Arial,sans-serif;box-shadow:0 6px 18px rgba(0,30,90,.22);transition:background-color .15s ease}
+.okla-side-art--pod .okla-side-pod:hover .okla-side-pod__btn{background:#eaf1fd}
