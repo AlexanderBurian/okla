@@ -34,41 +34,48 @@
   return !!document.querySelector('.breadcrumbs a[href$="'+MEASURE+'"],.breadcrumbs a[href*="'+MEASURE+'"],#navigation-breadcrumbs a[href*="'+MEASURE+'"]');
  }
  function podBlock(id,side,img,kicker,title,sub){
-  var base=window.__oklaAssetBase||'';
+  var base=window.__oklaAssetBase||'',href=MEASURE+'?order=bestseller';
   var d=block(id,side,
-   '<a class="okla-side-pod" href="'+MEASURE+'?order=bestseller" aria-label="'+title+' – nejprodávanější měřicí technika">'+
-   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async">'+
-   '<span class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
-   '<span class="okla-side-pod__sub">'+sub+'</span><span class="okla-side-pod__btn">Kup teď</span></span>'+
-   '</a>');
+   '<div class="okla-side-pod">'+
+   '<div class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
+   '<span class="okla-side-pod__sub">'+sub+'</span>'+
+   '<a class="okla-side-pod__btn" href="'+href+'">Kup teď</a></div>'+
+   '<a class="okla-side-pod__pic" href="'+href+'" tabindex="-1" aria-hidden="true">'+
+   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="941" height="1671" decoding="async"></a>'+
+   '</div>');
   d.classList.add('okla-side-art--pod');return d;
  }
  /* the page's background is the picture's own backdrop: its colour at the picture's edge, row by row (941 x 1671 px),
     laid behind the page at the picture's place and scale - deep blue above, a light blue under it - so the stages are
     part of the background, with no edge anywhere */
  var POD_BG=[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']];
- /* a long, eased turn from one colour to another (many stops on a smoothstep curve, so no band shows) */
+ /* a long, eased turn from one colour to another (many stops on a smootherstep curve, so no band shows) */
  function hex(c){return [1,3,5].map(function(i){return parseInt(c.substr(i,2),16)})}
  function ease(stops,a,b,y0,y1,n){
   var A=hex(a),B=hex(b);
-  for(var i=0;i<=n;i++){var t=i/n,e=t*t*(3-2*t);
-   stops.push('rgb('+A.map(function(v,j){return Math.round(v+(B[j]-v)*e)}).join(',')+') '+Math.round(y0+(y1-y0)*t)+'px')}
+  for(var i=0;i<=n;i++){var t=i/n,e=t*t*t*(t*(t*6-15)+10);
+   stops.push('rgb('+A.map(function(v,j){return Math.round(v+(B[j]-v)*e)}).join(',')+') '+(y0+(y1-y0)*t).toFixed(1)+'px')}
  }
+ /* the backdrop is a layer of its own across the whole page width, placed in the same coordinates as the pictures
+    (so its colours meet the picture's own backdrop exactly at any window size): white under the header, turning
+    slowly into the stage's deep blue by the text, the picture's own colours row by row, then a slow turn into a light
+    blue-grey that stays for the rest of the page */
  function podBackground(el){
-  var img=el.querySelector('.okla-side-pod__img')||el;
-  var at=el.getBoundingClientRect().top+window.pageYOffset;
-  var r=img.getBoundingClientRect(),top=r.top+window.pageYOffset,k=r.height/1671;
+  var z=window.__oklaDZ||1,sy=window.pageYOffset;
+  var img=el.querySelector('.okla-side-pod__img');if(!img)return;
+  var ir=img.getBoundingClientRect(),ar=el.getBoundingClientRect();
+  var hd=document.getElementById('header'),hb=hd?(hd.getBoundingClientRect().bottom+sy)/z:0;
+  var top=(ir.top+sy)/z,h=ir.height/z,at=(ar.top+sy)/z,k=h/1671;
   if(!(k>0))return;
-  var hd=document.getElementById('header'),hb=hd?hd.getBoundingClientRect().bottom+window.pageYOffset:0;
-  var stops=['#ffffff 0px','#ffffff '+Math.round(hb)+'px'];
-  /* the header's white turns into the stage's deep blue slowly, reaching it where the text begins; the deep blue
-     stays behind the text down into the picture's faded top */
-  ease(stops,'#ffffff','#0055d1',hb,Math.max(hb+120,at),16);
-  stops.push('#0055d1 '+Math.round(top+150*k)+'px');
-  POD_BG.forEach(function(p){if(p[0]>150)stops.push(p[1]+' '+Math.round(top+p[0]*k)+'px')});
-  /* under the picture: its light floor turns slowly into a light blue-grey for the rest of the page */
-  ease(stops,'#e6eefe','#dbe5f4',top+r.height,top+r.height+700,12);
-  document.documentElement.style.setProperty('--okla-pod-bg','linear-gradient(180deg,'+stops.join(',')+')');
+  var end=top+h+900,stops=[];
+  ease(stops,'#ffffff','#0055d1',0,Math.max(160,at-hb+40),24);
+  stops.push('#0055d1 '+(top-hb+150*k).toFixed(1)+'px');
+  POD_BG.forEach(function(p){if(p[0]>150)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
+  ease(stops,'#e6eefe','#dbe5f4',top-hb+h,end-hb,16);
+  var bg=document.getElementById('okla-pod-backdrop');
+  if(!bg){bg=document.createElement('div');bg.id='okla-pod-backdrop';bg.setAttribute('aria-hidden','true');document.body.insertBefore(bg,document.body.firstChild)}
+  bg.style.top=hb+'px';bg.style.height=(end-hb)+'px';
+  bg.style.backgroundImage='linear-gradient(180deg,'+stops.join(',')+')';
  }
  function buildPod(){
   document.documentElement.classList.add('okla-measure-pod');
