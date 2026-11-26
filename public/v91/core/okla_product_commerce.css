@@ -228,7 +228,7 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button):disabled{opacity:.55!important;cursor:not-allowed!important}
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) svg,
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button) i{display:none!important}
-/* the cart pictogram is drawn by CSS (a filled cart, as a mask in the label colour), so it is there from the first
+/* the cart pictogram is drawn by CSS (a solid cart with rounded corners - the same as the phone bar's -, as a mask in the label colour), so it is there from the first
    paint and never changes the button's width */
 html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools :is(.btn-cart,.add-to-cart-button)::before{
  content:""!important;display:block!important;position:static!important;flex:0 0 var(--okla-card-btn-icon)!important;width:var(--okla-card-btn-icon)!important;height:var(--okla-card-btn-icon)!important;margin:0 var(--okla-card-btn-gap) 0 0!important;padding:0!important;
@@ -244,9 +244,9 @@ html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools
    variant of the main rule outranked it: on a phone a tap leaves the card hovered, so its button grew from 30 to 34 px.) */
 :root{
  --okla-card-btn-h:35px;--okla-card-btn-pad:0 14px;--okla-card-btn-fs:14px;--okla-card-btn-fw:700;--okla-card-btn-radius:6px;
- --okla-card-btn-icon:19px;--okla-card-btn-gap:8px;
+ --okla-card-btn-icon:20px;--okla-card-btn-gap:8px;
  --okla-card-btn-bg:#fff;--okla-card-btn-edge:#d9e4f9;--okla-card-btn-ink:#164194;--okla-card-btn-bg-hover:#c8d2e5;
- --okla-card-btn-cart:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1.003 1.003 0 0 0 20 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z'/%3E%3C/svg%3E");
+ --okla-card-btn-cart:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M1.75 3.6c0-.55.45-1 1-1h1.9c.78 0 1.45.54 1.62 1.3l.28 1.3h14.08c.98 0 1.7.93 1.45 1.88l-1.66 6.35a2.3 2.3 0 0 1-2.22 1.72H8.38l.27 1.25h9.6a1 1 0 1 1 0 2H7.85c-.47 0-.88-.33-.98-.79L4.4 4.6H2.75c-.55 0-1-.45-1-1Z'/%3E%3Ccircle cx='9.1' cy='20.2' r='1.75'/%3E%3Ccircle cx='17.4' cy='20.2' r='1.75'/%3E%3C/svg%3E");
 }
 @media(max-width:767px){
  /* the strip runs edge to edge along the card's bottom: it is placed on the card itself, the card keeps room for it */
@@ -292,7 +292,7 @@ html body .product .p-in-in:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.availability{or
 /* Phones: the card's button is the same as on PC and in the "added to cart" panel - white, light blue edge, navy
    "Do košíku" with the cart, centred under the price (no more green strip along the card's bottom). */
 @media(max-width:767px){
- :root{--okla-card-btn-h:38px;--okla-card-btn-pad:0 14px;--okla-card-btn-fs:14px;--okla-card-btn-fw:700;--okla-card-btn-radius:6px;--okla-card-btn-icon:19px;--okla-card-btn-gap:8px;
+ :root{--okla-card-btn-h:38px;--okla-card-btn-pad:0 14px;--okla-card-btn-fs:14px;--okla-card-btn-fw:700;--okla-card-btn-radius:6px;--okla-card-btn-icon:20px;--okla-card-btn-gap:8px;
   --okla-card-btn-bg:#fff;--okla-card-btn-edge:#d9e4f9;--okla-card-btn-ink:#164194;--okla-card-btn-bg-hover:#fff}
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c)>.p{padding-bottom:14px!important}
  html body #content#content .product:not(#okla-pc-a#okla-pc-b#okla-pc-c) .p-tools{height:auto!important;margin:10px 0 0!important;padding:0!important;text-align:center!important}

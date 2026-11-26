@@ -10,8 +10,8 @@
  if(location.pathname!=='/'&&location.pathname!=='')return;
  var base=window.__oklaAssetBase||'';
  var DEALS=[
-  {url:'/wintact-wt87a-digitalni-anemometr/',img:'wt87a',title:'Jak fouká?',claim:'Rychlost větru i vzduchu',price:589,alt:'Wintact WT87A digitální anemometr',copy:'za kompaktní digitální anemometr pro rychlé měření proudění vzduchu.'},
-  {url:'/benetech-gm8902-anemometr-s-oddelenou-sondou/',img:'gm8902',title:'Větrání OK?',claim:'Průtok vzduchu z výdechů',price:1189,alt:'Benetech GM8902 anemometr s oddělenou sondou',copy:'za anemometr s oddělenou sondou pro pohodlné měření průtoku.'},
+  {url:'/fnirsi-fnb58-usb-tester-rychleho-nabijeni/',img:'fnb58',title:'Nabíjí rychle?',claim:'Výkon USB-C nabíječky',price:2489,alt:'FNIRSI FNB58 USB tester rychlého nabíjení',copy:'za USB tester, který změří napětí, proud i výkon nabíječky.'},
+  {url:'/fnirsi-lcr-p1-tester-soucastek/',img:'lcrp1',title:'Vadný díl?',claim:'Tranzistory i kondenzátory',price:1289,alt:'FNIRSI LCR-P1 tester součástek',copy:'za tester, který sám pozná součástku a změří její hodnoty.'},
   {url:'/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/',img:'th104',title:'Kde uniká teplo?',claim:'Teplota povrchů na dálku',price:489,alt:'ANENG TH104 bezkontaktní infračervený teploměr',copy:'za bezkontaktní teploměr s barevným displejem pro rychlé hledání úniků tepla.'},
   {url:'/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/',img:'wmt10',title:'Suchá zeď?',claim:'Vlhkost zdiva i dřeva',price:1189,alt:'FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva',copy:'za bezkontaktní vlhkoměr dřeva a zdiva – měří bez vpichů, jen přiložením.'},
  ];
