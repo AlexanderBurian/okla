@@ -69,7 +69,7 @@
  /* the backdrop is a layer of its own across the whole page width, placed in the same coordinates as the pictures
     (so its colours meet the picture's own backdrop exactly at any window size): white under the header, turning
     slowly into the stage's deep blue by the text, the picture's own colours row by row, then a long, slow turn into a
-    light blue-grey (#d2dff6) that stays for the rest of the page */
+    light blue (#c8dcfd) that stays for the rest of the page */
  var POD_FROM=401; /* the row (of 1671) where the picture starts to show - its mask, okla_home_side.css: 24 % (above the products) */
  function podColour(row){
   for(var i=1;i<POD_BG.length;i++){if(row<=POD_BG[i][0]){var a=POD_BG[i-1],b=POD_BG[i],t=(row-a[0])/(b[0]-a[0]),A=hex(a[1]),B=hex(b[1]);
@@ -90,7 +90,7 @@
   var R=POD_FROM,from=podColour(R);
   ease(stops,'#ffffff',from,0,Math.max(320,top-hb+R*k),48);
   POD_BG.forEach(function(p){if(p[0]>R)stops.push(p[1]+' '+(top-hb+p[0]*k).toFixed(1)+'px')});
-  ease(stops,'#e6eefe','#d2dff6',top-hb+h,end-hb,40);
+  ease(stops,'#e6eefe','#c8dcfd',top-hb+h,end-hb,40);
   var bg=document.getElementById('okla-pod-backdrop');
   if(!bg){bg=document.createElement('div');bg.id='okla-pod-backdrop';bg.setAttribute('aria-hidden','true');document.body.insertBefore(bg,document.body.firstChild)}
   bg.style.top=hb+'px';bg.style.height=(end-hb)+'px';
@@ -100,6 +100,27 @@
   document.documentElement.classList.add('okla-measure-pod');
   podBlock('okla-side-left','left','okla-measure-left.webp','FNIRSI · ANENG','Přesné měření pro dílnu i domov','Teploměry, vlhkoměry a testery');
   podBlock('okla-side-right','right','okla-measure-right.webp','Nejprodávanější','Změřte vzdálenost i vítr','Dálkoměry a anemometry');
+ }
+
+ /* every other page in our grey (PC): under the header the page starts white and turns, slowly and evenly, into the grey -
+    the same smootherstep in OKLab as on the stages above, so the header's white flows into the page with no edge. A layer
+    of its own behind the page (okla-page-fade, okla_home_side.css), placed under the header in the page's coordinates. */
+ var FADE=480,GREY='#eef0f3';
+ function pageFade(){
+  var root=document.documentElement,el=document.getElementById('okla-page-fade');
+  var on=!root.classList.contains('okla-measure-pod')&&!!window.matchMedia&&matchMedia('(min-width:992px)').matches&&
+   /^rgba?\(238, 240, 243(, 1)?\)$/.test(getComputedStyle(root).backgroundColor);
+  var hd=document.getElementById('header');
+  if(!on||!hd||!document.body){if(el)el.remove();root.classList.remove('okla-page-fade');return}
+  var z=window.__oklaDZ||1,hb=(hd.getBoundingClientRect().bottom+window.pageYOffset)/z;
+  if(!el){
+   var stops=[];ease(stops,'#ffffff',GREY,0,FADE,32);
+   el=document.createElement('div');el.id='okla-page-fade';el.setAttribute('aria-hidden','true');
+   el.style.height=FADE+'px';el.style.backgroundImage='linear-gradient(180deg,'+stops.join(',')+')';
+   document.body.insertBefore(el,document.body.firstChild);
+  }
+  if(el.style.top!==hb+'px')el.style.top=hb+'px';
+  root.classList.add('okla-page-fade');
  }
 
  function build(){
@@ -185,7 +206,8 @@
  /* the art (its pictures and the live price, which reads a whole product page) is made only where it can be shown: a
     wide enough window on a page that has it - never on phones */
  function wanted(){return window.matchMedia('(min-width:768px)').matches&&!offPage()}
- function layout(){
+ function layout(){layoutArt();pageFade()}
+ function layoutArt(){
   var left=document.getElementById('okla-side-left');
   var right=document.getElementById('okla-side-right');
   var card=document.querySelector('#content-wrapper');
