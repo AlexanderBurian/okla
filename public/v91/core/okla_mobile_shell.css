@@ -77,3 +77,41 @@ html body .okla-m-buybar__btn:disabled{background:#c9d2de!important;color:#4a556
 html body .okla-m-buybar__icon{display:block!important;flex:0 0 20px!important;width:20px!important;height:20px!important;fill:none!important;stroke:currentColor!important;stroke-width:2!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 
 }
+
+/* Phones: the search bar under the floating header (okla_mobile_shell.js addSearchBar). Hidden in the page's own header;
+   when the visitor keeps scrolling up it slides out under the logo row - a short springy drop, the field growing in
+   from its centre, and one soft light passing over it - and goes back with the header on the way down. A tap opens
+   the full-screen search, ready to type (its field has 16 px text, so the phone does not zoom in). */
+html body #header #okla-v61-header .okla-m-sbar{display:none!important}
+@media(max-width:767px){
+  html.okla-m-stuck:not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar{
+    position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;
+    width:100%!important;height:44px!important;min-height:0!important;max-height:0!important;margin:0!important;padding:0 14px 0 16px!important;
+    overflow:hidden!important;border:1px solid #dfe5ee!important;border-width:0 1px!important;border-radius:12px!important;
+    background:#f3f5f8!important;box-shadow:none!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;
+    font:400 16px/1 "Open Sans",Arial,sans-serif!important;text-align:left!important;text-transform:none!important;cursor:text!important;
+    opacity:0!important;transform:translateY(-10px) scaleX(.86)!important;transform-origin:50% 0!important;box-sizing:border-box!important;
+    -webkit-tap-highlight-color:transparent!important;
+    transition:max-height .32s cubic-bezier(.2,.8,.2,1),margin-top .32s cubic-bezier(.2,.8,.2,1),opacity .2s ease,transform .42s cubic-bezier(.34,1.56,.64,1),border-width 0s linear .32s!important
+  }
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar{
+    max-height:44px!important;margin-top:8px!important;opacity:1!important;transform:none!important;border-width:1px!important;
+    transition:max-height .32s cubic-bezier(.2,.8,.2,1),margin-top .32s cubic-bezier(.2,.8,.2,1),opacity .22s ease .04s,transform .46s cubic-bezier(.34,1.56,.64,1),border-width 0s!important
+  }
+  /* one soft light passing over the field as it comes out */
+  html.okla-m-stuck body #header #okla-v61-header .okla-m-sbar::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:translateX(0);opacity:0;pointer-events:none}
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden) body #header #okla-v61-header .okla-m-sbar::after{animation:okla-m-sbar-sheen .9s ease .25s 1 both}
+  @keyframes okla-m-sbar-sheen{0%{transform:translateX(0);opacity:0}15%{opacity:1}100%{transform:translateX(360%);opacity:0}}
+  html body #header #okla-v61-header .okla-m-sbar:active{background:#e9edf3!important}
+  html body #header #okla-v61-header .okla-m-sbar__text{flex:1 1 auto;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:inherit;-webkit-text-fill-color:inherit;font:inherit}
+  html body #header #okla-v61-header .okla-m-sbar__icon{flex:none;display:block;width:22px;height:22px;fill:none;stroke:#0b2540;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  @media(prefers-reduced-motion:reduce){
+    html body #header #okla-v61-header .okla-m-sbar{transition:none!important}
+    html body #header #okla-v61-header .okla-m-sbar::after{animation:none!important}
+  }
+}
+/* while the search bar is out, the small search button in the logo row steps aside (no second magnifier) */
+@media(max-width:767px){
+  html body #header #okla-v61-header .okla-m-search-open{transition:opacity .2s ease,transform .2s ease!important}
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden) body #header #okla-v61-header .okla-m-search-open{opacity:0!important;transform:scale(.7)!important;pointer-events:none!important}
+}

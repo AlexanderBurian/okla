@@ -134,7 +134,10 @@
   void overlay.offsetWidth; /* commit the hidden state first so the open transition runs */
   overlay.classList.add('is-open');
   document.documentElement.classList.add('okla-m-lock');
-  setTimeout(function () { input.focus(); }, 80);
+  /* focused right away, still inside the tap: only then does the phone open its keyboard (a later focus does not);
+     the field's 16 px text keeps the phone from zooming in */
+  try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); }
+  setTimeout(function () { if (document.activeElement !== input) input.focus(); }, 80);
  }
  function closeSearch() {
   if (!overlay) return;
@@ -158,6 +161,26 @@
  }
 
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
+ /* the search bar under the floating header: it comes out once the visitor keeps scrolling up (the first move up
+    brings the header, a second one the search bar) and goes with the header on the way down; a tap opens the
+    full-screen search, ready to type */
+ var upRun = 0, SBAR_AFTER = 120, anchorJump = 0;
+ function addSearchBar() {
+  var h = document.getElementById('okla-v61-header');
+  if (!h || h.querySelector('.okla-m-sbar')) return;
+  var b = el('button', 'okla-m-sbar');
+  b.type = 'button';
+  b.setAttribute('aria-label', 'Hledat produkty');
+  b.appendChild(el('span', 'okla-m-sbar__text', 'Napište, co hledáte'));
+  b.appendChild(icon(SEARCH_PATHS, 'okla-m-sbar__icon'));
+  b.addEventListener('click', openSearch);
+  h.appendChild(b);
+ }
+ function searchBar(on) {
+  var root = document.documentElement;
+  if (on === root.classList.contains('okla-m-sbar-on')) return;
+  root.classList.toggle('okla-m-sbar-on', on);
+ }
  var spacer = null, stuck = false, lastY = 0, ticking = false, stickyAfter = 80;
 
  /* where the sticky header starts is read only when it is needed - on the first scroll (and again after a resize) -
@@ -187,8 +210,10 @@
    h.parentNode.insertBefore(spacer, h.nextSibling);
   }
   var root = document.documentElement, changed = on !== stuck;
-  if (on && !stuck) spacer.style.height = h.offsetHeight + 'px';
+  if (on && !stuck) { spacer.style.height = h.offsetHeight + 'px'; anchorJump = h.offsetHeight; }
+  if (!on && stuck) anchorJump = -h.offsetHeight;
   if (!on && stuck) spacer.style.height = '0px';
+  if (!on || hidden) { searchBar(false); upRun = 0; }
   stuck = on;
   /* Switching between the header in the page and the fixed one happens without
      animation: otherwise the fixed white bar would flash over the page-top
@@ -208,6 +233,10 @@
   var y = window.pageYOffset || document.documentElement.scrollTop || 0;
   var dy = y - lastY;
   lastY = y;
+  /* the browser keeps the content in place when the spacer comes or goes (it moves the page by the header's height):
+     that move is not the visitor's scrolling */
+  if (anchorJump && Math.abs(dy - anchorJump) <= 6) { anchorJump = 0; return; }
+  anchorJump = 0;
   if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
   /* product pages and the cart / checkout steps never get the floating header */
   if (isDetail || inCheckout()) {
@@ -220,8 +249,14 @@
    if (stuck) setSticky(false, false);
    return;
   }
-  if (dy < -4) setSticky(true, false);
-  else if (dy > 4) setSticky(true, true);
+  if (dy < -4) {
+   setSticky(true, false);
+   upRun += -dy;
+   if (upRun > SBAR_AFTER) searchBar(true);
+  } else if (dy > 4) {
+   upRun = 0;
+   setSticky(true, true);
+  }
  }
 
  /* ---------- Buy bar on product pages (shown after the buy button scrolls away) ---------- */
@@ -307,6 +342,7 @@
    document.documentElement.classList.remove('okla-m-stuck', 'okla-m-hidden', 'okla-m-instant');
   }
   addHeaderButton();
+  addSearchBar();
   buildBuyBar();
   addShare();
   /* the scroll position is first read on the first scroll (lastY starts at 0): reading it here, while the page was
@@ -328,6 +364,7 @@
  else init();
  window.addEventListener('load', function () {
   addHeaderButton();
+  addSearchBar();
   buildBuyBar();
   addShare();
  });
