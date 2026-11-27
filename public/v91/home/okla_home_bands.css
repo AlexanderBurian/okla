@@ -15,7 +15,7 @@ html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-hero{
 }
 html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-photo{
   position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;
-  object-fit:cover!important;object-position:32% 60%!important;display:block!important;
+  object-fit:cover!important;object-position:var(--olg-pos,32% 60%)!important;display:block!important;
 }
 html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-hero::after{
   content:''!important;position:absolute!important;inset:0!important;pointer-events:none!important;

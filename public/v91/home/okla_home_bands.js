@@ -53,7 +53,7 @@
   var sec=el('section','olg-band');sec.id=B.id;sec.setAttribute('aria-label',B.label);
   /* the photo panel */
   var hero=el('a','olg-hero');hero.href=B.href;
-  var img=el('img','olg-photo');img.src=base+B.photo;img.alt='';img.loading='lazy';img.decoding='async';img.draggable=false;img.style.objectPosition=B.pos;
+  var img=el('img','olg-photo');img.src=base+B.photo;img.alt='';img.loading='lazy';img.decoding='async';img.draggable=false;sec.style.setProperty('--olg-pos',B.pos);
   /* if the photo cannot be loaded the band stays, the panel then plain dark */
   img.addEventListener('error',function(){img.remove()});
   var copy=el('div','olg-copy');
