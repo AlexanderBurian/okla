@@ -154,15 +154,16 @@
   renderRight(pick.filter(function(x){return x!==PROMO}));
  }
  function isHome(){return location.pathname==='/'||location.pathname===''}
- /* The promo (homepage, both margins), laid out like the big shops' side banners: no panel of its own - three of a
-    category's best-looking products picked at random, large and close together (alternately left and right, a little
-    over each other), each with its price in a yellow bubble (the shop's current price, read live - no discounts are
-    claimed), and a short "Kup teď" (the category's best sellers). Each margin a different category. */
+ /* The promo (homepage, both margins), laid out one to one like the big shops' side banners: an upright rectangle -
+    a yellow head ("výběr okla" and the category in two big lines), under it two narrower products side by side (the
+    right one lower) and a wide one across the whole width, never over each other, each with its price in a yellow
+    bubble at its top corner (the shop's current price, read live - no discounts are claimed), and "Kup teď" (the
+    category's best sellers). Each margin a different category, the products picked at random. */
  var PROMO={key:'promo'};
  var PROMO_THEMES=[
-  {title:'Elektronické multitooly',path:'/elektronicke-multitooly/',items:[['flipperzero','/flipper-zero-kapesni-multitool-pro-elektroniku/','Flipper Zero',5690,2.36],['flipperone','/flipper-one-otevreny-linuxovy-sitovy-multitool/','Flipper ONE',13990,2.29],['tdeck','/lilygo-t-deck-plus-kapesni-esp32-komunikator/','LILYGO T-Deck Plus',2890,0.64],['cardputer','/m5stack-cardputer-adv-programovatelny-mini-pocitac/','M5Stack Cardputer ADV',990,1.36],['tembed','/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/','LILYGO T-Embed CC1101',2590,0.40],['waveshare','/waveshare-esp32-c3-s-0-71-kulatym-displejem/','Waveshare ESP32-C3 s kulatým displejem',789,0.86]]},
-  {title:'Měřicí technika',path:'/merici-technika-a-naradi/',items:[['wmt10','/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva',1189,0.99],['lcrp1','/fnirsi-lcr-p1-tester-soucastek/','FNIRSI LCR-P1 tester součástek',1289,0.83],['th104','/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/','ANENG TH104 bezkontaktní infračervený teploměr',489,0.50]]},
-  {title:'Praktické vychytávky',path:'/prakticke-vychytavky/',items:[['x18','/x18-kapesni-termotiskarna-bila/','X18 kapesní termotiskárna',389,1.00],['yesido','/yesido-tv15-bezdratovy-hdmi-adapter/','YESIDO TV15 bezdrátový HDMI adaptér',1189,0.95],['obd','/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','KINGBOLEN Ediag Bluetooth OBD2 diagnostika pro Android a iOS',3789,1.32],['onten','/onten-8108-usb-3-0-hub-se-7-porty/','ONTEN 8108 USB 3.0 hub se 7 porty',589,1.52]]}
+  {title:'Elektronické multitooly',head:['Kapesní','multitooly'],path:'/elektronicke-multitooly/',items:[['flipperzero','/flipper-zero-kapesni-multitool-pro-elektroniku/','Flipper Zero',5690,2.36],['flipperone','/flipper-one-otevreny-linuxovy-sitovy-multitool/','Flipper ONE',13990,2.29],['tdeck','/lilygo-t-deck-plus-kapesni-esp32-komunikator/','LILYGO T-Deck Plus',2890,0.64],['cardputer','/m5stack-cardputer-adv-programovatelny-mini-pocitac/','M5Stack Cardputer ADV',990,1.36],['tembed','/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/','LILYGO T-Embed CC1101',2590,0.40],['waveshare','/waveshare-esp32-c3-s-0-71-kulatym-displejem/','Waveshare ESP32-C3 s kulatým displejem',789,0.86]]},
+  {title:'Měřicí technika',head:['Měřicí','technika'],path:'/merici-technika-a-naradi/',items:[['wmt10','/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva',1189,0.99],['lcrp1','/fnirsi-lcr-p1-tester-soucastek/','FNIRSI LCR-P1 tester součástek',1289,0.83],['th104','/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/','ANENG TH104 bezkontaktní infračervený teploměr',489,0.50]]},
+  {title:'Praktické vychytávky',head:['Chytré','vychytávky'],path:'/prakticke-vychytavky/',items:[['x18','/x18-kapesni-termotiskarna-bila/','X18 kapesní termotiskárna',389,1.00],['yesido','/yesido-tv15-bezdratovy-hdmi-adapter/','YESIDO TV15 bezdrátový HDMI adaptér',1189,0.95],['obd','/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','KINGBOLEN Ediag Bluetooth OBD2 diagnostika pro Android a iOS',3789,1.32],['onten','/onten-8108-usb-3-0-hub-se-7-porty/','ONTEN 8108 USB 3.0 hub se 7 porty',589,1.52]]}
  ];
  function buildPromo(){
   var t=shuffled(PROMO_THEMES.slice());
@@ -176,6 +177,7 @@
   var items=wide.length&&narrow.length>=2?[narrow[0],narrow[1],wide[0]]:all.slice(0,3).sort(function(x,y){return x[4]-y[4]});
   var d=block(id,side,
    '<div class="okla-promo">'+
+   '<div class="okla-promo__head"><span class="okla-promo__kicker">výběr okla</span><strong class="okla-promo__title">'+t.head[0]+'<br>'+t.head[1]+'</strong></div>'+
    '<div class="okla-promo__items">'+items.map(function(x,i){
     return '<a class="okla-promo__item okla-promo__item--'+(i+1)+'" href="'+x[1]+'" aria-label="'+x[2]+'">'+
      '<span class="okla-promo__pic"><img class="okla-promo__img" src="'+base+'v91/img/side/promo/'+x[0]+'.webp" alt="" decoding="async">'+
@@ -300,13 +302,14 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
-  /* the promo: 32 px from the content, about a third as wide as it is high, as high as nine tenths of the homepage's first island (the banners and
+  /* the promo: 24 px from the content, about a third as wide as it is high, as high as nine tenths of the homepage's first island (the banners and
      the category circles), level with its top */
   if(left.classList.contains('okla-side-art--promo')){
    var isl=document.querySelector('#content .banners-row'),circ=document.getElementById('okla-cat-circles');
    var ir=(isl||card).getBoundingClientRect(),ib=(circ||isl||card).getBoundingClientRect();
-   var ph=Math.round(Math.max(420,(ib.bottom-ir.top)/z)*0.9),GAP=32,pw=Math.min(215,Math.round(ph*0.34),Math.floor(space-2*GAP));
-   left.style.width=right.style.width=pw+'px';left.style.height=right.style.height='';left.style.maxHeight=right.style.maxHeight=ph+'px';
+   var ph=Math.round(Math.max(420,(ib.bottom-ir.top)/z)*0.9),GAP=24,pw=Math.min(190,Math.round(ph*0.31),Math.floor(space-2*GAP));
+   /* a fixed upright rectangle (as the big shops' side banners: about 1 : 3.2) */
+   left.style.width=right.style.width=pw+'px';left.style.height=right.style.height=Math.round(pw*3.2)+'px';left.style.maxHeight=right.style.maxHeight='';
    left.style.top=right.style.top=(ir.top/z+sy)+'px';
    left.style.left=(c.left+sx-pw-GAP)+'px';right.style.left=(c.right+sx+GAP)+'px';
    card.style.minHeight='';
