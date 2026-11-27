@@ -131,7 +131,8 @@ html body #okla-cart-recs .ocr-grid>.okc-card@G{height:auto!important}
 @L .olg-price{margin-top:4px!important;padding-top:0!important;color:#0b2540!important;font:700 22px/28px var(--okc-font)!important;letter-spacing:-.01em!important}
 
 /* ---------- no heavy type anywhere: the shop's theme's headings and bold text at 600 (our CSS is capped by the build) ---------- */
-html body :is(h1,h2,h3,h4,h5,h6,b,strong,th,.btn,button):not(#okw-a){font-weight:600}
+html body :is(h1,h2,h3,h4,h5,h6,b,strong,th,button):not(#okw-a){font-weight:600}
+html body .btn:not(#okw-a#okw-b){font-weight:600!important}
 
 /* ---------- the arrows of every row of cards (PC and tablets; phones move rows with the finger) ---------- */
 @media(min-width:768px){
