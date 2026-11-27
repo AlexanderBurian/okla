@@ -78,40 +78,47 @@ html body .okla-m-buybar__icon{display:block!important;flex:0 0 20px!important;w
 
 }
 
-/* Phones: the search bar under the floating header (okla_mobile_shell.js addSearchBar). Hidden in the page's own header;
-   when the visitor keeps scrolling up it slides out under the logo row - a short springy drop, the field growing in
-   from its centre, and one soft light passing over it - and goes back with the header on the way down. A tap opens
-   the full-screen search, ready to type (its field has 16 px text, so the phone does not zoom in). */
-html body #header #okla-v61-header .okla-m-sbar{display:none!important}
+/* Phones: the floating header and its search bar (okla_mobile_shell.js). The header slides in and out smoothly (no
+   jump); the search bar band comes out under the logo row on the third swipe up - quick and smooth, a soft shadow at
+   its top edge (under the logo row) - and goes with the header. The search button in the logo row always stays. */
+html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
 @media(max-width:767px){
-  html.okla-m-stuck:not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar{
-    position:relative!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;
-    width:100%!important;height:44px!important;min-height:0!important;max-height:0!important;margin:0!important;padding:0 14px 0 16px!important;
-    overflow:hidden!important;border:1px solid #dfe5ee!important;border-width:0 1px!important;border-radius:12px!important;
-    background:#f3f5f8!important;box-shadow:none!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;
-    font:400 16px/1 "Open Sans",Arial,sans-serif!important;text-align:left!important;text-transform:none!important;cursor:text!important;
-    opacity:0!important;transform:translateY(-10px) scaleX(.86)!important;transform-origin:50% 0!important;box-sizing:border-box!important;
-    -webkit-tap-highlight-color:transparent!important;
-    transition:max-height .32s cubic-bezier(.2,.8,.2,1),margin-top .32s cubic-bezier(.2,.8,.2,1),opacity .2s ease,transform .42s cubic-bezier(.34,1.56,.64,1),border-width 0s linear .32s!important
+  html.okla-m-stuck body #header #okla-v61-header{transition:transform .26s cubic-bezier(.2,.7,.2,1),box-shadow .2s ease!important}
+  html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transition:transform .2s cubic-bezier(.4,0,.6,1),box-shadow .2s ease!important}
+  html.okla-m-instant body #header #okla-v61-header{transition:none!important}
+  html.okla-m-stuck:not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-wrap{
+    display:block!important;margin:0 -15px -6px!important;padding:0 15px!important;max-height:0!important;overflow:hidden!important;opacity:0!important;
+    box-shadow:inset 0 8px 8px -8px rgba(18,41,68,.2)!important;box-sizing:border-box!important;
+    transition:max-height .2s cubic-bezier(.2,.7,.2,1),padding .2s cubic-bezier(.2,.7,.2,1),opacity .16s ease!important
   }
-  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar{
-    max-height:44px!important;margin-top:8px!important;opacity:1!important;transform:none!important;border-width:1px!important;
-    transition:max-height .32s cubic-bezier(.2,.8,.2,1),margin-top .32s cubic-bezier(.2,.8,.2,1),opacity .22s ease .04s,transform .46s cubic-bezier(.34,1.56,.64,1),border-width 0s!important
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-wrap{
+    max-height:64px!important;padding:8px 15px 8px!important;opacity:1!important
   }
-  /* one soft light passing over the field as it comes out */
-  html.okla-m-stuck body #header #okla-v61-header .okla-m-sbar::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);transform:translateX(0);opacity:0;pointer-events:none}
-  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden) body #header #okla-v61-header .okla-m-sbar::after{animation:okla-m-sbar-sheen .9s ease .25s 1 both}
-  @keyframes okla-m-sbar-sheen{0%{transform:translateX(0);opacity:0}15%{opacity:1}100%{transform:translateX(360%);opacity:0}}
+  html body #header #okla-v61-header .okla-m-sbar{
+    display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;width:100%!important;height:44px!important;min-height:0!important;margin:0!important;padding:0 14px 0 16px!important;
+    border:1px solid #dfe5ee!important;border-radius:12px!important;background:#f3f5f8!important;box-shadow:none!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;
+    font:400 16px/1 "Open Sans",Arial,sans-serif!important;text-align:left!important;text-transform:none!important;cursor:text!important;box-sizing:border-box!important;-webkit-tap-highlight-color:transparent!important
+  }
   html body #header #okla-v61-header .okla-m-sbar:active{background:#e9edf3!important}
   html body #header #okla-v61-header .okla-m-sbar__text{flex:1 1 auto;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:inherit;-webkit-text-fill-color:inherit;font:inherit}
   html body #header #okla-v61-header .okla-m-sbar__icon{flex:none;display:block;width:22px;height:22px;fill:none;stroke:#0b2540;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  @media(prefers-reduced-motion:reduce){
-    html body #header #okla-v61-header .okla-m-sbar{transition:none!important}
-    html body #header #okla-v61-header .okla-m-sbar::after{animation:none!important}
-  }
+  @media(prefers-reduced-motion:reduce){html body #header #okla-v61-header,html body #header #okla-v61-header .okla-m-sbar-wrap{transition:none!important}}
+
+  /* the search, as on the PC: the page dimmed, a white sheet at the top with the field and the suggestions (as tall as
+     they are, at most the screen) */
+  html body .okla-m-search{background:rgba(6,14,28,.36)!important;transform:none!important;padding-top:0!important;display:block!important}
+  html body .okla-m-search__sheet{display:flex;flex-direction:column;max-height:calc(100% - 48px);padding-top:env(safe-area-inset-top,0px);border-radius:0 0 16px 16px;background:#fff;box-shadow:0 14px 34px rgba(6,14,28,.22);transform:translateY(-12px);transition:transform .22s cubic-bezier(.2,.7,.2,1);box-sizing:border-box;overflow:hidden}
+  html body .okla-m-search.is-open .okla-m-search__sheet{transform:none}
+  html body .okla-m-search__results{flex:0 1 auto!important;padding:0 16px 14px!important}
+  html body .okla-m-search__chips{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 4px}
+  html body .okla-m-search__chip{margin:0;padding:7px 12px;border:1px solid #e6ebf2;border-radius:8px;background:#fff;color:#0b2540;font:500 13px/1.2 "Open Sans",Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  html body .okla-m-search__chip:active{background:#f5f7fa}
+  html body .okla-m-search__item:last-of-type{border-bottom:0!important}
+  html body .okla-m-search__all{height:44px!important;margin:12px 0 0!important}
 }
-/* while the search bar is out, the small search button in the logo row steps aside (no second magnifier) */
 @media(max-width:767px){
-  html body #header #okla-v61-header .okla-m-search-open{transition:opacity .2s ease,transform .2s ease!important}
-  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden) body #header #okla-v61-header .okla-m-search-open{opacity:0!important;transform:scale(.7)!important;pointer-events:none!important}
+  /* the suggestions as compact as on the PC (a stray 76 px bottom padding on the text column made every row tall) */
+  html body .okla-m-search .okla-m-search__item:not(#okms-a#okms-b){min-height:0!important;height:auto!important;padding:9px 0!important;align-items:center!important}
+  html body .okla-m-search .okla-m-search__item .okla-m-search__body:not(#okms-a#okms-b){padding:0!important;margin:0!important;min-height:0!important;justify-content:center!important}
+  html body .okla-m-search .okla-m-search__item .okla-m-search__thumb:not(#okms-a#okms-b){flex:0 0 48px!important;width:48px!important;height:48px!important}
 }

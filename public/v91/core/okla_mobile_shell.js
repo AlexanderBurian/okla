@@ -68,7 +68,19 @@
   var list = products();
   var items = nq
    ? list.filter(function (p) { return norm(p.name + ' ' + (p.brand || '') + ' ' + p.code).indexOf(nq) !== -1; }).slice(0, 8)
-   : list.slice(0, 6);
+   : list.slice(0, 4);
+  if (nq) items = items.slice(0, 5);
+  /* quick picks, as on the PC */
+  if (!nq) {
+   var chips = el('div', 'okla-m-search__chips');
+   ['Flipper Zero', 'ESP32', 'Chytré brýle', 'Endoskop', 'Multimetr'].forEach(function (t) {
+    var c = el('button', 'okla-m-search__chip', t);
+    c.type = 'button';
+    c.addEventListener('click', function () { input.value = t; render(t); try { input.focus({ preventScroll: true }); } catch (e) { input.focus(); } });
+    chips.appendChild(c);
+   });
+   results.appendChild(chips);
+  }
   results.appendChild(el('div', 'okla-m-search__head', !nq ? 'Doporučujeme' : (items.length ? 'Produkty' : 'Nic jsme nenašli')));
   items.forEach(function (p) {
    var a = el('a', 'okla-m-search__item');
@@ -116,8 +128,13 @@
   bar.appendChild(field);
   bar.appendChild(cancel);
   results = el('div', 'okla-m-search__results');
-  overlay.appendChild(bar);
-  overlay.appendChild(results);
+  /* as on the PC: a white sheet at the top (the field and the suggestions, as tall as they are) over the dimmed page;
+     a tap on the page beside it closes it */
+  var sheet = el('div', 'okla-m-search__sheet');
+  sheet.appendChild(bar);
+  sheet.appendChild(results);
+  overlay.appendChild(sheet);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeSearch(); });
   document.body.appendChild(overlay);
   input.addEventListener('input', function () { render(input.value); });
   input.addEventListener('keydown', function (e) {
@@ -161,20 +178,21 @@
  }
 
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
- /* the search bar under the floating header: it comes out once the visitor keeps scrolling up (the first move up
-    brings the header, a second one the search bar) and goes with the header on the way down; a tap opens the
-    full-screen search, ready to type */
- var upRun = 0, SBAR_AFTER = 120, anchorJump = 0;
+ /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
+    swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
+ var anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
  function addSearchBar() {
   var h = document.getElementById('okla-v61-header');
   if (!h || h.querySelector('.okla-m-sbar')) return;
+  var wrap = el('div', 'okla-m-sbar-wrap');
   var b = el('button', 'okla-m-sbar');
   b.type = 'button';
   b.setAttribute('aria-label', 'Hledat produkty');
   b.appendChild(el('span', 'okla-m-sbar__text', 'Napište, co hledáte'));
   b.appendChild(icon(SEARCH_PATHS, 'okla-m-sbar__icon'));
   b.addEventListener('click', openSearch);
-  h.appendChild(b);
+  wrap.appendChild(b);
+  h.appendChild(wrap);
  }
  function searchBar(on) {
   var root = document.documentElement;
@@ -213,7 +231,7 @@
   if (on && !stuck) { spacer.style.height = h.offsetHeight + 'px'; anchorJump = h.offsetHeight; }
   if (!on && stuck) anchorJump = -h.offsetHeight;
   if (!on && stuck) spacer.style.height = '0px';
-  if (!on || hidden) { searchBar(false); upRun = 0; }
+  if (!on || hidden) { searchBar(false); upSwipes = 0; }
   stuck = on;
   /* Switching between the header in the page and the fixed one happens without
      animation: otherwise the fixed white bar would flash over the page-top
@@ -245,17 +263,29 @@
   }
   /* Do not create the floating header while any part of the original header
      and its gradient is still in the viewport. */
+  var root = document.documentElement, shown = stuck && !root.classList.contains('okla-m-hidden');
+  /* near the top the page's own header is there: the floating one goes, without moving anything - at once when it is
+     hidden, and when it is shown only once the page is right at the top (where both sit in the same place) */
   if (y <= stickyAfter) {
-   if (stuck) setSticky(false, false);
+   if (stuck && (!shown || y <= 2)) setSticky(false, false);
+   dir = 0; upAcc = downAcc = 0;
    return;
   }
-  if (dy < -4) {
-   setSticky(true, false);
-   upRun += -dy;
-   if (upRun > SBAR_AFTER) searchBar(true);
-  } else if (dy > 4) {
-   upRun = 0;
-   setSticky(true, true);
+  /* calm, not jumpy: the header comes or goes only after 24 px of steady movement one way (a trembling finger or the
+     end of a fling does nothing); a new swipe up is a move up after a pause or after moving down */
+  var now = Date.now(), pause = now - lastT > 220;
+  lastT = now;
+  if (dy < 0) {
+   if (dir !== -1 || pause) upSwipes++;
+   if (dir !== -1) upAcc = 0;
+   dir = -1; upAcc += -dy; downAcc = 0;
+   if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; }
+   if (shown && upSwipes >= 3) searchBar(true);
+  } else if (dy > 0) {
+   if (dir !== 1) downAcc = 0;
+   dir = 1; downAcc += dy; upAcc = 0;
+   if (!stuck) setSticky(true, true);
+   else if (shown && downAcc >= MOVE) setSticky(true, true);
   }
  }
 
