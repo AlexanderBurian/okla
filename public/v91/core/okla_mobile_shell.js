@@ -373,7 +373,7 @@
   if (!narrow.matches || isDetail || inCheckout() || stuck) return;
   setSticky(true, false);
   var h = document.getElementById('okla-v61-header');
-  if (h && spacer) { spacer.style.height = h.offsetHeight + 'px'; anchorJump = 0; }
+  anchorJump = 0;
   document.documentElement.classList.toggle('okla-m-attop', (window.pageYOffset || 0) <= 2);
   lastY = window.pageYOffset || 0;
  }
