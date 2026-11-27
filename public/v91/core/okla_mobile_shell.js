@@ -291,28 +291,6 @@
   }
  }
  function inCheckout() { return !!(document.body && document.body.classList.contains('ordering-process')); }
- var bandOff = 0, bandH = 64, bandEl = null;
- function band(off) {
-  if (!bandEl) bandEl = document.querySelector('#okla-v61-header .okla-m-sbar-band');
-  if (!bandEl) return;
-  off = Math.max(-bandH, Math.min(0, off));
-  if (off === bandOff && bandEl.style.transform) return;
-  bandOff = off;
-  bandEl.style.transform = 'translate3d(0,' + off + 'px,0)';
-  searchBar(off > -bandH / 2);
- }
- /* phones: the header is pinned from the start (no jump when it would first appear); the band shows under it at the
-    top of a page - on the homepage it starts tucked away, as the page's own big search is right there */
- function pinHeader() {
-  if (!narrow.matches || isDetail || inCheckout() || stuck) return;
-  setSticky(true, false);
-  var wrapBand = document.querySelector('#okla-v61-header .okla-m-sbar-band');
-  if (wrapBand) bandH = wrapBand.offsetHeight || 64;
-  var home = !!(document.body && document.body.classList.contains('type-index'));
-  if (!home && spacer) spacer.style.height = (parseFloat(spacer.style.height) || 0) + bandH + 'px';
-  bandOff = home ? -bandH : 0;
-  bandEl = null; band(bandOff);
- }
  function onScroll() {
   if (!measured) measureStickyAfter();
   ticking = false;
@@ -329,16 +307,36 @@
    if (stuck) setSticky(false, false);
    return;
   }
-  /* the header stays at the top all the time (as on the big shops' phone pages); the search band under it moves with
-     the page itself - down, it slides away under the header exactly as far as the page moves; up, it comes straight
-     back the same way - no thresholds, no timed animation, so it follows the finger */
-  if (!stuck) setSticky(true, false);
-  /* the bounce past the top (phones) is no scrolling; right at the top the band is back in its place (but the homepage's) */
-  var home = !!(document.body && document.body.classList.contains('type-index'));
-  /* the homepage's own big search sits right under the header at the top: there the band stays tucked away */
-  if (home && y <= 160) { band(-bandH); return; }
-  if (y <= 0) { band(0); return; }
-  band(bandOff - dy);
+  /* Do not create the floating header while any part of the original header
+     and its gradient is still in the viewport. */
+  var root = document.documentElement, shown = stuck && !root.classList.contains('okla-m-hidden');
+  /* near the top the page's own header is there: the floating one goes, without moving anything - at once when it is
+     hidden, and when it is shown only once the page is right at the top (where both sit in the same place) */
+  if (y <= stickyAfter) {
+   if (stuck && (!shown || y <= 2)) setSticky(false, false);
+   dir = 0; upAcc = downAcc = 0;
+   return;
+  }
+  /* calm, not jumpy: the header comes or goes only after 24 px of steady movement one way (a trembling finger or the
+     end of a fling does nothing); a new swipe up is a move up after a pause or after moving down */
+  if (dy < 0) {
+   if (dir !== -1) upAcc = 0;
+   /* a swipe up = a finger put down and the page then moving up */
+   if (newSwipe) { upSwipes++; newSwipe = false; }
+   dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
+   if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
+   else if (shown) upSince += -dy;
+   /* the search bar soon after the header: a short further move up (60 px), or a second swipe up (swipes told apart by
+      the finger, not by pauses: on phones a fling runs on between swipes) */
+   if (shown && (upSwipes >= 2 || upSince >= BAR_AFTER)) searchBar(true);
+  } else if (dy > 0) {
+   if (dir !== 1) { downAcc = 0; downTicks = 0; }
+   dir = 1; downAcc += dy; upAcc = 0; downTicks++;
+   if (!stuck) setSticky(true, true);
+   /* a real move down only (two steps or more): one jump down is the browser keeping the content in place while
+      pictures above load in - it must not hide the header; nor while a finger is on the header */
+   else if (shown && downAcc >= MOVE && downTicks >= 2 && Date.now() - holdHeader > 600) setSticky(true, true);
+  }
  }
 
  /* ---------- Buy bar on product pages (shown after the buy button scrolls away) ---------- */
@@ -425,7 +423,6 @@
   }
   addHeaderButton();
   addSearchBar();
-  requestAnimationFrame(pinHeader);
   buildBuyBar();
   addShare();
   /* the scroll position is first read on the first scroll (lastY starts at 0): reading it here, while the page was
