@@ -17,6 +17,7 @@
  var ROWS=[
   ['.okla-slider-shell>.okla-slider-viewport','.okla-slider-track'],
   ['#okla-deals .okd-track',''],
+  ['#okla-lilygo .olg-track',''],
   ['#okla-news-v55 .okn-grid',''],
   ['#okla-cat-circles .okcc-row',''],
   ['#okla-cart-recs .ocr-grid',''],
