@@ -134,3 +134,20 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html body .okla-m-search__item:last-of-type{border-bottom:0!important}
   html body .okla-m-search__all{height:44px!important;margin:12px 0 0!important}
 }
+@media(max-width:767px){
+  /* the band follows the page (okla_mobile_shell.js band()): no timed animation */
+  html body #header #okla-v61-header .okla-m-sbar-band{transition:none!important;will-change:transform}
+  html body #header #okla-v61-header .okla-m-sbar-band{padding:8px 15px 10px}
+  /* the band's field as the homepage's top search: a magnifier, "Co hledáte?" and a blue "Hledat" */
+  html body #header #okla-v61-header .okla-m-sbar{height:48px!important;padding:0 5px 0 14px!important;border:1px solid #e1e8f1!important;border-radius:12px!important;background:#fff!important;box-shadow:0 4px 14px rgba(11,37,64,.08)!important;color:#8a97a8!important;-webkit-text-fill-color:#8a97a8!important;justify-content:flex-start!important}
+  html body #header #okla-v61-header .okla-m-sbar__icon{width:20px!important;height:20px!important;stroke:#0b2540!important;order:0}
+  html body #header #okla-v61-header .okla-m-sbar__go{flex:none;display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 14px;border-radius:9px;background:#0859d8;color:#fff;-webkit-text-fill-color:#fff;font:700 13px/1 "Open Sans",Arial,sans-serif}
+  /* the language flag in the logo row and its sheet */
+  html body #header #okla-v61-header .okla-m-lang{display:inline-flex!important;align-items:center!important;justify-content:center!important;background:transparent!important}
+  html body #header #okla-v61-header .okla-m-lang svg,html body #header #okla-v61-header .okla-m-lang img{display:block!important;width:26px!important;height:26px!important;border-radius:50%!important;fill:revert!important;stroke:revert!important;box-shadow:0 0 0 1px rgba(11,37,64,.1)}
+  html body .okla-m-lang-sheet{position:fixed;right:10px;top:56px;z-index:1200;display:flex;flex-direction:column;min-width:190px;padding:6px;border-radius:12px;background:#fff;box-shadow:0 14px 34px rgba(6,14,28,.2);opacity:0;visibility:hidden;transform:translate3d(0,-6px,0);transition:opacity .16s ease,transform .22s cubic-bezier(.22,1,.36,1),visibility 0s linear .22s}
+  html body .okla-m-lang-sheet.is-open{opacity:1;visibility:visible;transform:none;transition:opacity .16s ease,transform .22s cubic-bezier(.22,1,.36,1),visibility 0s}
+  html body .okla-m-lang-sheet__opt{display:flex;align-items:center;gap:12px;width:100%;margin:0;padding:11px 12px;border:0;border-radius:8px;background:none;color:#0b2540;font:500 15px/1.2 "Open Sans",Arial,sans-serif;text-align:left;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  html body .okla-m-lang-sheet__opt svg,html body .okla-m-lang-sheet__opt img{width:22px;height:22px;border-radius:50%;flex:none}
+  html body .okla-m-lang-sheet__opt.is-current{color:#0859d8;font-weight:700;background:#f2f6fd}
+}

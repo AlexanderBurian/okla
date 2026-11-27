@@ -165,60 +165,57 @@
   if (e.key === 'Escape') closeSearch();
  });
 
- /* the logo row's button: the support headset (as in the PC header) - a tap opens a panel under the header with the
-    shop's help pages and the support e-mail */
- var supportMenu = null;
- function supportOpen(on) {
-  if (!supportMenu) return;
-  supportMenu.classList.toggle('is-open', on);
-  var b = document.querySelector('#okla-v61-header .okla-m-support');
+ /* the logo row's button: the current language's flag; a tap opens a small sheet with the four languages */
+ var langSheet = null;
+ function langOpen(on) {
+  if (!langSheet) return;
+  langSheet.classList.toggle('is-open', on);
+  var b = document.querySelector('#okla-v61-header .okla-m-lang');
   if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
  }
  function addHeaderButton() {
-  var top = document.querySelector('#okla-v61-header .okm61-top');
-  if (!top || top.querySelector('.okla-m-support')) return;
-  var b = el('button', 'okla-m-search-open okla-m-support');
-  b.type = 'button';
-  b.setAttribute('aria-label', 'Podpora');
-  b.setAttribute('aria-haspopup', 'true');
-  b.setAttribute('aria-expanded', 'false');
-  b.innerHTML = '<svg class="okla-m-search-open__icon okla-m-support__icon" viewBox="0 0 24 24" aria-hidden="true">' +
-   '<path d="M4.3 13v-1.5a7.7 7.7 0 0 1 15.4 0V13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>' +
-   '<rect x="2" y="10.6" width="6.4" height="8.9" rx="2.6" fill="currentColor" stroke="none"/>' +
-   '<rect x="15.6" y="10.6" width="6.4" height="8.9" rx="2.6" fill="currentColor" stroke="none"/>' +
-   '<path d="M19.2 19.3a2.6 2.6 0 0 1-2.6 2.3h-2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
-   '<rect x="9" y="20.1" width="5.4" height="3" rx="1.5" fill="currentColor" stroke="none"/></svg>';
-  top.appendChild(b);
-  if (!supportMenu) {
-   supportMenu = el('div', 'okla-m-support-menu');
-   supportMenu.setAttribute('role', 'menu');
-   supportMenu.appendChild(el('strong', 'okla-m-support-menu__head', 'Jsme tu pro vás'));
-   supportMenu.appendChild(el('span', 'okla-m-support-menu__lead', 'Napište nám, rádi poradíme s výběrem i s objednávkou.'));
-   [['/kontakt/', 'Kontaktní formulář'], ['/doprava-a-platba/', 'Doprava a platba'], ['/vraceni-zbozi-a-odstoupeni/', 'Vrácení zboží'], ['/reklamacni-rad/', 'Reklamace'], ['/jak-nakupovat/', 'Jak nakupovat']].forEach(function (l) {
-    var a = el('a', 'okla-m-support-menu__link', l[1]);
-    a.href = l[0];
-    a.setAttribute('role', 'menuitem');
-    supportMenu.appendChild(a);
+  var top = document.querySelector('#okla-v61-header .okm61-top'), api = window.oklaLang;
+  if (!top || !api) return;
+  var b = top.querySelector('.okla-m-lang');
+  if (!b) {
+   b = el('button', 'okla-m-search-open okla-m-lang');
+   b.type = 'button';
+   b.setAttribute('aria-haspopup', 'true');
+   b.setAttribute('aria-expanded', 'false');
+   b.setAttribute('data-okla-i18n-skip', '');
+   b.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (!langSheet) {
+     langSheet = el('div', 'okla-m-lang-sheet');
+     langSheet.setAttribute('role', 'menu');
+     langSheet.setAttribute('data-okla-i18n-skip', '');
+     api.langs.forEach(function (code) {
+      var o = el('button', 'okla-m-lang-sheet__opt' + (code === api.current ? ' is-current' : ''));
+      o.type = 'button';
+      o.setAttribute('role', 'menuitemradio');
+      o.setAttribute('aria-checked', code === api.current ? 'true' : 'false');
+      o.appendChild(api.flag(code));
+      o.appendChild(el('span', '', api.label[code]));
+      o.addEventListener('click', function () { langOpen(false); if (code !== api.current) api.choose(code); });
+      langSheet.appendChild(o);
+     });
+     document.body.appendChild(langSheet);
+     document.addEventListener('click', function (ev) { if (langSheet.classList.contains('is-open') && !langSheet.contains(ev.target)) langOpen(false); });
+     window.addEventListener('scroll', function () { if (langSheet.classList.contains('is-open')) langOpen(false); }, { passive: true });
+    }
+    var h = document.getElementById('okla-v61-header');
+    if (h) langSheet.style.top = Math.max(0, Math.round(h.querySelector('.okm61-top').getBoundingClientRect().bottom) + 6) + 'px';
+    langOpen(!langSheet.classList.contains('is-open'));
    });
-   var mail = el('a', 'okla-m-support-menu__mail', 'podpora@okla.cz');
-   mail.href = 'mailto:podpora@okla.cz';
-   supportMenu.appendChild(mail);
-   document.body.appendChild(supportMenu);
-   document.addEventListener('click', function (e) {
-    if (!supportMenu.classList.contains('is-open')) return;
-    if (supportMenu.contains(e.target) || e.target.closest('.okla-m-support')) return;
-    supportOpen(false);
-   });
-   window.addEventListener('scroll', function () { if (supportMenu.classList.contains('is-open')) supportOpen(false); }, { passive: true });
+   top.appendChild(b);
   }
-  b.addEventListener('click', function () {
-   var h = document.getElementById('okla-v61-header');
-   if (h) supportMenu.style.top = Math.max(0, Math.round(h.getBoundingClientRect().bottom)) + 'px';
-   supportOpen(!supportMenu.classList.contains('is-open'));
-  });
+  if (b.getAttribute('data-lang') !== api.current) {
+   b.setAttribute('data-lang', api.current);
+   b.setAttribute('aria-label', 'Jazyk / Language: ' + api.label[api.current]);
+   b.replaceChildren(api.flag(api.current));
+  }
  }
 
- /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
  var upSince = 0, BAR_AFTER = 60, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
@@ -229,8 +226,9 @@
   var b = el('button', 'okla-m-sbar');
   b.type = 'button';
   b.setAttribute('aria-label', 'Hledat produkty');
-  b.appendChild(el('span', 'okla-m-sbar__text', 'Napište, co hledáte'));
   b.appendChild(icon(SEARCH_PATHS, 'okla-m-sbar__icon'));
+  b.appendChild(el('span', 'okla-m-sbar__text', 'Co hledáte?'));
+  b.appendChild(el('span', 'okla-m-sbar__go', 'Hledat'));
   /* phones do not always turn a tap into a click (a tap that ends a fling, a finger that moves a few pixels): a short
      touch without moving opens the search itself, right in the touch (so the keyboard opens too) */
   var tx = 0, ty = 0, touching = false;
@@ -293,6 +291,28 @@
   }
  }
  function inCheckout() { return !!(document.body && document.body.classList.contains('ordering-process')); }
+ var bandOff = 0, bandH = 64, bandEl = null;
+ function band(off) {
+  if (!bandEl) bandEl = document.querySelector('#okla-v61-header .okla-m-sbar-band');
+  if (!bandEl) return;
+  off = Math.max(-bandH, Math.min(0, off));
+  if (off === bandOff && bandEl.style.transform) return;
+  bandOff = off;
+  bandEl.style.transform = 'translate3d(0,' + off + 'px,0)';
+  searchBar(off > -bandH / 2);
+ }
+ /* phones: the header is pinned from the start (no jump when it would first appear); the band shows under it at the
+    top of a page - on the homepage it starts tucked away, as the page's own big search is right there */
+ function pinHeader() {
+  if (!narrow.matches || isDetail || inCheckout() || stuck) return;
+  setSticky(true, false);
+  var wrapBand = document.querySelector('#okla-v61-header .okla-m-sbar-band');
+  if (wrapBand) bandH = wrapBand.offsetHeight || 64;
+  var home = !!(document.body && document.body.classList.contains('type-index'));
+  if (!home && spacer) spacer.style.height = (parseFloat(spacer.style.height) || 0) + bandH + 'px';
+  bandOff = home ? -bandH : 0;
+  bandEl = null; band(bandOff);
+ }
  function onScroll() {
   if (!measured) measureStickyAfter();
   ticking = false;
@@ -309,36 +329,16 @@
    if (stuck) setSticky(false, false);
    return;
   }
-  /* Do not create the floating header while any part of the original header
-     and its gradient is still in the viewport. */
-  var root = document.documentElement, shown = stuck && !root.classList.contains('okla-m-hidden');
-  /* near the top the page's own header is there: the floating one goes, without moving anything - at once when it is
-     hidden, and when it is shown only once the page is right at the top (where both sit in the same place) */
-  if (y <= stickyAfter) {
-   if (stuck && (!shown || y <= 2)) setSticky(false, false);
-   dir = 0; upAcc = downAcc = 0;
-   return;
-  }
-  /* calm, not jumpy: the header comes or goes only after 24 px of steady movement one way (a trembling finger or the
-     end of a fling does nothing); a new swipe up is a move up after a pause or after moving down */
-  if (dy < 0) {
-   if (dir !== -1) upAcc = 0;
-   /* a swipe up = a finger put down and the page then moving up */
-   if (newSwipe) { upSwipes++; newSwipe = false; }
-   dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
-   if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
-   else if (shown) upSince += -dy;
-   /* the search bar soon after the header: a short further move up (60 px), or a second swipe up (swipes told apart by
-      the finger, not by pauses: on phones a fling runs on between swipes) */
-   if (shown && (upSwipes >= 2 || upSince >= BAR_AFTER)) searchBar(true);
-  } else if (dy > 0) {
-   if (dir !== 1) { downAcc = 0; downTicks = 0; }
-   dir = 1; downAcc += dy; upAcc = 0; downTicks++;
-   if (!stuck) setSticky(true, true);
-   /* a real move down only (two steps or more): one jump down is the browser keeping the content in place while
-      pictures above load in - it must not hide the header; nor while a finger is on the header */
-   else if (shown && downAcc >= MOVE && downTicks >= 2 && Date.now() - holdHeader > 600) setSticky(true, true);
-  }
+  /* the header stays at the top all the time (as on the big shops' phone pages); the search band under it moves with
+     the page itself - down, it slides away under the header exactly as far as the page moves; up, it comes straight
+     back the same way - no thresholds, no timed animation, so it follows the finger */
+  if (!stuck) setSticky(true, false);
+  /* the bounce past the top (phones) is no scrolling; right at the top the band is back in its place (but the homepage's) */
+  var home = !!(document.body && document.body.classList.contains('type-index'));
+  /* the homepage's own big search sits right under the header at the top: there the band stays tucked away */
+  if (home && y <= 160) { band(-bandH); return; }
+  if (y <= 0) { band(0); return; }
+  band(bandOff - dy);
  }
 
  /* ---------- Buy bar on product pages (shown after the buy button scrolls away) ---------- */
@@ -425,6 +425,7 @@
   }
   addHeaderButton();
   addSearchBar();
+  requestAnimationFrame(pinHeader);
   buildBuyBar();
   addShare();
   /* the scroll position is first read on the first scroll (lastY starts at 0): reading it here, while the page was
