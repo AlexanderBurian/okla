@@ -214,12 +214,18 @@ function bucketCss(css){
  return out;
 }
 
+/* no heavy type anywhere on the site: every weight above 600 (650-900, bold, bolder) is written as 600 */
+function calmWeights(css){
+ return css.replace(/font-weight:\s*(?:6[5-9]\d|[7-9]\d\d|bold(?:er)?)/gi,'font-weight:600')
+  .replace(/(font:\s*(?:italic\s+|normal\s+|oblique\s+)?)(?:6[5-9]\d|[7-9]\d\d|bold(?:er)?)(\s)/gi,'$1600$2');
+}
 function buildCss(name,files){
  let imports='',body='';
  for(const f of files){
   let css=fs.readFileSync(path.join(PUBLIC,f),'utf8').replace(/^﻿/,'');
   css=rebaseUrls(css,f);
   css=minifyCss(css);
+  css=calmWeights(css);
   css=bucketCss(css);
   css=css.replace(/@import\s+(?:url\([^)]*\)|(['"])[^'"]*\1)[^;]*;/g,m=>{imports+=m;return ''});
   body+=css+'\n';

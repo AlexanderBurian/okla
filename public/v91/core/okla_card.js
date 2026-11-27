@@ -17,6 +17,8 @@
 
  function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
  function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
+ /* the sale tag's prices the Alza way: '2 590,-' */
+ function kd(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+',-'}
  function num(v){var s=String(v==null?'':v).replace(/\s| /g,'').replace(/[^\d,.-]/g,'').replace(',','.');var n=parseFloat(s);return isFinite(n)?n:0}
  function cartIcon(){
   var ns='http://www.w3.org/2000/svg',s=document.createElementNS(ns,'svg');s.setAttribute('viewBox','0 0 24 24');s.setAttribute('aria-hidden','true');s.setAttribute('class','okc-cart-ic');
@@ -35,13 +37,13 @@
  /* the sale box: the price big, the former price struck through, the occasion and the saving */
  function saleBox(now,was){
   var p=pct(now,was),box=el('div','okc-sale');
-  var top=el('div','okc-sale__prices');top.append(el('span','okc-sale__now',kc(now)),el('span','okc-sale__was',kc(was)));
+  var top=el('div','okc-sale__prices');top.append(el('span','okc-sale__now',kd(now)),el('span','okc-sale__was',kd(was)));
   box.append(top,el('div','okc-sale__bar',SALE_LABEL+' −'+p+' %'));
   return box;
  }
  /* the shop's "Akční zboží" without a real former price: the same box, the price and the occasion only (no struck
     price, no saving - none is claimed) */
- function plainBox(now){var box=el('div','okc-sale okc-sale--plain'),top=el('div','okc-sale__prices');top.appendChild(el('span','okc-sale__now',kc(now)));box.append(top,el('div','okc-sale__bar',SALE_LABEL));return box}
+ function plainBox(now){var box=el('div','okc-sale okc-sale--plain'),top=el('div','okc-sale__prices');top.appendChild(el('span','okc-sale__now',kd(now)));box.append(top,el('div','okc-sale__bar',SALE_LABEL));return box}
  function isAction(prod){
   if(prod.querySelector('.flag-action'))return true;
   var shell=prod.closest('.okla-slider-shell'),h=shell&&shell.previousElementSibling;
