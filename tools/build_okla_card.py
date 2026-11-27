@@ -95,9 +95,9 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
 @R .ocr-btn:not(:has(svg))::before{content:''!important;display:block!important;width:18px!important;height:18px!important;background:currentColor!important;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7h14l-2.2 9H9L7 7Z'/%3E%3Cpath d='M2 3.8h3.6L8 16.2h11' fill='none' stroke='%23000' stroke-width='1.65'/%3E%3Ccircle cx='10' cy='20.5' r='1.7'/%3E%3Ccircle cx='18' cy='20.5' r='1.7'/%3E%3C/svg%3E") center/contain no-repeat!important;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 7h14l-2.2 9H9L7 7Z'/%3E%3Cpath d='M2 3.8h3.6L8 16.2h11' fill='none' stroke='%23000' stroke-width='1.65'/%3E%3Ccircle cx='10' cy='20.5' r='1.7'/%3E%3Ccircle cx='18' cy='20.5' r='1.7'/%3E%3C/svg%3E") center/contain no-repeat!important}
 @R .ocr-btn:hover,@R .ocr-btn:focus-visible{background:var(--okc-btn-hover)!important;border-color:var(--okc-btn-hover)!important;color:#fff!important}
 
-/* ---------- the LilyGO band's cards (okla_home_lilygo.js): white cards on the black band, the same insides ---------- */
+/* ---------- the homepage bands' cards (okla_home_bands.js): white cards on the dark band, the same insides, the photo on white ---------- */
 @L{padding:8px 8px 12px!important;border-radius:var(--okc-radius)!important;background:#fff!important}
-@L .olg-pic{aspect-ratio:1/1.08!important;padding:var(--okc-img-pad)!important;border-radius:var(--okc-radius)!important;background:var(--okc-img-bg)!important;overflow:hidden!important}
+@L .olg-pic{aspect-ratio:1/1.08!important;padding:var(--okc-img-pad)!important;border-radius:var(--okc-radius)!important;background:#fff!important;overflow:hidden!important}
 @L .olg-pic img{mix-blend-mode:multiply!important;transition:transform .25s ease!important}
 @L:hover .olg-pic img{transform:scale(var(--okc-img-zoom))!important}
 @L .olg-body{padding:var(--okc-gap) 6px 0!important}
