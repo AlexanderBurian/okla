@@ -103,4 +103,4 @@ html body.type-index #content .olg-band.olg-at-end:not(#olg-a#olg-b#olg-c) .olg-
 #okla-lilygo{--olg-bg:#000}
 #okla-tech{--olg-bg:#05162b}
 /* the workshop photo is bright: a little darker, so the white text on it reads */
-html body.type-index #content #okla-tech.olg-band:not(#olg-a#olg-b#olg-c) .olg-photo{filter:brightness(.74) saturate(1.05)!important}
+html body.type-index #content #okla-tech.olg-band:not(#olg-a#olg-b#olg-c) .olg-photo{filter:brightness(.66) saturate(1.05)!important}
