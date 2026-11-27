@@ -11,7 +11,7 @@
  var MAX_WIDTH=420;
  var SIDE_GUTTER=24;
  var ART_TOP_OFFSET=60;
- var RIGHT_GAP=24;
+ var RIGHT_GAP=12;
  var HAND_BOTTOM=1.4544;
  /* Lowest visible point of the hand, in widths of the art (see okla_home_side.css). */
 
@@ -163,7 +163,7 @@
  var PROMO_THEMES=[
   {title:'Elektronické multitooly',head:['Kapesní','multitooly'],path:'/elektronicke-multitooly/',items:[['flipperzero','/flipper-zero-kapesni-multitool-pro-elektroniku/','Flipper Zero',5690,2.36],['flipperone','/flipper-one-otevreny-linuxovy-sitovy-multitool/','Flipper ONE',13990,2.29],['tdeck','/lilygo-t-deck-plus-kapesni-esp32-komunikator/','LILYGO T-Deck Plus',2890,0.64],['cardputer','/m5stack-cardputer-adv-programovatelny-mini-pocitac/','M5Stack Cardputer ADV',990,1.36],['tembed','/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/','LILYGO T-Embed CC1101',2590,0.40],['waveshare','/waveshare-esp32-c3-s-0-71-kulatym-displejem/','Waveshare ESP32-C3 s kulatým displejem',789,0.86]]},
   {title:'Měřicí technika',head:['Měřicí','technika'],path:'/merici-technika-a-naradi/',items:[['wmt10','/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva',1189,0.99],['lcrp1','/fnirsi-lcr-p1-tester-soucastek/','FNIRSI LCR-P1 tester součástek',1289,0.83],['th104','/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/','ANENG TH104 bezkontaktní infračervený teploměr',489,0.50]]},
-  {title:'Praktické vychytávky',head:['Chytré','vychytávky'],path:'/prakticke-vychytavky/',items:[['x18','/x18-kapesni-termotiskarna-bila/','X18 kapesní termotiskárna',389,1.00],['yesido','/yesido-tv15-bezdratovy-hdmi-adapter/','YESIDO TV15 bezdrátový HDMI adaptér',1189,0.95],['obd','/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','KINGBOLEN Ediag Bluetooth OBD2 diagnostika pro Android a iOS',3789,1.32],['onten','/onten-8108-usb-3-0-hub-se-7-porty/','ONTEN 8108 USB 3.0 hub se 7 porty',589,1.52]]}
+  {title:'Praktické vychytávky',head:['Chytré','vychytávky'],path:'/prakticke-vychytavky/',items:[['x18','/x18-kapesni-termotiskarna-bila/','X18 kapesní termotiskárna',389,1.00],['yesido','/yesido-tv15-bezdratovy-hdmi-adapter/','YESIDO TV15 bezdrátový HDMI adaptér',1189,0.95],['obd','/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','KINGBOLEN Ediag Bluetooth OBD2 diagnostika pro Android a iOS',3789,1.32],['onten','/onten-8108-usb-3-0-hub-se-7-porty/','ONTEN 8108 USB 3.0 hub se 7 porty',589,1.52],['ec02','/ec02-a-mini-bezdratovy-adapter-carplay-a-android-auto/','EC02-A mini bezdrátový adaptér CarPlay a Android Auto',689,0.50],['usbc','/usb-c-hub-5v1-se-2-usb-3-0-cteckou-sd-microsd-a-nabijecim-portem-usb-c/','USB-C hub 5v1 se 2× USB 3.0 a čtečkou SD',389,1.15]]}
  ];
  function buildPromo(){
   var t=shuffled(PROMO_THEMES.slice());
@@ -173,16 +173,24 @@
  function promoBlock(id,side,t){
   /* two narrower products side by side at the top, a wide one across the whole width under them */
   var base=window.__oklaAssetBase||'',all=shuffled(t.items.slice());
-  var wide=all.filter(function(x){return x[4]>=1.25}),narrow=all.filter(function(x){return x[4]<1.25});
-  var items=wide.length&&narrow.length>=2?[narrow[0],narrow[1],wide[0]]:all.slice(0,3).sort(function(x,y){return x[4]-y[4]});
+  /* the pair at the top: two products of a like shape, so they come out about as big as each other */
+  var wide=all.filter(function(x){return x[4]>=1.25}),narrow=all.filter(function(x){return x[4]<1.25}),items;
+  if(narrow.length>=2){
+   /* every pair, the closest in shape first; one picked at random among those nearly as close as the best */
+   var pairs=[];for(var i=0;i<narrow.length;i++)for(var j=i+1;j<narrow.length;j++)pairs.push([narrow[i],narrow[j],Math.abs(narrow[i][4]-narrow[j][4])]);
+   var best=Math.min.apply(null,pairs.map(function(q){return q[2]}));
+   var pick=shuffled(pairs.filter(function(q){return q[2]<=Math.max(.2,best+.03)}))[0],a=pick[0],b=pick[1];
+   var rest=all.filter(function(x){return x!==a&&x!==b}).sort(function(x,y){return y[4]-x[4]});
+   items=[a,b,wide.length?wide[0]:rest[0]];
+  }else items=all.slice(0,3).sort(function(x,y){return x[4]-y[4]});
   var d=block(id,side,
    '<div class="okla-promo">'+
-   '<div class="okla-promo__head"><span class="okla-promo__kicker">výběr okla</span><strong class="okla-promo__title">'+t.head[0]+'<br>'+t.head[1]+'</strong></div>'+
+   '<div class="okla-promo__head"><span class="okla-promo__kicker">výběr okla</span><span class="okla-promo__plate"><strong class="okla-promo__title">'+t.head[0]+'<br>'+t.head[1]+'</strong></span></div>'+
    '<div class="okla-promo__items">'+items.map(function(x,i){
     return '<a class="okla-promo__item okla-promo__item--'+(i+1)+'" href="'+x[1]+'" aria-label="'+x[2]+'">'+
      '<span class="okla-promo__pic"><img class="okla-promo__img" src="'+base+'v91/img/side/promo/'+x[0]+'.webp" alt="" decoding="async">'+
      '<span class="okla-promo__price" aria-hidden="true"><span class="okla-side-price__value">'+price(x[3])+'</span></span></span></a>';
-   }).join('')+'</div>'+
+   }).join('').replace(/^(<a[\s\S]*?<\/a><a[\s\S]*?<\/a>)/,'<div class="okla-promo__row">$1</div>')+'</div>'+
    '<a class="okla-promo__btn" href="'+t.path+'?order=bestseller">Kup teď</a>'+
    '</div>');
   d.classList.add('okla-side-art--promo');
@@ -308,8 +316,8 @@
    var isl=document.querySelector('#content .banners-row'),circ=document.getElementById('okla-cat-circles');
    var ir=(isl||card).getBoundingClientRect(),ib=(circ||isl||card).getBoundingClientRect();
    var ph=Math.round(Math.max(420,(ib.bottom-ir.top)/z)*0.9),GAP=24,pw=Math.min(190,Math.round(ph*0.31),Math.floor(space-2*GAP));
-   /* a fixed upright rectangle (as the big shops' side banners: about 1 : 3.2) */
-   left.style.width=right.style.width=pw+'px';left.style.height=right.style.height=Math.round(pw*3.2)+'px';left.style.maxHeight=right.style.maxHeight='';
+   /* a fixed upright rectangle (as the big shops' side banners: about 1 : 3) */
+   left.style.width=right.style.width=pw+'px';left.style.height=right.style.height=Math.round(pw*3)+'px';left.style.maxHeight=right.style.maxHeight='';
    left.style.top=right.style.top=(ir.top/z+sy)+'px';
    left.style.left=(c.left+sx-pw-GAP)+'px';right.style.left=(c.right+sx+GAP)+'px';
    card.style.minHeight='';
