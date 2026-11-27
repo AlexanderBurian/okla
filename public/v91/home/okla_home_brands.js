@@ -125,6 +125,7 @@
  function endless(){
   var box=document.getElementById('okla-brands-v1');
   var viewport=box&&box.querySelector('.okla-brands__viewport'),track=box&&box.querySelector('.okla-brands__track');
+  if(window.__oklaLoopAll)return true; /* every row's endless loop is okla_mobile_loop.js now */
   if(!viewport||!track)return false;
   if(track.dataset.oklaEndless)return true;
   if(!phone.matches)return true;

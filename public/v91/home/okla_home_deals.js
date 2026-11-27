@@ -36,7 +36,7 @@
   var done=false;
   function run(){
    if(done)return;done=true;
-   [].forEach.call(sec.querySelectorAll('.okd-card'),function(card){
+   [].forEach.call(sec.querySelectorAll('.okd-card:not([data-okla-loop])'),function(card){
     fetch(card.getAttribute('data-url'),{credentials:'same-origin'}).then(function(r){
      if(r.status===404||r.status===410){card.remove();return null}
      return r.ok?r.text():null;
