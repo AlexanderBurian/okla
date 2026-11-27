@@ -157,3 +157,23 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html.okla-m-stuck body #header #okla-v61-header:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h) .okm61-top{padding-left:6px!important;padding-right:6px!important;box-sizing:border-box!important}
   html.okla-m-stuck body #header #okla-v61-header:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h) .okla-m-lang{margin-right:0!important}
 }
+@media(max-width:767px){
+  /* the band: slower and softer still (0.85 s, a long ease-out), fading in over most of it */
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-band{transition:transform .85s cubic-bezier(.16,1,.3,1),opacity .6s ease!important}
+  /* the band white and clearly set apart from the page under it: a line and a soft shadow along its bottom; the field
+     with a strong outline in our blue */
+  html body #header #okla-v61-header .okla-m-sbar-band{background:#fff!important;border-bottom:1px solid #d5dde8!important;box-shadow:inset 0 8px 8px -8px rgba(18,41,68,.18),0 10px 18px -10px rgba(11,37,64,.28)!important}
+  html body #header #okla-v61-header .okla-m-sbar:not(#okms-a#okms-b){border:2px solid #0859d8!important;background:#fff!important;box-shadow:none!important}
+
+  /* the search covers the page at once and completely: everything else on the page is hidden while it is open (on an
+     iPhone the keyboard shrinks the visible area and the page showed between the results and the keyboard), and the
+     search is white over the whole tall screen */
+  html.okla-m-lock body > *:not(.okla-m-search){visibility:hidden!important}
+  html.okla-m-lock,html.okla-m-lock body{background:#fff!important}
+  html body .okla-m-search:not(#okms-a#okms-b){top:0!important;bottom:0!important;height:auto!important;min-height:100lvh!important}
+  html body .okla-m-search.is-open:not(#okms-a#okms-b){opacity:1!important;transition:none!important}
+}
+@media(max-width:767px){
+  /* room in the clipping strip for the band's bottom line and shadow */
+  html.okla-m-stuck:not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-wrap:not(#okms-a){height:96px!important}
+}

@@ -218,7 +218,7 @@
 
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
- var upSince = 0, BAR_AFTER = 60, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
+ var upSince = 0, BAR_AFTER = 130, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
  function addSearchBar() {
   var h = document.getElementById('okla-v61-header');
   if (!h || h.querySelector('.okla-m-sbar')) return;
@@ -326,7 +326,7 @@
    dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
    if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
    else if (shown) upSince += -dy;
-   /* the search bar soon after the header: a short further move up (60 px), or a second swipe up (swipes told apart by
+   /* the search bar a moment after the header: a further move up of 130 px, or a second swipe up (swipes told apart by
       the finger, not by pauses: on phones a fling runs on between swipes) */
    if (shown && (upSwipes >= 2 || upSince >= BAR_AFTER)) searchBar(true);
   } else if (dy > 0) {
