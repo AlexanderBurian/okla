@@ -55,5 +55,6 @@
 #okla-v61-drawer .okla-mm-row .okm61-cat-row-label{font-size:15px!important;font-weight:650!important}
 #okla-v61-drawer .okla-mm-row .okm61-cat-row-chevron{color:#7f8b98!important}
 /* the shop's pictograms (okla_picto.js): their own colours */
-#okla-v61-drawer .okla-mm-icon svg.okla-mm-pic{width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important;stroke:none!important}
+#okla-v61-drawer .okla-mm-icon svg.okla-mm-pic{flex:0 0 30px!important;width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;max-width:30px!important;max-height:30px!important;stroke:none!important;overflow:visible!important}
+#okla-v61-drawer .okm61-cat-row .okla-mm-icon:not(#okmm-a){flex:0 0 32px!important;min-width:32px!important}
 #okla-v61-drawer .okla-mm-hero__icon svg.okla-mm-pic{stroke:none!important}

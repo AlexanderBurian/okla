@@ -283,3 +283,9 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) .okla-m-sdrop{box-shadow:none!important}
   html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) .okla-m-sdim{background:#fff!important}
 }
+/* the search band a little lower: the field 44 px (was 48), less white above and below it */
+@media(max-width:767px){
+  html body #header #okla-v61-header .okla-m-sbar-band:not(#okms-a#okms-b#okms-c){padding:6px 15px 7px!important}
+  html body #header #okla-v61-header .okla-m-sbar:not(#okms-a#okms-b#okms-c#okms-d){height:44px!important}
+  html body #header #okla-v61-header button.okla-m-sbar__go:not(#okms-a#okms-b){height:34px!important}
+}
