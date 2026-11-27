@@ -367,6 +367,16 @@
   }
  }
  function inCheckout() { return !!(document.body && document.body.classList.contains('ordering-process')); }
+ /* phones: the floating header is the page's header from the start - pinned at the top, its place in the page held by
+    a spacer of its own height - so it is never swapped for another one while scrolling */
+ function pinHeader() {
+  if (!narrow.matches || isDetail || inCheckout() || stuck) return;
+  setSticky(true, false);
+  var h = document.getElementById('okla-v61-header');
+  if (h && spacer) { spacer.style.height = h.offsetHeight + 'px'; anchorJump = 0; }
+  document.documentElement.classList.toggle('okla-m-attop', (window.pageYOffset || 0) <= 2);
+  lastY = window.pageYOffset || 0;
+ }
  function onScroll() {
   if (!measured) measureStickyAfter();
   ticking = false;
@@ -388,9 +398,13 @@
   var root = document.documentElement, shown = stuck && !root.classList.contains('okla-m-hidden');
   /* near the top the page's own header is there: the floating one goes, without moving anything - at once when it is
      hidden, and when it is shown only once the page is right at the top (where both sit in the same place) */
+  /* near the top the header is simply shown (no shadow right at the top) and the search band slides away - the header
+     is never swapped for another one, so nothing flashes */
+  root.classList.toggle('okla-m-attop', y <= 2);
   if (y <= stickyAfter) {
-   if (stuck && (!shown || y <= 2)) setSticky(false, false);
-   dir = 0; upAcc = downAcc = 0;
+   if (!shown) setSticky(true, false);
+   searchBar(false);
+   dir = 0; upAcc = downAcc = 0; upSince = 0; upSwipes = 0;
    return;
   }
   /* calm, not jumpy: the header comes or goes only after 24 px of steady movement one way (a trembling finger or the
@@ -499,6 +513,7 @@
   }
   addHeaderButton();
   addSearchBar();
+  pinHeader();
   buildBuyBar();
   addShare();
   /* the scroll position is first read on the first scroll (lastY starts at 0): reading it here, while the page was

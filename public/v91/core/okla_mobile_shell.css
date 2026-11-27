@@ -230,3 +230,7 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html body #header #okla-v61-header button.okla-m-sbar__close:active{background:#eef2f6}
   html.okla-m-sdrop-on body #header #okla-v61-header button.okla-m-sbar__close{display:inline-flex}
 }
+@media(max-width:767px){
+  /* right at the top of a page the pinned header sits in the page: no shadow (it comes softly once the page moves) */
+  html.okla-m-stuck.okla-m-attop body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f) #header #okla-v61-header{box-shadow:none!important}
+}
