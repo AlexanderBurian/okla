@@ -300,12 +300,12 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
-  /* the promo: 12 px from the content, about a third as wide as it is high, as high as nine tenths of the homepage's first island (the banners and
+  /* the promo: 32 px from the content, about a third as wide as it is high, as high as nine tenths of the homepage's first island (the banners and
      the category circles), level with its top */
   if(left.classList.contains('okla-side-art--promo')){
    var isl=document.querySelector('#content .banners-row'),circ=document.getElementById('okla-cat-circles');
    var ir=(isl||card).getBoundingClientRect(),ib=(circ||isl||card).getBoundingClientRect();
-   var ph=Math.round(Math.max(420,(ib.bottom-ir.top)/z)*0.9),GAP=12,pw=Math.min(215,Math.round(ph*0.34),Math.floor(space-2*GAP));
+   var ph=Math.round(Math.max(420,(ib.bottom-ir.top)/z)*0.9),GAP=32,pw=Math.min(215,Math.round(ph*0.34),Math.floor(space-2*GAP));
    left.style.width=right.style.width=pw+'px';left.style.height=right.style.height='';left.style.maxHeight=right.style.maxHeight=ph+'px';
    left.style.top=right.style.top=(ir.top/z+sy)+'px';
    left.style.left=(c.left+sx-pw-GAP)+'px';right.style.left=(c.right+sx+GAP)+'px';
