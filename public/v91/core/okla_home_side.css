@@ -132,17 +132,16 @@ html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!impor
   .okla-side-art--promo .okla-promo__kicker{flex:none;display:block;margin:0 0 3.4cqw;color:#0b2540;font:800 7.6cqw/1 "Open Sans",Arial,sans-serif;letter-spacing:.3em;text-indent:.3em;text-align:center}
   .okla-side-art--promo .okla-promo__plate{flex:1 1 auto;display:flex;padding:0 2.6cqw 2.6cqw;background:repeating-linear-gradient(-45deg,#ffd400 0 2.6cqw,#0b2540 2.6cqw 5.2cqw);box-sizing:border-box}
   .okla-side-art--promo .okla-promo__title{flex:1 1 auto;display:flex;align-items:center;justify-content:center;padding:0 2cqw;background:#0b2540;color:#fff;font:800 15cqw/.95 "Open Sans",Arial,sans-serif;letter-spacing:-.035em;text-align:center}
-  .okla-side-art--promo .okla-promo__items{position:absolute;left:0;right:0;top:25%;bottom:14%;display:flex;flex-direction:column;justify-content:center;gap:5cqw}
+  .okla-side-art--promo .okla-promo__items{position:absolute;left:0;right:0;top:25%;bottom:14%;display:flex;flex-direction:column;justify-content:center;gap:9cqw}
   .okla-side-art--promo .okla-promo__row{display:flex;justify-content:space-between;align-items:flex-start}
   .okla-side-art--promo a.okla-promo__item{display:flex;justify-content:center;align-items:flex-start;text-decoration:none;pointer-events:none}
   .okla-side-art--promo .okla-promo__row a.okla-promo__item{width:47%}
-  .okla-side-art--promo .okla-promo__row a.okla-promo__item--2{margin-top:10cqw}
+  .okla-side-art--promo .okla-promo__row a.okla-promo__item--2{margin-top:13cqw}
   /* the picture's own box (as big as the picture), so the bubble sits at the product's top corner */
   .okla-side-art--promo .okla-promo__pic{position:relative;display:block;pointer-events:auto;cursor:pointer}
   .okla-side-art--promo .okla-promo__img{display:block;max-width:100%;max-height:27cqh;width:auto;height:auto;filter:drop-shadow(0 6px 10px rgba(11,37,64,.2));transition:transform .2s ease}
   .okla-side-art--promo .okla-promo__row .okla-promo__pic{max-width:100%}
   .okla-side-art--promo .okla-promo__item--3 .okla-promo__img{max-width:96cqw;max-height:25cqh}
-  .okla-side-art--promo .okla-promo__pic:hover .okla-promo__img{transform:scale(1.04)}
   .okla-side-art--promo .okla-promo__price{position:absolute;top:-9px;right:-8px;z-index:4;display:inline-flex;align-items:center;justify-content:center;height:24px;padding:0 7px;border-radius:12px;background:#ffd400;color:#0b2540;box-shadow:0 2px 8px rgba(11,37,64,.22);font:800 13px/1 "Open Sans",Arial,sans-serif;letter-spacing:-.01em;white-space:nowrap;box-sizing:border-box}
   .okla-side-art--promo .okla-promo__item--3 .okla-promo__price{right:auto;left:-8px}
   .okla-side-art--promo .okla-promo__price .okla-side-price__value{font:inherit;letter-spacing:inherit}
@@ -158,3 +157,7 @@ html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!impor
 @media(min-width:992px){
   html.okla-dz-on :is(#okla-page-fade,#okla-pod-backdrop){zoom:var(--okla-dz)}
 }
+/* the stage picture is no link of its own; each product standing on it is (okla_home_side.js: STAGES hot) */
+html body .okla-side-art--pod .okla-side-pod__pic:not(#osp-a#osp-b){position:relative;pointer-events:none;cursor:default}
+html body .okla-side-art--pod .okla-side-pod__hot:not(#osp-a#osp-b){position:absolute;z-index:2;display:block;pointer-events:auto;cursor:pointer;border-radius:10px;-webkit-tap-highlight-color:transparent}
+html body .okla-side-art--pod .okla-side-pod__hot:focus-visible{outline:2px solid #0859d8;outline-offset:2px}

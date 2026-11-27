@@ -42,8 +42,12 @@
    '<div class="okla-side-pod__text"><strong class="okla-side-pod__title">'+title+'</strong>'+
    '<span class="okla-side-pod__sub">'+sub+'</span>'+
    '<a class="okla-side-pod__btn" href="'+href+'">Kup teď</a></div>'+
-   '<a class="okla-side-pod__pic" href="'+href+'" tabindex="-1" aria-hidden="true">'+
-   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="'+STAGE.w+'" height="'+STAGE.h+'" decoding="async"></a>'+
+   /* the picture itself is no link; every product standing on it is one, to its own page (x, y, width, height in % of
+      the picture) */
+   '<div class="okla-side-pod__pic">'+
+   '<img class="okla-side-pod__img" src="'+base+'v91/img/side/'+img+'" alt="" width="'+STAGE.w+'" height="'+STAGE.h+'" decoding="async">'+
+   ((STAGE.hot||[])[side==='left'?0:1]||[]).map(function(h){return '<a class="okla-side-pod__hot" href="'+h[4]+'" style="left:'+h[0]+'%;top:'+h[1]+'%;width:'+h[2]+'%;height:'+h[3]+'%" aria-label="Zobrazit produkt"></a>'}).join('')+
+   '</div>'+
    '</div>');
   d.classList.add('okla-side-art--pod');return d;
  }
@@ -54,13 +58,13 @@
     colour at its edge row by row, the row where the picture starts to show (its mask: 24 %), the page's colour under the
     stages (a light tint of the stage's own colour), dark text where white would not read, the texts */
  var STAGES=[
-  {path:'/merici-technika-a-naradi/',img:['okla-measure-left.webp','okla-measure-right.webp'],w:941,h:1671,from:401,page:'#c8dcfd',
+  {path:'/merici-technika-a-naradi/',hot:[[[56.54,34.93,14.88,15.98,"/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/"],[14.51,48.68,27.52,15.68,"/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/"],[67.0,58.97,23.27,15.68,"/fnirsi-lcr-p1-tester-soucastek/"],[45.32,67.53,14.13,18.67,"/aneng-b60-laserovy-dalkomer-60-m/"]],[[31.3,34.33,9.46,16.58,"/mestek-am10-digitalni-anemometr/"],[63.55,47.48,15.52,16.88,"/hw-300-digitalni-tloustkomer-laku-a-povlaku-0-2000-m-fe-nfe/"],[14.13,59.27,14.88,15.38,"/aneng-th06-bezkontaktni-ir-teplomer/"],[40.7,68.13,13.82,18.07,"/aneng-g50-zeleny-laserovy-dalkomer-50-m/"]]],img:['okla-measure-left.webp','okla-measure-right.webp'],w:941,h:1671,from:401,page:'#c8dcfd',
    bg:[[0,'#0055d1'],[84,'#015cd8'],[168,'#0160e2'],[252,'#0269e8'],[336,'#0770ec'],[420,'#0b77ef'],[504,'#117df3'],[588,'#1b88f8'],[672,'#2991f9'],[756,'#3c9efd'],[840,'#4ea9fc'],[924,'#62b3fe'],[1008,'#75bdfd'],[1092,'#88c5fc'],[1176,'#a3d3fe'],[1260,'#bddffd'],[1344,'#d5e9fe'],[1428,'#ebf2fd'],[1670,'#e6eefe']],
    text:[['Přesné měření pro dílnu i domov','Teploměry, vlhkoměry a testery'],['Změřte vzdálenost i vítr','Dálkoměry a anemometry']]},
-  {path:'/elektronicke-multitooly/',img:['okla-multi-left.webp','okla-multi-right.webp'],w:1024,h:1536,from:369,page:'#f1d4ae',dark:true,
+  {path:'/elektronicke-multitooly/',hot:[[[54.79,36.07,14.65,14.78,"/lilygo-t-deck-plus-kapesni-esp32-komunikator/"],[20.31,47.56,14.06,17.06,"/fnirsi-2c23t-osciloskop-multimetr-a-generator-3v1/"],[72.31,59.56,10.06,15.43,"/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/"],[29.1,76.57,33.4,9.9,"/flipper-zero-kapesni-multitool-pro-elektroniku/"]],[[29.93,38.67,15.92,12.17,"/waveshare-esp32-c3-s-0-71-kulatym-displejem/"],[63.96,49.18,17.38,15.43,"/lilygo-t-dongle-s3-plus/"],[12.3,60.34,29.49,14.65,"/m5stack-cardputer-adv-programovatelny-mini-pocitac/"],[28.22,75.46,36.33,11.0,"/flipper-one-otevreny-linuxovy-sitovy-multitool/"]]],img:['okla-multi-left.webp','okla-multi-right.webp'],w:1024,h:1536,from:369,page:'#f1d4ae',dark:true,
    bg:[[0,"#efa02b"],[64,"#f1a22f"],[128,"#f3a633"],[192,"#f2a836"],[256,"#f5ad3d"],[320,"#f7b142"],[384,"#f6b145"],[448,"#fab650"],[512,"#f9ba56"],[576,"#fbbf5f"],[640,"#fbc369"],[704,"#fbc772"],[768,"#fdcb7a"],[832,"#fdd086"],[896,"#fdd492"],[960,"#fdda9d"],[1024,"#fedca3"],[1088,"#fee1b0"],[1152,"#fce6bb"],[1216,"#fceacc"],[1280,"#fdf1dc"],[1344,"#fdefd9"],[1400,"#feefd9"],[1470,"#fff2df"],[1535,"#fdf1dc"]],
    text:[['Kapesní multitooly pro hackery i tvůrce','Flipper Zero, T-Deck a T-Embed'],['Celý počítač v jedné dlani','Flipper ONE, Cardputer a ESP32']]},
-  {path:'/prakticke-vychytavky/',img:['okla-gadget-left.webp','okla-gadget-right.webp'],w:1024,h:1536,from:369,page:'#f6d0be',dark:true,
+  {path:'/prakticke-vychytavky/',hot:[[[50.88,38.48,23.63,12.11,"/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/"],[16.06,49.88,22.17,14.78,"/x18-kapesni-termotiskarna-bila/"],[73.63,60.71,11.52,14.45,"/ec02-a-mini-bezdratovy-adapter-carplay-a-android-auto/"],[32.03,72.83,32.42,14.45,"/onten-8108-usb-3-0-hub-se-7-porty/"]],[[28.37,38.09,17.87,12.5,"/yesido-tv15-bezdratovy-hdmi-adapter/"],[64.4,48.25,16.89,16.41,"/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/"],[11.23,60.9,19.73,14.26,"/ec02-a-mini-bezdratovy-adapter-carplay-a-android-auto/"],[40.43,70.61,28.52,16.67,"/usb-c-hub-5v1-se-2-usb-3-0-cteckou-sd-microsd-a-nabijecim-portem-usb-c/"]]],img:['okla-gadget-left.webp','okla-gadget-right.webp'],w:1024,h:1536,from:369,page:'#f6d0be',dark:true,
    bg:[[0,"#c87350"],[64,"#c97451"],[128,"#cc7653"],[192,"#cf7a57"],[256,"#d27f5b"],[320,"#d4845d"],[384,"#d6865f"],[448,"#d98c64"],[512,"#dc9067"],[576,"#df946a"],[640,"#e49d73"],[704,"#e9a57a"],[768,"#edad83"],[832,"#f1b58c"],[896,"#f5c099"],[960,"#facaa3"],[1024,"#fbd1ad"],[1088,"#fddab8"],[1152,"#fde1c6"],[1216,"#fce9d4"],[1280,"#fdefe6"],[1344,"#fdece2"],[1400,"#faebe3"],[1470,"#faefec"],[1535,"#f8ebe7"]],
    text:[['Chytré drobnosti pro každý den','Termotiskárna, USB hub a diagnostika'],['Do auta, k televizi i k notebooku','CarPlay, HDMI a USB-C hub']]}
  ];
@@ -328,7 +332,9 @@
    /* the picture takes two thirds of the margin, by the content (its cut podium side 16 px under the content; the
       outer third is the page's backdrop, into which its outer edge fades); it starts 260 px under the content's top,
       so the page above it can turn from the header's white into the blue slowly */
-   var UNDER=16,DROP=260,pw=Math.ceil(space*2/3+UNDER);
+   /* on a laptop the whole page is drawn smaller (window.__oklaDZ < 1): there the stage takes nearly the whole margin
+      instead of two thirds, so the products do not come out too small */
+   var UNDER=16,DROP=260,pw=Math.ceil(space*(z<0.95?0.97:2/3)+UNDER);
    left.style.width=pw+'px';right.style.width=pw+'px';
    left.style.top=right.style.top=(c.top+sy+DROP)+'px';
    left.style.left=(c.left+sx-pw+UNDER)+'px';

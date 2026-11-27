@@ -234,3 +234,9 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   /* right at the top of a page the pinned header sits in the page: no shadow (it comes softly once the page moves) */
   html.okla-m-stuck.okla-m-attop body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f) #header #okla-v61-header{box-shadow:none!important}
 }
+@media(max-width:767px){
+  /* while the search suggestions are open: no AI chat bubble and no bottom bar, and the white reaches below the
+     screen's bottom (the phone's own bar can slide away and must not show the page there) */
+  html.okla-m-sdrop-on okla-ai-chat,html.okla-m-sdrop-on body #okla-v61-bottom{visibility:hidden!important;pointer-events:none!important}
+  html body .okla-m-sdrop:not(#okms-a#okms-b){bottom:-140px;padding-bottom:calc(156px + env(safe-area-inset-bottom,0px))}
+}
