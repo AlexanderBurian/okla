@@ -117,3 +117,37 @@ html body .okla-side-art--pod:not(#osp-a#osp-b#osp-c#osp-d){transform:none!impor
 .okla-side-art--pod.okla-side-art--pod-dark a.okla-side-pod__btn:active{box-shadow:0 3px 10px rgba(60,30,0,.24)}
 .okla-side-art--pod.okla-side-art--pod-dark a.okla-side-pod__btn:focus-visible{outline-color:#0b2540}
 .okla-side-art--pod.okla-side-art--pod-short .okla-side-pod__pic{margin-top:-32cqw}
+
+/* Homepage promo (okla_home_side.js promoBlock, one page load in five): both margins, 12 px from the content, level
+   with the first island's top, laid out like the big shops' side banners - no panel, no frame: a tight group of
+   three products (two narrower ones side by side at the top, the second a little lower - never over each other; a
+   wide one across the whole width under them), each with its price in a yellow bubble at its top corner, and a short yellow
+   "Kup teď" under them. As high as its products (never more than the first island). */
+@media(min-width:992px){
+  html body .okla-side-art.okla-side-art--promo:not(#oksa-x#oksa-y#oksa-z){transform:none!important;clip-path:none!important;overflow:visible!important}
+  .okla-side-art--promo .okla-promo{display:flex;flex-direction:column;align-items:center;gap:14px;box-sizing:border-box;pointer-events:none}
+  .okla-side-art--promo .okla-promo__items{align-self:stretch;display:grid;grid-template-columns:1fr 1fr;align-items:end;column-gap:10px;row-gap:18px}
+  .okla-side-art--promo a.okla-promo__item{position:relative;display:flex;align-items:flex-end;justify-content:center;min-width:0;text-decoration:none;pointer-events:none}
+  .okla-side-art--promo a.okla-promo__item--1{grid-column:1;grid-row:1;z-index:1}
+  .okla-side-art--promo a.okla-promo__item--2{grid-column:2;grid-row:1;padding-top:22%;z-index:2}
+  .okla-side-art--promo a.okla-promo__item--3{grid-column:1 / span 2;grid-row:2;z-index:3}
+  /* the picture's own box (as big as the picture), so the bubble sits at the product's top corner */
+  .okla-side-art--promo .okla-promo__pic{position:relative;display:block;max-width:100%;pointer-events:auto;cursor:pointer}
+  .okla-side-art--promo .okla-promo__img{display:block;max-width:100%;max-height:220px;width:auto;height:auto;filter:drop-shadow(0 8px 12px rgba(11,37,64,.2));transition:transform .2s ease}
+  .okla-side-art--promo .okla-promo__item--3 .okla-promo__img{max-height:170px}
+  .okla-side-art--promo .okla-promo__pic:hover .okla-promo__img{transform:scale(1.04)}
+  .okla-side-art--promo .okla-promo__price{position:absolute;top:-12px;right:-6px;z-index:4;display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 9px;border-radius:14px;background:#ffd400;color:#0b2540;box-shadow:0 3px 10px rgba(11,37,64,.22);font:800 14px/1 "Open Sans",Arial,sans-serif;letter-spacing:-.01em;white-space:nowrap;box-sizing:border-box}
+  .okla-side-art--promo .okla-promo__item--1 .okla-promo__price,.okla-side-art--promo .okla-promo__item--3 .okla-promo__price{right:auto;left:-6px}
+  .okla-side-art--promo .okla-promo__price .okla-side-price__value{font:inherit;letter-spacing:inherit}
+  .okla-side-art--promo a.okla-promo__btn{flex:none;display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 22px;border-radius:8px;background:#ffd400;color:#0b2540;-webkit-text-fill-color:#0b2540;font:800 15px/1 "Open Sans",Arial,sans-serif;white-space:nowrap;text-decoration:none;box-shadow:0 5px 14px rgba(11,37,64,.18);pointer-events:auto;cursor:pointer;transition:background-color .15s ease,transform .1s ease}
+  .okla-side-art--promo a.okla-promo__btn:hover{background:#ffe033}
+  .okla-side-art--promo a.okla-promo__btn:active{transform:translateY(1px)}
+  .okla-side-art--promo a:focus-visible{outline:2px solid #0859d8;outline-offset:2px;border-radius:8px}
+}
+
+/* The PC page is scaled as a whole on narrower screens (zapati_firsthalf.js: .overall-wrapper zoom). The backdrop
+   layers lie in the body, outside it: they get the same scale, so their places (worked out in the page's own units)
+   meet the header and the pictures exactly - before, under a scaled header the white turn started too low. */
+@media(min-width:992px){
+  html.okla-dz-on :is(#okla-page-fade,#okla-pod-backdrop){zoom:var(--okla-dz)}
+}

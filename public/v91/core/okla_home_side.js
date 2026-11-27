@@ -143,12 +143,49 @@
  function build(){
   if(document.getElementById('okla-side-left'))return;
   if(measurePage()){buildPod();return}
+  /* the homepage now and then (one load in five): both margins a promo panel instead of the hand and the product */
+  var pick=shuffled(RIGHT.slice().concat(isHome()?[PROMO]:[]));
+  if(pick[0]===PROMO||(isHome()&&location.hash==='#okla-promo')){buildPromo();return}
   block('okla-side-left','left',
    '<a class="okla-side-art__link" href="/obchodni-podminky/">'+
    '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem Okla"></div>'+
    '</a>'+
    '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>');
-  renderRight(shuffled(RIGHT.slice()));
+  renderRight(pick.filter(function(x){return x!==PROMO}));
+ }
+ function isHome(){return location.pathname==='/'||location.pathname===''}
+ /* The promo (homepage, both margins), laid out like the big shops' side banners: no panel of its own - three of a
+    category's best-looking products picked at random, large and close together (alternately left and right, a little
+    over each other), each with its price in a yellow bubble (the shop's current price, read live - no discounts are
+    claimed), and a short "Kup teď" (the category's best sellers). Each margin a different category. */
+ var PROMO={key:'promo'};
+ var PROMO_THEMES=[
+  {title:'Elektronické multitooly',path:'/elektronicke-multitooly/',items:[['flipperzero','/flipper-zero-kapesni-multitool-pro-elektroniku/','Flipper Zero',5690,2.36],['flipperone','/flipper-one-otevreny-linuxovy-sitovy-multitool/','Flipper ONE',13990,2.29],['tdeck','/lilygo-t-deck-plus-kapesni-esp32-komunikator/','LILYGO T-Deck Plus',2890,0.64],['cardputer','/m5stack-cardputer-adv-programovatelny-mini-pocitac/','M5Stack Cardputer ADV',990,1.36],['tembed','/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/','LILYGO T-Embed CC1101',2590,0.40],['waveshare','/waveshare-esp32-c3-s-0-71-kulatym-displejem/','Waveshare ESP32-C3 s kulatým displejem',789,0.86]]},
+  {title:'Měřicí technika',path:'/merici-technika-a-naradi/',items:[['wmt10','/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva',1189,0.99],['lcrp1','/fnirsi-lcr-p1-tester-soucastek/','FNIRSI LCR-P1 tester součástek',1289,0.83],['th104','/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/','ANENG TH104 bezkontaktní infračervený teploměr',489,0.50]]},
+  {title:'Praktické vychytávky',path:'/prakticke-vychytavky/',items:[['x18','/x18-kapesni-termotiskarna-bila/','X18 kapesní termotiskárna',389,1.00],['yesido','/yesido-tv15-bezdratovy-hdmi-adapter/','YESIDO TV15 bezdrátový HDMI adaptér',1189,0.95],['obd','/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','KINGBOLEN Ediag Bluetooth OBD2 diagnostika pro Android a iOS',3789,1.32],['onten','/onten-8108-usb-3-0-hub-se-7-porty/','ONTEN 8108 USB 3.0 hub se 7 porty',589,1.52]]}
+ ];
+ function buildPromo(){
+  var t=shuffled(PROMO_THEMES.slice());
+  promoBlock('okla-side-left','left',t[0]);promoBlock('okla-side-right','right',t[1]);
+  if(typeof layout==='function')layout();
+ }
+ function promoBlock(id,side,t){
+  /* two narrower products side by side at the top, a wide one across the whole width under them */
+  var base=window.__oklaAssetBase||'',all=shuffled(t.items.slice());
+  var wide=all.filter(function(x){return x[4]>=1.25}),narrow=all.filter(function(x){return x[4]<1.25});
+  var items=wide.length&&narrow.length>=2?[narrow[0],narrow[1],wide[0]]:all.slice(0,3).sort(function(x,y){return x[4]-y[4]});
+  var d=block(id,side,
+   '<div class="okla-promo">'+
+   '<div class="okla-promo__items">'+items.map(function(x,i){
+    return '<a class="okla-promo__item okla-promo__item--'+(i+1)+'" href="'+x[1]+'" aria-label="'+x[2]+'">'+
+     '<span class="okla-promo__pic"><img class="okla-promo__img" src="'+base+'v91/img/side/promo/'+x[0]+'.webp" alt="" decoding="async">'+
+     '<span class="okla-promo__price" aria-hidden="true"><span class="okla-side-price__value">'+price(x[3])+'</span></span></span></a>';
+   }).join('')+'</div>'+
+   '<a class="okla-promo__btn" href="'+t.path+'?order=bestseller">Kup teď</a>'+
+   '</div>');
+  d.classList.add('okla-side-art--promo');
+  [].forEach.call(d.querySelectorAll('.okla-promo__item'),function(a){refreshPrice(a,{href:a.getAttribute('href')},function(){a.remove()})});
+  return d;
  }
  function shuffled(list){for(var i=list.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=list[i];list[i]=list[j];list[j]=t}return list}
  /* Shows the first product of the list that the shop still sells (known from this session); when its page is gone,
@@ -263,6 +300,18 @@
   right.style.top=top+'px';
   left.classList.add('is-on');
   right.classList.add('is-on');
+  /* the promo: 12 px from the content, about a third as wide as it is high, as high as nine tenths of the homepage's first island (the banners and
+     the category circles), level with its top */
+  if(left.classList.contains('okla-side-art--promo')){
+   var isl=document.querySelector('#content .banners-row'),circ=document.getElementById('okla-cat-circles');
+   var ir=(isl||card).getBoundingClientRect(),ib=(circ||isl||card).getBoundingClientRect();
+   var ph=Math.round(Math.max(420,(ib.bottom-ir.top)/z)*0.9),GAP=12,pw=Math.min(215,Math.round(ph*0.34),Math.floor(space-2*GAP));
+   left.style.width=right.style.width=pw+'px';left.style.height=right.style.height='';left.style.maxHeight=right.style.maxHeight=ph+'px';
+   left.style.top=right.style.top=(ir.top/z+sy)+'px';
+   left.style.left=(c.left+sx-pw-GAP)+'px';right.style.left=(c.right+sx+GAP)+'px';
+   card.style.minHeight='';
+   return;
+  }
   /* the podium stage: level with the content's top, its cut side under the content's edge, its own height */
   if(left.classList.contains('okla-side-art--pod')){
    /* the picture takes two thirds of the margin, by the content (its cut podium side 16 px under the content; the
