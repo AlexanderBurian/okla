@@ -28,9 +28,9 @@
   var sec=el('section');sec.id='okla-lilygo';sec.setAttribute('aria-label','Zařízení LilyGO');
   /* the photo panel */
   var hero=el('a','olg-hero');hero.href='/vyhledavani/?string=lilygo';
-  var img=el('img','olg-photo');img.src=base+PHOTO;img.alt='';img.decoding='async';img.draggable=false;
-  /* without its photo the band is not shown at all */
-  img.addEventListener('error',function(){sec.remove()});
+  var img=el('img','olg-photo');img.src=base+PHOTO;img.alt='';img.loading='lazy';img.decoding='async';img.draggable=false;
+  /* if the photo cannot be loaded the band stays, the panel then plain dark (it used to hide the whole band) */
+  img.addEventListener('error',function(){img.remove()});
   var copy=el('div','olg-copy');
   copy.append(el('h2','olg-title','Elektronika do kapsy'),el('p','olg-sub','Zařízení LilyGO s ESP32 pro tvůrce a vývojáře'),el('span','olg-cta','Nakupovat'));
   var mark=el('span','olg-mark','LilyGO');mark.setAttribute('aria-hidden','true');
