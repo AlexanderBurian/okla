@@ -27,9 +27,10 @@ SRC = r'''/* Okla – THE product card, one look for every product on the site: 
   --okc-name:#1d252c;--okc-name-size:14px;--okc-name-lh:20px;--okc-name-w:400;
   --okc-star:#f5a623;--okc-star-off:#d5dae1;--okc-rate-size:13px;
   --okc-price:#0b2540;--okc-price-size:22px;--okc-price-lh:28px;--okc-price-w:600;
-  --okc-sale-bg:#0b2540;--okc-sale-now:#fff;--okc-sale-was:#c5ccd8;--okc-sale-bar:#ffd400;--okc-sale-bar-fg:#0b2540;
-  --okc-sale-now-size:24px;--okc-sale-was-size:14px;--okc-sale-bar-size:12.5px;
-  --okc-disc-bg:#ffd400;--okc-disc-fg:#0b2540;--okc-disc:48px;
+  /* the sale tag, 1:1 the Alza one: yellow, near black and white only */
+  --okc-sale-bg:#212121;--okc-sale-now:#fff;--okc-sale-was:#bcbcbc;--okc-sale-bar:#fee956;--okc-sale-bar-fg:#212121;
+  --okc-sale-now-size:26px;--okc-sale-was-size:15px;--okc-sale-bar-size:14px;
+  --okc-disc-bg:#fee956;--okc-disc-fg:#212121;--okc-disc:48px;
   --okc-stock-size:12px;--okc-stock-lh:17px;--okc-stock-w:600;--okc-in:#1a7f37;--okc-soon:#b35c00;
   --okc-badge-bg:#0859d8;--okc-badge-fg:#fff;--okc-badge-size:12px;
   /* the shop's own "Do košíku" button, exactly as it was */
@@ -43,7 +44,7 @@ SRC = r'''/* Okla – THE product card, one look for every product on the site: 
 /* cards standing on a grey ground (okla_card.js marks their row): the photo's box white */
 .okc-on-grey:not(#okc1#okc2){--okc-img-bg:#fff!important}
 @media(max-width:767px){
-  :root{--okc-x:4px;--okc-gap:10px;--okc-name-size:13px;--okc-name-lh:18px;--okc-price-size:19px;--okc-price-lh:25px;--okc-sale-now-size:19px;--okc-sale-was-size:12px;--okc-sale-bar-size:11px;--okc-disc:40px;--okc-badge-size:11px;--okc-btn-h:38px;--okc-rate-size:12px;--okc-stock-size:12px}
+  :root{--okc-x:4px;--okc-gap:10px;--okc-name-size:13px;--okc-name-lh:18px;--okc-price-size:19px;--okc-price-lh:25px;--okc-sale-now-size:21px;--okc-sale-was-size:13px;--okc-sale-bar-size:12px;--okc-disc:40px;--okc-badge-size:11px;--okc-btn-h:38px;--okc-rate-size:12px;--okc-stock-size:12px}
 }
 
 /* ---------- the parts every card shares (the shop's cards and ours) ---------- */
@@ -52,13 +53,13 @@ html body .okc-rating .okc-stars@G{flex:none!important;display:block!important;w
 html body .okc-rating .okc-rating__val@G{font-weight:600!important;color:var(--okc-name)!important}
 html body .okc-rating .okc-rating__count@G{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;min-width:0!important}
 @media(max-width:767px){html body .okc-rating .okc-stars@G{width:70px!important;height:13px!important;-webkit-mask-size:14px 13px!important;mask-size:14px 13px!important}html body .okc-rating@G{gap:5px!important}}
-html body .okc-sale@G{display:inline-flex!important;flex-direction:column!important;align-items:stretch!important;align-self:center!important;width:auto!important;min-width:62%!important;max-width:100%!important;margin:0 auto!important;border-radius:8px!important;overflow:hidden!important;background:var(--okc-sale-bg)!important;text-align:center!important;font-family:var(--okc-font)!important}
-html body .okc-sale .okc-sale__bar@G{order:-1!important;display:block!important;padding:5px 12px!important;background:var(--okc-sale-bar)!important;color:var(--okc-sale-bar-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 var(--okc-sale-bar-size)/1.25 var(--okc-font)!important;letter-spacing:.02em!important;white-space:nowrap!important}
-html body .okc-sale .okc-sale__prices@G{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:0!important;padding:6px 14px 8px!important}
+html body .okc-sale@G{display:inline-flex!important;flex-direction:column!important;align-items:stretch!important;align-self:center!important;width:auto!important;min-width:62%!important;max-width:100%!important;margin:0 auto!important;border:0!important;outline:0!important;box-shadow:none!important;border-radius:8px!important;overflow:hidden!important;background:var(--okc-sale-bg)!important;text-align:center!important;font-family:var(--okc-font)!important}
+html body .okc-sale .okc-sale__bar@G{order:-1!important;display:block!important;padding:6px 14px!important;border:0!important;background:var(--okc-sale-bar)!important;color:var(--okc-sale-bar-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 var(--okc-sale-bar-size)/1.25 var(--okc-font)!important;letter-spacing:0!important;white-space:nowrap!important}
+html body .okc-sale .okc-sale__prices@G{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:0!important;padding:6px 16px 9px!important;border:0!important}
 html body .okc-sale .okc-sale__now@G{color:var(--okc-sale-now)!important;-webkit-text-fill-color:currentColor!important;font:600 var(--okc-sale-now-size)/1.2 var(--okc-font)!important;letter-spacing:-.01em!important;white-space:nowrap!important}
-html body .okc-sale .okc-sale__was@G{display:block!important;margin-top:1px!important;color:var(--okc-sale-was)!important;-webkit-text-fill-color:currentColor!important;font:400 var(--okc-sale-was-size)/1.25 var(--okc-font)!important;text-decoration:line-through!important;text-decoration-thickness:1.5px!important;white-space:nowrap!important}
+html body .okc-sale .okc-sale__was@G{display:block!important;margin-top:1px!important;color:var(--okc-sale-was)!important;-webkit-text-fill-color:currentColor!important;font:400 var(--okc-sale-was-size)/1.25 var(--okc-font)!important;text-decoration:line-through!important;text-decoration-thickness:2px!important;text-decoration-color:var(--okc-sale-was)!important;white-space:nowrap!important}
 html body .okc-sale--plain .okc-sale__prices@G{padding:7px 14px 8px!important}
-html body .okc-disc@G{position:absolute!important;top:8px!important;right:8px!important;left:auto!important;z-index:3!important;display:grid!important;place-items:center!important;width:var(--okc-disc)!important;height:var(--okc-disc)!important;border-radius:50%!important;background:var(--okc-disc-bg)!important;color:var(--okc-disc-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 13px/1 var(--okc-font)!important;letter-spacing:-.02em!important;box-shadow:0 1px 4px rgba(11,37,64,.18)!important}
+html body .okc-disc@G{position:absolute!important;top:8px!important;right:8px!important;left:auto!important;z-index:3!important;display:grid!important;place-items:center!important;width:var(--okc-disc)!important;height:var(--okc-disc)!important;border-radius:50%!important;background:var(--okc-disc-bg)!important;color:var(--okc-disc-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 13px/1 var(--okc-font)!important;letter-spacing:-.02em!important;box-shadow:none!important;border:0!important}
 html body .okc-add@G{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;width:auto!important;min-width:0!important;max-width:100%!important;height:var(--okc-btn-h)!important;min-height:0!important;margin:0!important;padding:0 14px!important;border:1px solid var(--okc-btn-line)!important;border-radius:var(--okc-btn-radius)!important;background:var(--okc-btn-bg)!important;background-image:none!important;color:var(--okc-btn-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 var(--okc-btn-size)/14px var(--okc-font)!important;letter-spacing:normal!important;text-transform:none!important;box-shadow:none!important;transform:none!important;filter:none!important;cursor:pointer!important;overflow:visible!important;transition:background-color .15s,border-color .15s!important}
 html body .okc-add@G:hover,html body .okc-add@G:focus-visible{background:var(--okc-btn-hover-bg)!important;border-color:var(--okc-btn-hover-line)!important;color:var(--okc-btn-hover-fg)!important;box-shadow:none!important;transform:none!important}
 html body .okc-add@G>span{display:block!important;font:inherit!important;color:inherit!important;-webkit-text-fill-color:currentColor!important}
