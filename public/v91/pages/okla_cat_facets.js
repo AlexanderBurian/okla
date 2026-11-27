@@ -129,14 +129,7 @@
 
   /* the helpful links at the end of the column */
   if(!document.getElementById('okla-side-links')){
-   var I={
-    news:'<path d="M5 4h11a2 2 0 0 1 2 2v13a1 1 0 0 0 2 0V8"/><path d="M4 4v14a2 2 0 0 0 2 2h14"/><path d="M8 8h6M8 12h6M8 16h4"/>',
-    track:'<path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/>',
-    back:'<path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/>',
-    shield:'<path d="M12 3 5 6v5c0 4.5 3 8.3 7 10 4-1.7 7-5.5 7-10V6z"/><path d="m9 12 2 2 4-4"/>',
-    truck:'<rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14h3"/>',
-    chat:'<path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/><path d="M9 11h.01M12 11h.01M15 11h.01"/>'
-   };
+   var I={news:'clipboard',track:'truck',back:'return',shield:'shield',truck:'card',chat:'chat'}; /* v91/img/picto/*.webp */
    var LINKS=[
     ['news','Články a návody','/nase-novinky/','Průvodci a návody k produktům z naší nabídky.'],
     ['track','Stav objednávky','/stav-objednavky/','Zjistěte, kde je vaše zásilka.'],
@@ -148,7 +141,7 @@
    var lb=el('nav','box okla-side-links');lb.id='okla-side-links';lb.setAttribute('aria-label','Pomoc s nákupem');
    LINKS.forEach(function(l){
     var a=el('a','okla-side-link');a.href=l[2];
-    a.innerHTML='<svg class="okla-side-link__ic" viewBox="0 0 24 24" aria-hidden="true">'+I[l[0]]+'</svg>';
+    a.innerHTML='<img class="okla-side-link__ic" src="'+(window.__oklaAssetBase||'')+'v91/img/picto/'+I[l[0]]+'.webp" alt="" width="28" height="28" decoding="async">';
     var t=el('span','okla-side-link__text'),h=el('strong','okla-side-link__title',l[1]);h.insertAdjacentHTML('beforeend',ARROW);
     t.append(h,el('span','okla-side-link__desc',l[3]));a.appendChild(t);lb.appendChild(a);
    });

@@ -24,11 +24,18 @@
   chevron:'<path class="okla-mm-line" d="m9 6 6 6-6 6"/>'
  };
  function svg(name){var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',name==='chevron'?'0 0 24 24':'0 0 32 32');s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');s.classList.add('okla-mm-svg','okla-mm-svg--'+name);s.innerHTML=ICONS[name];return s}
+ /* the colour pictograms (v91/img/picto/*.webp); the line icons above stay for what has none */
+ var PIC={user:'person',account:'person',orders:'truck',claim:'tools',back:'return',chat:'chat',truck:'card',info:'star'};
+ function pic(name){
+  if(!PIC[name])return svg(name);
+  var i=document.createElement('img');i.className='okla-mm-pic okla-mm-pic--'+name;i.alt='';i.decoding='async';
+  i.src=(window.__oklaAssetBase||'')+'v91/img/picto/'+PIC[name]+'.webp';return i;
+ }
  function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
  function row(icon,label,href){
   var a=el('a','okm61-cat-row okla-mm-row');a.href=href;
   a.setAttribute('data-mm-icon',icon);
-  var ic=el('span','okm61-category-icon okla-mm-icon');ic.appendChild(svg(icon));
+  var ic=el('span','okm61-category-icon okla-mm-icon');ic.appendChild(pic(icon));
   var ch=el('span','okm61-cat-row-chevron');ch.appendChild(svg('chevron'));
   a.append(ic,el('span','okm61-cat-row-label',label),ch);return a;
  }
@@ -44,7 +51,7 @@
  function build(body){
   var guest=isGuest();
   var hero=el('section','okla-mm-hero'+(guest?'':' is-logged'));
-  var badge=el('span','okla-mm-hero__icon');badge.appendChild(svg('user'));hero.appendChild(badge);
+  var badge=el('span','okla-mm-hero__icon');badge.appendChild(pic('user'));hero.appendChild(badge);
   hero.appendChild(el('h2','okla-mm-hero__title',guest?'Přihlaste se a získáte spoustu výhod':'Váš zákaznický účet'));
   hero.appendChild(el('p','okla-mm-hero__text',guest?'Přehled objednávek, stav doručení, faktury a rychlejší reklamace na jednom místě.':'Objednávky, doklady a osobní údaje na jednom místě.'));
   var actions=el('div','okla-mm-hero__actions');

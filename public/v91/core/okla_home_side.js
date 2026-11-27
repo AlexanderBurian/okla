@@ -147,15 +147,15 @@
  function build(){
   if(document.getElementById('okla-side-left'))return;
   if(measurePage()){buildPod();return}
-  /* the homepage now and then (one load in five): both margins a promo panel instead of the hand and the product */
-  var pick=shuffled(RIGHT.slice().concat(isHome()?[PROMO]:[]));
-  if(pick[0]===PROMO||(isHome()&&location.hash==='#okla-promo')){buildPromo();return}
+  /* every page without its own stage, every other load: both margins a promo panel instead of the hand and the product */
+  var pick=shuffled(RIGHT.slice());
+  if(Math.random()<0.5||location.hash==='#okla-promo'){buildPromo();return}
   block('okla-side-left','left',
    '<a class="okla-side-art__link" href="/obchodni-podminky/">'+
    '<div class="okla-side-art__img okla-side-art__img--phone" role="img" aria-label="Ruka s telefonem Okla"></div>'+
    '</a>'+
    '<p class="okla-side-art__text">Záruka 24 měsíců na veškeré zboží. Reklamace vyřídíme rychle.</p>');
-  renderRight(pick.filter(function(x){return x!==PROMO}));
+  renderRight(pick);
  }
  function isHome(){return location.pathname==='/'||location.pathname===''}
  /* The promo (homepage, both margins), laid out one to one like the big shops' side banners: an upright rectangle -
@@ -163,7 +163,6 @@
     right one lower) and a wide one across the whole width, never over each other, each with its price in a yellow
     bubble at its top corner (the shop's current price, read live - no discounts are claimed), and "Kup teď" (the
     category's best sellers). Each margin a different category, the products picked at random. */
- var PROMO={key:'promo'};
  var PROMO_THEMES=[
   {title:'Elektronické multitooly',head:['Kapesní','multitooly'],path:'/elektronicke-multitooly/',items:[['flipperzero','/flipper-zero-kapesni-multitool-pro-elektroniku/','Flipper Zero',5690,2.36],['flipperone','/flipper-one-otevreny-linuxovy-sitovy-multitool/','Flipper ONE',13990,2.29],['tdeck','/lilygo-t-deck-plus-kapesni-esp32-komunikator/','LILYGO T-Deck Plus',2890,0.64],['cardputer','/m5stack-cardputer-adv-programovatelny-mini-pocitac/','M5Stack Cardputer ADV',990,1.36],['tembed','/lilygo-t-embed-cc1101-multifunkcni-esp32-s3/','LILYGO T-Embed CC1101',2590,0.40],['waveshare','/waveshare-esp32-c3-s-0-71-kulatym-displejem/','Waveshare ESP32-C3 s kulatým displejem',789,0.86]]},
   {title:'Měřicí technika',head:['Měřicí','technika'],path:'/merici-technika-a-naradi/',items:[['wmt10','/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','FNIRSI WMT-10 bezkontaktní vlhkoměr dřeva a zdiva',1189,0.99],['lcrp1','/fnirsi-lcr-p1-tester-soucastek/','FNIRSI LCR-P1 tester součástek',1289,0.83],['th104','/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/','ANENG TH104 bezkontaktní infračervený teploměr',489,0.50]]},
