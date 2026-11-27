@@ -13,6 +13,12 @@
   sec.appendChild(el('h2','ocr-title','Doporučujeme k nákupu'));
   var wrap=el('div','ocr-wrap'),grid=el('div','ocr-grid');
   items.forEach(function(it){
+   /* the site's one product card (okla_card.js) */
+   if(window.oklaCardBuild){
+    var oc=window.oklaCardBuild({url:it.href,name:it.name,image:it.img,price:it.num||0,old:it.old||0,rating:it.rv||0,count:it.rc||0,stock:it.stock||'',stockClass:it.stockClass||'',form:it.form,code:it.code,
+     onAdd:it.form?null:function(b){var cart=window.shoptet&&window.shoptet.cartShared;if(!cart||typeof cart.addToCart!=='function'){location.href=it.href;return}b.disabled=true;var r=cart.addToCart({productCode:it.code,amount:1});(r&&r.then?r:Promise.resolve()).then(function(){setTimeout(function(){location.reload()},600)})}});
+    oc.classList.add('ocr-card');grid.appendChild(oc);return;
+   }
    var card=el('div','ocr-card');
    var img=el('a','ocr-img');img.href=it.href;img.tabIndex=-1;img.setAttribute('aria-hidden','true');
    var im=el('img');im.src=it.img;im.alt='';im.loading='lazy';img.appendChild(im);
@@ -49,7 +55,11 @@
      var a=p.querySelector('a.name'),im=p.querySelector('a.image img'),pr=p.querySelector('.price-final strong, .price-final'),f=p.querySelector('form.pr-action');
      if(!a)return;var href=a.getAttribute('href');if(seen[href]||have[href])return;seen[href]=1;
      var src=im&&(im.getAttribute('data-src')||im.getAttribute('src'))||'';if(/^data:/.test(src))src='';
-     out.push({href:href,name:(a.textContent||'').replace(/\s+/g,' ').trim(),img:src,price:pr?(pr.textContent||'').replace(/\s+/g,' ').trim():'',form:f?document.importNode(f,true):null});
+     var of=p.querySelector('[data-micro-price]'),sw=p.querySelector('[data-micro-rating-value]'),sd=p.querySelector('.price-standard:not(.price-standard-wrapper-placeholder)'),av=p.querySelector('.availability span');
+     var nm=function(t){var n=parseFloat(String(t||'').replace(/\s| /g,'').replace(/[^\d,.]/g,'').replace(',','.'));return isFinite(n)?n:0};
+     out.push({href:href,name:(a.textContent||'').replace(/\s+/g,' ').trim(),img:src,price:pr?(pr.textContent||'').replace(/\s+/g,' ').trim():'',form:f?document.importNode(f,true):null,
+      num:of?nm(of.getAttribute('data-micro-price')):nm(pr&&pr.textContent),old:sd?nm(sd.textContent):0,rv:sw?nm(sw.getAttribute('data-micro-rating-value')):0,rc:sw?nm(sw.getAttribute('data-micro-rating-count')):0,
+      stock:av?(av.textContent||'').trim():'',stockClass:av&&/Skladem/i.test(av.textContent)?'okc-stock--in':''});
     });
    });
    /* fill the row (up to ten) from the product catalogue */
@@ -58,7 +68,7 @@
     if(out.length>=10)return;var p=cat[k];if(!p||!p.url||!p.price)return;
     var href;try{href=new URL(p.url).pathname}catch(e){return}
     if(seen[href]||have[href]||have[p.url])return;seen[href]=1;
-    out.push({href:href,name:p.name,img:p.image||'',price:String(Math.round(+p.price)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč',form:null,code:p.code});
+    out.push({href:href,name:p.name,img:p.image||'',price:String(Math.round(+p.price)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč',form:null,code:p.code,num:+p.price,stock:p.available===false?'':'Skladem',stockClass:p.available===false?'':'okc-stock--in'});
    });
    if(out.length<3)return;
    var sec=build(out);cw.after(sec);

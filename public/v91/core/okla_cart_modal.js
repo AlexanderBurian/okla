@@ -172,13 +172,18 @@
   var cards=refs.cards;cards.textContent='';
   var l=suggestions(cur);refs.more.style.display=l.length?'':'none';
   l.forEach(function(s){
+   /* the site's one product card (okla_card.js) */
+   if(window.oklaCardBuild){
+    cards.append(window.oklaCardBuild({url:s.url,name:s.name,image:s.image,price:num(s.price),code:s.code,stock:s.available===false?'':'Skladem',stockClass:s.available===false?'':'okc-stock--in',onAdd:function(b){addSuggestion(s,b)}}));
+    return;
+   }
    var card=el('div','okla-cm__card');
    var pic=el('a','okla-cm__card-pic');pic.href=s.url;var im=el('img');im.src=s.image||'';im.alt='';im.loading='lazy';im.draggable=false;pic.appendChild(im);
    var nm=el('a','okla-cm__card-name',s.name);nm.href=s.url;
    var pr=el('div','okla-cm__card-price',money(num(s.price)));
    var btn=el('button','okla-cm__card-btn');btn.type='button';btn.append(el('span','okla-cm__cart-ic'),el('span','','Do košíku'));
    btn.addEventListener('click',function(){addSuggestion(s,btn)});
-   card.append(pic,stars(),nm,pr,btn);cards.append(card);
+   card.append(pic,nm,pr,btn);cards.append(card);
   });
  }
  function addSuggestion(s,btn){
