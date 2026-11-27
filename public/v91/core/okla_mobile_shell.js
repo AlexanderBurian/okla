@@ -219,26 +219,95 @@
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
  var upSince = 0, BAR_AFTER = 130, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
+ /* the band is a real search field (as the homepage's top search): a tap puts the cursor in it right there (16 px
+    text, so the phone does not zoom in), and the suggestions drop down under it as on the PC - quick picks first,
+    then products from the catalogue as you type; "Hledat" or Enter run the shop's search. The page under the
+    suggestions is dimmed; a tap on it closes them. */
+ var drop = null, dim = null, sInput = null;
+ function dropRender(q) {
+  drop.textContent = '';
+  var nq = norm(q), list = products();
+  var items = nq
+   ? list.filter(function (p) { return norm(p.name + ' ' + (p.brand || '') + ' ' + p.code).indexOf(nq) !== -1; }).slice(0, 8)
+   : list.slice(0, 6);
+  if (!nq) {
+   var chips = el('div', 'okla-m-sdrop__chips');
+   ['Flipper Zero', 'ESP32', 'Chytré brýle', 'Endoskop', 'Multimetr'].forEach(function (t) {
+    var c = el('button', 'okla-m-sdrop__chip', t);
+    c.type = 'button';
+    c.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    c.addEventListener('click', function () { sInput.value = t; dropRender(t); });
+    chips.appendChild(c);
+   });
+   drop.appendChild(chips);
+  }
+  drop.appendChild(el('div', 'okla-m-sdrop__head', !nq ? 'Doporučujeme' : (items.length ? 'Produkty' : 'Nic jsme nenašli')));
+  items.forEach(function (p) {
+   var a = el('a', 'okla-m-sdrop__item');
+   a.href = p.url;
+   var img = el('img', 'okla-m-sdrop__thumb');
+   img.src = p.image; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+   var body = el('span', 'okla-m-sdrop__body');
+   body.appendChild(el('span', 'okla-m-sdrop__name', p.name));
+   body.appendChild(el('span', 'okla-m-sdrop__price', price(p)));
+   a.append(img, body);
+   drop.appendChild(a);
+  });
+  if (nq) {
+   var all = el('a', 'okla-m-sdrop__all', 'Zobrazit všechny výsledky');
+   all.href = '/vyhledavani/?string=' + encodeURIComponent(q.trim());
+   drop.appendChild(all);
+  }
+ }
+ function dropOpen(on) {
+  var root = document.documentElement;
+  if (on === root.classList.contains('okla-m-sdrop-on')) return;
+  if (on) {
+   var band = document.querySelector('#okla-v61-header .okla-m-sbar-band .okla-m-sbar');
+   var top = band ? Math.round(band.getBoundingClientRect().bottom + 8) : 120;
+   drop.style.top = top + 'px';
+   drop.style.maxHeight = 'calc(100dvh - ' + (top + 12) + 'px)';
+   dim.style.top = (top - 8) + 'px';
+   dropRender(sInput.value);
+  }
+  root.classList.toggle('okla-m-sdrop-on', on);
+ }
  function addSearchBar() {
   var h = document.getElementById('okla-v61-header');
   if (!h || h.querySelector('.okla-m-sbar')) return;
   var wrap = el('div', 'okla-m-sbar-wrap'), band = el('div', 'okla-m-sbar-band');
-  var b = el('button', 'okla-m-sbar');
-  b.type = 'button';
-  b.setAttribute('aria-label', 'Hledat produkty');
-  b.appendChild(icon(SEARCH_PATHS, 'okla-m-sbar__icon'));
-  b.appendChild(el('span', 'okla-m-sbar__text', 'Co hledáte?'));
-  b.appendChild(el('span', 'okla-m-sbar__go', 'Hledat'));
-  /* phones do not always turn a tap into a click (a tap that ends a fling, a finger that moves a few pixels): a short
-     touch without moving opens the search itself, right in the touch (so the keyboard opens too) */
-  var tx = 0, ty = 0, touching = false;
-  b.addEventListener('touchstart', function (e) { var t = e.touches[0]; tx = t.clientX; ty = t.clientY; touching = true; holdHeader = Date.now(); }, { passive: true });
-  b.addEventListener('touchmove', function (e) { var t = e.touches[0]; if (Math.abs(t.clientX - tx) > 10 || Math.abs(t.clientY - ty) > 10) touching = false; }, { passive: true });
-  b.addEventListener('touchend', function (e) { if (!touching) return; touching = false; e.preventDefault(); openSearch(); });
-  b.addEventListener('click', function () { if (!overlay || !overlay.classList.contains('is-open')) openSearch(); });
-  band.appendChild(b);
+  var f = el('form', 'okla-m-sbar');
+  f.setAttribute('role', 'search');
+  f.action = '/vyhledavani/';
+  f.method = 'get';
+  f.appendChild(icon(SEARCH_PATHS, 'okla-m-sbar__icon'));
+  sInput = el('input', 'okla-m-sbar__input');
+  sInput.type = 'search';
+  sInput.name = 'string';
+  sInput.placeholder = 'Co hledáte?';
+  sInput.setAttribute('autocomplete', 'off');
+  sInput.setAttribute('autocapitalize', 'none');
+  sInput.setAttribute('enterkeyhint', 'search');
+  sInput.setAttribute('aria-label', 'Hledat produkty');
+  var go = el('button', 'okla-m-sbar__go', 'Hledat');
+  go.type = 'submit';
+  f.append(sInput, go);
+  f.addEventListener('submit', function (e) {
+   e.preventDefault();
+   var q = sInput.value.trim();
+   if (q) location.href = '/vyhledavani/?string=' + encodeURIComponent(q); else sInput.focus();
+  });
+  band.appendChild(f);
   wrap.appendChild(band);
   h.appendChild(wrap);
+  drop = el('div', 'okla-m-sdrop');
+  drop.setAttribute('role', 'listbox');
+  dim = el('div', 'okla-m-sdim');
+  dim.addEventListener('click', function () { sInput.blur(); dropOpen(false); });
+  document.body.append(dim, drop);
+  sInput.addEventListener('focus', function () { holdHeader = Date.now(); dropOpen(true); });
+  sInput.addEventListener('input', function () { dropRender(sInput.value); });
+  sInput.addEventListener('keydown', function (e) { if (e.key === 'Escape') { sInput.blur(); dropOpen(false); } });
  }
  function searchBar(on) {
   var root = document.documentElement;
@@ -301,7 +370,7 @@
      that move is not the visitor's scrolling */
   if (anchorJump && Math.abs(dy - anchorJump) <= 6) { anchorJump = 0; return; }
   anchorJump = 0;
-  if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock')) return;
+  if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock') || document.documentElement.classList.contains('okla-m-sdrop-on')) return;
   /* product pages and the cart / checkout steps never get the floating header */
   if (isDetail || inCheckout()) {
    if (stuck) setSticky(false, false);
