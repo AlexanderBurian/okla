@@ -269,3 +269,9 @@ html body .okla-rk .okla-rk__done.is-on{
   html body .okla-rk .okla-rk__actions{padding:6px 0 4px;background:transparent;border:0;border-radius:0;box-shadow:none}
   html body .okla-rk .okla-rk__consent{padding:16px}
 }
+/* the consent keeps only its own round checkbox: the shop's square tick drawn on the label once it is checked
+   (input:checked + label::after, a stronger rule) is switched off too */
+html body .okla-rk .okla-rk__consent:not(#okrk-a#okrk-b#okrk-c) input[type="checkbox"] + label::before,
+html body .okla-rk .okla-rk__consent:not(#okrk-a#okrk-b#okrk-c) input[type="checkbox"] + label::after,
+html body .okla-rk .okla-rk__consent:not(#okrk-a#okrk-b#okrk-c) input[type="checkbox"]:checked + label::before,
+html body .okla-rk .okla-rk__consent:not(#okrk-a#okrk-b#okrk-c) input[type="checkbox"]:checked + label::after{content:none!important;display:none!important;background:none!important}
