@@ -179,7 +179,7 @@
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
- var anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
+ var holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
  function addSearchBar() {
   var h = document.getElementById('okla-v61-header');
   if (!h || h.querySelector('.okla-m-sbar')) return;
@@ -189,7 +189,13 @@
   b.setAttribute('aria-label', 'Hledat produkty');
   b.appendChild(el('span', 'okla-m-sbar__text', 'Napište, co hledáte'));
   b.appendChild(icon(SEARCH_PATHS, 'okla-m-sbar__icon'));
-  b.addEventListener('click', openSearch);
+  /* phones do not always turn a tap into a click (a tap that ends a fling, a finger that moves a few pixels): a short
+     touch without moving opens the search itself, right in the touch (so the keyboard opens too) */
+  var tx = 0, ty = 0, touching = false;
+  b.addEventListener('touchstart', function (e) { var t = e.touches[0]; tx = t.clientX; ty = t.clientY; touching = true; holdHeader = Date.now(); }, { passive: true });
+  b.addEventListener('touchmove', function (e) { var t = e.touches[0]; if (Math.abs(t.clientX - tx) > 10 || Math.abs(t.clientY - ty) > 10) touching = false; }, { passive: true });
+  b.addEventListener('touchend', function (e) { if (!touching) return; touching = false; e.preventDefault(); openSearch(); });
+  b.addEventListener('click', function () { if (!overlay || !overlay.classList.contains('is-open')) openSearch(); });
   wrap.appendChild(b);
   h.appendChild(wrap);
  }
@@ -284,7 +290,8 @@
    if (dir !== 1) downAcc = 0;
    dir = 1; downAcc += dy; upAcc = 0;
    if (!stuck) setSticky(true, true);
-   else if (shown && downAcc >= MOVE) setSticky(true, true);
+   /* not while a finger is on the header (a tap on the search bar must find it there) */
+   else if (shown && downAcc >= MOVE && Date.now() - holdHeader > 600) setSticky(true, true);
   }
  }
 

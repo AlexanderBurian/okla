@@ -127,3 +127,4 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html body .okla-m-search .okla-m-search__sheet:not(#okms-a#okms-b){height:100%;max-height:none;border-radius:0;box-shadow:none}
   html body .okla-m-search .okla-m-search__results:not(#okms-a#okms-b){flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;padding-bottom:28px!important}
 }
+@media(max-width:767px){html body #header #okla-v61-header .okla-m-sbar{touch-action:manipulation!important;user-select:none!important;-webkit-user-select:none!important;pointer-events:auto!important}}
