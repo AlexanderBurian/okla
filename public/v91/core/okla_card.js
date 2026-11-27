@@ -39,6 +39,14 @@
   box.append(top,el('div','okc-sale__bar',SALE_LABEL+' −'+p+' %'));
   return box;
  }
+ /* the shop's "Akční zboží" without a real former price: the same box, the price and the occasion only (no struck
+    price, no saving - none is claimed) */
+ function plainBox(now){var box=el('div','okc-sale okc-sale--plain'),top=el('div','okc-sale__prices');top.appendChild(el('span','okc-sale__now',kc(now)));box.append(top,el('div','okc-sale__bar',SALE_LABEL));return box}
+ function isAction(prod){
+  if(prod.querySelector('.flag-action'))return true;
+  var shell=prod.closest('.okla-slider-shell'),h=shell&&shell.previousElementSibling;
+  return !!(h&&h.classList.contains('homepage-group-title')&&/akční/i.test(h.textContent||''));
+ }
  function disc(now,was){return el('span','okc-disc','−'+pct(now,was)+' %')}
  function addButton(code,href){
   var b=el('button','btn btn-cart okc-add');b.type='button';b.append(cartIcon(),el('span','','Do košíku'));
@@ -76,6 +84,7 @@
   if(d.price>0){
    pb.textContent='';var old=card.querySelector('.okc-disc');if(old)old.remove();
    if(d.old>d.price){card.classList.add('okc-is-sale');pb.appendChild(saleBox(d.price,d.old));pic.appendChild(disc(d.price,d.old))}
+   else if(d.action){card.classList.add('okc-is-sale');pb.appendChild(plainBox(d.price))}
    else{card.classList.remove('okc-is-sale');pb.appendChild(el('div','okc-price',kc(d.price)))}
   }
   if(d.count!=null&&d.count>0){var r=card.querySelector('.okc-rating');if(r)r.replaceWith(rating(d.rating,d.count))}
@@ -97,6 +106,7 @@
   var std=p.querySelector('.price-standard:not(.price-standard-wrapper-placeholder)'),was=std?num(std.textContent):0;
   var prices=p.querySelector('.prices');
   if(now&&was>now&&prices){prod.classList.add('okc-is-sale');prices.parentNode.insertBefore(saleBox(now,was),prices.nextSibling);var img=p.querySelector('a.image');if(img)img.appendChild(disc(now,was))}
+  else if(now&&prices&&isAction(prod)){prod.classList.add('okc-is-sale');prices.parentNode.insertBefore(plainBox(now),prices.nextSibling)}
   /* a "Do košíku" button where the listing has none */
   if(!p.querySelector('.p-tools button, .p-tools .btn')){
    var sku=p.querySelector('[data-micro="sku"]'),code=sku?sku.textContent.trim():'';
