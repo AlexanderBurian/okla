@@ -291,14 +291,16 @@
   sInput.setAttribute('aria-label', 'Hledat produkty');
   var go = el('button', 'okla-m-sbar__go', 'Hledat');
   go.type = 'submit';
-  /* a cross to leave the search (shown while the suggestions are open) */
+  /* a cross to leave the search: in the logo row, in the flag's place, while the suggestions are open */
   var x = el('button', 'okla-m-sbar__close');
   x.type = 'button';
   x.setAttribute('aria-label', 'Zavřít hledání');
   x.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
   x.addEventListener('mousedown', function (e) { e.preventDefault(); });
   x.addEventListener('click', function () { sInput.value = ''; sInput.blur(); dropOpen(false); });
-  f.append(sInput, go, x);
+  f.append(sInput, go);
+  var topRow = h.querySelector('.okm61-top');
+  if (topRow) topRow.appendChild(x); else f.appendChild(x);
   f.addEventListener('submit', function (e) {
    e.preventDefault();
    var q = sInput.value.trim();
@@ -367,16 +369,6 @@
   }
  }
  function inCheckout() { return !!(document.body && document.body.classList.contains('ordering-process')); }
- /* phones: the floating header is the page's header from the start - pinned at the top, its place in the page held by
-    a spacer of its own height - so it is never swapped for another one while scrolling */
- function pinHeader() {
-  if (!narrow.matches || isDetail || inCheckout() || stuck) return;
-  setSticky(true, false);
-  var h = document.getElementById('okla-v61-header');
-  anchorJump = 0;
-  document.documentElement.classList.toggle('okla-m-attop', (window.pageYOffset || 0) <= 2);
-  lastY = window.pageYOffset || 0;
- }
  function onScroll() {
   if (!measured) measureStickyAfter();
   ticking = false;
@@ -398,11 +390,12 @@
   var root = document.documentElement, shown = stuck && !root.classList.contains('okla-m-hidden');
   /* near the top the page's own header is there: the floating one goes, without moving anything - at once when it is
      hidden, and when it is shown only once the page is right at the top (where both sit in the same place) */
-  /* near the top the header is simply shown (no shadow right at the top) and the search band slides away - the header
-     is never swapped for another one, so nothing flashes */
+  /* near the top the page's own header is there and scrolls with the page: the floating one goes. Hidden, it goes at
+     once (it is out of sight); shown, it stays until the page is right at the top - there it first takes exactly the
+     page header's own look (okla-m-attop) and only then hands over, in the same place, so nothing flashes */
   root.classList.toggle('okla-m-attop', y <= 2);
   if (y <= stickyAfter) {
-   if (!shown) setSticky(true, false);
+   if (stuck && (!shown || y <= 2)) setSticky(false, false);
    searchBar(false);
    dir = 0; upAcc = downAcc = 0; upSince = 0; upSwipes = 0;
    return;
@@ -513,7 +506,6 @@
   }
   addHeaderButton();
   addSearchBar();
-  pinHeader();
   buildBuyBar();
   addShare();
   /* the scroll position is first read on the first scroll (lastY starts at 0): reading it here, while the page was
