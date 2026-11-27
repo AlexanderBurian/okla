@@ -31,7 +31,7 @@
     ['/lafvin-esp32-s3-wroom-super-starter-kit/','lafvin','LAFVIN ESP32-S3-WROOM Super Starter Kit',1489],
     ['/lilygo-fabgl-vga32-q127/','fabgl','LILYGO FabGL VGA32 Q127',789]
    ]},
-  {id:'okla-tech',label:'Moderní technologie',photo:'v91/img/promo/okla-tech-band.webp',pos:'64% 50%',
+  {id:'okla-tech',label:'Moderní technologie',photo:'v91/img/promo/okla-tech-band.webp',pos:'24% 50%',
    title:'Technologie zítřka',sub:'AI brýle, osciloskopy do kapsy a chytrá diagnostika',
    cta:'Objevit',href:'/chytra-elektronika/',mark:'Nové technologie',where:'news',
    items:[
