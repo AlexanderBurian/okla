@@ -31,7 +31,7 @@
     ['/lafvin-esp32-s3-wroom-super-starter-kit/','lafvin','LAFVIN ESP32-S3-WROOM Super Starter Kit',1489],
     ['/lilygo-fabgl-vga32-q127/','fabgl','LILYGO FabGL VGA32 Q127',789]
    ]},
-  {id:'okla-tech',label:'Měřicí technika a endoskopy',photo:'v91/img/promo/okla-tech-band.webp',pos:'24% 50%',
+  {id:'okla-tech',label:'Měřicí technika a endoskopy',photo:'v91/img/promo/okla-measure-band.webp',pos:'45% 52%',
    title:'Měřicí technika a endoskopy',sub:'Přesné přístroje pro dílnu, stavbu i domov',
    cta:'Nakupovat',href:'/merici-technika-a-naradi/',mark:'Měření a inspekce',where:'row4',
    items:[
