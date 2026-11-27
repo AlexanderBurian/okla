@@ -27,7 +27,7 @@
  var PIC={user:'person',account:'person',orders:'truck',claim:'tools',back:'return',chat:'chat',truck:'card',info:'star'};
  function svg(name){
   var P=window.OKLA_PICTO;
-  if(P&&PIC[name]&&P[PIC[name]]){var t=document.createElementNS(NS,'svg');t.setAttribute('viewBox','0 0 32 32');t.setAttribute('aria-hidden','true');t.setAttribute('focusable','false');t.classList.add('okla-mm-svg','okla-mm-pic','okla-mm-svg--'+name);t.innerHTML=P[PIC[name]];return t}
+  if(P&&PIC[name]&&P[PIC[name]]){var t=document.createElementNS(NS,'svg');t.setAttribute('viewBox','0 0 24 24');t.setAttribute('aria-hidden','true');t.setAttribute('focusable','false');t.classList.add('okla-mm-svg','okla-mm-pic','okla-mm-svg--'+name);t.innerHTML=P[PIC[name]];return t}
   var s=document.createElementNS(NS,'svg');s.setAttribute('viewBox',name==='chevron'?'0 0 24 24':'0 0 32 32');s.setAttribute('aria-hidden','true');s.setAttribute('focusable','false');s.classList.add('okla-mm-svg','okla-mm-svg--'+name);s.innerHTML=ICONS[name];return s}
  function el(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n}
  function row(icon,label,href){
