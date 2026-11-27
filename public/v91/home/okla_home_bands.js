@@ -32,19 +32,20 @@
     ['/lilygo-fabgl-vga32-q127/','fabgl','LILYGO FabGL VGA32 Q127',789]
    ]},
   {id:'okla-tech',label:'Moderní technologie',photo:'v91/img/promo/okla-tech-band.webp',pos:'64% 50%',
-   title:'Technologie zítřka',sub:'AI brýle, chytré displeje a gadgety, které předbíhají dobu',
-   cta:'Objevit',href:'/chytra-elektronika/',mark:'Chytrá elektronika',where:'news',
+   title:'Technologie zítřka',sub:'AI brýle, osciloskopy do kapsy a chytrá diagnostika',
+   cta:'Objevit',href:'/chytra-elektronika/',mark:'Nové technologie',where:'news',
    items:[
-    ['/a2-chytre-bryle-s-kamerou-a-ai-prekladem/','a2','A2 chytré brýle s kamerou a AI překladem',2089],
-    ['/flipper-one-otevreny-linuxovy-sitovy-multitool/','fone','Flipper ONE – připravovaný linuxový síťový multitool',13990],
-    ['/f62-prekladove-chytre-bryle-cerne/','f62','F62 překladové chytré brýle – černé',589],
-    ['/id32-pixelovy-displej-a-stolni-budik/','id32','ID32 pixelový displej a stolní budík',1089],
     ['/flipper-zero-kapesni-multitool-pro-elektroniku/','fzero','Flipper Zero – kapesní multitool pro digitální protokoly',5690],
-    ['/yesido-tv15-bezdratovy-hdmi-adapter/','tv15','YESIDO TV15 bezdrátový HDMI adaptér',1189],
-    ['/ec02-a-mini-bezdratovy-adapter-carplay-a-android-auto/','ec02','EC02 bezdrátový adaptér CarPlay a Android Auto',689],
-    ['/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','obd','KINGBOLEN Ediag OBD2 diagnostický skener',3789],
+    ['/a2-chytre-bryle-s-kamerou-a-ai-prekladem/','a2','A2 chytré brýle s kamerou a AI překladem',2089],
+    ['/aneng-aos03-osciloskopicky-multimetr/','aos03','ANENG AOS03 osciloskopický multimetr',3789],
     ['/fnirsi-2c23t-osciloskop-multimetr-a-generator-3v1/','c23t','FNIRSI 2C23T osciloskop, multimetr a generátor 3v1',3589],
-    ['/x18-kapesni-termotiskarna-bila/','x18','X18 kapesní termotiskárna – bílá',389]
+    ['/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','obd','KINGBOLEN Ediag OBD2 diagnostický skener',3789],
+    ['/f62-prekladove-chytre-bryle-cerne/','f62','F62 překladové chytré brýle – černé',589],
+    ['/b313-inspekcni-kamera-se-dvema-objektivy-5-m/','b313','B313 inspekční kamera se dvěma objektivy 5 m',1289],
+    ['/fnirsi-fnb58-usb-tester-rychleho-nabijeni/','fnb58','FNIRSI FNB58 USB tester rychlého nabíjení',2489],
+    ['/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','wmt10','FNIRSI WMT-10 bezkontaktní vlhkoměr',1189],
+    ['/aneng-g50-zeleny-laserovy-dalkomer-50-m/','g50','ANENG G50 zelený laserový dálkoměr 50 m',789],
+    ['/id32-pixelovy-displej-a-stolni-budik/','id32','ID32 pixelový displej a stolní budík',1089]
    ]}
  ];
  function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}

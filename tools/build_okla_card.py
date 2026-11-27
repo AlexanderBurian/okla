@@ -28,6 +28,9 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
   --okc-badge-bg:#0859d8;--okc-badge-fg:#fff;--okc-badge-size:12px;
   --okc-btn:34px;--okc-btn-bg:#fff;--okc-btn-line:#d6dbe1;--okc-btn-icon:#0b2540;--okc-btn-hover:#0859d8;
   --okc-font:'Open Sans',system-ui,sans-serif;
+  /* the arrows of every row of cards: white, round, a navy chevron; no grey on hover */
+  --okc-arrow:40px;--okc-arrow-bg:#fff;--okc-arrow-icon:#0b2540;--okc-arrow-hover:#0859d8;--okc-arrow-top:34%;
+  --okc-arrow-shadow:0 2px 10px rgba(11,37,64,.24);--okc-arrow-shadow-hover:0 3px 14px rgba(11,37,64,.32);
 }
 /* cards standing on a grey ground (okla_card.js marks their row): the photo's box white */
 .okc-on-grey:not(#okc1#okc2){--okc-img-bg:#fff!important}
@@ -101,11 +104,40 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
 @L .olg-name{height:calc(var(--okc-name-lh) * 2)!important;color:var(--okc-name)!important;font:400 var(--okc-name-size)/var(--okc-name-lh) var(--okc-font)!important}
 @L .olg-stock{min-height:var(--okc-label-lh)!important;margin-top:5px!important;font:700 var(--okc-label-size)/var(--okc-label-lh) var(--okc-font)!important}
 @L .olg-price{margin-top:4px!important;padding-top:0!important;color:var(--okc-price)!important;font:700 var(--okc-price-size)/var(--okc-price-lh) var(--okc-font)!important;letter-spacing:-.01em!important}
+
+/* ---------- the arrows of every row of cards (PC and tablets; phones move rows with the finger) ---------- */
+@media(min-width:768px){
+  html body .okla-slider-shell>.okla-slider-controls@G{position:absolute!important;inset:0!important;z-index:4!important;display:block!important;width:auto!important;height:auto!important;margin:0!important;padding:0!important;background:none!important;border:0!important;pointer-events:none!important;transform:none!important}
+  @A{position:absolute!important;top:var(--okc-arrow-top)!important;bottom:auto!important;z-index:4!important;display:grid!important;place-items:center!important;width:var(--okc-arrow)!important;min-width:0!important;max-width:none!important;height:var(--okc-arrow)!important;min-height:0!important;margin:calc(var(--okc-arrow) / -2) 0 0!important;padding:0!important;border:0!important;border-radius:50%!important;background:var(--okc-arrow-bg)!important;background-image:none!important;color:var(--okc-arrow-icon)!important;box-shadow:var(--okc-arrow-shadow)!important;opacity:1!important;pointer-events:auto!important;cursor:pointer!important;transform:none!important;flex:none!important;transition:color .15s ease,box-shadow .15s ease!important}
+  @A:hover,@A:focus-visible,@A:active{background:var(--okc-arrow-bg)!important;background-image:none!important;color:var(--okc-arrow-hover)!important;box-shadow:var(--okc-arrow-shadow-hover)!important;border:0!important;transform:none!important;filter:none!important}
+  @A::before,@A::after{display:none!important}
+  @A svg{display:block!important;width:20px!important;height:20px!important;margin:0!important;fill:none!important;stroke:currentColor!important;stroke-width:2.4!important;stroke-linecap:round!important;stroke-linejoin:round!important;color:inherit!important;transform:none!important}
+  @A svg path{stroke:currentColor!important;fill:none!important}
+  html body .okla-slider-shell>.okla-slider-controls>.okla-slider-prev@G,html body #okla-cart-recs .ocr-arrow--prev@G,html body #okla-cart-recs .ocr-arrow:first-of-type@G{left:6px!important;right:auto!important}
+  html body .okla-slider-shell>.okla-slider-controls>.okla-slider-next@G,html body #okla-cart-recs .ocr-arrow--next@G,html body #okla-cart-recs .ocr-arrow:last-of-type@G{right:6px!important;left:auto!important}
+  html body.type-index #content .olg-band .olg-arrow--prev@G{left:-6px!important}
+  html body.type-index #content .olg-band .olg-arrow--next@G{right:10px!important}
+  html body.type-index #content .olg-band .olg-arrow@G{top:42%!important}
+  html body.type-index #content .olg-band.olg-at-start .olg-arrow--prev@G,html body.type-index #content .olg-band.olg-at-end .olg-arrow--next@G{opacity:0!important;pointer-events:none!important}
+  html body #okla-cart-recs .ocr-arrow[hidden]@G{display:none!important}
+}
+
+/* ---------- category chips above a row of cards (the product page's "Nejčastěji zakoupeno společně" ones) ---------- */
+html body #content .okla-row-chips.okla-bt__chips@G{display:flex!important;flex-wrap:nowrap!important;gap:8px!important;flex:1 0 100%!important;order:9!important;width:100%!important;margin:14px 0 0!important;padding:2px 0!important;overflow-x:auto!important;scrollbar-width:none!important}
+html body #content .okla-row-chips.okla-bt__chips::-webkit-scrollbar{display:none}
+html body #content .okla-row-chips .okla-bt__chip@G{flex:none!important;height:34px!important;min-height:0!important;margin:0!important;padding:0 14px!important;border:1px solid #d5dbe3!important;border-radius:17px!important;background:#fff!important;color:#0b2540!important;-webkit-text-fill-color:#0b2540!important;font:500 13.5px/1 "Open Sans",Arial,sans-serif!important;text-transform:none!important;letter-spacing:0!important;white-space:nowrap!important;box-shadow:none!important;cursor:pointer!important;transition:border-color .15s ease!important}
+html body #content .okla-row-chips .okla-bt__chip@G:hover{border-color:#9aa8bb!important;background:#fff!important}
+html body #content .okla-row-chips .okla-bt__chip.is-active@G{border:2px solid #164194!important;padding:0 13px!important;font-weight:600!important;color:#164194!important;-webkit-text-fill-color:#164194!important}
+html body #content .homepage-group-title.okla-has-chips@G{flex-wrap:wrap!important;height:auto!important;max-height:none!important}
+@media(max-width:767px){
+  html body #content .okla-row-chips.okla-bt__chips@G{margin:12px -14px 0!important;padding:2px 14px!important;width:auto!important}
+}
 '''
 
 R = 'html body #okla-cart-recs .ocr-card' + G
 L = 'html body.type-index #content .olg-band .olg-card' + G
-out = SRC.replace('@C', C).replace('@R', R).replace('@L', L)
+A = ':is(html body .okla-slider-shell>.okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next),html body #okla-cart-recs .ocr-arrow,html body.type-index #content .olg-band .olg-arrow)' + G
+out = SRC.replace('@C', C).replace('@R', R).replace('@L', L).replace('@A', A).replace('@G', G)
 p = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'public', 'v91', 'core', 'okla_card.css')
 open(p, 'w', encoding='utf-8', newline='\n').write(out)
 print('okla_card.css', len(out), 'bytes')
