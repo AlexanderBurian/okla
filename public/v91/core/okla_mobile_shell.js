@@ -68,8 +68,7 @@
   var list = products();
   var items = nq
    ? list.filter(function (p) { return norm(p.name + ' ' + (p.brand || '') + ' ' + p.code).indexOf(nq) !== -1; }).slice(0, 8)
-   : list.slice(0, 4);
-  if (nq) items = items.slice(0, 5);
+   : list.slice(0, 8);
   /* quick picks, as on the PC */
   if (!nq) {
    var chips = el('div', 'okla-m-search__chips');
