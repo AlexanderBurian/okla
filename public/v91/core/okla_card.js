@@ -38,7 +38,7 @@
  function saleBox(now,was){
   var p=pct(now,was),box=el('div','okc-sale');
   var top=el('div','okc-sale__prices');top.append(el('span','okc-sale__now',kd(now)),el('span','okc-sale__was',kd(was)));
-  box.append(top,el('div','okc-sale__bar',SALE_LABEL+' −'+p+' %'));
+  box.append(top,el('div','okc-sale__bar',SALE_LABEL+' -'+p+' %'));
   return box;
  }
  /* the shop's "Akční zboží" without a real former price: the same box, the price and the occasion only (no struck
@@ -49,7 +49,7 @@
   var shell=prod.closest('.okla-slider-shell'),h=shell&&shell.previousElementSibling;
   return !!(h&&h.classList.contains('homepage-group-title')&&/akční/i.test(h.textContent||''));
  }
- function disc(now,was){return el('span','okc-disc','−'+pct(now,was)+' %')}
+ function disc(now,was){return el('span','okc-disc','-'+pct(now,was)+' %')}
  function addButton(code,href){
   var b=el('button','btn btn-cart okc-add');b.type='button';b.append(cartIcon(),el('span','','Do košíku'));
   b.addEventListener('click',function(e){

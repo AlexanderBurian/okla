@@ -85,7 +85,7 @@
   html body .okla-side-art--left:not(#okis-a){overflow:hidden!important}
 
   /* Pages that intentionally hide their breadcrumb row keep the same menu-to-island distance. */
-  html:is(.okla-about-takeover,.okla-contact-takeover,.okla-rk-takeover,.okla-os-takeover) body #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:54px!important}
+  html:is(.okla-about-takeover,.okla-contact-takeover,.okla-rk-takeover,.okla-os-takeover) body #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important}
   /* sign-in and registration have no menu, only the logo just above the card (okla_auth_pages.css): no gap above the card */
   html:not(.okla-os-login-combo) body:is(.in-login,.in-registrace) #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c){margin-top:0!important}
 }
@@ -217,11 +217,28 @@ html body .messages .msg:is(.msg-success,.msg-info):not(#okis-a#okis-b#okis-c){d
 /* PC: a little more air between the homepage islands - 26 px (it was 21 px, and the bands and the deal cards had their
    own); the gap under the menu (above the hero) and the joins of two-part islands stay as they are */
 @media(min-width:992px){
-  html body.type-index #content#content>*:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:26px!important;margin-bottom:0!important}
+  html body.type-index #content#content>*:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:32px!important;margin-bottom:0!important}
   html body.type-index #content#content>:is(.homepage-group-title+.okla-slider-shell,.banners-row+#okla-cat-circles):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:-1px!important;margin-bottom:-2px!important}
   /* (they lie 2 px over the part above them, so 2 px less below keeps the next gap at 26 px) */
   html body.type-index #content#content>.homepage-group-title+*:not(.okla-slider-shell):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:0!important}
-  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:54px!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:38px!important}
   html body.type-index #content#content>:is(.okla-hsearch,h1):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin:0!important}
   html body.type-index #content#content>:last-child:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-bottom:24px!important}
+}
+
+/* PC: the menu a little closer to the header row, the first island a little closer to the menu (38 px, was 54) - on
+   every page; the islands themselves 32 px apart */
+@media(min-width:992px){
+  html body #header #okla-catbar:not(#okis-a#okis-b#okis-c#okis-d){margin-top:-12px!important}
+  html body:not(.type-index):not(.in-login):not(.in-registrace) #content-wrapper.content-wrapper:not(.breadcrumbs-wrapper+*):not(#okis-a#okis-b#okis-c#okis-d){margin-top:38px!important}
+  /* with the breadcrumbs row between: that row 16 px higher, so the island starts at the same place */
+  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b#okis-c#okis-d){margin-top:-16px!important}
+}
+/* phones: more air between the homepage's blocks too (30 px), and the two white blocks that melted into the page - the
+   LILYGO promo card and the sign-in strip - get a light outline */
+@media(max-width:767px){
+  html body.type-index #content#content>*:not(.okla-hsearch):not(h1):not(.banners-row):not(#okla-cat-circles):not(#okla-v61-dots):not(#okla-v61-categories):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:30px!important}
+  html body.type-index #content#content>.homepage-group-title+*:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l#okis-m#okis-n#okis-o){margin-top:0!important}
+  html body.type-index #content #okla-promo-deals .okla-campaign__card--lilygo:not(#okis-a#okis-b#okis-c#okis-d#okis-e),
+  html body.type-index #content #okla-signin-strip:not(#okis-a#okis-b#okis-c#okis-d#okis-e){border:1px solid #dfe3e8!important}
 }
