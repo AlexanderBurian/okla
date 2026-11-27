@@ -268,3 +268,18 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html.okla-m-sdrop-on body #header #okla-v61-header .okm61-top > button.okla-m-sbar__close{display:inline-flex}
   html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h) #header #okla-v61-header .okla-m-lang{display:none!important}
 }
+@media(max-width:767px){
+  /* switching between the page's header and the floating one happens with no motion at all (it flashed: the slower
+     transitions above outranked the instant switch, so the header slid in and out while it was being hidden) */
+  html.okla-m-instant body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) #header #okla-v61-header,
+  html.okla-m-instant body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) #header #okla-v61-header *{transition:none!important}
+}
+@media(max-width:767px){
+  /* with the search open everything is one plain white: no shadows, no grey lines; the band's white also reaches up
+     under the logo row, so no bit of the page can show between the header and the field */
+  html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) #header #okla-v61-header{box-shadow:none!important;background:#fff!important}
+  html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) #header #okla-v61-header .okla-m-sbar-wrap{overflow:visible!important;z-index:-1!important}
+  html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) #header #okla-v61-header .okla-m-sbar-band{box-shadow:0 -80px 0 0 #fff!important;border-bottom-color:transparent!important;background:#fff!important}
+  html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) .okla-m-sdrop{box-shadow:none!important}
+  html.okla-m-sdrop-on body:not(#okms-a#okms-b#okms-c#okms-d#okms-e#okms-f#okms-g#okms-h#okms-i) .okla-m-sdim{background:#fff!important}
+}
