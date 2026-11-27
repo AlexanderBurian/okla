@@ -151,8 +151,9 @@
 @media(min-width:992px){
   /* the tab a little deeper, the phone and the e-mail a touch lower in it (it still ends above the header's row) */
   html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e#otb-f) .okla-topbar__tab{height:38px!important;padding:3px 21px 0!important}
-  /* the pages spread so that the last one ("Kontakt") ends exactly where the e-mail ends (the tab's 21 px inside its edge) */
-  html.okla-topbar-on body #header #okla-topbar.okla-topbar--pages:not(#otb-a#otb-b#otb-c#otb-d#otb-e#otb-f) .okla-topbar__links{justify-content:space-between!important;padding-right:21px!important;box-sizing:border-box!important}
+  /* the pages spread across the whole width of the header's row: the first starts at the logo's edge, the last one
+     ("Kontakt") ends at the row's right edge (the cart's edge, where the menu ends too) */
+  html.okla-topbar-on body #header #okla-topbar.okla-topbar--pages:not(#otb-a#otb-b#otb-c#otb-d#otb-e#otb-f) .okla-topbar__links{justify-content:space-between!important;padding-right:0!important;box-sizing:border-box!important}
 }
 @media(min-width:992px){
   /* the smooth tab again: 18 px corners below and the hollow curves where it grows out of the band */
