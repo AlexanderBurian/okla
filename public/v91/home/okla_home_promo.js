@@ -60,7 +60,7 @@
 
  /* in place = right before r, other Okla homepage sections between them allowed (deals, sign-in strip, promo can want
     the same spot; requiring "directly before" made them move each other for ever) */
- function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals)$/.test(n.id))n=n.nextElementSibling;return n===r}
+ function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals|okla-lilygo|okla-tech)$/.test(n.id))n=n.nextElementSibling;return n===r}
  var tries=0;
  function mount(){
   if(document.getElementById('okla-promo-deals'))return true;

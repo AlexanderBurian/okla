@@ -25,8 +25,8 @@ html body.ordering-process .overall-wrapper{background:var(--okla-page)!importan
   html body.ordering-process #header#header .navigation-wrapper.container.container[class],
   html body.ordering-process #header #okla-catbar.container,
   html body.ordering-process #content-wrapper.content-wrapper.container.container{
-    width:min(1273px,calc(100% - 40px))!important;
-    max-width:1273px!important;
+    width:min(1337px,calc(100% - 40px))!important;
+    max-width:1337px!important;
   }
   html body.ordering-process #content-wrapper.content-wrapper{
     margin:54px auto 32px!important;
@@ -174,8 +174,8 @@ html body.ordering-process:not(.in-kosik) #content#content .shipping-billing-tab
 /* Recommended products are a second homepage-style island, with the same neutral hover and CTA treatment. */
 @media(min-width:992px){
   html body.in-kosik #okla-cart-recs{
-    width:min(1273px,calc(100% - 40px))!important;
-    max-width:1273px!important;
+    width:min(1337px,calc(100% - 40px))!important;
+    max-width:1337px!important;
   }
   html body.in-kosik #okla-cart-recs .ocr-title{
     font-family:inherit!important;

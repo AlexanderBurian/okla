@@ -12,7 +12,7 @@
   /* on the white header the search field keeps its light grey */
   html:not(.okla-desktop-sticky) body #header:not(#okis-a#okis-b) .header-top>.search :is(input.query-input,form.search-form,fieldset){background-color:#f3f5f8!important}
   /* the breadcrumbs (home icon > category > product) on the grey page, between the category bar and the first island */
-  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){display:block!important;width:1273px!important;max-width:1273px!important;background:transparent!important;box-shadow:none!important;margin:0 auto!important;border-radius:0!important;padding:18px 0 16px!important;box-sizing:border-box!important;min-height:0!important}
+  html body .overall-wrapper>.container.breadcrumbs-wrapper:not(#okis-a#okis-b){display:block!important;width:1337px!important;max-width:1337px!important;background:transparent!important;box-shadow:none!important;margin:0 auto!important;border-radius:0!important;padding:18px 0 16px!important;box-sizing:border-box!important;min-height:0!important}
   /* the content: an island (rounded white card) on every page but the homepage; 21px below the category bar - the
      same gap on every page (the homepage's first block and the customer centre's card sit at 21px too) */
   html body #content-wrapper.content-wrapper:not(#okis-a#okis-b){margin-top:54px!important;border:0!important;border-radius:8px!important;background:#fff!important;clip-path:none!important;overflow:hidden!important}
@@ -119,13 +119,13 @@ html body .okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next):not(#ok
   html body #footer #okla-footer-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e){background:#fff!important;border-radius:8px!important;box-shadow:0 1px 3px rgba(16,24,40,.10),0 1px 2px rgba(16,24,40,.06)!important;overflow:hidden!important}
   html body #footer :is(#okla-footer-content,#okla-footer-links,.footer-bottom,.container):not(#okis-a#okis-b#okis-c){background:#fff!important}
 }
-/* PC: the whole content column 8% narrower (1384 -> 1273 px), centred - the header row, the category menu and the
+/* PC: the whole content column 1337 px wide (it was 1273 px, then 5 % wider), centred - the header row, the category menu and the
    content island all keep the same width, so everything stays aligned. */
 @media(min-width:992px){
-  html body #header#header .navigation-wrapper.container.container[class]{width:1273px!important;max-width:1273px!important}
-  html body #header #okla-catbar.container{max-width:1273px!important}
-  html body #content-wrapper.content-wrapper.container.container{width:1273px!important;max-width:1273px!important}
-  html body #footer .container.container{max-width:1273px!important}
+  html body #header#header .navigation-wrapper.container.container[class]{width:1337px!important;max-width:1337px!important}
+  html body #header #okla-catbar.container{max-width:1337px!important}
+  html body #content-wrapper.content-wrapper.container.container{width:1337px!important;max-width:1337px!important}
+  html body #footer .container.container{max-width:1337px!important}
 }
 
 /* Every white island carries the same soft shadow (the footer's and the homepage islands'): the sign-in strip and the

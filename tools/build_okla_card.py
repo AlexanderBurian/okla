@@ -13,10 +13,12 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
    The card: the product photo in a light grey rounded box (its white background multiplied away), the shop's own flags
    (Novinka, Tip, Akce...) as blue badges at its top left, a round "do košíku" button at its top right; under it the
    name on two lines, the stock as a short bold line, the price big, the shop's own former price struck through only
-   when the shop shows one (never a discount percentage). No decorative stars, no description, no code. */
+   when the shop shows one (never a discount percentage). No decorative stars, no description, no code.
+   Where a row of cards stands on a grey ground the photo's box is white instead (okla_card.js). */
 :root{
   --okc-img-bg:#f4f5f7;          /* the photo's box */
-  --okc-img-pad:12%;             /* room around the product in its box */
+  --okc-img-pad:4%;              /* room around the product in its box (small: the product nearly fills it) */
+  --okc-img-zoom:1.08;           /* the product on hover: then it reaches the box's edges */
   --okc-radius:8px;              /* the box's corners */
   --okc-gap:12px;                /* box to name */
   --okc-name:#1d252c;--okc-name-size:14px;--okc-name-lh:20px;
@@ -27,6 +29,8 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
   --okc-btn:34px;--okc-btn-bg:#fff;--okc-btn-line:#d6dbe1;--okc-btn-icon:#0b2540;--okc-btn-hover:#0859d8;
   --okc-font:'Open Sans',system-ui,sans-serif;
 }
+/* cards standing on a grey ground (okla_card.js marks their row): the photo's box white */
+.okc-on-grey:not(#okc1#okc2){--okc-img-bg:#fff!important}
 @media(max-width:767px){
   :root{--okc-gap:10px;--okc-name-size:13px;--okc-name-lh:18px;--okc-price-size:18px;--okc-price-lh:24px;--okc-btn:32px;--okc-badge-size:11px}
 }
@@ -41,7 +45,7 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
 /* the photo's box */
 @C>.p>a.image{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 auto!important;order:0!important;width:100%!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:1/1!important;margin:0!important;padding:var(--okc-img-pad)!important;border:0!important;border-radius:var(--okc-radius)!important;background:var(--okc-img-bg)!important;overflow:hidden!important;box-shadow:none!important}
 @C>.p>a.image img{position:static!important;display:block!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;margin:0!important;object-fit:contain!important;mix-blend-mode:multiply!important;transform:none!important;transition:transform .25s ease!important;opacity:1!important}
-@C:hover>.p>a.image img{transform:scale(1.03)!important}
+@C:hover>.p>a.image img{transform:scale(var(--okc-img-zoom))!important}
 /* the shop's flags: blue badges, top left; a discount percentage never */
 @C>.p>a.image .flags{position:absolute!important;top:8px!important;left:8px!important;right:auto!important;bottom:auto!important;z-index:2!important;display:flex!important;flex-wrap:wrap!important;gap:4px!important;max-width:calc(100% - var(--okc-btn) - 24px)!important;margin:0!important;padding:0!important}
 @C>.p>a.image .flags .flag{display:inline-block!important;margin:0!important;padding:4px 7px!important;border:0!important;border-radius:4px!important;background:var(--okc-badge-bg)!important;color:var(--okc-badge-fg)!important;font:700 var(--okc-badge-size)/1.15 var(--okc-font)!important;letter-spacing:0!important;text-transform:none!important;box-shadow:none!important;white-space:nowrap!important}
@@ -76,7 +80,8 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
 /* ---------- the cart's suggestions (okla_cart_recs.js) ---------- */
 @R{position:relative!important;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;text-align:left!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
 @R .ocr-img{display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;aspect-ratio:1/1!important;padding:var(--okc-img-pad)!important;border-radius:var(--okc-radius)!important;background:var(--okc-img-bg)!important;overflow:hidden!important}
-@R .ocr-img img{width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;mix-blend-mode:multiply!important}
+@R:hover .ocr-img img{transform:scale(var(--okc-img-zoom))!important}
+@R .ocr-img img{transition:transform .25s ease!important;width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;mix-blend-mode:multiply!important}
 @R .ocr-name{display:-webkit-box!important;-webkit-box-orient:vertical!important;-webkit-line-clamp:2!important;overflow:hidden!important;height:calc(var(--okc-name-lh) * 2)!important;min-height:0!important;margin:var(--okc-gap) 6px 0!important;color:var(--okc-name)!important;-webkit-text-fill-color:currentColor!important;font:400 var(--okc-name-size)/var(--okc-name-lh) var(--okc-font)!important;text-align:left!important;text-decoration:none!important}
 @R:hover .ocr-name{text-decoration:underline!important}
 @R .ocr-price{margin:6px 6px 0!important;color:var(--okc-price)!important;-webkit-text-fill-color:currentColor!important;font:700 var(--okc-price-size)/var(--okc-price-lh) var(--okc-font)!important;text-align:left!important;white-space:nowrap!important}
@@ -89,8 +94,9 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
 
 /* ---------- the LilyGO band's cards (okla_home_lilygo.js): white cards on the black band, the same insides ---------- */
 @L{padding:8px 8px 12px!important;border-radius:var(--okc-radius)!important;background:#fff!important}
-@L .olg-pic{aspect-ratio:1/1!important;padding:var(--okc-img-pad)!important;border-radius:var(--okc-radius)!important;background:var(--okc-img-bg)!important;overflow:hidden!important}
-@L .olg-pic img{mix-blend-mode:multiply!important}
+@L .olg-pic{aspect-ratio:1/1.08!important;padding:var(--okc-img-pad)!important;border-radius:var(--okc-radius)!important;background:var(--okc-img-bg)!important;overflow:hidden!important}
+@L .olg-pic img{mix-blend-mode:multiply!important;transition:transform .25s ease!important}
+@L:hover .olg-pic img{transform:scale(var(--okc-img-zoom))!important}
 @L .olg-body{padding:var(--okc-gap) 6px 0!important}
 @L .olg-name{height:calc(var(--okc-name-lh) * 2)!important;color:var(--okc-name)!important;font:400 var(--okc-name-size)/var(--okc-name-lh) var(--okc-font)!important}
 @L .olg-stock{min-height:var(--okc-label-lh)!important;margin-top:5px!important;font:700 var(--okc-label-size)/var(--okc-label-lh) var(--okc-font)!important}
@@ -98,7 +104,7 @@ SRC = r'''/* Okla – THE product card (Best Buy style), one look for every prod
 '''
 
 R = 'html body #okla-cart-recs .ocr-card' + G
-L = 'html body.type-index #content #okla-lilygo .olg-card' + G
+L = 'html body.type-index #content .olg-band .olg-card' + G
 out = SRC.replace('@C', C).replace('@R', R).replace('@L', L)
 p = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'public', 'v91', 'core', 'okla_card.css')
 open(p, 'w', encoding='utf-8', newline='\n').write(out)
