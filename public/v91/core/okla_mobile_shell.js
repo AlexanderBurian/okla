@@ -218,7 +218,7 @@
 
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
- var upSince = 0, BAR_AFTER = 130, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
+ var upSince = 0, BAR_AFTER = 200, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 60;
  /* the band is a real search field (as the homepage's top search): a tap puts the cursor in it right there (16 px
     text, so the phone does not zoom in), and the suggestions drop down under it as on the PC - quick picks first,
     then products from the catalogue as you type; "Hledat" or Enter run the shop's search. The page under the
@@ -263,11 +263,11 @@
   var root = document.documentElement;
   if (on === root.classList.contains('okla-m-sdrop-on')) return;
   if (on) {
-   var band = document.querySelector('#okla-v61-header .okla-m-sbar-band .okla-m-sbar');
-   var top = band ? Math.round(band.getBoundingClientRect().bottom + 8) : 120;
+   /* right under the white band (no strip of the page between them) */
+   var band = document.querySelector('#okla-v61-header .okla-m-sbar-band');
+   var top = band ? Math.round(band.getBoundingClientRect().bottom) : 120;
    drop.style.top = top + 'px';
-   drop.style.maxHeight = 'calc(100dvh - ' + (top + 12) + 'px)';
-   dim.style.top = (top - 8) + 'px';
+   dim.style.top = top + 'px';
    dropRender(sInput.value);
   }
   root.classList.toggle('okla-m-sdrop-on', on);
@@ -291,7 +291,14 @@
   sInput.setAttribute('aria-label', 'Hledat produkty');
   var go = el('button', 'okla-m-sbar__go', 'Hledat');
   go.type = 'submit';
-  f.append(sInput, go);
+  /* a cross to leave the search (shown while the suggestions are open) */
+  var x = el('button', 'okla-m-sbar__close');
+  x.type = 'button';
+  x.setAttribute('aria-label', 'Zavřít hledání');
+  x.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+  x.addEventListener('mousedown', function (e) { e.preventDefault(); });
+  x.addEventListener('click', function () { sInput.value = ''; sInput.blur(); dropOpen(false); });
+  f.append(sInput, go, x);
   f.addEventListener('submit', function (e) {
    e.preventDefault();
    var q = sInput.value.trim();
@@ -395,7 +402,7 @@
    dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
    if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
    else if (shown) upSince += -dy;
-   /* the search bar a moment after the header: a further move up of 130 px, or a second swipe up (swipes told apart by
+   /* the search bar a moment after the header: a further move up of 200 px, or a second swipe up (swipes told apart by
       the finger, not by pauses: on phones a fling runs on between swipes) */
    if (shown && (upSwipes >= 2 || upSince >= BAR_AFTER)) searchBar(true);
   } else if (dy > 0) {

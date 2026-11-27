@@ -216,3 +216,17 @@ html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
   html body .okla-m-lang-sheet:not(#okms-a){opacity:1!important;transform:none!important;clip-path:inset(0 0 100% 0 round 12px);transition:clip-path .45s cubic-bezier(.22,1,.36,1),visibility 0s linear .45s!important}
   html body .okla-m-lang-sheet.is-open:not(#okms-a){clip-path:inset(0 0 0 0 round 12px);transition:clip-path .5s cubic-bezier(.22,1,.36,1),visibility 0s!important}
 }
+@media(max-width:767px){
+  /* the suggestions over the whole width and right down to the screen's bottom - over the bottom bar and the chat
+     bubble too */
+  html body .okla-m-sdrop:not(#okms-a){left:0;right:0;bottom:0;max-height:none;z-index:2147483000;padding:4px 16px calc(16px + env(safe-area-inset-bottom,0px));border-radius:0;box-shadow:0 -1px 0 #e6ebf2;
+    clip-path:inset(0 0 100% 0);transition:clip-path .5s cubic-bezier(.22,1,.36,1),visibility 0s linear .5s}
+  html.okla-m-sdrop-on body .okla-m-sdrop:not(#okms-a){clip-path:inset(0 0 0 0);transition:clip-path .6s cubic-bezier(.22,1,.36,1),visibility 0s}
+  html body .okla-m-sdim:not(#okms-a){z-index:2147482990}
+}
+@media(max-width:767px){
+  html body #header #okla-v61-header button.okla-m-sbar__close{display:none;flex:none;align-items:center;justify-content:center;width:36px;height:38px;margin:0 0 0 2px;padding:0;border:0;border-radius:9px;background:transparent;color:#0b2540;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  html body #header #okla-v61-header button.okla-m-sbar__close svg{display:block;width:22px;height:22px}
+  html body #header #okla-v61-header button.okla-m-sbar__close:active{background:#eef2f6}
+  html.okla-m-sdrop-on body #header #okla-v61-header button.okla-m-sbar__close{display:inline-flex}
+}
