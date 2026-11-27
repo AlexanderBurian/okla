@@ -179,7 +179,7 @@
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
- var holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
+ var upSince = 0, BAR_AFTER = 900, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
  function addSearchBar() {
   var h = document.getElementById('okla-v61-header');
   if (!h || h.querySelector('.okla-m-sbar')) return;
@@ -236,7 +236,7 @@
   if (on && !stuck) { spacer.style.height = h.offsetHeight + 'px'; anchorJump = h.offsetHeight; }
   if (!on && stuck) anchorJump = -h.offsetHeight;
   if (!on && stuck) spacer.style.height = '0px';
-  if (!on || hidden) { searchBar(false); upSwipes = 0; }
+  if (!on || hidden) { searchBar(false); upSwipes = 0; upSince = 0; }
   stuck = on;
   /* Switching between the header in the page and the fixed one happens without
      animation: otherwise the fixed white bar would flash over the page-top
@@ -278,20 +278,23 @@
   }
   /* calm, not jumpy: the header comes or goes only after 24 px of steady movement one way (a trembling finger or the
      end of a fling does nothing); a new swipe up is a move up after a pause or after moving down */
-  var now = Date.now(), pause = now - lastT > 220;
-  lastT = now;
   if (dy < 0) {
-   if (dir !== -1 || pause) upSwipes++;
    if (dir !== -1) upAcc = 0;
-   dir = -1; upAcc += -dy; downAcc = 0;
-   if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; }
-   if (shown && upSwipes >= 3) searchBar(true);
+   /* a swipe up = a finger put down and the page then moving up */
+   if (newSwipe) { upSwipes++; newSwipe = false; }
+   dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
+   if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
+   else if (shown) upSince += -dy;
+   /* the search bar on the third swipe up (swipes told apart by the finger, not by pauses: on phones a fling runs on
+      between swipes); a very long move up brings it too */
+   if (shown && (upSwipes >= 3 || upSince >= BAR_AFTER)) searchBar(true);
   } else if (dy > 0) {
-   if (dir !== 1) downAcc = 0;
-   dir = 1; downAcc += dy; upAcc = 0;
+   if (dir !== 1) { downAcc = 0; downTicks = 0; }
+   dir = 1; downAcc += dy; upAcc = 0; downTicks++;
    if (!stuck) setSticky(true, true);
-   /* not while a finger is on the header (a tap on the search bar must find it there) */
-   else if (shown && downAcc >= MOVE && Date.now() - holdHeader > 600) setSticky(true, true);
+   /* a real move down only (two steps or more): one jump down is the browser keeping the content in place while
+      pictures above load in - it must not hide the header; nor while a finger is on the header */
+   else if (shown && downAcc >= MOVE && downTicks >= 2 && Date.now() - holdHeader > 600) setSticky(true, true);
   }
  }
 
@@ -389,6 +392,7 @@
    closeSearch();
    if (stuck) setSticky(false, false);
   });
+  window.addEventListener('touchstart', function () { newSwipe = true; }, { passive: true });
   window.addEventListener('scroll', function () {
    if (!ticking) {
     ticking = true;
