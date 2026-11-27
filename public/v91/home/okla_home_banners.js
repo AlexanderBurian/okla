@@ -1,5 +1,5 @@
-/* Okla homepage banners: the hero (Flipper Zero on desktop, plus the glasses on mobile) in the
-   main Shoptet carousel slot, and the two lower tiles (glasses, then the endoscopes bottom right). Every banner has the
+/* Okla homepage banners: the hero in the main Shoptet carousel slot - the gift banner in four variants (the lower
+   tiles are gone). Every banner has the
    same darkening, text and blue CTA. The hero has dots and autoplay; the dots show only on mobile, under the picture.
    Autoplay stays continuous on phones, pauses on desktop hover/focus and skips
    slides that are hidden on the current screen. */
@@ -11,15 +11,13 @@
  // On desktop the top slot stays on the projector: only the projector is shown there. The other slides are mobile only.
  // Desktop shows the first slide only (Flipper Zero); the glasses slide is mobile only. Only products the shop sells.
  var BASE=window.__oklaAssetBase||'';
+ /* the hero: only the gift banner, in four variants (the same blue background and gift, other texts); the dots
+    switch between them */
  var SLIDES=[
-  {n:'storewide',storewide:true,title:'Velké dny plné objevů',strong:'Spousta inspirace na jednom místě',when:'Právě teď',alt:'Velké dny plné objevů',href:'/'},
-  {n:1,title:'Flipper Zero',lead:'Kapesní multitool pro kutily, elektroniku i experimenty.',alt:'Flipper Zero',href:'/flipper-zero-kapesni-multitool-pro-elektroniku/'},
-  {n:3,title:'Chytré brýle s AI',lead:'Kamera a AI překlad v lehkých brýlích.',alt:'Chytré brýle',mobileOnly:true,href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'},
-  {n:'endo',title:'Endoskopy',lead:'Nahlédněte do motoru, stěny i potrubí.',alt:'Endoskop',mobileOnly:true,href:'/endoskopy-a-inspekcni-kamery/'}
- ];
- var TILES=[
-  {n:1,title:'Chytré brýle',lead:'Kamera a AI překlad přímo v brýlích.',alt:'Chytré brýle',href:'/a2-chytre-bryle-s-kamerou-a-ai-prekladem/'},
-  {n:3,title:'Endoskopy',lead:'Nahlédněte do motoru, stěny i potrubí.',alt:'Endoskop',href:'/endoskopy-a-inspekcni-kamery/'}
+  {n:'storewide',storewide:true,title:'Velké dny plné objevů',strong:'Spousta inspirace na jednom místě',when:'Právě teď',cta:'Prozkoumat',fine:'Objevujte novinky a inspiraci napříč celým e-shopem.',alt:'Velké dny plné objevů',href:'/'},
+  {n:'storewide',storewide:true,title:'Dárky, které potěší',strong:'Vychytávky pro kutily i hračičky',when:'Na každou příležitost',cta:'Vybrat dárek',fine:'Praktické vychytávky a gadgety pro každého, kdo rád objevuje.',alt:'Dárky, které potěší',href:'/prakticke-vychytavky/'},
+  {n:'storewide',storewide:true,title:'Technologie do kapsy',strong:'Multitooly, ESP32 a chytrá elektronika',when:'Pro tvůrce a vývojáře',cta:'Prozkoumat',fine:'Flipper Zero, LilyGO, M5Stack a další kapesní zařízení.',alt:'Technologie do kapsy',href:'/elektronicke-multitooly/'},
+  {n:'storewide',storewide:true,title:'Měřte s přehledem',strong:'Měřicí technika pro dílnu i domov',when:'Teploty, vlhkost i vzdálenosti',cta:'Nakupovat',fine:'Multimetry, teploměry, vlhkoměry, dálkoměry a další přístroje.',alt:'Měřte s přehledem',href:'/merici-technika-a-naradi/'}
  ];
  // each banner's CTA leads to its product
  var CTA_TEXT='Kup teď';
@@ -30,13 +28,13 @@
   var inner;
   if(s.storewide){
    inner='<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
-    '<img class="okla-hero__gift" src="'+BASE+'v91/img/promo/storewide-gift.webp" alt="" loading="eager" decoding="async">'+
+    '<img class="okla-hero__gift" src="'+BASE+'v91/img/promo/storewide-gift.webp" alt="" loading="'+(i===0?'eager':'lazy')+'" decoding="async">'+
     '<div class="okla-hero__text okla-hero__text--wide">'+
      '<h2 class="okla-hero__title">'+s.title+'</h2>'+
      '<p class="okla-hero__lead okla-hero__wideline"><strong>'+s.strong+'</strong><span>'+s.when+'</span></p>'+
-     '<a class="okla-hero__cta" href="'+s.href+'">Prozkoumat</a>'+
+     '<a class="okla-hero__cta" href="'+s.href+'">'+s.cta+'</a>'+
     '</div>'+
-    '<p class="okla-hero__fineprint">Objevujte novinky a inspiraci napříč celým e-shopem.</p>';
+    '<p class="okla-hero__fineprint">'+s.fine+'</p>';
   }else{
    inner='<div class="okla-hero__media" role="img" aria-label="'+s.alt+'"></div>'+
     '<div class="okla-hero__text">'+
@@ -46,17 +44,6 @@
     '</div>';
   }
   return '<article id="okla-hero-slide-'+(i+1)+'" class="okla-hero__slide okla-hero__slide--'+s.n+(s.mobileOnly?' okla-hero__slide--mobile-only':'')+(active?' is-active':'')+'" aria-hidden="'+(active?'false':'true')+'">'+inner+'</article>';
- }
-
- function tileHtml(t){
-  return '<article class="okla-tile okla-tile--'+t.n+'">'+
-   '<div class="okla-tile__media" role="img" aria-label="'+t.alt+'"></div>'+
-   '<div class="okla-tile__text">'+
-    '<h3 class="okla-tile__title">'+t.title+'</h3>'+
-    '<p class="okla-tile__lead">'+t.lead+'</p>'+
-    '<a class="okla-tile__cta" href="'+t.href+'">'+CTA_TEXT+'</a>'+
-   '</div>'+
-  '</article>';
  }
 
  function dotHtml(i){
@@ -195,15 +182,6 @@
   wire(inner.querySelector('.okla-hero-wrap'));
  }
 
- function buildTiles(){
-  var wrappers=document.querySelectorAll('.next-to-carousel-banners .banner-wrapper');
-  TILES.forEach(function(t,i){
-   var w=wrappers[i];
-   if(!w||w.querySelector('.okla-tile'))return;
-   w.innerHTML=tileHtml(t);
-  });
- }
-
  // Legacy mobile code places the categories block after its dots block, and the dots after the banner. Once the Shoptet
  // carousel items are gone that chain ends up after the product groups. Put the dots and then the categories back right
  // after the banner row, where they belong; the legacy code then finds them already in place.
@@ -220,7 +198,6 @@
  function build(){
   if(!document.body||!document.body.classList.contains('type-index'))return;
   buildHero();
-  buildTiles();
   placeCategories();
  }
 

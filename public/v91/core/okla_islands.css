@@ -191,10 +191,36 @@ html body .messages .msg:is(.msg-success,.msg-info):not(#okis-a#okis-b#okis-c){d
   /* no line where a heading meets its row: outlines are painted above everything, so cut at the join they could still
      show as a thin grey line (with the page zoomed on laptops, a fraction of a pixel). The heading and its row draw
      their frame themselves instead - the heading's without a bottom edge, the row's without a top edge - and no outline */
-  html body #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h),html body #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){outline:0!important;clip-path:none!important;position:relative!important}
+  html body #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h),html body #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){outline:0!important;position:relative!important}
+  html body #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){clip-path:inset(-12px -12px 0 -12px)!important}
+  html body #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){clip-path:inset(0 -12px -12px -12px)!important;top:-2px!important;z-index:3!important}
   html body #content#content>.homepage-group-title:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h)::after{content:''!important;position:absolute!important;inset:-1px -1px 0 -1px!important;width:auto!important;height:auto!important;margin:0!important;border:1px solid #dfe3e8!important;border-bottom:0!important;border-radius:9px 9px 0 0!important;background:none!important;pointer-events:none!important;z-index:3!important;display:block!important}
   html body #content#content>.homepage-group-title+.okla-slider-shell:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h)::before{content:''!important;position:absolute!important;inset:0 -1px -1px -1px!important;width:auto!important;height:auto!important;margin:0!important;border:1px solid #dfe3e8!important;border-top:0!important;border-radius:0 0 9px 9px!important;background:none!important;pointer-events:none!important;z-index:3!important;display:block!important}
+  /* the hero banner and the category circles under it: the same - no line under the banner's dots; and the banner
+     reaches the island's very edge (it covers the frame by 1 px at the sides and the top, the frame being drawn under
+     it, so no light column shows between the dark banner and the page) */
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h),html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){outline:0!important;position:relative!important}
+  /* each part's shadow cut where they meet (it fell onto the other part as a line); the lower part lies 2 px over the
+     upper one, so its white covers the join even at a fraction of a pixel */
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){clip-path:inset(-12px -12px 0 -12px)!important}
+  html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){clip-path:inset(0 -12px -12px -12px)!important;top:-2px!important;z-index:3!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){overflow:visible!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h)::after{content:''!important;position:absolute!important;inset:-1px -1px 0 -1px!important;margin:0!important;border:1px solid #dfe3e8!important;border-bottom:0!important;border-radius:9px 9px 0 0!important;background:none!important;pointer-events:none!important;z-index:0!important;display:block!important}
+  html body.type-index #content#content>.banners-row+#okla-cat-circles:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h)::before{content:''!important;position:absolute!important;inset:0 -1px -1px -1px!important;margin:0!important;border:1px solid #dfe3e8!important;border-top:0!important;border-radius:0 0 9px 9px!important;background:none!important;pointer-events:none!important;z-index:3!important;display:block!important}
+  html body.type-index #content#content>.banners-row #carousel .okla-hero:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h){position:relative!important;z-index:1!important;margin:-1px -1px 0!important;width:calc(100% + 2px)!important;max-width:none!important;border-radius:9px 9px 0 0!important}
   /* the upper part is drawn over the lower one, so the lower part's top line (cut at a fraction of a pixel) never shows through at the join */
   html body.type-index #content#content>:is(.homepage-group-title,.banners-row):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g){position:relative!important;z-index:2!important}
   html body.type-index #content#content>:is(.homepage-group-title+.okla-slider-shell,.banners-row+#okla-cat-circles):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g){outline:1px solid #dfe3e8!important;outline-offset:0!important;clip-path:inset(0 -12px -12px -12px)!important}
+}
+
+/* PC: a little more air between the homepage islands - 26 px (it was 21 px, and the bands and the deal cards had their
+   own); the gap under the menu (above the hero) and the joins of two-part islands stay as they are */
+@media(min-width:992px){
+  html body.type-index #content#content>*:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:26px!important;margin-bottom:0!important}
+  html body.type-index #content#content>:is(.homepage-group-title+.okla-slider-shell,.banners-row+#okla-cat-circles):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:-1px!important;margin-bottom:-2px!important}
+  /* (they lie 2 px over the part above them, so 2 px less below keeps the next gap at 26 px) */
+  html body.type-index #content#content>.homepage-group-title+*:not(.okla-slider-shell):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:0!important}
+  html body.type-index #content#content>.banners-row:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-top:54px!important}
+  html body.type-index #content#content>:is(.okla-hsearch,h1):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin:0!important}
+  html body.type-index #content#content>:last-child:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i){margin-bottom:24px!important}
 }

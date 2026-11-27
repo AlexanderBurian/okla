@@ -1,7 +1,7 @@
 /* Okla – homepage bands (Best Buy "Laptops, reimagined" layout): one dark rounded band, on the left a lifestyle photo
    with a heading, a line under it, a link and a name at the bottom; on the right a row of product cards (the shared
-   card look, okla_card.css). Two bands: pocket ESP32 devices (after the first product row) and modern technology -
-   AI glasses and the shop's most innovative products (before the magazine).
+   card look, okla_card.css). Two bands: pocket ESP32 devices (after the first product row) and measuring instruments
+   with endoscopes - the big, good-looking ones (before the fourth product row).
    The products' photos are the shop's own, cut to one square frame (v91/img/lilygo). The price written here is only
    the first paint: once a band comes near the screen the real price and stock are read from each product page, and a
    product that no longer exists drops out. No discounts are claimed.
@@ -31,21 +31,18 @@
     ['/lafvin-esp32-s3-wroom-super-starter-kit/','lafvin','LAFVIN ESP32-S3-WROOM Super Starter Kit',1489],
     ['/lilygo-fabgl-vga32-q127/','fabgl','LILYGO FabGL VGA32 Q127',789]
    ]},
-  {id:'okla-tech',label:'Moderní technologie',photo:'v91/img/promo/okla-tech-band.webp',pos:'24% 50%',
-   title:'Technologie zítřka',sub:'AI brýle, osciloskopy do kapsy a chytrá diagnostika',
-   cta:'Objevit',href:'/chytra-elektronika/',mark:'Nové technologie',where:'news',
+  {id:'okla-tech',label:'Měřicí technika a endoskopy',photo:'v91/img/promo/okla-tech-band.webp',pos:'24% 50%',
+   title:'Měřicí technika a endoskopy',sub:'Přesné přístroje pro dílnu, stavbu i domov',
+   cta:'Nakupovat',href:'/merici-technika-a-naradi/',mark:'Měření a inspekce',where:'row4',
    items:[
-    ['/flipper-zero-kapesni-multitool-pro-elektroniku/','fzero','Flipper Zero – kapesní multitool pro digitální protokoly',5690],
-    ['/a2-chytre-bryle-s-kamerou-a-ai-prekladem/','a2','A2 chytré brýle s kamerou a AI překladem',2089],
-    ['/aneng-aos03-osciloskopicky-multimetr/','aos03','ANENG AOS03 osciloskopický multimetr',3789],
-    ['/fnirsi-2c23t-osciloskop-multimetr-a-generator-3v1/','c23t','FNIRSI 2C23T osciloskop, multimetr a generátor 3v1',3589],
-    ['/kingbolen-ediag-bluetooth-obd2-diagnostika-pro-android-a-ios/','obd','KINGBOLEN Ediag OBD2 diagnostický skener',3789],
-    ['/f62-prekladove-chytre-bryle-cerne/','f62','F62 překladové chytré brýle – černé',589],
-    ['/b313-inspekcni-kamera-se-dvema-objektivy-5-m/','b313','B313 inspekční kamera se dvěma objektivy 5 m',1289],
-    ['/fnirsi-fnb58-usb-tester-rychleho-nabijeni/','fnb58','FNIRSI FNB58 USB tester rychlého nabíjení',2489],
+    ['/p80-prumyslovy-endoskop-4-3-5-m/','p80','P80 průmyslový endoskop 4,3″ – 5 m',789],
     ['/fnirsi-wmt-10-bezkontaktni-vlhkomer-dreva-a-zdiva/','wmt10','FNIRSI WMT-10 bezkontaktní vlhkoměr',1189],
-    ['/aneng-g50-zeleny-laserovy-dalkomer-50-m/','g50','ANENG G50 zelený laserový dálkoměr 50 m',789],
-    ['/id32-pixelovy-displej-a-stolni-budik/','id32','ID32 pixelový displej a stolní budík',1089]
+    ['/aneng-616-digitalni-multimetr-6000-counts/','a616','ANENG 616 digitální multimetr 6000 counts',589],
+    ['/b313-inspekcni-kamera-se-dvema-objektivy-5-m/','b313','B313 inspekční kamera se dvěma objektivy 5 m',1289],
+    ['/benetech-gm8902-anemometr-s-oddelenou-sondou/','gm8902','Benetech GM8902 anemometr s oddělenou sondou',1189],
+    ['/aneng-th104-bezkontaktni-infracerveny-teplomer-s-barevnym-displejem-50-az-550-c/','th104','ANENG barevný infračervený teploměr',489],
+    ['/fnirsi-lcr-p1-tester-soucastek/','lcrp1','FNIRSI LCR-P1 tester součástek',1289],
+    ['/aneng-g50-zeleny-laserovy-dalkomer-50-m/','g50','ANENG G50 zelený laserový dálkoměr 50 m',789]
    ]}
  ];
  function kc(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ')+' Kč'}
@@ -108,10 +105,10 @@
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){io.disconnect();run()}},{rootMargin:'400px'});io.observe(sec)}
   else setTimeout(run,1500);
  }
- /* where a band goes: 'row2' before the second product heading, 'news' before the magazine */
+ /* where a band goes: 'rowN' before the N-th product heading, 'news' before the magazine */
  function ref(main,where){
   if(where==='news')return main.querySelector(':scope>#okla-news-v55');
-  var h=main.querySelectorAll(':scope>.homepage-group-title');return h.length>1?h[1]:null;
+  var n=+String(where).replace('row','')||2,h=main.querySelectorAll(':scope>.homepage-group-title');return h.length>=n?h[n-1]:null;
  }
  function before(node,r){var n=node.nextElementSibling;while(n&&n!==r&&/^(okla-deals|okla-signin-strip|okla-promo-deals)$/.test(n.id))n=n.nextElementSibling;return n===r}
  function mount(B){
