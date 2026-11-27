@@ -165,5 +165,5 @@
 }
 @media(min-width:992px){
   /* the contact tab a little to the left (its curve no longer runs past the row's right edge) */
-  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e#otb-f) .okla-topbar__in>.okla-topbar__tab{right:calc(var(--okla-topbar-r,0px) + 18px)!important}
+  html.okla-topbar-on body #header #okla-topbar:not(#otb-a#otb-b#otb-c#otb-d#otb-e#otb-f) .okla-topbar__in>.okla-topbar__tab{right:calc(var(--okla-topbar-r,0px) + 30px)!important}
 }
