@@ -54,6 +54,6 @@
 #okla-v61-drawer .okla-mm-svg .okla-mm-line{fill:none!important;stroke:currentColor!important;stroke-width:2.15!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 #okla-v61-drawer .okla-mm-row .okm61-cat-row-label{font-size:15px!important;font-weight:650!important}
 #okla-v61-drawer .okla-mm-row .okm61-cat-row-chevron{color:#7f8b98!important}
-/* the colour pictograms */
-#okla-v61-drawer .okla-mm-icon img.okla-mm-pic{display:block!important;width:30px!important;height:30px!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;background:none!important;object-fit:contain!important}
-#okla-v61-drawer .okla-mm-hero__icon img.okla-mm-pic{display:block!important;width:40px!important;height:40px!important;max-width:none!important;margin:0!important;background:none!important;object-fit:contain!important}
+/* the shop's pictograms (okla_picto.js): their own colours */
+#okla-v61-drawer .okla-mm-icon svg.okla-mm-pic{width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important;stroke:none!important}
+#okla-v61-drawer .okla-mm-hero__icon svg.okla-mm-pic{stroke:none!important}
