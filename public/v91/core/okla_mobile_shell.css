@@ -78,53 +78,59 @@ html body .okla-m-buybar__icon{display:block!important;flex:0 0 20px!important;w
 
 }
 
-/* Phones: the floating header and its search bar (okla_mobile_shell.js). The header slides in and out smoothly (no
-   jump); the search bar band comes out under the logo row on the third swipe up - quick and smooth, a soft shadow at
-   its top edge (under the logo row) - and goes with the header. The search button in the logo row always stays. */
+/* Phones: the floating header, its search bar, the support panel and the search (okla_mobile_shell.js).
+   The header slides in and out smoothly. The search bar is a white band in a clipping strip just under the header: it
+   slides out from under the header by transform alone (nothing on the page is laid out again, so the move stays fluid
+   even on a slow phone) soon after the header comes, with a soft shadow at its top edge, and goes with it. */
 html body #header #okla-v61-header .okla-m-sbar-wrap{display:none!important}
 @media(max-width:767px){
-  html.okla-m-stuck body #header #okla-v61-header{transition:transform .26s cubic-bezier(.2,.7,.2,1),box-shadow .2s ease!important}
-  html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transition:transform .2s cubic-bezier(.4,0,.6,1),box-shadow .2s ease!important}
+  html.okla-m-stuck body #header #okla-v61-header{transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .2s ease!important}
+  html.okla-m-stuck.okla-m-hidden body #header #okla-v61-header{transition:transform .24s cubic-bezier(.4,0,.6,1),box-shadow .2s ease!important}
   html.okla-m-instant body #header #okla-v61-header{transition:none!important}
   html.okla-m-stuck:not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-wrap{
-    display:block!important;margin:0 -15px -6px!important;padding:0 15px!important;max-height:0!important;overflow:hidden!important;opacity:0!important;
-    box-shadow:inset 0 8px 8px -8px rgba(18,41,68,.2)!important;box-sizing:border-box!important;
-    transition:max-height .2s cubic-bezier(.2,.7,.2,1),padding .2s cubic-bezier(.2,.7,.2,1),opacity .16s ease!important
+    display:block!important;position:absolute!important;left:0!important;right:0!important;top:100%!important;height:64px!important;margin:0!important;padding:0!important;
+    overflow:hidden!important;pointer-events:none!important;background:transparent!important
   }
-  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-wrap{
-    max-height:64px!important;padding:8px 15px 8px!important;opacity:1!important
+  html body #header #okla-v61-header .okla-m-sbar-band{
+    display:block;padding:8px 15px 12px;background:#fff;box-shadow:inset 0 8px 8px -8px rgba(18,41,68,.2),0 6px 12px -6px rgba(18,41,68,.16);
+    transform:translate3d(0,-101%,0);transition:transform .34s cubic-bezier(.22,1,.36,1);will-change:transform;box-sizing:border-box
   }
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-band{transform:translate3d(0,0,0);pointer-events:auto}
+  html.okla-m-stuck.okla-m-sbar-on:not(.okla-m-hidden):not(.okla-m-detail-no-sticky) body #header #okla-v61-header .okla-m-sbar-wrap{pointer-events:auto!important}
   html body #header #okla-v61-header .okla-m-sbar{
     display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;width:100%!important;height:44px!important;min-height:0!important;margin:0!important;padding:0 14px 0 16px!important;
     border:1px solid #dfe5ee!important;border-radius:12px!important;background:#f3f5f8!important;box-shadow:none!important;color:#7b8796!important;-webkit-text-fill-color:#7b8796!important;
-    font:400 16px/1 "Open Sans",Arial,sans-serif!important;text-align:left!important;text-transform:none!important;cursor:text!important;box-sizing:border-box!important;-webkit-tap-highlight-color:transparent!important
+    font:400 16px/1 "Open Sans",Arial,sans-serif!important;text-align:left!important;text-transform:none!important;cursor:text!important;box-sizing:border-box!important;
+    -webkit-tap-highlight-color:transparent!important;touch-action:manipulation!important;user-select:none!important;-webkit-user-select:none!important
   }
   html body #header #okla-v61-header .okla-m-sbar:active{background:#e9edf3!important}
   html body #header #okla-v61-header .okla-m-sbar__text{flex:1 1 auto;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:inherit;-webkit-text-fill-color:inherit;font:inherit}
   html body #header #okla-v61-header .okla-m-sbar__icon{flex:none;display:block;width:22px;height:22px;fill:none;stroke:#0b2540;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  @media(prefers-reduced-motion:reduce){html body #header #okla-v61-header,html body #header #okla-v61-header .okla-m-sbar-wrap{transition:none!important}}
+  @media(prefers-reduced-motion:reduce){html body #header #okla-v61-header,html body #header #okla-v61-header .okla-m-sbar-band{transition:none!important}}
 
-  /* the search, as on the PC: the page dimmed, a white sheet at the top with the field and the suggestions (as tall as
-     they are, at most the screen) */
-  html body .okla-m-search{background:rgba(6,14,28,.36)!important;transform:none!important;padding-top:0!important;display:block!important}
-  html body .okla-m-search__sheet{display:flex;flex-direction:column;max-height:calc(100% - 48px);padding-top:env(safe-area-inset-top,0px);border-radius:0 0 16px 16px;background:#fff;box-shadow:0 14px 34px rgba(6,14,28,.22);transform:translateY(-12px);transition:transform .22s cubic-bezier(.2,.7,.2,1);box-sizing:border-box;overflow:hidden}
-  html body .okla-m-search.is-open .okla-m-search__sheet{transform:none}
-  html body .okla-m-search__results{flex:0 1 auto!important;padding:0 16px 14px!important}
+  /* the support headset in the logo row (where the magnifier was) and its panel */
+  html body #header #okla-v61-header .okla-m-support svg{fill:currentColor!important;stroke:none!important}
+  html body #header #okla-v61-header .okla-m-support svg path{stroke:currentColor!important;fill:none!important}
+  html body .okla-m-support-menu{position:fixed;left:10px;right:10px;top:56px;z-index:1200;display:flex;flex-direction:column;padding:16px 16px 8px;border-radius:14px;background:#fff;box-shadow:0 14px 34px rgba(6,14,28,.2);
+    opacity:0;visibility:hidden;transform:translate3d(0,-8px,0);transition:opacity .18s ease,transform .24s cubic-bezier(.22,1,.36,1),visibility 0s linear .24s;font-family:"Open Sans",Arial,sans-serif}
+  html body .okla-m-support-menu.is-open{opacity:1;visibility:visible;transform:none;transition:opacity .18s ease,transform .24s cubic-bezier(.22,1,.36,1),visibility 0s}
+  html body .okla-m-support-menu__head{color:#0b2540;font:700 16px/1.3 "Open Sans",Arial,sans-serif}
+  html body .okla-m-support-menu__lead{margin:4px 0 8px;color:#5a6473;font:400 13px/1.45 "Open Sans",Arial,sans-serif}
+  html body .okla-m-support-menu__link,html body .okla-m-support-menu__mail{display:flex;align-items:center;justify-content:space-between;padding:12px 2px;border-top:1px solid #eef2f6;color:#0b2540;-webkit-text-fill-color:#0b2540;font:600 15px/1.2 "Open Sans",Arial,sans-serif;text-decoration:none}
+  html body .okla-m-support-menu__link::after{content:"";width:7px;height:7px;border:solid #8593a6;border-width:2px 2px 0 0;transform:rotate(45deg);margin-right:4px}
+  html body .okla-m-support-menu__mail{color:#0859d8;-webkit-text-fill-color:#0859d8}
+
+  /* the search over the whole screen (opaque, so the page under it never shows), the sheet as tall as
+     the visible screen, the suggestions scrolling inside it, above everything (the bottom bar too) */
+  html body .okla-m-search{z-index:2147483000!important;background:#fff!important;transform:none!important;padding-top:0!important;display:block!important;height:100%!important;height:100dvh!important;bottom:auto!important}
+  html body .okla-m-search__sheet{display:flex;flex-direction:column;height:100%;padding-top:env(safe-area-inset-top,0px);background:#fff;box-sizing:border-box;overflow:hidden}
+  html body .okla-m-search__results{flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch!important;overscroll-behavior:contain!important;padding:0 16px calc(28px + env(safe-area-inset-bottom,0px))!important}
   html body .okla-m-search__chips{display:flex;flex-wrap:wrap;gap:8px;padding:12px 0 4px}
   html body .okla-m-search__chip{margin:0;padding:7px 12px;border:1px solid #e6ebf2;border-radius:8px;background:#fff;color:#0b2540;font:500 13px/1.2 "Open Sans",Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
   html body .okla-m-search__chip:active{background:#f5f7fa}
-  html body .okla-m-search__item:last-of-type{border-bottom:0!important}
-  html body .okla-m-search__all{height:44px!important;margin:12px 0 0!important}
-}
-@media(max-width:767px){
-  /* the suggestions as compact as on the PC (a stray 76 px bottom padding on the text column made every row tall) */
   html body .okla-m-search .okla-m-search__item:not(#okms-a#okms-b){min-height:0!important;height:auto!important;padding:9px 0!important;align-items:center!important}
   html body .okla-m-search .okla-m-search__item .okla-m-search__body:not(#okms-a#okms-b){padding:0!important;margin:0!important;min-height:0!important;justify-content:center!important}
   html body .okla-m-search .okla-m-search__item .okla-m-search__thumb:not(#okms-a#okms-b){flex:0 0 48px!important;width:48px!important;height:48px!important}
+  html body .okla-m-search__item:last-of-type{border-bottom:0!important}
+  html body .okla-m-search__all{height:44px!important;margin:12px 0 0!important}
 }
-@media(max-width:767px){
-  /* the search sheet over the whole screen (the suggestions scroll inside it) */
-  html body .okla-m-search .okla-m-search__sheet:not(#okms-a#okms-b){height:100%;max-height:none;border-radius:0;box-shadow:none}
-  html body .okla-m-search .okla-m-search__results:not(#okms-a#okms-b){flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;padding-bottom:28px!important}
-}
-@media(max-width:767px){html body #header #okla-v61-header .okla-m-sbar{touch-action:manipulation!important;user-select:none!important;-webkit-user-select:none!important;pointer-events:auto!important}}

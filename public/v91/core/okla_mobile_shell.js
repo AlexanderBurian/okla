@@ -158,32 +158,74 @@
  function closeSearch() {
   if (!overlay) return;
   overlay.classList.remove('is-open');
-  document.documentElement.classList.remove('okla-m-lock');
   input.blur();
+  document.documentElement.classList.remove('okla-m-lock');
  }
  document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape') closeSearch();
  });
 
+ /* the logo row's button: the support headset (as in the PC header) - a tap opens a panel under the header with the
+    shop's help pages and the support e-mail */
+ var supportMenu = null;
+ function supportOpen(on) {
+  if (!supportMenu) return;
+  supportMenu.classList.toggle('is-open', on);
+  var b = document.querySelector('#okla-v61-header .okla-m-support');
+  if (b) b.setAttribute('aria-expanded', on ? 'true' : 'false');
+ }
  function addHeaderButton() {
   var top = document.querySelector('#okla-v61-header .okm61-top');
-  if (!top || top.querySelector('.okla-m-search-open')) return;
-  var b = el('button', 'okla-m-search-open');
+  if (!top || top.querySelector('.okla-m-support')) return;
+  var b = el('button', 'okla-m-search-open okla-m-support');
   b.type = 'button';
-  b.setAttribute('aria-label', 'Hledat');
-  b.appendChild(icon(SEARCH_PATHS, 'okla-m-search-open__icon'));
-  b.addEventListener('click', openSearch);
+  b.setAttribute('aria-label', 'Podpora');
+  b.setAttribute('aria-haspopup', 'true');
+  b.setAttribute('aria-expanded', 'false');
+  b.innerHTML = '<svg class="okla-m-search-open__icon okla-m-support__icon" viewBox="0 0 24 24" aria-hidden="true">' +
+   '<path d="M4.3 13v-1.5a7.7 7.7 0 0 1 15.4 0V13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>' +
+   '<rect x="2" y="10.6" width="6.4" height="8.9" rx="2.6" fill="currentColor" stroke="none"/>' +
+   '<rect x="15.6" y="10.6" width="6.4" height="8.9" rx="2.6" fill="currentColor" stroke="none"/>' +
+   '<path d="M19.2 19.3a2.6 2.6 0 0 1-2.6 2.3h-2.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>' +
+   '<rect x="9" y="20.1" width="5.4" height="3" rx="1.5" fill="currentColor" stroke="none"/></svg>';
   top.appendChild(b);
+  if (!supportMenu) {
+   supportMenu = el('div', 'okla-m-support-menu');
+   supportMenu.setAttribute('role', 'menu');
+   supportMenu.appendChild(el('strong', 'okla-m-support-menu__head', 'Jsme tu pro vás'));
+   supportMenu.appendChild(el('span', 'okla-m-support-menu__lead', 'Napište nám, rádi poradíme s výběrem i s objednávkou.'));
+   [['/kontakt/', 'Kontaktní formulář'], ['/doprava-a-platba/', 'Doprava a platba'], ['/vraceni-zbozi-a-odstoupeni/', 'Vrácení zboží'], ['/reklamacni-rad/', 'Reklamace'], ['/jak-nakupovat/', 'Jak nakupovat']].forEach(function (l) {
+    var a = el('a', 'okla-m-support-menu__link', l[1]);
+    a.href = l[0];
+    a.setAttribute('role', 'menuitem');
+    supportMenu.appendChild(a);
+   });
+   var mail = el('a', 'okla-m-support-menu__mail', 'podpora@okla.cz');
+   mail.href = 'mailto:podpora@okla.cz';
+   supportMenu.appendChild(mail);
+   document.body.appendChild(supportMenu);
+   document.addEventListener('click', function (e) {
+    if (!supportMenu.classList.contains('is-open')) return;
+    if (supportMenu.contains(e.target) || e.target.closest('.okla-m-support')) return;
+    supportOpen(false);
+   });
+   window.addEventListener('scroll', function () { if (supportMenu.classList.contains('is-open')) supportOpen(false); }, { passive: true });
+  }
+  b.addEventListener('click', function () {
+   var h = document.getElementById('okla-v61-header');
+   if (h) supportMenu.style.top = Math.max(0, Math.round(h.getBoundingClientRect().bottom)) + 'px';
+   supportOpen(!supportMenu.classList.contains('is-open'));
+  });
  }
 
  /* ---------- Sticky header: shown when scrolling up, hidden when scrolling down ---------- */
  /* the search bar under the floating header: the first move up brings the header, the third one (counted as separate
     swipes) the search bar; both go on the way down; a tap opens the search, ready to type */
- var upSince = 0, BAR_AFTER = 900, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
+ var upSince = 0, BAR_AFTER = 60, downTicks = 0, newSwipe = false, holdHeader = 0, anchorJump = 0, dir = 0, upAcc = 0, downAcc = 0, upSwipes = 0, lastT = 0, MOVE = 24;
  function addSearchBar() {
   var h = document.getElementById('okla-v61-header');
   if (!h || h.querySelector('.okla-m-sbar')) return;
-  var wrap = el('div', 'okla-m-sbar-wrap');
+  var wrap = el('div', 'okla-m-sbar-wrap'), band = el('div', 'okla-m-sbar-band');
   var b = el('button', 'okla-m-sbar');
   b.type = 'button';
   b.setAttribute('aria-label', 'Hledat produkty');
@@ -196,7 +238,8 @@
   b.addEventListener('touchmove', function (e) { var t = e.touches[0]; if (Math.abs(t.clientX - tx) > 10 || Math.abs(t.clientY - ty) > 10) touching = false; }, { passive: true });
   b.addEventListener('touchend', function (e) { if (!touching) return; touching = false; e.preventDefault(); openSearch(); });
   b.addEventListener('click', function () { if (!overlay || !overlay.classList.contains('is-open')) openSearch(); });
-  wrap.appendChild(b);
+  band.appendChild(b);
+  wrap.appendChild(band);
   h.appendChild(wrap);
  }
  function searchBar(on) {
@@ -285,9 +328,9 @@
    dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
    if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
    else if (shown) upSince += -dy;
-   /* the search bar on the third swipe up (swipes told apart by the finger, not by pauses: on phones a fling runs on
-      between swipes); a very long move up brings it too */
-   if (shown && (upSwipes >= 3 || upSince >= BAR_AFTER)) searchBar(true);
+   /* the search bar soon after the header: a short further move up (60 px), or a second swipe up (swipes told apart by
+      the finger, not by pauses: on phones a fling runs on between swipes) */
+   if (shown && (upSwipes >= 2 || upSince >= BAR_AFTER)) searchBar(true);
   } else if (dy > 0) {
    if (dir !== 1) { downAcc = 0; downTicks = 0; }
    dir = 1; downAcc += dy; upAcc = 0; downTicks++;
