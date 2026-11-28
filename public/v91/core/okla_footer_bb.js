@@ -1,12 +1,12 @@
-/* Okla – the footer in the Best Buy manner (okla_footer_bb.css), built over the footer okla_footer.js makes:
+/* Okla – the footer in the Best Buy manner (okla_footer_bb.css), built over the footer okla_footer.js makes; white,
+   no grey grounds, no outlines:
    - the four icons on top become links (blue labels), a line under them;
-   - beside the four link columns a light grey panel: sign in / create an account, the guides (the newsroom, with its
-     button), "Nevíte, který přístroj vybrat?" with "Napište nám", and the site's language - texts and links taken
-     from the footer's own blue block (so every language keeps its words), which then goes;
-   - under the columns Zásilkovna's pickup points: a map of the Czech Republic leading to their own finder (the pins
-     only mark the regions' capitals - no counts, no claimed places; the real list is theirs);
-   - the partners stay on the copyright line where they always were (okla_payment_logos.js), plain logos, the
-     carriers DPD and Zásilkovna added to them.
+   - beside the four link columns Zásilkovna's pickup points: a map of the Czech Republic with its regions, a pin in
+     each region (no counts - we have no real numbers to show), the whole block one link to their own finder;
+   - under the columns the guides (the footer's blue block's own words and links, so every language keeps them) and
+     "Nevíte, který přístroj vybrat? Napište nám"; the blue block then goes;
+   - the language stays where it always was (the last column), as plain flags and names;
+   - the partners stay on the copyright line (okla_payment_logos.js), plain logos, DPD and Zásilkovna added.
    Re-applied whenever the footer is rebuilt (its script rebuilds it, e.g. on a language change).
    The "Vytvořil Shoptet" line is left alone: Shoptet keeps it shown (its own inline !important) - removing it is
    Shoptet's own paid option, not something to hide. */
@@ -23,23 +23,21 @@
   });
   return f;
  }
- /* the Czech Republic's outline (drawn from its border's longitudes / latitudes, x scaled by cos 50°) and a pin at
-    each region's capital */
- var CZ='M8.0,56.0 16.1,47.0 23.9,47.0 31.6,45.8 41.3,42.2 51.0,38.0 62.6,32.0 76.1,27.2 89.7,20.0 94.3,8.0 113.7,18.8 121.8,9.8 132.2,17.0 141.9,24.2 159.3,33.2 170.9,27.8 176.7,38.0 167.1,45.2 182.5,59.0 192.2,59.0 198.0,47.0 213.5,54.8 225.1,53.0 236.7,68.0 252.2,77.0 270.0,98.0 258.0,105.8 244.5,113.0 236.7,131.0 221.2,140.0 205.8,138.8 196.1,153.8 182.5,144.2 170.9,147.2 159.3,146.0 147.7,140.0 132.2,132.2 120.6,131.0 118.7,144.2 109.0,155.0 94.7,158.0 81.9,155.0 74.2,144.8 62.6,134.0 51.0,123.8 39.3,111.2 27.7,101.0 21.9,89.0 25.8,75.8 14.2,65.0Z';
- var PINS=[[98.2,66.2],[108.6,84.2],[83.1,31.4],[122.9,24.8],[38.2,57.2],[57.9,86.0],[100.1,132.8],[143.5,107.0],[152.7,58.4],[150.8,74.0],[182.9,119.0],[207.7,95.6],[223.9,117.2],[247.9,81.2]];
+  /* the map: the country's outline and its regions' borders (drawn from longitudes / latitudes, x scaled by cos 50°,
+    Praha the small ring inside), one pin per region */
+ var MAP={vb:'0 0 290 196',land:'M14.0,80.0 22.1,71.0 29.9,71.0 37.6,69.8 47.3,66.2 57.0,62.0 68.6,56.0 82.1,51.2 95.7,44.0 100.3,32.0 119.7,42.8 127.8,33.8 138.2,41.0 147.9,48.2 165.3,57.2 176.9,51.8 182.7,62.0 173.1,69.2 188.5,83.0 198.2,83.0 204.0,71.0 219.5,78.8 231.1,77.0 242.7,92.0 258.2,101.0 276.0,122.0 264.0,129.8 250.5,137.0 242.7,155.0 227.2,164.0 211.8,162.8 202.1,177.8 188.5,168.2 176.9,171.2 165.3,170.0 153.7,164.0 138.2,156.2 126.6,155.0 124.7,168.2 115.0,179.0 100.7,182.0 87.9,179.0 80.2,168.8 68.6,158.0 57.0,147.8 45.3,135.2 33.7,125.0 27.9,113.0 31.8,99.8 20.2,89.0Z',lines:'M30.6,99.2 41.5,95.0 51.2,92.0 60.8,87.8 M60.8,87.8 60.1,77.0 51.2,65.0 M60.8,87.8 68.6,84.2 M68.6,84.2 82.1,78.8 99.5,73.4 109.2,66.2 M109.2,66.2 111.1,53.0 114.2,39.2 M109.2,66.2 126.6,68.6 138.2,65.0 M138.2,65.0 142.1,54.2 145.2,47.0 M138.2,65.0 142.1,78.8 144.0,89.0 M144.0,89.0 161.4,92.0 176.9,90.2 188.5,83.0 M144.0,89.0 142.9,104.0 M142.9,104.0 157.6,111.8 173.1,117.8 181.6,113.0 M181.6,113.0 189.3,114.2 M189.3,114.2 196.3,98.0 198.2,83.0 M219.5,78.8 221.4,95.0 228.0,107.0 235.8,119.0 238.1,125.0 M238.1,125.0 248.5,129.2 258.2,132.8 M238.1,125.0 223.4,133.4 211.8,137.0 M211.8,137.0 200.1,128.0 194.3,120.2 189.3,114.2 M211.8,137.0 209.0,149.0 212.5,162.8 M181.6,113.0 173.1,128.0 163.4,143.0 150.6,156.8 152.2,163.4 M142.9,104.0 132.4,113.0 127.4,122.0 M127.4,122.0 129.7,137.0 136.3,149.0 138.2,156.2 M127.4,122.0 111.1,128.0 95.7,125.0 84.0,131.0 M84.0,131.0 77.1,143.0 70.5,156.8 M84.0,131.0 79.4,111.8 73.2,96.2 68.6,84.2 M97.2,89.0 99.5,86.0 105.3,84.8 111.1,87.2 113.5,91.4 110.4,96.2 103.4,98.0 98.4,95.0Z',pins:[[39.5,83.0],[84.0,63.8],[127.4,51.8],[159.5,69.8],[169.2,102.2],[211.0,108.2],[244.7,105.8],[231.9,144.2],[188.5,152.0],[149.8,131.0],[103.4,152.0],[57.0,117.8],[124.7,105.8],[105.3,88.4]]};
  var FINDER='https://www.zasilkovna.cz/pobocky';
- function mapBlock(){
-  var a=el('a','okla-footer-pickup');a.href=FINDER;a.target='_blank';a.rel='noopener';
-  a.setAttribute('aria-label','Výdejní místa Zásilkovny – vyhledat na zasilkovna.cz');
-  var pins=PINS.map(function(p){return '<g transform="translate('+p[0]+' '+p[1]+')"><path d="M0 0C-3.4-4.4-6-7.4-6-10.6a6 6 0 0 1 12 0C6-7.4 3.4-4.4 0 0Z"/><circle cy="-10.6" r="2.3" fill="#fff"/></g>'}).join('');
-  a.innerHTML='<span class="okla-footer-pickup__txt"><span class="okla-footer-pickup__head">Výdejní místa Zásilkovny</span>'+
-   '<span class="okla-footer-pickup__text">Objednávku si vyzvednete na výdejním místě nebo v Z-BOXu, kde se vám to hodí – po celé České republice.</span>'+
-   '<span class="okla-footer-pickup__cta">Najít výdejní místo'+ARROW+'</span></span>'+
-   '<svg class="okla-footer-pickup__map" viewBox="0 0 278 166" aria-hidden="true" focusable="false"><path class="okla-footer-pickup__land" d="'+CZ+'"/><g class="okla-footer-pickup__pins">'+pins+'</g></svg>';
-  return a;
- }
  var CHAT='<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6.5h20a2.5 2.5 0 0 1 2.5 2.5v11a2.5 2.5 0 0 1-2.5 2.5H14l-6 5v-5H6A2.5 2.5 0 0 1 3.5 20V9A2.5 2.5 0 0 1 6 6.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 13h12M10 17h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
  var ARROW='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3.5 10.5 8 6 12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+ function mapBlock(){
+  var a=el('a','okla-footer-map');a.id='okla-footer-map';a.href=FINDER;a.target='_blank';a.rel='noopener';
+  a.setAttribute('aria-label','Výdejní místa Zásilkovny – vyhledat na zasilkovna.cz');
+  var pins=MAP.pins.map(function(p){return '<g transform="translate('+p[0]+' '+(p[1]+11)+')"><path d="M0 0C-3-5-9.5-9.2-9.5-14.5a9.5 9.5 0 0 1 19 0C9.5-9.2 3-5 0 0Z"/><circle cy="-14.5" r="3"/></g>'}).join('');
+  a.innerHTML='<span class="okla-footer-map__head">Výdejní místa Zásilkovny</span>'+
+   '<svg class="okla-footer-map__svg" viewBox="'+MAP.vb+'" aria-hidden="true" focusable="false"><path class="okla-footer-map__land" d="'+MAP.land+'"/><path class="okla-footer-map__lines" d="'+MAP.lines+'"/><g class="okla-footer-map__pins">'+pins+'</g></svg>'+
+   '<span class="okla-footer-map__cta">Najít výdejní místo'+ARROW+'</span>';
+  return a;
+ }
  function txt(root,sel){var e=root&&root.querySelector(sel);return e?e.textContent.trim():''}
  function apply(){
   var shell=document.getElementById('okla-footer-shell');if(!shell)return false;
@@ -51,32 +49,26 @@
    if(b.tagName==='A')return;var img=b.querySelector('img[data-icon]'),key=img?(img.getAttribute('data-icon').split('/').pop().replace(/\.\w+$/,'')):'';
    var a=el('a',b.className+' okla-benefit--link');a.href=LINKS[key]||'/';while(b.firstChild)a.appendChild(b.firstChild);b.replaceWith(a);
   });
-  /* the panel beside the columns */
-  var side=el('aside','okla-footer-side');side.id='okla-footer-side';side.setAttribute('aria-label','Účet, návody a jazyk');
-  var acc=el('a','okla-footer-side__account','Přihlásit se nebo vytvořit účet');acc.href='/login/';
-  side.appendChild(acc);
-  /* the guides and the advice: the blue block's own words and links */
+  /* the pickup points' map beside the columns */
+  links.appendChild(mapBlock());
+  /* the guides and the advice under the columns: the blue block's own words and links */
   var promo=document.getElementById('okla-footer-promo');
   if(promo){
    var btn=promo.querySelector('.okla-promo-btn'),qr=promo.querySelector('.okla-promo-qr');
-   var g=el('div','okla-footer-side__block okla-footer-side__guides');
-   g.appendChild(el('h3','okla-footer-side__head',txt(promo,'.okla-promo-title')||'Průvodci a návody z Okla'));
-   var gp=txt(promo,'.okla-promo-text p');if(gp)g.appendChild(el('p','okla-footer-side__text',gp));
-   var go=el('a','okla-footer-side__btn',btn?btn.textContent.trim():'Otevřít newsroom');go.href=btn?btn.getAttribute('href'):'/newsroom/';
-   g.appendChild(go);side.appendChild(g);
-   var adv=el('a','okla-footer-side__block okla-footer-side__advice');adv.href=qr?qr.getAttribute('href'):'/kontakt/';
-   var ic=el('span','okla-footer-side__advice-ic');ic.innerHTML=CHAT;
-   var at=el('span','okla-footer-side__advice-txt');at.appendChild(el('span','okla-footer-side__advice-title',txt(promo,'.okla-promo-side-title')||'Nevíte, který přístroj vybrat?'));
-   var more=el('span','okla-footer-side__advice-more','Napište nám');more.insertAdjacentHTML('beforeend',ARROW);at.appendChild(more);
-   adv.append(ic,at);side.appendChild(adv);
+   var row=el('div','okla-footer-guides');row.id='okla-footer-guides';
+   var g=el('div','okla-footer-guides__main');
+   g.appendChild(el('h3','okla-footer-guides__head',txt(promo,'.okla-promo-title')||'Průvodci a návody z Okla'));
+   var gp=txt(promo,'.okla-promo-text p');if(gp)g.appendChild(el('p','okla-footer-guides__text',gp));
+   var go=el('a','okla-footer-guides__btn',btn?btn.textContent.trim():'Otevřít newsroom');go.href=btn?btn.getAttribute('href'):'/newsroom/';
+   g.appendChild(go);row.appendChild(g);
+   var adv=el('a','okla-footer-guides__advice');adv.href=qr?qr.getAttribute('href'):'/kontakt/';
+   var ic=el('span','okla-footer-guides__advice-ic');ic.innerHTML=CHAT;
+   var at=el('span','okla-footer-guides__advice-txt');at.appendChild(el('span','okla-footer-guides__advice-title',txt(promo,'.okla-promo-side-title')||'Nevíte, který přístroj vybrat?'));
+   var more=el('span','okla-footer-guides__advice-more','Napište nám');more.insertAdjacentHTML('beforeend',ARROW);at.appendChild(more);
+   adv.append(ic,at);row.appendChild(adv);
+   links.appendChild(row);
    promo.setAttribute('data-okla-bb-moved','1');
   }
-  /* the language */
-  var langHead=links.querySelector('.okla-lang-head'),lang=links.querySelector('.okla-lang');
-  if(langHead&&lang){var box=el('div','okla-footer-side__block okla-footer-side__lang');box.append(langHead,lang);side.appendChild(box)}
-  links.appendChild(side);
-  /* Zásilkovna's pickup points under the columns */
-  links.appendChild(mapBlock());
   /* the carriers beside the payment logos on the copyright line */
   var pay=shell.querySelector('.okla-pay');
   if(pay&&!pay.querySelector('.okla-pay__item--carrier')){pay.appendChild(carriers());pay.setAttribute('aria-label','Platby a doprava')}
