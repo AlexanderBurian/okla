@@ -7,7 +7,7 @@
      INSPIRE data, CC BY 4.0, via github.com/siwekm/czech-geojson, simplified), a pin in each region (no counts - we
      have no real numbers to show), the whole block one link to Zásilkovna's own pickup-point finder;
    - the footer's blue block goes;
-   - the copyright line just "© Okla.cz";
+   - the copyright line "© <year> Okla.cz. Všechna práva vyhrazena.";
    - the language stays where it always was (the last column), exactly as it was;
    - the partners (okla_payment_logos.js, DPD and Zásilkovna added with their logos) in a row of their own under the
      columns, no lines anywhere;
@@ -73,8 +73,8 @@
   var nt=el('p','okla-footer-news__head','Odebírejte novinky');
   var em=nf.querySelector('input[type=email],input[name=email]');if(em&&!em.getAttribute('placeholder'))em.setAttribute('placeholder','Váš e-mail');
   row.append(nt,nf);content.insertBefore(row,content.firstChild);
-  /* the copyright line: just the sign and the shop's name */
-  var cr=shell.querySelector('.footer-bottom .copyright');if(cr&&cr.textContent!=='© Okla.cz')cr.textContent='© Okla.cz';
+  /* the copyright line: the sign, the year, the shop's name and the rights */
+  var cr=shell.querySelector('.footer-bottom .copyright'),ct='© '+new Date().getFullYear()+' Okla.cz. Všechna práva vyhrazena.';if(cr&&cr.textContent!==ct)cr.textContent=ct;
   /* the payment logos with the carriers: out of the copyright line, a row of their own under the columns */
   var pay=shell.querySelector('.okla-pay');
   if(pay){
