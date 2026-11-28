@@ -1,0 +1,46 @@
+/* Okla – the footer in the Best Buy manner (okla_footer_bb.js), white as before:
+   the icons with blue link labels and a line under them, four columns of blue links with a light grey panel beside
+   them (sign in / account, language, partners: payments and carriers), the blue newsroom block under the columns,
+   then the copyright line. */
+html body #okla-footer-shell[data-okla-bb] #okla-footer-content:not(#ofb-a#ofb-b#ofb-c){display:flex!important;flex-direction:column!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-benefits:not(#ofb-a#ofb-b#ofb-c){order:1!important;padding:6px 0 40px!important;margin:0 0 44px!important;border-bottom:1px solid #dfe3e8!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-links:not(#ofb-a#ofb-b#ofb-c){order:2!important;margin:0 0 56px!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-promo:not(#ofb-a#ofb-b#ofb-c){order:3!important}
+/* the icons: link labels in our blue */
+html body #okla-footer-shell[data-okla-bb] a.okla-benefit--link:not(#ofb-a#ofb-b#ofb-c){text-decoration:none!important;color:#0859d8!important}
+html body #okla-footer-shell[data-okla-bb] a.okla-benefit--link strong:not(#ofb-a#ofb-b#ofb-c){color:#0859d8!important;font-size:15px!important;font-weight:600!important}
+html body #okla-footer-shell[data-okla-bb] a.okla-benefit--link:hover strong:not(#ofb-a#ofb-b#ofb-c){text-decoration:underline!important;text-underline-offset:3px!important}
+/* the columns: dark headings, blue links */
+html body #okla-footer-shell[data-okla-bb] #okla-footer-links .okla-footer-col h3:not(#ofb-a#ofb-b#ofb-c){color:#0b2540!important;font-size:16px!important;font-weight:600!important;margin:0 0 16px!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-links .okla-footer-col a:not(#ofb-a#ofb-b#ofb-c){color:#0859d8!important;margin:0 0 13px!important;font-size:14px!important;font-weight:400!important}
+/* the panel */
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side:not(#ofb-a#ofb-b#ofb-c){display:flex!important;flex-direction:column!important;align-self:start!important;min-width:0!important;padding:6px 22px!important;border-radius:10px!important;background:#f4f5f7!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side>*:not(#ofb-a#ofb-b#ofb-c){padding:16px 0!important;border-bottom:1px solid #dfe3e8!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side>*:last-child:not(#ofb-a#ofb-b#ofb-c){border-bottom:0!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side a.okla-footer-side__account:not(#ofb-a#ofb-b#ofb-c){display:block!important;margin:0!important;color:#0859d8!important;font-size:14px!important;font-weight:600!important;text-decoration:none!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side a.okla-footer-side__account:hover:not(#ofb-a#ofb-b#ofb-c){text-decoration:underline!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side :is(.okla-lang-head,.okla-footer-side__head):not(#ofb-a#ofb-b#ofb-c){margin:0 0 12px!important;color:#0b2540!important;font-size:16px!important;font-weight:600!important;line-height:1.3!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side .okla-lang:not(#ofb-a#ofb-b#ofb-c){margin:0!important}
+/* partners: the payment marks and the carriers in one row of white tiles */
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side .okla-footer-partners:not(#ofb-a#ofb-b#ofb-c){display:flex!important;flex-wrap:wrap!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;margin:0!important;padding:0!important;position:static!important;transform:none!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side .okla-footer-partners .okla-pay__item:not(#ofb-a#ofb-b#ofb-c){display:inline-flex!important;align-items:center!important;justify-content:center!important;height:34px!important;min-width:54px!important;margin:0!important;padding:0 10px!important;border:1px solid #e3e7ec!important;border-radius:6px!important;background:#fff!important}
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side .okla-footer-partners .okla-pay__item svg:not(#ofb-a#ofb-b#ofb-c){height:16px!important;width:auto!important;max-width:44px!important}
+html body #okla-footer-shell[data-okla-bb] .okla-carrier:not(#ofb-a#ofb-b#ofb-c){display:block!important;font:var(--okla-bold,700) 13px/1 'Open Sans',Arial,sans-serif!important;letter-spacing:-.01em!important;white-space:nowrap!important}
+html body #okla-footer-shell[data-okla-bb] .okla-carrier--dpd:not(#ofb-a#ofb-b#ofb-c){color:#dc0032!important;font-size:14px!important;letter-spacing:.02em!important}
+html body #okla-footer-shell[data-okla-bb] .okla-carrier--zasilkovna:not(#ofb-a#ofb-b#ofb-c){color:#ba1b02!important}
+/* the copyright line: a line above it */
+html body #okla-footer-shell[data-okla-bb] .footer-bottom:not(#ofb-a#ofb-b#ofb-c){border-top:1px solid #dfe3e8!important}
+
+/* PC: four columns and the panel */
+@media(min-width:992px){
+  html body #okla-footer-shell[data-okla-bb] #okla-footer-links:not(#ofb-a#ofb-b#ofb-c){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.45fr)!important;gap:28px!important;align-items:start!important}
+}
+/* tablets and phones: the columns two by two, the panel across under them */
+@media(max-width:991px){
+  html body #okla-footer-shell[data-okla-bb] #okla-footer-links:not(#ofb-a#ofb-b#ofb-c){display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px 18px!important}
+  html body #okla-footer-shell[data-okla-bb] #okla-footer-side:not(#ofb-a#ofb-b#ofb-c){grid-column:1/-1!important;padding:4px 16px!important}
+  html body #okla-footer-shell[data-okla-bb] #okla-footer-benefits:not(#ofb-a#ofb-b#ofb-c){padding-bottom:28px!important;margin-bottom:30px!important}
+  html body #okla-footer-shell[data-okla-bb] #okla-footer-links:not(#ofb-a#ofb-b#ofb-c){margin-bottom:36px!important}
+}
+/* the carriers' tiles as wide as their names */
+html body #okla-footer-shell[data-okla-bb] #okla-footer-side .okla-footer-partners .okla-pay__item--carrier:not(#ofb-a#ofb-b#ofb-c#ofb-d){width:auto!important;max-width:none!important;flex:none!important;padding:0 12px!important}
