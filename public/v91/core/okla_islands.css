@@ -243,12 +243,13 @@ html body .messages .msg:is(.msg-success,.msg-info):not(#okis-a#okis-b#okis-c){d
   html body.type-index #content #okla-signin-strip:not(#okis-a#okis-b#okis-c#okis-d#okis-e){border:1px solid #dfe3e8!important}
 }
 
-/* phones: the warranty strip is the manul and the button only - on our grey, the manul standing in the middle of the
+/* phones: the warranty strip is the manul and the button only - on a short grey strip the manul (a little smaller)
+   peeks over the top of; the manul standing in the middle of the
    button's top edge, no texts */
 @media(max-width:767px){
-  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l){background:#eef0f3!important;background-image:none!important;padding:148px 16px 20px!important}
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l){background:#eef0f3!important;background-image:none!important;padding:90px 16px 16px!important;overflow:visible!important;clip-path:none!important}
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l) .okla-warranty-content{display:none!important}
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l) .okla-warranty-inner{justify-content:center!important;align-items:center!important;gap:0!important}
   html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l) .okla-warranty-button{width:auto!important;min-width:210px!important;margin:0 auto!important}
-  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l) .okla-warranty-button::before{right:auto!important;left:50%!important;transform:translateX(-50%)!important;width:140px!important;height:135px!important}
+  html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g#okis-h#okis-i#okis-j#okis-k#okis-l) .okla-warranty-button::before{right:auto!important;left:50%!important;transform:translateX(-50%)!important;width:118px!important;height:114px!important}
 }
