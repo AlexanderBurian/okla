@@ -153,7 +153,7 @@ html body .btn:not(#okw-a#okw-b){font-weight:600!important}
   html body .okla-slider-shell>.okla-slider-controls>.okla-slider-next:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16),html body #okla-cart-recs .ocr-arrow--next:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16),html body #okla-cart-recs .ocr-arrow:last-of-type:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){right:6px!important;left:auto!important}
   html body.type-index #content .olg-band .olg-arrow--prev:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){left:-6px!important}
   html body.type-index #content .olg-band .olg-arrow--next:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){right:10px!important}
-  html body.type-index #content .olg-band .olg-arrow:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){top:42%!important}
+  html body.type-index #content .olg-band .olg-arrow:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){top:50%!important}
   html body.type-index #content .olg-band.olg-at-start .olg-arrow--prev:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16),html body.type-index #content .olg-band.olg-at-end .olg-arrow--next:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){opacity:0!important;pointer-events:none!important}
   html body #okla-cart-recs .ocr-arrow[hidden]:not(#okc1#okc2#okc3#okc4#okc5#okc6#okc7#okc8#okc9#okc10#okc11#okc12#okc13#okc14#okc15#okc16){display:none!important}
 }

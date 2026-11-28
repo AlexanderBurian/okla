@@ -162,7 +162,7 @@ html body .btn:not(#okw-a#okw-b){font-weight:600!important}
   html body .okla-slider-shell>.okla-slider-controls>.okla-slider-next@G,html body #okla-cart-recs .ocr-arrow--next@G,html body #okla-cart-recs .ocr-arrow:last-of-type@G{right:6px!important;left:auto!important}
   html body.type-index #content .olg-band .olg-arrow--prev@G{left:-6px!important}
   html body.type-index #content .olg-band .olg-arrow--next@G{right:10px!important}
-  html body.type-index #content .olg-band .olg-arrow@G{top:42%!important}
+  html body.type-index #content .olg-band .olg-arrow@G{top:50%!important}
   html body.type-index #content .olg-band.olg-at-start .olg-arrow--prev@G,html body.type-index #content .olg-band.olg-at-end .olg-arrow--next@G{opacity:0!important;pointer-events:none!important}
   html body #okla-cart-recs .ocr-arrow[hidden]@G{display:none!important}
 }

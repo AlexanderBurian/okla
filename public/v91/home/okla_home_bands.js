@@ -70,7 +70,9 @@
   });
   var prev=el('button','olg-arrow olg-arrow--prev');prev.type='button';prev.setAttribute('aria-label','Předchozí produkty');
   var next=el('button','olg-arrow olg-arrow--next');next.type='button';next.setAttribute('aria-label','Další produkty');
-  [prev,next].forEach(function(b){b.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>'});
+  /* each arrow drawn pointing its own way (the shared arrow style resets any rotation) */
+  prev.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>';
+  next.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
   /* an arrow moves the row by every card that is fully on screen (five on PC) */
   function step(){var c=track.querySelector('.olg-card');return c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(track).columnGap||0):track.clientWidth}
   function go(d){var s=step(),n=Math.max(1,Math.floor((track.clientWidth+2)/s));track.scrollBy({left:d*n*s,behavior:'smooth'})}

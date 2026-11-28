@@ -68,7 +68,8 @@ html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-arrow:focus
 html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-arrow--prev{left:-8px!important}
 html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-arrow--next{right:10px!important}
 html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-arrow svg{width:20px!important;height:20px!important;fill:none!important;stroke:#0b2540!important;stroke-width:2.4!important;stroke-linecap:round!important;stroke-linejoin:round!important}
-html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-arrow--prev svg{transform:rotate(180deg)!important}
+/* the arrows in the middle of the cards' height (the shared arrow style places them by --okc-arrow-top) */
+html body.type-index #content .olg-band:not(#olg-a#olg-b#olg-c) .olg-row{--okc-arrow-top:50%}
 html body.type-index #content .olg-band.olg-at-start:not(#olg-a#olg-b#olg-c) .olg-arrow--prev,
 html body.type-index #content .olg-band.olg-at-end:not(#olg-a#olg-b#olg-c) .olg-arrow--next{opacity:0!important;pointer-events:none!important}
 /* tablets: three cards */
