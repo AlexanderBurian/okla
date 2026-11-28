@@ -16,6 +16,7 @@ html body #okla-footer-shell[data-okla-bb] a.okla-footer-map .okla-footer-map__s
 html body #okla-footer-shell[data-okla-bb] a.okla-footer-map .okla-footer-map__regions path:not(#ofb-a#ofb-b#ofb-c){fill:#fff!important;stroke:#c3cbd5!important;stroke-width:.9!important;stroke-linejoin:round!important}
 html body #okla-footer-shell[data-okla-bb] a.okla-footer-map .okla-footer-map__pins path:not(#ofb-a#ofb-b#ofb-c){fill:#fff!important;stroke:#0b2540!important;stroke-width:2.2!important;stroke-linejoin:round!important}
 html body #okla-footer-shell[data-okla-bb] a.okla-footer-map .okla-footer-map__pins circle:not(#ofb-a#ofb-b#ofb-c){fill:#0b2540!important}
+html body #okla-footer-shell[data-okla-bb] a.okla-footer-map .okla-footer-map__pins text:not(#ofb-a#ofb-b#ofb-c){fill:#0b2540!important;font:600 9px/1 'Open Sans',Arial,sans-serif!important}
 /* the newsletter under the columns: the shop's own form, Best Buy style */
 html body #okla-footer-shell[data-okla-bb] #okla-footer-news:not(#ofb-a#ofb-b#ofb-c){display:flex!important;align-items:center!important;justify-content:space-between!important;gap:40px!important;margin:0!important;padding:26px 0 0!important;border:0!important;border-top:1px solid #dfe3e8!important;background:transparent!important}
 html body #okla-footer-shell[data-okla-bb] #okla-footer-news .okla-footer-news__head:not(#ofb-a#ofb-b#ofb-c){margin:0 0 6px!important;color:#032f67!important;font-size:15px!important;font-weight:600!important;line-height:1.3!important}
@@ -41,7 +42,7 @@ html body #signature:not(#ofb-a#ofb-b#ofb-c){width:0!important;height:0!importan
 /* PC: four columns and the map, the newsletter under the columns */
 @media(min-width:992px){
   html body #okla-footer-shell[data-okla-bb] #okla-footer-benefits .okla-benefit strong:not(#ofb-a#ofb-b#ofb-c){white-space:nowrap!important}
-  html body #okla-footer-shell[data-okla-bb] #okla-footer-links:not(#ofb-a#ofb-b#ofb-c){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.75fr)!important;gap:28px!important;align-items:start!important}
+  html body #okla-footer-shell[data-okla-bb] #okla-footer-links:not(#ofb-a#ofb-b#ofb-c){display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,2.3fr)!important;gap:28px!important;align-items:start!important}
   html body #okla-footer-shell[data-okla-bb] a.okla-footer-map:not(#ofb-a#ofb-b#ofb-c){grid-column:5!important;grid-row:1/span 2!important}
   html body #okla-footer-shell[data-okla-bb] #okla-footer-news:not(#ofb-a#ofb-b#ofb-c){grid-column:1/5!important;grid-row:2!important}
 }
