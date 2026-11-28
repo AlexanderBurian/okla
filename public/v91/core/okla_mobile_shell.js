@@ -284,7 +284,7 @@
   sInput = el('input', 'okla-m-sbar__input');
   sInput.type = 'search';
   sInput.name = 'string';
-  sInput.placeholder = 'Co hledáte?';
+  sInput.placeholder = 'Napište, co hledáte';
   sInput.setAttribute('autocomplete', 'off');
   sInput.setAttribute('autocapitalize', 'none');
   sInput.setAttribute('enterkeyhint', 'search');
@@ -343,10 +343,6 @@
   if (!h) return;
   /* A product detail keeps only its ordinary in-page header. The floating
      mobile header must never cover the gallery, breadcrumb or page gradient. */
-  if (isDetail) {
-   document.documentElement.classList.remove('okla-m-stuck', 'okla-m-hidden', 'okla-m-instant');
-   return;
-  }
   if (!spacer) {
    spacer = el('div', 'okla-m-header-spacer');
    h.parentNode.insertBefore(spacer, h.nextSibling);
@@ -380,45 +376,30 @@
   if (anchorJump && Math.abs(dy - anchorJump) <= 6) { anchorJump = 0; return; }
   anchorJump = 0;
   if (!narrow.matches || document.documentElement.classList.contains('okla-m-lock') || document.documentElement.classList.contains('okla-m-sdrop-on')) return;
-  /* product pages and the cart / checkout steps never get the floating header */
-  if (isDetail || inCheckout()) {
+  /* the cart / checkout steps never get the floating header */
+  if (inCheckout()) {
    if (stuck) setSticky(false, false);
    return;
   }
-  /* Do not create the floating header while any part of the original header
-     and its gradient is still in the viewport. */
-  var root = document.documentElement, shown = stuck && !root.classList.contains('okla-m-hidden');
-  /* near the top the page's own header is there: the floating one goes, without moving anything - at once when it is
-     hidden, and when it is shown only once the page is right at the top (where both sit in the same place) */
-  /* near the top the page's own header is there and scrolls with the page: the floating one goes. Hidden, it goes at
-     once (it is out of sight); shown, it stays until the page is right at the top - there it first takes exactly the
-     page header's own look (okla-m-attop) and only then hands over, in the same place, so nothing flashes */
+  /* the header row is always pinned at the top and goes with the visitor (never hidden); the search bar under it comes
+     only when the visitor moves up (60 px of steady movement) and goes when they move down again */
+  var root = document.documentElement;
   root.classList.toggle('okla-m-attop', y <= 2);
+  if (!stuck && y > 0) setSticky(true, false);
+  else if (stuck && y <= 0) setSticky(false, false);
   if (y <= stickyAfter) {
-   if (stuck && (!shown || y <= 2)) setSticky(false, false);
    searchBar(false);
    dir = 0; upAcc = downAcc = 0; upSince = 0; upSwipes = 0;
    return;
   }
-  /* calm, not jumpy: the header comes or goes only after 24 px of steady movement one way (a trembling finger or the
-     end of a fling does nothing); a new swipe up is a move up after a pause or after moving down */
   if (dy < 0) {
    if (dir !== -1) upAcc = 0;
-   /* a swipe up = a finger put down and the page then moving up */
-   if (newSwipe) { upSwipes++; newSwipe = false; }
    dir = -1; upAcc += -dy; downAcc = 0; downTicks = 0;
-   if (!shown && upAcc >= MOVE) { setSticky(true, false); shown = true; upSince = 0; }
-   else if (shown) upSince += -dy;
-   /* the search bar a moment after the header: a further move up of 200 px, or a second swipe up (swipes told apart by
-      the finger, not by pauses: on phones a fling runs on between swipes) */
-   if (shown && (upSwipes >= 2 || upSince >= BAR_AFTER)) searchBar(true);
+   if (upAcc >= MOVE) searchBar(true);
   } else if (dy > 0) {
    if (dir !== 1) { downAcc = 0; downTicks = 0; }
    dir = 1; downAcc += dy; upAcc = 0; downTicks++;
-   if (!stuck) setSticky(true, true);
-   /* a real move down only (two steps or more): one jump down is the browser keeping the content in place while
-      pictures above load in - it must not hide the header; nor while a finger is on the header */
-   else if (shown && downAcc >= MOVE && downTicks >= 2 && Date.now() - holdHeader > 600) setSticky(true, true);
+   if (downAcc >= MOVE && downTicks >= 2 && Date.now() - holdHeader > 600) searchBar(false);
   }
  }
 
@@ -500,10 +481,6 @@
  }
 
  function init() {
-  if (isDetail) {
-   document.documentElement.classList.add('okla-m-detail-no-sticky');
-   document.documentElement.classList.remove('okla-m-stuck', 'okla-m-hidden', 'okla-m-instant');
-  }
   addHeaderButton();
   addSearchBar();
   buildBuyBar();

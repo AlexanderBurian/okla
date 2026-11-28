@@ -44,8 +44,8 @@ html.okla-search-open .okla-search-panel{display:block}
    same colour, so the header and the page beneath it are dimmed exactly the same); only the field and its suggestions
    stay bright above it. While searching, the category menu does not open and its panel / its own veil are hidden. */
 @media(min-width:992px){
-  html.okla-search-open .okla-search-overlay:not(#osr-a#osr-b){background:rgba(6,14,28,.32)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
-  html.okla-search-open body #header#header:not(#osr-a#osr-b)::after{background:rgba(6,14,28,.32)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+  html.okla-search-open .okla-search-overlay:not(#osr-a#osr-b){background:rgba(6,14,28,.32)!important;-webkit-backdrop-filter:blur(6px)!important;backdrop-filter:blur(6px)!important}
+  html.okla-search-open body #header#header:not(#osr-a#osr-b)::after{background:rgba(6,14,28,.32)!important;-webkit-backdrop-filter:blur(6px)!important;backdrop-filter:blur(6px)!important}
   html.okla-search-open body #header #okla-catbar:not(#osr-a#osr-b) .okcb-list{pointer-events:none!important}
   html.okla-search-open body #header #okla-catbar:not(#osr-a#osr-b) .okcb-panel{display:none!important}
   html.okla-search-open body .okcb-dim:not(#osr-a#osr-b){display:none!important}
@@ -57,3 +57,10 @@ html.okla-search-open .okla-search-panel{display:block}
 @media(min-width:992px){
   html body #header .search .search-form:not(#osr-a#osr-b){border-radius:8px!important;background-clip:padding-box!important}
 }
+
+/* PC: the search's veil and blur come in slowly and softly (0.55 s), nothing quick */
+@media(min-width:992px){
+  html.okla-search-open .okla-search-overlay:not(#osr-a#osr-b#osr-c),html.okla-search-open body #header#header:not(#osr-a#osr-b#osr-c)::after{animation:okla-sr-veil .55s cubic-bezier(.22,1,.36,1)!important}
+}
+@keyframes okla-sr-veil{from{opacity:0;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0)}to{opacity:1;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}}
+@media(prefers-reduced-motion:reduce){html.okla-search-open .okla-search-overlay,html.okla-search-open body #header#header::after{animation:none!important}}

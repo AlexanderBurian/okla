@@ -215,7 +215,7 @@
   renderCards(cat||main);
   quietNativePopups();
   refs.scroll.scrollTop=0;
-  root.classList.add('is-open');root.setAttribute('aria-hidden','false');document.documentElement.classList.add('okla-cm-lock');
+  root.classList.remove('is-closing');root.classList.add('is-open');root.setAttribute('aria-hidden','false');document.documentElement.classList.add('okla-cm-lock');
   /* focus for keyboards only: a tap-opened panel shows no ring around the cross */
   var c=root.querySelector('.okla-cm__close');if(c)c.focus({preventScroll:true,focusVisible:false});
   /* the real amount in the cart (the product may have been there already) */
@@ -223,8 +223,10 @@
  }
  function hide(){
   if(!root)return;
-  root.classList.remove('is-open');root.setAttribute('aria-hidden','true');document.documentElement.classList.remove('okla-cm-lock');
-  window.dispatchEvent(new Event('resize'));
+  if(!root.classList.contains('is-open')||root.classList.contains('is-closing'))return;
+  /* it leaves as softly as it came: the panel slides out and the blur clears, then it closes */
+  root.classList.add('is-closing');root.setAttribute('aria-hidden','true');
+  setTimeout(function(){root.classList.remove('is-open','is-closing');document.documentElement.classList.remove('okla-cm-lock');window.dispatchEvent(new Event('resize'))},matchMedia('(prefers-reduced-motion:reduce)').matches?0:520);
  }
 
  function settle(result,done){if(result&&typeof result.then==='function')result.then(done,function(){});else done()}

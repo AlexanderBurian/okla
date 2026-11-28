@@ -170,3 +170,27 @@ html.okla-cm-lock,html.okla-cm-lock body{overflow:hidden!important}
   #okla-cart-modal#okla-cart-modal .okla-cm__box:not(#cm-a#cm-b#cm-c){top:0!important;bottom:0!important;height:100%!important;height:100dvh!important;max-height:none!important}
   #okla-cart-modal#okla-cart-modal .okla-cm__foot:not(#cm-a#cm-b#cm-c){padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))!important;box-shadow:0 120px 0 0 #fff!important}
 }
+
+/* ===== the panel over a blurred page, with no hurry anywhere: the blur sits on the dialog itself (on the overlay inside
+   it the browser did not draw it), comes in over 0.6 s; the page dims and the panel slides in over 0.6 s on a long soft
+   ease-out, and on closing everything goes back the same calm way ===== */
+@media(min-width:768px){
+  #okla-cart-modal.is-open{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:okla-cm-blur .6s cubic-bezier(.22,1,.36,1)}
+  #okla-cart-modal .okla-cm__overlay{-webkit-backdrop-filter:none;backdrop-filter:none;animation:okla-cm-fade .6s cubic-bezier(.22,1,.36,1)}
+  #okla-cart-modal .okla-cm__box{animation:okla-cm-slide .6s cubic-bezier(.22,1,.36,1)}
+  #okla-cart-modal.is-open.is-closing{animation:okla-cm-blur-out .52s cubic-bezier(.45,0,.25,1) forwards}
+  #okla-cart-modal.is-closing .okla-cm__overlay{animation:okla-cm-fade-out .52s cubic-bezier(.45,0,.25,1) forwards}
+  #okla-cart-modal.is-closing .okla-cm__box{animation:okla-cm-slide-out .52s cubic-bezier(.45,0,.25,1) forwards}
+}
+@media(max-width:767px){
+  #okla-cart-modal .okla-cm__overlay{animation:okla-cm-fade .5s ease}
+  #okla-cart-modal .okla-cm__box{animation:okla-cm-up .55s cubic-bezier(.22,1,.36,1)}
+  #okla-cart-modal.is-closing .okla-cm__overlay{animation:okla-cm-fade-out .5s ease forwards}
+  #okla-cart-modal.is-closing .okla-cm__box{animation:okla-cm-down .5s cubic-bezier(.45,0,.25,1) forwards}
+}
+@keyframes okla-cm-blur{from{-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0)}to{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}}
+@keyframes okla-cm-blur-out{from{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}to{-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0)}}
+@keyframes okla-cm-fade-out{from{opacity:1}to{opacity:0}}
+@keyframes okla-cm-slide-out{from{transform:none}to{transform:translateX(100%)}}
+@keyframes okla-cm-down{from{transform:none}to{transform:translateY(100%)}}
+@media(prefers-reduced-motion:reduce){#okla-cart-modal,#okla-cart-modal *{animation:none!important}}
