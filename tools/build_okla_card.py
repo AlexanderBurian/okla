@@ -27,7 +27,7 @@ SRC = r'''/* Okla – THE product card, one look for every product on the site: 
   --okc-gap:12px;--okc-label-size:12px;--okc-label-lh:16px;--okc-old:#6b7280;--okc-old-size:13px;
   --okc-name:#1d252c;--okc-name-size:14px;--okc-name-lh:20px;--okc-name-w:400;
   --okc-star:#f5a623;--okc-star-off:#d5dae1;--okc-rate-size:13px;
-  --okc-price:#0b2540;--okc-price-size:22px;--okc-price-lh:28px;--okc-price-w:var(--okla-bold);
+  --okc-price:#0b2540;--okc-price-size:22px;--okc-price-lh:28px;--okc-price-w:var(--okla-price-bold);
   /* the sale tag, 1:1 the Alza one: yellow, near black and white only */
   --okc-sale-bg:#212121;--okc-sale-now:#fff;--okc-sale-was:#bcbcbc;--okc-sale-bar:#fee956;--okc-sale-bar-fg:#212121;
   --okc-sale-now-size:26px;--okc-sale-was-size:15px;--okc-sale-bar-size:14px;
@@ -40,7 +40,7 @@ SRC = r'''/* Okla – THE product card, one look for every product on the site: 
   --okc-btn-hover-bg:#f1f7ff;--okc-btn-hover-line:#5796f9;--okc-btn-hover-fg:#0642a2;
   --okc-font:'Open Sans',system-ui,sans-serif;
   /* the few heavier places (the build caps plain weights at 600, not these): prices and big promo headings, the menu */
-  --okla-bold:700;--okla-semi:650;
+  --okla-bold:700;--okla-semi:650;--okla-price-bold:800;
   /* the arrows of every row of cards: white, round, a navy chevron; no grey on hover */
   --okc-arrow:40px;--okc-arrow-bg:#fff;--okc-arrow-icon:#0b2540;--okc-arrow-hover:#0859d8;--okc-arrow-top:30%;
   --okc-arrow-shadow:0 2px 10px rgba(11,37,64,.24);--okc-arrow-shadow-hover:0 3px 14px rgba(11,37,64,.32);
@@ -49,6 +49,8 @@ SRC = r'''/* Okla – THE product card, one look for every product on the site: 
 @font-face{font-family:'Okla Roboto';font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/roboto@5.1.1/files/roboto-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
 /* cards standing on a grey ground (okla_card.js marks their row): the photo's box white */
 .okc-on-grey:not(#okc1#okc2){--okc-img-bg:transparent!important}
+/* a row on a grey ground: the whole card white (photo, texts and button on one white tile), not just the photo */
+html body #content .okc-on-grey>.product>.p@G:not(#okc17#okc18#okc19),html body .okc-on-grey .okc-card@G:not(#okc17#okc18#okc19){background:#fff!important;border-radius:8px!important;padding:12px 4px 16px!important;box-sizing:border-box!important;height:100%!important}
 @media(max-width:767px){
   :root{--okc-tag:12.5px;--okc-x:4px;--okc-gap:10px;--okc-name-size:13px;--okc-name-lh:18px;--okc-price-size:19px;--okc-price-lh:25px;--okc-sale-now-size:21px;--okc-sale-was-size:13px;--okc-sale-bar-size:12px;--okc-disc:40px;--okc-badge-size:11px;--okc-btn-h:38px;--okc-rate-size:12px;--okc-stock-size:12px}
 }
@@ -59,6 +61,8 @@ html body .okc-rating .okc-stars@G{flex:none!important;display:block!important;w
 html body .okc-rating .okc-rating__val@G{font-weight:600!important;color:var(--okc-name)!important}
 html body .okc-rating .okc-rating__count@G{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;min-width:0!important}
 @media(max-width:767px){html body .okc-rating .okc-stars@G{width:70px!important;height:13px!important;-webkit-mask-size:14px 13px!important;mask-size:14px 13px!important}html body .okc-rating@G{gap:5px!important}}
+/* PC: six cards to a row - the stars and the rating text a size smaller, so "Bez hodnocení" fits whole */
+@media(min-width:768px){html body .okc-rating .okc-stars@G:not(#okc17#okc18){width:72px!important;height:14px!important;-webkit-mask-size:14.4px 14px!important;mask-size:14.4px 14px!important}html body .okc-rating@G:not(#okc17#okc18){gap:5px!important;font-size:12px!important}}
 /* the sale tag: 1:1 the Alza one (fitted to it pixel by pixel at 460 px; no background of its own - the yellow line and the dark block each have their corners, so nothing dark shows at the yellow corners; here every size in em of --okc-tag, so it
    keeps the same proportions at any size): Roboto Bold, a #fee956 line on top, #212121 under it, white price, the
    former price #bcbcbc struck through with a slanted line. The only bold type on the site, on purpose. */
@@ -72,6 +76,8 @@ html body .okc-sale--plain .okc-sale__prices@G{padding:.575em .6em .62em!importa
 /* the same tag for the shop's new products: "NOVINKA", the light cyan line on top, the dark navy block under it */
 html body .okc-sale--new .okc-sale__bar@G{background:#00c7ed!important;color:#081638!important}
 html body .okc-sale--new .okc-sale__prices@G{background:#081638!important}
+/* the NOVINKA tag always the same proportions: as wide as the widest usual price needs, so every card's tag matches */
+html body .okc-sale--new@G{min-width:8em!important}
 html body .okc-disc@G{position:absolute!important;top:8px!important;right:8px!important;left:auto!important;z-index:3!important;display:grid!important;place-items:center!important;width:var(--okc-disc)!important;height:var(--okc-disc)!important;border-radius:50%!important;background:var(--okc-disc-bg)!important;color:var(--okc-disc-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 13px/1 var(--okc-font)!important;letter-spacing:-.02em!important;box-shadow:none!important;border:0!important}
 html body .okc-add@G{position:relative!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:6px!important;width:auto!important;min-width:0!important;max-width:100%!important;height:var(--okc-btn-h)!important;min-height:0!important;margin:0!important;padding:0 14px!important;border:1px solid var(--okc-btn-line)!important;border-radius:var(--okc-btn-radius)!important;background:var(--okc-btn-bg)!important;background-image:none!important;color:var(--okc-btn-fg)!important;-webkit-text-fill-color:currentColor!important;font:600 var(--okc-btn-size)/14px var(--okc-font)!important;letter-spacing:normal!important;text-transform:none!important;box-shadow:none!important;transform:none!important;filter:none!important;cursor:pointer!important;overflow:visible!important;transition:background-color .15s,border-color .15s!important}
 html body .okc-add@G:hover,html body .okc-add@G:focus-visible{background:var(--okc-btn-hover-bg)!important;border-color:var(--okc-btn-hover-line)!important;color:var(--okc-btn-hover-fg)!important;box-shadow:none!important;transform:none!important}
@@ -142,16 +148,23 @@ html body #okla-cart-recs .ocr-grid>.okc-card@G{height:auto!important}
 @L .olg-body{padding:12px 6px 0!important}
 @L .olg-name{height:40px!important;color:#1d252c!important;font:400 14px/20px var(--okc-font)!important}
 @L .olg-stock{min-height:var(--okc-label-lh)!important;margin-top:5px!important;font:700 var(--okc-label-size)/var(--okc-label-lh) var(--okc-font)!important}
-@L .olg-price{margin-top:4px!important;padding-top:0!important;color:#0b2540!important;font:var(--okla-bold) 22px/28px var(--okc-font)!important;letter-spacing:-.01em!important}
+@L .olg-price{margin-top:4px!important;padding-top:0!important;color:#0b2540!important;font:var(--okla-price-bold) 22px/28px var(--okc-font)!important;letter-spacing:-.01em!important}
 
 /* ---------- a little more weight: prices, the big promo headings, the menu ---------- */
 html body :is(.okla-hero__title,.olg-title,.okd-title,.okla-campaign__brand,.okla-campaign__lilygo-title,.okla-warranty-title,.okla-warranty-subtitle)@G{font-weight:var(--okla-bold)!important}
-html body :is(.price-final,.price-final strong,.price-final-holder,.okla-cm__price,.okla-cm__card-price,.okd-price,.okla-side-price,.okla-promo__price)@G:not(#okc17#okc18){font-weight:var(--okla-bold)!important}
+/* prices a step heavier than the headings (800); the sale and NOVINKA tags keep their own Roboto Bold */
+html body :is(.price-final,.price-final strong,.price-final-holder,.okla-cm__price,.okla-cm__card-price,.okd-price,.okla-side-price,.okla-side-price__value,.okla-promo__price)@G:not(#okc17#okc18){font-weight:var(--okla-price-bold)!important}
 html body #okla-catbar :is(.okcb-link,.okcb-link *)@G{font-weight:var(--okla-semi)!important}
 
 /* ---------- no heavy type anywhere: the shop's theme's headings and bold text at 600 (our CSS is capped by the build) ---------- */
 html body :is(h1,h2,h3,h4,h5,h6,b,strong,th,button):not(#okw-a){font-weight:600}
 html body .btn:not(#okw-a#okw-b){font-weight:600!important}
+
+/* ---------- PC: a row of cards shows as many as fit at 180 px or more (at most six), as its slider works out
+   (zapati_firsthalf.js) - above every fixed count the pages' own styles pin ---------- */
+@media(min-width:992px){
+  html body #content .okla-slider-track[data-okla-per]:not(#okw1#okw2#okw3#okw4#okw5#okw6#okw7#okw8#okw9#okw10#okw11#okw12#okw13#okw14#okw15#okw16#okw17#okw18#okw19#okw20){--okla-card-width:var(--okla-card-width-js)!important}
+}
 
 /* ---------- the arrows of every row of cards (PC and tablets; phones move rows with the finger) ---------- */
 @media(min-width:768px){
@@ -163,6 +176,13 @@ html body .btn:not(#okw-a#okw-b){font-weight:600!important}
   @A svg path{stroke:currentColor!important;fill:none!important}
   html body .okla-slider-shell>.okla-slider-controls>.okla-slider-prev@G,html body #okla-cart-recs .ocr-arrow--prev@G,html body #okla-cart-recs .ocr-arrow:first-of-type@G{left:6px!important;right:auto!important}
   html body .okla-slider-shell>.okla-slider-controls>.okla-slider-next@G,html body #okla-cart-recs .ocr-arrow--next@G,html body #okla-cart-recs .ocr-arrow:last-of-type@G{right:6px!important;left:auto!important}
+  /* rows of products whose arrows meet the content's edge: the Datart tab, 1:1 in our blue - a flat 24 x 64 block
+     flush with the edge, a white solid triangle in it (not the bands, whose arrows sit elsewhere) */
+  html body .okla-slider-shell>.okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next)@G:not(#okc17#okc18),html body #okla-cart-recs .ocr-arrow@G:not(#okc17#okc18){width:24px!important;height:64px!important;margin:-32px 0 0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background-color:#0859d8!important;background-position:center!important;background-size:9px 15px!important;background-repeat:no-repeat!important;color:#fff!important}
+  html body .okla-slider-shell>.okla-slider-controls>:is(.okla-slider-prev:hover,.okla-slider-next)@G:not(#okc17#okc18):hover,html body #okla-cart-recs .ocr-arrow@G:not(#okc17#okc18):hover{background-color:#0751c6!important;box-shadow:none!important}
+  html body .okla-slider-shell>.okla-slider-controls>:is(.okla-slider-prev,.okla-slider-next)@G svg:not(#okc17#okc18),html body #okla-cart-recs .ocr-arrow@G svg:not(#okc17#okc18){display:none!important}
+  html body .okla-slider-shell>.okla-slider-controls>.okla-slider-prev@G:not(#okc17#okc18),html body #okla-cart-recs :is(.ocr-arrow--prev,.ocr-arrow:first-of-type)@G:not(#okc17#okc18){left:0!important;right:auto!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 15'%3E%3Cpath d='M9 0L0 7.5 9 15z' fill='%23fff'/%3E%3C/svg%3E")!important}
+  html body .okla-slider-shell>.okla-slider-controls>.okla-slider-next@G:not(#okc17#okc18),html body #okla-cart-recs :is(.ocr-arrow--next,.ocr-arrow:last-of-type)@G:not(#okc17#okc18){right:0!important;left:auto!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 15'%3E%3Cpath d='M0 0l9 7.5L0 15z' fill='%23fff'/%3E%3C/svg%3E")!important}
   html body.type-index #content .olg-band .olg-arrow--prev@G{left:-6px!important}
   html body.type-index #content .olg-band .olg-arrow--next@G{right:10px!important}
   html body.type-index #content .olg-band .olg-arrow@G{top:50%!important}
