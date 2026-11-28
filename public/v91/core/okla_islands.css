@@ -176,13 +176,17 @@ html body.type-index #content#content>#okla-warranty:not(#okis-a#okis-b#okis-c#o
    not shown; error notes stay */
 html body .messages .msg:is(.msg-success,.msg-info):not(#okis-a#okis-b#okis-c){display:none!important}
 
-/* PC: every island has the same fine grey outline as the category's content (1px #dfe3e8, okla_sidebar_clean.css; not on the sign-in and sign-up pages, whose card stands alone) - an
+/* PC: every island has the same fine grey outline as the category's content (1px #dfe3e8, okla_sidebar_clean.css; on the sign-in and sign-up pages around their card) - an
    outline (no change of size, drawn above the content, so a banner reaching the edge does not hide it); an island made
    of two parts (a heading over its slider, the banners over the category circles) is cut where they meet, so the
    outline runs around both as one */
 @media(min-width:992px){
   html body:not(.type-index):not(.type-category):not(.ordering-process):not(.in-login):not(.in-registrace) #content-wrapper.content-wrapper:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g),
   html body #content :is(#okla-deals,#okla-warranty,#okla-signin-strip,#okla-news-v55,#okla-brands-v1,.okla-campaign__card--lilygo):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g){outline:1px solid #dfe3e8!important;outline-offset:0!important}
+  /* the order status page (Shoptet serves it with the sign-in page's classes): its white island outlined too */
+  html body.in-login #content:has(>.okla-order-status):not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g){outline:1px solid #dfe3e8!important;outline-offset:0!important}
+  /* the sign-in and sign-up pages: their white card outlined like every island */
+  html body.in-login #content:not(:has(>.okla-order-status))>.content-inner:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g),html body.in-registrace #content>.content-inner:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g){outline:1px solid #dfe3e8!important;outline-offset:0!important}
   /* the category: the white island holding the sidebar and the content - its outline on the content's own border */
   html body.type-category #content-wrapper .content-wrapper-in:not(#okis-a#okis-b#okis-c#okis-d#okis-e#okis-f#okis-g){outline:1px solid #dfe3e8!important;outline-offset:-1px!important}
   /* two-part islands: the upper part without its bottom line, the lower part without its top line */

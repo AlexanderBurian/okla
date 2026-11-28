@@ -1,5 +1,6 @@
 /* Okla – the product card (okla_card.css), one look everywhere: the photo, the rating, the name, the price (red; or,
-   for a product the shop has really reduced, the dark sale box with its former price and the saving), the stock and
+   for a product the shop has really reduced, the dark sale box with its former price and the saving; for the shop's
+   new products the "NOVINKA" tag), the stock and
    the "Do košíku" button.
    - The shop's own Shoptet cards (rows, grids) get what their markup lacks: the rating row (only the shop's real
      reviews - "Bez hodnocení" otherwise, never made-up stars), the sale box and the yellow saving circle (only when the
@@ -44,6 +45,14 @@
  /* the shop's "Akční zboží" without a real former price: the same box, the price and the occasion only (no struck
     price, no saving - none is claimed) */
  function plainBox(now){var box=el('div','okc-sale okc-sale--plain'),top=el('div','okc-sale__prices');top.appendChild(el('span','okc-sale__now',kd(now)));box.append(top,el('div','okc-sale__bar',SALE_LABEL));return box}
+ /* the shop's new products (a "Novinka" flag, or a product row under the "Novinky" heading - products, not the
+    articles): the same tag, "NOVINKA", in light cyan over dark navy */
+ function newBox(now){var box=el('div','okc-sale okc-sale--plain okc-sale--new'),top=el('div','okc-sale__prices');top.appendChild(el('span','okc-sale__now',kd(now)));box.append(top,el('div','okc-sale__bar','NOVINKA'));return box}
+ function isNew(prod){
+  if(prod.querySelector('.flag-new'))return true;
+  var shell=prod.closest('.okla-slider-shell'),h=shell&&shell.previousElementSibling;
+  return !!(h&&h.classList.contains('homepage-group-title')&&/^\s*novinky/i.test(h.textContent||''));
+ }
  function isAction(prod){
   if(prod.querySelector('.flag-action'))return true;
   var shell=prod.closest('.okla-slider-shell'),h=shell&&shell.previousElementSibling;
@@ -87,6 +96,7 @@
    pb.textContent='';var old=card.querySelector('.okc-disc');if(old)old.remove();
    if(d.old>d.price){card.classList.add('okc-is-sale');pb.appendChild(saleBox(d.price,d.old));pic.appendChild(disc(d.price,d.old))}
    else if(d.action){card.classList.add('okc-is-sale');pb.appendChild(plainBox(d.price))}
+   else if(d.isNew){card.classList.add('okc-is-sale');pb.appendChild(newBox(d.price))}
    else{card.classList.remove('okc-is-sale');pb.appendChild(el('div','okc-price',kc(d.price)))}
   }
   if(d.count!=null&&d.count>0){var r=card.querySelector('.okc-rating');if(r)r.replaceWith(rating(d.rating,d.count))}
@@ -109,6 +119,7 @@
   var prices=p.querySelector('.prices');
   if(now&&was>now&&prices){prod.classList.add('okc-is-sale');prices.parentNode.insertBefore(saleBox(now,was),prices.nextSibling);var img=p.querySelector('a.image');if(img)img.appendChild(disc(now,was))}
   else if(now&&prices&&isAction(prod)){prod.classList.add('okc-is-sale');prices.parentNode.insertBefore(plainBox(now),prices.nextSibling)}
+  else if(now&&prices&&isNew(prod)){prod.classList.add('okc-is-sale');prices.parentNode.insertBefore(newBox(now),prices.nextSibling)}
   /* a "Do košíku" button where the listing has none */
   if(!p.querySelector('.p-tools button, .p-tools .btn')){
    var sku=p.querySelector('[data-micro="sku"]'),code=sku?sku.textContent.trim():'';

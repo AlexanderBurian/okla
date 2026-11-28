@@ -1,7 +1,8 @@
 /* Okla – the footer in the Best Buy manner (okla_footer_bb.css), built over the footer okla_footer.js makes; white,
    no grey grounds, no outlines:
-   - the four icons on top go; in their place the newsletter strip - the shop's own Shoptet form when it is switched
-     on in the administration (nothing is shown without it: no form that would send nowhere);
+   - the four icons on top go; in their place the newsletter strip, a line under it: the shop's own Shoptet newsletter
+     form when it is switched on in the administration; until then the e-mail goes to the shop's registration (Shoptet
+     subscribes registered customers to its newsletter unless they tick it off), filled in there for them;
    - beside the four link columns "Výdejní místa" (no link text, the map itself is the link): the Czech Republic with its 14 regions (the real borders - ČÚZK
      INSPIRE data, CC BY 4.0, via github.com/siwekm/czech-geojson, simplified), a pin in each region (no counts - we
      have no real numbers to show), the whole block one link to Zásilkovna's own pickup-point finder;
@@ -55,12 +56,23 @@
      administration), moved here as it is, so what it sends and the consent it asks for stay Shoptet's; without it
      nothing is shown */
   var nf=document.querySelector('form[action*="ubscribeToNewsletter"],form[id*="ewsletter"]');
-  if(nf){
-   var row=el('div','okla-footer-news');row.id='okla-footer-news';
-   var nt=el('p','okla-footer-news__head','Buďte s námi v kontaktu – novinky a akce vám pošleme e-mailem.');
-   var em=nf.querySelector('input[type=email],input[name=email]');if(em&&!em.getAttribute('placeholder'))em.setAttribute('placeholder','Váš e-mail');
-   row.append(nt,nf);content.insertBefore(row,content.firstChild);
+  if(!nf){
+   /* no newsletter form on the page: ours, which carries the e-mail to the registration */
+   nf=el('form','okla-footer-news__form');nf.action='/registrace/';nf.method='get';nf.noValidate=true;
+   var fe=el('input');fe.type='email';fe.name='email';fe.required=true;fe.autocomplete='email';fe.setAttribute('aria-label','E-mail');
+   var fb=el('button','','Odebírat novinky');fb.type='submit';
+   nf.append(fe,fb);
+   nf.addEventListener('submit',function(e){
+    e.preventDefault();var v=(fe.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){fe.focus();fe.setCustomValidity('Zadejte e-mail');fe.reportValidity();fe.setCustomValidity('');return}
+    try{sessionStorage.setItem('oklaNewsletterEmail',v)}catch(x){}
+    location.href='/registrace/';
+   });
   }
+  var row=el('div','okla-footer-news');row.id='okla-footer-news';
+  var nt=el('p','okla-footer-news__head','Odebírejte novinky');
+  var em=nf.querySelector('input[type=email],input[name=email]');if(em&&!em.getAttribute('placeholder'))em.setAttribute('placeholder','Váš e-mail');
+  row.append(nt,nf);content.insertBefore(row,content.firstChild);
   /* the copyright line: just the sign and the shop's name */
   var cr=shell.querySelector('.footer-bottom .copyright');if(cr&&cr.textContent!=='© Okla.cz')cr.textContent='© Okla.cz';
   /* the payment logos with the carriers: out of the copyright line, a row of their own under the columns */
@@ -72,6 +84,13 @@
   shell.setAttribute('data-okla-bb','1');
   return true;
  }
+ /* the registration: the e-mail given in the footer's newsletter strip filled in (once) */
+ (function(){
+  var v;try{v=sessionStorage.getItem('oklaNewsletterEmail')}catch(x){}
+  if(!v||!/^\/registrace\/?$/.test(location.pathname))return;
+  function fill(){var f=document.querySelector('#register-form input[name=email]');if(!f)return false;if(!f.value)f.value=v;try{sessionStorage.removeItem('oklaNewsletterEmail')}catch(x){}return true}
+  if(!fill()){var n=0,iv=setInterval(function(){if(fill()||++n>40)clearInterval(iv)},250)}
+ })();
  /* the payment logos arrive a little later than the footer: wait for them, then build */
  function tryApply(){var shell=document.getElementById('okla-footer-shell');if(!shell)return false;if(!shell.querySelector('.okla-pay')&&tries<40)return false;return apply()}
  var tries=0;(function tick(){if(tryApply())return;if(++tries<80)setTimeout(tick,250)})();
